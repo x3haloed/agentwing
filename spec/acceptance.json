@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "primary_metric": "verified_utility_per_hour",
+  "promotion": {
+    "minimum_replicates": 5,
+    "requires_full_path_measurement": true,
+    "requires_interleaved_control": true
+  },
+  "host_safety": {
+    "maximum_sustained_swap_growth_bytes": 1073741824,
+    "critical_memory_pressure_allowed": false,
+    "maximum_concurrent_model_owners": 1
+  },
+  "protocol": {
+    "malformed_tool_calls_allowed": 0,
+    "silent_tool_call_repairs_allowed": false,
+    "tool_events_must_be_observable": true
+  }
+}
+

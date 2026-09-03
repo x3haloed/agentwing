@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "host": {
+    "model_identifier": "Macmini9,1",
+    "soc": "Apple M1",
+    "cpu_cores": 8,
+    "unified_memory_gb": 16
+  },
+  "configurations": {
+    "B0": {
+      "status": "candidate-unverified",
+      "role": "capability-baseline",
+      "model": "Leonickson/Qwen3.6-35B-A3B-8bit-qpack",
+      "model_revision": null,
+      "runtime": "Swiftlet",
+      "runtime_revision": null,
+      "harness": "Pi",
+      "harness_revision": null,
+      "expert_cache_gb": 2,
+      "concurrency": 1
+    },
+    "C0": {
+      "status": "candidate-unverified",
+      "role": "throughput-control",
+      "model": "google/gemma-4-26B-A4B-it",
+      "model_revision": null,
+      "runtime": "TurboFieldfare",
+      "runtime_revision": null,
+      "harness": "OpenCode",
+      "harness_revision": null,
+      "concurrency": 1
+    }
+  }
+}
+

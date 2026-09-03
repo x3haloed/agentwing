@@ -1,0 +1,16 @@
+.DS_Store
+.env
+.venv/
+build/
+.build/
+scratch/
+models/
+weights/
+*.gguf
+*.qpack/
+*.gturbo/
+evidence/raw/
+evidence/private/
+results/raw/
+*.trace.jsonl
+
