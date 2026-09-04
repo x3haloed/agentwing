@@ -17,21 +17,23 @@ process was running at takeover. The prior 12 local commits were preserved.
 
 ## Next bounded work
 
-1. Observe AW-0019's `08-config-sync` trial before launching any model work.
-   Last confirmed live on 2026-09-04 at approximately 23:05 UTC: exec session
-   `36265`, runner PID `67239`, server PID `67296`, evidence directory
-   `/Users/chad/Models/agentwing/evidence/AW-0019/20260904T225714Z`.
-   These handles are not proof of current liveness. Poll or inspect processes;
-   do not restart a live trial. The candidate combines unrestricted repeated
-   n-grams, retained tool boundaries, and a 512-token output cap. Other settings
-   remain the compact-shell arm. The first five calls retained their full prefix. The fifth call completed
-   at 287 tokens and found the test file, but its compound shell command
-   returned exit 1 because it also checked a missing Makefile. This is a tool
-   failure, not a model/parser error; recovery and final completion are pending.
-2. Audit terminal evidence with `scripts/audit_stage_a.py`. If the task passes
-   with no model-error replies, rejection, or salvage, test `02-single-file-fix`
-   under the same AW-0019 configuration before a full-suite screen. Preserve
-   failed trials and their costs. Promotion still needs two interleaved pairs.
+1. Observe AW-0019's `02-single-file-fix` trial before launching any model work.
+   Confirmed live on 2026-09-04 at 23:08 UTC: exec session `75462`, runner PID
+   `70676`, server PID `70726`, external evidence directory
+   `/Users/chad/Models/agentwing/evidence/AW-0019/20260904T230812Z`.
+   Agentwing at launch is `fcc5a3c`, runtime `459b201`. These handles are not
+   proof of continuing liveness. Poll or inspect processes; do not restart a
+   live trial. Configuration is unchanged from the clean config-task result:
+   compact-shell, shell-only, salvage enabled, no hard n-gram ban, retained
+   tool-call boundaries, max output 512, cache 0.5 GB, timeout 900 seconds.
+2. Audit terminal evidence with `scripts/audit_stage_a.py`. If this repair task
+   passes cleanly, proceed to a full-suite screen of the same candidate. The
+   first AW-0019 gate (`08-config-sync`, run `20260904T225714Z`) finished cleanly
+   with utility 1 in 620 endpoint seconds, seven calls, one recovered shell
+   failure, zero model errors/rejections/salvage, full reuse, pressure 1, and no
+   swap growth. Its evidence audit passes. Session `36265` is terminal and its
+   server/runner are gone. Promotion still needs two interleaved full-suite
+   pairs, unchanged permissions/scoring, and all host/protocol gates.
 3. Address enforceable tool permissions before promotion. AW-0018's native
    sandbox preflight allowed owned workspace writes and the owned endpoint,
    and denied outside writes, symlink escape, and a different endpoint port.
