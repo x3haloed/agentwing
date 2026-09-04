@@ -215,6 +215,7 @@ for task_id in $TASKS; do
   timeout_seconds=$task_timeout_seconds
   start_epoch=$(date +%s)
   status=running
+  server_line_at_stop=
   server_line_before=$(wc -l <"$RUN_DIR/server.log" | tr -d ' ')
 
   /usr/bin/python3 "$ROOT/scripts/exec_process_group.py" \
@@ -234,16 +235,19 @@ for task_id in $TASKS; do
     elapsed=$(($(date +%s) - start_epoch))
     if [ "$pressure" -ge 4 ]; then
       status=stopped-critical-pressure
+      server_line_at_stop=$(wc -l <"$RUN_DIR/server.log" | tr -d ' ')
       kill -TERM "-$PI_PID" 2>/dev/null || true
       break
     fi
     if awk -v delta="$delta" 'BEGIN { exit !(delta > 1024) }'; then
       status=stopped-swap-growth
+      server_line_at_stop=$(wc -l <"$RUN_DIR/server.log" | tr -d ' ')
       kill -TERM "-$PI_PID" 2>/dev/null || true
       break
     fi
     if [ "$elapsed" -ge "$timeout_seconds" ]; then
       status=stopped-timeout
+      server_line_at_stop=$(wc -l <"$RUN_DIR/server.log" | tr -d ' ')
       kill -TERM "-$PI_PID" 2>/dev/null || true
       break
     fi
@@ -270,10 +274,22 @@ for task_id in $TASKS; do
     kill -KILL "-$pi_group" 2>/dev/null || true
     status=stopped-process-leak
   fi
+  cancellation_drain_observed=0
   if [ "$status" != completed ]; then
-    # Let Swiftlet observe the closed client and finish cancellation cleanup
-    # before another task can enter the serialized generation queue.
-    sleep 2
+    # Wait for the active request's terminal metric after the client closes.
+    # This is both a cancellation barrier and a per-task evidence boundary.
+    if [ -n "$server_line_at_stop" ]; then
+      drain_checks=0
+      while [ "$drain_checks" -lt 60 ]; do
+        drain_line_now=$(wc -l <"$RUN_DIR/server.log" | tr -d ' ')
+        if [ "$drain_line_now" -gt "$server_line_at_stop" ]; then
+          cancellation_drain_observed=1
+          break
+        fi
+        drain_checks=$((drain_checks + 1))
+        sleep 0.5
+      done
+    fi
   fi
   end_epoch=$(date +%s)
   wall_seconds=$((end_epoch - start_epoch))
@@ -316,12 +332,14 @@ for task_id in $TASKS; do
     --argjson normalized_tool_calls "$normalized_tool_calls" \
     --argjson prefix_reuse_hits "$prefix_reuse_hits" \
     --argjson salvaged_tool_prefixes "$salvaged_tool_prefixes" \
+    --argjson cancellation_drain_observed "$cancellation_drain_observed" \
     '{task_id:$task_id,status:$status,pi_exit:$pi_exit,verifier_exit:$verifier_exit,
       verifier_utility:$verifier_utility,utility:$utility,wall_seconds:$wall_seconds,
       tool_calls:$tool_calls,failed_tool_calls:$failed_tool_calls,
       rejected_tool_outputs:$rejected_tool_outputs,
       normalized_tool_calls:$normalized_tool_calls,prefix_reuse_hits:$prefix_reuse_hits,
       salvaged_tool_prefixes:$salvaged_tool_prefixes,
+      cancellation_drain_observed:($cancellation_drain_observed == 1),
       transcript_sha256:$transcript_sha256}' >>"$RUN_DIR/results.jsonl"
 
   if [ "$status" = stopped-critical-pressure ] || [ "$status" = stopped-swap-growth ] \

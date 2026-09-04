@@ -57,6 +57,13 @@ eight tasks. This override is recorded in the run manifest and is for process
 integrity only; it cannot produce a performance score comparable to Stage A's
 frozen 900-second protocol.
 
+The first 30-second model falsifier (`20260904T185037Z`) crossed all eight task
+boundaries without a leaked process group, foreign workspace reference, memory
+pressure, or swap growth. It also showed that Swiftlet's terminal cancellation
+metric can arrive after the runner snapshots a task log. The runner now blocks
+the next task on a terminal-metric barrier captured at termination time and
+records whether that drain was observed.
+
 ## Confounders and deviations
 
 The synthetic child-tree test does not itself prove Swiftlet cancellation;
@@ -65,6 +72,8 @@ model-run log ownership must also be checked on the next multi-task run.
 ## Evidence
 
 The invalid `20260904T164953Z` run is retained under AW-0008 evidence.
+First isolation diagnostic `20260904T185037Z`: summary SHA-256
+`79df64b2458fe9f2b37148c56962d24d574cf6a1410260a1464a0ac0d4049ee7`.
 
 ## Conclusion
 
