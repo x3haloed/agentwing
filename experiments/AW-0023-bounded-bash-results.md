@@ -2,7 +2,7 @@
 
 ## Status
 
-Prepared, offline hook tests pass; real Pi fixture and endpoint trial pending.
+Offline screen complete; this exact cap is deprioritized before real Pi integration.
 
 ## Hypothesis
 
@@ -57,3 +57,28 @@ costs. Only replicated full-suite pairs can promote a configuration.
 
 Prepared option, not loaded or promoted. Offline evidence is insufficient to
 claim that bounded-result delivery has improved agent performance.
+
+## Offline falsification — source-token accounting
+
+`scripts/profile_tool_results.py` replays the actual extension hook over archived
+messages, then tokenizes its original and bounded text with the pinned tokenizer.
+Across the baseline's 47 tool results, only one changes, saving 12 tokens total.
+The clean AW-0019 repair's seven results save 37 tokens. The marker itself has
+cost, so character savings overstate token savings.
+
+Evidence: `evidence/AW-0023-baseline-result-profile.json` and
+`evidence/AW-0023-repair-result-profile.json`, including all transcript, extension,
+and tokenizer hashes. No endpoint, prompt, or transcript was changed.
+
+The repaired task's measured 326.4 seconds of reported TTFT over 1,219 new prompt
+tokens gives an approximate 0.268 seconds/token diagnostic average. At that
+average, 37 fewer tokens suggest about 10 seconds, or 1.55% of the 641-second
+endpoint, before any recovery cost. This is a rough linear projection, not a
+causal latency bound; task behavior and fixed overhead can change. It falls
+well short of this arm's 10% screen threshold. The baseline savings are smaller.
+
+Disposition: reject this exact 1,024-character arm as a priority for the current
+short-task workload; retain source/evidence for possible longer-output workloads.
+Do not spend a real-model trial unless the completed candidate suite exposes
+materially larger outputs. More aggressive limits and other bounded-delivery
+policies remain untested; the whole optimization family is not exhausted.

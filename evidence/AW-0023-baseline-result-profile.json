@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0008/20260904T190356Z",
+  "tokenizer_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+  "extension_sha256": "36db7631bb06a0fcbd7b3dbf32ad576a242bd05e18ddd37300d2bb32b8bc6498",
+  "tasks": [
+    {
+      "task_id": "01-navigation",
+      "transcript_sha256": "8aa122159ad4b17a680f11a43aa86da9a4dac40c927ad257953700489e56a5fd",
+      "tool_result_count": 5,
+      "changed_result_count": 0,
+      "original_text_tokens": 173,
+      "bounded_text_tokens": 173,
+      "token_difference": 0,
+      "largest_original_result_tokens": 135
+    },
+    {
+      "task_id": "02-single-file-fix",
+      "transcript_sha256": "e9a6ef98a8e1057c7558c825af9494a715c264e219289a2134db44c9feeed3a9",
+      "tool_result_count": 8,
+      "changed_result_count": 1,
+      "original_text_tokens": 612,
+      "bounded_text_tokens": 600,
+      "token_difference": 12,
+      "largest_original_result_tokens": 290
+    },
+    {
+      "task_id": "03-multi-file-fix",
+      "transcript_sha256": "a9b8166fc767c9359278f989c41619212971509c4e886dcbd6007d710bf97455",
+      "tool_result_count": 8,
+      "changed_result_count": 0,
+      "original_text_tokens": 579,
+      "bounded_text_tokens": 579,
+      "token_difference": 0,
+      "largest_original_result_tokens": 203
+    },
+    {
+      "task_id": "04-refactor",
+      "transcript_sha256": "02c27ecc6677a0fdf2dcbe041c9f7040c39a4d3399b7f91287e9b09f41f8918a",
+      "tool_result_count": 10,
+      "changed_result_count": 0,
+      "original_text_tokens": 536,
+      "bounded_text_tokens": 536,
+      "token_difference": 0,
+      "largest_original_result_tokens": 181
+    },
+    {
+      "task_id": "05-data-transform",
+      "transcript_sha256": "6d7af5c23ea8b0443fbb5a516d2a9981f9f91aa65c9a261fe3a5784bfd6d8f20",
+      "tool_result_count": 1,
+      "changed_result_count": 0,
+      "original_text_tokens": 33,
+      "bounded_text_tokens": 33,
+      "token_difference": 0,
+      "largest_original_result_tokens": 33
+    },
+    {
+      "task_id": "06-failure-recovery",
+      "transcript_sha256": "d80d65092cfa94b201730a8c32d7725db42046fb05a42b53eeddba315fc43d9d",
+      "tool_result_count": 7,
+      "changed_result_count": 0,
+      "original_text_tokens": 363,
+      "bounded_text_tokens": 363,
+      "token_difference": 0,
+      "largest_original_result_tokens": 155
+    },
+    {
+      "task_id": "07-bounded-read",
+      "transcript_sha256": "9581040c4deb22d385f3940bd79d8df7ce9bbcf95a51df4d6ed0c3badbc6af9b",
+      "tool_result_count": 3,
+      "changed_result_count": 0,
+      "original_text_tokens": 45,
+      "bounded_text_tokens": 45,
+      "token_difference": 0,
+      "largest_original_result_tokens": 35
+    },
+    {
+      "task_id": "08-config-sync",
+      "transcript_sha256": "13a9c41cd3d6d2d8e0cd5835662c38d6fded710762bf9fc1ae5e56d79d03d4d5",
+      "tool_result_count": 5,
+      "changed_result_count": 0,
+      "original_text_tokens": 105,
+      "bounded_text_tokens": 105,
+      "token_difference": 0,
+      "largest_original_result_tokens": 44
+    }
+  ],
+  "scope": "Offline accounting of tool-result text through the actual hook. No endpoint timing, semantic equivalence, recovery, or changed-generation claim; protocol overhead excluded."
+}

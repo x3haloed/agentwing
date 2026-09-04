@@ -469,3 +469,17 @@ coverage, causal speedup, or promotion. Environment-command and path overhead
 remain visible. The optional AW-0021 cwd-hint extension is prepared but unused.
 
 **Disposition:** advance the unchanged AW-0019 candidate to the eight-task screen.
+
+## 2026-09-04 — Current tool outputs are already mostly short
+
+**Evidence:** AW-0023's actual 1,024-code-point hook saves only 12 tokens across
+47 baseline tool results and 37 tokens across the clean repair's seven results.
+The pinned tokenizer and all transcript/extension hashes are recorded.
+
+**Qualification:** Offline counterfactual text accounting, not changed agent
+behavior or endpoint latency. A rough repair-task projection is about 10 seconds
+(1.55%), below the arm's 10% threshold, before any cost of recovering omitted text.
+
+**Disposition:** deprioritize this exact cap without spending an endpoint trial.
+Keep the current full-suite screen unchanged and prioritize cwd-hint overhead.
+Reconsider bounded delivery if later output profiles are materially larger.
