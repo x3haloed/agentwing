@@ -2,7 +2,10 @@
   "schema_version": 1,
   "swiftlet": {
     "repository": "https://github.com/leonickson1/Swiftlet",
-    "revision": "694706e1d8ec67021f4350be88c912b3cb50cb32",
+    "upstream_revision": "694706e1d8ec67021f4350be88c912b3cb50cb32",
+    "revision": "793a9a18bc3ba8f5f1e06bd50415bf2373088daf",
+    "patch": "patches/0001-Add-strict-OpenAI-tool-transport.patch",
+    "patch_sha256": "9cc1c5b57ecf20e3f9eddc74801a20be5ea15f3e4b9b9b7b1fe4f651904add60",
     "local_path": "/Users/chad/Models/agentwing/dependencies/Swiftlet"
   },
   "pi": {

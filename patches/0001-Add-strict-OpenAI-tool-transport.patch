@@ -1,0 +1,770 @@
+From 793a9a18bc3ba8f5f1e06bd50415bf2373088daf Mon Sep 17 00:00:00 2001
+From: Chad Kirby <x3haloed@gmail.com>
+Date: Thu, 3 Sep 2026 20:27:13 -0700
+Subject: [PATCH] Add strict OpenAI tool transport
+
+---
+ README.md                                     |   7 +-
+ Sources/SwiftletCore/SwiftletSession.swift    |  62 ++++-
+ Sources/SwiftletServer/ToolProtocol.swift     | 229 ++++++++++++++++++
+ Sources/SwiftletServer/main.swift             | 171 ++++++++++++-
+ .../ChatRequestTests.swift                    | 109 +++++++++
+ 5 files changed, 558 insertions(+), 20 deletions(-)
+ create mode 100644 Sources/SwiftletServer/ToolProtocol.swift
+
+diff --git a/README.md b/README.md
+index 6af13eb..024fd1a 100644
+--- a/README.md
++++ b/README.md
+@@ -155,7 +155,12 @@ Swiftlet is a library first:
+    on loopback, so any chat UI that talks to OpenAI-compatible endpoints can
+    use a streamed local model. It honors string/array `stop`, reports `stop`
+    versus `length`, and cancels queued or active generation when the client
+-   disconnects.
++   disconnects. Function-tool requests are rendered through the model's native
++   chat template; calls and results retain their OpenAI IDs, and native Qwen
++   tool output is validated before it is returned as `tool_calls`. Tool-bearing
++   generations are buffered and currently prefill their complete history so a
++   partial XML call can never leak and cache reuse cannot cross an unrepresented
++   tool boundary.
+ 4. **An app.** [Priv AI](https://apps.apple.com/us/app/priv-ai/id6765706001)
+    on iOS embeds SwiftletCore as its streamed-model engine. End users tap
+    Download and chat. Nothing here is terminal-only. The app itself is open
+diff --git a/Sources/SwiftletCore/SwiftletSession.swift b/Sources/SwiftletCore/SwiftletSession.swift
+index b44b984..da66768 100644
+--- a/Sources/SwiftletCore/SwiftletSession.swift
++++ b/Sources/SwiftletCore/SwiftletSession.swift
+@@ -1,6 +1,12 @@
+ import Foundation
+ import Tokenizers
+ 
++/// Heterogeneous chat values accepted by Hugging Face chat templates. This
++/// keeps OpenAI tool-call dictionaries intact instead of flattening them into
++/// text before template rendering.
++public typealias SwiftletChatMessage = [String: any Sendable]
++public typealias SwiftletToolSpec = [String: any Sendable]
++
+ /// High-level chat session for app integration: owns the model, tokenizer,
+ /// chat templating, and metrics, and streams text deltas. This is the API an
+ /// app embeds (Priv AI's engines expose the same AsyncStream shape).
+@@ -66,7 +72,7 @@ public final class SwiftletSession: @unchecked Sendable {
+     private let generator: TextGenerator
+     private let encodeText: (String) -> [Int]
+     private let decodeTokens: ([Int]) -> String
+-    private let renderMessages: ([[String: String]]) throws -> [Int]
++    private let renderMessages: ([SwiftletChatMessage], [SwiftletToolSpec]?) throws -> [Int]
+     private let generationCleanupHook: (() -> Void)?
+     private let metricsLock = NSLock()
+     private var _lastMetrics = Metrics()
+@@ -88,7 +94,9 @@ public final class SwiftletSession: @unchecked Sendable {
+         let tokenizer = try await AutoTokenizer.from(modelFolder: modelDir)
+         encodeText = { tokenizer.encode(text: $0) }
+         decodeTokens = { tokenizer.decode(tokens: $0) }
+-        renderMessages = { try tokenizer.applyChatTemplate(messages: $0) }
++        renderMessages = { messages, tools in
++            try tokenizer.applyChatTemplate(messages: messages, tools: tools)
++        }
+         generationCleanupHook = nil
+         print("[SwiftletSession] tokenizer ok; building Metal model...")
+         do {
+@@ -163,7 +171,16 @@ public final class SwiftletSession: @unchecked Sendable {
+         self.usesGPU = model is QwenMetalModel
+         self.encodeText = encodeText
+         self.decodeTokens = decodeTokens
+-        self.renderMessages = renderMessages
++        self.renderMessages = { messages, _ in
++            let textMessages = messages.map { message in
++                var result: [String: String] = [:]
++                for (key, value) in message {
++                    if let value = value as? String { result[key] = value }
++                }
++                return result
++            }
++            return try renderMessages(textMessages)
++        }
+         self.suppressedIds = suppressedIds
+         self.usesThinkPrompt = usesThinkPrompt
+         self.generationCleanupHook = generationCleanupHook
+@@ -295,8 +312,11 @@ public final class SwiftletSession: @unchecked Sendable {
+     /// never appears in the *output*, downstream filters can't catch it.
+     /// Appending the rest of an empty think block reproduces the template's
+     /// own enable_thinking=false rendering byte for byte.
+-    private func freshPromptIds(_ messages: [[String: String]]) throws -> [Int] {
+-        var ids = try renderMessages(messages)
++    private func freshPromptIds(
++        _ messages: [SwiftletChatMessage],
++        tools: [SwiftletToolSpec]?
++    ) throws -> [Int] {
++        var ids = try renderMessages(messages, tools)
+         // Compare token ids, not decoded text — decode can normalize or skip
+         // special tokens and silently defeat a string comparison.
+         if usesThinkPrompt {
+@@ -308,6 +328,25 @@ public final class SwiftletSession: @unchecked Sendable {
+         return ids
+     }
+ 
++    /// Only plain role/content conversations use the incremental cache. Tool
++    /// declarations and calls are rendered losslessly from the complete turn
++    /// history until the cache can snapshot arbitrary template boundaries.
++    private func cacheableTextMessages(
++        _ messages: [SwiftletChatMessage],
++        tools: [SwiftletToolSpec]?
++    ) -> [[String: String]]? {
++        guard tools == nil else { return nil }
++        var result: [[String: String]] = []
++        for message in messages {
++            guard message.keys.allSatisfy({ $0 == "role" || $0 == "content" }),
++                  let role = message["role"] as? String,
++                  let content = message["content"] as? String
++            else { return nil }
++            result.append(["role": role, "content": content])
++        }
++        return result
++    }
++
+     /// If `messages` extends the conversation the model state already holds
+     /// (same prior messages + our own last reply + one new user message),
+     /// returns the tokens for just the new turn; nil means start clean.
+@@ -430,7 +469,8 @@ public final class SwiftletSession: @unchecked Sendable {
+     /// Cancelling the consuming task, or the optional cancellation owner,
+     /// stops generation at the next model-safe boundary.
+     public func streamChat(
+-        messages: [[String: String]],
++        messages: [SwiftletChatMessage],
++        tools: [SwiftletToolSpec]? = nil,
+         maxNew: Int = 1024,
+         options: GenerationOptions = GenerationOptions(),
+         cancellation: GenerationCancellation? = nil
+@@ -464,12 +504,14 @@ public final class SwiftletSession: @unchecked Sendable {
+                         return
+                     }
+ 
++                    let textMessages = self.cacheableTextMessages(messages, tools: tools)
+                     let suffix: [Int]
+-                    if let delta = self.continuationIds(messages) {
++                    if let textMessages,
++                       let delta = self.continuationIds(textMessages) {
+                         suffix = delta
+                     } else {
+                         self.resetConversationState()
+-                        suffix = try self.freshPromptIds(messages)
++                        suffix = try self.freshPromptIds(messages, tools: tools)
+                     }
+                     // Admission runs before any model call, so a rejection
+                     // leaves the cached conversation exactly as the client
+@@ -614,8 +656,8 @@ public final class SwiftletSession: @unchecked Sendable {
+                     // without a real DecodeState snapshot/rollback facility.
+                     let reusable = finishReason != .cancelled
+                         && !matchedTextStop && !generated.isEmpty
+-                    if reusable {
+-                        self.lastMessages = messages
++                    if reusable, let textMessages {
++                        self.lastMessages = textMessages
+                         self.lastReplyText = stopFilter.output
+                         self.statePrimed = true
+                     } else {
+diff --git a/Sources/SwiftletServer/ToolProtocol.swift b/Sources/SwiftletServer/ToolProtocol.swift
+new file mode 100644
+index 0000000..f11d3f8
+--- /dev/null
++++ b/Sources/SwiftletServer/ToolProtocol.swift
+@@ -0,0 +1,229 @@
++import Foundation
++import SwiftletCore
++
++enum ToolProtocolError: LocalizedError, Equatable {
++    case nonObjectTool
++    case invalidToolDefinition
++    case invalidToolCall(callID: String)
++    case duplicateToolCall(callID: String)
++    case malformedArguments(callID: String)
++    case orphanedToolResult(callID: String)
++    case malformedModelOutput(String)
++    case unknownTool(String)
++
++    var errorDescription: String? {
++        switch self {
++        case .nonObjectTool:
++            return "tool definitions must be JSON objects"
++        case .invalidToolDefinition:
++            return "only named function tool definitions are supported"
++        case .invalidToolCall(let callID):
++            return "tool call \(callID) is not a named function call"
++        case .duplicateToolCall(let callID):
++            return "duplicate tool call ID \(callID)"
++        case .malformedArguments(let callID):
++            return "tool call \(callID) has non-object JSON arguments"
++        case .orphanedToolResult(let callID):
++            return "tool result references unknown call ID \(callID)"
++        case .malformedModelOutput(let detail):
++            return "malformed model tool output: \(detail)"
++        case .unknownTool(let name):
++            return "model called undeclared tool \(name)"
++        }
++    }
++}
++
++/// Codable JSON which can be handed to swift-transformers' heterogeneous
++/// Jinja context without erasing nested schema fields.
++enum JSONValue: Decodable, Sendable {
++    case null
++    case bool(Bool)
++    case int(Int)
++    case double(Double)
++    case string(String)
++    case array([JSONValue])
++    case object([String: JSONValue])
++
++    init(from decoder: Decoder) throws {
++        let value = try decoder.singleValueContainer()
++        if value.decodeNil() { self = .null }
++        else if let decoded = try? value.decode(Bool.self) { self = .bool(decoded) }
++        else if let decoded = try? value.decode(Int.self) { self = .int(decoded) }
++        else if let decoded = try? value.decode(Double.self) { self = .double(decoded) }
++        else if let decoded = try? value.decode(String.self) { self = .string(decoded) }
++        else if let decoded = try? value.decode([JSONValue].self) { self = .array(decoded) }
++        else { self = .object(try value.decode([String: JSONValue].self)) }
++    }
++
++    var templateValue: any Sendable {
++        switch self {
++        case .null: return NSNull()
++        case .bool(let value): return value
++        case .int(let value): return value
++        case .double(let value): return value
++        case .string(let value): return value
++        case .array(let values): return values.map(\.templateValue)
++        case .object(let values): return values.mapValues(\.templateValue)
++        }
++    }
++
++    static func decodeFragment(_ text: String) -> JSONValue? {
++        try? JSONDecoder().decode(JSONValue.self, from: Data(text.utf8))
++    }
++}
++
++struct OpenAIToolDefinition: Decodable, Sendable {
++    let value: JSONValue
++
++    init(from decoder: Decoder) throws {
++        value = try JSONValue(from: decoder)
++    }
++
++    func templateSpec() throws -> SwiftletToolSpec {
++        guard case .object(let object) = value else { throw ToolProtocolError.nonObjectTool }
++        guard case .string("function")? = object["type"], functionName != nil else {
++            throw ToolProtocolError.invalidToolDefinition
++        }
++        return object.mapValues(\.templateValue)
++    }
++
++    var functionName: String? {
++        guard case .object(let tool) = value,
++              case .object(let function)? = tool["function"],
++              case .string(let name)? = function["name"]
++        else { return nil }
++        return name
++    }
++}
++
++struct OpenAIToolCall: Decodable, Sendable {
++    struct Function: Decodable, Sendable {
++        let name: String
++        let arguments: String
++    }
++
++    let id: String
++    let type: String
++    let function: Function
++
++    func templateCall() throws -> [String: any Sendable] {
++        guard type == "function", !function.name.isEmpty else {
++            throw ToolProtocolError.invalidToolCall(callID: id)
++        }
++        guard let decoded = JSONValue.decodeFragment(function.arguments),
++              case .object = decoded
++        else { throw ToolProtocolError.malformedArguments(callID: id) }
++        return [
++            "id": id,
++            "type": type,
++            "function": [
++                "name": function.name,
++                "arguments": decoded.templateValue,
++            ] as [String: any Sendable],
++        ]
++    }
++}
++
++struct ParsedToolCall: Equatable, Sendable {
++    let id: String
++    let name: String
++    let arguments: String
++
++    var wireValue: [String: Any] {
++        [
++            "id": id,
++            "type": "function",
++            "function": ["name": name, "arguments": arguments],
++        ]
++    }
++}
++
++struct ParsedToolReply: Equatable, Sendable {
++    let content: String?
++    let calls: [ParsedToolCall]
++}
++
++/// Strict parser for Qwen3.6's native XML tool syntax. It accepts optional
++/// reasoning before the first call, but rejects unknown tools, duplicate
++/// parameters, malformed nesting, and any suffix after the final call.
++func parseToolReply(_ text: String, declaredTools: Set<String>) throws -> ParsedToolReply? {
++    let reservedMarkers = ["<tool_call>", "</tool_call>", "<function=", "<parameter="]
++    guard reservedMarkers.contains(where: text.contains) else { return nil }
++    guard text.contains("<tool_call>") else {
++        throw ToolProtocolError.malformedModelOutput("reserved tool markup without an opening block")
++    }
++
++    let callPattern = #"(?s)<tool_call>\s*<function=([^>\r\n]+)>\s*(.*?)</function>\s*</tool_call>"#
++    let parameterPattern = #"(?s)<parameter=([^>\r\n]+)>\s*(.*?)\s*</parameter>"#
++    let callRegex = try NSRegularExpression(pattern: callPattern)
++    let parameterRegex = try NSRegularExpression(pattern: parameterPattern)
++    let source = text as NSString
++    let matches = callRegex.matches(in: text, range: NSRange(location: 0, length: source.length))
++    guard !matches.isEmpty else {
++        throw ToolProtocolError.malformedModelOutput("no complete tool_call block")
++    }
++
++    let prefixRange = NSRange(location: 0, length: matches[0].range.location)
++    let prefix = source.substring(with: prefixRange).trimmingCharacters(in: .whitespacesAndNewlines)
++    var previousEnd = matches[0].range.location
++    var calls: [ParsedToolCall] = []
++
++    for match in matches {
++        let gap = NSRange(location: previousEnd, length: match.range.location - previousEnd)
++        guard source.substring(with: gap).trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
++            throw ToolProtocolError.malformedModelOutput("text appeared between tool calls")
++        }
++        previousEnd = NSMaxRange(match.range)
++
++        let name = source.substring(with: match.range(at: 1))
++            .trimmingCharacters(in: .whitespacesAndNewlines)
++        guard declaredTools.contains(name) else { throw ToolProtocolError.unknownTool(name) }
++        let body = source.substring(with: match.range(at: 2))
++        let bodyNSString = body as NSString
++        let parameterMatches = parameterRegex.matches(
++            in: body, range: NSRange(location: 0, length: bodyNSString.length))
++        var parameters: [String: Any] = [:]
++        var parameterEnd = 0
++        for parameter in parameterMatches {
++            let gap = NSRange(
++                location: parameterEnd,
++                length: parameter.range.location - parameterEnd)
++            guard bodyNSString.substring(with: gap)
++                .trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
++                throw ToolProtocolError.malformedModelOutput("invalid parameter markup")
++            }
++            parameterEnd = NSMaxRange(parameter.range)
++            let key = bodyNSString.substring(with: parameter.range(at: 1))
++                .trimmingCharacters(in: .whitespacesAndNewlines)
++            guard !key.isEmpty, parameters[key] == nil else {
++                throw ToolProtocolError.malformedModelOutput("empty or duplicate parameter")
++            }
++            let raw = bodyNSString.substring(with: parameter.range(at: 2))
++                .trimmingCharacters(in: .whitespacesAndNewlines)
++            if let data = raw.data(using: .utf8),
++               let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) {
++                parameters[key] = json
++            } else {
++                parameters[key] = raw
++            }
++        }
++        let tail = NSRange(location: parameterEnd, length: bodyNSString.length - parameterEnd)
++        guard bodyNSString.substring(with: tail)
++            .trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
++            throw ToolProtocolError.malformedModelOutput("unclosed parameter markup")
++        }
++        let arguments = try JSONSerialization.data(
++            withJSONObject: parameters, options: [.sortedKeys])
++        calls.append(ParsedToolCall(
++            id: "call_\(UUID().uuidString.lowercased())",
++            name: name,
++            arguments: String(decoding: arguments, as: UTF8.self)
++        ))
++    }
++
++    let suffixRange = NSRange(location: previousEnd, length: source.length - previousEnd)
++    guard source.substring(with: suffixRange).trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
++        throw ToolProtocolError.malformedModelOutput("text appeared after final tool call")
++    }
++    return ParsedToolReply(content: prefix.isEmpty ? nil : prefix, calls: calls)
++}
+diff --git a/Sources/SwiftletServer/main.swift b/Sources/SwiftletServer/main.swift
+index 8cf8dd4..815d50d 100644
+--- a/Sources/SwiftletServer/main.swift
++++ b/Sources/SwiftletServer/main.swift
+@@ -16,6 +16,7 @@ import SwiftletCore
+ struct ChatContent: Decodable {
+     struct Part: Decodable { let text: String? }
+     let text: String
++    init(text: String) { self.text = text }
+     init(from decoder: Decoder) throws {
+         let c = try decoder.singleValueContainer()
+         if try c.decodeNil() {
+@@ -44,14 +45,81 @@ struct StopSequences: Decodable {
+ 
+ /// OpenAI-compatible Chat Completions request body.
+ struct ChatRequest: Decodable {
+-    struct Message: Decodable { let role: String; let content: ChatContent }
++    struct Message: Decodable {
++        let role: String
++        let content: ChatContent
++        let tool_calls: [OpenAIToolCall]?
++        let tool_call_id: String?
++        let name: String?
++
++        enum CodingKeys: String, CodingKey {
++            case role, content, tool_calls, tool_call_id, name
++        }
++
++        init(from decoder: Decoder) throws {
++            let values = try decoder.container(keyedBy: CodingKeys.self)
++            role = try values.decode(String.self, forKey: .role)
++            content = try values.decodeIfPresent(ChatContent.self, forKey: .content)
++                ?? ChatContent(text: "")
++            tool_calls = try values.decodeIfPresent([OpenAIToolCall].self, forKey: .tool_calls)
++            tool_call_id = try values.decodeIfPresent(String.self, forKey: .tool_call_id)
++            name = try values.decodeIfPresent(String.self, forKey: .name)
++        }
++
++        func templateMessage() throws -> SwiftletChatMessage {
++            var result: SwiftletChatMessage = ["role": role, "content": content.text]
++            if let tool_calls {
++                result["tool_calls"] = try tool_calls.map { try $0.templateCall() }
++            }
++            if let tool_call_id { result["tool_call_id"] = tool_call_id }
++            if let name { result["name"] = name }
++            return result
++        }
++    }
+     let messages: [Message]
++    let tools: [OpenAIToolDefinition]?
+     let stream: Bool?
+     let max_tokens: Int?
+     let max_completion_tokens: Int?
+     let temperature: Float?
+     let top_p: Float?
+     let stop: StopSequences?
++
++    func templateInput() throws -> (
++        messages: [SwiftletChatMessage],
++        tools: [SwiftletToolSpec]?,
++        toolNames: Set<String>
++    ) {
++        var pendingCallIDs = Set<String>()
++        var converted: [SwiftletChatMessage] = []
++        for message in messages {
++            if let calls = message.tool_calls {
++                for call in calls {
++                    guard pendingCallIDs.insert(call.id).inserted else {
++                        throw ToolProtocolError.duplicateToolCall(callID: call.id)
++                    }
++                }
++            }
++            if message.role == "tool" {
++                guard let callID = message.tool_call_id,
++                      pendingCallIDs.remove(callID) != nil
++                else {
++                    throw ToolProtocolError.orphanedToolResult(
++                        callID: message.tool_call_id ?? "<missing>")
++                }
++            }
++            converted.append(try message.templateMessage())
++        }
++        let definitions = tools ?? []
++        let names = Set(definitions.compactMap(\.functionName))
++        for message in messages {
++            for call in message.tool_calls ?? [] where !names.contains(call.function.name) {
++                throw ToolProtocolError.unknownTool(call.function.name)
++            }
++        }
++        let specs = definitions.isEmpty ? nil : try definitions.map { try $0.templateSpec() }
++        return (converted, specs, names)
++    }
+ }
+ 
+ let cliArgs = CommandLine.arguments
+@@ -205,6 +273,50 @@ final class ConnectionGenerationOwner: @unchecked Sendable {
+     return payload
+ }
+ 
++@Sendable func toolCompletionPayload(
++    id: String,
++    reply: ParsedToolReply,
++    streaming: Bool,
++    finish: String? = nil,
++    usage: (prompt: Int, completion: Int)? = nil,
++    model: String = modelName
++) -> [String: Any] {
++    let calls = reply.calls.enumerated().map { index, call -> [String: Any] in
++        var value = call.wireValue
++        if streaming { value["index"] = index }
++        return value
++    }
++    var choice: [String: Any] = ["index": 0]
++    if streaming {
++        var delta: [String: Any] = ["role": "assistant", "tool_calls": calls]
++        if let content = reply.content { delta["content"] = content }
++        choice["delta"] = delta
++        choice["finish_reason"] = finish ?? NSNull()
++    } else {
++        choice["message"] = [
++            "role": "assistant",
++            "content": reply.content ?? NSNull(),
++            "tool_calls": calls,
++        ] as [String: Any]
++        choice["finish_reason"] = finish ?? "tool_calls"
++    }
++    var payload: [String: Any] = [
++        "id": id,
++        "object": streaming ? "chat.completion.chunk" : "chat.completion",
++        "created": Int(Date().timeIntervalSince1970),
++        "model": model,
++        "choices": [choice],
++    ]
++    if let usage {
++        payload["usage"] = [
++            "prompt_tokens": usage.prompt,
++            "completion_tokens": usage.completion,
++            "total_tokens": usage.prompt + usage.completion,
++        ]
++    }
++    return payload
++}
++
+ @Sendable func openAIFinishReason(_ reason: GenerationFinishReason?) -> String? {
+     switch reason {
+     case .length: return "length"
+@@ -269,7 +381,22 @@ final class HTTPHandler: ChannelInboundHandler {
+             respondJSON(context, status: .badRequest, data: jsonData(["error": "malformed request"]))
+             return
+         }
+-        let messages = request.messages.map { ["role": $0.role, "content": $0.content.text] }
++        let templateInput: (
++            messages: [SwiftletChatMessage],
++            tools: [SwiftletToolSpec]?,
++            toolNames: Set<String>
++        )
++        do {
++            templateInput = try request.templateInput()
++        } catch {
++            let message = (error as? LocalizedError)?.errorDescription
++                ?? String(describing: error)
++            respondJSON(context, status: .badRequest, data: jsonData(["error": message]))
++            return
++        }
++        let messages = templateInput.messages
++        let tools = templateInput.tools
++        let toolNames = templateInput.toolNames
+         let maxNew = request.max_tokens ?? request.max_completion_tokens ?? 512
+         let streaming = request.stream ?? false
+         let id = "chatcmpl-\(UUID().uuidString.prefix(8))"
+@@ -365,14 +492,18 @@ final class HTTPHandler: ChannelInboundHandler {
+                 do {
+                     var fullText = ""
+                     for try await delta in session.streamChat(
+-                        messages: messages, maxNew: maxNew, options: options,
++                        messages: messages, tools: tools,
++                        maxNew: maxNew, options: options,
+                         cancellation: cancellation
+                     ) {
+                         fullText += delta
+-                        if streaming {
++                        if streaming && tools == nil {
+                             writeSSE(completionPayload(id: id, text: nil, delta: delta, finish: nil))
+                         }
+                     }
++                    let toolReply = try parseToolReply(fullText, declaredTools: toolNames)
++                    let responseText = fullText
++                    let responseToolReply = toolReply
+                     let m = session.lastMetrics
+                     FileHandle.standardError.write(Data(String(
+                         format: "[%@] %d prompt + %d generated, ttft %.1fs, %.2f tok/s\n",
+@@ -387,7 +518,8 @@ final class HTTPHandler: ChannelInboundHandler {
+                             return
+                         }
+                         owner.stopHeartbeat(id: id)
+-                        let finishReason = openAIFinishReason(m.finishReason)
++                        let finishReason = responseToolReply == nil
++                            ? openAIFinishReason(m.finishReason) : "tool_calls"
+                         if streaming {
+                             // The finish chunk, [DONE], and the HTTP end must
+                             // land in this order on the wire. Write them here
+@@ -395,10 +527,23 @@ final class HTTPHandler: ChannelInboundHandler {
+                             // writeSSE would re-enqueue it on the event loop
+                             // and it would land after .end and be dropped
+                             // (strict clients then wait for it forever).
++                            var prefix = ""
++                            if let toolReply = responseToolReply {
++                                let call = jsonData(toolCompletionPayload(
++                                    id: id, reply: toolReply, streaming: true))
++                                prefix = "data: "
++                                    + (String(data: call, encoding: .utf8) ?? "{}") + "\n\n"
++                            } else if tools != nil, !responseText.isEmpty {
++                                let content = jsonData(completionPayload(
++                                    id: id, text: nil, delta: responseText, finish: nil))
++                                prefix = "data: "
++                                    + (String(data: content, encoding: .utf8) ?? "{}") + "\n\n"
++                            }
+                             let finish = jsonData(completionPayload(
+                                 id: id, text: nil, delta: "", finish: finishReason,
+                                 usage: (m.promptTokens, m.generatedTokens)))
+-                            let tail = "data: " + (String(data: finish, encoding: .utf8) ?? "{}")
++                            let tail = prefix + "data: "
++                                + (String(data: finish, encoding: .utf8) ?? "{}")
+                                 + "\n\ndata: [DONE]\n\n"
+                             var buf = channel.allocator.buffer(capacity: tail.utf8.count)
+                             buf.writeString(tail)
+@@ -410,9 +555,17 @@ final class HTTPHandler: ChannelInboundHandler {
+                                 terminal: true
+                             )
+                         } else {
+-                            let data = jsonData(completionPayload(
+-                                id: id, text: fullText, delta: nil, finish: finishReason,
+-                                usage: (m.promptTokens, m.generatedTokens)))
++                            let data: Data
++                            if let toolReply = responseToolReply {
++                                data = jsonData(toolCompletionPayload(
++                                    id: id, reply: toolReply, streaming: false,
++                                    finish: finishReason,
++                                    usage: (m.promptTokens, m.generatedTokens)))
++                            } else {
++                                data = jsonData(completionPayload(
++                                    id: id, text: responseText, delta: nil, finish: finishReason,
++                                    usage: (m.promptTokens, m.generatedTokens)))
++                            }
+                             var head = HTTPResponseHead(version: .http1_1, status: .ok)
+                             head.headers.add(name: "Content-Type", value: "application/json")
+                             head.headers.add(name: "Content-Length", value: String(data.count))
+diff --git a/Tests/SwiftletServerTests/ChatRequestTests.swift b/Tests/SwiftletServerTests/ChatRequestTests.swift
+index ccb6011..679c054 100644
+--- a/Tests/SwiftletServerTests/ChatRequestTests.swift
++++ b/Tests/SwiftletServerTests/ChatRequestTests.swift
+@@ -56,6 +56,115 @@ import SwiftletCore
+         #expect(r.max_completion_tokens == 256)
+     }
+ 
++    @Test func toolDefinitionsCallsAndResultsReachTemplateInput() throws {
++        let r = try decode(
++            #"{"messages":[{"role":"user","content":"read it"},{"role":"assistant","content":null,"tool_calls":[{"id":"c1","type":"function","function":{"name":"read","arguments":"{\"path\":\"TARGET.md\"}"}}]},{"role":"tool","tool_call_id":"c1","content":"Agentwing target"}],"tools":[{"type":"function","function":{"name":"read","description":"Read a file","parameters":{"type":"object","properties":{"path":{"type":"string"}},"required":["path"]}}}]}"#
++        )
++        let input = try r.templateInput()
++        #expect(input.toolNames == ["read"])
++        #expect(input.tools?.count == 1)
++        #expect(input.messages.count == 3)
++        #expect(input.messages[2]["tool_call_id"] as? String == "c1")
++        let calls = try #require(input.messages[1]["tool_calls"] as? [[String: any Sendable]])
++        let function = try #require(calls[0]["function"] as? [String: any Sendable])
++        let arguments = try #require(function["arguments"] as? [String: any Sendable])
++        #expect(arguments["path"] as? String == "TARGET.md")
++    }
++
++    @Test func orphanedToolResultIsRejected() throws {
++        let r = try decode(
++            #"{"messages":[{"role":"tool","tool_call_id":"missing","content":"nope"}]}"#
++        )
++        #expect(throws: ToolProtocolError.orphanedToolResult(callID: "missing")) {
++            _ = try r.templateInput()
++        }
++    }
++
++    @Test func nonObjectToolArgumentsAreRejected() throws {
++        let r = try decode(
++            #"{"messages":[{"role":"assistant","content":null,"tool_calls":[{"id":"c1","type":"function","function":{"name":"read","arguments":"[]"}}]}]}"#
++        )
++        #expect(throws: ToolProtocolError.malformedArguments(callID: "c1")) {
++            _ = try r.templateInput()
++        }
++    }
++
++    @Test func invalidToolDefinitionAndDuplicateCallIDsAreRejected() throws {
++        let invalidTool = try decode(
++            #"{"messages":[{"role":"user","content":"hi"}],"tools":[{"type":"web_search"}]}"#
++        )
++        #expect(throws: ToolProtocolError.invalidToolDefinition) {
++            _ = try invalidTool.templateInput()
++        }
++
++        let duplicate = try decode(
++            #"{"messages":[{"role":"assistant","content":null,"tool_calls":[{"id":"c1","type":"function","function":{"name":"read","arguments":"{}"}},{"id":"c1","type":"function","function":{"name":"read","arguments":"{}"}}]}],"tools":[{"type":"function","function":{"name":"read","parameters":{"type":"object"}}}]}"#
++        )
++        #expect(throws: ToolProtocolError.duplicateToolCall(callID: "c1")) {
++            _ = try duplicate.templateInput()
++        }
++    }
++
++    @Test func nativeToolReplyParsesStrictly() throws {
++        let parsed = try parseToolReply(
++            """
++            I will inspect it.
++            <tool_call>
++            <function=read>
++            <parameter=path>
++            TARGET.md
++            </parameter>
++            <parameter=line>
++            4
++            </parameter>
++            </function>
++            </tool_call>
++            """,
++            declaredTools: ["read"]
++        )
++        let reply = try #require(parsed)
++        #expect(reply.content == "I will inspect it.")
++        #expect(reply.calls.count == 1)
++        #expect(reply.calls[0].name == "read")
++        let arguments = try JSONSerialization.jsonObject(
++            with: Data(reply.calls[0].arguments.utf8)) as? [String: Any]
++        #expect(arguments?["path"] as? String == "TARGET.md")
++        #expect(arguments?["line"] as? Int == 4)
++    }
++
++    @Test func malformedOrUnknownNativeToolReplyIsRejected() {
++        #expect(throws: ToolProtocolError.unknownTool("bash")) {
++            _ = try parseToolReply(
++                "<tool_call><function=bash></function></tool_call>",
++                declaredTools: ["read"])
++        }
++        #expect(throws: ToolProtocolError.self) {
++            _ = try parseToolReply(
++                "<tool_call><function=read></function></tool_call>suffix",
++                declaredTools: ["read"])
++        }
++        #expect(throws: ToolProtocolError.self) {
++            _ = try parseToolReply(
++                "<tool_call><function=read><parameter=path>x</function></tool_call>",
++                declaredTools: ["read"])
++        }
++    }
++
++    @Test func toolCompletionPayloadUsesOpenAIShape() throws {
++        let reply = ParsedToolReply(
++            content: nil,
++            calls: [ParsedToolCall(id: "c1", name: "read", arguments: #"{"path":"TARGET.md"}"#)])
++        let payload = toolCompletionPayload(
++            id: "chatcmpl-test", reply: reply, streaming: true,
++            model: "swiftlet-test")
++        let choices = try #require(payload["choices"] as? [[String: Any]])
++        let delta = try #require(choices[0]["delta"] as? [String: Any])
++        let calls = try #require(delta["tool_calls"] as? [[String: Any]])
++        #expect(calls[0]["index"] as? Int == 0)
++        #expect(calls[0]["id"] as? String == "c1")
++        #expect(choices[0]["finish_reason"] is NSNull)
++    }
++
+     @Test func stopAcceptsStringOrArray() throws {
+         let one = try decode(
+             #"{"messages":[{"role":"user","content":"hi"}],"stop":"END"}"#
+-- 
+2.50.1 (Apple Git-155)
+
