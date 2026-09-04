@@ -114,3 +114,17 @@ terminated, and its server exited; the terminal run recorded utility 0,
 This is an operator setup failure, not a completed full-suite measurement.
 All artifacts are preserved at `/Users/chad/Models/agentwing/evidence/AW-0019/20260904T231929Z`.
 Summary SHA-256: `6dc34753b441374b34877e5679ff3a7450d7d2f17a82e1b16266d7c6dd9fc6e3`.
+
+## Full-suite screen in progress
+
+The corrected `--all` launch is run `20260904T232042Z` (Agentwing `fd05609`).
+Task 01 has completed with utility 1 in 378 task seconds, five calls, no failed
+calls/model errors/rejections/salvage, and five full-prefix reuse hits. Task 02
+is still running. These are provisional per-task records, not a complete suite
+or an independently audited aggregate result.
+
+`evidence/AW-0019-live-endpoint-observation.json` records one live-process and
+listening-socket observation: the owned Swiftlet server listens on IPv4
+`127.0.0.1:8080`. This supports the recorded binding at that time, not continuous
+network/process isolation. The existing runner continues sampling pressure and
+swap and applying the declared stop conditions.

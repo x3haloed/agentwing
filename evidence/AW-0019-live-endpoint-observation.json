@@ -1,0 +1,8 @@
+{
+  "observed_at_utc": "2026-09-04T23:35:27.945865+00:00",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0019/20260904T232042Z",
+  "scope": "One live-process/listening-socket observation; not continuous network or process isolation certification",
+  "server_pid": 74744,
+  "process": "  PID  PPID ELAPSED COMMAND\n74744 74693   14:45 /Users/chad/Models/agentwing/dependencies/Swiftlet/.build/release/swiftlet-server --model /Users/chad/Models/agentwing/checkpoints/qwen3.6-35b-a3b-8bit.qpack --port 8080 --cache-gb 0.5 --debug-tool-output --accept-schema-tags --salvage-tool-prefix --allow-repeated-ngrams --stop-after-tool-call\n",
+  "listening_sockets": "COMMAND     PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nswiftlet- 74744 chad   11u  IPv4 0x8cc0c6b1f5e44392      0t0  TCP 127.0.0.1:8080 (LISTEN)\n"
+}
