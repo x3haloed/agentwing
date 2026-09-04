@@ -1,0 +1,341 @@
+From d43b27f99bf1eb2c16c18c4600f4f7cff7afc0c1 Mon Sep 17 00:00:00 2001
+From: Chad Kirby <x3haloed@gmail.com>
+Date: Thu, 3 Sep 2026 22:40:20 -0700
+Subject: [PATCH] Reuse exact tool continuation prefixes
+
+---
+ Sources/SwiftletCore/SwiftletSession.swift    | 40 ++++++++++++---
+ Sources/SwiftletServer/ToolProtocol.swift     | 51 +++++++++++++++++++
+ Sources/SwiftletServer/main.swift             | 20 +++++---
+ .../SwiftletSessionTests.swift                | 45 ++++++++++++++++
+ .../ChatRequestTests.swift                    | 25 +++++++++
+ 5 files changed, 167 insertions(+), 14 deletions(-)
+
+diff --git a/Sources/SwiftletCore/SwiftletSession.swift b/Sources/SwiftletCore/SwiftletSession.swift
+index da66768..c9e5279 100644
+--- a/Sources/SwiftletCore/SwiftletSession.swift
++++ b/Sources/SwiftletCore/SwiftletSession.swift
+@@ -13,6 +13,7 @@ public typealias SwiftletToolSpec = [String: any Sendable]
+ public final class SwiftletSession: @unchecked Sendable {
+     public struct Metrics: Sendable {
+         public var promptTokens = 0
++        public var reusedPromptTokens = 0
+         public var generatedTokens = 0
+         public var timeToFirstToken: TimeInterval = 0
+         public var tokensPerSecond: Double = 0
+@@ -199,6 +200,12 @@ public final class SwiftletSession: @unchecked Sendable {
+     private var convState = QwenCPUModel.DecodeState()
+     private var lastMessages: [[String: String]] = []
+     private var lastReplyText = ""
++    /// Exact tokens represented by `convState`. This enables a lossless fast
++    /// path when a newly rendered prompt literally extends the live state
++    /// (notably an accepted tool call followed by its tool result). Plain chat
++    /// continuations still use `continuationIds`, because some templates omit
++    /// the prior empty think block when they re-render ordinary history.
++    private var cachedTokens: [Int] = []
+     private var statePrimed = false
+ 
+     /// Drops the cached conversation (e.g. when the user starts a new chat).
+@@ -222,6 +229,7 @@ public final class SwiftletSession: @unchecked Sendable {
+         convState = QwenCPUModel.DecodeState()
+         lastMessages = []
+         lastReplyText = ""
++        cachedTokens = []
+         statePrimed = false
+     }
+ 
+@@ -328,9 +336,9 @@ public final class SwiftletSession: @unchecked Sendable {
+         return ids
+     }
+ 
+-    /// Only plain role/content conversations use the incremental cache. Tool
+-    /// declarations and calls are rendered losslessly from the complete turn
+-    /// history until the cache can snapshot arbitrary template boundaries.
++    /// Plain role/content conversations have a template-aware incremental
++    /// fallback. Tool conversations instead reuse only an exact rendered token
++    /// prefix, so structured history can never be approximated.
+     private func cacheableTextMessages(
+         _ messages: [SwiftletChatMessage],
+         tools: [SwiftletToolSpec]?
+@@ -506,13 +514,22 @@ public final class SwiftletSession: @unchecked Sendable {
+ 
+                     let textMessages = self.cacheableTextMessages(messages, tools: tools)
+                     let suffix: [Int]
+-                    if let textMessages,
++                    var reusedPromptTokens = 0
++                    let fullPrompt = try self.freshPromptIds(messages, tools: tools)
++                    if self.statePrimed,
++                       fullPrompt.count >= self.cachedTokens.count,
++                       Array(fullPrompt.prefix(self.cachedTokens.count)) == self.cachedTokens {
++                        suffix = Array(fullPrompt.dropFirst(self.cachedTokens.count))
++                        reusedPromptTokens = self.cachedTokens.count
++                    } else if let textMessages,
+                        let delta = self.continuationIds(textMessages) {
+                         suffix = delta
++                        reusedPromptTokens = self.cachedTokens.count
+                     } else {
+                         self.resetConversationState()
+-                        suffix = try self.freshPromptIds(messages, tools: tools)
++                        suffix = fullPrompt
+                     }
++                    let tokensBeforeGeneration = self.cachedTokens + suffix
+                     // Admission runs before any model call, so a rejection
+                     // leaves the cached conversation exactly as the client
+                     // last saw it. Keep it: a shorter retry can then continue
+@@ -656,9 +673,15 @@ public final class SwiftletSession: @unchecked Sendable {
+                     // without a real DecodeState snapshot/rollback facility.
+                     let reusable = finishReason != .cancelled
+                         && !matchedTextStop && !generated.isEmpty
+-                    if reusable, let textMessages {
+-                        self.lastMessages = textMessages
+-                        self.lastReplyText = stopFilter.output
++                    if reusable {
++                        self.cachedTokens = tokensBeforeGeneration + generated
++                        if let textMessages {
++                            self.lastMessages = textMessages
++                            self.lastReplyText = stopFilter.output
++                        } else {
++                            self.lastMessages = []
++                            self.lastReplyText = ""
++                        }
+                         self.statePrimed = true
+                     } else {
+                         self.resetConversationState()
+@@ -666,6 +689,7 @@ public final class SwiftletSession: @unchecked Sendable {
+ 
+                     self.storeMetrics(Metrics(
+                         promptTokens: suffix.count,
++                        reusedPromptTokens: reusedPromptTokens,
+                         generatedTokens: generated.count,
+                         timeToFirstToken: (firstTokenAt ?? prefillDone).timeIntervalSince(start),
+                         tokensPerSecond: decodeSeconds > 0 ? Double(generated.count) / decodeSeconds : 0,
+diff --git a/Sources/SwiftletServer/ToolProtocol.swift b/Sources/SwiftletServer/ToolProtocol.swift
+index ae467f2..cdd7b5f 100644
+--- a/Sources/SwiftletServer/ToolProtocol.swift
++++ b/Sources/SwiftletServer/ToolProtocol.swift
+@@ -153,6 +153,57 @@ struct ParsedToolReply: Equatable, Sendable {
+     let normalizedSchemaTags: Bool
+ }
+ 
++private struct ToolCallSignature: Equatable, Sendable {
++    let id: String
++    let type: String
++    let name: String
++    let arguments: String
++}
++
++private func canonicalArguments(_ text: String) -> String? {
++    guard let value = JSONValue.decodeFragment(text), case .object = value,
++          let data = try? JSONSerialization.data(
++            withJSONObject: value.templateValue, options: [.sortedKeys])
++    else { return nil }
++    return String(decoding: data, as: UTF8.self)
++}
++
++/// Remembers the most recently accepted native spelling of a tool call. When
++/// the client echoes the same structured OpenAI calls, rendering that spelling
++/// makes the next prompt an exact extension of the model's live token state.
++/// IDs, names, types, and canonical arguments must all match; otherwise the
++/// ordinary structured template path is used and the session resets safely.
++final class ToolReplayCache: @unchecked Sendable {
++    private let lock = NSLock()
++    private var signatures: [ToolCallSignature] = []
++    private var rawText: String?
++
++    func record(reply: ParsedToolReply, rawText: String) {
++        let next = reply.calls.map {
++            ToolCallSignature(
++                id: $0.id, type: "function", name: $0.name,
++                arguments: canonicalArguments($0.arguments) ?? $0.arguments)
++        }
++        lock.lock()
++        signatures = next
++        self.rawText = rawText
++        lock.unlock()
++    }
++
++    func replayText(for calls: [OpenAIToolCall]) -> String? {
++        let incoming: [ToolCallSignature] = calls.compactMap { call in
++            guard let arguments = canonicalArguments(call.function.arguments) else { return nil }
++            return ToolCallSignature(
++                id: call.id, type: call.type, name: call.function.name,
++                arguments: arguments)
++        }
++        guard incoming.count == calls.count else { return nil }
++        lock.lock()
++        defer { lock.unlock() }
++        return incoming == signatures ? rawText : nil
++    }
++}
++
+ /// Strict parser for Qwen3.6's native XML tool syntax. It accepts optional
+ /// reasoning before the first call, but rejects unknown tools, duplicate
+ /// parameters, malformed nesting, and any suffix after the final call.
+diff --git a/Sources/SwiftletServer/main.swift b/Sources/SwiftletServer/main.swift
+index eb2614e..377448c 100644
+--- a/Sources/SwiftletServer/main.swift
++++ b/Sources/SwiftletServer/main.swift
+@@ -67,7 +67,11 @@ struct ChatRequest: Decodable {
+             name = try values.decodeIfPresent(String.self, forKey: .name)
+         }
+ 
+-        func templateMessage() throws -> SwiftletChatMessage {
++        func templateMessage(replayCache: ToolReplayCache? = nil) throws -> SwiftletChatMessage {
++            if role == "assistant", let tool_calls,
++               let rawText = replayCache?.replayText(for: tool_calls) {
++                return ["role": role, "content": rawText]
++            }
+             var result: SwiftletChatMessage = ["role": role, "content": content.text]
+             if let tool_calls {
+                 result["tool_calls"] = try tool_calls.map { try $0.templateCall() }
+@@ -86,7 +90,7 @@ struct ChatRequest: Decodable {
+     let top_p: Float?
+     let stop: StopSequences?
+ 
+-    func templateInput() throws -> (
++    func templateInput(replayCache: ToolReplayCache? = nil) throws -> (
+         messages: [SwiftletChatMessage],
+         tools: [SwiftletToolSpec]?,
+         toolNames: Set<String>,
+@@ -110,7 +114,7 @@ struct ChatRequest: Decodable {
+                         callID: message.tool_call_id ?? "<missing>")
+                 }
+             }
+-            converted.append(try message.templateMessage())
++            converted.append(try message.templateMessage(replayCache: replayCache))
+         }
+         let definitions = tools ?? []
+         let names = Set(definitions.compactMap(\.functionName))
+@@ -144,6 +148,7 @@ let cacheGB = Double(flag("--cache-gb") ?? "2") ?? 2
+ let debugToolOutput = cliArgs.contains("--debug-tool-output")
+ let acceptSchemaTags = cliArgs.contains("--accept-schema-tags")
+ let modelURL = URL(fileURLWithPath: modelPath)
++let toolReplayCache = ToolReplayCache()
+ 
+ FileHandle.standardError.write(Data("loading model + tokenizer...\n".utf8))
+ // The same Metal streaming engine as `swiftlet chat`: routed experts stream
+@@ -398,7 +403,7 @@ final class HTTPHandler: ChannelInboundHandler {
+             toolParameters: [String: Set<String>]
+         )
+         do {
+-            templateInput = try request.templateInput()
++            templateInput = try request.templateInput(replayCache: toolReplayCache)
+         } catch {
+             let message = (error as? LocalizedError)?.errorDescription
+                 ?? String(describing: error)
+@@ -515,8 +520,8 @@ final class HTTPHandler: ChannelInboundHandler {
+                     }
+                     let m = session.lastMetrics
+                     FileHandle.standardError.write(Data(String(
+-                        format: "[%@] %d prompt + %d generated, ttft %.1fs, %.2f tok/s\n",
+-                        id as NSString, m.promptTokens, m.generatedTokens,
++                        format: "[%@] %d prompt + %d reused + %d generated, ttft %.1fs, %.2f tok/s\n",
++                        id as NSString, m.promptTokens, m.reusedPromptTokens, m.generatedTokens,
+                         m.timeToFirstToken, m.tokensPerSecond
+                     ).utf8))
+                     let toolReply: ParsedToolReply?
+@@ -529,6 +534,9 @@ final class HTTPHandler: ChannelInboundHandler {
+                             FileHandle.standardError.write(Data(
+                                 "[\(id)] normalized declared schema-property tags\n".utf8))
+                         }
++                        if let toolReply {
++                            toolReplayCache.record(reply: toolReply, rawText: fullText)
++                        }
+                     } catch {
+                         if debugToolOutput {
+                             let escaped = String(reflecting: fullText)
+diff --git a/Tests/SwiftletCoreTests/SwiftletSessionTests.swift b/Tests/SwiftletCoreTests/SwiftletSessionTests.swift
+index d174e20..79de8ab 100644
+--- a/Tests/SwiftletCoreTests/SwiftletSessionTests.swift
++++ b/Tests/SwiftletCoreTests/SwiftletSessionTests.swift
+@@ -256,6 +256,51 @@ import Testing
+         #expect(model.maxActiveCalls == 1)
+     }
+ 
++    @Test func exactRenderedToolPrefixReusesLiveState() async throws {
++        let model = try SessionProbeModel(
++            modelDir: Self.fixturesDir.appendingPathComponent("tiny-model"),
++            blockFirstCall: false
++        )
++        let session = SwiftletSession(
++            testingModel: model,
++            modelDir: model.modelDir,
++            encodeText: { _ in [30] },
++            decodeTokens: { tokens in
++                String(String.UnicodeScalarView(tokens.compactMap { Unicode.Scalar($0) }))
++            },
++            renderMessages: { messages in
++                switch messages.compactMap({ $0["content"] }) {
++                case ["one"]: return [10]
++                case ["one", "A", "result"]: return [10, 65, 20]
++                default: return [99]
++                }
++            }
++        )
++        var options = SwiftletSession.GenerationOptions.greedy
++        options.minNew = 0
++        let tools: [SwiftletToolSpec] = [["type": "function"]]
++
++        for try await _ in session.streamChat(
++            messages: [["role": "user", "content": "one"]],
++            tools: tools, maxNew: 1, options: options
++        ) {}
++        #expect(session.lastMetrics.promptTokens == 1)
++
++        for try await _ in session.streamChat(
++            messages: [
++                ["role": "user", "content": "one"],
++                ["role": "assistant", "content": "A"],
++                ["role": "tool", "content": "result"],
++            ],
++            tools: tools, maxNew: 0, options: options
++        ) {}
++
++        #expect(session.lastMetrics.promptTokens == 1)
++        #expect(session.lastMetrics.reusedPromptTokens == 2)
++        #expect(model.calls.map(\.tokens) == [[10], [65], [20]])
++        #expect(Set(model.calls.map(\.stateID)).count == 1)
++    }
++
+     /// A "new chat" issued mid-reply must interrupt the reply, not wait for it.
+     /// The probe blocks its first step for 2 s unless cancelled; the reset must
+     /// return well inside that window, and the following request must be a
+diff --git a/Tests/SwiftletServerTests/ChatRequestTests.swift b/Tests/SwiftletServerTests/ChatRequestTests.swift
+index 3abfea9..09e8e3c 100644
+--- a/Tests/SwiftletServerTests/ChatRequestTests.swift
++++ b/Tests/SwiftletServerTests/ChatRequestTests.swift
+@@ -175,6 +175,31 @@ import SwiftletCore
+         #expect(arguments?["limit"] as? Int == 20)
+     }
+ 
++    @Test func acceptedRawToolSpellingIsReplayedOnlyForExactStructuredCall() throws {
++        let cache = ToolReplayCache()
++        let reply = ParsedToolReply(
++            content: nil,
++            calls: [ParsedToolCall(
++                id: "c1", name: "read", arguments: #"{"path":"TARGET.md"}"#)],
++            normalizedSchemaTags: true)
++        let raw = "<tool_call><function=read><path>TARGET.md</path></function></tool_call>"
++        cache.record(reply: reply, rawText: raw)
++
++        let matching = try decode(
++            #"{"messages":[{"role":"user","content":"read it"},{"role":"assistant","content":null,"tool_calls":[{"id":"c1","type":"function","function":{"name":"read","arguments":"{\"path\":\"TARGET.md\"}"}}]},{"role":"tool","tool_call_id":"c1","content":"ok"}],"tools":[{"type":"function","function":{"name":"read","parameters":{"type":"object","properties":{"path":{"type":"string"}}}}}]}"#
++        )
++        let replayed = try matching.templateInput(replayCache: cache)
++        #expect(replayed.messages[1]["content"] as? String == raw)
++        #expect(replayed.messages[1]["tool_calls"] == nil)
++
++        let changed = try decode(
++            #"{"messages":[{"role":"user","content":"read it"},{"role":"assistant","content":null,"tool_calls":[{"id":"c1","type":"function","function":{"name":"read","arguments":"{\"path\":\"OTHER.md\"}"}}]},{"role":"tool","tool_call_id":"c1","content":"ok"}],"tools":[{"type":"function","function":{"name":"read","parameters":{"type":"object","properties":{"path":{"type":"string"}}}}}]}"#
++        )
++        let notReplayed = try changed.templateInput(replayCache: cache)
++        #expect(notReplayed.messages[1]["content"] as? String == "")
++        #expect(notReplayed.messages[1]["tool_calls"] != nil)
++    }
++
+     @Test func toolCompletionPayloadUsesOpenAIShape() throws {
+         let reply = ParsedToolReply(
+             content: nil,
+-- 
+2.50.1 (Apple Git-155)
+

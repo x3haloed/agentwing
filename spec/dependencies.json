@@ -3,7 +3,7 @@
   "swiftlet": {
     "repository": "https://github.com/leonickson1/Swiftlet",
     "upstream_revision": "694706e1d8ec67021f4350be88c912b3cb50cb32",
-    "revision": "b33871230f51d3e3ec497eb2e6724fbf9557bb9d",
+    "revision": "d43b27f99bf1eb2c16c18c4600f4f7cff7afc0c1",
     "patches": [
       {
         "commit": "793a9a18bc3ba8f5f1e06bd50415bf2373088daf",
@@ -19,6 +19,11 @@
         "commit": "b33871230f51d3e3ec497eb2e6724fbf9557bb9d",
         "path": "patches/0003-Add-explicit-schema-tag-tool-normalization.patch",
         "sha256": "c17c998b4fbe96526a7f6abdac0027b39a59282480e609fdacf5395c857a0dbd"
+      },
+      {
+        "commit": "d43b27f99bf1eb2c16c18c4600f4f7cff7afc0c1",
+        "path": "patches/0004-Reuse-exact-tool-continuation-prefixes.patch",
+        "sha256": "1d776fa2f6d28543086c2bb91e023d12952a4297b178783e5e6c4d6ac171d7e1"
       }
     ],
     "local_path": "/Users/chad/Models/agentwing/dependencies/Swiftlet"
