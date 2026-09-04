@@ -2,8 +2,8 @@
 
 ## Status
 
-Active. Trial T1 failed closed on malformed model output without crossing a
-host-pressure stop. A diagnostic retry is ready.
+Active. Trials T1 and T2 failed closed on malformed model output without
+crossing a host-pressure stop. Greedy trial T3 is ready.
 
 ## Hypothesis
 
@@ -74,6 +74,31 @@ T1 does not distinguish a generation truncated by the output cap from another
 malformation because rejected raw output was not logged. The diagnostic-only
 second patch adds opt-in escaped raw-output logging after a rejection; normal
 server operation remains content-silent.
+
+### T2 — diagnostic replication, default sampling
+
+- UTC interval: 2026-09-04 03:34:25 through 03:36:47
+- Result: Pi exited 1 after Swiftlet rejected a complete but malformed call.
+- Model output: the model correctly selected `read`, emitted a valid `limit`
+  parameter, then emitted `<path>…</parameters>` instead of the required
+  `<parameter=path>…</parameter>` pair.
+- Generation: 447 prompt tokens; 116.1 s TTFT; 35 generated tokens at 2.12
+  tok/s.
+- Pressure: macOS pressure level peaked at 2 and returned to 1. Swap moved from
+  3,571.88 MiB to 3,563.88 MiB (-8 MiB).
+- Raw evidence directory:
+  `/Users/chad/Models/agentwing/evidence/AW-0002/20260904T033425Z`
+- SHA-256:
+  - `server.log`: `b94744b0193d9bc37357c303fe7d03a5a386d5574512d254443c86687d9ff4f3`
+  - `pi.log`: `3eb4863aeebe9f9dfe16472eef406eb36514c3a841c98b7a000599c152e0043e`
+  - `pressure.tsv`: `3d13f8ebfa98384cdc2ce712098552395c65b25308bc7b736e10fc04a7a73313`
+
+### T3 — declared greedy variant
+
+T3 changes only model sampling to `temperature: 0`. The task, tool schema,
+96-token cap, 0.5 GB cache, bridge, and safety monitor remain fixed. This tests
+whether syntax instability is sampling-induced; malformed output will still be
+rejected rather than repaired.
 
 ## Disposition
 
