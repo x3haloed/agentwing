@@ -49,3 +49,14 @@ passing local canaries alone does not promote a configuration.
 
 Source parses. No claim of real Pi compatibility yet. Prepared for validation
 after the current full-suite screen; no existing runner or Pi entrypoint changed.
+
+## Prepared inherited-boundary probe
+
+`scripts/probe_task_boundary_integration.py` invokes the actual wrapper in a
+fresh disposable workspace with two owned listening sockets. It checks normal
+workspace/private-temp writes, `/dev/null`, outside and symlink writes, allowed
+and denied endpoint ports, and a child interpreter that first writes inside
+then attempts outside. External canary checks guard against false positives.
+Its source parses; execution is deferred until the active model suite ends.
+The probe cleans up only its own generated temporary files and closes its own
+sockets. It does not contact the inference endpoint or modify benchmark files.
