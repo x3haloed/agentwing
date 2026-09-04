@@ -1,0 +1,121 @@
+From 076234fdda30dffecce47c6154bf19f817604437 Mon Sep 17 00:00:00 2001
+From: Chad Kirby <x3haloed@gmail.com>
+Date: Thu, 3 Sep 2026 22:53:35 -0700
+Subject: [PATCH] Expose exact-prefix reuse diagnostics
+
+---
+ Sources/SwiftletCore/SwiftletSession.swift |  7 ++++++
+ Sources/SwiftletServer/ToolProtocol.swift  | 28 +++++++++++++++++++++-
+ Sources/SwiftletServer/main.swift          |  7 +++---
+ 3 files changed, 38 insertions(+), 4 deletions(-)
+
+diff --git a/Sources/SwiftletCore/SwiftletSession.swift b/Sources/SwiftletCore/SwiftletSession.swift
+index c9e5279..9a726b7 100644
+--- a/Sources/SwiftletCore/SwiftletSession.swift
++++ b/Sources/SwiftletCore/SwiftletSession.swift
+@@ -14,6 +14,7 @@ public final class SwiftletSession: @unchecked Sendable {
+     public struct Metrics: Sendable {
+         public var promptTokens = 0
+         public var reusedPromptTokens = 0
++        public var matchedPromptTokens = 0
+         public var generatedTokens = 0
+         public var timeToFirstToken: TimeInterval = 0
+         public var tokensPerSecond: Double = 0
+@@ -515,7 +516,12 @@ public final class SwiftletSession: @unchecked Sendable {
+                     let textMessages = self.cacheableTextMessages(messages, tools: tools)
+                     let suffix: [Int]
+                     var reusedPromptTokens = 0
++                    var matchedPromptTokens = 0
+                     let fullPrompt = try self.freshPromptIds(messages, tools: tools)
++                    if self.statePrimed {
++                        matchedPromptTokens = zip(fullPrompt, self.cachedTokens)
++                            .prefix(while: { pair in pair.0 == pair.1 }).count
++                    }
+                     if self.statePrimed,
+                        fullPrompt.count >= self.cachedTokens.count,
+                        Array(fullPrompt.prefix(self.cachedTokens.count)) == self.cachedTokens {
+@@ -690,6 +696,7 @@ public final class SwiftletSession: @unchecked Sendable {
+                     self.storeMetrics(Metrics(
+                         promptTokens: suffix.count,
+                         reusedPromptTokens: reusedPromptTokens,
++                        matchedPromptTokens: matchedPromptTokens,
+                         generatedTokens: generated.count,
+                         timeToFirstToken: (firstTokenAt ?? prefillDone).timeIntervalSince(start),
+                         tokensPerSecond: decodeSeconds > 0 ? Double(generated.count) / decodeSeconds : 0,
+diff --git a/Sources/SwiftletServer/ToolProtocol.swift b/Sources/SwiftletServer/ToolProtocol.swift
+index cdd7b5f..bf32143 100644
+--- a/Sources/SwiftletServer/ToolProtocol.swift
++++ b/Sources/SwiftletServer/ToolProtocol.swift
+@@ -175,9 +175,14 @@ private func canonicalArguments(_ text: String) -> String? {
+ /// ordinary structured template path is used and the session resets safely.
+ final class ToolReplayCache: @unchecked Sendable {
+     private let lock = NSLock()
++    private let debug: Bool
+     private var signatures: [ToolCallSignature] = []
+     private var rawText: String?
+ 
++    init(debug: Bool = false) {
++        self.debug = debug
++    }
++
+     func record(reply: ParsedToolReply, rawText: String) {
+         let next = reply.calls.map {
+             ToolCallSignature(
+@@ -200,7 +205,28 @@ final class ToolReplayCache: @unchecked Sendable {
+         guard incoming.count == calls.count else { return nil }
+         lock.lock()
+         defer { lock.unlock() }
+-        return incoming == signatures ? rawText : nil
++        guard incoming == signatures else {
++            if debug {
++                let sameCount = incoming.count == signatures.count
++                let ids = sameCount && zip(incoming, signatures)
++                    .allSatisfy { pair in pair.0.id == pair.1.id }
++                let types = sameCount && zip(incoming, signatures)
++                    .allSatisfy { pair in pair.0.type == pair.1.type }
++                let names = sameCount && zip(incoming, signatures)
++                    .allSatisfy { pair in pair.0.name == pair.1.name }
++                let arguments = sameCount
++                    && zip(incoming, signatures)
++                        .allSatisfy { pair in pair.0.arguments == pair.1.arguments }
++                FileHandle.standardError.write(Data(
++                    "[tool-replay] miss count=\(sameCount) ids=\(ids) types=\(types) names=\(names) arguments=\(arguments)\n".utf8))
++            }
++            return nil
++        }
++        if debug {
++            FileHandle.standardError.write(Data(
++                "[tool-replay] hit calls=\(incoming.count)\n".utf8))
++        }
++        return rawText
+     }
+ }
+ 
+diff --git a/Sources/SwiftletServer/main.swift b/Sources/SwiftletServer/main.swift
+index 377448c..99ba5e2 100644
+--- a/Sources/SwiftletServer/main.swift
++++ b/Sources/SwiftletServer/main.swift
+@@ -148,7 +148,7 @@ let cacheGB = Double(flag("--cache-gb") ?? "2") ?? 2
+ let debugToolOutput = cliArgs.contains("--debug-tool-output")
+ let acceptSchemaTags = cliArgs.contains("--accept-schema-tags")
+ let modelURL = URL(fileURLWithPath: modelPath)
+-let toolReplayCache = ToolReplayCache()
++let toolReplayCache = ToolReplayCache(debug: debugToolOutput)
+ 
+ FileHandle.standardError.write(Data("loading model + tokenizer...\n".utf8))
+ // The same Metal streaming engine as `swiftlet chat`: routed experts stream
+@@ -520,8 +520,9 @@ final class HTTPHandler: ChannelInboundHandler {
+                     }
+                     let m = session.lastMetrics
+                     FileHandle.standardError.write(Data(String(
+-                        format: "[%@] %d prompt + %d reused + %d generated, ttft %.1fs, %.2f tok/s\n",
+-                        id as NSString, m.promptTokens, m.reusedPromptTokens, m.generatedTokens,
++                        format: "[%@] %d prompt + %d reused (%d prefix matched) + %d generated, ttft %.1fs, %.2f tok/s\n",
++                        id as NSString, m.promptTokens, m.reusedPromptTokens,
++                        m.matchedPromptTokens, m.generatedTokens,
+                         m.timeToFirstToken, m.tokensPerSecond
+                     ).utf8))
+                     let toolReply: ParsedToolReply?
+-- 
+2.50.1 (Apple Git-155)
+
