@@ -55,3 +55,40 @@ runtime or throughput measurement has been established. Mixture-of-Values
 attention may require runtime work beyond ordinary expert streaming.
 
 **Disposition:** admitted as K0, an emerging unverified candidate; B0 unchanged.
+
+## 2026-09-03 — B0 first local smoke stopped on swap growth
+
+**Belief:** The Qwen3.6 8-bit/Swiftlet pair is computationally viable on this
+base M1, but the initial 2 GB expert-cache arm is not yet host-safe enough to
+serve as the fixed baseline under the observed ambient state.
+
+**Evidence:** All 50 artifact payload hashes matched, Swiftlet's 162 tests
+passed, and a real 16-token generation decoded at 1.87 tok/s. During the 22.30 s
+process, the system memory-free estimate fell from 51% to 33% and allocated swap
+rose by 1,614.94 MiB. The run was stopped before repeated turns or a 30-minute
+pressure fixture.
+
+**Qualification:** This is one conservative pre/post observation with 2.04 GiB
+of swap already allocated; it does not establish a sustained swap slope or
+separate Agentwing pressure from unrelated host processes. The process itself
+reported 2.42 GiB maximum RSS and a 4.11 GiB peak footprint.
+
+**Disposition:** exact B0 2 GB-cache arm stopped; lower-cache or clean-state arm
+required before promotion.
+
+## 2026-09-03 — Pi protocol works; stock Swiftlet tool transport does not
+
+**Belief:** Pi 0.84.4 is a reproducible harness endpoint, while Swiftlet's stock
+Chat Completions server is not yet an agent endpoint.
+
+**Evidence:** An isolated two-request fixture verified Pi's tool declaration,
+call ID, file result, result association, and continuation. Source inspection
+of pinned Swiftlet shows unknown top-level `tools` are ignored, assistant
+`tool_calls` are dropped from history, and only text deltas are returned. The
+downloaded Qwen template and pinned tokenizer both already support tool specs.
+
+**Qualification:** The fixture validates Pi's side, not model tool selection.
+A native Swiftlet bridge must preserve tool declarations, calls, results, and
+streaming response structure before Stage A can run against the model.
+
+**Disposition:** retain Pi; implement and test the Swiftlet boundary next.

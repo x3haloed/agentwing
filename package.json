@@ -1,0 +1,16 @@
+{
+  "name": "agentwing",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Reproducible harness dependencies for Agentwing experiments",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "packageManager": "pnpm@11.19.0",
+  "scripts": {
+    "pi": "pi"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "0.84.4"
+  }
+}

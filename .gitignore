@@ -1,6 +1,8 @@
 .DS_Store
 .env
 .venv/
+node_modules/
+var/
 build/
 .build/
 scratch/
@@ -13,4 +15,3 @@ evidence/raw/
 evidence/private/
 results/raw/
 *.trace.jsonl
-

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "experiment": "AW-0001",
+  "observed_at_utc": {
+    "start": "2026-09-04T03:10:30Z",
+    "end": "2026-09-04T03:10:53Z"
+  },
+  "identity": {
+    "model_revision": "720a56073578a3b42b5c40410baf90281bab9c0f",
+    "swiftlet_revision": "694706e1d8ec67021f4350be88c912b3cb50cb32",
+    "pi_version": "0.84.4",
+    "pi_revision": "6aedd1066e540642165aa30fa7b4a1b863778aa7",
+    "expert_cache_gb": 2
+  },
+  "integrity": {
+    "checked_files": 50,
+    "failures": 0,
+    "hash_manifest_sha256": "53f0b270042bea31e978543a2394f575df7193a5b8e85ab243686d8e3cfffbbf"
+  },
+  "verification": {
+    "swiftlet_tests_passed": 162,
+    "swiftlet_test_suites": 28,
+    "swiftlet_release_products": ["swiftlet", "swiftlet-server"],
+    "pi_protocol_fixture": "pass",
+    "stock_swiftlet_tool_transport": "fail-source-inspection"
+  },
+  "generation": {
+    "prompt_tokens": 21,
+    "prefill_wall_seconds": 7.362,
+    "generated_tokens": 16,
+    "decode_wall_seconds": 8.6,
+    "decode_tokens_per_second": 1.87,
+    "process_wall_seconds": 22.3,
+    "expert_cache_hit_percent": 29,
+    "maximum_resident_bytes": 2593275904,
+    "peak_memory_footprint_bytes": 4412750016
+  },
+  "host_pressure": {
+    "memory_free_percent_before": 51,
+    "memory_free_percent_after": 33,
+    "swap_used_mib_before": 2044.94,
+    "swap_used_mib_after": 3659.88,
+    "swap_delta_mib": 1614.94
+  },
+  "stop_reason": "swap growth exceeded the conservative 1 GiB experiment boundary",
+  "limitations": [
+    "single pre/post pressure sample, not a sustained 30-minute slope",
+    "host began with 2044.94 MiB swap already allocated",
+    "stock Swiftlet did not receive tool traffic in the real-model smoke"
+  ]
+}

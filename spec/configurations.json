@@ -8,14 +8,14 @@
   },
   "configurations": {
     "B0": {
-      "status": "candidate-unverified",
+      "status": "bringup-stopped-pressure",
       "role": "capability-baseline",
       "model": "Leonickson/Qwen3.6-35B-A3B-8bit-qpack",
-      "model_revision": null,
+      "model_revision": "720a56073578a3b42b5c40410baf90281bab9c0f",
       "runtime": "Swiftlet",
-      "runtime_revision": null,
+      "runtime_revision": "694706e1d8ec67021f4350be88c912b3cb50cb32",
       "harness": "Pi",
-      "harness_revision": null,
+      "harness_revision": "0.84.4+6aedd1066e540642165aa30fa7b4a1b863778aa7",
       "expert_cache_gb": 2,
       "concurrency": 1
     },

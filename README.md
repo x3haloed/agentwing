@@ -82,6 +82,26 @@ candidate rather than replacing B0 before independent and local validation.
 
 ## Status
 
-Repository scaffolded. The pinned Qwen3.6 8-bit qpack download has been started
-externally by the operator; no endpoint result has been claimed. Its final path,
-artifact hash, and storage condition remain to be recorded after completion.
+AW-0001 bring-up is active. The pinned 34 GB Qwen3.6 artifact passed all 50
+published payload hashes, Swiftlet's 162 tests pass, its release CLI and server
+build, and the pinned Pi harness passes a two-turn tool-protocol fixture.
+
+The first real 2 GB-cache smoke produced 1.87 decode tok/s, but system swap grew
+from 2.04 GB to 3.66 GB during the 22-second process. Execution stopped at the
+pressure boundary. Stock Swiftlet also discards Chat Completions `tools` and
+prior `tool_calls`, despite the model template and tokenizer supporting them.
+The next work is therefore a measured memory-safe cache arm plus a lossless
+Swiftlet tool bridge—not a benchmark score.
+
+## Bring-up commands
+
+```sh
+pnpm install --frozen-lockfile --ignore-scripts
+./scripts/doctor.sh
+./scripts/test-pi-protocol.sh
+./scripts/pi.sh --list-models agentwing
+```
+
+`scripts/pi.sh` keeps its state under ignored `var/` and does not modify the
+operator's normal `~/.pi` configuration. Do not run the real model again until
+the swap state and next cache arm have been declared in a new experiment.

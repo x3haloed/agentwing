@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "swiftlet": {
+    "repository": "https://github.com/leonickson1/Swiftlet",
+    "revision": "694706e1d8ec67021f4350be88c912b3cb50cb32",
+    "local_path": "/Users/chad/Models/agentwing/dependencies/Swiftlet"
+  },
+  "pi": {
+    "repository": "https://github.com/badlogic/pi-mono",
+    "revision": "6aedd1066e540642165aa30fa7b4a1b863778aa7",
+    "package": "@earendil-works/pi-coding-agent",
+    "package_version": "0.84.4",
+    "local_source_path": "/Users/chad/Models/agentwing/dependencies/pi-mono"
+  },
+  "qwen3_6_35b_a3b_8bit_qpack": {
+    "repository": "Leonickson/Qwen3.6-35B-A3B-8bit-qpack",
+    "revision": "720a56073578a3b42b5c40410baf90281bab9c0f",
+    "local_path": "/Users/chad/Models/agentwing/checkpoints/qwen3.6-35b-a3b-8bit.qpack",
+    "hash_manifest_sha256": "53f0b270042bea31e978543a2394f575df7193a5b8e85ab243686d8e3cfffbbf",
+    "payload_file_count": 50
+  }
+}
