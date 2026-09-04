@@ -72,3 +72,13 @@ every deviation.
 - For the active goal, require two interleaved full-suite control/candidate
   replications satisfying the contract above before promoting a local default.
 - Publish failures and negative results with the same prominence as wins.
+
+## Offline pair metric check
+
+Run `python3 scripts/assess_stage_a_pair.py CONTROL_RUN CANDIDATE_RUN` after
+both runs are terminal. It performs copied-workspace evidence audits and
+checks the necessary full-suite performance and host metrics from the current
+acceptance spec. A passing report is only one pair's metric evidence. Require
+two interleaved pairs with the same frozen arms and separately inspect protocol
+fixtures, actual process/network observations, permissions, and reproduction.
+A failed full-suite check makes any displayed rate ratio non-comparable.
