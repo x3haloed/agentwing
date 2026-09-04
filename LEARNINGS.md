@@ -424,3 +424,18 @@ but a model-error reply remains; no default promotion is warranted.
 
 **Disposition:** retain the boundary component and test 512 tokens as AW-0019,
 with all other settings and the task timeout unchanged.
+
+## 2026-09-04 — A larger call budget permits clean validation
+
+**Belief:** Complete-call boundaries need enough output budget for the longest
+legitimate call; stopping at a valid delimiter does not itself prevent truncation.
+
+**Evidence:** AW-0019 completed config repair and its test in 620 endpoint seconds,
+with utility 1, zero model errors/rejections/salvage, seven complete prefix reuse
+hits, pressure 1, and zero swap growth. The discovery command needed 287 tokens.
+One shell failure was recovered. The copied-workspace evidence audit passed.
+
+**Qualification:** This is one task. AW-0017's shorter 409-second run stopped on
+an error, so the extra time buys a clean finish and does not establish a speedup.
+
+**Disposition:** retain the 512-token arm for the single-file repair gate.
