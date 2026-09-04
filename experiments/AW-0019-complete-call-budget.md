@@ -2,7 +2,7 @@
 
 ## Status
 
-First development gate passed; single-file repair gate next.
+Both development gates passed; unchanged full-suite screen next.
 
 ## Hypothesis
 
@@ -85,3 +85,22 @@ Broader task utility and replicated suite performance remain unproven.
 ## Disposition
 
 Retained for the second development gate; no default promotion.
+
+## Second development gate — 2026-09-04
+
+`02-single-file-fix` passed with utility 1 in 641 endpoint seconds (635 task
+seconds), seven calls, two failed calls (missing Python command and reproduced
+failing tests), then a correct repair and passing tests. All seven continuations
+reused their full prefix, with zero model errors/rejections/salvage. Pressure
+peaked at 1 and swap growth was zero. No runner/server process remained.
+
+External run: `/Users/chad/Models/agentwing/evidence/AW-0019/20260904T230812Z`.
+Agentwing at launch: `fcc5a3c`; runtime unchanged at `459b201`.
+Summary SHA-256: `4331ef3d70965f29d4879d6186580fb77bc049ed70f5f0d3271a597a32ec03df`.
+`evidence/AW-0019-repair-task-audit.json` passes copied-workspace verification,
+protected-test integrity, protocol pairing, hashes, and safety checks.
+
+Both initial gates now pass. Proceed to the unchanged eight-task screen with
+`--task all` (the runner default), preserving all failures and endpoint costs.
+This screen is developmental; it is not one of the paired promotion replications.
+Retain candidate provisionally; promotion remains unproven.

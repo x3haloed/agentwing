@@ -455,3 +455,17 @@ performance rejection. Newly acquired models remain an option.
 
 **Disposition:** no immediate alternate endpoint trial; continue the live Qwen
 repair gate. No storage reclamation was needed or performed.
+
+## 2026-09-04 — The repaired transport/sampler also completes a code fix
+
+**Evidence:** AW-0019's single-file repair passed in 641 endpoint seconds with
+seven calls, full prefix reuse, zero model errors/rejections/salvage, pressure
+1, and no swap growth. The agent recovered from a missing Python command,
+reproduced failing tests, then repaired and validated the implementation.
+The copied-workspace audit passed and protected tests remained unchanged.
+
+**Qualification:** Two successful development tasks do not establish suite
+coverage, causal speedup, or promotion. Environment-command and path overhead
+remain visible. The optional AW-0021 cwd-hint extension is prepared but unused.
+
+**Disposition:** advance the unchanged AW-0019 candidate to the eight-task screen.
