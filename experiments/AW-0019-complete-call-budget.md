@@ -120,7 +120,9 @@ Summary SHA-256: `6dc34753b441374b34877e5679ff3a7450d7d2f17a82e1b16266d7c6dd9fc6
 The corrected `--all` launch is run `20260904T232042Z` (Agentwing `fd05609`).
 Task 01 has completed with utility 1 in 378 task seconds, five calls, no failed
 calls/model errors/rejections/salvage, and five full-prefix reuse hits. Task 02
-is still running. These are provisional per-task records, not a complete suite
+has since passed in 640 task seconds with seven calls, two failed shell/test
+calls, zero model errors/rejections/salvage, and seven full-prefix reuse hits.
+Task 03 is now running. These are provisional per-task records, not a complete suite
 or an independently audited aggregate result.
 
 `evidence/AW-0019-live-endpoint-observation.json` records one live-process and
