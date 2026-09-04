@@ -372,3 +372,20 @@ the baseline still had pressure level 1 and no swap growth. No KV code changed.
 
 **Disposition:** supersede the previous thread's layer-count/precision estimate.
 Retain TurboQuant/PolarQuant and CPU-mirror removal as longer-context arms.
+
+## 2026-09-04 — Environment facts alone do not rescue coding
+
+**Belief:** Avoiding missing-tool guesses is insufficient while generation
+itself corrupts necessary code structure.
+
+**Evidence:** AW-0015 avoided missing Python/pytest commands but still wrote a
+broken signature and expression, scoring zero before timeout. Prefix salvage
+caused a 229.1-second refill. The terminal cancellation metric was not observed
+within 30 seconds, so the strengthened runner stopped the suite. Pressure was
+1, swap growth zero, and no benchmark process remained.
+
+**Qualification:** One failed development task, not a causal full-suite
+comparison. The unconfirmed drain also excludes a completed-suite claim.
+
+**Disposition:** reject this exact prompt arm and prioritize AW-0016's sampler
+change, keeping the original compact-shell prompt for that comparison.

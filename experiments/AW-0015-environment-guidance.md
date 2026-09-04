@@ -2,7 +2,7 @@
 
 ## Status
 
-Frozen for the first development falsifier.
+Complete; rejected after the development falsifier.
 
 ## Hypothesis
 
@@ -55,7 +55,18 @@ AGENTWING_TOOL_PROFILE=shell AGENTWING_SALVAGE_TOOL_PREFIX=1 \
 
 ## Results
 
-Pending.
+Run `20260904T220831Z` scored zero after a 900-second task timeout. It executed
+five tool calls without trying the missing `python`/`pytest` commands, but
+produced a malformed function signature (`lower: int.upper: int`) and an
+unbalanced return expression. One salvaged tool prefix forced an 890-token
+refill taking 229.1 seconds TTFT. Environment guidance did not restore a
+verified coding outcome.
+
+Cancellation did not produce a terminal metric within the 30-second drain
+window. AW-0014's guard therefore stopped the suite and shut down the server.
+Total endpoint wall time was 939 seconds; pressure peaked at 1 and peak/final
+swap growth was zero. No benchmark process remained. This is a failed
+experiment with an unconfirmed drain, not a comparable completed-suite score.
 
 ## Confounders and deviations
 
@@ -66,12 +77,19 @@ prefill cost. System and filesystem caches are not flushed between runs.
 
 ## Evidence
 
-Pending.
+`/Users/chad/Models/agentwing/evidence/AW-0015/20260904T220831Z`.
+Summary SHA-256:
+`18b66fcd22d94853bdabc3eecd999a1a20dc48aa3949aa18444e8a6f3d00d122`.
+The run pins Agentwing `a984d9b` and Swiftlet `d7352d79`; the running binary
+was not rebuilt or changed during this trial. Subsequent sampler-source edits
+were prepared separately from the executing binary.
 
 ## Conclusion
 
-Pending.
+The exact prompt arm fails its predeclared single-task gate. The hard-trigram
+mechanism found in AW-0016 is a more direct next target than further prompt
+wording changes.
 
 ## Disposition
 
-Unresolved.
+Rejected for a full-suite campaign. Preserve the trace and failure evidence.

@@ -11,6 +11,7 @@ EVIDENCE_ROOT="${AGENTWING_EVIDENCE_ROOT:-/Users/chad/Models/agentwing/evidence/
 RUN_DIR="$EVIDENCE_ROOT/$RUN_ID"
 TASK_SELECTION="01-navigation"
 SALVAGE_TOOL_PREFIX="${AGENTWING_SALVAGE_TOOL_PREFIX:-0}"
+ALLOW_REPEATED_NGRAMS="${AGENTWING_ALLOW_REPEATED_NGRAMS:-0}"
 TOOL_PROFILE="${AGENTWING_TOOL_PROFILE:-full}"
 PROMPT_PROFILE="${AGENTWING_PROMPT_PROFILE:-base}"
 TASK_TIMEOUT_OVERRIDE="${AGENTWING_TASK_TIMEOUT_SECONDS:-}"
@@ -60,6 +61,11 @@ case "$SALVAGE_TOOL_PREFIX" in
     exit 2
     ;;
 esac
+case "$ALLOW_REPEATED_NGRAMS" in
+  0) repeat_arg=; sampler_suffix=; no_repeat_ngram=3 ;;
+  1) repeat_arg=--allow-repeated-ngrams; sampler_suffix=-repeat-allowed; no_repeat_ngram=0 ;;
+  *) echo "AGENTWING_ALLOW_REPEATED_NGRAMS must be 0 or 1" >&2; exit 2 ;;
+esac
 case "$TOOL_PROFILE" in
   full)
     tools_csv=read,bash,edit,write,grep,find,ls
@@ -78,7 +84,7 @@ case "$PROMPT_PROFILE" in
     ;;
   compact-shell|environment-shell)
     if [ "$TOOL_PROFILE" != shell ]; then
-      echo "AGENTWING_PROMPT_PROFILE=compact-shell requires AGENTWING_TOOL_PROFILE=shell" >&2
+      echo "AGENTWING_PROMPT_PROFILE=$PROMPT_PROFILE requires AGENTWING_TOOL_PROFILE=shell" >&2
       exit 2
     fi
     system_prompt="Work autonomously using bash. The current working directory is the task root: use relative paths only. Prefer one bounded shell command that searches only needed files, performs requested changes, and runs available project tests. Do not narrate before tool calls. After the requested artifact and validation are correct, stop immediately. If a command fails, repair it without repeating successful exploration."
@@ -134,6 +140,7 @@ free_kib=$(df -k "$ROOT" | awk 'NR == 2 {print $4}')
 suite_hash=$(find "$ROOT/benchmarks/stage-a-v1" -type f -print0 | sort -z | xargs -0 shasum -a 256 | shasum -a 256 | awk '{print $1}')
 agentwing_revision=$(git -C "$ROOT" rev-parse HEAD)
 swiftlet_revision=$(git -C "$SWIFTLET" rev-parse HEAD)
+server_binary_sha256=$(shasum -a 256 "$SWIFTLET/.build/release/swiftlet-server" | awk '{print $1}')
 os_version=$(sw_vers -productVersion)
 os_build=$(sw_vers -buildVersion)
 if [ "$SALVAGE_TOOL_PREFIX" = 1 ]; then
@@ -143,7 +150,7 @@ else
   recovery_suffix=
   salvage_arg=
 fi
-configuration="B0-stage-a-v1.1-${TOOL_PROFILE}-${PROMPT_PROFILE}${recovery_suffix}"
+configuration="B0-stage-a-v1.1-${TOOL_PROFILE}-${PROMPT_PROFILE}${recovery_suffix}${sampler_suffix}"
 
 jq -n \
   --arg run_id "$RUN_ID" \
@@ -151,6 +158,7 @@ jq -n \
   --arg suite_sha256 "$suite_hash" \
   --arg agentwing_revision "$agentwing_revision" \
   --arg swiftlet_revision "$swiftlet_revision" \
+  --arg server_binary_sha256 "$server_binary_sha256" \
   --arg model_revision "$(jq -r '.qwen3_6_35b_a3b_8bit_qpack.revision' "$DEPS")" \
   --arg harness_revision "$(jq -r '.pi.revision' "$DEPS")" \
   --arg os_version "$os_version" \
@@ -162,14 +170,18 @@ jq -n \
   --arg system_prompt_sha256 "$system_prompt_sha256" \
   --arg tools_csv "$tools_csv" \
   --argjson salvage_tool_prefix "$SALVAGE_TOOL_PREFIX" \
+  --argjson no_repeat_ngram "$no_repeat_ngram" \
   --argjson task_timeout_seconds "$task_timeout_seconds" \
   --argjson free_kib "$free_kib" \
   --argjson baseline_swap_mib "$baseline_swap" \
   '{run_id:$run_id,suite_id:$suite_id,suite_sha256:$suite_sha256,
     configuration:$configuration,agentwing_revision:$agentwing_revision,
-    swiftlet_revision:$swiftlet_revision,model_revision:$model_revision,
+    swiftlet_revision:$swiftlet_revision,server_binary_sha256:$server_binary_sha256,
+    model_revision:$model_revision,
     harness_revision:$harness_revision,model_cache_gb:0.5,max_output_tokens:192,
-    temperature:0,tool_profile:$tool_profile,prompt_profile:$prompt_profile,
+    temperature:0,presence_penalty:0,frequency_penalty:0.5,
+    no_repeat_ngram:$no_repeat_ngram,min_new_tokens:8,top_k:20,top_p:0.8,
+    enable_thinking:false,tool_profile:$tool_profile,prompt_profile:$prompt_profile,
     system_prompt_sha256:$system_prompt_sha256,
     tools:($tools_csv|split(",")),
     bind:"127.0.0.1",storage:"internal-ssd",free_kib_before:$free_kib,
@@ -183,7 +195,7 @@ suite_start_epoch=$(date +%s)
 
 "$SWIFTLET/.build/release/swiftlet-server" \
   --model "$MODEL" --port 8080 --cache-gb 0.5 --debug-tool-output \
-  --accept-schema-tags $salvage_arg >"$RUN_DIR/server.log" 2>&1 &
+  --accept-schema-tags $salvage_arg $repeat_arg >"$RUN_DIR/server.log" 2>&1 &
 SERVER_PID=$!
 
 i=0

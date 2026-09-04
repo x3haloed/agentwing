@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "runtime_revision": "97e0bbe2807383d75002b75f925e0ef91b4c9450",
+  "server_binary_sha256": "2ad95abdba638e1cca12d825ff73cfc29005416fcd1ce8ea50b0851644862b55",
+  "swift_targeted_tests": 38,
+  "swift_full_tests": 177,
+  "swift_full_suites": 28,
+  "release_build": "passed",
+  "python_tests": 6,
+  "pi_read_protocol_fixture": "passed",
+  "pi_shell_protocol_fixture": "passed",
+  "stage_a_pristine_tasks_rejected": 8,
+  "logs": {
+    "/Users/chad/Models/agentwing/evidence/AW-0016/validation/full-tests.log": "49f5cafc7f2523040349444da6359cf46e39aee952e8af36f2070fab4d51a07b",
+    "/Users/chad/Models/agentwing/evidence/AW-0016/validation/release-build.log": "53e980208547c92b4a22c4c34e2c0c8e2b376e6bbaad378766a2b3f4773a14b0",
+    "/Users/chad/Models/agentwing/evidence/AW-0016/validation/targeted-tests.log": "bea6d26ecc9384e9b29ae7f8a2dc1965a5d9882220a434facb585d9a3ee4e9a6"
+  }
+}

@@ -3,7 +3,7 @@
   "swiftlet": {
     "repository": "https://github.com/leonickson1/Swiftlet",
     "upstream_revision": "694706e1d8ec67021f4350be88c912b3cb50cb32",
-    "revision": "d7352d79ebb13a030bd3eb878510aaed7e9eb5b1",
+    "revision": "97e0bbe2807383d75002b75f925e0ef91b4c9450",
     "patches": [
       {
         "commit": "793a9a18bc3ba8f5f1e06bd50415bf2373088daf",
@@ -39,6 +39,11 @@
         "commit": "d7352d79ebb13a030bd3eb878510aaed7e9eb5b1",
         "path": "patches/0007-Salvage-complete-tool-call-prefixes.patch",
         "sha256": "8df22b58fd0b7f47eea484ec9a15cfe12aea41c300277d18b00c11a9190f3c01"
+      },
+      {
+        "commit": "97e0bbe2807383d75002b75f925e0ef91b4c9450",
+        "path": "patches/0008-Allow-repeated-ngrams-for-code.patch",
+        "sha256": "f7b179104a779927b73f26f1da3f6bff2c4f657de6f609dbe64dc884a0da8842"
       }
     ],
     "local_path": "/Users/chad/Models/agentwing/dependencies/Swiftlet"

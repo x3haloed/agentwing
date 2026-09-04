@@ -1,0 +1,129 @@
+From 97e0bbe2807383d75002b75f925e0ef91b4c9450 Mon Sep 17 00:00:00 2001
+From: Chad Kirby <x3haloed@gmail.com>
+Date: Fri, 4 Sep 2026 15:26:43 -0700
+Subject: [PATCH] Add explicit repeated-ngram arm for code and tool generation
+
+---
+ Sources/SwiftletServer/main.swift             | 26 +++++++++++-------
+ .../RepetitionGuardTests.swift                |  8 ++++++
+ .../ChatRequestTests.swift                    | 27 +++++++++++++++++++
+ 3 files changed, 51 insertions(+), 10 deletions(-)
+
+diff --git a/Sources/SwiftletServer/main.swift b/Sources/SwiftletServer/main.swift
+index 7f955ed..a6d1169 100644
+--- a/Sources/SwiftletServer/main.swift
++++ b/Sources/SwiftletServer/main.swift
+@@ -91,6 +91,19 @@ struct ChatRequest: Decodable {
+     let top_p: Float?
+     let stop: StopSequences?
+ 
++    func generationOptions(allowRepeatedNGrams: Bool = false) -> SwiftletSession.GenerationOptions {
++        var options = SwiftletSession.GenerationOptions()
++        if let temperature {
++            if temperature <= 0 { options = .greedy } else { options.temperature = temperature }
++        }
++        if let top_p { options.topP = top_p }
++        options.stopSequences = stop?.values ?? []
++        // Code, literal addresses, and tool markup require repeated n-grams.
++        // Keep this experimental arm explicit; all other controls are retained.
++        if allowRepeatedNGrams { options.noRepeatNGram = 0 }
++        return options
++    }
++
+     func templateInput(replayCache: ToolReplayCache? = nil) throws -> (
+         messages: [SwiftletChatMessage],
+         tools: [SwiftletToolSpec]?,
+@@ -141,7 +154,7 @@ func flag(_ name: String) -> String? {
+     return cliArgs[i + 1]
+ }
+ guard let modelPath = flag("--model") else {
+-    print("usage: swiftlet-server --model <dir> [--port 8080] [--cache-gb 2] [--debug-tool-output] [--accept-schema-tags] [--salvage-tool-prefix]")
++    print("usage: swiftlet-server --model <dir> [--port 8080] [--cache-gb 2] [--debug-tool-output] [--accept-schema-tags] [--salvage-tool-prefix] [--allow-repeated-ngrams]")
+     exit(2)
+ }
+ let port = Int(flag("--port") ?? "8080") ?? 8080
+@@ -149,6 +162,7 @@ let cacheGB = Double(flag("--cache-gb") ?? "2") ?? 2
+ let debugToolOutput = cliArgs.contains("--debug-tool-output")
+ let acceptSchemaTags = cliArgs.contains("--accept-schema-tags")
+ let salvageToolPrefix = cliArgs.contains("--salvage-tool-prefix")
++let allowRepeatedNGrams = cliArgs.contains("--allow-repeated-ngrams")
+ let modelURL = URL(fileURLWithPath: modelPath)
+ let toolReplayCache = ToolReplayCache(debug: debugToolOutput)
+ 
+@@ -445,15 +459,7 @@ final class HTTPHandler: ChannelInboundHandler {
+             }
+         }
+ 
+-        let options: SwiftletSession.GenerationOptions = {
+-            var o = SwiftletSession.GenerationOptions()
+-            if let t = request.temperature {
+-                if t <= 0 { o = .greedy } else { o.temperature = t }
+-            }
+-            if let p = request.top_p { o.topP = p }
+-            o.stopSequences = request.stop?.values ?? []
+-            return o
+-        }()
++        let options = request.generationOptions(allowRepeatedNGrams: allowRepeatedNGrams)
+ 
+         // Agent clients (OpenCode etc.) send multi-thousand-token prompts, so
+         // prefill can run minutes with no output. SSE comment heartbeats keep
+diff --git a/Tests/SwiftletCoreTests/RepetitionGuardTests.swift b/Tests/SwiftletCoreTests/RepetitionGuardTests.swift
+index cb61eeb..f84243b 100644
+--- a/Tests/SwiftletCoreTests/RepetitionGuardTests.swift
++++ b/Tests/SwiftletCoreTests/RepetitionGuardTests.swift
+@@ -32,6 +32,14 @@ import Foundation
+         #expect(banned == [3])
+     }
+ 
++    @Test func hardGuardBlocksCanonicalLoopbackAddress() {
++        // Pinned Qwen tokenizer: "127.0.0" -> 1,2,7,.,0,.,0.
++        // The next period is necessary for "127.0.0.1", but repeats .0.
++        let prefix = [16, 17, 22, 13, 15, 13, 15]
++        #expect(SwiftletSession.noRepeatNGramBanned(generated: prefix, n: 3).contains(13))
++        #expect(SwiftletSession.noRepeatNGramBanned(generated: prefix, n: 0).isEmpty)
++    }
++
+     @Test func breaksAReportedStyleNumericLoop() {
+         // The issue's collapse was a fixed numeric cycle repeating forever.
+         // Model it as tokens 7,8,9 cycling: once "7 8" -> 9 has been seen, the
+diff --git a/Tests/SwiftletServerTests/ChatRequestTests.swift b/Tests/SwiftletServerTests/ChatRequestTests.swift
+index 46c9ff1..5d62b0d 100644
+--- a/Tests/SwiftletServerTests/ChatRequestTests.swift
++++ b/Tests/SwiftletServerTests/ChatRequestTests.swift
+@@ -18,6 +18,33 @@ import SwiftletCore
+         #expect(r.max_tokens == 512)
+     }
+ 
++    @Test func repeatedNGramArmChangesOnlyHardGuard() throws {
++        let request = try decode(
++            #"{"messages":[{"role":"user","content":"write code"}],"temperature":0,"top_p":0.9,"stop":["END"]}"#
++        )
++        let control = request.generationOptions()
++        let candidate = request.generationOptions(allowRepeatedNGrams: true)
++        #expect(control.noRepeatNGram == 3)
++        #expect(candidate.noRepeatNGram == 0)
++        #expect(candidate.temperature == control.temperature)
++        #expect(candidate.presencePenalty == control.presencePenalty)
++        #expect(candidate.frequencyPenalty == control.frequencyPenalty)
++        #expect(candidate.frequencyPenalty == 0.5)
++        #expect(candidate.topK == control.topK)
++        #expect(candidate.topP == control.topP)
++        #expect(candidate.minNew == control.minNew)
++        #expect(candidate.stopSequences == ["END"])
++    }
++
++    @Test func ordinaryRequestsRetainSamplingDefaults() throws {
++        let request = try decode(#"{"messages":[{"role":"user","content":"hi"}]}"#)
++        let options = request.generationOptions()
++        #expect(options.temperature == 0.7)
++        #expect(options.noRepeatNGram == 3)
++        #expect(options.presencePenalty == 1.5)
++        #expect(options.frequencyPenalty == 0.5)
++    }
++
+     @Test func arrayOfPartsContent() throws {
+         let r = try decode(
+             #"{"messages":[{"role":"user","content":[{"type":"text","text":"hi"}]}]}"#
+-- 
+2.50.1 (Apple Git-155)
+
