@@ -76,15 +76,18 @@ case "$PROMPT_PROFILE" in
   base)
     system_prompt="Complete the requested repository task autonomously. Use targeted reads and searches; do not dump whole files when a bounded read or search is enough. Keep tool arguments and final text concise. If a command fails, diagnose and recover. Do not ask questions."
     ;;
-  compact-shell)
+  compact-shell|environment-shell)
     if [ "$TOOL_PROFILE" != shell ]; then
       echo "AGENTWING_PROMPT_PROFILE=compact-shell requires AGENTWING_TOOL_PROFILE=shell" >&2
       exit 2
     fi
     system_prompt="Work autonomously using bash. The current working directory is the task root: use relative paths only. Prefer one bounded shell command that searches only needed files, performs requested changes, and runs available project tests. Do not narrate before tool calls. After the requested artifact and validation are correct, stop immediately. If a command fails, repair it without repeating successful exploration."
+    if [ "$PROMPT_PROFILE" = environment-shell ]; then
+      system_prompt="$system_prompt Environment: python3 and standard-library unittest are available; python and pytest are unavailable. Discover the project's test command from its files instead of assuming a test runner."
+    fi
     ;;
   *)
-    echo "AGENTWING_PROMPT_PROFILE must be base or compact-shell" >&2
+    echo "AGENTWING_PROMPT_PROFILE must be base, compact-shell, or environment-shell" >&2
     exit 2
     ;;
 esac
@@ -124,6 +127,8 @@ if [ ! -x "$SWIFTLET/.build/release/swiftlet-server" ]; then
 fi
 
 mkdir -p "$RUN_DIR/tasks"
+printf '%s\n' "$system_prompt" >"$RUN_DIR/system-prompt.txt"
+system_prompt_sha256=$(shasum -a 256 "$RUN_DIR/system-prompt.txt" | awk '{print $1}')
 baseline_swap=$(swap_used_mib)
 free_kib=$(df -k "$ROOT" | awk 'NR == 2 {print $4}')
 suite_hash=$(find "$ROOT/benchmarks/stage-a-v1" -type f -print0 | sort -z | xargs -0 shasum -a 256 | shasum -a 256 | awk '{print $1}')
@@ -154,6 +159,7 @@ jq -n \
   --arg configuration "$configuration" \
   --arg tool_profile "$TOOL_PROFILE" \
   --arg prompt_profile "$PROMPT_PROFILE" \
+  --arg system_prompt_sha256 "$system_prompt_sha256" \
   --arg tools_csv "$tools_csv" \
   --argjson salvage_tool_prefix "$SALVAGE_TOOL_PREFIX" \
   --argjson task_timeout_seconds "$task_timeout_seconds" \
@@ -164,6 +170,7 @@ jq -n \
     swiftlet_revision:$swiftlet_revision,model_revision:$model_revision,
     harness_revision:$harness_revision,model_cache_gb:0.5,max_output_tokens:192,
     temperature:0,tool_profile:$tool_profile,prompt_profile:$prompt_profile,
+    system_prompt_sha256:$system_prompt_sha256,
     tools:($tools_csv|split(",")),
     bind:"127.0.0.1",storage:"internal-ssd",free_kib_before:$free_kib,
     swap_used_mib_before:$baseline_swap_mib,os_version:$os_version,os_build:$os_build,
@@ -381,7 +388,7 @@ jq -s \
 
 shasum -a 256 "$RUN_DIR/manifest.json" "$RUN_DIR/server.log" "$RUN_DIR/pressure.tsv" \
   "$RUN_DIR/results.jsonl" "$RUN_DIR/summary.json" "$RUN_DIR/thermal-before.txt" \
-  "$RUN_DIR/thermal-after.txt" >"$RUN_DIR/SHA256SUMS"
+  "$RUN_DIR/thermal-after.txt" "$RUN_DIR/system-prompt.txt" >"$RUN_DIR/SHA256SUMS"
 echo "run_dir=$RUN_DIR"
 jq . "$RUN_DIR/summary.json"
 test "$suite_status" = completed
