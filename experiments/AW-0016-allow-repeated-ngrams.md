@@ -64,7 +64,18 @@ AGENTWING_TOOL_PROFILE=shell AGENTWING_SALVAGE_TOOL_PREFIX=1 \
 
 ## Results
 
-The tokenizer-only fixtures reproduce the predicted bans. Model result pending.
+The tokenizer-only fixtures reproduce the predicted bans. Runtime `97e0bbe`
+passes 38 targeted tests and all 177 Swift tests in 28 suites. The release
+server builds; both the original Pi read fixture and the shell
+read/search/edit/failure/recovery fixture pass. Six Python tests and the eight
+pristine-task verifier checks pass. See `evidence/AW-0016-validation.json`.
+
+First real endpoint trial: `20260904T222719Z`, at Agentwing `360c162`.
+The first response emitted two valid tool calls. The next wrote the correct
+configuration, including the intact loopback address. A later response reached
+192 tokens and salvaged one complete call, forcing a full refill. At the last
+observation the task was still running; do not score the artifact alone or
+infer normal completion. Final summary and disposition remain pending.
 
 ## Confounders and deviations
 
@@ -80,7 +91,9 @@ for this pinned agent system.
 
 ## Evidence
 
-`evidence/AW-0016-ngram-obstruction.json`; external endpoint trace pending.
+`evidence/AW-0016-ngram-obstruction.json` and
+`evidence/AW-0016-validation.json`. Active-trial evidence directory:
+`/Users/chad/Models/agentwing/evidence/AW-0016/20260904T222719Z`.
 
 ## Conclusion
 
