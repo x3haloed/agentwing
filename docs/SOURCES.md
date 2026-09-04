@@ -18,6 +18,12 @@ Accessed 2026-09-03 unless otherwise noted.
   https://github.com/CerebrasResearch/reap
 - REAP paper:
   https://arxiv.org/abs/2510.13999
+- K2 Horizon MoVA 36B-A4B:
+  https://huggingface.co/IFM/K2-Horizon-MoVA-36B-A4B
+- K2 Horizon official GGUF repository:
+  https://huggingface.co/IFM/K2-Horizon-MoVA-36B-A4B-GGUF
+- K2 Horizon release announcement:
+  https://ifm.ai/blog/k2/
 
 ## Agent and benchmark evidence
 
@@ -36,4 +42,3 @@ Accessed 2026-09-03 unless otherwise noted.
   https://raw.githubusercontent.com/x3haloed/coding-skills/refs/heads/main/skills/embodiment-compression/SKILL.md
 - Local Prismwing repository, revision observed at scaffold time: `c87d0c1`
 - Local Firewing repository, revision observed at scaffold time: `8280a2a`
-

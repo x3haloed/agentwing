@@ -38,6 +38,21 @@ with internal-SSD results.
 - One active rollout
 - Production runtime defaults initially
 
+## Candidate K0
+
+- IFM K2 Horizon MoVA 36B-A4B
+- 36B total parameters and approximately 4B active per token
+- Native 524,288-token context; local context must be selected by pressure and
+  work-rate measurements rather than the advertised maximum
+- Official source revision at admission: `05cab0a4d7150c1c460a000b37ff40cc1af2feaa`
+- Official GGUF repository revision at admission:
+  `d1df6130209e274b23f7ad2ae0454d19e120d189`
+- Runtime, quantization, and harness unresolved
+
+K0 enters the option set because its publisher reports 58.6 on Terminal-Bench
+2.1 and 26.8 on tau3-Banking. It must pass artifact-fit, parser, tool-loop, and
+host-pressure gates before competing with B0 and C0.
+
 ## Optimization surface
 
 1. Model representation, pruning, and mixed precision
@@ -54,4 +69,3 @@ with internal-SSD results.
 - Reporting isolated kernel throughput as agent performance
 - Optimizing for cloud inference economics
 - Assuming a larger advertised context is useful on this host
-

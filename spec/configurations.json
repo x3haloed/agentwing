@@ -29,7 +29,25 @@
       "harness": "OpenCode",
       "harness_revision": null,
       "concurrency": 1
+    },
+    "K0": {
+      "status": "candidate-unverified",
+      "role": "emerging-capability-candidate",
+      "model": "IFM/K2-Horizon-MoVA-36B-A4B",
+      "model_revision": "05cab0a4d7150c1c460a000b37ff40cc1af2feaa",
+      "artifact_repository": "IFM/K2-Horizon-MoVA-36B-A4B-GGUF",
+      "artifact_revision": "d1df6130209e274b23f7ad2ae0454d19e120d189",
+      "quantization": null,
+      "runtime": null,
+      "runtime_revision": null,
+      "harness": null,
+      "harness_revision": null,
+      "reasoning_effort": "high",
+      "sampling": {
+        "temperature": 1.0,
+        "top_p": 0.95
+      },
+      "concurrency": 1
     }
   }
 }
-

@@ -37,3 +37,21 @@ throughput measurement.
 
 **Disposition:** retained as C0; unverified locally.
 
+## 2026-09-03 — K2 Horizon admitted as an option
+
+**Belief:** IFM K2 Horizon MoVA 36B-A4B is a credible capability challenger to
+Qwen3.6 at nearly the same stored and active parameter scale.
+
+**Evidence:** The publisher reports 36B total and approximately 4B active
+parameters, a native 512K context, native reasoning and tool-call parsers, 58.6
+on Terminal-Bench 2.1, and 26.8 on tau3-Banking. Its comparison table reports
+Qwen3.6-35B-A3B at 44.9 and 9.3 respectively under the cited evaluation source.
+The release includes official GGUF and FP8 variants and is Apache-2.0 licensed.
+
+**Qualification:** The model was released the same day as this entry. Results
+are publisher-reported, independent agentic replication is not yet available,
+the validated serving recipes target server hardware, and no M1 streaming
+runtime or throughput measurement has been established. Mixture-of-Values
+attention may require runtime work beyond ordinary expert streaming.
+
+**Disposition:** admitted as K0, an emerging unverified candidate; B0 unchanged.

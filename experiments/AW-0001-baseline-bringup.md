@@ -2,7 +2,8 @@
 
 ## Status
 
-Planned; blocked only on storage availability and implementation scheduling.
+Planned. The pinned model download has been started externally by the operator;
+tool-protocol integration and measurement have not started.
 
 ## Hypothesis
 
@@ -52,4 +53,3 @@ Pending.
 ## Disposition
 
 Unresolved.
-

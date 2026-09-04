@@ -52,6 +52,20 @@ TurboFieldfare already documents streaming Chat Completions, function tools,
 and single-prefix reuse. C0 tests whether a more complete and faster-serving
 system beats B0 on verified work rate despite different model capability.
 
+### K0 — emerging capability candidate
+
+- Model: K2 Horizon MoVA 36B-A4B
+- Publisher: Institute of Foundation Models (`IFM`)
+- Architecture: 36B stored, about 4B active per token, native 512K context
+- Initial artifact: official GGUF repository, exact quantization to be selected
+- Harness/runtime: unresolved pending local compatibility and a controlled
+  harness screen
+
+K2 Horizon was released on 2026-09-03 and reports 58.6 on Terminal-Bench 2.1
+and 26.8 on tau3-Banking, ahead of the Qwen3.6 comparison reported by its
+publisher. These are very recent publisher results, so K0 remains an emerging
+candidate rather than replacing B0 before independent and local validation.
+
 ## Repository map
 
 - `TARGET.md` — machine, objective, and initial configurations
@@ -64,11 +78,10 @@ system beats B0 on verified work rate despite different model capability.
 - `docs/EXPERIMENTS.md` — ordered research program
 - `experiments/AW-0001-baseline-bringup.md` — first executable experiment
 - `spec/acceptance.json` — machine-readable acceptance gates
-- `spec/configurations.json` — locked B0 and C0 definitions
+- `spec/configurations.json` — candidate definitions, including B0, C0, and K0
 
 ## Status
 
-Repository scaffolded. No model has been downloaded and no endpoint result has
-been claimed. Disk space currently occupied by Firewing must be released or a
-separate storage condition must be declared before model installation.
-
+Repository scaffolded. The pinned Qwen3.6 8-bit qpack download has been started
+externally by the operator; no endpoint result has been claimed. Its final path,
+artifact hash, and storage condition remain to be recorded after completion.
