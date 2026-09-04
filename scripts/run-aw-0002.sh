@@ -44,7 +44,7 @@ baseline_swap=$(swap_used_mib)
 printf 'timestamp_utc\tpressure_level\tswap_used_mib\n' >"$RUN_DIR/pressure.tsv"
 
 "$SWIFTLET/.build/release/swiftlet-server" \
-  --model "$MODEL" --port 8080 --cache-gb 0.5 \
+  --model "$MODEL" --port 8080 --cache-gb 0.5 --debug-tool-output \
   >"$RUN_DIR/server.log" 2>&1 &
 SERVER_PID=$!
 

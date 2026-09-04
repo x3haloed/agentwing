@@ -2,7 +2,8 @@
 
 ## Status
 
-Ready to run.
+Active. Trial T1 failed closed on malformed model output without crossing a
+host-pressure stop. A diagnostic retry is ready.
 
 ## Hypothesis
 
@@ -16,7 +17,8 @@ or more than 1 GiB swap growth at a 0.5 GB expert-cache budget.
   `720a56073578a3b42b5c40410baf90281bab9c0f`
 - Runtime base: Swiftlet at
   `694706e1d8ec67021f4350be88c912b3cb50cb32`
-- Runtime patch commit: `793a9a18bc3ba8f5f1e06bd50415bf2373088daf`
+- Runtime patch commits: `793a9a18bc3ba8f5f1e06bd50415bf2373088daf`
+  and diagnostic-only `97e7775ba22b40b1015a74f20011ef78ee99b855`
 - Patch artifact SHA-256:
   `9cc1c5b57ecf20e3f9eddc74801a20be5ea15f3e4b9b9b7b1fe4f651904add60`
 - Harness: Pi 0.84.4 at
@@ -53,7 +55,25 @@ outside Git; commit only hashes and a compact result.
 
 ## Results
 
-Pending.
+### T1 — strict bridge, 96-token output cap
+
+- UTC interval: 2026-09-04 03:29:54 through 03:32:16
+- Result: Pi exited 1 after Swiftlet rejected `unclosed parameter markup`.
+- Protocol behavior: failed closed; the malformed call was neither repaired nor
+  forwarded to Pi as executable work.
+- Pressure: macOS pressure level peaked at 2 and returned to 1. Swap moved from
+  3,579.88 MiB to 3,571.88 MiB (-8 MiB).
+- Raw evidence directory:
+  `/Users/chad/Models/agentwing/evidence/AW-0002/20260904T032954Z`
+- SHA-256:
+  - `server.log`: `4fc131af6a46f231570453c359963b8d28aa2f6e1972c29b1400fd7a4a8bf886`
+  - `pi.log`: `3eb4863aeebe9f9dfe16472eef406eb36514c3a841c98b7a000599c152e0043e`
+  - `pressure.tsv`: `90e9b9c06fb16868606ee3cc8f800ffd9d3a2af7d096d04e309e751624f166c2`
+
+T1 does not distinguish a generation truncated by the output cap from another
+malformation because rejected raw output was not logged. The diagnostic-only
+second patch adds opt-in escaped raw-output logging after a rejection; normal
+server operation remains content-silent.
 
 ## Disposition
 

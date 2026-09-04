@@ -1,0 +1,66 @@
+From 97e7775ba22b40b1015a74f20011ef78ee99b855 Mon Sep 17 00:00:00 2001
+From: Chad Kirby <x3haloed@gmail.com>
+Date: Thu, 3 Sep 2026 20:33:16 -0700
+Subject: [PATCH] Log rejected tool output on demand
+
+---
+ Sources/SwiftletServer/main.swift | 20 ++++++++++++++++----
+ 1 file changed, 16 insertions(+), 4 deletions(-)
+
+diff --git a/Sources/SwiftletServer/main.swift b/Sources/SwiftletServer/main.swift
+index 815d50d..eb42acc 100644
+--- a/Sources/SwiftletServer/main.swift
++++ b/Sources/SwiftletServer/main.swift
+@@ -9,6 +9,7 @@ import SwiftletCore
+ // on 127.0.0.1.
+ //
+ //   swiftlet-server --model <dir> [--port 8080] [--cache-gb 2]
++//                   [--debug-tool-output]
+ 
+ /// Message content per the OpenAI Chat Completions spec: a plain string, an
+ /// array of parts ([{type:"text",text:"..."}]), or null on tool-call turns.
+@@ -128,11 +129,12 @@ func flag(_ name: String) -> String? {
+     return cliArgs[i + 1]
+ }
+ guard let modelPath = flag("--model") else {
+-    print("usage: swiftlet-server --model <dir> [--port 8080] [--cache-gb 2]")
++    print("usage: swiftlet-server --model <dir> [--port 8080] [--cache-gb 2] [--debug-tool-output]")
+     exit(2)
+ }
+ let port = Int(flag("--port") ?? "8080") ?? 8080
+ let cacheGB = Double(flag("--cache-gb") ?? "2") ?? 2
++let debugToolOutput = cliArgs.contains("--debug-tool-output")
+ let modelURL = URL(fileURLWithPath: modelPath)
+ 
+ FileHandle.standardError.write(Data("loading model + tokenizer...\n".utf8))
+@@ -501,15 +503,25 @@ final class HTTPHandler: ChannelInboundHandler {
+                             writeSSE(completionPayload(id: id, text: nil, delta: delta, finish: nil))
+                         }
+                     }
+-                    let toolReply = try parseToolReply(fullText, declaredTools: toolNames)
+-                    let responseText = fullText
+-                    let responseToolReply = toolReply
+                     let m = session.lastMetrics
+                     FileHandle.standardError.write(Data(String(
+                         format: "[%@] %d prompt + %d generated, ttft %.1fs, %.2f tok/s\n",
+                         id as NSString, m.promptTokens, m.generatedTokens,
+                         m.timeToFirstToken, m.tokensPerSecond
+                     ).utf8))
++                    let toolReply: ParsedToolReply?
++                    do {
++                        toolReply = try parseToolReply(fullText, declaredTools: toolNames)
++                    } catch {
++                        if debugToolOutput {
++                            let escaped = String(reflecting: fullText)
++                            FileHandle.standardError.write(Data(
++                                "[\(id)] rejected tool output: \(escaped)\n".utf8))
++                        }
++                        throw error
++                    }
++                    let responseText = fullText
++                    let responseToolReply = toolReply
+ 
+                     eventLoop.execute {
+                         guard channel.isActive, m.finishReason != .cancelled else {
+-- 
+2.50.1 (Apple Git-155)

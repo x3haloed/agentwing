@@ -3,9 +3,19 @@
   "swiftlet": {
     "repository": "https://github.com/leonickson1/Swiftlet",
     "upstream_revision": "694706e1d8ec67021f4350be88c912b3cb50cb32",
-    "revision": "793a9a18bc3ba8f5f1e06bd50415bf2373088daf",
-    "patch": "patches/0001-Add-strict-OpenAI-tool-transport.patch",
-    "patch_sha256": "9cc1c5b57ecf20e3f9eddc74801a20be5ea15f3e4b9b9b7b1fe4f651904add60",
+    "revision": "97e7775ba22b40b1015a74f20011ef78ee99b855",
+    "patches": [
+      {
+        "commit": "793a9a18bc3ba8f5f1e06bd50415bf2373088daf",
+        "path": "patches/0001-Add-strict-OpenAI-tool-transport.patch",
+        "sha256": "9cc1c5b57ecf20e3f9eddc74801a20be5ea15f3e4b9b9b7b1fe4f651904add60"
+      },
+      {
+        "commit": "97e7775ba22b40b1015a74f20011ef78ee99b855",
+        "path": "patches/0002-Log-rejected-tool-output-on-demand.patch",
+        "sha256": "a1ee986f830166bce4ca641884c18a1119cb831ce5fa3ef90423d8c762e655b4"
+      }
+    ],
     "local_path": "/Users/chad/Models/agentwing/dependencies/Swiftlet"
   },
   "pi": {
