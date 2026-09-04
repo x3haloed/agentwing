@@ -100,7 +100,7 @@ jq -n \
     harness_revision:$harness_revision,model_cache_gb:0.5,max_output_tokens:192,
     temperature:0,tools:["read","bash","edit","write","grep","find","ls"],
     bind:"127.0.0.1",storage:"internal-ssd",free_kib_before:$free_kib,
-    swap_used_mib_before:$baseline_swap,os_version:$os_version,os_build:$os_build,
+    swap_used_mib_before:$baseline_swap_mib,os_version:$os_version,os_build:$os_build,
     task_selection:$task_selection}' >"$RUN_DIR/manifest.json"
 printf 'timestamp_utc\ttask_id\tpressure_level\tswap_used_mib\n' >"$RUN_DIR/pressure.tsv"
 : >"$RUN_DIR/results.jsonl"
