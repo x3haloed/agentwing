@@ -32,7 +32,10 @@ process was running at takeover. The prior 12 local commits were preserved.
    preference for KV compression is retained; these short trajectories have
    not demonstrated KV pressure as their bottleneck.
 
-Do not reduce the repository's five-replicate promotion rule to the earlier
-thread's proposed two-replication goal wording. Preserve the held-out Stage 2
-and external-validity gates. No new goal or background automation was created
-as part of transferring ownership.
+The user subsequently activated the long-horizon goal, explicitly specifying
+two interleaved replications. The 2026-09-04 goal-contract revision in
+`docs/VALIDATION_PROTOCOL.md` supersedes the earlier five-replicate note for
+this local promotion. Broader held-out and external-validity work remains
+separately labeled. The active goal also authorizes measured reclamation of
+reproducible project-scoped data; preserve provenance and record recovery
+commands. At continuation, 304 GiB was available, so no reclamation was needed.

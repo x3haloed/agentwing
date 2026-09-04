@@ -1,5 +1,22 @@
 # Validation protocol
 
+## Active goal contract — 2026-09-04 revision
+
+The user activated a goal specifying two interleaved replications for the first
+local coding-agent promotion. This explicitly supersedes the previous
+five-replicate requirement for this goal. Each full-suite candidate must retain
+at least the measured floor's three successes, preserve or improve its paired
+control's success count, and achieve at least twice its paired control's
+verified utility/hour. Also retain at least twice the recorded floor's rate
+(4.129229592812082 utility/hour). Use the frozen eight-task Stage A v1.1 suite,
+identical verifiers and timeouts, all protocol tests, pressure below 4, swap
+growth no greater than 1 GiB, and loopback-only inference. This is a local
+Stage A promotion; do not present it as Stage 2 or external validity.
+
+Stages 2 and 3 below remain the broader research roadmap, not extra completion
+conditions silently added to this user-defined goal. Run longer pressure
+validation if the candidate's measured workloads do not already cover Stage 1.
+
 ## Primary metric
 
 ```text
@@ -52,6 +69,6 @@ every deviation.
 - Separate cold-start, warm-runtime, warm-prefix, and warm-filesystem results.
 - Use the same task, verifier, timeout, permissions, and scoring revision.
 - Report median and tail latency, not only means.
-- Require at least five replicated runs before promoting a default.
+- For the active goal, require two interleaved full-suite control/candidate
+  replications satisfying the contract above before promoting a local default.
 - Publish failures and negative results with the same prominence as wins.
-

@@ -326,3 +326,14 @@ repeat of eight-task isolation. The barrier relies on serialized generation.
 
 **Disposition:** promote the fail-closed terminal-metric guard. Keep the
 AW-0008 measured floor and performance thresholds unchanged.
+
+## 2026-09-04 — User activates the promotion goal
+
+**Contract revision:** The newly active user goal explicitly requires two
+interleaved replications for local promotion and authorizes measured cleanup
+of verified-reproducible project-scoped data. This supersedes the earlier
+five-replicate continuation note for this goal. Spec and validation protocol
+now encode both paired 2× improvement and the historical floor (3 successes,
+2.064615 utility/hour). Broader validation remains separately labeled.
+
+**Capacity:** 304 GiB available on the project volume. No deletion warranted.

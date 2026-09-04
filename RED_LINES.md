@@ -7,8 +7,11 @@
   experiment explicitly studies swapping and is isolated from endpoint claims.
 - Do not run two model-owning processes concurrently during a baseline or
   control measurement.
-- Do not delete Firewing weights or other user data to make room. Storage
-  reclamation requires an explicit user decision.
+- Do not delete Firewing weights or unrelated user data to make room. The
+  active goal authorizes reclaiming verified-reproducible Agentwing-scoped
+  artifacts after measuring capacity. Preserve source, configuration,
+  benchmarks, results, provenance, and irreplaceable artifacts; record material
+  deletions and recovery commands. Prefer the least disruptive targets.
 - Do not expose unauthenticated local inference servers beyond loopback.
 
 ## Claim integrity
@@ -30,4 +33,3 @@
 - Record licenses and exact model revisions before acquisition.
 - Keep benchmark contamination probes and held-out verifier details out of
   prompts and generated training/calibration data.
-

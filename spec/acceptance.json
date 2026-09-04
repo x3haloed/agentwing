@@ -2,7 +2,12 @@
   "schema_version": 1,
   "primary_metric": "verified_utility_per_hour",
   "promotion": {
-    "minimum_replicates": 5,
+    "minimum_replicates": 2,
+    "replicate_unit": "interleaved_full_suite_control_candidate_pair",
+    "minimum_utility_rate_ratio_each_pair": 2.0,
+    "minimum_candidate_task_success_count": 3,
+    "requires_preserving_each_control_task_success_count": true,
+    "scope": "first local coding-agent goal; frozen Stage A v1.1",
     "requires_full_path_measurement": true,
     "requires_interleaved_control": true
   },
@@ -17,4 +22,3 @@
     "tool_events_must_be_observable": true
   }
 }
-
