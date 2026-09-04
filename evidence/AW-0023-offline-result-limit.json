@@ -1,0 +1,57 @@
+{
+  "scope": "Offline replay of completed tool messages through the extension hook; no Pi wire or endpoint performance validation",
+  "transcript": "/Users/chad/Models/agentwing/evidence/AW-0019/20260904T230812Z/tasks/02-single-file-fix/pi.jsonl",
+  "transcript_sha256": "5e6c381e71d85a2f6b6a9d1f0524e24f22e5b420a216e03b5c9df4b1b35c2da5",
+  "extension_sha256": "36db7631bb06a0fcbd7b3dbf32ad576a242bd05e18ddd37300d2bb32b8bc6498",
+  "results": [
+    {
+      "toolCallId": "call_623cf86c-864c-4a3f-ac51-d1d4b1a25b6d",
+      "isError": false,
+      "originalCharacters": 229,
+      "deliveredCharacters": 229,
+      "truncated": false
+    },
+    {
+      "toolCallId": "call_aa6b5518-9f2b-4207-9cdc-912f5f6b2a86",
+      "isError": false,
+      "originalCharacters": 159,
+      "deliveredCharacters": 159,
+      "truncated": false
+    },
+    {
+      "toolCallId": "call_d85b781f-5c9a-4dad-9150-c071637be520",
+      "isError": false,
+      "originalCharacters": 326,
+      "deliveredCharacters": 326,
+      "truncated": false
+    },
+    {
+      "toolCallId": "call_b99f5a54-5cd7-427a-bc46-1c3ed22feead",
+      "isError": true,
+      "originalCharacters": 104,
+      "deliveredCharacters": 104,
+      "truncated": false
+    },
+    {
+      "toolCallId": "call_f7e97d72-7e8f-4da4-8f4e-8bcf0b5d61f7",
+      "isError": true,
+      "originalCharacters": 1231,
+      "deliveredCharacters": 1024,
+      "truncated": true
+    },
+    {
+      "toolCallId": "call_3abc16b5-b9ab-425d-b71e-aa7440addf7b",
+      "isError": false,
+      "originalCharacters": 11,
+      "deliveredCharacters": 11,
+      "truncated": false
+    },
+    {
+      "toolCallId": "call_ea9169c8-b476-4825-93ac-8d2bb07df067",
+      "isError": false,
+      "originalCharacters": 216,
+      "deliveredCharacters": 216,
+      "truncated": false
+    }
+  ]
+}
