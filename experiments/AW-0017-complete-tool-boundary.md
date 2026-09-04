@@ -2,7 +2,7 @@
 
 ## Status
 
-Frozen for implementation; endpoint trial follows AW-0016 termination.
+First endpoint trial complete; retained component, clean-finish gate unmet.
 
 ## Hypothesis
 
@@ -62,6 +62,18 @@ builds. Both Pi protocol fixtures pass, including shell failure/recovery and
 streamed arguments. Six Python tests and the eight-pristine-task verifier
 checks pass. Real endpoint measurement pending.
 
+Run `20260904T224656Z`, at Agentwing `c8cd9f4`, scored utility 1 in **409
+endpoint seconds** (403 task seconds). Compared with AW-0016's 687 seconds,
+this is a 40.5% single-task diagnostic reduction, not an interleaved causal
+claim. All four continuations reused their complete preceding prefix; no
+salvage or full refill occurred. Pressure peaked at 1 and swap growth was zero.
+
+The final response still hit 192 tokens while explaining changes and starting
+a long test-discovery command. It was rejected as incomplete, and the final
+assistant message reports an error despite Pi exiting 0. The frozen verifier
+score is preserved, but normal-finish acceptance is unmet. The 192-token cap
+is now a distinct observed obstruction even without discarded prefix state.
+
 ## Confounders and deviations
 
 One call per response can increase round trips compared with native multi-call
@@ -75,11 +87,20 @@ strings, which strip output and invalidate state reuse in the current runtime.
 
 `evidence/AW-0017-validation.json` records test/build log and binary hashes.
 Runtime change is exported as `patches/0009-Retain-complete-tool-boundaries.patch`.
+The endpoint lives at
+`/Users/chad/Models/agentwing/evidence/AW-0017/20260904T224656Z`.
+Summary SHA-256:
+`504cef464d9543889288d97afe3c41b9902a73b582099c6d1b1d92866e9141eb`.
+`evidence/AW-0017-first-task-audit.json` passes the recorded-selection audit
+and copied-workspace verifier replay, while separately reporting the model
+error. No benchmark process remained afterward.
 
 ## Conclusion
 
-Pending.
+The complete-call boundary removes the observed salvage/refill cost while
+preserving the correct artifact. A larger call budget is needed to test clean
+completion of the remaining longer request; freeze that separately as AW-0019.
 
 ## Disposition
 
-Unresolved.
+Retained as a component. No default or suite-performance promotion.

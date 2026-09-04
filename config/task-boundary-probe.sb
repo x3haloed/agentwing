@@ -1,0 +1,4 @@
+(version 1)
+(allow default)
+(deny file-write* (require-not (subpath (param "WORKSPACE"))))
+(deny network-outbound (require-not (remote ip (param "ENDPOINT"))))

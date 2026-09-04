@@ -1,0 +1,44 @@
+{
+  "checks": {
+    "aggregate_rate": true,
+    "aggregate_utility": true,
+    "completed_declared_selection": true,
+    "pressure_gate": true,
+    "sha256:manifest.json": true,
+    "sha256:pressure.tsv": true,
+    "sha256:results.jsonl": true,
+    "sha256:server.log": true,
+    "sha256:summary.json": true,
+    "sha256:system-prompt.txt": true,
+    "sha256:thermal-after.txt": true,
+    "sha256:thermal-before.txt": true,
+    "swap_gate": true,
+    "task_logs_partition_server_suffix": true
+  },
+  "passed": true,
+  "run_id": "20260904T224656Z",
+  "schema_version": 1,
+  "scope": "Recorded evidence and copied-workspace replay; not sandbox certification or default promotion.",
+  "summary_sha256": "504cef464d9543889288d97afe3c41b9902a73b582099c6d1b1d92866e9141eb",
+  "tasks": [
+    {
+      "checks": {
+        "accepted_utility": true,
+        "no_cross_task_state_reuse": true,
+        "no_foreign_workspace_reference": true,
+        "paired_tool_events": true,
+        "protected_tests_unchanged": true,
+        "timeout_terminal_boundary": true,
+        "transcript_hash": true,
+        "unique_request_ownership": true,
+        "verifier_replay": true
+      },
+      "generated_tokens": 506,
+      "model_error_replies": 1,
+      "new_prompt_tokens": 646,
+      "reported_ttft_seconds": 171.9,
+      "request_count": 5,
+      "task_id": "08-config-sync"
+    }
+  ]
+}

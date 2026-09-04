@@ -13,6 +13,7 @@ TASK_SELECTION="01-navigation"
 SALVAGE_TOOL_PREFIX="${AGENTWING_SALVAGE_TOOL_PREFIX:-0}"
 ALLOW_REPEATED_NGRAMS="${AGENTWING_ALLOW_REPEATED_NGRAMS:-0}"
 STOP_AFTER_TOOL_CALL="${AGENTWING_STOP_AFTER_TOOL_CALL:-0}"
+MAX_OUTPUT_TOKENS="${AGENTWING_MAX_OUTPUT_TOKENS:-192}"
 TOOL_PROFILE="${AGENTWING_TOOL_PROFILE:-full}"
 PROMPT_PROFILE="${AGENTWING_PROMPT_PROFILE:-base}"
 TASK_TIMEOUT_OVERRIDE="${AGENTWING_TASK_TIMEOUT_SECONDS:-}"
@@ -72,6 +73,14 @@ case "$STOP_AFTER_TOOL_CALL" in
   1) boundary_arg=--stop-after-tool-call; boundary_suffix=-tool-boundary ;;
   *) echo "AGENTWING_STOP_AFTER_TOOL_CALL must be 0 or 1" >&2; exit 2 ;;
 esac
+case "$MAX_OUTPUT_TOKENS" in
+  ''|0*|*[!0-9]*) echo "AGENTWING_MAX_OUTPUT_TOKENS must be an integer from 1 to 4096" >&2; exit 2 ;;
+esac
+if [ "$MAX_OUTPUT_TOKENS" -gt 4096 ]; then
+  echo "AGENTWING_MAX_OUTPUT_TOKENS must be at most 4096" >&2
+  exit 2
+fi
+if [ "$MAX_OUTPUT_TOKENS" = 192 ]; then output_suffix=; else output_suffix=-max${MAX_OUTPUT_TOKENS}; fi
 case "$TOOL_PROFILE" in
   full)
     tools_csv=read,bash,edit,write,grep,find,ls
@@ -141,6 +150,10 @@ fi
 mkdir -p "$RUN_DIR/tasks"
 printf '%s\n' "$system_prompt" >"$RUN_DIR/system-prompt.txt"
 system_prompt_sha256=$(shasum -a 256 "$RUN_DIR/system-prompt.txt" | awk '{print $1}')
+jq --argjson maximum "$MAX_OUTPUT_TOKENS" \
+  '.providers["agentwing-swiftlet"].models[0].maxTokens = $maximum' \
+  "$ROOT/config/pi-models-stage-a.json" >"$RUN_DIR/pi-models.json"
+pi_models_sha256=$(shasum -a 256 "$RUN_DIR/pi-models.json" | awk '{print $1}')
 baseline_swap=$(swap_used_mib)
 free_kib=$(df -k "$ROOT" | awk 'NR == 2 {print $4}')
 suite_hash=$(find "$ROOT/benchmarks/stage-a-v1" -type f -print0 | sort -z | xargs -0 shasum -a 256 | shasum -a 256 | awk '{print $1}')
@@ -156,7 +169,7 @@ else
   recovery_suffix=
   salvage_arg=
 fi
-configuration="B0-stage-a-v1.1-${TOOL_PROFILE}-${PROMPT_PROFILE}${recovery_suffix}${sampler_suffix}${boundary_suffix}"
+configuration="B0-stage-a-v1.1-${TOOL_PROFILE}-${PROMPT_PROFILE}${recovery_suffix}${sampler_suffix}${boundary_suffix}${output_suffix}"
 
 jq -n \
   --arg run_id "$RUN_ID" \
@@ -174,10 +187,12 @@ jq -n \
   --arg tool_profile "$TOOL_PROFILE" \
   --arg prompt_profile "$PROMPT_PROFILE" \
   --arg system_prompt_sha256 "$system_prompt_sha256" \
+  --arg pi_models_sha256 "$pi_models_sha256" \
   --arg tools_csv "$tools_csv" \
   --argjson salvage_tool_prefix "$SALVAGE_TOOL_PREFIX" \
   --argjson no_repeat_ngram "$no_repeat_ngram" \
   --argjson stop_after_tool_call "$STOP_AFTER_TOOL_CALL" \
+  --argjson max_output_tokens "$MAX_OUTPUT_TOKENS" \
   --argjson task_timeout_seconds "$task_timeout_seconds" \
   --argjson free_kib "$free_kib" \
   --argjson baseline_swap_mib "$baseline_swap" \
@@ -185,12 +200,13 @@ jq -n \
     configuration:$configuration,agentwing_revision:$agentwing_revision,
     swiftlet_revision:$swiftlet_revision,server_binary_sha256:$server_binary_sha256,
     model_revision:$model_revision,
-    harness_revision:$harness_revision,model_cache_gb:0.5,max_output_tokens:192,
+    harness_revision:$harness_revision,model_cache_gb:0.5,max_output_tokens:$max_output_tokens,
     temperature:0,presence_penalty:0,frequency_penalty:0.5,
     no_repeat_ngram:$no_repeat_ngram,min_new_tokens:8,top_k:20,top_p:0.8,
     stop_after_tool_call:($stop_after_tool_call == 1),
     enable_thinking:false,tool_profile:$tool_profile,prompt_profile:$prompt_profile,
     system_prompt_sha256:$system_prompt_sha256,
+    pi_models_sha256:$pi_models_sha256,
     tools:($tools_csv|split(",")),
     bind:"127.0.0.1",storage:"internal-ssd",free_kib_before:$free_kib,
     swap_used_mib_before:$baseline_swap_mib,os_version:$os_version,os_build:$os_build,
@@ -247,7 +263,7 @@ for task_id in $TASKS; do
 
   /usr/bin/python3 "$ROOT/scripts/exec_process_group.py" \
     --cwd "$workspace" -- /usr/bin/env \
-    "AGENTWING_PI_MODELS_FILE=$ROOT/config/pi-models-stage-a.json" \
+    "AGENTWING_PI_MODELS_FILE=$RUN_DIR/pi-models.json" \
     "$ROOT/scripts/pi.sh" --mode json --print --no-session --approve --offline \
     --tools "$tools_csv" \
     --system-prompt "$system_prompt" \
@@ -368,6 +384,7 @@ for task_id in $TASKS; do
       salvaged_tool_prefixes:$salvaged_tool_prefixes,
       cancellation_drain_observed:($cancellation_drain_observed == 1),
       transcript_sha256:$transcript_sha256}' >>"$RUN_DIR/results.jsonl"
+  echo "task=$task_id status=$status utility=$accepted_utility wall_seconds=$wall_seconds"
 
   if [ "$status" = stopped-critical-pressure ] || [ "$status" = stopped-swap-growth ] \
     || [ "$status" = stopped-process-leak ] || [ "$status" = stopped-cancellation-drain ]; then
@@ -411,7 +428,7 @@ jq -s \
 
 shasum -a 256 "$RUN_DIR/manifest.json" "$RUN_DIR/server.log" "$RUN_DIR/pressure.tsv" \
   "$RUN_DIR/results.jsonl" "$RUN_DIR/summary.json" "$RUN_DIR/thermal-before.txt" \
-  "$RUN_DIR/thermal-after.txt" "$RUN_DIR/system-prompt.txt" >"$RUN_DIR/SHA256SUMS"
+  "$RUN_DIR/thermal-after.txt" "$RUN_DIR/system-prompt.txt" "$RUN_DIR/pi-models.json" >"$RUN_DIR/SHA256SUMS"
 echo "run_dir=$RUN_DIR"
 jq . "$RUN_DIR/summary.json"
 test "$suite_status" = completed

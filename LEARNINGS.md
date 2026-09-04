@@ -407,3 +407,20 @@ records model-error replies separately without changing the scoring rule.
 
 **Disposition:** retain the no-hard-ngram-ban component and test a complete
 retained tool boundary as AW-0017 before broader measurement.
+
+## 2026-09-04 — Retained tool boundaries remove refill overhead
+
+**Belief:** Ending after a complete call can preserve useful exact state and
+avoid the large cost of recovering a truncated multi-call response.
+
+**Evidence:** AW-0017 retained config-task utility 1 and completed in 409
+endpoint seconds versus AW-0016's 687. Every continuation reused its complete
+prefix; salvage fell from one to zero. Pressure remained 1 with zero swap
+growth. The final longer test-discovery call still hit the 192-token cap and
+was rejected, exposing a separate output-budget limit.
+
+**Qualification:** Non-interleaved one-task diagnostic. The artifact is correct,
+but a model-error reply remains; no default promotion is warranted.
+
+**Disposition:** retain the boundary component and test 512 tokens as AW-0019,
+with all other settings and the task timeout unchanged.
