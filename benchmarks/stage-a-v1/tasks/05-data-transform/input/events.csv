@@ -1,0 +1,7 @@
+service,status,latency_ms
+api,ok,41
+db,error,55
+worker,ok,18
+api,ok,22
+db,ok,5
+worker,error,9

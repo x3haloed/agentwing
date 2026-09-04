@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "suite_id": "agentwing-stage-a-v1",
+  "utility_per_task": 1,
+  "default_timeout_seconds": 900,
+  "tools": ["read", "bash", "edit", "write", "grep", "find", "ls"],
+  "tasks": [
+    {
+      "id": "01-navigation",
+      "category": "repository-navigation",
+      "prompt": "Inspect this repository, determine the production retry delay in milliseconds, and write only the integer to ANSWER.txt. Do not change existing files.",
+      "checks": [{"type": "file_exact", "path": "ANSWER.txt", "value": "2750\n"}]
+    },
+    {
+      "id": "02-single-file-fix",
+      "category": "bug-repair",
+      "prompt": "Fix the implementation so the existing test suite passes. Keep the public function name and signature unchanged.",
+      "checks": [{"type": "command", "argv": ["/usr/bin/python3", "-m", "unittest", "-q"]}]
+    },
+    {
+      "id": "03-multi-file-fix",
+      "category": "multi-file-repair",
+      "prompt": "Repair the package so the existing tests pass. The intended behavior is documented in README.md. Make the smallest coherent change.",
+      "checks": [{"type": "command", "argv": ["/usr/bin/python3", "-m", "unittest", "-q"]}]
+    },
+    {
+      "id": "04-refactor",
+      "category": "refactoring",
+      "prompt": "Replace the duplicated legacy_total implementations with one shared implementation while preserving behavior. Make the tests pass and remove the legacy_total symbol from the Python source files.",
+      "checks": [
+        {"type": "command", "argv": ["/usr/bin/python3", "-m", "unittest", "-q"]},
+        {"type": "source_absent", "glob": "*.py", "value": "legacy_total", "exclude": ["test_totals.py"]}
+      ]
+    },
+    {
+      "id": "05-data-transform",
+      "category": "shell-data-work",
+      "prompt": "Read events.csv and produce summary.json containing compact JSON with keys total_events, successful_events, and latency_ms_by_service. Service keys must be alphabetical and each value must be the sum of latency_ms for that service.",
+      "checks": [{"type": "json_exact", "path": "summary.json", "value": {"total_events": 6, "successful_events": 4, "latency_ms_by_service": {"api": 63, "db": 60, "worker": 27}}}]
+    },
+    {
+      "id": "06-failure-recovery",
+      "category": "failed-command-recovery",
+      "prompt": "Follow README.md to validate this project, recover from the documented stale command, and fix the implementation until the real validation command passes.",
+      "checks": [{"type": "command", "argv": ["sh", "scripts/validate.sh"]}]
+    },
+    {
+      "id": "07-bounded-read",
+      "category": "targeted-evidence-retrieval",
+      "prompt": "Find the only ERROR event in service.log. Write its request_id followed by a newline to ANSWER.txt. Do not modify service.log.",
+      "checks": [{"type": "file_exact", "path": "ANSWER.txt", "value": "req-0173\n"}]
+    },
+    {
+      "id": "08-config-sync",
+      "category": "multi-file-configuration",
+      "prompt": "Bring config.json into agreement with POLICY.md, then run the tests. Preserve unrelated configuration keys.",
+      "checks": [{"type": "command", "argv": ["/usr/bin/python3", "-m", "unittest", "-q"]}]
+    }
+  ]
+}

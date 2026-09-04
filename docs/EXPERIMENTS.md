@@ -12,20 +12,21 @@
 ## Phase B — remove agent-loop bottlenecks
 
 7. `AW-0007`: exact-prefix reuse for tool continuations
-8. Preserve only behaviorally useful history and tool results
-9. Compare reasoning budgets by verified utility/hour
-10. Measure expert locality on real agent trajectories
+8. `AW-0008`: freeze an eight-task deterministic agentic pre-screen and B0 floor
+9. Preserve only behaviorally useful history and tool results
+10. Compare reasoning budgets by verified utility/hour
+11. Measure expert locality on real agent trajectories
 
 ## Phase C — representation
 
-11. REAP calibration on held-out agent trajectories
-12. Pruned 8-bit versus unpruned 8-bit Qwen
-13. Mixed expert precision using routing and trajectory salience
-14. Higher-bit hot experts under a fixed disk and read budget
+12. REAP calibration on held-out agent trajectories
+13. Pruned 8-bit versus unpruned 8-bit Qwen
+14. Mixed expert precision using routing and trajectory salience
+15. Higher-bit hot experts under a fixed disk and read budget
 
 ## Phase D — scheduling
 
-15. Tool-time inference overlap
-16. Speculative decoding and native MTP where supported
-17. Single-model batching
-18. Multiple specialized agents only after single-rollout saturation is known
+16. Tool-time inference overlap
+17. Speculative decoding and native MTP where supported
+18. Single-model batching
+19. Multiple specialized agents only after single-rollout saturation is known
