@@ -17,23 +17,26 @@ process was running at takeover. The prior 12 local commits were preserved.
 
 ## Next bounded work
 
-1. Observe AW-0019's `02-single-file-fix` trial before launching any model work.
-   Confirmed live on 2026-09-04 at 23:08 UTC: exec session `75462`, runner PID
-   `70676`, server PID `70726`, external evidence directory
-   `/Users/chad/Models/agentwing/evidence/AW-0019/20260904T230812Z`.
-   Agentwing at launch is `fcc5a3c`, runtime `459b201`. These handles are not
-   proof of continuing liveness. Poll or inspect processes; do not restart a
-   live trial. Configuration is unchanged from the clean config-task result:
-   compact-shell, shell-only, salvage enabled, no hard n-gram ban, retained
-   tool-call boundaries, max output 512, cache 0.5 GB, timeout 900 seconds.
-2. Audit terminal evidence with `scripts/audit_stage_a.py`. If this repair task
-   passes cleanly, proceed to a full-suite screen of the same candidate. The
-   first AW-0019 gate (`08-config-sync`, run `20260904T225714Z`) finished cleanly
-   with utility 1 in 620 endpoint seconds, seven calls, one recovered shell
-   failure, zero model errors/rejections/salvage, full reuse, pressure 1, and no
-   swap growth. Its evidence audit passes. Session `36265` is terminal and its
-   server/runner are gone. Promotion still needs two interleaved full-suite
-   pairs, unchanged permissions/scoring, and all host/protocol gates.
+1. Observe AW-0019's full eight-task screen before launching other model work.
+   Confirmed live on 2026-09-04 at 23:20 UTC: exec session `42871`, runner PID
+   `74693`, server PID `74744`, evidence directory
+   `/Users/chad/Models/agentwing/evidence/AW-0019/20260904T232042Z`.
+   Agentwing at launch: `fd05609`, runtime `459b201`. Manifest confirms `all`
+   tasks, max output 512, repeated n-grams allowed, and retained call boundaries.
+   These handles are not proof of continuing liveness. Poll or inspect; do not
+   restart a live trial. Each task retains the 900-second timeout and host gates.
+   IMPORTANT: full-suite launch requires `--all`; default is navigation only.
+2. Both AW-0019 development gates passed cleanly. Config task completed in 620
+   endpoint seconds; single-file repair in 641. Each scored utility 1, with no
+   model errors/rejections/salvage, full continuation reuse, pressure 1 and zero
+   swap growth. Both audits pass. Sessions `36265` and `75462` are terminal.
+   Mistaken navigation-only launch `20260904T231929Z`, session `57295`, was
+   intentionally stopped after manifest validation, with zero utility and 56
+   seconds of preserved cost. Its runner/server are gone; see experiment record.
+   Audit the full screen after completion with `scripts/audit_stage_a.py`.
+   This is not a paired promotion replicate; two interleaved pairs remain.
+   AW-0021's relative-cwd extension is prepared but unused. It needs a real Pi
+   fixture and explicit runner/hash integration before any endpoint trial.
 3. Address enforceable tool permissions before promotion. AW-0018's native
    sandbox preflight allowed owned workspace writes and the owned endpoint,
    and denied outside writes, symlink escape, and a different endpoint port.
