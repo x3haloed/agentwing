@@ -82,16 +82,20 @@ candidate rather than replacing B0 before independent and local validation.
 
 ## Status
 
-AW-0001 bring-up is active. The pinned 34 GB Qwen3.6 artifact passed all 50
-published payload hashes, Swiftlet's 162 tests pass, its release CLI and server
-build, and the pinned Pi harness passes a two-turn tool-protocol fixture.
+The pinned 34 GB Qwen3.6 artifact passed all 50 published payload hashes. The
+patched Swiftlet suite passes 170 tests across 28 suites, its release server
+builds, and the pinned Pi harness passes both a synthetic protocol fixture and
+one real-model `read` loop.
 
 The first real 2 GB-cache smoke produced 1.87 decode tok/s, but system swap grew
 from 2.04 GB to 3.66 GB during the 22-second process. Execution stopped at the
 pressure boundary. Stock Swiftlet also discards Chat Completions `tools` and
 prior `tool_calls`, despite the model template and tokenizer supporting them.
-The next work is therefore a measured memory-safe cache arm plus a lossless
-Swiftlet tool bridge—not a benchmark score.
+Strict Qwen tool syntax failed closed in three short trials. A separately
+labeled schema-bounded normalization arm completed the real tool loop with a
+0.5 GB cache, pressure level 1 throughout, and 0 MiB swap growth. Its first and
+second TTFT were 115.8 s and 172.2 s, making repeated-turn prefill the clearest
+current bottleneck. This is endpoint viability, not yet a benchmark score.
 
 ## Bring-up commands
 
@@ -103,5 +107,6 @@ pnpm install --frozen-lockfile --ignore-scripts
 ```
 
 `scripts/pi.sh` keeps its state under ignored `var/` and does not modify the
-operator's normal `~/.pi` configuration. Do not run the real model again until
-the swap state and next cache arm have been declared in a new experiment.
+operator's normal `~/.pi` configuration. Real-model runs must remain separately
+declared, single-owner experiments with the pressure and swap stop conditions
+in `RED_LINES.md`.

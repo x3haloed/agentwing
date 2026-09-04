@@ -3,8 +3,9 @@
 ## Status
 
 Stopped after the first real-model pressure smoke crossed the conservative swap
-growth boundary. Artifact, runtime, and harness bring-up succeeded; native
-Swiftlet tool transport remains unimplemented.
+growth boundary. Artifact, runtime, and harness bring-up succeeded. Native tool
+transport and lower-cache follow-ups continue separately in AW-0002 and
+AW-0004.
 
 ## Hypothesis
 

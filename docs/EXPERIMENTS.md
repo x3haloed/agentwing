@@ -2,10 +2,12 @@
 
 ## Phase A — establish endpoints
 
-1. `AW-0001`: Qwen3.6 8-bit + Swiftlet + Pi tool-loop and pressure bring-up
-2. `AW-0002`: Gemma 4 + TurboFieldfare + OpenCode tool-loop and pressure bring-up
+1. `AW-0001`: Qwen3.6 8-bit + Swiftlet + Pi artifact and pressure bring-up
+2. `AW-0002`: strict native Swiftlet/Pi tool-bridge smoke
 3. `AW-0003`: K2 Horizon artifact, parser, runtime, and host-fit feasibility
-4. `AW-0004`: interleaved 20-task B0/C0/K0 screening comparison
+4. `AW-0004`: explicit schema-tag normalization arm
+5. `AW-0005`: Gemma 4 + TurboFieldfare + OpenCode tool-loop and pressure bring-up
+6. `AW-0006`: interleaved 20-task B0/C0/K0 screening comparison
 
 ## Phase B — remove agent-loop bottlenecks
 

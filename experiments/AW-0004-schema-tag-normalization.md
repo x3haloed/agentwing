@@ -2,7 +2,8 @@
 
 ## Status
 
-Ready to run.
+Complete. The schema-bounded normalization arm completed one end-to-end Pi
+`read` loop without crossing a host-pressure stop.
 
 ## Hypothesis
 
@@ -36,8 +37,26 @@ Identical to AW-0002.
 
 ## Results
 
-Pending.
+- UTC interval: 2026-09-04 03:45:11 through 03:50:30.
+- Result: completed; Pi exited 0 and reported `# Target` as the first Markdown
+  heading in `TARGET.md`.
+- First model turn: 446 prompt tokens, 35 generated tokens, 115.8 s TTFT, and
+  2.13 decode tok/s. The declared `path` schema-property tag was normalized and
+  logged before Pi executed `read`.
+- Second model turn: 670 prompt tokens, 12 generated tokens, 172.2 s TTFT, and
+  1.97 decode tok/s. No normalization was needed for the final text response.
+- Pressure: all 63 samples were level 1. Swap remained exactly 3,547.88 MiB,
+  for 0 MiB growth over the run.
+- Raw evidence directory:
+  `/Users/chad/Models/agentwing/evidence/AW-0004/20260904T034511Z`
+- SHA-256:
+  - `server.log`: `e9b938fecf8546c2b55f942e06ecde3997bae5bc3ed4aeb93464227fc0ad8569`
+  - `pi.log`: `caad13f75eae49ddd7f54b6645538e7d5d05f9b6e0ba9ac8191158ab3d8d8d57`
+  - `pressure.tsv`: `59e0a704b791568945ad40e163889fe3dc7ecf6d1ec52ca6090c0707c1023310`
 
 ## Disposition
 
-Unresolved.
+Retain for broader Stage A testing. This single read task establishes protocol
+viability, not tool-call reliability or verified utility. Repeated-turn prefill
+is the immediate bottleneck: TTFT rose from 115.8 s to 172.2 s when prompt
+history grew from 446 to 670 tokens.

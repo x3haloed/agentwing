@@ -111,3 +111,24 @@ is not standard parser output.
 
 **Disposition:** reject the strict AW-0002 arm; test an explicit, logged,
 schema-bounded normalization arm separately as AW-0004.
+
+## 2026-09-03 — Schema-bounded normalization completes the first tool loop
+
+**Belief:** Qwen3.6 8-bit through Swiftlet and Pi is now a viable experimental
+agent endpoint when its repeatable schema-property tag dialect is accepted by
+an explicit, logged, schema-bounded parser arm.
+
+**Evidence:** AW-0004 completed a real `read` call and continuation. The first
+turn normalized only the declared `path` property; Pi executed the tool and the
+second turn correctly reported `# Target`. First- and second-turn TTFT were
+115.8 s and 172.2 s, with 2.13 and 1.97 decode tok/s. All 63 pressure samples
+were level 1 and swap growth was 0 MiB with a 0.5 GB cache.
+
+**Qualification:** This is one task and one normalization event. It does not
+measure correctness across tools, false-accept risk, sustained pressure, or
+verified utility. The result belongs to the normalization arm, not strict
+Qwen tool-call accuracy.
+
+**Disposition:** retain AW-0004 for the full Stage A protocol fixture; prioritize
+repeated-turn prefill because 670 prompt tokens took 172.2 s before the final
+12-token answer.
