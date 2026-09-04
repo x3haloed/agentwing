@@ -1,0 +1,9 @@
+(version 1)
+(allow default)
+(deny file-write*
+  (require-not
+    (require-any
+      (subpath (param "WORKSPACE"))
+      (subpath (param "STATE"))
+      (literal "/dev/null"))))
+(deny network-outbound (require-not (remote ip (param "ENDPOINT"))))
