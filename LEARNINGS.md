@@ -194,3 +194,22 @@ speed but would feed structurally invalid assistant history back to the model.
 
 **Disposition:** reject AW-0009 as a performance arm and retain it only as an
 off-by-default prototype. Reduce the tool schema and syntax surface next.
+
+## 2026-09-04 — One universal shell tool cuts cold prompt cost by two thirds
+
+**Belief:** For this small local model/runtime pair, a single universal shell
+action is a substantially better inference surface than seven specialized Pi
+tools, although recovery is still needed for trailing malformed call markers.
+
+**Evidence:** AW-0010 reduced the frozen navigation task's initial prompt from
+1,450 to 457 tokens and TTFT from 391.3 to 118.0 seconds. Total endpoint time
+fell from 445 to 227 seconds. It executed one productive shell call, but the
+next generation appended an incomplete call marker after a valid `cat` call;
+strict parsing rejected it and utility remained zero. Pressure peaked at 1 and
+swap growth was zero.
+
+**Qualification:** This is one non-interleaved task and both arms scored zero.
+It demonstrates component throughput, not improved verified utility.
+
+**Disposition:** retain the shell-only profile as a candidate component and
+test it with explicit, observable recovery as AW-0011.
