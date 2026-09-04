@@ -28,6 +28,8 @@ cache state is part of the declared B0 Stage A configuration.
 
 The separately labeled AW-0009 recovery arm is enabled with
 `AGENTWING_SALVAGE_TOOL_PREFIX=1`. Strict parsing remains the default.
+The AW-0010 minimal-interface arm uses `AGENTWING_TOOL_PROFILE=shell`; the
+default `full` profile exposes all seven Pi tools.
 
 Raw transcripts and manifests default to
 `/Users/chad/Models/agentwing/evidence/AW-0008/` and stay outside Git.

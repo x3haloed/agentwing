@@ -175,3 +175,22 @@ unknown tools, invalid arguments, or unstructured suffix text.
 
 **Disposition:** retain strict B0 evidence; test a separately flagged,
 observable maximal-valid-prefix recovery arm as AW-0009.
+
+## 2026-09-04 — Prefix salvage extends trajectories but loses live-state reuse
+
+**Belief:** Truncating a malformed generation after its last complete tool call
+is safe and observable, but it is not an effective throughput policy when the
+truncated tokens already entered the model's live state.
+
+**Evidence:** AW-0009 executed three tools and salvaged two malformed suffixes,
+but `01-navigation` timed out at 910 endpoint seconds with zero utility. After
+one exact continuation reused 1,489 tokens at 6.5-second TTFT, truncation caused
+the next request to match 1,540 tokens but reuse zero; it paid 412.3 seconds of
+prefill again. Pressure peaked at 1 and swap changed by -8 MiB.
+
+**Qualification:** This rejects the tested truncated-history policy, not every
+possible recovery policy. Replaying the full malformed state might retain
+speed but would feed structurally invalid assistant history back to the model.
+
+**Disposition:** reject AW-0009 as a performance arm and retain it only as an
+off-by-default prototype. Reduce the tool schema and syntax surface next.

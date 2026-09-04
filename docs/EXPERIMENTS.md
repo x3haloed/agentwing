@@ -14,20 +14,21 @@
 7. `AW-0007`: exact-prefix reuse for tool continuations
 8. `AW-0008`: freeze an eight-task deterministic agentic pre-screen and B0 floor
 9. `AW-0009`: salvage maximal fully valid tool-call prefixes before malformed suffixes
-10. Preserve only behaviorally useful history and tool results
-11. Compare reasoning budgets by verified utility/hour
-12. Measure expert locality on real agent trajectories
+10. `AW-0010`: compare the full Pi tool surface with a shell-only profile
+11. Preserve only behaviorally useful history and tool results
+12. Compare reasoning budgets by verified utility/hour
+13. Measure expert locality on real agent trajectories
 
 ## Phase C — representation
 
-13. REAP calibration on held-out agent trajectories
-14. Pruned 8-bit versus unpruned 8-bit Qwen
-15. Mixed expert precision using routing and trajectory salience
-16. Higher-bit hot experts under a fixed disk and read budget
+14. REAP calibration on held-out agent trajectories
+15. Pruned 8-bit versus unpruned 8-bit Qwen
+16. Mixed expert precision using routing and trajectory salience
+17. Higher-bit hot experts under a fixed disk and read budget
 
 ## Phase D — scheduling
 
-17. Tool-time inference overlap
-18. Speculative decoding and native MTP where supported
-19. Single-model batching
-20. Multiple specialized agents only after single-rollout saturation is known
+18. Tool-time inference overlap
+19. Speculative decoding and native MTP where supported
+20. Single-model batching
+21. Multiple specialized agents only after single-rollout saturation is known

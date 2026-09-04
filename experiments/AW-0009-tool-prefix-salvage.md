@@ -2,7 +2,7 @@
 
 ## Status
 
-In progress.
+Complete.
 
 ## Hypothesis
 
@@ -51,7 +51,15 @@ AGENTWING_SALVAGE_TOOL_PREFIX=1 ./scripts/run-aw-0008.sh --task 01-navigation
 ## Results
 
 Swiftlet passes 174 tests across 28 suites and the release server builds.
-Endpoint result pending.
+The candidate scored zero on `01-navigation` and timed out after 910 endpoint
+seconds. It executed three valid tools and observably salvaged two malformed
+suffixes without a rejected tool output. The first 1,450-token prompt took
+384.9 seconds to first token. The first continuation reused all 1,489 prior
+tokens and took 6.5 seconds to first token. After truncating history to the
+accepted call boundary, the next request matched 1,540 prefix tokens but reused
+zero and paid a new 412.3-second prefill. The task read only the development
+default and did not reach the production override before timeout. Pressure
+peaked at 1 and swap changed by -8 MiB.
 
 ## Confounders and deviations
 
@@ -60,13 +68,21 @@ state can alter latency. Functional success, not latency, is the cheap gate.
 
 ## Evidence
 
-Pending endpoint evidence. Runtime patch is committed as
-`patches/0007-Salvage-complete-tool-call-prefixes.patch`.
+Runtime patch is committed as
+`patches/0007-Salvage-complete-tool-call-prefixes.patch`. Candidate run
+`20260904T160223Z`: summary SHA-256
+`1785b22fbcb560cbb47c9547d67fe868fce3e04a3748e4217c827b5bd505affa`;
+transcript SHA-256
+`812cd5ec678f691ea84ef9b9a74eb2bcfeb1118e84483e81d51323a8016887aa`.
 
 ## Conclusion
 
-Pending.
+Maximal valid-prefix salvage increases the number of productive steps but
+does not pass the cheap utility gate. Discarding malformed suffix state breaks
+exact live-state reuse; preserving that state would contaminate subsequent
+prompt structure. A smaller tool schema is a cleaner next experiment.
 
 ## Disposition
 
-Unresolved.
+Rejected as a performance arm; retained as an explicit off-by-default recovery
+prototype.

@@ -11,6 +11,7 @@ EVIDENCE_ROOT="${AGENTWING_EVIDENCE_ROOT:-/Users/chad/Models/agentwing/evidence/
 RUN_DIR="$EVIDENCE_ROOT/$RUN_ID"
 TASK_SELECTION="01-navigation"
 SALVAGE_TOOL_PREFIX="${AGENTWING_SALVAGE_TOOL_PREFIX:-0}"
+TOOL_PROFILE="${AGENTWING_TOOL_PROFILE:-full}"
 SERVER_PID=""
 PI_PID=""
 
@@ -57,6 +58,18 @@ case "$SALVAGE_TOOL_PREFIX" in
     exit 2
     ;;
 esac
+case "$TOOL_PROFILE" in
+  full)
+    tools_csv=read,bash,edit,write,grep,find,ls
+    ;;
+  shell)
+    tools_csv=bash
+    ;;
+  *)
+    echo "AGENTWING_TOOL_PROFILE must be full or shell" >&2
+    exit 2
+    ;;
+esac
 
 if [ "$TASK_SELECTION" = all ]; then
   TASKS=$(jq -r '.tasks[].id' "$MANIFEST")
@@ -90,12 +103,13 @@ swiftlet_revision=$(git -C "$SWIFTLET" rev-parse HEAD)
 os_version=$(sw_vers -productVersion)
 os_build=$(sw_vers -buildVersion)
 if [ "$SALVAGE_TOOL_PREFIX" = 1 ]; then
-  configuration=B0-stage-a-v1-prefix-salvage
+  recovery_suffix=-prefix-salvage
   salvage_arg=--salvage-tool-prefix
 else
-  configuration=B0-stage-a-v1
+  recovery_suffix=
   salvage_arg=
 fi
+configuration="B0-stage-a-v1-${TOOL_PROFILE}${recovery_suffix}"
 
 jq -n \
   --arg run_id "$RUN_ID" \
@@ -109,6 +123,8 @@ jq -n \
   --arg os_build "$os_build" \
   --arg task_selection "$TASK_SELECTION" \
   --arg configuration "$configuration" \
+  --arg tool_profile "$TOOL_PROFILE" \
+  --arg tools_csv "$tools_csv" \
   --argjson salvage_tool_prefix "$SALVAGE_TOOL_PREFIX" \
   --argjson free_kib "$free_kib" \
   --argjson baseline_swap_mib "$baseline_swap" \
@@ -116,7 +132,7 @@ jq -n \
     configuration:$configuration,agentwing_revision:$agentwing_revision,
     swiftlet_revision:$swiftlet_revision,model_revision:$model_revision,
     harness_revision:$harness_revision,model_cache_gb:0.5,max_output_tokens:192,
-    temperature:0,tools:["read","bash","edit","write","grep","find","ls"],
+    temperature:0,tool_profile:$tool_profile,tools:($tools_csv|split(",")),
     bind:"127.0.0.1",storage:"internal-ssd",free_kib_before:$free_kib,
     swap_used_mib_before:$baseline_swap_mib,os_version:$os_version,os_build:$os_build,
     task_selection:$task_selection,salvage_tool_prefix:($salvage_tool_prefix == 1)}' >"$RUN_DIR/manifest.json"
@@ -172,7 +188,7 @@ for task_id in $TASKS; do
     cd "$workspace"
     AGENTWING_PI_MODELS_FILE="$ROOT/config/pi-models-stage-a.json" \
       "$ROOT/scripts/pi.sh" --mode json --print --no-session --approve --offline \
-      --tools read,bash,edit,write,grep,find,ls \
+      --tools "$tools_csv" \
       --system-prompt "Complete the requested repository task autonomously. Use targeted reads and searches; do not dump whole files when a bounded read or search is enough. Keep tool arguments and final text concise. If a command fails, diagnose and recover. Do not ask questions." \
       "$prompt"
   ) >"$task_dir/pi.jsonl" 2>"$task_dir/pi.stderr" &
