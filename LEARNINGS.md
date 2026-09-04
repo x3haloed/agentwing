@@ -92,3 +92,22 @@ A native Swiftlet bridge must preserve tool declarations, calls, results, and
 streaming response structure before Stage A can run against the model.
 
 **Disposition:** retain Pi; implement and test the Swiftlet boundary next.
+
+## 2026-09-03 — Strict Qwen3.6 tool syntax rejected locally
+
+**Belief:** The 8-bit Qwen3.6/Swiftlet/Pi arm cannot yet serve as a strict tool
+baseline, although a 0.5 GB cache is promising for host safety.
+
+**Evidence:** Two instrumented real-model trials selected the correct `read`
+function but emitted invalid parameter markup after complete generations. The
+greedy replication repeated the same alternate `<path>…</path>` syntax. TTFT
+was 116.1–116.4 s for 446–447 prompt tokens; decode was 2.06–2.12 tok/s. Across
+three short trials, swap did not grow and pressure peaked at level 2.
+
+**Qualification:** This establishes neither general tool-call failure rate nor
+endpoint utility. It is one task with two sampling settings. Official Qwen/vLLM
+grammar expects `<parameter=name>…</parameter>`; the observed property-name tag
+is not standard parser output.
+
+**Disposition:** reject the strict AW-0002 arm; test an explicit, logged,
+schema-bounded normalization arm separately as AW-0004.

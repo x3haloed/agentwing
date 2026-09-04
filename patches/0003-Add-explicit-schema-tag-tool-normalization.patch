@@ -1,0 +1,287 @@
+From b33871230f51d3e3ec497eb2e6724fbf9557bb9d Mon Sep 17 00:00:00 2001
+From: Chad Kirby <x3haloed@gmail.com>
+Date: Thu, 3 Sep 2026 20:42:32 -0700
+Subject: [PATCH] Add explicit schema-tag tool normalization
+
+---
+ README.md                                     |  4 +-
+ Sources/SwiftletServer/ToolProtocol.swift     | 67 ++++++++++++++++---
+ Sources/SwiftletServer/main.swift             | 29 ++++++--
+ .../ChatRequestTests.swift                    | 28 +++++++-
+ 4 files changed, 112 insertions(+), 16 deletions(-)
+
+diff --git a/README.md b/README.md
+index 024fd1a..c9f1a6b 100644
+--- a/README.md
++++ b/README.md
+@@ -160,7 +160,9 @@ Swiftlet is a library first:
+    tool output is validated before it is returned as `tool_calls`. Tool-bearing
+    generations are buffered and currently prefill their complete history so a
+    partial XML call can never leak and cache reuse cannot cross an unrepresented
+-   tool boundary.
++   tool boundary. `--accept-schema-tags` explicitly accepts `<path>…</path>`-style
++   argument tags only when `path` is declared by that function's JSON schema;
++   every such normalization is logged. Strict native syntax remains the default.
+ 4. **An app.** [Priv AI](https://apps.apple.com/us/app/priv-ai/id6765706001)
+    on iOS embeds SwiftletCore as its streamed-model engine. End users tap
+    Download and chat. Nothing here is terminal-only. The app itself is open
+diff --git a/Sources/SwiftletServer/ToolProtocol.swift b/Sources/SwiftletServer/ToolProtocol.swift
+index f11d3f8..ae467f2 100644
+--- a/Sources/SwiftletServer/ToolProtocol.swift
++++ b/Sources/SwiftletServer/ToolProtocol.swift
+@@ -94,6 +94,15 @@ struct OpenAIToolDefinition: Decodable, Sendable {
+         else { return nil }
+         return name
+     }
++
++    var parameterNames: Set<String> {
++        guard case .object(let tool) = value,
++              case .object(let function)? = tool["function"],
++              case .object(let parameters)? = function["parameters"],
++              case .object(let properties)? = parameters["properties"]
++        else { return [] }
++        return Set(properties.keys)
++    }
+ }
+ 
+ struct OpenAIToolCall: Decodable, Sendable {
+@@ -141,12 +150,17 @@ struct ParsedToolCall: Equatable, Sendable {
+ struct ParsedToolReply: Equatable, Sendable {
+     let content: String?
+     let calls: [ParsedToolCall]
++    let normalizedSchemaTags: Bool
+ }
+ 
+ /// Strict parser for Qwen3.6's native XML tool syntax. It accepts optional
+ /// reasoning before the first call, but rejects unknown tools, duplicate
+ /// parameters, malformed nesting, and any suffix after the final call.
+-func parseToolReply(_ text: String, declaredTools: Set<String>) throws -> ParsedToolReply? {
++func parseToolReply(
++    _ text: String,
++    declaredTools: Set<String>,
++    acceptedSchemaTags: [String: Set<String>] = [:]
++) throws -> ParsedToolReply? {
+     let reservedMarkers = ["<tool_call>", "</tool_call>", "<function=", "<parameter="]
+     guard reservedMarkers.contains(where: text.contains) else { return nil }
+     guard text.contains("<tool_call>") else {
+@@ -167,6 +181,7 @@ func parseToolReply(_ text: String, declaredTools: Set<String>) throws -> Parsed
+     let prefix = source.substring(with: prefixRange).trimmingCharacters(in: .whitespacesAndNewlines)
+     var previousEnd = matches[0].range.location
+     var calls: [ParsedToolCall] = []
++    var normalizedSchemaTags = false
+ 
+     for match in matches {
+         let gap = NSRange(location: previousEnd, length: match.range.location - previousEnd)
+@@ -180,11 +195,45 @@ func parseToolReply(_ text: String, declaredTools: Set<String>) throws -> Parsed
+         guard declaredTools.contains(name) else { throw ToolProtocolError.unknownTool(name) }
+         let body = source.substring(with: match.range(at: 2))
+         let bodyNSString = body as NSString
+-        let parameterMatches = parameterRegex.matches(
+-            in: body, range: NSRange(location: 0, length: bodyNSString.length))
++        struct ParameterMatch {
++            let range: NSRange
++            let key: String
++            let value: String
++            let normalized: Bool
++        }
++        var parameterMatches = parameterRegex.matches(
++            in: body, range: NSRange(location: 0, length: bodyNSString.length)
++        ).map { parameter in
++            ParameterMatch(
++                range: parameter.range,
++                key: bodyNSString.substring(with: parameter.range(at: 1))
++                    .trimmingCharacters(in: .whitespacesAndNewlines),
++                value: bodyNSString.substring(with: parameter.range(at: 2))
++                    .trimmingCharacters(in: .whitespacesAndNewlines),
++                normalized: false)
++        }
++        for parameterName in acceptedSchemaTags[name] ?? [] {
++            let escaped = NSRegularExpression.escapedPattern(for: parameterName)
++            let alternate = try NSRegularExpression(
++                pattern: "(?s)<\(escaped)>\\s*(.*?)\\s*</\(escaped)>")
++            parameterMatches += alternate.matches(
++                in: body, range: NSRange(location: 0, length: bodyNSString.length)
++            ).map { parameter in
++                ParameterMatch(
++                    range: parameter.range,
++                    key: parameterName,
++                    value: bodyNSString.substring(with: parameter.range(at: 1))
++                        .trimmingCharacters(in: .whitespacesAndNewlines),
++                    normalized: true)
++            }
++        }
++        parameterMatches.sort { $0.range.location < $1.range.location }
+         var parameters: [String: Any] = [:]
+         var parameterEnd = 0
+         for parameter in parameterMatches {
++            guard parameter.range.location >= parameterEnd else {
++                throw ToolProtocolError.malformedModelOutput("overlapping parameter markup")
++            }
+             let gap = NSRange(
+                 location: parameterEnd,
+                 length: parameter.range.location - parameterEnd)
+@@ -193,13 +242,12 @@ func parseToolReply(_ text: String, declaredTools: Set<String>) throws -> Parsed
+                 throw ToolProtocolError.malformedModelOutput("invalid parameter markup")
+             }
+             parameterEnd = NSMaxRange(parameter.range)
+-            let key = bodyNSString.substring(with: parameter.range(at: 1))
+-                .trimmingCharacters(in: .whitespacesAndNewlines)
++            let key = parameter.key
+             guard !key.isEmpty, parameters[key] == nil else {
+                 throw ToolProtocolError.malformedModelOutput("empty or duplicate parameter")
+             }
+-            let raw = bodyNSString.substring(with: parameter.range(at: 2))
+-                .trimmingCharacters(in: .whitespacesAndNewlines)
++            let raw = parameter.value
++            normalizedSchemaTags = normalizedSchemaTags || parameter.normalized
+             if let data = raw.data(using: .utf8),
+                let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) {
+                 parameters[key] = json
+@@ -225,5 +273,8 @@ func parseToolReply(_ text: String, declaredTools: Set<String>) throws -> Parsed
+     guard source.substring(with: suffixRange).trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+         throw ToolProtocolError.malformedModelOutput("text appeared after final tool call")
+     }
+-    return ParsedToolReply(content: prefix.isEmpty ? nil : prefix, calls: calls)
++    return ParsedToolReply(
++        content: prefix.isEmpty ? nil : prefix,
++        calls: calls,
++        normalizedSchemaTags: normalizedSchemaTags)
+ }
+diff --git a/Sources/SwiftletServer/main.swift b/Sources/SwiftletServer/main.swift
+index eb42acc..eb2614e 100644
+--- a/Sources/SwiftletServer/main.swift
++++ b/Sources/SwiftletServer/main.swift
+@@ -9,7 +9,7 @@ import SwiftletCore
+ // on 127.0.0.1.
+ //
+ //   swiftlet-server --model <dir> [--port 8080] [--cache-gb 2]
+-//                   [--debug-tool-output]
++//                   [--debug-tool-output] [--accept-schema-tags]
+ 
+ /// Message content per the OpenAI Chat Completions spec: a plain string, an
+ /// array of parts ([{type:"text",text:"..."}]), or null on tool-call turns.
+@@ -89,7 +89,8 @@ struct ChatRequest: Decodable {
+     func templateInput() throws -> (
+         messages: [SwiftletChatMessage],
+         tools: [SwiftletToolSpec]?,
+-        toolNames: Set<String>
++        toolNames: Set<String>,
++        toolParameters: [String: Set<String>]
+     ) {
+         var pendingCallIDs = Set<String>()
+         var converted: [SwiftletChatMessage] = []
+@@ -119,7 +120,13 @@ struct ChatRequest: Decodable {
+             }
+         }
+         let specs = definitions.isEmpty ? nil : try definitions.map { try $0.templateSpec() }
+-        return (converted, specs, names)
++        var parameters: [String: Set<String>] = [:]
++        for definition in definitions {
++            guard let name = definition.functionName,
++                  parameters.updateValue(definition.parameterNames, forKey: name) == nil
++            else { throw ToolProtocolError.invalidToolDefinition }
++        }
++        return (converted, specs, names, parameters)
+     }
+ }
+ 
+@@ -129,12 +136,13 @@ func flag(_ name: String) -> String? {
+     return cliArgs[i + 1]
+ }
+ guard let modelPath = flag("--model") else {
+-    print("usage: swiftlet-server --model <dir> [--port 8080] [--cache-gb 2] [--debug-tool-output]")
++    print("usage: swiftlet-server --model <dir> [--port 8080] [--cache-gb 2] [--debug-tool-output] [--accept-schema-tags]")
+     exit(2)
+ }
+ let port = Int(flag("--port") ?? "8080") ?? 8080
+ let cacheGB = Double(flag("--cache-gb") ?? "2") ?? 2
+ let debugToolOutput = cliArgs.contains("--debug-tool-output")
++let acceptSchemaTags = cliArgs.contains("--accept-schema-tags")
+ let modelURL = URL(fileURLWithPath: modelPath)
+ 
+ FileHandle.standardError.write(Data("loading model + tokenizer...\n".utf8))
+@@ -386,7 +394,8 @@ final class HTTPHandler: ChannelInboundHandler {
+         let templateInput: (
+             messages: [SwiftletChatMessage],
+             tools: [SwiftletToolSpec]?,
+-            toolNames: Set<String>
++            toolNames: Set<String>,
++            toolParameters: [String: Set<String>]
+         )
+         do {
+             templateInput = try request.templateInput()
+@@ -399,6 +408,7 @@ final class HTTPHandler: ChannelInboundHandler {
+         let messages = templateInput.messages
+         let tools = templateInput.tools
+         let toolNames = templateInput.toolNames
++        let toolParameters = templateInput.toolParameters
+         let maxNew = request.max_tokens ?? request.max_completion_tokens ?? 512
+         let streaming = request.stream ?? false
+         let id = "chatcmpl-\(UUID().uuidString.prefix(8))"
+@@ -511,7 +521,14 @@ final class HTTPHandler: ChannelInboundHandler {
+                     ).utf8))
+                     let toolReply: ParsedToolReply?
+                     do {
+-                        toolReply = try parseToolReply(fullText, declaredTools: toolNames)
++                        toolReply = try parseToolReply(
++                            fullText,
++                            declaredTools: toolNames,
++                            acceptedSchemaTags: acceptSchemaTags ? toolParameters : [:])
++                        if toolReply?.normalizedSchemaTags == true {
++                            FileHandle.standardError.write(Data(
++                                "[\(id)] normalized declared schema-property tags\n".utf8))
++                        }
+                     } catch {
+                         if debugToolOutput {
+                             let escaped = String(reflecting: fullText)
+diff --git a/Tests/SwiftletServerTests/ChatRequestTests.swift b/Tests/SwiftletServerTests/ChatRequestTests.swift
+index 679c054..3abfea9 100644
+--- a/Tests/SwiftletServerTests/ChatRequestTests.swift
++++ b/Tests/SwiftletServerTests/ChatRequestTests.swift
+@@ -62,6 +62,7 @@ import SwiftletCore
+         )
+         let input = try r.templateInput()
+         #expect(input.toolNames == ["read"])
++        #expect(input.toolParameters["read"] == ["path"])
+         #expect(input.tools?.count == 1)
+         #expect(input.messages.count == 3)
+         #expect(input.messages[2]["tool_call_id"] as? String == "c1")
+@@ -150,10 +151,35 @@ import SwiftletCore
+         }
+     }
+ 
++    @Test func declaredSchemaTagsRequireExplicitOptIn() throws {
++        let raw = """
++            <tool_call>
++            <function=read>
++            <parameter=limit>20</parameter>
++            <path>TARGET.md</path>
++            </function>
++            </tool_call>
++            """
++        #expect(throws: ToolProtocolError.self) {
++            _ = try parseToolReply(raw, declaredTools: ["read"])
++        }
++        let parsed = try parseToolReply(
++            raw,
++            declaredTools: ["read"],
++            acceptedSchemaTags: ["read": ["path", "limit"]])
++        let reply = try #require(parsed)
++        #expect(reply.normalizedSchemaTags)
++        let arguments = try JSONSerialization.jsonObject(
++            with: Data(reply.calls[0].arguments.utf8)) as? [String: Any]
++        #expect(arguments?["path"] as? String == "TARGET.md")
++        #expect(arguments?["limit"] as? Int == 20)
++    }
++
+     @Test func toolCompletionPayloadUsesOpenAIShape() throws {
+         let reply = ParsedToolReply(
+             content: nil,
+-            calls: [ParsedToolCall(id: "c1", name: "read", arguments: #"{"path":"TARGET.md"}"#)])
++            calls: [ParsedToolCall(id: "c1", name: "read", arguments: #"{"path":"TARGET.md"}"#)],
++            normalizedSchemaTags: false)
+         let payload = toolCompletionPayload(
+             id: "chatcmpl-test", reply: reply, streaming: true,
+             model: "swiftlet-test")
+-- 
+2.50.1 (Apple Git-155)

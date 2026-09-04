@@ -3,7 +3,7 @@
   "swiftlet": {
     "repository": "https://github.com/leonickson1/Swiftlet",
     "upstream_revision": "694706e1d8ec67021f4350be88c912b3cb50cb32",
-    "revision": "97e7775ba22b40b1015a74f20011ef78ee99b855",
+    "revision": "b33871230f51d3e3ec497eb2e6724fbf9557bb9d",
     "patches": [
       {
         "commit": "793a9a18bc3ba8f5f1e06bd50415bf2373088daf",
@@ -14,6 +14,11 @@
         "commit": "97e7775ba22b40b1015a74f20011ef78ee99b855",
         "path": "patches/0002-Log-rejected-tool-output-on-demand.patch",
         "sha256": "a1ee986f830166bce4ca641884c18a1119cb831ce5fa3ef90423d8c762e655b4"
+      },
+      {
+        "commit": "b33871230f51d3e3ec497eb2e6724fbf9557bb9d",
+        "path": "patches/0003-Add-explicit-schema-tag-tool-normalization.patch",
+        "sha256": "c17c998b4fbe96526a7f6abdac0027b39a59282480e609fdacf5395c857a0dbd"
       }
     ],
     "local_path": "/Users/chad/Models/agentwing/dependencies/Swiftlet"

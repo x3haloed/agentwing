@@ -43,9 +43,15 @@ cp "$ROOT/TARGET.md" "$FIXTURE/TARGET.md"
 baseline_swap=$(swap_used_mib)
 printf 'timestamp_utc\tpressure_level\tswap_used_mib\n' >"$RUN_DIR/pressure.tsv"
 
-"$SWIFTLET/.build/release/swiftlet-server" \
-  --model "$MODEL" --port 8080 --cache-gb 0.5 --debug-tool-output \
-  >"$RUN_DIR/server.log" 2>&1 &
+if [ "${AGENTWING_ACCEPT_SCHEMA_TAGS:-0}" = "1" ]; then
+  "$SWIFTLET/.build/release/swiftlet-server" \
+    --model "$MODEL" --port 8080 --cache-gb 0.5 --debug-tool-output \
+    --accept-schema-tags >"$RUN_DIR/server.log" 2>&1 &
+else
+  "$SWIFTLET/.build/release/swiftlet-server" \
+    --model "$MODEL" --port 8080 --cache-gb 0.5 --debug-tool-output \
+    >"$RUN_DIR/server.log" 2>&1 &
+fi
 SERVER_PID=$!
 
 i=0

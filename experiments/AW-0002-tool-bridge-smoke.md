@@ -2,8 +2,8 @@
 
 ## Status
 
-Active. Trials T1 and T2 failed closed on malformed model output without
-crossing a host-pressure stop. Greedy trial T3 is ready.
+Complete. Three strict trials failed closed on malformed model output without
+crossing a host-pressure stop.
 
 ## Hypothesis
 
@@ -95,11 +95,28 @@ server operation remains content-silent.
 
 ### T3 — declared greedy variant
 
-T3 changes only model sampling to `temperature: 0`. The task, tool schema,
-96-token cap, 0.5 GB cache, bridge, and safety monitor remain fixed. This tests
-whether syntax instability is sampling-induced; malformed output will still be
-rejected rather than repaired.
+T3 changed only model sampling to `temperature: 0`. The task, tool schema,
+96-token cap, 0.5 GB cache, bridge, and safety monitor remained fixed.
+
+- UTC interval: 2026-09-04 03:37:35 through 03:39:57
+- Result: Pi exited 1 after Swiftlet rejected a complete malformed call.
+- Model output: the model again selected `read` and emitted a valid `limit`
+  parameter, then used undeclared XML argument syntax `<path>…</path>`.
+- Generation: 446 prompt tokens; 116.4 s TTFT; 35 generated tokens at 2.06
+  tok/s.
+- Pressure: macOS pressure level peaked at 2 and returned to 1. Swap moved from
+  3,563.88 MiB to 3,547.88 MiB (-16 MiB).
+- Raw evidence directory:
+  `/Users/chad/Models/agentwing/evidence/AW-0002/20260904T033735Z`
+- SHA-256:
+  - `server.log`: `81df3736d17b401e895940c7d6e88ba4e5014deb91e1d0907b8daa7f57d5e332`
+  - `pi.log`: `3eb4863aeebe9f9dfe16472eef406eb36514c3a841c98b7a000599c152e0043e`
+  - `pressure.tsv`: `39dbf53a8c1d8be77b43662cf612e32575131f509b1e56f571352114021ea082`
 
 ## Disposition
 
-Unresolved.
+Rejected as a strict-parser baseline. Default sampling and greedy decoding both
+produced complete but structurally invalid tool calls. The bridge behaved
+correctly by failing closed, and the 0.5 GB cache passed this short pressure
+screen. AW-0004 separately tests an explicit, logged schema-tag dialect; its
+results must not be merged with this strict arm.
