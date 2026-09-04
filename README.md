@@ -82,6 +82,13 @@ candidate rather than replacing B0 before independent and local validation.
 
 ## Status
 
+The first audited eight-task Stage A run scored **3/8 in 5,231 seconds
+(2.064615 verified utility/hour)** with pressure peaking at 1 and no swap growth.
+It uses the compact shell prompt and explicit prefix salvage. Three tasks
+timed out and two failed verification. This is one local engineering floor,
+not a promoted configuration; see
+[AW-0008](experiments/AW-0008-stage-a-benchmark.md) for evidence and limits.
+
 The pinned 34 GB Qwen3.6 artifact passed all 50 published payload hashes. The
 patched Swiftlet suite passes 172 tests across 28 suites, its release server
 builds, and the pinned Pi harness passes both a synthetic protocol fixture and
@@ -100,7 +107,9 @@ current bottleneck. This is endpoint viability, not yet a benchmark score.
 AW-0007 subsequently demonstrated exact tool-prefix reuse: 469 cached tokens
 were reused with an exact identity and token match. The remaining full-file
 tool result was still 684 new tokens and took 171.9 s to prefill. Bounded tool
-results and history compaction are therefore the next throughput target.
+results and history compaction remain throughput candidates. The full-suite
+failure traces also identify environment discovery, incorrect repeated edits,
+and exhausted generation budgets as the next reliability experiments.
 
 ## Bring-up commands
 

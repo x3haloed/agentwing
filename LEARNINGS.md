@@ -289,3 +289,24 @@ and is not a performance result. A valid floor still requires the frozen
 
 **Disposition:** promote the process-isolation runner infrastructure and rerun
 the full Stage A v1.1 floor.
+
+## 2026-09-04 — First full Stage A floor recovered and audited
+
+**Belief:** Compact shell + explicit prefix salvage establishes a measurable
+local engineering floor, but coding reliability remains the immediate limit.
+
+**Evidence:** Run `20260904T190356Z` completed eight tasks in 5,231 seconds,
+scoring 3/8 and 2.064615 verified utility/hour, with pressure level 1 and zero
+peak swap growth. Three tasks timed out and two finished without valid
+artifacts. Offline checksum, transcript, task-boundary, supplied-test, and
+copied-workspace verifier checks pass. See AW-0008 and its committed audit.
+
+**Qualification:** This supersedes the claim that the full floor is still
+pending. It is one warm-server suite, not a promotion or an externally valid
+capability result. Common prefix matches reused zero state across tasks.
+Task working directories and startup-offline mode do not enforce shell
+filesystem/network isolation. Some visible tests have narrow coverage.
+
+**Disposition:** retain the floor. Test generic environment guidance separately
+from output-budget changes; keep KV compression conditional on memory profiling.
+The existing five-replicate and broader-validation gates remain unchanged.

@@ -2,7 +2,7 @@
 
 ## Status
 
-In progress.
+First full Stage A floor recorded; replication and broader validation pending.
 
 ## Hypothesis
 
@@ -96,8 +96,67 @@ live outside Git under `/Users/chad/Models/agentwing/evidence/AW-0008/`.
 
 ## Conclusion
 
-Pending runner completion and first B0 measurement.
+The process-isolated run `20260904T190356Z` completed all eight frozen v1.1
+tasks in 5,231 endpoint seconds, scoring 3 utility (**2.064615 utility/hour**).
+Tasks 01, 06, and 07 passed; 02, 03, and 04 timed out; 05 and 08 ended without
+passing their verifiers. All failures and timeout/cancellation overhead remain
+in the denominator. Pressure peaked at 1 and peak/final swap growth was zero.
+
+This run finished before the originating thread was interrupted, but its
+result had not reached the project ledger. A takeover audit verified all seven
+archived checksums, all eight transcript hashes, tool-event pairing, unique
+request ownership, exact partitioning of the server-log suffix into task logs,
+unchanged supplied tests, and the three timeout terminal boundaries. Replaying
+the frozen verifiers on temporary copies reproduced all eight outcomes.
+
+Every task's initial request reused zero tokens. Five initial requests matched
+435 common prefix tokens without reusing them; this is not cross-task state
+reuse. The server stayed warm between tasks, and the filesystem cache was not
+flushed. Do not label this eight independent cold-start runs.
+
+The first floor used Agentwing `d7714aeca77b4eab0b03ec24e195477527bb17a4`
+and Swiftlet `d7352d79ebb13a030bd3eb878510aaed7e9eb5b1`, the compact-shell
+prompt, shell-only tools, explicit prefix salvage, 0.5 GB expert cache,
+192 output tokens, greedy sampling, and the original 900-second task timeout.
+The summary SHA-256 is
+`f5d132e241ce2b5027fefa670a521e672c546ef7a9e7cb9c77bd873093d323c4`.
+The full run remains at
+`/Users/chad/Models/agentwing/evidence/AW-0008/20260904T190356Z`.
+
+Reproduce the offline audit with:
+
+```sh
+python3 scripts/audit_stage_a.py \
+  /Users/chad/Models/agentwing/evidence/AW-0008/20260904T190356Z
+```
+
+The small report is retained in `evidence/AW-0008-first-floor-audit.json`.
+Negative controls rejected a foreign-workspace reference, a changed task-log
+partition, and valid-JSON transcript tampering. Existing four Python tests and
+the eight-pristine-task self-test also passed during takeover.
+
+### Limits and next experiment
+
+This is a local engineering floor, not a promoted default or a general coding
+capability score. The suite is small and now inspected for development; keep
+Stage 2 held out. Task 06's test covers one normalization example and cannot
+support a broader whitespace-normalization claim. Two tasks encountered
+rejected tool output; no malformed call was accepted as a successful task.
+
+The runner uses the task as its working directory but does not demonstrate
+filesystem or network sandboxing of shell tools. Pi's `--offline` disables
+startup network operations only. The audit establishes recorded task-boundary
+integrity, not enforceable permission isolation. Thermal snapshots reported
+no recorded warning; continuous thermal state, binary hashes, and physical
+read accounting remain absent from this run.
+
+Three coding tasks guessed missing `python`/`pytest` commands. Long absolute
+paths and repeated incorrect writes added cost, while tasks 05 and 08 exhausted
+192 output tokens during rejected generations. These are candidate causes,
+not proof that environment guidance or a larger generation budget will improve
+utility. Test those variables separately, starting with generic environment
+guidance. Do not inject task solutions or change the frozen verifier.
 
 ## Disposition
 
-Unresolved.
+Retained as the first measured Stage A floor. No default promotion.

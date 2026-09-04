@@ -279,16 +279,13 @@ for task_id in $TASKS; do
     # Wait for the active request's terminal metric after the client closes.
     # This is both a cancellation barrier and a per-task evidence boundary.
     if [ -n "$server_line_at_stop" ]; then
-      drain_checks=0
-      while [ "$drain_checks" -lt 60 ]; do
-        drain_line_now=$(wc -l <"$RUN_DIR/server.log" | tr -d ' ')
-        if [ "$drain_line_now" -gt "$server_line_at_stop" ]; then
-          cancellation_drain_observed=1
-          break
-        fi
-        drain_checks=$((drain_checks + 1))
-        sleep 0.5
-      done
+      if /usr/bin/python3 "$ROOT/scripts/wait_terminal_metric.py" \
+        "$RUN_DIR/server.log" "$server_line_at_stop"; then
+        cancellation_drain_observed=1
+      elif [ "$status" = stopped-timeout ]; then
+        # Never begin another task with an unconfirmed cancellation boundary.
+        status=stopped-cancellation-drain
+      fi
     fi
   fi
   end_epoch=$(date +%s)
@@ -343,7 +340,7 @@ for task_id in $TASKS; do
       transcript_sha256:$transcript_sha256}' >>"$RUN_DIR/results.jsonl"
 
   if [ "$status" = stopped-critical-pressure ] || [ "$status" = stopped-swap-growth ] \
-    || [ "$status" = stopped-process-leak ]; then
+    || [ "$status" = stopped-process-leak ] || [ "$status" = stopped-cancellation-drain ]; then
     suite_status=$status
     break
   fi

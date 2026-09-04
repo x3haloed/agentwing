@@ -18,7 +18,8 @@
 11. `AW-0011`: test shell-only action with explicit prefix recovery
 12. `AW-0012`: minimize shell-agent actions with relative-path prompting
 13. `AW-0013`: enforce per-task process-tree isolation and cancellation
-14. Preserve only behaviorally useful history and tool results
+14. `AW-0014`: require a terminal metric and abort on an unconfirmed cancellation
+15. Preserve only behaviorally useful history and tool results
 15. Compare reasoning budgets by verified utility/hour
 16. Measure expert locality on real agent trajectories
 
