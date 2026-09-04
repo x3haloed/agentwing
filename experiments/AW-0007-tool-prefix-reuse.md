@@ -2,7 +2,8 @@
 
 ## Status
 
-Ready to run.
+Complete. Exact-prefix reuse worked, but the predeclared 2× TTFT threshold was
+not met because the successful validation returned an unbounded tool result.
 
 ## Hypothesis
 
@@ -106,23 +107,57 @@ Evidence: `/Users/chad/Models/agentwing/evidence/AW-0007/20260904T055658Z`
 
 ### T5 — atomic non-thinking render
 
-Pending. Swiftlet now passes `enable_thinking=false` into the template before
-tokenization, eliminating the separately encoded newline join.
+Swiftlet passed `enable_thinking=false` into the template before tokenization,
+eliminating the separately encoded newline join. The model emitted the known
+malformed `<path>…</parameters>` form on the first turn, so the parser rejected
+the run before reuse. Pressure peaked at 1 and swap growth was 0 MiB.
+
+Evidence: `/Users/chad/Models/agentwing/evidence/AW-0007/20260904T060430Z`
+
+- `server.log`: `260503181d6570a5963ac07f165838669ba5858d1199382e56972616e53dae33`
+- `pi.log`: `3eb4863aeebe9f9dfe16472eef406eb36514c3a841c98b7a000599c152e0043e`
+- `pressure.tsv`: `e790bed7df97ef53a51e9a77809be759993d69a5ea2b4e0ef6579922178b9504`
+
+### T6 — exact-prefix reuse succeeds
+
+The first turn made a valid strict call without a line limit: 445 prompt
+tokens, 24 generated tokens, 114.0 s TTFT, and 2.02 tok/s. Replay identity hit,
+and the second turn matched and reused all 469 cached tokens. It processed only
+the 684-token full-file result, then generated the correct 12-token answer at
+171.9 s TTFT and 1.99 tok/s. Pi exited 0 with `# Target`.
+
+Pressure peaked at 2. Swap moved from 3,427.88 to 3,419.88 MiB (-8 MiB).
+
+Evidence: `/Users/chad/Models/agentwing/evidence/AW-0007/20260904T060717Z`
+
+- `server.log`: `101e8ad58e9623165fdf6db6aedeae059329fd9b1eacf38eeec38a6ed8f5d43a`
+- `pi.log`: `caad13f75eae49ddd7f54b6645538e7d5d05f9b6e0ba9ac8191158ab3d8d8d57`
+- `pressure.tsv`: `423342ef95eeaa05a54fc3dccbcb59491013104bf9dd38ed9a3203163a22275c`
 
 ## Confounders and deviations
 
 Run order is not interleaved because the control evidence already exists.
 Page-cache, thermal, and ambient system differences therefore limit causal
 attribution; this arm is a cheap falsifier, not a promoted benchmark result.
+The accepted control call requested 20 lines, whereas T6 omitted `limit` and
+returned all of `TARGET.md`; the primary TTFT comparison is therefore
+confounded by a 684-token new suffix. T2 is a closer full-file diagnostic: it
+processed 1,155 tokens without reuse at 295.6 s TTFT.
 
 ## Evidence
 
-Pending.
+Raw locations and hashes are recorded with each trial above. No model weights
+or large traces are committed.
 
 ## Conclusion
 
-Pending.
+Exact-prefix reuse is operational and saved 469 tokens. Against the
+non-interleaved full-file T2 diagnostic, second-turn TTFT decreased from 295.6
+to 171.9 s (1.72×), but the predeclared 86.1 s acceptance threshold was not
+met. The remaining 684-token tool result dominated prefill, so bounded tool
+output and history compaction are now higher-leverage than further prefix work.
 
 ## Disposition
 
-Unresolved.
+Retained as a tested prototype; not promoted from this non-interleaved,
+confounded run.

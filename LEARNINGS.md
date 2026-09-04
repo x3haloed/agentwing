@@ -132,3 +132,26 @@ Qwen tool-call accuracy.
 **Disposition:** retain AW-0004 for the full Stage A protocol fixture; prioritize
 repeated-turn prefill because 670 prompt tokens took 172.2 s before the final
 12-token answer.
+
+## 2026-09-03 — Exact reuse works; tool-result volume becomes dominant
+
+**Belief:** Exact token-prefix reuse is viable for Swiftlet tool continuations,
+but bounded tool output is required before it can materially improve Agentwing
+work rate on this host.
+
+**Evidence:** AW-0007 T6 replayed an accepted raw tool call only after IDs,
+types, names, and canonical arguments matched. The next prompt matched and
+reused all 469 cached tokens. Because the call omitted a line limit, the new
+tool-result suffix was still 684 tokens and took 171.9 s TTFT. A non-interleaved
+full-file trial without reuse processed 1,155 tokens in 295.6 s. Pi returned the
+correct heading; pressure peaked at 2 and swap decreased 8 MiB.
+
+**Qualification:** The observed 1.72× diagnostic improvement is not a causal
+benchmark: runs were not interleaved and first-turn prompts differed. AW-0007
+also missed its predeclared 86.1 s threshold, and three of six trials failed
+before continuation on malformed model syntax.
+
+**Disposition:** retain exact-prefix reuse as a prototype, not a promoted
+baseline. Optimize tool-result budgets and compact history next; separately
+measure malformed-call recovery because it is now a large endpoint failure
+mode.

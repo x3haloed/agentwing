@@ -83,7 +83,7 @@ candidate rather than replacing B0 before independent and local validation.
 ## Status
 
 The pinned 34 GB Qwen3.6 artifact passed all 50 published payload hashes. The
-patched Swiftlet suite passes 170 tests across 28 suites, its release server
+patched Swiftlet suite passes 172 tests across 28 suites, its release server
 builds, and the pinned Pi harness passes both a synthetic protocol fixture and
 one real-model `read` loop.
 
@@ -96,6 +96,11 @@ labeled schema-bounded normalization arm completed the real tool loop with a
 0.5 GB cache, pressure level 1 throughout, and 0 MiB swap growth. Its first and
 second TTFT were 115.8 s and 172.2 s, making repeated-turn prefill the clearest
 current bottleneck. This is endpoint viability, not yet a benchmark score.
+
+AW-0007 subsequently demonstrated exact tool-prefix reuse: 469 cached tokens
+were reused with an exact identity and token match. The remaining full-file
+tool result was still 684 new tokens and took 171.9 s to prefill. Bounded tool
+results and history compaction are therefore the next throughput target.
 
 ## Bring-up commands
 
