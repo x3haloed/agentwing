@@ -439,3 +439,19 @@ One shell failure was recovered. The copied-workspace evidence audit passed.
 an error, so the extra time buys a clean finish and does not establish a speedup.
 
 **Disposition:** retain the 512-token arm for the single-file repair gate.
+
+## 2026-09-04 — No ready alternative in the known model locations
+
+**Belief:** The older runtime projects do not currently provide an installed
+alternative checkpoint for a cheap Agentwing comparison.
+
+**Evidence:** AW-0020 found only Agentwing's Qwen qpack in the known checkpoint
+locations. Firewing/Prismwing payloads are absent; both Hugging Face cache
+entries contain a 40-byte file and no snapshot payloads. OpenCode is installed,
+but the checked alternative runtime commands and common model stores are not.
+
+**Qualification:** Bounded inventory, not a disk-wide proof of absence or a
+performance rejection. Newly acquired models remain an option.
+
+**Disposition:** no immediate alternate endpoint trial; continue the live Qwen
+repair gate. No storage reclamation was needed or performed.

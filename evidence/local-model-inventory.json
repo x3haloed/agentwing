@@ -1,0 +1,57 @@
+{
+  "scope": "Top-level entries in known model locations; no payload reads, exhaustive global search, deletion, or runtime launch",
+  "locations": {
+    "/Users/chad/Models/agentwing/checkpoints": {
+      "exists": true,
+      "entries": [
+        "qwen3.6-35b-a3b-8bit.qpack"
+      ]
+    },
+    "/Users/chad/Models/firewing/checkpoints": {
+      "exists": true,
+      "entries": [
+        ".DS_Store"
+      ]
+    },
+    "/Users/chad/Models/mimo-prismwing/checkpoints": {
+      "exists": true,
+      "entries": [
+        ".DS_Store"
+      ]
+    },
+    "/Users/chad/.cache/huggingface/hub": {
+      "exists": true,
+      "entries": [
+        "models--Qwen--Qwen3.8-Flash-Next",
+        "models--zai-org--GLM-5.3-Flash"
+      ]
+    },
+    "/Users/chad/.ollama/models/manifests": {
+      "exists": false,
+      "entries": []
+    },
+    "/Users/chad/.lmstudio/models": {
+      "exists": false,
+      "entries": []
+    }
+  },
+  "huggingface_cache_details": {
+    "models--zai-org--GLM-5.3-Flash": {
+      "regular_files": 1,
+      "regular_bytes": 40,
+      "snapshot_entries": []
+    },
+    "models--Qwen--Qwen3.8-Flash-Next": {
+      "regular_files": 1,
+      "regular_bytes": 40,
+      "snapshot_entries": []
+    }
+  },
+  "observed_at_utc": "2026-09-04T23:12:14.580862+00:00",
+  "runtime_commands": {
+    "ollama": null,
+    "llama-server": null,
+    "mlx_lm.server": null,
+    "opencode": "/Users/chad/.opencode/bin/opencode"
+  }
+}
