@@ -51,8 +51,16 @@ pass the independent verifier.
 
 ## Results
 
-The pristine-workspace self-test rejects all eight tasks. Positive-path
-regression results pending.
+The pristine-workspace self-test rejects all eight tasks and the positive-path
+regression accepts known solutions for all eight.
+
+The first strict B0 falsifier ran `01-navigation` at Agentwing `db060d8` and
+Swiftlet `0ac19fe`. It scored 0 utility in 445 endpoint seconds. The first
+1,450-token prompt took 391.3 seconds to first token. One `ls` call executed;
+the 26-token continuation reused all 1,489 preceding tokens and reached first
+token in 6.5 seconds, but its output contained one complete call followed by a
+malformed partial call. Strict parsing rejected the generation and the task
+never wrote `ANSWER.txt`. Pressure peaked at 1 and swap changed by -8 MiB.
 
 ## Confounders and deviations
 
@@ -63,6 +71,13 @@ iteration speed, not external validity, and must remain separate from Stage 2.
 
 Small deterministic fixtures and verifier live in Git. Model transcripts will
 live outside Git under `/Users/chad/Models/agentwing/evidence/AW-0008/`.
+
+- Strict `01-navigation`: `20260904T155047Z`; summary SHA-256
+  `1e118e2de1545157ba9b1689a1214aedf56f40b509078dea54cd707574d7562d`;
+  transcript SHA-256
+  `e41022bfcc464c1c1ee20cddeab6faff758bbf82e8014a2b54410bd4e33b3694`.
+- Failed pre-model runner attempt `20260904T155018Z` stopped on an undefined
+  metadata variable and produced no model measurement.
 
 ## Conclusion
 

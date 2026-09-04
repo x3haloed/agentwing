@@ -10,6 +10,7 @@ RUN_ID=$(date -u +%Y%m%dT%H%M%SZ)
 EVIDENCE_ROOT="${AGENTWING_EVIDENCE_ROOT:-/Users/chad/Models/agentwing/evidence/AW-0008}"
 RUN_DIR="$EVIDENCE_ROOT/$RUN_ID"
 TASK_SELECTION="01-navigation"
+SALVAGE_TOOL_PREFIX="${AGENTWING_SALVAGE_TOOL_PREFIX:-0}"
 SERVER_PID=""
 PI_PID=""
 
@@ -49,6 +50,14 @@ cleanup() {
 }
 trap cleanup EXIT INT TERM
 
+case "$SALVAGE_TOOL_PREFIX" in
+  0|1) ;;
+  *)
+    echo "AGENTWING_SALVAGE_TOOL_PREFIX must be 0 or 1" >&2
+    exit 2
+    ;;
+esac
+
 if [ "$TASK_SELECTION" = all ]; then
   TASKS=$(jq -r '.tasks[].id' "$MANIFEST")
 elif jq -e --arg id "$TASK_SELECTION" '.tasks[] | select(.id == $id)' "$MANIFEST" >/dev/null; then
@@ -80,6 +89,13 @@ agentwing_revision=$(git -C "$ROOT" rev-parse HEAD)
 swiftlet_revision=$(git -C "$SWIFTLET" rev-parse HEAD)
 os_version=$(sw_vers -productVersion)
 os_build=$(sw_vers -buildVersion)
+if [ "$SALVAGE_TOOL_PREFIX" = 1 ]; then
+  configuration=B0-stage-a-v1-prefix-salvage
+  salvage_arg=--salvage-tool-prefix
+else
+  configuration=B0-stage-a-v1
+  salvage_arg=
+fi
 
 jq -n \
   --arg run_id "$RUN_ID" \
@@ -92,16 +108,18 @@ jq -n \
   --arg os_version "$os_version" \
   --arg os_build "$os_build" \
   --arg task_selection "$TASK_SELECTION" \
+  --arg configuration "$configuration" \
+  --argjson salvage_tool_prefix "$SALVAGE_TOOL_PREFIX" \
   --argjson free_kib "$free_kib" \
   --argjson baseline_swap_mib "$baseline_swap" \
   '{run_id:$run_id,suite_id:$suite_id,suite_sha256:$suite_sha256,
-    configuration:"B0-stage-a-v1",agentwing_revision:$agentwing_revision,
+    configuration:$configuration,agentwing_revision:$agentwing_revision,
     swiftlet_revision:$swiftlet_revision,model_revision:$model_revision,
     harness_revision:$harness_revision,model_cache_gb:0.5,max_output_tokens:192,
     temperature:0,tools:["read","bash","edit","write","grep","find","ls"],
     bind:"127.0.0.1",storage:"internal-ssd",free_kib_before:$free_kib,
     swap_used_mib_before:$baseline_swap_mib,os_version:$os_version,os_build:$os_build,
-    task_selection:$task_selection}' >"$RUN_DIR/manifest.json"
+    task_selection:$task_selection,salvage_tool_prefix:($salvage_tool_prefix == 1)}' >"$RUN_DIR/manifest.json"
 printf 'timestamp_utc\ttask_id\tpressure_level\tswap_used_mib\n' >"$RUN_DIR/pressure.tsv"
 : >"$RUN_DIR/results.jsonl"
 /usr/bin/pmset -g therm >"$RUN_DIR/thermal-before.txt" 2>&1 || true
@@ -109,7 +127,7 @@ suite_start_epoch=$(date +%s)
 
 "$SWIFTLET/.build/release/swiftlet-server" \
   --model "$MODEL" --port 8080 --cache-gb 0.5 --debug-tool-output \
-  --accept-schema-tags >"$RUN_DIR/server.log" 2>&1 &
+  --accept-schema-tags $salvage_arg >"$RUN_DIR/server.log" 2>&1 &
 SERVER_PID=$!
 
 i=0
@@ -216,6 +234,7 @@ for task_id in $TASKS; do
   rejected_tool_outputs=$(grep -c 'rejected tool output' "$task_dir/server.log" || true)
   normalized_tool_calls=$(grep -c 'normalized declared schema-property tags' "$task_dir/server.log" || true)
   prefix_reuse_hits=$(grep -c '\[tool-replay\] hit' "$task_dir/server.log" || true)
+  salvaged_tool_prefixes=$(grep -c 'salvaged complete tool-call prefix' "$task_dir/server.log" || true)
   transcript_hash=$(shasum -a 256 "$task_dir/pi.jsonl" | awk '{print $1}')
 
   jq -n \
@@ -228,11 +247,13 @@ for task_id in $TASKS; do
     --argjson rejected_tool_outputs "$rejected_tool_outputs" \
     --argjson normalized_tool_calls "$normalized_tool_calls" \
     --argjson prefix_reuse_hits "$prefix_reuse_hits" \
+    --argjson salvaged_tool_prefixes "$salvaged_tool_prefixes" \
     '{task_id:$task_id,status:$status,pi_exit:$pi_exit,verifier_exit:$verifier_exit,
       verifier_utility:$verifier_utility,utility:$utility,wall_seconds:$wall_seconds,
       tool_calls:$tool_calls,failed_tool_calls:$failed_tool_calls,
       rejected_tool_outputs:$rejected_tool_outputs,
       normalized_tool_calls:$normalized_tool_calls,prefix_reuse_hits:$prefix_reuse_hits,
+      salvaged_tool_prefixes:$salvaged_tool_prefixes,
       transcript_sha256:$transcript_sha256}' >>"$RUN_DIR/results.jsonl"
 
   if [ "$status" = stopped-critical-pressure ] || [ "$status" = stopped-swap-growth ]; then

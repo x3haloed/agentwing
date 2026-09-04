@@ -26,5 +26,8 @@ memory pressure and swap every five seconds, and stops at the project safety
 gates. Sequential tasks share a warm runtime and static prompt prefix; that
 cache state is part of the declared B0 Stage A configuration.
 
+The separately labeled AW-0009 recovery arm is enabled with
+`AGENTWING_SALVAGE_TOOL_PREFIX=1`. Strict parsing remains the default.
+
 Raw transcripts and manifests default to
 `/Users/chad/Models/agentwing/evidence/AW-0008/` and stay outside Git.

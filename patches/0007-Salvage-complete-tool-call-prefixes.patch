@@ -1,0 +1,174 @@
+From d7352d79ebb13a030bd3eb878510aaed7e9eb5b1 Mon Sep 17 00:00:00 2001
+From: Chad Kirby <x3haloed@gmail.com>
+Date: Fri, 4 Sep 2026 09:00:30 -0700
+Subject: [PATCH] Salvage complete tool call prefixes
+
+---
+ Sources/SwiftletServer/ToolProtocol.swift     | 37 +++++++++++++++++--
+ Sources/SwiftletServer/main.swift             | 15 ++++++--
+ .../ChatRequestTests.swift                    | 34 +++++++++++++++++
+ 3 files changed, 79 insertions(+), 7 deletions(-)
+
+diff --git a/Sources/SwiftletServer/ToolProtocol.swift b/Sources/SwiftletServer/ToolProtocol.swift
+index bf32143..48d57a2 100644
+--- a/Sources/SwiftletServer/ToolProtocol.swift
++++ b/Sources/SwiftletServer/ToolProtocol.swift
+@@ -151,6 +151,19 @@ struct ParsedToolReply: Equatable, Sendable {
+     let content: String?
+     let calls: [ParsedToolCall]
+     let normalizedSchemaTags: Bool
++    let salvagedMalformedSuffix: Bool
++    let acceptedRawText: String?
++
++    init(
++        content: String?, calls: [ParsedToolCall], normalizedSchemaTags: Bool,
++        salvagedMalformedSuffix: Bool = false, acceptedRawText: String? = nil
++    ) {
++        self.content = content
++        self.calls = calls
++        self.normalizedSchemaTags = normalizedSchemaTags
++        self.salvagedMalformedSuffix = salvagedMalformedSuffix
++        self.acceptedRawText = acceptedRawText
++    }
+ }
+ 
+ private struct ToolCallSignature: Equatable, Sendable {
+@@ -236,7 +249,8 @@ final class ToolReplayCache: @unchecked Sendable {
+ func parseToolReply(
+     _ text: String,
+     declaredTools: Set<String>,
+-    acceptedSchemaTags: [String: Set<String>] = [:]
++    acceptedSchemaTags: [String: Set<String>] = [:],
++    salvageValidPrefix: Bool = false
+ ) throws -> ParsedToolReply? {
+     let reservedMarkers = ["<tool_call>", "</tool_call>", "<function=", "<parameter="]
+     guard reservedMarkers.contains(where: text.contains) else { return nil }
+@@ -347,11 +361,26 @@ func parseToolReply(
+     }
+ 
+     let suffixRange = NSRange(location: previousEnd, length: source.length - previousEnd)
+-    guard source.substring(with: suffixRange).trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+-        throw ToolProtocolError.malformedModelOutput("text appeared after final tool call")
++    let suffix = source.substring(with: suffixRange)
++        .trimmingCharacters(in: .whitespacesAndNewlines)
++    var salvagedMalformedSuffix = false
++    var acceptedRawText: String?
++    if !suffix.isEmpty {
++        // Recovery is intentionally narrow: retain complete calls only when
++        // the rejected suffix is itself the start of another tool block. Plain
++        // prose, unknown complete calls, invalid parameters, and text between
++        // calls continue to fail closed.
++        guard salvageValidPrefix, suffix.hasPrefix("<tool_call>") else {
++            throw ToolProtocolError.malformedModelOutput("text appeared after final tool call")
++        }
++        salvagedMalformedSuffix = true
++        acceptedRawText = source.substring(
++            with: NSRange(location: 0, length: previousEnd))
+     }
+     return ParsedToolReply(
+         content: prefix.isEmpty ? nil : prefix,
+         calls: calls,
+-        normalizedSchemaTags: normalizedSchemaTags)
++        normalizedSchemaTags: normalizedSchemaTags,
++        salvagedMalformedSuffix: salvagedMalformedSuffix,
++        acceptedRawText: acceptedRawText)
+ }
+diff --git a/Sources/SwiftletServer/main.swift b/Sources/SwiftletServer/main.swift
+index 99ba5e2..7f955ed 100644
+--- a/Sources/SwiftletServer/main.swift
++++ b/Sources/SwiftletServer/main.swift
+@@ -10,6 +10,7 @@ import SwiftletCore
+ //
+ //   swiftlet-server --model <dir> [--port 8080] [--cache-gb 2]
+ //                   [--debug-tool-output] [--accept-schema-tags]
++//                   [--salvage-tool-prefix]
+ 
+ /// Message content per the OpenAI Chat Completions spec: a plain string, an
+ /// array of parts ([{type:"text",text:"..."}]), or null on tool-call turns.
+@@ -140,13 +141,14 @@ func flag(_ name: String) -> String? {
+     return cliArgs[i + 1]
+ }
+ guard let modelPath = flag("--model") else {
+-    print("usage: swiftlet-server --model <dir> [--port 8080] [--cache-gb 2] [--debug-tool-output] [--accept-schema-tags]")
++    print("usage: swiftlet-server --model <dir> [--port 8080] [--cache-gb 2] [--debug-tool-output] [--accept-schema-tags] [--salvage-tool-prefix]")
+     exit(2)
+ }
+ let port = Int(flag("--port") ?? "8080") ?? 8080
+ let cacheGB = Double(flag("--cache-gb") ?? "2") ?? 2
+ let debugToolOutput = cliArgs.contains("--debug-tool-output")
+ let acceptSchemaTags = cliArgs.contains("--accept-schema-tags")
++let salvageToolPrefix = cliArgs.contains("--salvage-tool-prefix")
+ let modelURL = URL(fileURLWithPath: modelPath)
+ let toolReplayCache = ToolReplayCache(debug: debugToolOutput)
+ 
+@@ -530,13 +532,20 @@ final class HTTPHandler: ChannelInboundHandler {
+                         toolReply = try parseToolReply(
+                             fullText,
+                             declaredTools: toolNames,
+-                            acceptedSchemaTags: acceptSchemaTags ? toolParameters : [:])
++                            acceptedSchemaTags: acceptSchemaTags ? toolParameters : [:],
++                            salvageValidPrefix: salvageToolPrefix)
+                         if toolReply?.normalizedSchemaTags == true {
+                             FileHandle.standardError.write(Data(
+                                 "[\(id)] normalized declared schema-property tags\n".utf8))
+                         }
+                         if let toolReply {
+-                            toolReplayCache.record(reply: toolReply, rawText: fullText)
++                            if toolReply.salvagedMalformedSuffix {
++                                FileHandle.standardError.write(Data(
++                                    "[\(id)] salvaged complete tool-call prefix before malformed suffix\n".utf8))
++                            }
++                            toolReplayCache.record(
++                                reply: toolReply,
++                                rawText: toolReply.acceptedRawText ?? fullText)
+                         }
+                     } catch {
+                         if debugToolOutput {
+diff --git a/Tests/SwiftletServerTests/ChatRequestTests.swift b/Tests/SwiftletServerTests/ChatRequestTests.swift
+index 09e8e3c..46c9ff1 100644
+--- a/Tests/SwiftletServerTests/ChatRequestTests.swift
++++ b/Tests/SwiftletServerTests/ChatRequestTests.swift
+@@ -175,6 +175,40 @@ import SwiftletCore
+         #expect(arguments?["limit"] as? Int == 20)
+     }
+ 
++    @Test func completeToolPrefixSalvageRequiresExplicitOptIn() throws {
++        let raw = """
++            <tool_call>
++            <function=ls><parameter=path>.</parameter></function>
++            </tool_call>
++            <tool_call><function=read><parameter=path>README.md
++            """
++        #expect(throws: ToolProtocolError.self) {
++            _ = try parseToolReply(raw, declaredTools: ["ls", "read"])
++        }
++        let parsed = try parseToolReply(
++            raw, declaredTools: ["ls", "read"], salvageValidPrefix: true)
++        let reply = try #require(parsed)
++        #expect(reply.calls.count == 1)
++        #expect(reply.calls[0].name == "ls")
++        #expect(reply.salvagedMalformedSuffix)
++        #expect(reply.acceptedRawText?.contains("<function=ls>") == true)
++        #expect(reply.acceptedRawText?.contains("<function=read>") == false)
++    }
++
++    @Test func salvageStillRejectsPlainSuffixAndUnknownCompleteCalls() {
++        #expect(throws: ToolProtocolError.self) {
++            _ = try parseToolReply(
++                "<tool_call><function=read></function></tool_call>suffix",
++                declaredTools: ["read"], salvageValidPrefix: true)
++        }
++        #expect(throws: ToolProtocolError.unknownTool("bash")) {
++            _ = try parseToolReply(
++                "<tool_call><function=read></function></tool_call>"
++                    + "<tool_call><function=bash></function></tool_call>",
++                declaredTools: ["read"], salvageValidPrefix: true)
++        }
++    }
++
+     @Test func acceptedRawToolSpellingIsReplayedOnlyForExactStructuredCall() throws {
+         let cache = ToolReplayCache()
+         let reply = ParsedToolReply(
+-- 
+2.50.1 (Apple Git-155)
+

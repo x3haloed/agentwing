@@ -3,7 +3,7 @@
   "swiftlet": {
     "repository": "https://github.com/leonickson1/Swiftlet",
     "upstream_revision": "694706e1d8ec67021f4350be88c912b3cb50cb32",
-    "revision": "0ac19fe4984faa7c02e58858653381e2390a2947",
+    "revision": "d7352d79ebb13a030bd3eb878510aaed7e9eb5b1",
     "patches": [
       {
         "commit": "793a9a18bc3ba8f5f1e06bd50415bf2373088daf",
@@ -34,6 +34,11 @@
         "commit": "0ac19fe4984faa7c02e58858653381e2390a2947",
         "path": "patches/0006-Render-nonthinking-prompts-atomically.patch",
         "sha256": "dde2e2356f781f0f7ecc6b3d0df26cff53e6805536d7c46d7c62ecddeac30397"
+      },
+      {
+        "commit": "d7352d79ebb13a030bd3eb878510aaed7e9eb5b1",
+        "path": "patches/0007-Salvage-complete-tool-call-prefixes.patch",
+        "sha256": "8df22b58fd0b7f47eea484ec9a15cfe12aea41c300277d18b00c11a9190f3c01"
       }
     ],
     "local_path": "/Users/chad/Models/agentwing/dependencies/Swiftlet"

@@ -155,3 +155,23 @@ before continuation on malformed model syntax.
 baseline. Optimize tool-result budgets and compact history next; separately
 measure malformed-call recovery because it is now a large endpoint failure
 mode.
+
+## 2026-09-04 — First Stage A task confirms malformed suffix bottleneck
+
+**Belief:** Exact-prefix reuse has removed most repeated-turn prefill when the
+history is unchanged, but strict all-or-nothing parsing makes partially valid
+multi-call generations a first-order endpoint failure mode.
+
+**Evidence:** The strict `01-navigation` Stage A run scored zero in 445 endpoint
+seconds. Its 1,450-token initial prompt took 391.3 seconds to first token. After
+one valid `ls` call, all 1,489 prior tokens were reused and the continuation
+reached first token in 6.5 seconds. That continuation contained a complete
+valid `ls` call followed by an incomplete `read` block; strict parsing rejected
+the entire generation. Pressure peaked at 1 with -8 MiB swap change.
+
+**Qualification:** This is one task and one deterministic trial. Salvaging a
+valid prefix may merely postpone failure, and it must not broaden acceptance of
+unknown tools, invalid arguments, or unstructured suffix text.
+
+**Disposition:** retain strict B0 evidence; test a separately flagged,
+observable maximal-valid-prefix recovery arm as AW-0009.
