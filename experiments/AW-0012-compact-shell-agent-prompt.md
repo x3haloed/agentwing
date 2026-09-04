@@ -2,7 +2,7 @@
 
 ## Status
 
-In progress.
+Complete.
 
 ## Hypothesis
 
@@ -43,7 +43,16 @@ AGENTWING_PROMPT_PROFILE=compact-shell \
 
 ## Results
 
-Pending.
+The candidate passed `01-navigation` with utility 1 in 591 endpoint seconds
+(6.09 utility/hour), improving on AW-0011's 746 seconds by 20.8%. It used five
+successful shell calls versus AW-0011's seven calls including one failure.
+There was one observable prefix salvage, no rejected outputs, pressure peaked
+at 1, and swap did not grow.
+
+The initial prompt was 480 tokens and TTFT was 124.4 seconds. Prefix salvage
+still forced one 809-token refill at 205.3 seconds TTFT; later exact-prefix
+continuations took 5.5–8.2 seconds plus their new suffixes. The model ignored
+the relative-path preference but avoided AW-0011's corrupted validation call.
 
 ## Confounders and deviations
 
@@ -51,12 +60,16 @@ One non-interleaved run can screen a large effect but cannot support promotion.
 
 ## Evidence
 
-Pending.
+Run `20260904T163908Z`: summary SHA-256
+`d23f58635bc9f61086b3cddf2743f7cb9bcf2eb855d61f4aef034e337202f513`;
+transcript SHA-256
+`344c5cc546f62e8cc8a88d453b4a1c5fecb7746d445fec5102c7fbadc4e0b06e`.
 
 ## Conclusion
 
-Pending.
+The prompt profile clears its screen and is the fastest verified Stage A
+configuration so far. A full eight-task run is required to establish its floor.
 
 ## Disposition
 
-Unresolved.
+Retained as the Stage A floor candidate; not promoted or replicated.

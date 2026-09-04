@@ -234,3 +234,19 @@ policy difference.
 
 **Disposition:** retain AW-0011 as the first functional candidate. Freeze v1.1
 and test a relative-path, action-minimizing shell prompt next.
+
+## 2026-09-04 — Compact shell policy raises verified work rate 25 percent
+
+**Belief:** The compact shell-oriented agent prompt is the strongest current B0
+configuration and is ready for a full Stage A floor measurement.
+
+**Evidence:** AW-0012 retained utility 1 on `01-navigation` while reducing
+endpoint time from 746 to 591 seconds, increasing the one-task diagnostic from
+4.83 to 6.09 verified utility/hour. Tool calls fell from seven to five and
+failed calls from one to zero. Pressure peaked at 1 with zero swap growth.
+
+**Qualification:** This is a single non-interleaved task. The model continued
+to use absolute paths, and one salvage forced an 809-token, 205.3-second refill.
+
+**Disposition:** retain the compact shell + prefix-recovery configuration as
+the Stage A floor candidate and run all eight frozen v1.1 tasks.
