@@ -2,7 +2,7 @@
 
 ## Status
 
-In progress.
+Complete.
 
 ## Hypothesis
 
@@ -64,6 +64,13 @@ metric can arrive after the runner snapshots a task log. The runner now blocks
 the next task on a terminal-metric barrier captured at termination time and
 records whether that drain was observed.
 
+The barrier-enabled rerun (`20260904T185632Z`) passed all integrity gates in
+400 endpoint seconds. All eight task records report an observed cancellation
+drain. Each task server segment contains exactly one terminal metric with its
+expected 473–496-token initial prompt, zero matched/reused tokens, and no
+foreign workspace reference. No Pi, runner, or Swiftlet process remained after
+the run. Pressure peaked at 1 and swap did not grow.
+
 ## Confounders and deviations
 
 The synthetic child-tree test does not itself prove Swiftlet cancellation;
@@ -74,11 +81,17 @@ model-run log ownership must also be checked on the next multi-task run.
 The invalid `20260904T164953Z` run is retained under AW-0008 evidence.
 First isolation diagnostic `20260904T185037Z`: summary SHA-256
 `79df64b2458fe9f2b37148c56962d24d574cf6a1410260a1464a0ac0d4049ee7`.
+Barrier-enabled diagnostic `20260904T185632Z`: summary SHA-256
+`61b7ac5898b82109084645338827049723adff07338131cedc780eb8a3ee075e`;
+server log SHA-256
+`5ceace00b8cababa68c96c9441c7502e906f7b994685219b7d04721a5cc0645e`.
 
 ## Conclusion
 
-Pending.
+Dedicated POSIX sessions, group termination, leak assertion, and a terminal
+metric barrier enforce clean task boundaries. The runner is ready for a new
+full Stage A measurement.
 
 ## Disposition
 
-Unresolved.
+Promoted as benchmark infrastructure; it does not change model behavior.

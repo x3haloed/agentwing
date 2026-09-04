@@ -269,3 +269,23 @@ replicate of AW-0012. Later task results and aggregate work rate are corrupted.
 **Disposition:** preserve the run as negative runner evidence. Require a new
 POSIX session per Pi task, group termination, a cancellation drain, and a
 process-tree regression test before rerunning the suite.
+
+## 2026-09-04 — Process groups and terminal barriers restore task isolation
+
+**Belief:** The Stage A runner now enforces and evidences clean process and
+model-request boundaries across timed-out tasks.
+
+**Evidence:** AW-0013's barrier-enabled eight-task diagnostic completed seven
+successive timeout transitions in 400 seconds. Every task observed its own
+terminal cancellation metric, each server segment contained exactly one
+473–496-token cold prompt with zero prefix match/reuse, no segment referenced a
+foreign workspace, and no benchmark process remained afterward. Pressure
+peaked at 1 and swap growth was zero. Synthetic tests also terminate a wrapper
+and descendant from one process-group signal.
+
+**Qualification:** The diagnostic uses a recorded 30-second integrity timeout
+and is not a performance result. A valid floor still requires the frozen
+900-second suite.
+
+**Disposition:** promote the process-isolation runner infrastructure and rerun
+the full Stage A v1.1 floor.
