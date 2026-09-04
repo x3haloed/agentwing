@@ -3,7 +3,7 @@
   "swiftlet": {
     "repository": "https://github.com/leonickson1/Swiftlet",
     "upstream_revision": "694706e1d8ec67021f4350be88c912b3cb50cb32",
-    "revision": "076234fdda30dffecce47c6154bf19f817604437",
+    "revision": "0ac19fe4984faa7c02e58858653381e2390a2947",
     "patches": [
       {
         "commit": "793a9a18bc3ba8f5f1e06bd50415bf2373088daf",
@@ -29,6 +29,11 @@
         "commit": "076234fdda30dffecce47c6154bf19f817604437",
         "path": "patches/0005-Expose-exact-prefix-reuse-diagnostics.patch",
         "sha256": "f6262f4f8c6c6fb1e75115e3d7abf9581020b121bcb3c418fbed1e2e526b0d90"
+      },
+      {
+        "commit": "0ac19fe4984faa7c02e58858653381e2390a2947",
+        "path": "patches/0006-Render-nonthinking-prompts-atomically.patch",
+        "sha256": "dde2e2356f781f0f7ecc6b3d0df26cff53e6805536d7c46d7c62ecddeac30397"
       }
     ],
     "local_path": "/Users/chad/Models/agentwing/dependencies/Swiftlet"

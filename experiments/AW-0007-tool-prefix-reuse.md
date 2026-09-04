@@ -15,7 +15,8 @@ preserving the correct Pi `read` result and the existing host-safety envelope.
 - Control: AW-0004 at Swiftlet `b33871230f51d3e3ec497eb2e6724fbf9557bb9d`.
 - Candidate: identical configuration plus Swiftlet
   `d43b27f99bf1eb2c16c18c4600f4f7cff7afc0c1`. Diagnostic-only T3 adds
-  `076234fdda30dffecce47c6154bf19f817604437`.
+  `076234fdda30dffecce47c6154bf19f817604437`; T5 adds the token-boundary fix
+  `0ac19fe4984faa7c02e58858653381e2390a2947`.
 
 ## Fixed conditions
 
@@ -77,8 +78,36 @@ Evidence: `/Users/chad/Models/agentwing/evidence/AW-0007/20260904T054408Z`
 
 ### T3 — content-safe diagnostic replication
 
-Pending. This trial adds only replay hit/miss dimensions and longest-prefix
-length; it does not log arguments or other prompt content.
+This trial added only replay hit/miss dimensions and longest-prefix length; it
+did not log arguments or other prompt content. The first turn again emitted
+`<path>…</parameters>` and failed closed before a continuation. Pressure peaked
+at 2 and swap growth was 0 MiB.
+
+Evidence: `/Users/chad/Models/agentwing/evidence/AW-0007/20260904T055415Z`
+
+- `server.log`: `9856c5ccc4ebd9b06f7d18661a8dfcb43339045fd60339226e1339574b1494b1`
+- `pi.log`: `3eb4863aeebe9f9dfe16472eef406eb36514c3a841c98b7a000599c152e0043e`
+- `pressure.tsv`: `3bd3c1351559cc95308aafe68609589f19dd492a16d44a32f53c1454173ec3b8`
+
+### T4 — replay hit, token-prefix miss
+
+The replay identity matched exactly and the endpoint completed correctly, but
+only 442 of the 481 cached tokens matched the re-rendered prompt. The second
+turn therefore reprocessed 668 tokens at 171.8 s TTFT, with zero reuse. The
+divergence was the empty-think boundary: the first prompt tokenized its closing
+half separately, while full-history rendering tokenized the identical joined
+text atomically. Pressure peaked at 2 and swap growth was 0 MiB.
+
+Evidence: `/Users/chad/Models/agentwing/evidence/AW-0007/20260904T055658Z`
+
+- `server.log`: `99818a28be085c0398221e79393d3a5ebedb06407ce843ed86a2a683888181a4`
+- `pi.log`: `caad13f75eae49ddd7f54b6645538e7d5d05f9b6e0ba9ac8191158ab3d8d8d57`
+- `pressure.tsv`: `23551377604f0f731dfb08ba6233696953670d9866832292f7005350df55de04`
+
+### T5 — atomic non-thinking render
+
+Pending. Swiftlet now passes `enable_thinking=false` into the template before
+tokenization, eliminating the separately encoded newline join.
 
 ## Confounders and deviations
 

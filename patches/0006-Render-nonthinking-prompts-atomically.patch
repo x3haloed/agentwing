@@ -1,0 +1,48 @@
+From 0ac19fe4984faa7c02e58858653381e2390a2947 Mon Sep 17 00:00:00 2001
+From: Chad Kirby <x3haloed@gmail.com>
+Date: Thu, 3 Sep 2026 23:03:50 -0700
+Subject: [PATCH] Render nonthinking prompts atomically
+
+---
+ Sources/SwiftletCore/SwiftletSession.swift | 18 +++++++++++-------
+ 1 file changed, 11 insertions(+), 7 deletions(-)
+
+diff --git a/Sources/SwiftletCore/SwiftletSession.swift b/Sources/SwiftletCore/SwiftletSession.swift
+index 9a726b7..8db2b00 100644
+--- a/Sources/SwiftletCore/SwiftletSession.swift
++++ b/Sources/SwiftletCore/SwiftletSession.swift
+@@ -97,7 +97,10 @@ public final class SwiftletSession: @unchecked Sendable {
+         encodeText = { tokenizer.encode(text: $0) }
+         decodeTokens = { tokenizer.decode(tokens: $0) }
+         renderMessages = { messages, tools in
+-            try tokenizer.applyChatTemplate(messages: messages, tools: tools)
++            try tokenizer.applyChatTemplate(
++                messages: messages,
++                tools: tools,
++                additionalContext: ["enable_thinking": false])
+         }
+         generationCleanupHook = nil
+         print("[SwiftletSession] tokenizer ok; building Metal model...")
+@@ -315,12 +318,13 @@ public final class SwiftletSession: @unchecked Sendable {
+         generationCleanupHook?()
+     }
+ 
+-    /// Full prompt for a fresh conversation, with reasoning disabled: the
+-    /// Qwen3.6 template ends the generation prompt with "<think>\n", which
+-    /// makes the model reason in the open — and since the literal <think>
+-    /// never appears in the *output*, downstream filters can't catch it.
+-    /// Appending the rest of an empty think block reproduces the template's
+-    /// own enable_thinking=false rendering byte for byte.
++    /// Full prompt for a fresh conversation, with reasoning disabled. The
++    /// production tokenizer receives `enable_thinking=false`, which renders
++    /// and tokenizes the empty think block as one complete string. The suffix
++    /// fallback remains for injected/older tokenizers that end at `<think>\n`.
++    /// Encoding the closing half separately is not generally token-equivalent
++    /// at the joining newline boundary, so it must never be the production
++    /// Qwen path.
+     private func freshPromptIds(
+         _ messages: [SwiftletChatMessage],
+         tools: [SwiftletToolSpec]?
+-- 
+2.50.1 (Apple Git-155)
+
