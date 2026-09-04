@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "runtime_revision": "d7352d79ebb13a030bd3eb878510aaed7e9eb5b1",
+  "tokenizers_version": "0.22.2",
+  "tokenizer_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+  "guard_ngram_size": 3,
+  "scope": "Canonical tokenizer paths, not all possible segmentations; no model inference or endpoint score.",
+  "fixtures": [
+    {
+      "fixture": "loopback_literal",
+      "text": "127.0.0.1",
+      "token_ids": [
+        16,
+        17,
+        22,
+        13,
+        15,
+        13,
+        15,
+        13,
+        16
+      ],
+      "blocked_required_tokens": [
+        {
+          "position": 7,
+          "required_token_id": 13,
+          "required_token": ".",
+          "repeated_trigram": ".0."
+        }
+      ]
+    },
+    {
+      "fixture": "repeated_parameter_types",
+      "text": "def add(left: int, right: int) -> int:\n    return left + right\n",
+      "token_ids": [
+        727,
+        884,
+        17145,
+        25,
+        514,
+        11,
+        1245,
+        25,
+        514,
+        8,
+        1411,
+        514,
+        25,
+        198,
+        262,
+        460,
+        2047,
+        478,
+        1245,
+        198
+      ],
+      "blocked_required_tokens": []
+    },
+    {
+      "fixture": "three_typed_parameters",
+      "text": "def mix(first: int, second: int, third: int) -> int:\n    return first + second + third\n",
+      "token_ids": [
+        727,
+        6311,
+        17445,
+        25,
+        514,
+        11,
+        2018,
+        25,
+        514,
+        11,
+        4688,
+        25,
+        514,
+        8,
+        1411,
+        514,
+        25,
+        198,
+        262,
+        460,
+        1118,
+        478,
+        2018,
+        478,
+        4688,
+        198
+      ],
+      "blocked_required_tokens": [
+        {
+          "position": 9,
+          "required_token_id": 11,
+          "required_token": ",",
+          "repeated_trigram": ": int,"
+        }
+      ]
+    },
+    {
+      "fixture": "two_tool_calls",
+      "text": "<tool_call>\n<function=bash>\n<parameter=command>cat a.txt</parameter>\n</function>\n</tool_call>\n<tool_call>\n<function=bash>\n<parameter=command>cat b.txt</parameter>\n</function>\n</tool_call>",
+      "token_ids": [
+        248058,
+        198,
+        27,
+        1628,
+        21402,
+        956,
+        29,
+        198,
+        27,
+        15704,
+        28,
+        5454,
+        29,
+        4466,
+        264,
+        3778,
+        510,
+        15704,
+        29,
+        198,
+        510,
+        1628,
+        29,
+        198,
+        248059,
+        198,
+        248058,
+        198,
+        27,
+        1628,
+        21402,
+        956,
+        29,
+        198,
+        27,
+        15704,
+        28,
+        5454,
+        29,
+        4466,
+        292,
+        3778,
+        510,
+        15704,
+        29,
+        198,
+        510,
+        1628,
+        29,
+        198,
+        248059
+      ],
+      "blocked_required_tokens": [
+        {
+          "position": 28,
+          "required_token_id": 27,
+          "required_token": "<",
+          "repeated_trigram": "<tool_call>\n<"
+        },
+        {
+          "position": 29,
+          "required_token_id": 1628,
+          "required_token": "function",
+          "repeated_trigram": "\n<function"
+        },
+        {
+          "position": 30,
+          "required_token_id": 21402,
+          "required_token": "=b",
+          "repeated_trigram": "<function=b"
+        },
+        {
+          "position": 31,
+          "required_token_id": 956,
+          "required_token": "ash",
+          "repeated_trigram": "function=bash"
+        },
+        {
+          "position": 32,
+          "required_token_id": 29,
+          "required_token": ">",
+          "repeated_trigram": "=bash>"
+        },
+        {
+          "position": 33,
+          "required_token_id": 198,
+          "required_token": "\n",
+          "repeated_trigram": "ash>\n"
+        },
+        {
+          "position": 34,
+          "required_token_id": 27,
+          "required_token": "<",
+          "repeated_trigram": ">\n<"
+        },
+        {
+          "position": 35,
+          "required_token_id": 15704,
+          "required_token": "parameter",
+          "repeated_trigram": "\n<parameter"
+        },
+        {
+          "position": 36,
+          "required_token_id": 28,
+          "required_token": "=",
+          "repeated_trigram": "<parameter="
+        },
+        {
+          "position": 37,
+          "required_token_id": 5454,
+          "required_token": "command",
+          "repeated_trigram": "parameter=command"
+        },
+        {
+          "position": 38,
+          "required_token_id": 29,
+          "required_token": ">",
+          "repeated_trigram": "=command>"
+        },
+        {
+          "position": 39,
+          "required_token_id": 4466,
+          "required_token": "cat",
+          "repeated_trigram": "command>cat"
+        },
+        {
+          "position": 43,
+          "required_token_id": 15704,
+          "required_token": "parameter",
+          "repeated_trigram": ".txt</parameter"
+        },
+        {
+          "position": 44,
+          "required_token_id": 29,
+          "required_token": ">",
+          "repeated_trigram": "</parameter>"
+        },
+        {
+          "position": 45,
+          "required_token_id": 198,
+          "required_token": "\n",
+          "repeated_trigram": "parameter>\n"
+        },
+        {
+          "position": 46,
+          "required_token_id": 510,
+          "required_token": "</",
+          "repeated_trigram": ">\n</"
+        },
+        {
+          "position": 47,
+          "required_token_id": 1628,
+          "required_token": "function",
+          "repeated_trigram": "\n</function"
+        },
+        {
+          "position": 48,
+          "required_token_id": 29,
+          "required_token": ">",
+          "repeated_trigram": "</function>"
+        },
+        {
+          "position": 49,
+          "required_token_id": 198,
+          "required_token": "\n",
+          "repeated_trigram": "function>\n"
+        },
+        {
+          "position": 50,
+          "required_token_id": 248059,
+          "required_token": "</tool_call>",
+          "repeated_trigram": ">\n</tool_call>"
+        }
+      ]
+    },
+    {
+      "fixture": "repeated_path",
+      "text": "cat /tmp/project/src/module.py; python3 /tmp/project/src/module.py",
+      "token_ids": [
+        4466,
+        593,
+        5008,
+        38786,
+        13050,
+        46577,
+        6971,
+        26,
+        9834,
+        18,
+        593,
+        5008,
+        38786,
+        13050,
+        46577,
+        6971
+      ],
+      "blocked_required_tokens": [
+        {
+          "position": 12,
+          "required_token_id": 38786,
+          "required_token": "/project",
+          "repeated_trigram": " /tmp/project"
+        },
+        {
+          "position": 13,
+          "required_token_id": 13050,
+          "required_token": "/src",
+          "repeated_trigram": "tmp/project/src"
+        },
+        {
+          "position": 14,
+          "required_token_id": 46577,
+          "required_token": "/module",
+          "repeated_trigram": "/project/src/module"
+        },
+        {
+          "position": 15,
+          "required_token_id": 6971,
+          "required_token": ".py",
+          "repeated_trigram": "/src/module.py"
+        }
+      ]
+    }
+  ]
+}

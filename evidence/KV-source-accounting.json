@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "kind": "source-derived-kv-accounting-not-allocation-profiler",
+  "model_revision": "720a56073578a3b42b5c40410baf90281bab9c0f",
+  "runtime_revision": "d7352d79ebb13a030bd3eb878510aaed7e9eb5b1",
+  "config_sha256": "5da49c3a84c5a4a751b720b62b9f8703bdb8a0796b5fc55df3278f8b9d6ce296",
+  "source_sha256": "6897a58a16621008b5a1fb71f14217745022b00ddfaa56f40a86e687adfd244a",
+  "full_attention_layers": 10,
+  "kv_heads": 2,
+  "head_dim": 256,
+  "scalar_bytes": 4,
+  "bytes_per_position_per_copy": 40960,
+  "copies": "GPU K/V plus CPU K/V mirror; array spare capacity and transient growth excluded",
+  "baseline_run": "20260904T190356Z",
+  "baseline_server_sha256": "567b5bdee8fa53517d516bcbc97669b068bb776a2a36c35b813967ae546a253a",
+  "max_reported_sequence_tokens": 2038,
+  "logical_payload_mib_at_observed_max_two_copies": 159.219,
+  "logical_payload_mib_two_copies": {
+    "8192": 640.0,
+    "32768": 2560.0,
+    "131072": 10240.0
+  }
+}

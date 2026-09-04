@@ -337,3 +337,38 @@ now encode both paired 2× improvement and the historical floor (3 successes,
 2.064615 utility/hour). Broader validation remains separately labeled.
 
 **Capacity:** 304 GiB available on the project volume. No deletion warranted.
+
+## 2026-09-04 — Hard trigram suppression obstructs normal code and tool syntax
+
+**Belief:** Some apparent model failures are forced by the current sampler.
+
+**Evidence:** Swiftlet's greedy preset retains a hard no-repeat-ngram size of
+3. With the pinned tokenizer, the required third period of `127.0.0.1`, a
+second `: int,` in a three-parameter signature, a repeated path, and a second
+tool block all complete previously emitted trigrams. The guard therefore
+bans their ordinary token continuations. A two-parameter signature does not
+hit this condition. See AW-0016 and its tokenizer fixture report.
+
+**Qualification:** These are canonical-tokenization checks, not an endpoint
+score or proof that the guard explains every error. Alternative segmentations,
+frequency penalties, reasoning policy, and true repetition remain relevant.
+
+**Disposition:** prioritize an explicit no-hard-ngram-ban arm while leaving
+other sampling controls unchanged. Do not promote before real task evidence.
+
+## 2026-09-04 — Installed KV representation differs from the earlier estimate
+
+**Belief:** KV compression becomes material earlier in long contexts than the
+earlier FP16 estimate suggested, but is not the current short-task bottleneck.
+
+**Evidence:** The pinned config has 10 full-attention layers, not 12. Swiftlet
+allocates FP32 K/V plus FP32 CPU mirrors, giving 80 KiB of logical payload per
+position across both copies. The baseline's largest reported sequence, 2,038
+tokens, implies 159.219 MiB before spare capacity and transient allocations.
+At 32K positions the same logical payload is 2.5 GiB. See `docs/KV_MEMORY.md`.
+
+**Qualification:** Source-derived accounting, not measured allocation peaks;
+the baseline still had pressure level 1 and no swap growth. No KV code changed.
+
+**Disposition:** supersede the previous thread's layer-count/precision estimate.
+Retain TurboQuant/PolarQuant and CPU-mirror removal as longer-context arms.
