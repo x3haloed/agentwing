@@ -101,6 +101,16 @@ Summary SHA-256: `4331ef3d70965f29d4879d6186580fb77bc049ed70f5f0d3271a597a32ec03
 protected-test integrity, protocol pairing, hashes, and safety checks.
 
 Both initial gates now pass. Proceed to the unchanged eight-task screen with
-`--task all` (the runner default), preserving all failures and endpoint costs.
+`--all` (required; the runner default is navigation only), preserving all failures and endpoint costs.
 This screen is developmental; it is not one of the paired promotion replications.
 Retain candidate provisionally; promotion remains unproven.
+
+## Preserved launch error
+
+Run `20260904T231929Z` omitted `--all` and selected only navigation.
+The manifest check caught this before any tool call. The owned runner was
+terminated, and its server exited; the terminal run recorded utility 0,
+56 endpoint seconds, Pi exit 143, pressure 1, and zero swap growth.
+This is an operator setup failure, not a completed full-suite measurement.
+All artifacts are preserved at `/Users/chad/Models/agentwing/evidence/AW-0019/20260904T231929Z`.
+Summary SHA-256: `6dc34753b441374b34877e5679ff3a7450d7d2f17a82e1b16266d7c6dd9fc6e3`.
