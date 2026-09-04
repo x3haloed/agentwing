@@ -36,6 +36,11 @@ both parent and child disappear within five seconds.
 
 ```sh
 /usr/bin/python3 -m unittest -q tests.test_exec_process_group
+AGENTWING_TASK_TIMEOUT_SECONDS=30 \
+AGENTWING_TOOL_PROFILE=shell \
+AGENTWING_SALVAGE_TOOL_PREFIX=1 \
+AGENTWING_PROMPT_PROFILE=compact-shell \
+  ./scripts/run-aw-0008.sh --all
 ```
 
 ## Results
@@ -46,6 +51,11 @@ helper changes to the requested task working directory before exec. The runner
 adds bounded TERM-to-KILL escalation, asserts that the process group is empty
 after wait, aborts on a leak, and drains Swiftlet cancellation before starting
 another task. Model-run isolation verification remains pending.
+
+The model-run falsifier uses `AGENTWING_TASK_TIMEOUT_SECONDS=30` across all
+eight tasks. This override is recorded in the run manifest and is for process
+integrity only; it cannot produce a performance score comparable to Stage A's
+frozen 900-second protocol.
 
 ## Confounders and deviations
 

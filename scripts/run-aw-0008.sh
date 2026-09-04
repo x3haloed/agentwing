@@ -13,6 +13,7 @@ TASK_SELECTION="01-navigation"
 SALVAGE_TOOL_PREFIX="${AGENTWING_SALVAGE_TOOL_PREFIX:-0}"
 TOOL_PROFILE="${AGENTWING_TOOL_PROFILE:-full}"
 PROMPT_PROFILE="${AGENTWING_PROMPT_PROFILE:-base}"
+TASK_TIMEOUT_OVERRIDE="${AGENTWING_TASK_TIMEOUT_SECONDS:-}"
 SERVER_PID=""
 PI_PID=""
 
@@ -87,6 +88,17 @@ case "$PROMPT_PROFILE" in
     exit 2
     ;;
 esac
+if [ -n "$TASK_TIMEOUT_OVERRIDE" ]; then
+  case "$TASK_TIMEOUT_OVERRIDE" in
+    *[!0-9]*|0)
+      echo "AGENTWING_TASK_TIMEOUT_SECONDS must be a positive integer" >&2
+      exit 2
+      ;;
+  esac
+  task_timeout_seconds=$TASK_TIMEOUT_OVERRIDE
+else
+  task_timeout_seconds=$(jq -r '.default_timeout_seconds' "$MANIFEST")
+fi
 
 if [ "$TASK_SELECTION" = all ]; then
   TASKS=$(jq -r '.tasks[].id' "$MANIFEST")
@@ -144,6 +156,7 @@ jq -n \
   --arg prompt_profile "$PROMPT_PROFILE" \
   --arg tools_csv "$tools_csv" \
   --argjson salvage_tool_prefix "$SALVAGE_TOOL_PREFIX" \
+  --argjson task_timeout_seconds "$task_timeout_seconds" \
   --argjson free_kib "$free_kib" \
   --argjson baseline_swap_mib "$baseline_swap" \
   '{run_id:$run_id,suite_id:$suite_id,suite_sha256:$suite_sha256,
@@ -154,7 +167,8 @@ jq -n \
     tools:($tools_csv|split(",")),
     bind:"127.0.0.1",storage:"internal-ssd",free_kib_before:$free_kib,
     swap_used_mib_before:$baseline_swap_mib,os_version:$os_version,os_build:$os_build,
-    task_selection:$task_selection,salvage_tool_prefix:($salvage_tool_prefix == 1)}' >"$RUN_DIR/manifest.json"
+    task_selection:$task_selection,task_timeout_seconds:$task_timeout_seconds,
+    salvage_tool_prefix:($salvage_tool_prefix == 1)}' >"$RUN_DIR/manifest.json"
 printf 'timestamp_utc\ttask_id\tpressure_level\tswap_used_mib\n' >"$RUN_DIR/pressure.tsv"
 : >"$RUN_DIR/results.jsonl"
 /usr/bin/pmset -g therm >"$RUN_DIR/thermal-before.txt" 2>&1 || true
@@ -198,7 +212,7 @@ for task_id in $TASKS; do
   mkdir -p "$workspace"
   cp -R "$ROOT/benchmarks/stage-a-v1/tasks/$task_id/input/." "$workspace/"
   prompt=$(jq -r --arg id "$task_id" '.tasks[] | select(.id == $id) | .prompt' "$MANIFEST")
-  timeout_seconds=$(jq -r '.default_timeout_seconds' "$MANIFEST")
+  timeout_seconds=$task_timeout_seconds
   start_epoch=$(date +%s)
   status=running
   server_line_before=$(wc -l <"$RUN_DIR/server.log" | tr -d ' ')
