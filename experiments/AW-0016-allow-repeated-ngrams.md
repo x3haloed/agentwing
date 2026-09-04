@@ -2,7 +2,7 @@
 
 ## Status
 
-Frozen; tokenizer falsifier identified a hard sampler obstruction.
+First endpoint experiment complete; retained component, clean-finish gate unmet.
 
 ## Hypothesis
 
@@ -73,9 +73,21 @@ pristine-task verifier checks pass. See `evidence/AW-0016-validation.json`.
 First real endpoint trial: `20260904T222719Z`, at Agentwing `360c162`.
 The first response emitted two valid tool calls. The next wrote the correct
 configuration, including the intact loopback address. A later response reached
-192 tokens and salvaged one complete call, forcing a full refill. At the last
-observation the task was still running; do not score the artifact alone or
-infer normal completion. Final summary and disposition remain pending.
+192 tokens and salvaged one complete call, forcing a 948-token refill taking
+247.4 seconds TTFT. The final response also reached 192 tokens and was rejected
+for an incomplete tool call while trying to discover tests.
+
+The frozen verifier scores **utility 1 in 687 endpoint seconds** (681 task
+seconds; 5.240175 single-task utility/hour). Pi exited 0, which the existing
+runner labels `completed`, but the final assistant message has stop reason
+`error`. Thus the recorded artifact success is real while the stricter
+experiment's normal-finish condition is unmet. Keep both facts; do not change
+the frozen score or present this as clean delivery. There were four executed
+tools, one salvage, one rejected output, pressure peak 1, and zero swap growth.
+
+The next trial targets the observed output-boundary failure as AW-0017 rather
+than spending a full-suite run on the still-failing turn policy. The unchanged
+coding-task check remains part of broadening the combined candidate.
 
 ## Confounders and deviations
 
@@ -94,11 +106,15 @@ for this pinned agent system.
 `evidence/AW-0016-ngram-obstruction.json` and
 `evidence/AW-0016-validation.json`. Active-trial evidence directory:
 `/Users/chad/Models/agentwing/evidence/AW-0016/20260904T222719Z`.
+All eight archived checksums pass. Summary SHA-256:
+`0905a496dfaa12f52e3bd74d39bd205da1c26830822fed90de646f8d4bdb64e6`.
 
 ## Conclusion
 
-Pending endpoint evidence.
+Removing the hard ban permits the previously corrupted literal and produces
+a correct artifact. Generation truncation and context refill remain major
+costs. No suite speedup or default promotion has been established.
 
 ## Disposition
 
-Unresolved.
+Retained as a component; normal-finish gate unmet. Continue with AW-0017.

@@ -389,3 +389,21 @@ comparison. The unconfirmed drain also excludes a completed-suite claim.
 
 **Disposition:** reject this exact prompt arm and prioritize AW-0016's sampler
 change, keeping the original compact-shell prompt for that comparison.
+
+## 2026-09-04 — Removing the hard ban repairs the artifact but not the finish
+
+**Belief:** Necessary token repetition was one concrete obstacle; output
+truncation and discarded prefix state remain independent obstacles.
+
+**Evidence:** AW-0016 wrote a correct configuration and scored utility 1 in
+687 endpoint seconds, where the earlier configuration task failed. It still
+salvaged a partial multi-call generation, paid 247.4 seconds for a refill, and
+ended with a rejected incomplete call. Pi returned exit 0 despite its final
+assistant stop reason being `error`. Pressure was 1 and swap growth zero.
+
+**Qualification:** The frozen verifier score is preserved, but the experiment's
+normal-finish condition is unmet. This is not a suite speedup. The runner now
+records model-error replies separately without changing the scoring rule.
+
+**Disposition:** retain the no-hard-ngram-ban component and test a complete
+retained tool boundary as AW-0017 before broader measurement.

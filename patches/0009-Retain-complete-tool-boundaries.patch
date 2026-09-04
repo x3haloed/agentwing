@@ -1,0 +1,228 @@
+From 459b2011375022a6716463bd1e1f1b00741f91c3 Mon Sep 17 00:00:00 2001
+From: Chad Kirby <x3haloed@gmail.com>
+Date: Fri, 4 Sep 2026 15:46:15 -0700
+Subject: [PATCH] Retain exact model state when stopping at complete tool calls
+
+---
+ Sources/SwiftletCore/SwiftletSession.swift    |  12 +++
+ Sources/SwiftletServer/main.swift             |  13 ++-
+ .../SwiftletCoreTests/RetainedStopTests.swift | 101 ++++++++++++++++++
+ .../ChatRequestTests.swift                    |  12 +++
+ 4 files changed, 135 insertions(+), 3 deletions(-)
+ create mode 100644 Tests/SwiftletCoreTests/RetainedStopTests.swift
+
+diff --git a/Sources/SwiftletCore/SwiftletSession.swift b/Sources/SwiftletCore/SwiftletSession.swift
+index 8db2b00..a1df310 100644
+--- a/Sources/SwiftletCore/SwiftletSession.swift
++++ b/Sources/SwiftletCore/SwiftletSession.swift
+@@ -50,6 +50,9 @@ public final class SwiftletSession: @unchecked Sendable {
+         /// prefixes are held across token boundaries, so split stop strings do
+         /// not leak into a streamed response.
+         public var stopSequences: [String] = []
++        /// End at a complete emitted suffix, retaining its token and live
++        /// state. Unlike stripped stops, these match only at token boundaries.
++        public var stopAfterSequences: [String] = []
+         public init() {}
+         public static var greedy: GenerationOptions {
+             var o = GenerationOptions()
+@@ -641,6 +644,15 @@ public final class SwiftletSession: @unchecked Sendable {
+                                 shouldCancel: { control.isCancelled }
+                             )
+                             decodeSeconds += -t0.timeIntervalSinceNow
++                            // Consume the closing token before stopping so the
++                            // emitted prefix and reusable model state agree.
++                            if !options.stopAfterSequences.isEmpty {
++                                let emitted = stopFilter.output.trimmingCharacters(in: .whitespacesAndNewlines)
++                                if options.stopAfterSequences.contains(where: { !$0.isEmpty && emitted.hasSuffix($0) }) {
++                                    finishReason = .stop
++                                    break
++                                }
++                            }
+                         }
+                     } catch GenerationInterruption.cancelled {
+                         finishReason = .cancelled
+diff --git a/Sources/SwiftletServer/main.swift b/Sources/SwiftletServer/main.swift
+index a6d1169..5fbbb6b 100644
+--- a/Sources/SwiftletServer/main.swift
++++ b/Sources/SwiftletServer/main.swift
+@@ -91,7 +91,9 @@ struct ChatRequest: Decodable {
+     let top_p: Float?
+     let stop: StopSequences?
+ 
+-    func generationOptions(allowRepeatedNGrams: Bool = false) -> SwiftletSession.GenerationOptions {
++    func generationOptions(
++        allowRepeatedNGrams: Bool = false, stopAfterToolCall: Bool = false
++    ) -> SwiftletSession.GenerationOptions {
+         var options = SwiftletSession.GenerationOptions()
+         if let temperature {
+             if temperature <= 0 { options = .greedy } else { options.temperature = temperature }
+@@ -101,6 +103,9 @@ struct ChatRequest: Decodable {
+         // Code, literal addresses, and tool markup require repeated n-grams.
+         // Keep this experimental arm explicit; all other controls are retained.
+         if allowRepeatedNGrams { options.noRepeatNGram = 0 }
++        if stopAfterToolCall, tools?.isEmpty == false {
++            options.stopAfterSequences = ["</tool_call>"]
++        }
+         return options
+     }
+ 
+@@ -154,7 +159,7 @@ func flag(_ name: String) -> String? {
+     return cliArgs[i + 1]
+ }
+ guard let modelPath = flag("--model") else {
+-    print("usage: swiftlet-server --model <dir> [--port 8080] [--cache-gb 2] [--debug-tool-output] [--accept-schema-tags] [--salvage-tool-prefix] [--allow-repeated-ngrams]")
++    print("usage: swiftlet-server --model <dir> [--port 8080] [--cache-gb 2] [--debug-tool-output] [--accept-schema-tags] [--salvage-tool-prefix] [--allow-repeated-ngrams] [--stop-after-tool-call]")
+     exit(2)
+ }
+ let port = Int(flag("--port") ?? "8080") ?? 8080
+@@ -163,6 +168,7 @@ let debugToolOutput = cliArgs.contains("--debug-tool-output")
+ let acceptSchemaTags = cliArgs.contains("--accept-schema-tags")
+ let salvageToolPrefix = cliArgs.contains("--salvage-tool-prefix")
+ let allowRepeatedNGrams = cliArgs.contains("--allow-repeated-ngrams")
++let stopAfterToolCall = cliArgs.contains("--stop-after-tool-call")
+ let modelURL = URL(fileURLWithPath: modelPath)
+ let toolReplayCache = ToolReplayCache(debug: debugToolOutput)
+ 
+@@ -459,7 +465,8 @@ final class HTTPHandler: ChannelInboundHandler {
+             }
+         }
+ 
+-        let options = request.generationOptions(allowRepeatedNGrams: allowRepeatedNGrams)
++        let options = request.generationOptions(
++            allowRepeatedNGrams: allowRepeatedNGrams, stopAfterToolCall: stopAfterToolCall)
+ 
+         // Agent clients (OpenCode etc.) send multi-thousand-token prompts, so
+         // prefill can run minutes with no output. SSE comment heartbeats keep
+diff --git a/Tests/SwiftletCoreTests/RetainedStopTests.swift b/Tests/SwiftletCoreTests/RetainedStopTests.swift
+new file mode 100644
+index 0000000..dc1e388
+--- /dev/null
++++ b/Tests/SwiftletCoreTests/RetainedStopTests.swift
+@@ -0,0 +1,101 @@
++import Foundation
++import Testing
++@testable import SwiftletCore
++
++@Suite struct RetainedStopTests {
++    private final class ScriptModel: InferenceModel, @unchecked Sendable {
++        let config: QwenConfig
++        let modelDir: URL
++        private let lock = NSLock()
++        private var recorded: [(tokens: [Int], state: ObjectIdentifier)] = []
++
++        init() throws {
++            modelDir = URL(fileURLWithPath: #filePath)
++                .deletingLastPathComponent().deletingLastPathComponent()
++                .deletingLastPathComponent().appendingPathComponent("fixtures/tiny-model")
++            config = try QwenConfig(url: modelDir.appendingPathComponent("config.json"))
++        }
++
++        var calls: [(tokens: [Int], state: ObjectIdentifier)] {
++            lock.lock()
++            defer { lock.unlock() }
++            return recorded
++        }
++
++        func step(_ tokens: [Int], state: QwenCPUModel.DecodeState) throws -> [Float] {
++            lock.lock()
++            recorded.append((tokens, ObjectIdentifier(state)))
++            lock.unlock()
++            state.position += tokens.count
++            var logits = [Float](repeating: -100, count: config.vocabSize)
++            logits[64 + state.position] = 100
++            return logits
++        }
++    }
++
++    private func collect(_ stream: AsyncThrowingStream<String, Swift.Error>) async throws -> String {
++        var output = ""
++        for try await delta in stream { output += delta }
++        return output
++    }
++
++    @Test(arguments: [false, true])
++    func retainedDelimiterConsumesClosingTokenAndReusesExactPrefix(mergedWhitespace: Bool) async throws {
++        let model = try ScriptModel()
++        let pieces = mergedWhitespace
++            ? ["<tool_call>", "body", "</tool_call>\n", "UNWANTED"]
++            : ["<tool_call>", "body", "</tool", "_call>", "UNWANTED"]
++        let acceptedIDs = Array(65..<(65 + pieces.count - 1))
++        let expected = pieces.dropLast().joined()
++        let session = SwiftletSession(
++            testingModel: model, modelDir: model.modelDir,
++            encodeText: { _ in [20] },
++            decodeTokens: { ids in ids.map { pieces[$0 - 65] }.joined() },
++            renderMessages: { messages in
++                messages.last?["content"] == "result" ? [10] + acceptedIDs + [20] : [10]
++            }
++        )
++        var options = SwiftletSession.GenerationOptions.greedy
++        options.minNew = 0
++        options.noRepeatNGram = 0
++        options.stopAfterSequences = ["</tool_call>"]
++        let tools: [SwiftletToolSpec] = [["type": "function"]]
++        let output = try await collect(session.streamChat(
++            messages: [["role": "user", "content": "one"]],
++            tools: tools, maxNew: pieces.count, options: options))
++        #expect(output == expected)
++        #expect(session.lastMetrics.finishReason == .stop)
++        #expect(session.lastMetrics.generatedTokens == acceptedIDs.count)
++        #expect(model.calls.map(\.tokens) == [[10]] + acceptedIDs.map { [$0] })
++
++        _ = try await collect(session.streamChat(messages: [
++            ["role": "user", "content": "one"],
++            ["role": "assistant", "content": expected],
++            ["role": "tool", "content": "result"],
++        ], tools: tools, maxNew: 0, options: options))
++        #expect(session.lastMetrics.reusedPromptTokens == acceptedIDs.count + 1)
++        #expect(session.lastMetrics.promptTokens == 1)
++        #expect(model.calls.last?.tokens == [20])
++        #expect(Set(model.calls.map(\.state)).count == 1)
++    }
++
++    @Test(arguments: [false, true])
++    func defaultAndEmptyRetainedStopsDoNotTruncate(emptyEntry: Bool) async throws {
++        let model = try ScriptModel()
++        let pieces = ["hello", "</tool_call>", "tail"]
++        let session = SwiftletSession(
++            testingModel: model, modelDir: model.modelDir,
++            encodeText: { _ in [20] },
++            decodeTokens: { ids in ids.map { pieces[$0 - 65] }.joined() },
++            renderMessages: { _ in [10] }
++        )
++        var options = SwiftletSession.GenerationOptions.greedy
++        options.minNew = 0
++        options.stopAfterSequences = emptyEntry ? [""] : []
++        let output = try await collect(session.streamChat(
++            messages: [["role": "user", "content": "one"]],
++            maxNew: pieces.count, options: options))
++        #expect(output == pieces.joined())
++        #expect(session.lastMetrics.finishReason == .length)
++    }
++}
+diff --git a/Tests/SwiftletServerTests/ChatRequestTests.swift b/Tests/SwiftletServerTests/ChatRequestTests.swift
+index 5d62b0d..b6381cd 100644
+--- a/Tests/SwiftletServerTests/ChatRequestTests.swift
++++ b/Tests/SwiftletServerTests/ChatRequestTests.swift
+@@ -45,6 +45,18 @@ import SwiftletCore
+         #expect(options.frequencyPenalty == 0.5)
+     }
+ 
++    @Test func retainedToolBoundaryRequiresFlagAndDeclaredTools() throws {
++        let plain = try decode(#"{"messages":[{"role":"user","content":"hi"}]}"#)
++        #expect(plain.generationOptions(stopAfterToolCall: true).stopAfterSequences.isEmpty)
++        let tool = try decode(#"{"messages":[{"role":"user","content":"hi"}],"tools":[{"type":"function","function":{"name":"bash"}}]}"#)
++        #expect(tool.generationOptions().stopAfterSequences.isEmpty)
++        let options = tool.generationOptions(allowRepeatedNGrams: true, stopAfterToolCall: true)
++        #expect(options.stopAfterSequences == ["</tool_call>"])
++        #expect(options.stopSequences.isEmpty)
++        #expect(options.noRepeatNGram == 0)
++        #expect(options.frequencyPenalty == 0.5)
++    }
++
+     @Test func arrayOfPartsContent() throws {
+         let r = try decode(
+             #"{"messages":[{"role":"user","content":[{"type":"text","text":"hi"}]}]}"#
+-- 
+2.50.1 (Apple Git-155)
+

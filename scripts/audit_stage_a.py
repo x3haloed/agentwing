@@ -27,10 +27,13 @@ def audit(run):
     summary = json.loads((run / "summary.json").read_text())
     manifest = verifier.load_manifest()
     expected_ids = [task["id"] for task in manifest["tasks"]]
+    run_manifest = json.loads((run / "manifest.json").read_text())
+    selection = run_manifest["task_selection"]
+    selected_ids = expected_ids if selection == "all" else [selection]
     recorded_ids = [task["task_id"] for task in summary["tasks"]]
     checks = {
-        "completed_full_suite": summary["status"] == "completed"
-        and recorded_ids == expected_ids,
+        "completed_declared_selection": summary["status"] == "completed"
+        and recorded_ids == selected_ids and all(task_id in expected_ids for task_id in selected_ids),
     }
     # Resolve archived checksum names inside this run, allowing copied audits.
     for line in (run / "SHA256SUMS").read_text().splitlines():
@@ -104,6 +107,9 @@ def audit(run):
             "task_id": task_id,
             "checks": task_checks,
             "request_count": len(metrics),
+            "model_error_replies": sum(event.get("type") == "message_end"
+                and event.get("message", {}).get("role") == "assistant"
+                and event.get("message", {}).get("stopReason") == "error" for event in events),
             "new_prompt_tokens": sum(int(match[2]) for match in metrics),
             "generated_tokens": sum(int(match[5]) for match in metrics),
             "reported_ttft_seconds": round(sum(float(match[6]) for match in metrics), 1),

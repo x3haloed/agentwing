@@ -12,6 +12,7 @@ RUN_DIR="$EVIDENCE_ROOT/$RUN_ID"
 TASK_SELECTION="01-navigation"
 SALVAGE_TOOL_PREFIX="${AGENTWING_SALVAGE_TOOL_PREFIX:-0}"
 ALLOW_REPEATED_NGRAMS="${AGENTWING_ALLOW_REPEATED_NGRAMS:-0}"
+STOP_AFTER_TOOL_CALL="${AGENTWING_STOP_AFTER_TOOL_CALL:-0}"
 TOOL_PROFILE="${AGENTWING_TOOL_PROFILE:-full}"
 PROMPT_PROFILE="${AGENTWING_PROMPT_PROFILE:-base}"
 TASK_TIMEOUT_OVERRIDE="${AGENTWING_TASK_TIMEOUT_SECONDS:-}"
@@ -65,6 +66,11 @@ case "$ALLOW_REPEATED_NGRAMS" in
   0) repeat_arg=; sampler_suffix=; no_repeat_ngram=3 ;;
   1) repeat_arg=--allow-repeated-ngrams; sampler_suffix=-repeat-allowed; no_repeat_ngram=0 ;;
   *) echo "AGENTWING_ALLOW_REPEATED_NGRAMS must be 0 or 1" >&2; exit 2 ;;
+esac
+case "$STOP_AFTER_TOOL_CALL" in
+  0) boundary_arg=; boundary_suffix= ;;
+  1) boundary_arg=--stop-after-tool-call; boundary_suffix=-tool-boundary ;;
+  *) echo "AGENTWING_STOP_AFTER_TOOL_CALL must be 0 or 1" >&2; exit 2 ;;
 esac
 case "$TOOL_PROFILE" in
   full)
@@ -150,7 +156,7 @@ else
   recovery_suffix=
   salvage_arg=
 fi
-configuration="B0-stage-a-v1.1-${TOOL_PROFILE}-${PROMPT_PROFILE}${recovery_suffix}${sampler_suffix}"
+configuration="B0-stage-a-v1.1-${TOOL_PROFILE}-${PROMPT_PROFILE}${recovery_suffix}${sampler_suffix}${boundary_suffix}"
 
 jq -n \
   --arg run_id "$RUN_ID" \
@@ -171,6 +177,7 @@ jq -n \
   --arg tools_csv "$tools_csv" \
   --argjson salvage_tool_prefix "$SALVAGE_TOOL_PREFIX" \
   --argjson no_repeat_ngram "$no_repeat_ngram" \
+  --argjson stop_after_tool_call "$STOP_AFTER_TOOL_CALL" \
   --argjson task_timeout_seconds "$task_timeout_seconds" \
   --argjson free_kib "$free_kib" \
   --argjson baseline_swap_mib "$baseline_swap" \
@@ -181,6 +188,7 @@ jq -n \
     harness_revision:$harness_revision,model_cache_gb:0.5,max_output_tokens:192,
     temperature:0,presence_penalty:0,frequency_penalty:0.5,
     no_repeat_ngram:$no_repeat_ngram,min_new_tokens:8,top_k:20,top_p:0.8,
+    stop_after_tool_call:($stop_after_tool_call == 1),
     enable_thinking:false,tool_profile:$tool_profile,prompt_profile:$prompt_profile,
     system_prompt_sha256:$system_prompt_sha256,
     tools:($tools_csv|split(",")),
@@ -195,7 +203,7 @@ suite_start_epoch=$(date +%s)
 
 "$SWIFTLET/.build/release/swiftlet-server" \
   --model "$MODEL" --port 8080 --cache-gb 0.5 --debug-tool-output \
-  --accept-schema-tags $salvage_arg $repeat_arg >"$RUN_DIR/server.log" 2>&1 &
+  --accept-schema-tags $salvage_arg $repeat_arg $boundary_arg >"$RUN_DIR/server.log" 2>&1 &
 SERVER_PID=$!
 
 i=0
@@ -325,6 +333,7 @@ for task_id in $TASKS; do
   fi
   tool_calls=$(jq -s '[.[] | select(.type == "tool_execution_start")] | length' "$task_dir/pi.jsonl" 2>/dev/null || echo 0)
   failed_tools=$(jq -s '[.[] | select(.type == "tool_execution_end" and .isError == true)] | length' "$task_dir/pi.jsonl" 2>/dev/null || echo 0)
+  model_error_replies=$(jq -s '[.[] | select(.type == "message_end" and .message.role == "assistant" and .message.stopReason == "error")] | length' "$task_dir/pi.jsonl" 2>/dev/null || echo 0)
   server_line_after=$(wc -l <"$RUN_DIR/server.log" | tr -d ' ')
   if [ "$server_line_after" -gt "$server_line_before" ]; then
     sed -n "$((server_line_before + 1)),${server_line_after}p" "$RUN_DIR/server.log" >"$task_dir/server.log"
@@ -344,6 +353,7 @@ for task_id in $TASKS; do
     --argjson verifier_utility "$verifier_utility" --argjson utility "$accepted_utility" \
     --argjson wall_seconds "$wall_seconds" --argjson tool_calls "$tool_calls" \
     --argjson failed_tool_calls "$failed_tools" \
+    --argjson model_error_replies "$model_error_replies" \
     --argjson rejected_tool_outputs "$rejected_tool_outputs" \
     --argjson normalized_tool_calls "$normalized_tool_calls" \
     --argjson prefix_reuse_hits "$prefix_reuse_hits" \
@@ -352,6 +362,7 @@ for task_id in $TASKS; do
     '{task_id:$task_id,status:$status,pi_exit:$pi_exit,verifier_exit:$verifier_exit,
       verifier_utility:$verifier_utility,utility:$utility,wall_seconds:$wall_seconds,
       tool_calls:$tool_calls,failed_tool_calls:$failed_tool_calls,
+      model_error_replies:$model_error_replies,
       rejected_tool_outputs:$rejected_tool_outputs,
       normalized_tool_calls:$normalized_tool_calls,prefix_reuse_hits:$prefix_reuse_hits,
       salvaged_tool_prefixes:$salvaged_tool_prefixes,
