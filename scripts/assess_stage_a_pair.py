@@ -33,9 +33,9 @@ def pair_checks(control, candidate, control_manifest, candidate_manifest, spec):
     ar = 3600 * candidate['utility'] / max(1, candidate['wall_seconds'])
     checks['historical_floor_rate'] = ar >= gate['minimum_candidate_verified_utility_per_hour']
     checks['paired_rate_ratio'] = cr > 0 and ar >= cr * gate['minimum_utility_rate_ratio_each_pair']
-    checks['candidate_clean_protocol_finish'] = all(
-        task['model_error_replies'] == task['rejected_tool_outputs'] == task['salvaged_tool_prefixes'] == 0
-        for task in candidate['tasks'])
+    checks['candidate_declared_salvage_policy'] = (
+        not any(task['salvaged_tool_prefixes'] for task in candidate['tasks'])
+        or candidate_manifest.get('salvage_tool_prefix') is True)
     return checks, {'control_utility_per_hour': cr, 'candidate_utility_per_hour': ar,
                     'ratio': ar / cr if cr > 0 else None}
 
@@ -52,6 +52,8 @@ def assess(control_path, candidate_path):
     return {'schema_version': 1, 'control_run': str(control_path),
             'candidate_run': str(candidate_path), 'checks': checks, 'rates': rates,
             'pair_metrics_passed': all(checks.values()),
+            'candidate_diagnostics': {key: sum(t[key] for t in summaries[1]['tasks'])
+                for key in ('model_error_replies', 'rejected_tool_outputs', 'salvaged_tool_prefixes')},
             'summary_sha256': [a['summary_sha256'] for a in audits],
             'scope': 'Necessary metrics for ONE pair only. Two interleaved pairs with the same frozen arms, protocol-test evidence, actual loopback/process observations, permissions and reproduction remain required for promotion.'}
 

@@ -82,7 +82,7 @@ commands. At continuation, 304 GiB was available, so no reclamation was needed.
 - AW-0020 found no immediately usable alternative weights/runtime in known
   local model locations. This is not a global absence or performance claim.
 - AW-0021's relative-cwd extension remains optional and needs a real Pi fixture.
-- AW-0022 added `scripts/assess_stage_a_pair.py`; nine Python tests pass. It
+- AW-0022 added `scripts/assess_stage_a_pair.py`; ten Python tests pass. It
   checks necessary metrics for one pair, not the entire promotion contract.
 - AW-0023's optional 1,024-character result cap was deprioritized: actual hook
   replay saves only 12 tokens across the baseline and 37 on clean repair.

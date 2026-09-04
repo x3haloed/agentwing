@@ -483,3 +483,16 @@ behavior or endpoint latency. A rough repair-task projection is about 10 seconds
 **Disposition:** deprioritize this exact cap without spending an endpoint trial.
 Keep the current full-suite screen unchanged and prioritize cwd-hint overhead.
 Reconsider bounded delivery if later output profiles are materially larger.
+
+## 2026-09-04 — Keep pair assessment aligned with verified utility
+
+**Correction:** AW-0022 initially added an unnecessary blanket failure gate for
+model-error replies, rejected generations, and declared prefix salvage. The
+frozen scorer can accept a completed, independently verified artifact after
+such events. Explicit recorded recovery is not inherently protocol corruption.
+
+**Change:** retain these counters as diagnostics, require salvage to be declared,
+and preserve the existing utility rule. Protocol integrity audits and the
+required protocol fixtures remain separate requirements. Ten Python tests pass;
+a regression ensures these diagnostic counters do not silently rescore utility.
+The real partial-run example still fails full-suite and success-count gates.

@@ -39,14 +39,22 @@ class PairGateTests(unittest.TestCase):
         self.assertFalse(self.checks()['minimum_candidate_successes'])
         self.assertFalse(self.checks()['preserved_control_successes'])
 
-    def test_historical_floor_and_host_protocol_gates(self):
+    def test_historical_floor_and_host_gates(self):
         self.control['wall_seconds'] = 20000
         self.candidate.update(utility=3, wall_seconds=4000)
         self.assertTrue(self.checks()['paired_rate_ratio'])
         self.assertFalse(self.checks()['historical_floor_rate'])
         self.candidate['pressure_peak'] = 4
         self.candidate['swap_peak_mib'] = 1125
-        self.candidate['tasks'][0]['model_error_replies'] = 1
         self.assertFalse(self.checks()['candidate_pressure'])
         self.assertFalse(self.checks()['candidate_swap'])
-        self.assertFalse(self.checks()['candidate_clean_protocol_finish'])
+        before = self.checks()
+        self.candidate['tasks'][0]['model_error_replies'] = 1
+        self.candidate['tasks'][0]['rejected_tool_outputs'] = 1
+        self.assertEqual(self.checks(), before)
+
+    def test_salvage_must_be_declared_but_is_not_automatically_failure(self):
+        self.candidate['tasks'][0]['salvaged_tool_prefixes'] = 1
+        self.assertFalse(self.checks()['candidate_declared_salvage_policy'])
+        self.manifest['salvage_tool_prefix'] = True
+        self.assertTrue(all(self.checks().values()))
