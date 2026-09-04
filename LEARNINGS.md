@@ -310,3 +310,19 @@ filesystem/network isolation. Some visible tests have narrow coverage.
 **Disposition:** retain the floor. Test generic environment guidance separately
 from output-budget changes; keep KV compression conditional on memory profiling.
 The existing five-replicate and broader-validation gates remain unchanged.
+
+## 2026-09-04 — Cancellation requires a terminal metric, not log activity
+
+**Belief:** New log activity alone is insufficient to establish a completed
+cancellation; a missing terminal metric must stop the suite.
+
+**Evidence:** AW-0014 rejects stale metrics, diagnostic noise, and partial
+writes in fixtures. Real run `20260904T203854Z` observed one complete terminal
+metric after a 30-second timeout, finished in 56 endpoint seconds, and left no
+benchmark process. Pressure peaked at 1 with zero swap growth.
+
+**Qualification:** One-task integrity diagnostic, not throughput evidence or a
+repeat of eight-task isolation. The barrier relies on serialized generation.
+
+**Disposition:** promote the fail-closed terminal-metric guard. Keep the
+AW-0008 measured floor and performance thresholds unchanged.

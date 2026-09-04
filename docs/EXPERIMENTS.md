@@ -20,19 +20,19 @@
 13. `AW-0013`: enforce per-task process-tree isolation and cancellation
 14. `AW-0014`: require a terminal metric and abort on an unconfirmed cancellation
 15. Preserve only behaviorally useful history and tool results
-15. Compare reasoning budgets by verified utility/hour
-16. Measure expert locality on real agent trajectories
+16. Compare reasoning budgets by verified utility/hour
+17. Measure expert locality on real agent trajectories
 
 ## Phase C — representation
 
-17. REAP calibration on held-out agent trajectories
-18. Pruned 8-bit versus unpruned 8-bit Qwen
-19. Mixed expert precision using routing and trajectory salience
-20. Higher-bit hot experts under a fixed disk and read budget
+18. REAP calibration on held-out agent trajectories
+19. Pruned 8-bit versus unpruned 8-bit Qwen
+20. Mixed expert precision using routing and trajectory salience
+21. Higher-bit hot experts under a fixed disk and read budget
 
 ## Phase D — scheduling
 
-21. Tool-time inference overlap
-22. Speculative decoding and native MTP where supported
-23. Single-model batching
-24. Multiple specialized agents only after single-rollout saturation is known
+22. Tool-time inference overlap
+23. Speculative decoding and native MTP where supported
+24. Single-model batching
+25. Multiple specialized agents only after single-rollout saturation is known

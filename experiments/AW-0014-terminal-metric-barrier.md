@@ -2,7 +2,7 @@
 
 ## Status
 
-Implementation complete; model integrity diagnostic pending.
+Complete; retained as runner integrity infrastructure.
 
 ## Hypothesis
 
@@ -49,7 +49,18 @@ AGENTWING_TASK_TIMEOUT_SECONDS=30 AGENTWING_TOOL_PROFILE=shell \
 
 ## Results
 
-Pending.
+All six Python tests passed, including stale/noise/partial/complete metric
+fixtures and bounded missing-metric waiting. Shell syntax validation passed.
+
+The real-model diagnostic `20260904T203854Z`, at Agentwing `7222887`, stopped
+the task at its recorded 30-second timeout and observed a complete terminal
+metric before proceeding to verification and server shutdown. Task wall time
+was 51 seconds and total endpoint time 56 seconds. The task segment contains
+one 480-token initial request, zero reused tokens, and zero generated tokens.
+Pressure peaked at 1; peak and final swap growth were zero. No runner,
+process-group helper, or Swiftlet server remained after completion.
+
+This intentionally scores zero utility and is only a cancellation diagnostic.
 
 ## Confounders and deviations
 
@@ -62,12 +73,16 @@ isolation experiment.
 
 ## Evidence
 
-External run manifest and hashes pending.
+`/Users/chad/Models/agentwing/evidence/AW-0014/20260904T203854Z`.
+All seven archived file checksums pass. Summary SHA-256:
+`dfc6acfd5841ed6965639dd4ffddd1bc029838a4ad3b93865a311a7011d52cc6`.
 
 ## Conclusion
 
-Pending.
+The stricter metric barrier works on the real cancellation path and rejects
+the tested misleading log fixtures. The next full-suite experiment inherits
+fail-closed behavior if a future timeout cannot establish its terminal metric.
 
 ## Disposition
 
-Unresolved.
+Promoted as runner integrity infrastructure, not as a performance improvement.

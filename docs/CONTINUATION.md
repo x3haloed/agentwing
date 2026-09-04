@@ -10,28 +10,24 @@ process was running at takeover. The prior 12 local commits were preserved.
 - Recovered and audited the previously unrecorded full Stage A run.
 - Recorded its 3/8, 2.064615 utility/hour floor in AW-0008 and LEARNINGS.
 - Added a repeatable offline auditor with copied-workspace verification.
+- Tightened cancellation handling and completed AW-0014's real-model timeout
+  diagnostic: terminal metric observed, no residual process, no swap growth.
 - Preserved all benchmark inputs, verifiers, runtime patches, and acceptance
   thresholds.
 
 ## Next bounded work
 
-1. Complete AW-0014's real-model integrity diagnostic for the tightened
-   cancellation barrier. The old runner treated any new server-log line as a
-   drain and continued even if no drain was observed. The candidate requires
-   a terminal metric and aborts before the next task if it is absent. The
-   audited run's three timeouts did end at terminal metrics, so this prospective
-   guard does not invalidate its recorded boundaries.
-2. Freeze AW-0015 for generic environment guidance: tell the agent the actual
+1. Freeze AW-0015 for generic environment guidance: tell the agent the actual
    available Python executable and how to discover the project's test command.
    Change only the prompt, not packages, benchmark tasks, output limits, or
    verifier. Use the existing single-file task as a cheap development falsifier
    before interleaved full-suite measurement. Keep task-specific answers out of
    the prompt.
-3. Test output budgeting as a separate arm; hitting 192 tokens does not imply
+2. Test output budgeting as a separate arm; hitting 192 tokens does not imply
    that more generation repairs semantic corruption or raises utility/hour.
-4. Address enforceable tool permissions before promotion. A working directory
+3. Address enforceable tool permissions before promotion. A working directory
    and Pi startup-offline mode do not establish a sandbox.
-5. Screen alternate configurations, bounded tool results/history, and
+4. Screen alternate configurations, bounded tool results/history, and
    TurboQuant/PolarQuant KV compression as profiling warrants. The inherited
    preference for KV compression is retained; these short trajectories have
    not demonstrated KV pressure as their bottleneck.
