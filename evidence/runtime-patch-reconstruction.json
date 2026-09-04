@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "upstream_revision": "694706e1d8ec67021f4350be88c912b3cb50cb32",
+  "runtime_revision": "459b2011375022a6716463bd1e1f1b00741f91c3",
+  "reconstructed_tree": "2f1cbc79a36fe3a46c7bc43701ff4e77f2c5ec6c",
+  "recorded_commit_tree": "2f1cbc79a36fe3a46c7bc43701ff4e77f2c5ec6c",
+  "expected_tree": "2f1cbc79a36fe3a46c7bc43701ff4e77f2c5ec6c",
+  "patches": [
+    {
+      "path": "patches/0001-Add-strict-OpenAI-tool-transport.patch",
+      "sha256": "9cc1c5b57ecf20e3f9eddc74801a20be5ea15f3e4b9b9b7b1fe4f651904add60"
+    },
+    {
+      "path": "patches/0002-Log-rejected-tool-output-on-demand.patch",
+      "sha256": "a1ee986f830166bce4ca641884c18a1119cb831ce5fa3ef90423d8c762e655b4"
+    },
+    {
+      "path": "patches/0003-Add-explicit-schema-tag-tool-normalization.patch",
+      "sha256": "c17c998b4fbe96526a7f6abdac0027b39a59282480e609fdacf5395c857a0dbd"
+    },
+    {
+      "path": "patches/0004-Reuse-exact-tool-continuation-prefixes.patch",
+      "sha256": "1d776fa2f6d28543086c2bb91e023d12952a4297b178783e5e6c4d6ac171d7e1"
+    },
+    {
+      "path": "patches/0005-Expose-exact-prefix-reuse-diagnostics.patch",
+      "sha256": "f6262f4f8c6c6fb1e75115e3d7abf9581020b121bcb3c418fbed1e2e526b0d90"
+    },
+    {
+      "path": "patches/0006-Render-nonthinking-prompts-atomically.patch",
+      "sha256": "dde2e2356f781f0f7ecc6b3d0df26cff53e6805536d7c46d7c62ecddeac30397"
+    },
+    {
+      "path": "patches/0007-Salvage-complete-tool-call-prefixes.patch",
+      "sha256": "8df22b58fd0b7f47eea484ec9a15cfe12aea41c300277d18b00c11a9190f3c01"
+    },
+    {
+      "path": "patches/0008-Allow-repeated-ngrams-for-code.patch",
+      "sha256": "f7b179104a779927b73f26f1da3f6bff2c4f657de6f609dbe64dc884a0da8842"
+    },
+    {
+      "path": "patches/0009-Retain-complete-tool-boundaries.patch",
+      "sha256": "4863659e8d3d4668ed32e65184d77c300baab03f765235b12da3b7e3bb8139e3"
+    }
+  ],
+  "passed": true,
+  "scope": "Temporary-index source reconstruction; no checkout, build or model execution."
+}

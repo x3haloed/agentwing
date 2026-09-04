@@ -27,3 +27,15 @@
 5. Update `LEARNINGS.md` and machine-readable specs only when evidence warrants
    a belief change.
 
+
+## Runtime source reconstruction
+
+Run `python3 scripts/verify_runtime_patch_series.py` to verify every archived
+patch hash and apply the series from the pinned upstream revision in a
+temporary Git index. The resulting tree must equal both the recorded runtime
+commit tree and `swiftlet.source_tree` in `spec/dependencies.json`. The check
+leaves the checkout, real index, and branch unchanged; Git may add reconstructed
+objects to its object store. This verifies source identity only. Reproduction
+also requires the pinned dependencies, model, build, protocol tests, and
+endpoint measurements. The recorded successful check is in
+`evidence/runtime-patch-reconstruction.json`.

@@ -51,7 +51,8 @@
         "sha256": "4863659e8d3d4668ed32e65184d77c300baab03f765235b12da3b7e3bb8139e3"
       }
     ],
-    "local_path": "/Users/chad/Models/agentwing/dependencies/Swiftlet"
+    "local_path": "/Users/chad/Models/agentwing/dependencies/Swiftlet",
+    "source_tree": "2f1cbc79a36fe3a46c7bc43701ff4e77f2c5ec6c"
   },
   "pi": {
     "repository": "https://github.com/badlogic/pi-mono",

@@ -17,41 +17,50 @@ process was running at takeover. The prior 12 local commits were preserved.
 
 ## Next bounded work
 
-1. Finish observing AW-0016's `08-config-sync` trial. At 22:35 UTC on
-   2026-09-04 it was confirmed live: exec session `16815`, runner PID `59323`,
-   server PID `59376`, evidence directory
-   `/Users/chad/Models/agentwing/evidence/AW-0016/20260904T222719Z`.
-   These are observation handles, not proof of continuing liveness: poll the
-   session or inspect processes before taking action. Do not restart a live
-   trial. The run has written correct config but has not yet completed; one
-   192-token truncation caused salvage and a refill. Wait for the original
-   900-second timeout or completion and preserve the final evidence.
-2. If AW-0016 passes its first task, run `02-single-file-fix` with the same
-   sampler arm and then consider the full suite. If it fails, preserve that
-   result and isolate the remaining output-boundary problem. A possible next
-   arm stops after a complete tool-call closing delimiter while retaining the
-   exact committed prefix; ordinary stripped stop sequences currently reset
-   reuse and are not an equivalent implementation. A larger output budget is
-   a separate option, not a presumed fix.
-3. Address enforceable tool permissions before promotion. A working directory
-   and Pi startup-offline mode do not establish a sandbox.
-4. Screen alternate configurations, bounded tool results/history, and
-   TurboQuant/PolarQuant KV compression as profiling warrants. The inherited
-   preference for KV compression is retained; these short trajectories have
-   not demonstrated KV pressure as their bottleneck.
+1. Observe AW-0019's `08-config-sync` trial before launching any model work.
+   Last confirmed live on 2026-09-04 at approximately 23:05 UTC: exec session
+   `36265`, runner PID `67239`, server PID `67296`, evidence directory
+   `/Users/chad/Models/agentwing/evidence/AW-0019/20260904T225714Z`.
+   These handles are not proof of current liveness. Poll or inspect processes;
+   do not restart a live trial. The candidate combines unrestricted repeated
+   n-grams, retained tool boundaries, and a 512-token output cap. Other settings
+   remain the compact-shell arm. The first five calls retained their full prefix. The fifth call completed
+   at 287 tokens and found the test file, but its compound shell command
+   returned exit 1 because it also checked a missing Makefile. This is a tool
+   failure, not a model/parser error; recovery and final completion are pending.
+2. Audit terminal evidence with `scripts/audit_stage_a.py`. If the task passes
+   with no model-error replies, rejection, or salvage, test `02-single-file-fix`
+   under the same AW-0019 configuration before a full-suite screen. Preserve
+   failed trials and their costs. Promotion still needs two interleaved pairs.
+3. Address enforceable tool permissions before promotion. AW-0018's native
+   sandbox preflight allowed owned workspace writes and the owned endpoint,
+   and denied outside writes, symlink escape, and a different endpoint port.
+   This is not integrated into Pi and is not a comprehensive sandbox result.
+4. Screen alternative configurations, bounded tool results/history, and
+   TurboQuant/PolarQuant KV compression as profiling warrants. Short-task
+   evidence has not shown KV pressure to be the bottleneck.
 
-## Latest goal-turn evidence
+## Latest evidence
 
 - AW-0015 environment guidance failed: zero utility, timeout, unconfirmed
   cancellation drain. The guard stopped the suite; no process remained.
-- AW-0016 found that the greedy hard trigram ban blocks ordinary loopback
-  literals, three-parameter typed signatures, repeated paths, and tool markup.
-  Swiftlet `97e0bbe` adds an explicit `--allow-repeated-ngrams` arm, leaving all
-  other sampling controls unchanged. It is exported as patch 0008 and pinned.
-- Full Swift tests (177), both Pi protocol fixtures, and Python tests pass.
-- Corrected the inherited KV estimate: 10 full-attention layers with FP32 GPU
-  buffers plus CPU mirrors. See `docs/KV_MEMORY.md`; no cache code changed.
-- No configuration is promoted yet. The active goal remains unfinished.
+- AW-0016 removed the hard trigram ban, which obstructed ordinary code tokens.
+  The config artifact passed in 687 endpoint seconds, but the final call was
+  truncated and rejected. Pi exited zero despite a model-error reply.
+- AW-0017 retained complete tool-call boundaries. The same artifact passed in
+  409 endpoint seconds, with full continuation reuse and no salvage. Its last
+  call still exceeded 192 tokens. This is a non-interleaved diagnostic, not a
+  suite speedup. All AW-0016/AW-0017 processes terminated.
+- Swiftlet `459b201` is pinned with nine archived patches. Full Swift tests
+  (180 across 29 suites), both Pi protocol fixtures, and six Python tests pass.
+- `scripts/verify_runtime_patch_series.py` reconstructs the exact pinned source
+  tree using a temporary Git index. All nine patch hashes match. Altered hash
+  and incorrect tree negative checks reject. See
+  `evidence/runtime-patch-reconstruction.json`; this is source reconstruction,
+  not a separate clean build or endpoint replication.
+- Corrected KV accounting: 10 full-attention layers with FP32 GPU buffers and
+  CPU mirrors. See `docs/KV_MEMORY.md`; no cache code changed.
+- No configuration is promoted. The active goal remains unfinished.
 
 The user subsequently activated the long-horizon goal, explicitly specifying
 two interleaved replications. The 2026-09-04 goal-contract revision in
