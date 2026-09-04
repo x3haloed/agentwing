@@ -17,20 +17,21 @@
 10. `AW-0010`: compare the full Pi tool surface with a shell-only profile
 11. `AW-0011`: test shell-only action with explicit prefix recovery
 12. `AW-0012`: minimize shell-agent actions with relative-path prompting
-13. Preserve only behaviorally useful history and tool results
-14. Compare reasoning budgets by verified utility/hour
-15. Measure expert locality on real agent trajectories
+13. `AW-0013`: enforce per-task process-tree isolation and cancellation
+14. Preserve only behaviorally useful history and tool results
+15. Compare reasoning budgets by verified utility/hour
+16. Measure expert locality on real agent trajectories
 
 ## Phase C — representation
 
-16. REAP calibration on held-out agent trajectories
-17. Pruned 8-bit versus unpruned 8-bit Qwen
-18. Mixed expert precision using routing and trajectory salience
-19. Higher-bit hot experts under a fixed disk and read budget
+17. REAP calibration on held-out agent trajectories
+18. Pruned 8-bit versus unpruned 8-bit Qwen
+19. Mixed expert precision using routing and trajectory salience
+20. Higher-bit hot experts under a fixed disk and read budget
 
 ## Phase D — scheduling
 
-20. Tool-time inference overlap
-21. Speculative decoding and native MTP where supported
-22. Single-model batching
-23. Multiple specialized agents only after single-rollout saturation is known
+21. Tool-time inference overlap
+22. Speculative decoding and native MTP where supported
+23. Single-model batching
+24. Multiple specialized agents only after single-rollout saturation is known

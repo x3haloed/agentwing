@@ -1,0 +1,65 @@
+# AW-0013 — Enforce task process-tree isolation
+
+## Status
+
+In progress.
+
+## Hypothesis
+
+Launching each Pi task in a distinct POSIX session and signaling its process
+group on timeout will prevent descendants from issuing requests after their
+task has been verified or the next task has begun.
+
+## Configuration identities
+
+- Control: AW-0008 runner at `9958483`, which signals only the wrapper PID.
+- Candidate: process-group runner with a post-stop server cancellation drain.
+
+## Fixed conditions
+
+- Benchmark, endpoint, model, runtime, harness, prompt, tools, cache, timeout,
+  and host gates: unchanged.
+- Experimental variable: runner process ownership and termination only.
+
+## Primary metric and acceptance rule
+
+Integrity gate: a wrapper and spawned descendant must both terminate from one
+group signal. A timed-out model task must leave no Pi process and no request
+targeting its workspace after the next task begins.
+
+## Cheap falsifier
+
+Launch a shell that spawns `sleep 60`, signal its dedicated group, and prove
+both parent and child disappear within five seconds.
+
+## Commands
+
+```sh
+/usr/bin/python3 -m unittest -q tests.test_exec_process_group
+```
+
+## Results
+
+The synthetic regression passes: a wrapper shell and its `sleep` descendant
+both terminate from one process-group signal. A second regression verifies the
+helper changes to the requested task working directory before exec. The runner
+adds bounded TERM-to-KILL escalation, asserts that the process group is empty
+after wait, aborts on a leak, and drains Swiftlet cancellation before starting
+another task. Model-run isolation verification remains pending.
+
+## Confounders and deviations
+
+The synthetic child-tree test does not itself prove Swiftlet cancellation;
+model-run log ownership must also be checked on the next multi-task run.
+
+## Evidence
+
+The invalid `20260904T164953Z` run is retained under AW-0008 evidence.
+
+## Conclusion
+
+Pending.
+
+## Disposition
+
+Unresolved.

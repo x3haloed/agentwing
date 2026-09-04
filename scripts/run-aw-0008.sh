@@ -47,7 +47,7 @@ swap_used_mib() {
 }
 
 cleanup() {
-  if [ -n "$PI_PID" ]; then kill "$PI_PID" 2>/dev/null || true; fi
+  if [ -n "$PI_PID" ]; then kill -TERM "-$PI_PID" 2>/dev/null || true; fi
   if [ -n "$SERVER_PID" ]; then kill "$SERVER_PID" 2>/dev/null || true; fi
 }
 trap cleanup EXIT INT TERM
@@ -203,14 +203,13 @@ for task_id in $TASKS; do
   status=running
   server_line_before=$(wc -l <"$RUN_DIR/server.log" | tr -d ' ')
 
-  (
-    cd "$workspace"
-    AGENTWING_PI_MODELS_FILE="$ROOT/config/pi-models-stage-a.json" \
-      "$ROOT/scripts/pi.sh" --mode json --print --no-session --approve --offline \
-      --tools "$tools_csv" \
-      --system-prompt "$system_prompt" \
-      "$prompt"
-  ) >"$task_dir/pi.jsonl" 2>"$task_dir/pi.stderr" &
+  /usr/bin/python3 "$ROOT/scripts/exec_process_group.py" \
+    --cwd "$workspace" -- /usr/bin/env \
+    "AGENTWING_PI_MODELS_FILE=$ROOT/config/pi-models-stage-a.json" \
+    "$ROOT/scripts/pi.sh" --mode json --print --no-session --approve --offline \
+    --tools "$tools_csv" \
+    --system-prompt "$system_prompt" \
+    "$prompt" >"$task_dir/pi.jsonl" 2>"$task_dir/pi.stderr" &
   PI_PID=$!
 
   while kill -0 "$PI_PID" 2>/dev/null; do
@@ -221,27 +220,47 @@ for task_id in $TASKS; do
     elapsed=$(($(date +%s) - start_epoch))
     if [ "$pressure" -ge 4 ]; then
       status=stopped-critical-pressure
-      kill "$PI_PID" 2>/dev/null || true
+      kill -TERM "-$PI_PID" 2>/dev/null || true
       break
     fi
     if awk -v delta="$delta" 'BEGIN { exit !(delta > 1024) }'; then
       status=stopped-swap-growth
-      kill "$PI_PID" 2>/dev/null || true
+      kill -TERM "-$PI_PID" 2>/dev/null || true
       break
     fi
     if [ "$elapsed" -ge "$timeout_seconds" ]; then
       status=stopped-timeout
-      kill "$PI_PID" 2>/dev/null || true
+      kill -TERM "-$PI_PID" 2>/dev/null || true
       break
     fi
     sleep 5
   done
 
+  if [ "$status" != running ]; then
+    stop_checks=0
+    while kill -0 "$PI_PID" 2>/dev/null && [ "$stop_checks" -lt 50 ]; do
+      stop_checks=$((stop_checks + 1))
+      sleep 0.1
+    done
+    if kill -0 "$PI_PID" 2>/dev/null; then
+      kill -KILL "-$PI_PID" 2>/dev/null || true
+    fi
+  fi
   set +e
   wait "$PI_PID"
   pi_status=$?
   set -e
+  pi_group=$PI_PID
   PI_PID=""
+  if /usr/bin/pgrep -g "$pi_group" >/dev/null 2>&1; then
+    kill -KILL "-$pi_group" 2>/dev/null || true
+    status=stopped-process-leak
+  fi
+  if [ "$status" != completed ]; then
+    # Let Swiftlet observe the closed client and finish cancellation cleanup
+    # before another task can enter the serialized generation queue.
+    sleep 2
+  fi
   end_epoch=$(date +%s)
   wall_seconds=$((end_epoch - start_epoch))
   if [ "$status" = running ]; then
@@ -291,7 +310,8 @@ for task_id in $TASKS; do
       salvaged_tool_prefixes:$salvaged_tool_prefixes,
       transcript_sha256:$transcript_sha256}' >>"$RUN_DIR/results.jsonl"
 
-  if [ "$status" = stopped-critical-pressure ] || [ "$status" = stopped-swap-growth ]; then
+  if [ "$status" = stopped-critical-pressure ] || [ "$status" = stopped-swap-growth ] \
+    || [ "$status" = stopped-process-leak ]; then
     suite_status=$status
     break
   fi

@@ -59,6 +59,14 @@ declared: task 01 requested only an integer, while v1 silently required a
 trailing newline. Stage A v1.1 accepts trimmed text for this task. Inputs and
 prompts are unchanged; all future comparisons use the new suite ID and hash.
 
+The first attempted all-task v1.1 run is invalid for baseline scoring. The
+runner killed a timeout's wrapper shell but not its descendant Node process.
+Orphaned task requests continued into later task windows; task 08's server
+segment contains a generation operating on task 05's workspace. The preserved
+summary (`20260904T164953Z`) reports 1 utility in 6,931 seconds, but task
+isolation and protocol ordering were corrupted, so those aggregate numbers are
+diagnostic only.
+
 The first strict B0 falsifier ran `01-navigation` at Agentwing `db060d8` and
 Swiftlet `0ac19fe`. It scored 0 utility in 445 endpoint seconds. The first
 1,450-token prompt took 391.3 seconds to first token. One `ls` call executed;
@@ -83,6 +91,8 @@ live outside Git under `/Users/chad/Models/agentwing/evidence/AW-0008/`.
   `e41022bfcc464c1c1ee20cddeab6faff758bbf82e8014a2b54410bd4e33b3694`.
 - Failed pre-model runner attempt `20260904T155018Z` stopped on an undefined
   metadata variable and produced no model measurement.
+- Invalid all-task v1.1 attempt `20260904T164953Z`: summary SHA-256
+  `da9eab85836bfa2fd3446190899b622bf0da4cff01d3aa747644a707d92bc36d`.
 
 ## Conclusion
 

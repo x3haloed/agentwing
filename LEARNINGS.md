@@ -250,3 +250,22 @@ to use absolute paths, and one salvage forced an 809-token, 205.3-second refill.
 
 **Disposition:** retain the compact shell + prefix-recovery configuration as
 the Stage A floor candidate and run all eight frozen v1.1 tasks.
+
+## 2026-09-04 — First full-suite attempt invalidated by orphaned task agents
+
+**Belief:** Per-task process-tree ownership is a prerequisite for a valid
+multi-task baseline; killing only Pi's wrapper shell does not enforce timeout or
+task isolation.
+
+**Evidence:** In the `20260904T164953Z` all-task attempt, timed-out Node agents
+continued submitting requests after their wrapper PIDs were signaled. Task
+08's server log includes a generation operating on task 05's workspace. Prompt
+sizes and live state from orphaned trajectories leaked across nominal task
+boundaries. The run's aggregate 1 utility / 6,931 seconds is therefore invalid.
+
+**Qualification:** Task 01 completed before any timeout and remains a usable
+replicate of AW-0012. Later task results and aggregate work rate are corrupted.
+
+**Disposition:** preserve the run as negative runner evidence. Require a new
+POSIX session per Pi task, group termination, a cancellation drain, and a
+process-tree regression test before rerunning the suite.
