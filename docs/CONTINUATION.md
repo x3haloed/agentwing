@@ -25,8 +25,8 @@ process was running at takeover. The prior 12 local commits were preserved.
    tasks, max output 512, repeated n-grams allowed, and retained call boundaries.
    These handles are not proof of continuing liveness. Poll or inspect; do not
    restart a live trial. Each task retains the 900-second timeout and host gates.
-   At approximately 23:38 UTC, tasks 01 and 02 had passed (378 and 640 task
-   seconds) with zero model errors/rejections/salvage; task 03 was running.
+   At approximately 23:50 UTC, tasks 01–03 had passed (378, 640, and 731 task
+   seconds) with zero model errors/rejections/salvage; task 04 was running.
    IMPORTANT: full-suite launch requires `--all`; default is navigation only.
 2. Both AW-0019 development gates passed cleanly. Config task completed in 620
    endpoint seconds; single-file repair in 641. Each scored utility 1, with no
@@ -76,3 +76,18 @@ this local promotion. Broader held-out and external-validity work remains
 separately labeled. The active goal also authorizes measured reclamation of
 reproducible project-scoped data; preserve provenance and record recovery
 commands. At continuation, 304 GiB was available, so no reclamation was needed.
+
+## Prepared and screened follow-ups
+
+- AW-0020 found no immediately usable alternative weights/runtime in known
+  local model locations. This is not a global absence or performance claim.
+- AW-0021's relative-cwd extension remains optional and needs a real Pi fixture.
+- AW-0022 added `scripts/assess_stage_a_pair.py`; nine Python tests pass. It
+  checks necessary metrics for one pair, not the entire promotion contract.
+- AW-0023's optional 1,024-character result cap was deprioritized: actual hook
+  replay saves only 12 tokens across the baseline and 37 on clean repair.
+  Source/evidence retained; do not integrate without new material evidence.
+- AW-0024's `scripts/run_task_boundary.py` and `config/task-boundary.sb` are
+  prepared but unused. They need disposable descendant-process canaries and
+  real Pi protocol validation after the live inference run terminates. If
+  adopted, explicitly record and apply the same policy to both paired arms.
