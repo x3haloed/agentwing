@@ -213,3 +213,24 @@ It demonstrates component throughput, not improved verified utility.
 
 **Disposition:** retain the shell-only profile as a candidate component and
 test it with explicit, observable recovery as AW-0011.
+
+## 2026-09-04 — Shell plus recovery produces first semantic Stage A success
+
+**Belief:** The shell-only interface plus observable prefix salvage is the
+first B0-derived configuration able to complete a frozen Stage A task, but
+absolute paths and redundant calls materially depress its work rate.
+
+**Evidence:** AW-0011 found the correct production value, wrote `2750`, reread
+it, and stopped normally after 746 endpoint seconds, seven shell calls, and one
+salvage. The original verifier rejected the missing newline even though the
+task requested only the integer; Stage A v1.1 corrects that pre-baseline defect
+and scores the preserved workspace 1 (4.83 utility/hour). One long absolute
+path was corrupted in a validation command and recovered on the next turn.
+Pressure peaked at 1 and swap grew 0.88 MiB.
+
+**Qualification:** This is a corrected rescore of one non-interleaved task, not
+a suite baseline or promotion result. Prefix salvage remains an explicit
+policy difference.
+
+**Disposition:** retain AW-0011 as the first functional candidate. Freeze v1.1
+and test a relative-path, action-minimizing shell prompt next.

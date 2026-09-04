@@ -31,6 +31,11 @@ def verify(task: dict, workspace: Path) -> list[str]:
             actual = path.read_text(encoding="utf-8") if path.is_file() else None
             if actual != check["value"]:
                 failures.append(f"{path.name}: exact content mismatch")
+        elif check_type == "text_trimmed_exact":
+            path = workspace / check["path"]
+            actual = path.read_text(encoding="utf-8").strip() if path.is_file() else None
+            if actual != check["value"]:
+                failures.append(f"{path.name}: trimmed text mismatch")
         elif check_type == "json_exact":
             path = workspace / check["path"]
             try:

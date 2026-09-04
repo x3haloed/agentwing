@@ -35,7 +35,7 @@ class StageAVerifierTests(unittest.TestCase):
 
     def test_known_solutions_pass(self):
         solutions = {
-            "01-navigation": {"ANSWER.txt": "2750\n"},
+            "01-navigation": {"ANSWER.txt": "2750"},
             "02-single-file-fix": {
                 "math_utils.py": (
                     "def clamp(value: int, lower: int, upper: int) -> int:\n"

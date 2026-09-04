@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "suite_id": "agentwing-stage-a-v1",
+  "suite_id": "agentwing-stage-a-v1.1",
   "utility_per_task": 1,
   "default_timeout_seconds": 900,
   "tools": ["read", "bash", "edit", "write", "grep", "find", "ls"],
@@ -9,7 +9,7 @@
       "id": "01-navigation",
       "category": "repository-navigation",
       "prompt": "Inspect this repository, determine the production retry delay in milliseconds, and write only the integer to ANSWER.txt. Do not change existing files.",
-      "checks": [{"type": "file_exact", "path": "ANSWER.txt", "value": "2750\n"}]
+      "checks": [{"type": "text_trimmed_exact", "path": "ANSWER.txt", "value": "2750"}]
     },
     {
       "id": "02-single-file-fix",

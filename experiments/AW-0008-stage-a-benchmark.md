@@ -54,6 +54,11 @@ pass the independent verifier.
 The pristine-workspace self-test rejects all eight tasks and the positive-path
 regression accepts known solutions for all eight.
 
+The first candidate completion exposed a verifier defect before a baseline was
+declared: task 01 requested only an integer, while v1 silently required a
+trailing newline. Stage A v1.1 accepts trimmed text for this task. Inputs and
+prompts are unchanged; all future comparisons use the new suite ID and hash.
+
 The first strict B0 falsifier ran `01-navigation` at Agentwing `db060d8` and
 Swiftlet `0ac19fe`. It scored 0 utility in 445 endpoint seconds. The first
 1,450-token prompt took 391.3 seconds to first token. One `ls` call executed;

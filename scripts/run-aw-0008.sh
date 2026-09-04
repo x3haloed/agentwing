@@ -12,6 +12,7 @@ RUN_DIR="$EVIDENCE_ROOT/$RUN_ID"
 TASK_SELECTION="01-navigation"
 SALVAGE_TOOL_PREFIX="${AGENTWING_SALVAGE_TOOL_PREFIX:-0}"
 TOOL_PROFILE="${AGENTWING_TOOL_PROFILE:-full}"
+PROMPT_PROFILE="${AGENTWING_PROMPT_PROFILE:-base}"
 SERVER_PID=""
 PI_PID=""
 
@@ -70,6 +71,22 @@ case "$TOOL_PROFILE" in
     exit 2
     ;;
 esac
+case "$PROMPT_PROFILE" in
+  base)
+    system_prompt="Complete the requested repository task autonomously. Use targeted reads and searches; do not dump whole files when a bounded read or search is enough. Keep tool arguments and final text concise. If a command fails, diagnose and recover. Do not ask questions."
+    ;;
+  compact-shell)
+    if [ "$TOOL_PROFILE" != shell ]; then
+      echo "AGENTWING_PROMPT_PROFILE=compact-shell requires AGENTWING_TOOL_PROFILE=shell" >&2
+      exit 2
+    fi
+    system_prompt="Work autonomously using bash. The current working directory is the task root: use relative paths only. Prefer one bounded shell command that searches only needed files, performs requested changes, and runs available project tests. Do not narrate before tool calls. After the requested artifact and validation are correct, stop immediately. If a command fails, repair it without repeating successful exploration."
+    ;;
+  *)
+    echo "AGENTWING_PROMPT_PROFILE must be base or compact-shell" >&2
+    exit 2
+    ;;
+esac
 
 if [ "$TASK_SELECTION" = all ]; then
   TASKS=$(jq -r '.tasks[].id' "$MANIFEST")
@@ -109,7 +126,7 @@ else
   recovery_suffix=
   salvage_arg=
 fi
-configuration="B0-stage-a-v1-${TOOL_PROFILE}${recovery_suffix}"
+configuration="B0-stage-a-v1.1-${TOOL_PROFILE}-${PROMPT_PROFILE}${recovery_suffix}"
 
 jq -n \
   --arg run_id "$RUN_ID" \
@@ -124,6 +141,7 @@ jq -n \
   --arg task_selection "$TASK_SELECTION" \
   --arg configuration "$configuration" \
   --arg tool_profile "$TOOL_PROFILE" \
+  --arg prompt_profile "$PROMPT_PROFILE" \
   --arg tools_csv "$tools_csv" \
   --argjson salvage_tool_prefix "$SALVAGE_TOOL_PREFIX" \
   --argjson free_kib "$free_kib" \
@@ -132,7 +150,8 @@ jq -n \
     configuration:$configuration,agentwing_revision:$agentwing_revision,
     swiftlet_revision:$swiftlet_revision,model_revision:$model_revision,
     harness_revision:$harness_revision,model_cache_gb:0.5,max_output_tokens:192,
-    temperature:0,tool_profile:$tool_profile,tools:($tools_csv|split(",")),
+    temperature:0,tool_profile:$tool_profile,prompt_profile:$prompt_profile,
+    tools:($tools_csv|split(",")),
     bind:"127.0.0.1",storage:"internal-ssd",free_kib_before:$free_kib,
     swap_used_mib_before:$baseline_swap_mib,os_version:$os_version,os_build:$os_build,
     task_selection:$task_selection,salvage_tool_prefix:($salvage_tool_prefix == 1)}' >"$RUN_DIR/manifest.json"
@@ -189,7 +208,7 @@ for task_id in $TASKS; do
     AGENTWING_PI_MODELS_FILE="$ROOT/config/pi-models-stage-a.json" \
       "$ROOT/scripts/pi.sh" --mode json --print --no-session --approve --offline \
       --tools "$tools_csv" \
-      --system-prompt "Complete the requested repository task autonomously. Use targeted reads and searches; do not dump whole files when a bounded read or search is enough. Keep tool arguments and final text concise. If a command fails, diagnose and recover. Do not ask questions." \
+      --system-prompt "$system_prompt" \
       "$prompt"
   ) >"$task_dir/pi.jsonl" 2>"$task_dir/pi.stderr" &
   PI_PID=$!
@@ -240,7 +259,7 @@ for task_id in $TASKS; do
     accepted_utility=0
   fi
   tool_calls=$(jq -s '[.[] | select(.type == "tool_execution_start")] | length' "$task_dir/pi.jsonl" 2>/dev/null || echo 0)
-  failed_tools=$(jq -s '[.[] | select(.type == "tool_execution_end" and .result.isError == true)] | length' "$task_dir/pi.jsonl" 2>/dev/null || echo 0)
+  failed_tools=$(jq -s '[.[] | select(.type == "tool_execution_end" and .isError == true)] | length' "$task_dir/pi.jsonl" 2>/dev/null || echo 0)
   server_line_after=$(wc -l <"$RUN_DIR/server.log" | tr -d ' ')
   if [ "$server_line_after" -gt "$server_line_before" ]; then
     sed -n "$((server_line_before + 1)),${server_line_after}p" "$RUN_DIR/server.log" >"$task_dir/server.log"
