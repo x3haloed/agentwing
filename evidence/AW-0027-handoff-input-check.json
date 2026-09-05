@@ -1,0 +1,20 @@
+{
+  "evidence/AW-0026-clean-build.json": {
+    "git-status.txt": true,
+    "swift-tests.log": true,
+    "os.txt": true,
+    "release-build.log": true,
+    "checkout-path.txt": true,
+    "compiler.txt": true,
+    "architecture.txt": true,
+    "clone.log": true,
+    "artifact-hashes.txt": true
+  },
+  "evidence/AW-0024-protocol-validation.json": {
+    "pi.jsonl": true,
+    "server.log": true,
+    "pi.stderr": true
+  },
+  "config/pi-models-validated.json": true,
+  "config/validated-local-agent-prompt.txt": true
+}

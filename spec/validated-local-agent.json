@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "id": "P1",
+  "status": "paired-validation-passed-handoff-pending",
+  "scope": "Local Stage A v1.1 on the recorded 16GB M1 host; new tasks are unscored",
+  "measured_manifest": "/Users/chad/Models/agentwing/evidence/AW-0027/20260905T053919Z/manifest.json",
+  "measured_manifest_sha256": "b0ef4f4fb1a8f3df4a0a0591e3e5482aaede0cbbd9208aa1bcc08e325eaafade",
+  "settings": {
+    "suite_id": "agentwing-stage-a-v1.1",
+    "suite_sha256": "f77b9521e2a1c3163963006f237cae113208be913193d8ca33ac294f48974be0",
+    "configuration": "B0-stage-a-v1.1-shell-compact-shell-prefix-salvage-repeat-allowed-tool-boundary-max512-task-boundary",
+    "swiftlet_revision": "459b2011375022a6716463bd1e1f1b00741f91c3",
+    "server_binary_sha256": "5223ce7bd0fb92c0cf5c2adddf54a9b30b971e3bcf7dd25ac62ea5e7ec2cf4ff",
+    "model_revision": "720a56073578a3b42b5c40410baf90281bab9c0f",
+    "harness_revision": "6aedd1066e540642165aa30fa7b4a1b863778aa7",
+    "model_cache_gb": 0.5,
+    "max_output_tokens": 512,
+    "temperature": 0,
+    "presence_penalty": 0,
+    "frequency_penalty": 0.5,
+    "no_repeat_ngram": 0,
+    "min_new_tokens": 8,
+    "top_k": 20,
+    "top_p": 0.8,
+    "stop_after_tool_call": true,
+    "enable_thinking": false,
+    "tool_profile": "shell",
+    "prompt_profile": "compact-shell",
+    "system_prompt_sha256": "2a10a1d915626f007b56c88a9f5ab9d1a9b6926e962587495475eced47c4b976",
+    "pi_models_sha256": "c1d6b1fb64ce0d8fd95c58a7e51c1d86bfbaf617ec59af17448520e1c39f9da7",
+    "task_boundary": true,
+    "permission_policy": "workspace-state-write-local-outbound-v1",
+    "boundary_policy_sha256": "184e8ff7b377a6aae618ac39dfb862f4cd665d9567c03c9af31634775d529f91",
+    "boundary_wrapper_sha256": "33d7fcefbec9124e1c56e5c2b810265ad8c72e313c31ed42a7e35f0eba35bbd7",
+    "tools": [
+      "bash"
+    ],
+    "bind": "127.0.0.1",
+    "storage": "internal-ssd",
+    "os_version": "26.6.2",
+    "os_build": "25G83",
+    "task_timeout_seconds": 900,
+    "salvage_tool_prefix": true
+  },
+  "environment": {
+    "AGENTWING_EVIDENCE_ROOT": "/Users/chad/Models/agentwing/evidence/AW-0027",
+    "AGENTWING_NODE_BIN": "/Users/chad/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "AGENTWING_TOOL_PROFILE": "shell",
+    "AGENTWING_PROMPT_PROFILE": "compact-shell",
+    "AGENTWING_SALVAGE_TOOL_PREFIX": "1",
+    "AGENTWING_TASK_BOUNDARY": "1",
+    "AGENTWING_TASK_TIMEOUT_SECONDS": "900",
+    "AGENTWING_ALLOW_REPEATED_NGRAMS": "1",
+    "AGENTWING_STOP_AFTER_TOOL_CALL": "1",
+    "AGENTWING_MAX_OUTPUT_TOKENS": "512"
+  },
+  "pair_evidence": [
+    "evidence/AW-0027-pair-1.json",
+    "evidence/AW-0027-pair-2.json"
+  ],
+  "frozen_plan": "evidence/AW-0027-frozen-plan-v2.json",
+  "promotion_pending": [
+    "task launcher lifecycle validation",
+    "final requirements report and documentation"
+  ]
+}
