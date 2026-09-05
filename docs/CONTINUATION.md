@@ -17,21 +17,11 @@ process was running at takeover. The prior 12 local commits were preserved.
 
 ## Next bounded work
 
-**LIVE A1:** Full candidate suite launched `20260905T024837Z`, revision
-`dad3181`, exec session `76879`, runner PID `34667`, server PID `34729`.
-Evidence `/Users/chad/Models/agentwing/evidence/AW-0027/20260905T024837Z`.
-Manifest confirms max512/ngram0/retained boundary and all common measured
-settings matching C1. Loopback listener127.0.0.1:8080, pressure1. Poll this same
-handle; do not restart while live. No builds, payload hashes or concurrent
-model work. After terminal, audit then assess C1/A1 before continuing C2/A2.
-
-A1 checkpoint at 2026-09-05 03:55 UTC: task08 is live. Tasks01–07 passed
-in378/635/721/837/656/514/217 seconds respectively, with no model-error replies,
-rejected outputs or prefix salvage. These are partial results; no full-suite
-rate or pair acceptance yet. Pressure remains1, swap735.19MiB (zero growth).
-Session76879 and runner34667/server34729 remain live; localhost listener
-127.0.0.1:8080 reconfirmed. Continue polling the existing session and preserve
-all remaining outcomes.
+A1 is terminal and audited:8/8 in4559 endpoint seconds,6.317174819039263
+utility/hour. First pair passes at3.670980478175038 times C1. Pressure1,
+zero swap growth; session76879 exited0 and both owned processes terminated.
+Port8080 confirmed free. Next: launch C2 with frozen plan v2, then A2.
+See `evidence/AW-0027-A1-audit.json` and `evidence/AW-0027-pair-1.json`.
 
 C1 is terminal and audited:3/8 in6276 endpoint seconds,1.7208413001912046
 utility/hour, pressure1, zero swap growth. Session10183 exited0; runner3471 and
@@ -41,7 +31,7 @@ last line; same-request known post-generation diagnostics are now permitted.
 All13 Python tests pass. No measured execution input or scoring changed.
 
 Use `evidence/AW-0027-frozen-plan-v2.json` for remaining A1 → C2 → A2. Original
-plan is retained, and v2 explicitly records the auditor-only amendment. A1 is live above; do not rerun C1 or modify runtime/runner/benchmark inputs.
+plan is retained, and v2 explicitly records the auditor-only amendment. A1 is terminal; do not rerun C1 or modify runtime/runner/benchmark inputs.
 
 1. AW-0024's real-model boundary gate is terminal and audited. Session `44831`,
    runner `98431`, and server `98487` are gone. Run

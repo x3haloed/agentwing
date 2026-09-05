@@ -540,3 +540,10 @@ Preserve the original failing audit; accept only known trailing diagnostics for
 the same terminal request. Unknown/new activity remains rejected. All13 Python
 tests and the corrected C1 audit pass. This changes observation only, not scoring
 or any measured execution input; AW-0027 plan v2 records the amendment.
+
+## 2026-09-05 — First interleaved pair passes
+
+AW-0027 A1 passed8/8 in4559 seconds,6.317175 utility/hour,3.67098 times
+paired C1. Both evidence audits and all first-pair gates pass; pressure1 and
+zero swap growth. Retain unchanged for the required second interleaved pair.
+No promotion from this single pair. See AW-0027-pair-1.json.

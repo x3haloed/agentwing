@@ -57,3 +57,15 @@ boundary regressions. The corrected full evidence audit passes.
 Plan v2 records this observer-only amendment and updated auditor/test hashes.
 Original plan is preserved. No measured execution input or scoring rule changed;
 C1 remains the first paired control. Use v2 for A1/C2/A2. No promotion yet.
+
+### A1 terminal result and first pair
+
+A1 `20260905T024837Z` completed8/8 in4559 endpoint seconds (4552 task
+seconds),6.317174819039263 utility/hour. Pressure1, swap735.19MiB unchanged;
+52 tool calls,8 failed calls,0 model errors/rejections/salvage. Full evidence
+audit passes. Summary SHA256:
+3255de40c2ae02eff2b56e74e95d66d8366fc2910a27a168a577882b2ccc4241.
+`evidence/AW-0027-pair-1.json` passes all necessary first-pair gates:
+3.670980478175038 times C1's verified utility/hour. Session76879 exited0,
+runner34667/server34729 terminated, and port8080 was free before C2.
+Disposition: retain unchanged for C2 → A2; one pair does not permit promotion.
