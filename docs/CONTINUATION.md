@@ -21,8 +21,14 @@ process was running at takeover. The prior 12 local commits were preserved.
    runner `98431`, and server `98487` are gone. Run
    `/Users/chad/Models/agentwing/evidence/AW-0024/20260905T004228Z` passed bounded
    reading in 222 endpoint seconds, with pressure1 and zero swap growth.
-   No model process is currently owned by this thread. Next complete a clean
-   runtime build/reproduction check, then freeze and launch paired comparisons.
+   No model process is currently owned by this thread. AW-0026's clean release
+   build and full-test pipeline is confirmed live as exec session `6832`.
+   Checkout: `/Users/chad/Models/agentwing/reproductions/Swiftlet-459b201-20260905T004950Z`.
+   Evidence: `/Users/chad/Models/agentwing/evidence/AW-0026/20260905T004950Z`.
+   It uses two build jobs and resolved dependencies. Poll the same handle and
+   inspect logs; do not start model measurements during compilation. Once
+   terminal, verify the test result, clean tracked tree and artifact hashes,
+   then freeze and launch the two interleaved comparison pairs.
 2. The boundary gate passed. Freeze the comparison
    plan and run two interleaved full-suite control/candidate pairs. Use the same
    scoped permission policy in both arms; the pair checker now verifies this.
