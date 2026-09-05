@@ -25,14 +25,13 @@ Listener127.0.0.1:8080 verified. Evidence:
 Poll this existing session; no runtime edits/builds or concurrent models.
 After terminal audit C2, then launch A2 with the unchanged v2 plan.
 
-C2 checkpoint at 2026-09-05 05:06 UTC: task06 failure recovery is active.
-Task01 passed in610 seconds; tasks02/03/04 timed out in908/914/910 seconds,
-scored0, and failed artifact verification. All three cancellation drains were
-observed. Task05 completed in262 seconds, Pi exited0, but verifier failed and
-utility is0. It had1 tool call,0 failed calls,1 model-error reply,1 rejected
-output,0 salvage. Preserve this completed failure; do not reinterpret it as a
-timeout or change scoring. Task05 transcript SHA256:
-3351fab921b3d54cfaa230a117e4d727c4c219fd39d4d78a39dff325d7313545.
+C2 checkpoint at 2026-09-05 05:20 UTC: task07 bounded reading is active.
+Tasks01/06 passed in610/832 seconds. Tasks02/03/04 timed out in908/914/910
+seconds and all cancellation drains were observed. Task05 completed in262
+seconds with failed verifier,1 model-error reply and1 rejected generation.
+All four failures scored0. Task06 had8 calls/2 failed,0 model errors/rejections,
+1 declared prefix salvage. Task06 transcript SHA256:
+05682996603a65662c2d273bbd9cd4e477cfccdd592abf2b05eeda778989fa3a.
 Pressure remains1; swap735.50MiB,0.31MiB above starting735.19. Session77088,
 runner57579/server57634 remain live; no suite summary or second-pair result.
 
