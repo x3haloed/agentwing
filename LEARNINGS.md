@@ -575,3 +575,15 @@ and docs/LOCAL_AGENT.md; the frozen benchmark files remain unchanged.
 Source/build reproduction is established, not identical compiled bytes or
 held-out performance. The promotion stopping condition is met; optional
 history, KV and alternative-model work remains a separate future campaign.
+
+## 2026-09-05 — Larger expert cache is not yet a speed win
+
+AW-0029 bracketed0.5/0.75/0.5GB with the same short greedy CLI workload. Expert
+fetch accounts for about35% of decode time, but higher hit rate did not reduce
+fetch or model-step time. Startup-inclusive timing alone would have suggested
+a misleading win. All outputs matched and pressure/swap remained low. Retain
+expert movement as a target; do not increase P1's cache from this diagnostic.
+Batch reads already exist. The next useful distinction is bookkeeping/copy/
+physical I/O, with bounded direct GPU mapping as an unimplemented alternative.
+This exploration preserves agentic capability as the invariant; it introduces
+no restrictions on the agent's work, tools or reasoning. P1 remains unchanged.

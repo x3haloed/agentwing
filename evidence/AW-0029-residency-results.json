@@ -1,0 +1,180 @@
+{
+  "experiment": "AW-0029",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0029/20260905T152834Z",
+  "raw_hashes_passed": true,
+  "rows": [
+    {
+      "arm": "C1",
+      "cache_gb": 0.5,
+      "status": "completed",
+      "error": null,
+      "exit": 0,
+      "wall_seconds": 24.428040416,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "command": [
+        "/Users/chad/Models/agentwing/dependencies/Swiftlet/.build/release/swiftlet",
+        "generate",
+        "/Users/chad/Models/agentwing/checkpoints/qwen3.6-35b-a3b-8bit.qpack",
+        "--prompt",
+        "Write a Python function that returns the first duplicate item in a list, or None if there are no duplicates.\n\ndef first_duplicate(items):\n",
+        "--max-new",
+        "24",
+        "--gpu",
+        "--cache-gb",
+        "0.5"
+      ],
+      "metrics": {
+        "prefill": {
+          "wall": 7.58,
+          "wait": 4.595,
+          "encode": 0.014,
+          "gap": 2.972,
+          "router": 0.008,
+          "fetch": 2.936,
+          "kvMirror": 0.0,
+          "cbSetup": 0.001,
+          "commit": 0.001,
+          "logits": 0.0,
+          "other": 0.013,
+          "hits": 0,
+          "misses": 3017
+        },
+        "decode": {
+          "wall": 11.001,
+          "wait": 6.923,
+          "encode": 0.093,
+          "gap": 3.984,
+          "router": 0.008,
+          "fetch": 3.896,
+          "kvMirror": 0.001,
+          "cbSetup": 0.029,
+          "commit": 0.017,
+          "logits": 0.002,
+          "other": 0.028,
+          "hits": 1448,
+          "misses": 6232
+        }
+      },
+      "stdout_sha256": "eff45ac9c2bcbd363eb559b9679709edf2367863e707e79c9a21444d49b7e4be"
+    },
+    {
+      "arm": "A1",
+      "cache_gb": 0.75,
+      "status": "completed",
+      "error": null,
+      "exit": 0,
+      "wall_seconds": 22.442391499999996,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "command": [
+        "/Users/chad/Models/agentwing/dependencies/Swiftlet/.build/release/swiftlet",
+        "generate",
+        "/Users/chad/Models/agentwing/checkpoints/qwen3.6-35b-a3b-8bit.qpack",
+        "--prompt",
+        "Write a Python function that returns the first duplicate item in a list, or None if there are no duplicates.\n\ndef first_duplicate(items):\n",
+        "--max-new",
+        "24",
+        "--gpu",
+        "--cache-gb",
+        "0.75"
+      ],
+      "metrics": {
+        "prefill": {
+          "wall": 7.601,
+          "wait": 4.623,
+          "encode": 0.011,
+          "gap": 2.967,
+          "router": 0.008,
+          "fetch": 2.945,
+          "kvMirror": 0.0,
+          "cbSetup": 0.001,
+          "commit": 0.001,
+          "logits": 0.0,
+          "other": 0.012,
+          "hits": 0,
+          "misses": 3017
+        },
+        "decode": {
+          "wall": 11.094,
+          "wait": 7.015,
+          "encode": 0.084,
+          "gap": 3.996,
+          "router": 0.007,
+          "fetch": 3.917,
+          "kvMirror": 0.001,
+          "cbSetup": 0.026,
+          "commit": 0.015,
+          "logits": 0.002,
+          "other": 0.026,
+          "hits": 1831,
+          "misses": 5849
+        }
+      },
+      "stdout_sha256": "eff45ac9c2bcbd363eb559b9679709edf2367863e707e79c9a21444d49b7e4be"
+    },
+    {
+      "arm": "C2",
+      "cache_gb": 0.5,
+      "status": "completed",
+      "error": null,
+      "exit": 0,
+      "wall_seconds": 23.455568708999998,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "command": [
+        "/Users/chad/Models/agentwing/dependencies/Swiftlet/.build/release/swiftlet",
+        "generate",
+        "/Users/chad/Models/agentwing/checkpoints/qwen3.6-35b-a3b-8bit.qpack",
+        "--prompt",
+        "Write a Python function that returns the first duplicate item in a list, or None if there are no duplicates.\n\ndef first_duplicate(items):\n",
+        "--max-new",
+        "24",
+        "--gpu",
+        "--cache-gb",
+        "0.5"
+      ],
+      "metrics": {
+        "prefill": {
+          "wall": 7.499,
+          "wait": 4.568,
+          "encode": 0.012,
+          "gap": 2.919,
+          "router": 0.007,
+          "fetch": 2.899,
+          "kvMirror": 0.0,
+          "cbSetup": 0.001,
+          "commit": 0.001,
+          "logits": 0.0,
+          "other": 0.01,
+          "hits": 0,
+          "misses": 3017
+        },
+        "decode": {
+          "wall": 10.832,
+          "wait": 6.859,
+          "encode": 0.093,
+          "gap": 3.88,
+          "router": 0.009,
+          "fetch": 3.793,
+          "kvMirror": 0.001,
+          "cbSetup": 0.027,
+          "commit": 0.016,
+          "logits": 0.002,
+          "other": 0.028,
+          "hits": 1448,
+          "misses": 6232
+        }
+      },
+      "stdout_sha256": "eff45ac9c2bcbd363eb559b9679709edf2367863e707e79c9a21444d49b7e4be"
+    }
+  ],
+  "identical_output": true,
+  "disposition": "Do not advance larger cache from this probe: fetch and model-step time did not improve. Retain expert-data movement as a measured target.",
+  "limitations": [
+    "One short raw prompt, greedy24-token CLI diagnostic, no agent score",
+    "Fetch scope includes cache bookkeeping, concurrent scheduling and pread; physical SSD reads not measured",
+    "Startup-inclusive times include warming variation; no cache purge",
+    "No proof of broader capability from identical truncated output"
+  ]
+}
