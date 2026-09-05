@@ -1,0 +1,23 @@
+{
+  "run": "/Users/chad/Models/agentwing/tasks/20260905T070243.284557Z",
+  "result": {
+    "status": "client-completed",
+    "error": null,
+    "pi_exit": 0,
+    "wall_seconds": 266.989520916,
+    "verified_utility": null,
+    "scope": "User task, not scored benchmark. Inspect artifacts and independently validate.",
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0.0,
+    "server_pid": 9723,
+    "client_pid": 9762
+  },
+  "verifier": {
+    "failures": [],
+    "task_id": "07-bounded-read",
+    "utility": 1
+  },
+  "hashes_passed": true,
+  "source_launcher_sha256": "b64600bbc78aa08685df967e531678a05ff69976b89d0cdbc2cadef3c562635f",
+  "scope": "First real-model handoff smoke; cleanup race fix followed it. Not a paired performance run."
+}

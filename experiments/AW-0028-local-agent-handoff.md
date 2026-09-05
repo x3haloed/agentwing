@@ -44,3 +44,12 @@ TCP TIME_WAIT sockets, despite no listener. No model started. The bind probe
 now sets SO_REUSEADDR (not SO_REUSEPORT); preflight and all five lifecycle
 tests pass, followed by a fresh real Pi fixture at
 `protocol-20260905T070228.071165Z`. Earlier raw fixture evidence is preserved.
+
+First model smoke `tasks/20260905T070243.284557Z` completed in266.99 seconds;
+bounded-read artifact independently passes, pressure1/zero swap growth, no
+remaining owner/listener. It is not a benchmark replication. The subsequent
+full Python run exposed a second Darwin group-disappearance race at SIGKILL.
+The signal helper now ignores EPERM only after pgrep confirms no group members;
+a present group still raises. All19 Python tests (including that negative case)
+and a fresh real Pi fixture `protocol-20260905T070749.521597Z` pass. Repeat the
+short smoke with the final launcher before promotion; preserve the first one.

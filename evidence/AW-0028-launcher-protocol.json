@@ -1,19 +1,19 @@
 {
-  "run": "/Users/chad/Models/agentwing/evidence/AW-0028/protocol-20260905T070228.071165Z",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0028/protocol-20260905T070749.521597Z",
   "report": {
     "status": "client-completed",
     "error": null,
     "pi_exit": 0,
-    "wall_seconds": 1.630517542,
+    "wall_seconds": 1.629347791,
     "verified_utility": null,
     "scope": "User task, not scored benchmark. Inspect artifacts and independently validate.",
     "pressure_peak": 1,
     "swap_growth_peak_mib": 0.0,
-    "server_pid": 9640,
-    "client_pid": 9643
+    "server_pid": 11268,
+    "client_pid": 11271
   },
   "five_tool_results": true,
   "one_expected_failure": true,
   "artifact_passed": true,
-  "launcher_sha256": "b64600bbc78aa08685df967e531678a05ff69976b89d0cdbc2cadef3c562635f"
+  "launcher_sha256": "dee0e63573c60137226b541f5380b768799ad1682006438471eec95d511a6fdd"
 }

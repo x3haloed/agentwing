@@ -6,7 +6,7 @@ import subprocess
 import tempfile
 import time
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 
 SPEC = importlib.util.spec_from_file_location('local_agent', Path(__file__).resolve().parents[1] / 'scripts/run_local_agent.py')
 agent = importlib.util.module_from_spec(SPEC)
@@ -18,6 +18,14 @@ class LifecycleTests(unittest.TestCase):
         p = subprocess.Popen(['/usr/bin/python3', '-c', code], start_new_session=True)
         self.addCleanup(agent.stop_group, p)
         return p
+
+    def test_darwin_disappeared_group_permission_race(self):
+        with patch.object(agent.os, 'killpg', side_effect=PermissionError), patch.object(agent.subprocess, 'run') as probe:
+            probe.return_value = Mock(returncode=1)
+            agent.signal_group(123456, signal.SIGKILL)
+            probe.return_value = Mock(returncode=0)
+            with self.assertRaises(PermissionError):
+                agent.signal_group(123456, signal.SIGKILL)
 
     def test_success_and_client_failure(self):
         server = self.launch('import time; time.sleep(30)')

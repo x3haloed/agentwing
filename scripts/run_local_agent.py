@@ -41,29 +41,35 @@ def check_sample(sample, baseline):
         raise RuntimeError('stopped-swap-growth')
 
 
+def signal_group(pid, sig):
+    try:
+        os.killpg(pid, sig)
+    except ProcessLookupError:
+        pass
+    except PermissionError:
+        # Darwin can return EPERM for a group that disappeared since inspection.
+        # Ignore only when an independent membership check confirms it is gone.
+        members = subprocess.run(['/usr/bin/pgrep', '-g', str(pid)], capture_output=True)
+        if members.returncode != 1:
+            raise
+
+
 def stop_group(process):
     if process is None:
         return
-    process.poll()  # Reap an exited parent before signaling its former group.
+    process.poll()
     members = subprocess.run(['/usr/bin/pgrep', '-g', str(process.pid)], capture_output=True)
     if members.returncode == 1:
         process.wait(timeout=5)
         return
     if members.returncode != 0:
         raise RuntimeError('Cannot inspect owned process group')
-    try:
-        os.killpg(process.pid, signal.SIGTERM)
-    except ProcessLookupError:
-        pass
+    signal_group(process.pid, signal.SIGTERM)
     try:
         process.wait(timeout=5)
     except subprocess.TimeoutExpired:
         pass
-    # The parent may have exited while a descendant still owns the group.
-    try:
-        os.killpg(process.pid, signal.SIGKILL)
-    except ProcessLookupError:
-        pass
+    signal_group(process.pid, signal.SIGKILL)
     process.wait(timeout=5)
 
 
