@@ -25,9 +25,9 @@ process was running at takeover. The prior 12 local commits were preserved.
    tasks, max output 512, repeated n-grams allowed, and retained call boundaries.
    These handles are not proof of continuing liveness. Poll or inspect; do not
    restart a live trial. Each task retains the 900-second timeout and host gates.
-   At approximately 00:15 UTC on 2026-09-05, tasks 01–05 had passed (378, 640,
-   731, 802, and 656 task seconds), with zero model errors/rejections/salvage.
-   Task 06 was running. Task 05 incurred one full continuation refill despite
+   At approximately 00:23 UTC on 2026-09-05, tasks 01–06 had passed (378, 640,
+   731, 802, 656, and 515 task seconds), with zero model errors/rejections/salvage.
+   Task 07 was running. Task 05 incurred one full continuation refill despite
    its tool-replay hit; see AW-0025 for the single-entry replay-cache diagnosis.
    IMPORTANT: full-suite launch requires `--all`; default is navigation only.
 2. Both AW-0019 development gates passed cleanly. Config task completed in 620
