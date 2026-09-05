@@ -29,3 +29,14 @@ all paired runs must retain the original pinned binary. Keep this limitation
 explicit. Stage A local promotion does not establish held-out or external
 benchmark performance. Deferred optional families need not be exhausted if the
 user's promotion stopping condition is satisfied.
+
+Handoff review while A2 runs: `config/pi-models.json` is the generic bring-up
+profile (32,768 output tokens), and `scripts/pi.sh` only starts Pi. Neither is
+the measured candidate launch path. AW-0027 generates a per-run models file
+with 512 output tokens and temperature zero, then runs Pi inside the task
+boundary with the compact-shell prompt and an owned Swiftlet server. The final
+handoff must provide the exact tested launch/settings and distinguish a full
+benchmark reproduction from use on a new workspace. Any new general-task
+launcher needs its own lifecycle/permission validation; the generic profile
+must not be described as the promoted configuration. The advertised 262,144
+context window is metadata, not a tested local context capacity.
