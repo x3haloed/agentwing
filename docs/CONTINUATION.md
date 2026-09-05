@@ -25,15 +25,16 @@ Listener127.0.0.1:8080 verified. Evidence:
 Poll this existing session; no runtime edits/builds or concurrent models.
 After terminal audit C2, then launch A2 with the unchanged v2 plan.
 
-C2 checkpoint at 2026-09-05 05:01 UTC: task05 data transformation is active.
-Task01 navigation passed in610 seconds. Tasks02/03/04 timed out in908/914/910
-seconds respectively; all scored0 and artifact verifiers failed. All three
-cancellation drains were observed before advancing. Task04 had8 calls/3 failed,
-0 model errors/rejections,1 declared prefix salvage. Task04 transcript SHA256:
-c36ddbcdd38b2119b08462d9e27e512815f88d707c4222fca4ffd7e4764035df.
-Pressure remains1; swap rose from735.19 to735.50MiB (0.31MiB growth), well
-inside the1GiB gate. Session77088 and both owned processes remain live;
-no suite summary or second-pair assessment yet.
+C2 checkpoint at 2026-09-05 05:06 UTC: task06 failure recovery is active.
+Task01 passed in610 seconds; tasks02/03/04 timed out in908/914/910 seconds,
+scored0, and failed artifact verification. All three cancellation drains were
+observed. Task05 completed in262 seconds, Pi exited0, but verifier failed and
+utility is0. It had1 tool call,0 failed calls,1 model-error reply,1 rejected
+output,0 salvage. Preserve this completed failure; do not reinterpret it as a
+timeout or change scoring. Task05 transcript SHA256:
+3351fab921b3d54cfaa230a117e4d727c4c219fd39d4d78a39dff325d7313545.
+Pressure remains1; swap735.50MiB,0.31MiB above starting735.19. Session77088,
+runner57579/server57634 remain live; no suite summary or second-pair result.
 
 A1 is terminal and audited:8/8 in4559 endpoint seconds,6.317174819039263
 utility/hour. First pair passes at3.670980478175038 times C1. Pressure1,
