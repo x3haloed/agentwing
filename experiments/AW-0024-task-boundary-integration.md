@@ -2,7 +2,7 @@
 
 ## Status
 
-Prepared wrapper only; not in the live runner. Real Pi validation pending.
+Inherited-boundary and real Pi protocol gates passed; opt-in runner integration ready for a real-model gate.
 
 ## Hypothesis
 
@@ -60,3 +60,26 @@ then attempts outside. External canary checks guard against false positives.
 Its source parses; execution is deferred until the active model suite ends.
 The probe cleans up only its own generated temporary files and closes its own
 sockets. It does not contact the inference endpoint or modify benchmark files.
+
+## Validated integration — 2026-09-05
+
+All eleven inherited-boundary checks pass, including child-process inheritance,
+allowed workspace/private-temp writes, denied outside and symlink writes,
+allowed owned endpoint, and denied connection to a different owned listener.
+The real Pi shell fixture passes under the wrapper, preserving five ordered
+read/search/edit/failure/recovery calls and the expected single failed call.
+Both original Pi fixtures and eleven Python tests also pass. See
+`evidence/AW-0024-inherited-boundary-probe.json` and
+`evidence/AW-0024-protocol-validation.json` for hashes and retained raw logs.
+
+`AGENTWING_TASK_BOUNDARY=1` now explicitly selects this runner policy; default
+is unchanged. Manifests record the policy name and profile/wrapper hashes.
+The pair assessor rejects differing permission policies or hashes. The wrapper
+runs inside the existing process group, with fresh private Pi/tmp/cache state.
+The new real Pi fixture has a bounded deadline and archives logs in a fresh
+caller-selected directory. Earlier successful fixture evidence is preserved.
+
+Next gate: run the unchanged AW-0019 candidate on `07-bounded-read` with this
+policy. Require verified utility, valid tool pairing, recorded policy identity,
+and host gates. Then freeze the same policy for both comparison arms. This
+does not revise the historical unbounded-policy floor or its scoring.

@@ -1,0 +1,178 @@
+{
+  "checks": {
+    "aggregate_rate": true,
+    "aggregate_utility": true,
+    "completed_declared_selection": true,
+    "pressure_gate": true,
+    "sha256:manifest.json": true,
+    "sha256:pi-models.json": true,
+    "sha256:pressure.tsv": true,
+    "sha256:results.jsonl": true,
+    "sha256:server.log": true,
+    "sha256:summary.json": true,
+    "sha256:system-prompt.txt": true,
+    "sha256:thermal-after.txt": true,
+    "sha256:thermal-before.txt": true,
+    "swap_gate": true,
+    "task_logs_partition_server_suffix": true
+  },
+  "passed": true,
+  "run_id": "20260904T232042Z",
+  "schema_version": 1,
+  "scope": "Recorded evidence and copied-workspace replay; not sandbox certification or default promotion.",
+  "summary_sha256": "be753eccf2b63f4c6a66a7198a64355e415037374186dd03152b5427f7ae472a",
+  "tasks": [
+    {
+      "checks": {
+        "accepted_utility": true,
+        "no_cross_task_state_reuse": true,
+        "no_foreign_workspace_reference": true,
+        "paired_tool_events": true,
+        "protected_tests_unchanged": true,
+        "timeout_terminal_boundary": true,
+        "transcript_hash": true,
+        "unique_request_ownership": true,
+        "verifier_replay": true
+      },
+      "generated_tokens": 389,
+      "model_error_replies": 0,
+      "new_prompt_tokens": 740,
+      "reported_ttft_seconds": 198.2,
+      "request_count": 6,
+      "task_id": "01-navigation"
+    },
+    {
+      "checks": {
+        "accepted_utility": true,
+        "no_cross_task_state_reuse": true,
+        "no_foreign_workspace_reference": true,
+        "paired_tool_events": true,
+        "protected_tests_unchanged": true,
+        "timeout_terminal_boundary": true,
+        "transcript_hash": true,
+        "unique_request_ownership": true,
+        "verifier_replay": true
+      },
+      "generated_tokens": 720,
+      "model_error_replies": 0,
+      "new_prompt_tokens": 1202,
+      "reported_ttft_seconds": 321.0,
+      "request_count": 8,
+      "task_id": "02-single-file-fix"
+    },
+    {
+      "checks": {
+        "accepted_utility": true,
+        "no_cross_task_state_reuse": true,
+        "no_foreign_workspace_reference": true,
+        "paired_tool_events": true,
+        "protected_tests_unchanged": true,
+        "timeout_terminal_boundary": true,
+        "transcript_hash": true,
+        "unique_request_ownership": true,
+        "verifier_replay": true
+      },
+      "generated_tokens": 886,
+      "model_error_replies": 0,
+      "new_prompt_tokens": 1264,
+      "reported_ttft_seconds": 341.0,
+      "request_count": 10,
+      "task_id": "03-multi-file-fix"
+    },
+    {
+      "checks": {
+        "accepted_utility": true,
+        "no_cross_task_state_reuse": true,
+        "no_foreign_workspace_reference": true,
+        "paired_tool_events": true,
+        "protected_tests_unchanged": true,
+        "timeout_terminal_boundary": true,
+        "transcript_hash": true,
+        "unique_request_ownership": true,
+        "verifier_replay": true
+      },
+      "generated_tokens": 1018,
+      "model_error_replies": 0,
+      "new_prompt_tokens": 1292,
+      "reported_ttft_seconds": 348.9,
+      "request_count": 12,
+      "task_id": "04-refactor"
+    },
+    {
+      "checks": {
+        "accepted_utility": true,
+        "no_cross_task_state_reuse": true,
+        "no_foreign_workspace_reference": true,
+        "paired_tool_events": true,
+        "protected_tests_unchanged": true,
+        "timeout_terminal_boundary": true,
+        "transcript_hash": true,
+        "unique_request_ownership": true,
+        "verifier_replay": true
+      },
+      "generated_tokens": 457,
+      "model_error_replies": 0,
+      "new_prompt_tokens": 1700,
+      "reported_ttft_seconds": 448.2,
+      "request_count": 4,
+      "task_id": "05-data-transform"
+    },
+    {
+      "checks": {
+        "accepted_utility": true,
+        "no_cross_task_state_reuse": true,
+        "no_foreign_workspace_reference": true,
+        "paired_tool_events": true,
+        "protected_tests_unchanged": true,
+        "timeout_terminal_boundary": true,
+        "transcript_hash": true,
+        "unique_request_ownership": true,
+        "verifier_replay": true
+      },
+      "generated_tokens": 602,
+      "model_error_replies": 0,
+      "new_prompt_tokens": 933,
+      "reported_ttft_seconds": 247.3,
+      "request_count": 7,
+      "task_id": "06-failure-recovery"
+    },
+    {
+      "checks": {
+        "accepted_utility": true,
+        "no_cross_task_state_reuse": true,
+        "no_foreign_workspace_reference": true,
+        "paired_tool_events": true,
+        "protected_tests_unchanged": true,
+        "timeout_terminal_boundary": true,
+        "transcript_hash": true,
+        "unique_request_ownership": true,
+        "verifier_replay": true
+      },
+      "generated_tokens": 131,
+      "model_error_replies": 0,
+      "new_prompt_tokens": 579,
+      "reported_ttft_seconds": 150.2,
+      "request_count": 4,
+      "task_id": "07-bounded-read"
+    },
+    {
+      "checks": {
+        "accepted_utility": true,
+        "no_cross_task_state_reuse": true,
+        "no_foreign_workspace_reference": true,
+        "paired_tool_events": true,
+        "protected_tests_unchanged": true,
+        "timeout_terminal_boundary": true,
+        "transcript_hash": true,
+        "unique_request_ownership": true,
+        "verifier_replay": true
+      },
+      "generated_tokens": 663,
+      "model_error_replies": 0,
+      "new_prompt_tokens": 869,
+      "reported_ttft_seconds": 232.6,
+      "request_count": 7,
+      "task_id": "08-config-sync"
+    }
+  ]
+}

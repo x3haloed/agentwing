@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "checks": {
+    "workspace_write": true,
+    "private_tmp_write": true,
+    "dev_null_write": true,
+    "outside_write": true,
+    "symlink_escape": true,
+    "owned_endpoint": true,
+    "other_listening_endpoint": true,
+    "child_inherits_boundary": true,
+    "wrapper_exit": true,
+    "outside_canaries_absent": true,
+    "workspace_canary_present": true
+  },
+  "passed": true,
+  "stderr": "",
+  "scope": "Disposable write/outbound-network and descendant-process probes; no model inference, real Pi protocol, or comprehensive sandbox certification."
+}

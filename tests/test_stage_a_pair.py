@@ -58,3 +58,9 @@ class PairGateTests(unittest.TestCase):
         self.assertFalse(self.checks()['candidate_declared_salvage_policy'])
         self.manifest['salvage_tool_prefix'] = True
         self.assertTrue(all(self.checks().values()))
+
+    def test_different_permission_policy_cannot_form_a_pair(self):
+        candidate_manifest = {**self.manifest, 'permission_policy': 'scoped'}
+        checks, _ = pair_checks(self.control, self.candidate, self.manifest,
+                               candidate_manifest, self.spec)
+        self.assertFalse(checks['same_recorded_permissions'])

@@ -10,6 +10,8 @@ RUN_ID=$(date -u +%Y%m%dT%H%M%SZ)
 EVIDENCE_ROOT="${AGENTWING_EVIDENCE_ROOT:-/Users/chad/Models/agentwing/evidence/AW-0008}"
 RUN_DIR="$EVIDENCE_ROOT/$RUN_ID"
 TASK_SELECTION="01-navigation"
+TASK_BOUNDARY="${AGENTWING_TASK_BOUNDARY:-0}"
+NODE_BIN="${AGENTWING_NODE_BIN:-/Users/chad/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node}"
 SALVAGE_TOOL_PREFIX="${AGENTWING_SALVAGE_TOOL_PREFIX:-0}"
 ALLOW_REPEATED_NGRAMS="${AGENTWING_ALLOW_REPEATED_NGRAMS:-0}"
 STOP_AFTER_TOOL_CALL="${AGENTWING_STOP_AFTER_TOOL_CALL:-0}"
@@ -55,6 +57,22 @@ cleanup() {
   if [ -n "$SERVER_PID" ]; then kill "$SERVER_PID" 2>/dev/null || true; fi
 }
 trap cleanup EXIT INT TERM
+
+case "$TASK_BOUNDARY" in
+  0)
+    permission_policy=unrestricted
+    task_boundary_suffix=
+    boundary_policy_sha256=
+    boundary_wrapper_sha256=
+    ;;
+  1)
+    permission_policy=workspace-state-write-local-outbound-v1
+    task_boundary_suffix=-task-boundary
+    boundary_policy_sha256=$(shasum -a 256 "$ROOT/config/task-boundary.sb" | awk '{print $1}')
+    boundary_wrapper_sha256=$(shasum -a 256 "$ROOT/scripts/run_task_boundary.py" | awk '{print $1}')
+    ;;
+  *) echo "AGENTWING_TASK_BOUNDARY must be 0 or 1" >&2; exit 2 ;;
+esac
 
 case "$SALVAGE_TOOL_PREFIX" in
   0|1) ;;
@@ -169,7 +187,7 @@ else
   recovery_suffix=
   salvage_arg=
 fi
-configuration="B0-stage-a-v1.1-${TOOL_PROFILE}-${PROMPT_PROFILE}${recovery_suffix}${sampler_suffix}${boundary_suffix}${output_suffix}"
+configuration="B0-stage-a-v1.1-${TOOL_PROFILE}-${PROMPT_PROFILE}${recovery_suffix}${sampler_suffix}${boundary_suffix}${output_suffix}${task_boundary_suffix}"
 
 jq -n \
   --arg run_id "$RUN_ID" \
@@ -188,6 +206,10 @@ jq -n \
   --arg prompt_profile "$PROMPT_PROFILE" \
   --arg system_prompt_sha256 "$system_prompt_sha256" \
   --arg pi_models_sha256 "$pi_models_sha256" \
+  --arg permission_policy "$permission_policy" \
+  --arg boundary_policy_sha256 "$boundary_policy_sha256" \
+  --arg boundary_wrapper_sha256 "$boundary_wrapper_sha256" \
+  --argjson task_boundary "$TASK_BOUNDARY" \
   --arg tools_csv "$tools_csv" \
   --argjson salvage_tool_prefix "$SALVAGE_TOOL_PREFIX" \
   --argjson no_repeat_ngram "$no_repeat_ngram" \
@@ -207,6 +229,9 @@ jq -n \
     enable_thinking:false,tool_profile:$tool_profile,prompt_profile:$prompt_profile,
     system_prompt_sha256:$system_prompt_sha256,
     pi_models_sha256:$pi_models_sha256,
+    task_boundary:($task_boundary == 1),permission_policy:$permission_policy,
+    boundary_policy_sha256:$boundary_policy_sha256,
+    boundary_wrapper_sha256:$boundary_wrapper_sha256,
     tools:($tools_csv|split(",")),
     bind:"127.0.0.1",storage:"internal-ssd",free_kib_before:$free_kib,
     swap_used_mib_before:$baseline_swap_mib,os_version:$os_version,os_build:$os_build,
@@ -261,10 +286,16 @@ for task_id in $TASKS; do
   server_line_at_stop=
   server_line_before=$(wc -l <"$RUN_DIR/server.log" | tr -d ' ')
 
+  if [ "$TASK_BOUNDARY" = 1 ]; then
+    set -- /usr/bin/python3 "$ROOT/scripts/run_task_boundary.py" \
+      --workspace "$workspace" --models-file "$RUN_DIR/pi-models.json" --port 8080 -- \
+      "$NODE_BIN" "$ROOT/node_modules/@earendil-works/pi-coding-agent/dist/bundle/cli.js" \
+      --provider agentwing-swiftlet --model qwen3.6-35b-a3b-8bit-qpack
+  else
+    set -- /usr/bin/env "AGENTWING_PI_MODELS_FILE=$RUN_DIR/pi-models.json" "$ROOT/scripts/pi.sh"
+  fi
   /usr/bin/python3 "$ROOT/scripts/exec_process_group.py" \
-    --cwd "$workspace" -- /usr/bin/env \
-    "AGENTWING_PI_MODELS_FILE=$RUN_DIR/pi-models.json" \
-    "$ROOT/scripts/pi.sh" --mode json --print --no-session --approve --offline \
+    --cwd "$workspace" -- "$@" --mode json --print --no-session --approve --offline \
     --tools "$tools_csv" \
     --system-prompt "$system_prompt" \
     "$prompt" >"$task_dir/pi.jsonl" 2>"$task_dir/pi.stderr" &

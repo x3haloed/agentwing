@@ -27,6 +27,10 @@ def pair_checks(control, candidate, control_manifest, candidate_manifest, spec):
         control_manifest[key] == candidate_manifest[key] for key in (
             'suite_id', 'suite_sha256', 'task_timeout_seconds', 'tools', 'storage',
             'os_version', 'os_build'))
+    checks['same_recorded_permissions'] = all(
+        control_manifest.get(key, default) == candidate_manifest.get(key, default)
+        for key, default in (('permission_policy', 'unrestricted'),
+                             ('boundary_policy_sha256', ''), ('boundary_wrapper_sha256', '')))
     checks['minimum_candidate_successes'] = candidate['utility'] >= gate['minimum_candidate_task_success_count']
     checks['preserved_control_successes'] = candidate['utility'] >= control['utility']
     cr = 3600 * control['utility'] / max(1, control['wall_seconds'])

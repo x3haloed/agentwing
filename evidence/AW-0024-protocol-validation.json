@@ -1,0 +1,22 @@
+{
+  "observed_at_utc": "2026-09-05T00:42:18.160882+00:00",
+  "scope": "Inherited write/outbound-network canaries and real Pi fixtures; not real-model boundary performance or comprehensive sandbox certification",
+  "inherited_canaries_passed": true,
+  "pi_boundary_fixture_passed": true,
+  "pi_original_read_fixture_passed": true,
+  "pi_original_shell_fixture_passed": true,
+  "python_tests_passed": 11,
+  "source_sha256": {
+    "scripts/run_task_boundary.py": "33d7fcefbec9124e1c56e5c2b810265ad8c72e313c31ed42a7e35f0eba35bbd7",
+    "config/task-boundary.sb": "184e8ff7b377a6aae618ac39dfb862f4cd665d9567c03c9af31634775d529f91",
+    "scripts/test-task-boundary-protocol.sh": "5c0205f97e8dfcd277da189b6970a751984308582bf5c57b73ef5053583193a6",
+    "scripts/probe_task_boundary_integration.py": "cf6e69e05ec9b0ae3c3bb651f28f3264fd2cdbef4c3e8c98072ad65062b45411",
+    "tests/shell_protocol_fixture_server.py": "747c46dc1b50227b7559d5eb66d6691ac47d0ddcec2be39ef125cdaf0386aed0"
+  },
+  "boundary_protocol_evidence": "/Users/chad/Models/agentwing/evidence/AW-0024/protocol-20260905T004117Z",
+  "raw_evidence_sha256": {
+    "pi.jsonl": "a1a4a9890cc2c1548381f1aa4f373a0e2902d0a6c6d4dea275a84be8d234082a",
+    "server.log": "1df2aeaeac932108dbc2e82df84e97cd59bb52ec1037b15f41452407c80c03fa",
+    "pi.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

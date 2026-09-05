@@ -9,6 +9,15 @@ schemes are interchangeable components. A component survives only when the
 complete agent system performs more verified work under the host's physical
 limits.
 
+## Current measured frontier
+
+The first candidate screen passed **8/8 frozen Stage A tasks in 4,469 seconds**
+(6.44 verified tasks/hour), versus the historical floor's 3/8 and 2.06/hour.
+The evidence audit passes, with pressure level 1 and no swap growth. This is a
+non-interleaved development result; **no configuration is promoted yet**.
+Two interleaved full-suite comparisons remain required. See
+[AW-0019](experiments/AW-0019-complete-call-budget.md).
+
 ## Initial research question
 
 How much raw agentic capability can be embodied in a base M1 Mac mini with

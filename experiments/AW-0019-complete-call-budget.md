@@ -2,7 +2,7 @@
 
 ## Status
 
-Both development gates passed; unchanged full-suite screen next.
+Full-suite screen complete and audited; retained for paired validation, not promoted.
 
 ## Hypothesis
 
@@ -139,3 +139,24 @@ listening-socket observation: the owned Swiftlet server listens on IPv4
 `127.0.0.1:8080`. This supports the recorded binding at that time, not continuous
 network/process isolation. The existing runner continues sampling pressure and
 swap and applying the declared stop conditions.
+
+## Completed full-suite screen
+
+All eight tasks passed in 4,469 endpoint seconds (4,463 summed task seconds),
+for 6.444394719176549 verified tasks/hour. There were 50 tool calls, seven
+failed tool calls, zero model-error replies, zero rejected tool outputs, and
+zero salvage events. Peak pressure was 1; swap growth and peak growth were zero.
+Task 08 completed in 529 task seconds. The runner/server terminated normally
+and port 8080 was released.
+
+Run: `/Users/chad/Models/agentwing/evidence/AW-0019/20260904T232042Z`.
+Summary SHA-256: `be753eccf2b63f4c6a66a7198a64355e415037374186dd03152b5427f7ae472a`.
+`evidence/AW-0019-full-suite-audit.json` passes all recorded hashes, per-task
+copied-workspace verifier replay, protected-test integrity, request ownership,
+tool-event pairing, aggregate calculations, and host gates.
+
+The historical floor was 3/8 in 5,231 seconds (2.064614796406041 utility/hour).
+The rate ratio is 3.1213545162974565 in this non-interleaved screen.
+This is not a causal paired comparison or default promotion. The known older
+raw-history replay limitation still caused one 283.8-second refill on task 05.
+Retain this candidate for the required two interleaved full-suite comparisons.

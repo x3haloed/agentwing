@@ -1,0 +1,15 @@
+{
+  "scope": "Non-interleaved development screen against historical floor; not a promotion replication",
+  "baseline_run": "/Users/chad/Models/agentwing/evidence/AW-0008/20260904T190356Z",
+  "candidate_run": "/Users/chad/Models/agentwing/evidence/AW-0019/20260904T232042Z",
+  "baseline_summary_sha256": "f5d132e241ce2b5027fefa670a521e672c546ef7a9e7cb9c77bd873093d323c4",
+  "candidate_summary_sha256": "be753eccf2b63f4c6a66a7198a64355e415037374186dd03152b5427f7ae472a",
+  "baseline_utility": 3,
+  "candidate_utility": 8,
+  "baseline_wall_seconds": 5231,
+  "candidate_wall_seconds": 4469,
+  "baseline_utility_per_hour": 2.064614796406041,
+  "candidate_utility_per_hour": 6.444394719176549,
+  "rate_ratio": 3.1213545162974565,
+  "promoted": false
+}

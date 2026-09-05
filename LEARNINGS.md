@@ -510,3 +510,14 @@ separate measurements. Safe refill preserves correctness but costs time.
 
 **Disposition:** record AW-0025's bounded retained-history option and defer any
 runtime change until the current suite ends and its complete profile is known.
+
+## 2026-09-05 — First complete candidate screen passes all eight tasks
+
+**Evidence:** AW-0019 passed 8/8 in 4,469 endpoint seconds (6.444395 utility/hour),
+with no model errors/rejections/salvage, pressure 1, and zero swap growth. The
+full copied-workspace and integrity audit passes. Its rate is about 3.12 times
+the historical 3/8 floor, but this comparison is non-interleaved.
+
+**Disposition:** retain for paired validation, not promotion. AW-0024's inherited
+write/network canaries and real Pi fixture pass; its opt-in policy needs a short
+real-model gate and must be identical in both subsequent paired arms.
