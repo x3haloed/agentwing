@@ -17,6 +17,18 @@ process was running at takeover. The prior 12 local commits were preserved.
 
 ## Next bounded work
 
+**LIVE AW-0028 HANDOFF SMOKE:** session30870, runner9705/server9723,
+`/Users/chad/Models/agentwing/tasks/20260905T070243.284557Z`, launch73fcaf3.
+Real bounded-read task through new `scripts/run_local_agent.py`; separate
+unscored handoff smoke, not another paired run. Loopback127.0.0.1:8080 observed,
+pressure1/swap735.5 at launch. Poll the same handle. After terminal, run
+`./scripts/verify-stage-a.sh --task 07-bounded-read --workspace RUN/workspace`,
+inspect transcript/model errors, hash evidence and confirm no processes/listener.
+Five new lifecycle tests and real Pi protocol through this launcher pass.
+See AW-0028 for two preserved handoff setup/cleanup failures and fixes.
+Do not change measured inputs or load a second model while this smoke runs.
+
+
 **A2 TERMINAL AND AUDITED:** `20260905T053919Z`, launch45a9b80.
 Session56985 exited0, runner85350/server85411 gone, port8080 free.
 8/8 in4534 endpoint seconds,6.352007057785619 utility/hour; pressure1,
