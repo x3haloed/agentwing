@@ -83,3 +83,21 @@ Next gate: run the unchanged AW-0019 candidate on `07-bounded-read` with this
 policy. Require verified utility, valid tool pairing, recorded policy identity,
 and host gates. Then freeze the same policy for both comparison arms. This
 does not revise the historical unbounded-policy floor or its scoring.
+
+## Real-model gate completed
+
+Run `/Users/chad/Models/agentwing/evidence/AW-0024/20260905T004228Z` passed
+`07-bounded-read` with utility 1 in 222 endpoint seconds (217 task seconds),
+three successful calls, full continuation reuse, no model errors/rejections/
+salvage, pressure1, and zero swap growth. Policy and wrapper hashes matched
+the manifest, and private Pi model configuration matched the archived config.
+The runner/server terminated and port8080 was released.
+
+Summary SHA-256: `c436703cc32d93b09fa548da42b2e30b564981bc6f0ca7d907aab2dc90a13871`.
+`evidence/AW-0024-real-model-audit.json` passes copied-workspace replay and all
+recorded integrity/host checks. This is a compatibility gate, not a performance
+comparison with the unrestricted task's 212 task seconds.
+
+Disposition: retain this explicit write/outbound policy for both paired arms.
+No default agent configuration is promoted until the replicated rate and
+success-count gates and remaining reproduction checks pass.

@@ -17,16 +17,13 @@ process was running at takeover. The prior 12 local commits were preserved.
 
 ## Next bounded work
 
-1. Observe AW-0024's real-model boundary gate before launching other model work.
-   Confirmed live on 2026-09-05 around 00:43 UTC: exec session `44831`, runner
-   PID `98431`, server PID `98487`, evidence directory
-   `/Users/chad/Models/agentwing/evidence/AW-0024/20260905T004228Z`.
-   Agentwing at launch: `02d1416`; runtime `459b201`. Task is `07-bounded-read`.
-   AW-0019 candidate knobs are unchanged (compact-shell, shell-only, salvage
-   declared, repeat allowed, retained call boundary, max512, cache0.5 GB), with
-   `AGENTWING_TASK_BOUNDARY=1`. Manifest policy/wrapper hashes and private Pi
-   model config have been checked. Handles require fresh liveness checks.
-2. Audit this gate after it terminates. If successful, freeze the comparison
+1. AW-0024's real-model boundary gate is terminal and audited. Session `44831`,
+   runner `98431`, and server `98487` are gone. Run
+   `/Users/chad/Models/agentwing/evidence/AW-0024/20260905T004228Z` passed bounded
+   reading in 222 endpoint seconds, with pressure1 and zero swap growth.
+   No model process is currently owned by this thread. Next complete a clean
+   runtime build/reproduction check, then freeze and launch paired comparisons.
+2. The boundary gate passed. Freeze the comparison
    plan and run two interleaved full-suite control/candidate pairs. Use the same
    scoped permission policy in both arms; the pair checker now verifies this.
    Control keeps compact-shell/shell/salvage, max192, hard n-gram size3, and no
