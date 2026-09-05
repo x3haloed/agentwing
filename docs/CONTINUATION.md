@@ -25,8 +25,8 @@ Listener127.0.0.1:8080 verified. Evidence:
 Poll this existing session; no runtime edits/builds or concurrent models.
 After terminal audit C2, then launch A2 with the unchanged v2 plan.
 
-C2 checkpoint at 2026-09-05 05:20 UTC: task07 bounded reading is active.
-Tasks01/06 passed in610/832 seconds. Tasks02/03/04 timed out in908/914/910
+C2 checkpoint at 2026-09-05 05:23 UTC: task08 config sync is active.
+Tasks01/06/07 passed in610/832/217 seconds. Tasks02/03/04 timed out in908/914/910
 seconds and all cancellation drains were observed. Task05 completed in262
 seconds with failed verifier,1 model-error reply and1 rejected generation.
 All four failures scored0. Task06 had8 calls/2 failed,0 model errors/rejections,
