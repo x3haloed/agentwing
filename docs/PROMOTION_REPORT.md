@@ -1,7 +1,7 @@
 # P1 local promotion report
 
-Status: both interleaved performance comparisons passed; final task-launcher
-smoke is running. Do not mark the goal complete until that smoke is verified.
+Status: P1 promoted on 2026-09-05. Both interleaved comparisons and the final
+task-launcher smoke pass. The full local goal requirements are satisfied.
 
 ## Measured result
 
@@ -43,7 +43,7 @@ not separate causal speedup claims for each setting.
 | Reproduction | Nine archived patches reconstruct exact source tree; clean independent build/test passes;50 model payload hashes match; frozen execution preflight passes after comparison |
 | Optimization families | AW-0014–0025 record attempted, retained, rejected, optional and deferred arms as discussed below |
 | Capacity management | Internal SSD free-space measurements remained adequate (about301GiB after A2); no deletion was required or performed |
-| Document best configuration and make it usable | Exact machine-readable P1 profile, byte-identical prompt/Pi settings, LOCAL_AGENT.md, separate task launcher; final smoke verification pending |
+| Document best configuration and make it usable | Exact machine-readable P1 profile, byte-identical prompt/Pi settings, LOCAL_AGENT.md, separate task launcher; final smoke independently verified with clean process/port exit |
 
 The original C1 observer audit rejected known same-request diagnostics after a
 terminal generation metric. Runtime source establishes that ordering. The
@@ -96,7 +96,14 @@ reproduction passes; bit-identical compilation and performance equivalence of
 the clean binary were not established. P1 pins the measured original binary.
 
 The applicable stopping branch is successful promotion, not exhaustion of every
-optimization family. Once the final handoff smoke passes and the profile is
-marked promoted, the remaining optional research does not prevent completion
+optimization family. The final handoff smoke passes and the profile is
+marked promoted; the remaining optional research does not prevent completion
 of the user's stated goal. Preserve it as follow-up work instead of silently
 expanding the goal into the broader Stage2/Stage3 roadmap.
+
+Final launcher smoke: `tasks/20260905T070814.339390Z`,355.40 seconds,
+independent bounded-read verifier pass, pressure1,zero swap growth. All raw
+hashes match and the launcher hash equals the current source. Both owned
+process groups are gone and port8080 is free. Six launcher lifecycle tests,
+19 total Python tests and the real Pi fixture pass. This separate smoke is
+not added to either benchmark pair. See AW-0028-final-model-smoke.json.

@@ -94,3 +94,11 @@ a360003f859c2854d4715e7daf07858ff3e150485da42e0850a0417b8a3d64a5.
 3.28304661079253 times C2's rate. Session56985 exited0; runner85350/server85411
 are gone and port8080 is free. Both paired metrics now pass. Final promotion
 requires the requirement audit and usable configuration/reproduction handoff.
+
+### Final disposition
+
+Promoted as P1 on2026-09-05 after both interleaved comparisons, full evidence
+checks, protocol/source-build verification and AW-0028's final usable-task
+handoff smoke. See docs/PROMOTION_REPORT.md, docs/LOCAL_AGENT.md and
+spec/validated-local-agent.json. Frozen execution files and original failed
+observer evidence remain preserved. Optional later research is separately scoped.

@@ -1,8 +1,8 @@
 # Local agent P1
 
-P1 is the validated Qwen3.6 + patched Swiftlet + Pi configuration for this
-16GB M1 Mac mini. Both interleaved Stage A comparisons passed. Task-launcher
-real-model smoke verification is pending; promotion is not yet final.
+P1 is the promoted Qwen3.6 + patched Swiftlet + Pi configuration for this
+16GB M1 Mac mini. Both interleaved Stage A comparisons passed. The final task-launcher
+real-model smoke also passed independent artifact verification and cleanup.
 
 ## Run a task
 

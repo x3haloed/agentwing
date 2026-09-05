@@ -1,0 +1,37 @@
+{
+  "run": "/Users/chad/Models/agentwing/tasks/20260905T070814.339390Z",
+  "result": {
+    "status": "client-completed",
+    "error": null,
+    "pi_exit": 0,
+    "wall_seconds": 355.40205037500004,
+    "verified_utility": null,
+    "scope": "User task, not scored benchmark. Inspect artifacts and independently validate.",
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0.0,
+    "server_pid": 11373,
+    "client_pid": 11399
+  },
+  "verifier": {
+    "failures": [],
+    "task_id": "07-bounded-read",
+    "utility": 1
+  },
+  "hash_checks": {
+    "pi.jsonl": true,
+    "result.json": true,
+    "pressure.tsv": true,
+    "task.txt": true,
+    "system-prompt.txt": true,
+    "pi-models.json": true,
+    "manifest.json": true,
+    "server.log": true,
+    "pi.stderr": true
+  },
+  "launcher_sha256": "dee0e63573c60137226b541f5380b768799ad1682006438471eec95d511a6fdd",
+  "current_launcher_matches": true,
+  "owned_processes_gone": true,
+  "loopback_observed_during_run": true,
+  "port_free_after_run": true,
+  "scope": "Separate final user-task launcher smoke, not paired performance evidence."
+}

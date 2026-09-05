@@ -562,3 +562,16 @@ paired C2. Its full audit passes, with pressure1 and zero swap growth.
 Together with A1's8/8 and3.67098 times C1, this satisfies both numerical
 replication gates. Complete the final requirement audit and exact usable
 configuration/reproduction documentation before marking the goal complete.
+
+## 2026-09-05 — P1 promoted and task handoff verified
+
+Both interleaved full-suite candidates passed8/8 at3.67x and3.28x their
+controls, pressure1 with zero swap growth. Protocol, reconstruction and clean
+build evidence pass. The final task launcher additionally passes19 Python
+tests, real Pi protocol and an independently verified model smoke; Darwin
+cleanup races and a TIME_WAIT preflight issue were fixed and preserved in AW-0028.
+Promote P1 in spec/validated-local-agent.json. Use scripts/run_local_agent.py
+and docs/LOCAL_AGENT.md; the frozen benchmark files remain unchanged.
+Source/build reproduction is established, not identical compiled bytes or
+held-out performance. The promotion stopping condition is met; optional
+history, KV and alternative-model work remains a separate future campaign.

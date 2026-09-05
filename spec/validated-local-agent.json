@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "P1",
-  "status": "paired-validation-passed-handoff-pending",
+  "status": "promoted",
   "scope": "Local Stage A v1.1 on the recorded 16GB M1 host; new tasks are unscored",
   "measured_manifest": "/Users/chad/Models/agentwing/evidence/AW-0027/20260905T053919Z/manifest.json",
   "measured_manifest_sha256": "b0ef4f4fb1a8f3df4a0a0591e3e5482aaede0cbbd9208aa1bcc08e325eaafade",
@@ -59,8 +59,8 @@
     "evidence/AW-0027-pair-2.json"
   ],
   "frozen_plan": "evidence/AW-0027-frozen-plan-v2.json",
-  "promotion_pending": [
-    "task launcher lifecycle validation",
-    "final requirements report and documentation"
-  ]
+  "promoted_at": "2026-09-05",
+  "handoff_evidence": "evidence/AW-0028-final-model-smoke.json",
+  "usage": "docs/LOCAL_AGENT.md",
+  "promotion_report": "docs/PROMOTION_REPORT.md"
 }

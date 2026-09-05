@@ -53,3 +53,10 @@ The signal helper now ignores EPERM only after pgrep confirms no group members;
 a present group still raises. All19 Python tests (including that negative case)
 and a fresh real Pi fixture `protocol-20260905T070749.521597Z` pass. Repeat the
 short smoke with the final launcher before promotion; preserve the first one.
+
+Final disposition: passed and included in P1 handoff. Final smoke
+`tasks/20260905T070814.339390Z` completed in355.40 seconds, independently verified
+bounded-read output, pressure1/zero swap growth, matching raw/source hashes,
+no owned processes and no listener after exit. All19 Python tests and the real
+Pi fixture passed before this final unchanged-code smoke. Both smokes remain
+separate from AW-0027 performance claims. See AW-0028-final-model-smoke.json.

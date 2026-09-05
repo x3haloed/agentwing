@@ -1,135 +1,72 @@
 # Agentwing
 
-Agentwing is a systems-research project for maximizing **verified autonomous
-work per wall-clock hour** on one local Apple Silicon machine.
+Agentwing maximizes verified autonomous coding work per wall-clock hour on a
+16GB M1 Mac mini. **P1 is the first promoted local configuration:** Qwen3.6
+35B-A3B 8-bit qpack, patched Swiftlet and Pi, with a 0.5 GB expert cache.
 
-The target is intentionally model-agnostic. Models, quantizations, inference
-runtimes, agent harnesses, prompts, caches, speculative paths, and compression
-schemes are interchangeable components. A component survives only when the
-complete agent system performs more verified work under the host's physical
-limits.
+| Interleaved pair | Control | Candidate | Verified work-rate gain |
+| --- | --- | --- | --- |
+| C1 → A1 | 3/8, 1.72 tasks/hour | 8/8, 6.32 tasks/hour | 3.67× |
+| C2 → A2 | 3/8, 1.93 tasks/hour | 8/8, 6.35 tasks/hour | 3.28× |
 
-## Current measured frontier
+Both candidate runs stayed at memory-pressure level 1 with zero swap growth.
+The frozen eight-task suite includes navigation, repair, refactoring, data
+transformation, recovery, bounded reads and configuration synchronization.
+Failures and endpoint overhead count. These are local Stage A results, not
+held-out or external benchmark performance.
 
-The first candidate screen passed **8/8 frozen Stage A tasks in 4,469 seconds**
-(6.44 verified tasks/hour), versus the historical floor's 3/8 and 2.06/hour.
-The evidence audit passes, with pressure level 1 and no swap growth. This is a
-non-interleaved development result; **no configuration is promoted yet**.
-Two interleaved full-suite comparisons remain required. See
-[AW-0019](experiments/AW-0019-complete-call-budget.md).
+## Use the local agent
 
-## Initial research question
-
-How much raw agentic capability can be embodied in a base M1 Mac mini with
-16 GB unified memory, and at what sustained end-to-end work rate?
-
-The primary metric is not token throughput:
-
-```text
-verified utility per hour = sum(verifier-weighted task utility) / wall time
-```
-
-Decode tokens/s, prefill tokens/s, time to first useful action, productive tool
-ratio, peak memory, swap growth, bytes read, and energy are explanatory
-measurements.
-
-## Starting configurations
-
-### B0 — capability baseline
-
-- Model: Qwen3.6-35B-A3B, 8-bit qpack
-- Runtime: Swiftlet
-- Harness: Pi
-- Hardware: Macmini9,1, Apple M1, 8 cores, 16 GB unified memory
-- Expected model footprint: about 34 GB disk and 7.6 GB peak RAM with a 2 GB
-  expert cache
-- Published base-M1 decode anchor: about 1.74 tok/s
-
-This is the first model-harness pair to establish, not a claim that it is
-already optimal. Swiftlet's Chat Completions server does not yet document
-function-tool handling, so an adapter or native tool path is an explicit part
-of AW-0001.
-
-### C0 — throughput control
-
-- Model: Gemma 4 26B-A4B IT, TurboFieldfare's pinned 4-bit representation
-- Runtime: TurboFieldfare
-- Harness: OpenCode
-- Expected model footprint: about 14.3 GB disk and roughly 2 GB RAM with 4K KV
-
-TurboFieldfare already documents streaming Chat Completions, function tools,
-and single-prefix reuse. C0 tests whether a more complete and faster-serving
-system beats B0 on verified work rate despite different model capability.
-
-### K0 — emerging capability candidate
-
-- Model: K2 Horizon MoVA 36B-A4B
-- Publisher: Institute of Foundation Models (`IFM`)
-- Architecture: 36B stored, about 4B active per token, native 512K context
-- Initial artifact: official GGUF repository, exact quantization to be selected
-- Harness/runtime: unresolved pending local compatibility and a controlled
-  harness screen
-
-K2 Horizon was released on 2026-09-03 and reports 58.6 on Terminal-Bench 2.1
-and 26.8 on tau3-Banking, ahead of the Qwen3.6 comparison reported by its
-publisher. These are very recent publisher results, so K0 remains an emerging
-candidate rather than replacing B0 before independent and local validation.
-
-## Repository map
-
-- `TARGET.md` — machine, objective, and initial configurations
-- `RED_LINES.md` — claims and host-safety boundaries
-- `LEARNINGS.md` — append-only belief changes
-- `docs/ARCHITECTURE.md` — measurement and system boundaries
-- `docs/VALIDATION_PROTOCOL.md` — benchmark and acceptance rules
-- `docs/WORKFLOW.md` — experiment lifecycle
-- `docs/SOURCES.md` — evidence provenance
-- `docs/EXPERIMENTS.md` — ordered research program
-- `experiments/AW-0001-baseline-bringup.md` — first executable experiment
-- `spec/acceptance.json` — machine-readable acceptance gates
-- `spec/configurations.json` — candidate definitions, including B0, C0, and K0
-
-## Status
-
-The first audited eight-task Stage A run scored **3/8 in 5,231 seconds
-(2.064615 verified utility/hour)** with pressure peaking at 1 and no swap growth.
-It uses the compact shell prompt and explicit prefix salvage. Three tasks
-timed out and two failed verification. This is one local engineering floor,
-not a promoted configuration; see
-[AW-0008](experiments/AW-0008-stage-a-benchmark.md) for evidence and limits.
-
-The pinned 34 GB Qwen3.6 artifact passed all 50 published payload hashes. The
-patched Swiftlet suite passes 172 tests across 28 suites, its release server
-builds, and the pinned Pi harness passes both a synthetic protocol fixture and
-one real-model `read` loop.
-
-The first real 2 GB-cache smoke produced 1.87 decode tok/s, but system swap grew
-from 2.04 GB to 3.66 GB during the 22-second process. Execution stopped at the
-pressure boundary. Stock Swiftlet also discards Chat Completions `tools` and
-prior `tool_calls`, despite the model template and tokenizer supporting them.
-Strict Qwen tool syntax failed closed in three short trials. A separately
-labeled schema-bounded normalization arm completed the real tool loop with a
-0.5 GB cache, pressure level 1 throughout, and 0 MiB swap growth. Its first and
-second TTFT were 115.8 s and 172.2 s, making repeated-turn prefill the clearest
-current bottleneck. This is endpoint viability, not yet a benchmark score.
-
-AW-0007 subsequently demonstrated exact tool-prefix reuse: 469 cached tokens
-were reused with an exact identity and token match. The remaining full-file
-tool result was still 684 new tokens and took 171.9 s to prefill. Bounded tool
-results and history compaction remain throughput candidates. The full-suite
-failure traces also identify environment discovery, incorrect repeated edits,
-and exhausted generation budgets as the next reliability experiments.
-
-## Bring-up commands
+From this repository:
 
 ```sh
-pnpm install --frozen-lockfile --ignore-scripts
-./scripts/doctor.sh
-./scripts/test-pi-protocol.sh
-./scripts/pi.sh --list-models agentwing
+PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 scripts/run_local_agent.py --check-only
+PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 scripts/run_local_agent.py \
+  --workspace /absolute/path/to/project \
+  --task-file /absolute/path/to/task.txt
 ```
 
-`scripts/pi.sh` keeps its state under ignored `var/` and does not modify the
-operator's normal `~/.pi` configuration. Real-model runs must remain separately
-declared, single-owner experiments with the pressure and swap stop conditions
-in `RED_LINES.md`.
+The agent works in a preserved copy under the printed `run_dir/workspace`.
+Review its changes and run your tests before applying them to your project.
+The launcher manages the loopback model server, private Pi state, a 900-second
+task deadline, memory limits, and process cleanup. User-task completion is not
+a correctness score. See [the usage and reproduction guide](docs/LOCAL_AGENT.md)
+for exact settings, output files, permissions, and benchmark commands.
+
+## What changed
+
+P1 permits repeated code tokens, retains complete tool-call boundaries for
+continuation reuse, and uses a 512-token output budget with a compact bash
+prompt. The improvement is measured for this complete system; individual
+settings do not inherit the combined speedup claim.
+
+The model/runtime/harness identities, prompt, recovery policy and permissions
+are pinned in [the P1 profile](spec/validated-local-agent.json). The historical
+B0/C0/K0 definitions in `spec/configurations.json` remain unchanged to preserve
+the frozen execution plan; P1 is the current default task-launch profile.
+
+The final launcher smoke passed independent artifact verification. Validation
+includes 180 Swift tests across 29 suites, 19 Python tests, real Pi protocol
+fixtures and inherited write/network-boundary canaries. Runtime source was
+reconstructed from nine archived patches and independently built and tested.
+The clean build differs in executable bytes; the measured original binary
+remains pinned. This establishes source/build reproduction, not bit-identical
+compilation or performance equivalence of a replacement binary.
+
+## Evidence and follow-up work
+
+- [Promotion report](docs/PROMOTION_REPORT.md): requirement audit, results,
+  failures, scope and stopping condition.
+- [AW-0027 comparison](experiments/AW-0027-interleaved-promotion-comparison.md):
+  all four runs and the declared observer-only audit amendment.
+- [AW-0028 handoff](experiments/AW-0028-local-agent-handoff.md): launcher checks,
+  failed setup/cleanup trials, fixes and real-model smokes.
+- [Learnings](LEARNINGS.md): retained, rejected and deferred experiments.
+- [KV accounting](docs/KV_MEMORY.md): why quantized KV remains a long-context
+  follow-up rather than part of P1.
+- [Validation protocol](docs/VALIDATION_PROTOCOL.md): frozen local acceptance
+  contract and the separately scoped broader research roadmap.
+
+Large traces and model artifacts stay under `/Users/chad/Models/agentwing/`;
+Git contains source, configurations, compact receipts and hashes. No capacity
+cleanup was needed; source, results and provenance were preserved.
