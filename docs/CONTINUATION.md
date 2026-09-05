@@ -25,15 +25,15 @@ Listener127.0.0.1:8080 verified. Evidence:
 Poll this existing session; no runtime edits/builds or concurrent models.
 After terminal audit C2, then launch A2 with the unchanged v2 plan.
 
-C2 checkpoint at 2026-09-05 04:46 UTC: task04 refactoring is active.
-Task01 navigation passed in610 seconds. Task02 timed out in908 seconds;
-task03 timed out in914 seconds. Both scored0 and their artifact verifiers
-failed; both cancellation drains were observed before advancing. Task03 had
-8 calls/3 failed,0 model errors,1 rejected output,1 declared prefix salvage.
-Task03 transcript SHA256:
-ffbe9aa966cf3a304dc0246eb1243e9f082918897c63230ff2d3a75d2ef9857b.
-Pressure1 and swap735.19MiB unchanged. Session77088 and both owned processes
-remain live; no suite summary or second-pair assessment yet.
+C2 checkpoint at 2026-09-05 05:01 UTC: task05 data transformation is active.
+Task01 navigation passed in610 seconds. Tasks02/03/04 timed out in908/914/910
+seconds respectively; all scored0 and artifact verifiers failed. All three
+cancellation drains were observed before advancing. Task04 had8 calls/3 failed,
+0 model errors/rejections,1 declared prefix salvage. Task04 transcript SHA256:
+c36ddbcdd38b2119b08462d9e27e512815f88d707c4222fca4ffd7e4764035df.
+Pressure remains1; swap rose from735.19 to735.50MiB (0.31MiB growth), well
+inside the1GiB gate. Session77088 and both owned processes remain live;
+no suite summary or second-pair assessment yet.
 
 A1 is terminal and audited:8/8 in4559 endpoint seconds,6.317174819039263
 utility/hour. First pair passes at3.670980478175038 times C1. Pressure1,
