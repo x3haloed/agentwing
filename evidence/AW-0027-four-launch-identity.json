@@ -1,0 +1,89 @@
+{
+  "observed_at": "2026-09-05T05:41:46.751375+00:00",
+  "checks": {
+    "same_manifest_schema": true,
+    "all_common_fields_match": true,
+    "control_arm_identical": true,
+    "candidate_arm_identical": true,
+    "declared_control_settings": true,
+    "declared_candidate_settings": true,
+    "C1_terminal_before_A1": true,
+    "A1_terminal_before_C2": true,
+    "C2_terminal_before_A2": true
+  },
+  "passed": true,
+  "common_fields": [
+    "bind",
+    "boundary_policy_sha256",
+    "boundary_wrapper_sha256",
+    "enable_thinking",
+    "frequency_penalty",
+    "harness_revision",
+    "min_new_tokens",
+    "model_cache_gb",
+    "model_revision",
+    "os_build",
+    "os_version",
+    "permission_policy",
+    "presence_penalty",
+    "prompt_profile",
+    "salvage_tool_prefix",
+    "server_binary_sha256",
+    "storage",
+    "suite_id",
+    "suite_sha256",
+    "swiftlet_revision",
+    "system_prompt_sha256",
+    "task_boundary",
+    "task_selection",
+    "task_timeout_seconds",
+    "temperature",
+    "tool_profile",
+    "tools",
+    "top_k",
+    "top_p"
+  ],
+  "arm_fields": [
+    "configuration",
+    "max_output_tokens",
+    "no_repeat_ngram",
+    "pi_models_sha256",
+    "stop_after_tool_call"
+  ],
+  "run_specific_fields": [
+    "agentwing_revision",
+    "free_kib_before",
+    "run_id",
+    "swap_used_mib_before"
+  ],
+  "manifest_sha256": {
+    "C1": "0348104b343cf4a8736448c4759e3934207fe94e4db4381bbcfc1220932972f0",
+    "A1": "5367cf5212ad81f7060b67061e9c1196b10f0cd6b8f23a137ad43ac163f9bd28",
+    "C2": "5ffedcdbed852b8c9cb6f8804806b37e7b6c11693dc63c18fdaafca4654b4e92",
+    "A2": "b0ef4f4fb1a8f3df4a0a0591e3e5482aaede0cbbd9208aa1bcc08e325eaafade"
+  },
+  "completed_slot_order": [
+    {
+      "slot": "C1",
+      "start": "2026-09-05T01:01:10+00:00",
+      "start_plus_recorded_duration": "2026-09-05T02:45:46+00:00",
+      "last_pressure_sample": "2026-09-05T02:45:20Z",
+      "next_start": "2026-09-05T02:48:37+00:00"
+    },
+    {
+      "slot": "A1",
+      "start": "2026-09-05T02:48:37+00:00",
+      "start_plus_recorded_duration": "2026-09-05T04:04:36+00:00",
+      "last_pressure_sample": "2026-09-05T04:04:31Z",
+      "next_start": "2026-09-05T04:05:19+00:00"
+    },
+    {
+      "slot": "C2",
+      "start": "2026-09-05T04:05:19+00:00",
+      "start_plus_recorded_duration": "2026-09-05T05:38:21+00:00",
+      "last_pressure_sample": "2026-09-05T05:38:00Z",
+      "next_start": "2026-09-05T05:39:19+00:00"
+    }
+  ],
+  "scope": "Launch identity and recorded chronology only. A2 is live; final evidence audit, pair2 metrics, actual process observations and promotion remain separate gates."
+}
