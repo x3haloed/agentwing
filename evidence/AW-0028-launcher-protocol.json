@@ -1,0 +1,19 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0028/protocol-20260905T070141.590602Z",
+  "report": {
+    "status": "client-completed",
+    "error": null,
+    "pi_exit": 0,
+    "wall_seconds": 1.628144958,
+    "verified_utility": null,
+    "scope": "User task, not scored benchmark. Inspect artifacts and independently validate.",
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0.0,
+    "server_pid": 9436,
+    "client_pid": 9439
+  },
+  "five_tool_results": true,
+  "one_expected_failure": true,
+  "artifact_passed": true,
+  "launcher_sha256": "3fed2c27d19259874f2dc295e9f2f9aa5b3d614614832095220fdc83a3ad8e49"
+}

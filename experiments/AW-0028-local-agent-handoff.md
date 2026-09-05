@@ -26,3 +26,15 @@ output. It must pin the original runtime executable, exact prompt/models,
 limit to one model owner, stop on pressure>=4 or swap growth>1024MiB, use a
 900-second task deadline, stop owned process groups on all exits, and leave
 127.0.0.1:8080 free. No new context or recovery optimization belongs here.
+
+Implementation checkpoint: `scripts/run_local_agent.py` now provides hash/host/
+ownership preflight and private workspace copies with task logs, a 900-second
+client deadline, host stop conditions and process-group cleanup. Five lifecycle
+tests pass, including descendant cleanup after parent exit and timeout evidence.
+The first real Pi fixture at `protocol-20260905T070049Z` exposed a Darwin signal
+error on an exited, unreaped server group; no process/listener remained. It is
+preserved as a failed handoff trial. Reaping and checking group membership before
+signaling fixes that path. The repeated real Pi fixture at
+`protocol-20260905T070141.590602Z` passes all five tool results, expected failed
+command/recovery and output verification, under the unchanged task boundary.
+See `evidence/AW-0028-launcher-protocol.json`. Real-model smoke remains pending.
