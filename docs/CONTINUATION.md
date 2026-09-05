@@ -26,11 +26,14 @@ Poll this same session; no builds/runtime edits/payload hashing/concurrent
 models. After terminal: audit A2, assess C2/A2, then complete all four-run
 identity/order and promotion checks in docs/PROMOTION_CHECKLIST.md.
 
-A2 checkpoint at 2026-09-05 05:46 UTC: task02 single-file repair is active.
-Task01 passed in373 seconds. Pressure1, swap735.50MiB (zero growth from A2
-start). Session56985 and runner85350/server85411 remain live. The four-launch
-identity and chronology check passes in evidence/AW-0027-four-launch-identity.json;
-it does not replace A2's pending terminal audit or pair2 performance check.
+A2 checkpoint at 2026-09-05 05:56 UTC: task03 multi-file repair is active.
+Tasks01/02 passed in373/631 seconds,5/7 tool calls,0/2 failed calls, and no
+model errors/rejections/prefix salvage. Task02 transcript SHA256:
+8fafbeee37b747239817c515c4b3dd5fec9db30653dc4baa533c6d8a55f82ba0.
+Pressure1, swap735.50MiB (zero growth from A2 start). Session56985 and
+runner85350/server85411 remain live. The four-launch identity/chronology check
+passes in evidence/AW-0027-four-launch-identity.json; A2's terminal audit and
+pair2 performance check remain pending.
 
 C2 is terminal and audited:3/8 in5582 endpoint seconds,1.9347903977069152
 utility/hour. Pressure1, swap growth0.31MiB. Four timeout drains observed.
