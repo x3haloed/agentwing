@@ -25,6 +25,12 @@ settings matching C1. Loopback listener127.0.0.1:8080, pressure1. Poll this same
 handle; do not restart while live. No builds, payload hashes or concurrent
 model work. After terminal, audit then assess C1/A1 before continuing C2/A2.
 
+A1 checkpoint at 2026-09-05 03:19 UTC: task04 is live. Tasks01/02/03 passed
+in378/635/721 seconds respectively, with no model-error replies, rejected
+outputs or prefix salvage. These are partial results; no full-suite rate or
+pair acceptance yet. Pressure remains1, swap735.19MiB (zero growth). Continue
+polling session76879 and preserve all remaining outcomes.
+
 C1 is terminal and audited:3/8 in6276 endpoint seconds,1.7208413001912046
 utility/hour, pressure1, zero swap growth. Session10183 exited0; runner3471 and
 server3533 are gone. Evidence `AW-0027/20260905T010110Z`. See corrected audit
@@ -44,7 +50,7 @@ plan is retained, and v2 explicitly records the auditor-only amendment. A1 is li
    Evidence: `evidence/AW-0026-clean-build.json` and model payload verification.
    AW-0027 now freezes C1 → A1 → C2 → A2 in
    `evidence/AW-0027-frozen-plan.json`. Launch each full suite using
-   `python3 scripts/run_frozen_arm.py evidence/AW-0027-frozen-plan.json SLOT`.
+   `python3 scripts/run_frozen_arm.py evidence/AW-0027-frozen-plan-v2.json SLOT`.
    Do not change frozen execution files or runtime during this sequence.
 
 2. The boundary gate passed. Freeze the comparison
