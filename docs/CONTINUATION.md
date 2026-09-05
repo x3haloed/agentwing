@@ -17,30 +17,26 @@ process was running at takeover. The prior 12 local commits were preserved.
 
 ## Next bounded work
 
-**LIVE A2:** `20260905T053919Z`, launch revision45a9b80, exec session56985,
-runner85350/server85411. Frozen plan v2 passed all input hashes. Manifest
-common and candidate fields match A1: max512/ngram0/retained tool boundary.
-Listener127.0.0.1:8080 verified. Evidence:
-`/Users/chad/Models/agentwing/evidence/AW-0027/20260905T053919Z`.
-Poll this same session; no builds/runtime edits/payload hashing/concurrent
-models. After terminal: audit A2, assess C2/A2, then complete all four-run
-identity/order and promotion checks in docs/PROMOTION_CHECKLIST.md.
+**A2 TERMINAL AND AUDITED:** `20260905T053919Z`, launch45a9b80.
+Session56985 exited0, runner85350/server85411 gone, port8080 free.
+8/8 in4534 endpoint seconds,6.352007057785619 utility/hour; pressure1,
+zero swap growth. AuditAW-0027-A2-audit.json and pairAW-0027-pair-2.json
+pass. Pair2 ratio3.28304661079253; pair1 ratio3.670980478175038.
+Summary SHA256:a360003f859c2854d4715e7daf07858ff3e150485da42e0850a0417b8a3d64a5.
 
-A2 checkpoint at 2026-09-05 06:45 UTC: final task08 config sync is active.
-Tasks01–07 passed in373/631/721/827/656/519/217 seconds. Task07 used3 tool
-calls, zero failed calls and no model errors/rejections/prefix salvage. Its
-transcript SHA256 is3cbdff1a1221334cc672da528744e2050b06b50b95ec275410c883868c81e39f.
-Pressure1, swap735.50MiB (zero growth from A2 start). Runner85350/server85411
-remain live; poll session56985. The four-launch identity/chronology check
-passes in evidence/AW-0027-four-launch-identity.json; A2's terminal audit and
-pair2 performance check remain pending. Seven passes alone do not meet the
-full-suite/two-pair promotion requirement.
+NEXT: finish requirement-by-requirement promotion audit, exact configuration,
+README/reproduction instructions and usable task launch handoff. Both numerical
+pairs pass; goal is not complete until final deliverables are verified. The
+four-launch identity/order receipt already passes but its scope text records
+A2 was live at observation; combine it with terminal audits. Preserve original
+frozen execution files where possible so reproduction plans continue to work.
+See docs/PROMOTION_CHECKLIST.md, including generic Pi profile mismatch.
 
 C2 is terminal and audited:3/8 in5582 endpoint seconds,1.9347903977069152
 utility/hour. Pressure1, swap growth0.31MiB. Four timeout drains observed.
 Session77088 exited0, runner57579/server57634 gone, port8080 free. Evidence:
 `/Users/chad/Models/agentwing/evidence/AW-0027/20260905T040519Z`.
-A2 is now live as recorded above; do not rerun any completed slot.
+A2 is terminal as recorded above; do not rerun any completed slot.
 
 A1 is terminal and audited:8/8 in4559 endpoint seconds,6.317174819039263
 utility/hour. First pair passes at3.670980478175038 times C1. Pressure1,

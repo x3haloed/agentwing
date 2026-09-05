@@ -554,3 +554,11 @@ AW-0027 C2 again passed01/06/07,3/8 overall, in5582 seconds (1.934790/hour).
 Its data-transform failure exited earlier than C1's timeout; the same frozen
 scoring retains that failure and all overhead. Four timeout drains and the
 full evidence audit pass. Pressure1, swap growth0.31MiB. Advance unchanged A2.
+
+## 2026-09-05 — Both interleaved candidate replications pass
+
+AW-0027 A2 passed8/8 in4534 seconds,6.352007 utility/hour,3.28305 times
+paired C2. Its full audit passes, with pressure1 and zero swap growth.
+Together with A1's8/8 and3.67098 times C1, this satisfies both numerical
+replication gates. Complete the final requirement audit and exact usable
+configuration/reproduction documentation before marking the goal complete.

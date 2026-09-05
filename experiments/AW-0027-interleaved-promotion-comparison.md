@@ -82,3 +82,15 @@ Summary SHA256:f3f1ad31d9dca4873e61f4f4c4326c37c1bc6687996139df6cdfc35cb150d1f6.
 Session77088 exited0, runner57579/server57634 are gone and port8080 is free.
 Retain this control and advance unchanged A2; no promotion before its full
 result and second-pair assessment.
+
+### A2 terminal result and second pair
+
+A2 `20260905T053919Z` completed8/8 in4534 endpoint seconds (4529 task
+seconds),6.352007057785619 utility/hour. Pressure1, swap735.50MiB unchanged;
+52 tool calls,8 failed calls,0 model errors/rejections/salvage. Full evidence
+audit passes in `evidence/AW-0027-A2-audit.json`. Summary SHA256:
+a360003f859c2854d4715e7daf07858ff3e150485da42e0850a0417b8a3d64a5.
+`evidence/AW-0027-pair-2.json` passes all second-pair metrics at
+3.28304661079253 times C2's rate. Session56985 exited0; runner85350/server85411
+are gone and port8080 is free. Both paired metrics now pass. Final promotion
+requires the requirement audit and usable configuration/reproduction handoff.

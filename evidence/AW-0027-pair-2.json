@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "control_run": "/Users/chad/Models/agentwing/evidence/AW-0027/20260905T040519Z",
+  "candidate_run": "/Users/chad/Models/agentwing/evidence/AW-0027/20260905T053919Z",
+  "checks": {
+    "control_full_suite": true,
+    "control_recorded_loopback": true,
+    "control_pressure": true,
+    "control_swap": true,
+    "control_positive_duration": true,
+    "candidate_full_suite": true,
+    "candidate_recorded_loopback": true,
+    "candidate_pressure": true,
+    "candidate_swap": true,
+    "candidate_positive_duration": true,
+    "same_suite_timeout_tools_storage_os": true,
+    "same_recorded_permissions": true,
+    "minimum_candidate_successes": true,
+    "preserved_control_successes": true,
+    "historical_floor_rate": true,
+    "paired_rate_ratio": true,
+    "candidate_declared_salvage_policy": true,
+    "control_evidence_audit": true,
+    "candidate_evidence_audit": true,
+    "distinct_runs": true
+  },
+  "rates": {
+    "control_utility_per_hour": 1.9347903977069152,
+    "candidate_utility_per_hour": 6.352007057785619,
+    "ratio": 3.28304661079253
+  },
+  "pair_metrics_passed": true,
+  "candidate_diagnostics": {
+    "model_error_replies": 0,
+    "rejected_tool_outputs": 0,
+    "salvaged_tool_prefixes": 0
+  },
+  "summary_sha256": [
+    "f3f1ad31d9dca4873e61f4f4c4326c37c1bc6687996139df6cdfc35cb150d1f6",
+    "a360003f859c2854d4715e7daf07858ff3e150485da42e0850a0417b8a3d64a5"
+  ],
+  "scope": "Necessary metrics for ONE pair only. Two interleaved pairs with the same frozen arms, protocol-test evidence, actual loopback/process observations, permissions and reproduction remain required for promotion."
+}
