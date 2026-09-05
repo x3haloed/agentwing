@@ -17,28 +17,16 @@ process was running at takeover. The prior 12 local commits were preserved.
 
 ## Next bounded work
 
-**LIVE C2:** `20260905T040519Z`, launch revision4831a34, exec session77088,
-runner57579/server57634. Frozen plan v2 passed all input hashes. Manifest
-common fields match C1; control flags max192, hard ngram3, no retained stop.
-Listener127.0.0.1:8080 verified. Evidence:
+C2 is terminal and audited:3/8 in5582 endpoint seconds,1.9347903977069152
+utility/hour. Pressure1, swap growth0.31MiB. Four timeout drains observed.
+Session77088 exited0, runner57579/server57634 gone, port8080 free. Evidence:
 `/Users/chad/Models/agentwing/evidence/AW-0027/20260905T040519Z`.
-Poll this existing session; no runtime edits/builds or concurrent models.
-After terminal audit C2, then launch A2 with the unchanged v2 plan.
-
-C2 checkpoint at 2026-09-05 05:23 UTC: task08 config sync is active.
-Tasks01/06/07 passed in610/832/217 seconds. Tasks02/03/04 timed out in908/914/910
-seconds and all cancellation drains were observed. Task05 completed in262
-seconds with failed verifier,1 model-error reply and1 rejected generation.
-All four failures scored0. Task06 had8 calls/2 failed,0 model errors/rejections,
-1 declared prefix salvage. Task06 transcript SHA256:
-05682996603a65662c2d273bbd9cd4e477cfccdd592abf2b05eeda778989fa3a.
-Pressure remains1; swap735.50MiB,0.31MiB above starting735.19. Session77088,
-runner57579/server57634 remain live; no suite summary or second-pair result.
+Next: launch A2 using unchanged frozen plan v2; then audit and assess pair2.
 
 A1 is terminal and audited:8/8 in4559 endpoint seconds,6.317174819039263
 utility/hour. First pair passes at3.670980478175038 times C1. Pressure1,
 zero swap growth; session76879 exited0 and both owned processes terminated.
-Port8080 confirmed free. C2 is now live as recorded above; A2 follows it.
+Port8080 confirmed free. C2 is terminal as recorded above; A2 follows it.
 See `evidence/AW-0027-A1-audit.json` and `evidence/AW-0027-pair-1.json`.
 
 C1 is terminal and audited:3/8 in6276 endpoint seconds,1.7208413001912046

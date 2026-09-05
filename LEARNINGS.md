@@ -547,3 +547,10 @@ AW-0027 A1 passed8/8 in4559 seconds,6.317175 utility/hour,3.67098 times
 paired C1. Both evidence audits and all first-pair gates pass; pressure1 and
 zero swap growth. Retain unchanged for the required second interleaved pair.
 No promotion from this single pair. See AW-0027-pair-1.json.
+
+## 2026-09-05 — Second control is audited
+
+AW-0027 C2 again passed01/06/07,3/8 overall, in5582 seconds (1.934790/hour).
+Its data-transform failure exited earlier than C1's timeout; the same frozen
+scoring retains that failure and all overhead. Four timeout drains and the
+full evidence audit pass. Pressure1, swap growth0.31MiB. Advance unchanged A2.

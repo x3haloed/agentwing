@@ -69,3 +69,16 @@ audit passes. Summary SHA256:
 3.670980478175038 times C1's verified utility/hour. Session76879 exited0,
 runner34667/server34729 terminated, and port8080 was free before C2.
 Disposition: retain unchanged for C2 → A2; one pair does not permit promotion.
+
+### C2 terminal result
+
+C2 `20260905T040519Z` completed3/8 in5582 endpoint seconds (5575 task
+seconds),1.9347903977069152 utility/hour. Passes01/06/07; timeouts02/03/04/08;
+task05 completed but failed verification. All failures score0. All four timeout
+drains observed.49 tool calls,11 failed calls,1 model-error reply,2 rejected
+outputs,6 declared prefix salvages. Pressure1; swap735.19→735.50MiB (0.31MiB).
+The full evidence audit passes in `evidence/AW-0027-C2-audit.json`.
+Summary SHA256:f3f1ad31d9dca4873e61f4f4c4326c37c1bc6687996139df6cdfc35cb150d1f6.
+Session77088 exited0, runner57579/server57634 are gone and port8080 is free.
+Retain this control and advance unchanged A2; no promotion before its full
+result and second-pair assessment.
