@@ -27,6 +27,16 @@ run. After terminal, audit and record it, then launch A1 through the frozen
 helper. No builds, payload hashing, or concurrent model work while running.
 
 
+
+C1 checkpoint at 2026-09-05 01:59 UTC: task05 is live. Task01 passed in615
+seconds; task02 timed out in914 seconds and failed verification; task03 timed
+out in925 seconds although its artifact passed; task04 timed out in924 seconds
+and failed verification. Accepted utility is1 across these four tasks under
+the frozen completion/deadline rule. All three timeout drains were observed,
+so the runner continued. Pressure remained1 and swap735.19MiB (zero growth).
+These are partial results, not a full-suite score. No model/build changes or
+reclamation were performed. About303GiB remains free.
+
 1. AW-0024's real-model boundary gate is terminal and audited. Session `44831`,
    runner `98431`, and server `98487` are gone. Run
    `/Users/chad/Models/agentwing/evidence/AW-0024/20260905T004228Z` passed bounded
