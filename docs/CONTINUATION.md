@@ -17,37 +17,40 @@ process was running at takeover. The prior 12 local commits were preserved.
 
 ## Next bounded work
 
-1. Observe AW-0019's full eight-task screen before launching other model work.
-   Confirmed live on 2026-09-04 at 23:20 UTC: exec session `42871`, runner PID
-   `74693`, server PID `74744`, evidence directory
+1. Observe AW-0024's real-model boundary gate before launching other model work.
+   Confirmed live on 2026-09-05 around 00:43 UTC: exec session `44831`, runner
+   PID `98431`, server PID `98487`, evidence directory
+   `/Users/chad/Models/agentwing/evidence/AW-0024/20260905T004228Z`.
+   Agentwing at launch: `02d1416`; runtime `459b201`. Task is `07-bounded-read`.
+   AW-0019 candidate knobs are unchanged (compact-shell, shell-only, salvage
+   declared, repeat allowed, retained call boundary, max512, cache0.5 GB), with
+   `AGENTWING_TASK_BOUNDARY=1`. Manifest policy/wrapper hashes and private Pi
+   model config have been checked. Handles require fresh liveness checks.
+2. Audit this gate after it terminates. If successful, freeze the comparison
+   plan and run two interleaved full-suite control/candidate pairs. Use the same
+   scoped permission policy in both arms; the pair checker now verifies this.
+   Control keeps compact-shell/shell/salvage, max192, hard n-gram size3, and no
+   retained tool boundary. Candidate uses max512, n-gram0, and retained boundary.
+   Keep all other model/runtime/harness/cache/task/timeout settings identical.
+   Complete reproducibility evidence and required protocol checks before any
+   promotion. A numeric screen against the historical floor is not replication.
+3. AW-0019's complete eight-task screen is terminal and audited: 8/8 in 4,469
+   endpoint seconds, 6.444395 utility/hour, pressure1, zero swap growth, and no
+   model errors/rejections/salvage. Its original session `42871`, runner `74693`,
+   and server `74744` are gone. Evidence:
    `/Users/chad/Models/agentwing/evidence/AW-0019/20260904T232042Z`.
-   Agentwing at launch: `fd05609`, runtime `459b201`. Manifest confirms `all`
-   tasks, max output 512, repeated n-grams allowed, and retained call boundaries.
-   These handles are not proof of continuing liveness. Poll or inspect; do not
-   restart a live trial. Each task retains the 900-second timeout and host gates.
-   At approximately 00:26 UTC on 2026-09-05, tasks 01–07 had passed (378, 640,
-   731, 802, 656, 515, and 212 task seconds), with zero model errors/rejections/
-   salvage. Task 08 was running. Task 05 incurred one full continuation refill despite
-   its tool-replay hit; see AW-0025 for the single-entry replay-cache diagnosis.
-   IMPORTANT: full-suite launch requires `--all`; default is navigation only.
-2. Both AW-0019 development gates passed cleanly. Config task completed in 620
-   endpoint seconds; single-file repair in 641. Each scored utility 1, with no
-   model errors/rejections/salvage, full continuation reuse, pressure 1 and zero
-   swap growth. Both audits pass. Sessions `36265` and `75462` are terminal.
-   Mistaken navigation-only launch `20260904T231929Z`, session `57295`, was
-   intentionally stopped after manifest validation, with zero utility and 56
-   seconds of preserved cost. Its runner/server are gone; see experiment record.
-   Audit the full screen after completion with `scripts/audit_stage_a.py`.
-   This is not a paired promotion replicate; two interleaved pairs remain.
-   AW-0021's relative-cwd extension is prepared but unused. It needs a real Pi
-   fixture and explicit runner/hash integration before any endpoint trial.
-3. Address enforceable tool permissions before promotion. AW-0018's native
-   sandbox preflight allowed owned workspace writes and the owned endpoint,
-   and denied outside writes, symlink escape, and a different endpoint port.
-   This is not integrated into Pi and is not a comprehensive sandbox result.
-4. Screen alternative configurations, bounded tool results/history, and
-   TurboQuant/PolarQuant KV compression as profiling warrants. Short-task
-   evidence has not shown KV pressure to be the bottleneck.
+   The rate is 3.12135 times the historical floor in a non-interleaved comparison.
+   One full continuation refill occurred on task05; AW-0025 explains the
+   single-entry raw-history replay limitation. Do not silently fix it mid-pair.
+4. AW-0024's eleven canaries and real Pi boundary fixture pass, as do the two
+   original Pi fixtures and eleven Python tests. Raw boundary fixture evidence:
+   `/Users/chad/Models/agentwing/evidence/AW-0024/protocol-20260905T004117Z`.
+   See `evidence/AW-0024-protocol-validation.json`. The policy restricts writes
+   and outbound connections; reads and other capabilities remain permitted.
+5. Full-suite launches require `--all`; default is navigation only. The mistaken
+   AW-0019 navigation launch was preserved and stopped, not counted as a suite.
+   Optional cwd-hint, output-limit and retained-history arms remain unmeasured
+   or deprioritized. Do not add them to a frozen comparison without a new plan.
 
 ## Latest evidence
 
@@ -84,7 +87,7 @@ commands. At continuation, 304 GiB was available, so no reclamation was needed.
 - AW-0020 found no immediately usable alternative weights/runtime in known
   local model locations. This is not a global absence or performance claim.
 - AW-0021's relative-cwd extension remains optional and needs a real Pi fixture.
-- AW-0022 added `scripts/assess_stage_a_pair.py`; ten Python tests pass. It
+- AW-0022 added `scripts/assess_stage_a_pair.py`; eleven Python tests pass. It
   checks necessary metrics for one pair, not the entire promotion contract.
 - AW-0023's optional 1,024-character result cap was deprioritized: actual hook
   replay saves only 12 tokens across the baseline and 37 on clean repair.
