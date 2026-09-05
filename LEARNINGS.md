@@ -496,3 +496,17 @@ and preserve the existing utility rule. Protocol integrity audits and the
 required protocol fixtures remain separate requirements. Ten Python tests pass;
 a regression ensures these diagnostic counters do not silently rescore utility.
 The real partial-run example still fails full-suite and success-count gates.
+
+## 2026-09-05 — Latest-tool replay does not preserve all older raw history
+
+**Evidence:** AW-0019 task 05 passed but incurred a 1,076-token continuation
+refill (283.8-second TTFT). Its debug log also reported a tool-replay hit.
+The pinned cache overwrites its single raw-reply entry after each tool turn;
+older turns then use structured serialization. Tasks 01–04 had no such refill.
+
+**Qualification:** Source-supported mechanism; the exact differing bytes in the
+real prompt were not captured. A replay lookup hit and actual KV reuse are
+separate measurements. Safe refill preserves correctness but costs time.
+
+**Disposition:** record AW-0025's bounded retained-history option and defer any
+runtime change until the current suite ends and its complete profile is known.

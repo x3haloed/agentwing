@@ -1,0 +1,39 @@
+{
+  "scope": "Provisional completed-task logs in an ongoing suite; tool-replay hits are separate from actual KV reuse",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0019/20260904T232042Z",
+  "tasks": [
+    {
+      "task_id": "01-navigation",
+      "requests": 6,
+      "continuation_refills": []
+    },
+    {
+      "task_id": "02-single-file-fix",
+      "requests": 8,
+      "continuation_refills": []
+    },
+    {
+      "task_id": "03-multi-file-fix",
+      "requests": 10,
+      "continuation_refills": []
+    },
+    {
+      "task_id": "04-refactor",
+      "requests": 12,
+      "continuation_refills": []
+    },
+    {
+      "task_id": "05-data-transform",
+      "requests": 4,
+      "continuation_refills": [
+        {
+          "request": "chatcmpl-6CD560E0",
+          "new_prompt_tokens": 1076,
+          "reused": 0,
+          "matched": 868,
+          "ttft_seconds": 283.8
+        }
+      ]
+    }
+  ]
+}

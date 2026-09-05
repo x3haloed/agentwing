@@ -126,7 +126,9 @@ Task 03 subsequently passed in 731 task seconds with nine calls, two failed
 calls, zero model errors/rejections/salvage, and nine prefix reuse hits. Task 04
 subsequently passed in 802 task seconds with eleven calls, three failed
 shell/test calls, zero model errors/rejections/salvage, and eleven prefix reuse
-hits. Task 05 is now running. These are provisional per-task records, not a complete suite
+hits. Task 05 passed in 656 task seconds, with three successful calls and no
+model errors/rejections/salvage. It incurred a 283.8-second full prompt refill;
+see AW-0025. Task 06 is now running. These are provisional per-task records, not a complete suite
 or an independently audited aggregate result.
 
 `evidence/AW-0019-live-endpoint-observation.json` records one live-process and
