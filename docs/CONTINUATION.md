@@ -17,11 +17,20 @@ process was running at takeover. The prior 12 local commits were preserved.
 
 ## Next bounded work
 
+**LIVE A2:** `20260905T053919Z`, launch revision45a9b80, exec session56985,
+runner85350/server85411. Frozen plan v2 passed all input hashes. Manifest
+common and candidate fields match A1: max512/ngram0/retained tool boundary.
+Listener127.0.0.1:8080 verified. Evidence:
+`/Users/chad/Models/agentwing/evidence/AW-0027/20260905T053919Z`.
+Poll this same session; no builds/runtime edits/payload hashing/concurrent
+models. After terminal: audit A2, assess C2/A2, then complete all four-run
+identity/order and promotion checks in docs/PROMOTION_CHECKLIST.md.
+
 C2 is terminal and audited:3/8 in5582 endpoint seconds,1.9347903977069152
 utility/hour. Pressure1, swap growth0.31MiB. Four timeout drains observed.
 Session77088 exited0, runner57579/server57634 gone, port8080 free. Evidence:
 `/Users/chad/Models/agentwing/evidence/AW-0027/20260905T040519Z`.
-Next: launch A2 using unchanged frozen plan v2; then audit and assess pair2.
+A2 is now live as recorded above; do not rerun any completed slot.
 
 A1 is terminal and audited:8/8 in4559 endpoint seconds,6.317174819039263
 utility/hour. First pair passes at3.670980478175038 times C1. Pressure1,
