@@ -162,6 +162,7 @@ def preflight():
             raise RuntimeError(f'Validated input changed: {path}')
     check_sample(host_sample(), host_sample()[1])
     with socket.socket() as sock:
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         sock.bind(('127.0.0.1', 8080))
     result = subprocess.run(['/usr/bin/pgrep', '-f', MODEL_PROCESSES], capture_output=True)
     if result.returncode != 1:

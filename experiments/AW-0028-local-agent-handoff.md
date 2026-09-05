@@ -38,3 +38,9 @@ signaling fixes that path. The repeated real Pi fixture at
 `protocol-20260905T070141.590602Z` passes all five tool results, expected failed
 command/recovery and output verification, under the unchanged task boundary.
 See `evidence/AW-0028-launcher-protocol.json`. Real-model smoke remains pending.
+
+The first smoke preflight rejected port8080 because the finished fixture left
+TCP TIME_WAIT sockets, despite no listener. No model started. The bind probe
+now sets SO_REUSEADDR (not SO_REUSEPORT); preflight and all five lifecycle
+tests pass, followed by a fresh real Pi fixture at
+`protocol-20260905T070228.071165Z`. Earlier raw fixture evidence is preserved.
