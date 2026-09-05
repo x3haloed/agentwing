@@ -25,11 +25,13 @@ settings matching C1. Loopback listener127.0.0.1:8080, pressure1. Poll this same
 handle; do not restart while live. No builds, payload hashes or concurrent
 model work. After terminal, audit then assess C1/A1 before continuing C2/A2.
 
-A1 checkpoint at 2026-09-05 03:19 UTC: task04 is live. Tasks01/02/03 passed
-in378/635/721 seconds respectively, with no model-error replies, rejected
-outputs or prefix salvage. These are partial results; no full-suite rate or
-pair acceptance yet. Pressure remains1, swap735.19MiB (zero growth). Continue
-polling session76879 and preserve all remaining outcomes.
+A1 checkpoint at 2026-09-05 03:55 UTC: task08 is live. Tasks01–07 passed
+in378/635/721/837/656/514/217 seconds respectively, with no model-error replies,
+rejected outputs or prefix salvage. These are partial results; no full-suite
+rate or pair acceptance yet. Pressure remains1, swap735.19MiB (zero growth).
+Session76879 and runner34667/server34729 remain live; localhost listener
+127.0.0.1:8080 reconfirmed. Continue polling the existing session and preserve
+all remaining outcomes.
 
 C1 is terminal and audited:3/8 in6276 endpoint seconds,1.7208413001912046
 utility/hour, pressure1, zero swap growth. Session10183 exited0; runner3471 and
