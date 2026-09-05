@@ -1,0 +1,92 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0032/20260905T184847Z",
+  "raw_receipt_sha256": "220c53e42f8ac9dcf26b799ad0e7d53a2dcec9f4949033bcfaed131fc553e015",
+  "raw_hashes_passed": true,
+  "all_scan_outputs_match": true,
+  "arms": [
+    {
+      "arm": 0,
+      "buffer_bytes": 441188352,
+      "concurrency": 0,
+      "disk_read_bytes": 17725743104,
+      "gpu_seconds": 0.9808204579167068,
+      "gpu_wait_seconds": 1.527009999495931,
+      "logical_bytes": 30913265664,
+      "pageins": 4,
+      "peak_footprint_bytes": 538511808,
+      "read_seconds": 5.654182999220211,
+      "scan_matches_first_arm": 0,
+      "wall_seconds": 7.247116999991704
+    },
+    {
+      "arm": 1,
+      "buffer_bytes": 441188352,
+      "concurrency": 4,
+      "disk_read_bytes": 17483382784,
+      "gpu_seconds": 0.968518667796161,
+      "gpu_wait_seconds": 1.5283450011047535,
+      "logical_bytes": 30913265664,
+      "pageins": 0,
+      "peak_footprint_bytes": 577735104,
+      "read_seconds": 5.747742999054026,
+      "scan_matches_first_arm": 1,
+      "wall_seconds": 7.324376999982633
+    },
+    {
+      "arm": 2,
+      "buffer_bytes": 441188352,
+      "concurrency": 0,
+      "disk_read_bytes": 17524047872,
+      "gpu_seconds": 0.9825165846850723,
+      "gpu_wait_seconds": 1.5272440001717769,
+      "logical_bytes": 30913265664,
+      "pageins": 0,
+      "peak_footprint_bytes": 577735104,
+      "read_seconds": 5.595436999865342,
+      "scan_matches_first_arm": 1,
+      "wall_seconds": 7.170753000013065
+    },
+    {
+      "arm": 3,
+      "buffer_bytes": 441188352,
+      "concurrency": 4,
+      "disk_read_bytes": 17485266944,
+      "gpu_seconds": 0.9779186261584982,
+      "gpu_wait_seconds": 1.5465690008131787,
+      "logical_bytes": 30913265664,
+      "pageins": 0,
+      "peak_footprint_bytes": 577751488,
+      "read_seconds": 5.756209000886884,
+      "scan_matches_first_arm": 1,
+      "wall_seconds": 7.349761999968905
+    },
+    {
+      "arm": 4,
+      "buffer_bytes": 441188352,
+      "concurrency": 0,
+      "disk_read_bytes": 17481056256,
+      "gpu_seconds": 0.9846955414395779,
+      "gpu_wait_seconds": 1.531746000458952,
+      "logical_bytes": 30913265664,
+      "pageins": 0,
+      "peak_footprint_bytes": 577751488,
+      "read_seconds": 5.577506999950856,
+      "scan_matches_first_arm": 1,
+      "wall_seconds": 7.1571940000285394
+    }
+  ],
+  "max_pressure": 1,
+  "max_swap_growth_mib": 0.0,
+  "bracketed_candidate_wall_change_percent": [
+    1.6013738503705577,
+    2.5933722388499003
+  ],
+  "disposition": "Rejected four-read cap for this trace; retain full-batch control, no P1 promotion",
+  "limits": [
+    "One fixed miss trace, no model computation or agent task",
+    "GPU scan fingerprints compare arms, not full model numerical validation",
+    "No retained expert cache; repeated staging buffers and reference storage change residency",
+    "OS process disk accounting is not exact physical media traffic",
+    "First arm allocates reference output storage; following arms compare it; uncontrolled OS cache"
+  ]
+}

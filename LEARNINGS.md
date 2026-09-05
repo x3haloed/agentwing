@@ -616,3 +616,16 @@ Use actual routing/I/O traces for further transport work; reducing expert bytes
 or overlapping reads merits investigation with capability gates, not narrower
 agent behavior. All raw traces, isolated patch and failed relocated-cache build
 are preserved in AW-0031. Process disk accounting is not per-expert media I/O.
+
+## 2026-09-05 — Four-read cap fails the real-route transport replay
+
+AW-0032 replays all 1,000 actual miss batches across 40 layers with GPU scans
+consuming every word. Interleaved full/4/full/4/full dispatch yields candidate
+wall times 1.60% and 2.59% above bracketed controls. Scan outputs match; pressure
+1 and no swap growth. Reject this concurrency cap for now. Every arm incurs
+about 16 GiB of process-attributed disk reads, so this exercises real I/O rather
+than the earlier hot mapping set. It still differs from full inference: staging
+buffers, no retained LFU contents or model state, scan rather than matrix work,
+and reference output storage affect residency. The ~16 versus ~21–22 GiB disk
+read difference reinforces that replay is a filter, not endpoint evidence.
+Preserve the replay for further layout/transport experiments; P1 unchanged.
