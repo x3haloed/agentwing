@@ -1,0 +1,304 @@
+{
+  "experiment": "AW-0030",
+  "runs": [
+    {
+      "path": "/Users/chad/Models/agentwing/evidence/AW-0030/20260905T160229Z",
+      "hashes": {
+        "results.jsonl": "9512340e8eba6ea792555372796a6dd5812400a06c97143bd0e8fd28dbb4f031",
+        "stderr.txt": "8071d28299dda3fb404f5296b5c8603e492a9ad54420b518a428faefe4fe93f2",
+        "manifest.json": "e02db420f514a23f066c0e85e80a1cbbbbf8adf8d8db07d02cdae19e898492f7",
+        "probe-source.m": "4adbd3ecbe7054212b4c541ba4e82cd6ae465932074490f85b6af6b8081f2ed3"
+      },
+      "all_gpu_values_match": true,
+      "peak_pressure": 1,
+      "swap_sample_range_mib": [
+        727.5,
+        727.5
+      ],
+      "modes": {
+        "concurrent": {
+          "wall_ms": [
+            44.335,
+            52.216
+          ],
+          "fetch_ms": [
+            27.466,
+            30.881
+          ],
+          "gpu_wait_ms": [
+            16.116,
+            20.406
+          ],
+          "disk_read_bytes": [
+            0,
+            0
+          ]
+        },
+        "mapped": {
+          "wall_ms": [
+            88.18,
+            99.743
+          ],
+          "fetch_ms": [
+            16.882,
+            17.214
+          ],
+          "gpu_wait_ms": [
+            70.616,
+            81.855
+          ],
+          "disk_read_bytes": [
+            0,
+            0
+          ]
+        },
+        "serial": {
+          "wall_ms": [
+            74.685,
+            77.737
+          ],
+          "fetch_ms": [
+            54.374,
+            57.114
+          ],
+          "gpu_wait_ms": [
+            19.306,
+            19.836
+          ],
+          "disk_read_bytes": [
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "path": "/Users/chad/Models/agentwing/evidence/AW-0030/20260905T160524Z",
+      "hashes": {
+        "results.jsonl": "d5dfc238b5d2bd848bb84aa68adc6da53ea925d3ecae6d73d06eee4fd921f399",
+        "stderr.txt": "9411552ccefcf2f2779127e4938cfed12fdf4b3f874a2b5d293a8b0f2e425897",
+        "manifest.json": "1a22d420629203aaabf9c5604249917e7f1f44d36ad1677c08f68f05a2d0ec2d",
+        "probe-source.m": "8b7f2fc3cc608e9e41faee89f3978bb21ceb73358247da54a7f571181dcec601"
+      },
+      "all_gpu_values_match": true,
+      "peak_pressure": 1,
+      "swap_sample_range_mib": [
+        727.5,
+        727.5
+      ],
+      "modes": {
+        "concurrent": {
+          "wall_ms": [
+            45.263,
+            43.597,
+            43.834
+          ],
+          "fetch_ms": [
+            27.485,
+            27.51,
+            27.682
+          ],
+          "gpu_wait_ms": [
+            16.686,
+            15.262,
+            15.439
+          ],
+          "disk_read_bytes": [
+            0,
+            0,
+            0
+          ]
+        },
+        "mapped": {
+          "wall_ms": [
+            80.722,
+            65.059
+          ],
+          "fetch_ms": [
+            17.32,
+            0.788
+          ],
+          "gpu_wait_ms": [
+            62.752,
+            63.698
+          ],
+          "disk_read_bytes": [
+            0,
+            0
+          ]
+        },
+        "retained-mapped": {
+          "wall_ms": [
+            38.23,
+            38.623
+          ],
+          "fetch_ms": [
+            0.509,
+            0.518
+          ],
+          "gpu_wait_ms": [
+            36.994,
+            37.356
+          ],
+          "disk_read_bytes": [
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "path": "/Users/chad/Models/agentwing/evidence/AW-0030/20260905T160743Z",
+      "hashes": {
+        "results.jsonl": "76a2a4d27c705f526dc15cba0232e6ef7e8707d692fd2188577b0befe899352a",
+        "stderr.txt": "1047d4664e274694f6b771eb9eb0eb82fa3db1653d23694f3871d7829a047c47",
+        "manifest.json": "bfadb4cbd15eea23740b0a6b5a2cb57c12835e055fa535623fdf827782d282f6",
+        "probe-source.m": "8f9f796a1c7df357269a4d3be145fabcd2a59dc4ef33cd6ec0d73069ec01ca41"
+      },
+      "all_gpu_values_match": true,
+      "peak_pressure": 1,
+      "swap_sample_range_mib": [
+        727.5,
+        727.5
+      ],
+      "modes": {
+        "concurrent": {
+          "wall_ms": [
+            45.589,
+            42.941,
+            43.119
+          ],
+          "fetch_ms": [
+            27.569,
+            26.716,
+            27.026
+          ],
+          "gpu_wait_ms": [
+            16.847,
+            15.422,
+            15.298
+          ],
+          "disk_read_bytes": [
+            0,
+            0,
+            0
+          ]
+        },
+        "mapped": {
+          "wall_ms": [
+            122.375,
+            66.083
+          ],
+          "fetch_ms": [
+            55.65,
+            0.779
+          ],
+          "gpu_wait_ms": [
+            65.885,
+            64.617
+          ],
+          "disk_read_bytes": [
+            0,
+            0
+          ]
+        },
+        "retained-mapped": {
+          "wall_ms": [
+            63.805,
+            121.6
+          ],
+          "fetch_ms": [
+            1.071,
+            57.381
+          ],
+          "gpu_wait_ms": [
+            61.928,
+            63.317
+          ],
+          "disk_read_bytes": [
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "path": "/Users/chad/Models/agentwing/evidence/AW-0030/20260905T160857Z",
+      "hashes": {
+        "results.jsonl": "1299b82e3523268f8c2bf8f160453693b1572b5074fba247e0c6af6d60a7c34f",
+        "stderr.txt": "a35496cf61f934db8ab1dd740905d0a667b0149d2ab1ee8166c767d53b0b06b6",
+        "manifest.json": "5c92eef1a34cfbe8e849dd9e1671bdc101c2dfcb1a910e0d88156aa7a9b2e9c5",
+        "probe-source.m": "e7762a9c09668410ca80823ea08adecec3ffb08705cba9fe46de1823691f6ead"
+      },
+      "all_gpu_values_match": true,
+      "peak_pressure": 1,
+      "swap_sample_range_mib": [
+        727.5,
+        727.5
+      ],
+      "modes": {
+        "concurrent": {
+          "wall_ms": [
+            45.144,
+            44.004,
+            44.251
+          ],
+          "fetch_ms": [
+            26.901,
+            25.967,
+            26.22
+          ],
+          "gpu_wait_ms": [
+            17.089,
+            17.257,
+            17.292
+          ],
+          "disk_read_bytes": [
+            0,
+            0,
+            0
+          ]
+        },
+        "mapped": {
+          "wall_ms": [
+            119.985,
+            70.557
+          ],
+          "fetch_ms": [
+            55.257,
+            0.892
+          ],
+          "gpu_wait_ms": [
+            63.967,
+            69.038
+          ],
+          "disk_read_bytes": [
+            0,
+            0
+          ]
+        },
+        "retained-mapped": {
+          "wall_ms": [
+            66.153,
+            70.457
+          ],
+          "fetch_ms": [
+            1.161,
+            1.256
+          ],
+          "gpu_wait_ms": [
+            64.172,
+            68.346
+          ],
+          "disk_read_bytes": [
+            0,
+            0
+          ]
+        }
+      }
+    }
+  ],
+  "disposition": "Do not integrate mapped-expert transport. Reuse-specific microbenchmark signal reverses under churn. P1 unchanged.",
+  "scope": "Standalone warmed-data memory/Metal scan probe; not routed model execution, cold storage throughput or agentic capability evidence. Footprint does not capture all file-backed residency.",
+  "next_measurement": "Capture representative real routed-expert access and physical-I/O accounting before further transport or cache-policy changes."
+}

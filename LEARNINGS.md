@@ -587,3 +587,16 @@ Batch reads already exist. The next useful distinction is bookkeeping/copy/
 physical I/O, with bounded direct GPU mapping as an unimplemented alternative.
 This exploration preserves agentic capability as the invariant; it introduces
 no restrictions on the agent's work, tools or reasoning. P1 remains unchanged.
+
+## 2026-09-05 — Removing an expert copy can increase total work latency
+
+AW-0030's standalone Metal probe validates input bytes and GPU scan results.
+Short-lived direct mappings lost to concurrent pread copies. Retained mappings
+showed a small win on a reused64-expert set, then lost on128-expert churn under
+a64-mapping budget. Strict-cap repeat:66–70ms mapped versus44–45ms copied.
+All timed arms reported zero disk-read bytes; lower fetch setup moved cost to
+command completion waits outside the measured GPU kernel interval. The exact
+VM/driver cause remains unproven. Do not integrate this transport or claim
+agentic speedup. P1 remains unchanged; actual routed-access/physical-I/O traces
+are needed to choose the next structural experiment. Locality-specific wins
+are not accepted as general agent improvements.
