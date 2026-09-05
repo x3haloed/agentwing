@@ -17,17 +17,17 @@ process was running at takeover. The prior 12 local commits were preserved.
 
 ## Next bounded work
 
-**LIVE AW-0028 HANDOFF SMOKE:** session30870, runner9705/server9723,
-`/Users/chad/Models/agentwing/tasks/20260905T070243.284557Z`, launch73fcaf3.
-Real bounded-read task through new `scripts/run_local_agent.py`; separate
-unscored handoff smoke, not another paired run. Loopback127.0.0.1:8080 observed,
-pressure1/swap735.5 at launch. Poll the same handle. After terminal, run
-`./scripts/verify-stage-a.sh --task 07-bounded-read --workspace RUN/workspace`,
-inspect transcript/model errors, hash evidence and confirm no processes/listener.
-Five new lifecycle tests and real Pi protocol through this launcher pass.
-See AW-0028 for two preserved handoff setup/cleanup failures and fixes.
-Do not change measured inputs or load a second model while this smoke runs.
-
+**LIVE FINAL AW-0028 HANDOFF SMOKE:** session90423, runner11351/server11373,
+`/Users/chad/Models/agentwing/tasks/20260905T070814.339390Z`, launcha49e6c7.
+First smoke passed independent artifact verification in266.99sec, but a full
+Python run exposed a cleanup race on disappeared Darwin process groups.
+Fix now ignores EPERM only with independently confirmed empty group; all19
+Python tests and real Pi fixture pass. Final real-model smoke is repeating
+through the corrected launcher. Loopback127.0.0.1:8080 observed, pressure1,
+swap735.5. Poll90423; no concurrent model/builds or executing input changes.
+After terminal verify task07 artifact, transcript/hash/cleanup; finalize P1
+status, README, PROMOTION_REPORT.md, LOCAL_AGENT.md and promotion checklist.
+Both paired metrics already pass. Preserve first smoke/failure records.
 
 **A2 TERMINAL AND AUDITED:** `20260905T053919Z`, launch45a9b80.
 Session56985 exited0, runner85350/server85411 gone, port8080 free.
