@@ -1,0 +1,95 @@
+From 406f992010d857d7636f297c76a6425956041d24 Mon Sep 17 00:00:00 2001
+From: Chad Kirby <x3haloed@gmail.com>
+Date: Sat, 5 Sep 2026 11:37:32 -0700
+Subject: [PATCH] Add bounded opt-in expert routing and fetch trace for AW-0031
+
+---
+ Sources/SwiftletCore/ExpertCache.swift    | 12 ++++++++++
+ Sources/SwiftletCore/ExpertIOTrace.swift  | 29 +++++++++++++++++++++++
+ Sources/SwiftletCore/QwenMetalModel.swift |  4 +++-
+ 3 files changed, 44 insertions(+), 1 deletion(-)
+ create mode 100644 Sources/SwiftletCore/ExpertIOTrace.swift
+
+diff --git a/Sources/SwiftletCore/ExpertCache.swift b/Sources/SwiftletCore/ExpertCache.swift
+index 3b04970..9b1b4df 100644
+--- a/Sources/SwiftletCore/ExpertCache.swift
++++ b/Sources/SwiftletCore/ExpertCache.swift
+@@ -110,6 +110,8 @@ public final class ExpertCache {
+     /// (concurrent preads when there is more than one); a failed read leaves
+     /// its slot free rather than claiming a key whose bytes never landed.
+     func buffers(layer: Int, experts: [Int]) throws -> [MTLBuffer] {
++        let trace = ExpertIOTrace.shared
++        let traceStart = trace == nil ? 0 : ProcessInfo.processInfo.systemUptime
+         tick += 1
+         var protectedSlots = Set<Int>()
+         var result: [MTLBuffer] = []
+@@ -140,6 +142,16 @@ public final class ExpertCache {
+             fills.append((slot: s, expert: e))
+         }
+ 
++        let traceReadStart = trace == nil ? 0 : ProcessInfo.processInfo.systemUptime
++        defer {
++            if let trace {
++                let end = ProcessInfo.processInfo.systemUptime
++                trace.emit(["event": "fetch", "layer": layer, "experts": experts,
++                            "misses": fills.map { $0.expert }, "logical_bytes": fills.count * stride,
++                            "selection_seconds": traceReadStart - traceStart,
++                            "read_batch_seconds": end - traceReadStart])
++            }
++        }
+         if !fills.isEmpty {
+             do {
+                 try reader.readExperts(
+diff --git a/Sources/SwiftletCore/ExpertIOTrace.swift b/Sources/SwiftletCore/ExpertIOTrace.swift
+new file mode 100644
+index 0000000..93108d9
+--- /dev/null
++++ b/Sources/SwiftletCore/ExpertIOTrace.swift
+@@ -0,0 +1,29 @@
++import Foundation
++
++/// AW-0031 diagnostic only. Bounded, opt-in; never used by P1.
++final class ExpertIOTrace: @unchecked Sendable {
++    static let shared: ExpertIOTrace? = {
++        guard let path = ProcessInfo.processInfo.environment["SWIFTLET_EXPERT_TRACE"] else { return nil }
++        return ExpertIOTrace(path: path)
++    }()
++    private let handle: FileHandle
++    private let lock = NSLock()
++    private var count = 0
++    private init?(path: String) {
++        guard !FileManager.default.fileExists(atPath: path),
++              FileManager.default.createFile(atPath: path, contents: nil),
++              let file = FileHandle(forWritingAtPath: path) else { return nil }
++        handle = file
++    }
++    func emit(_ fields: [String: Any]) {
++        lock.lock(); defer { lock.unlock() }
++        guard count < 10000 else { return }
++        var row = fields; row["sequence"] = count
++        row["uptime"] = ProcessInfo.processInfo.systemUptime
++        count += 1
++        if let data = try? JSONSerialization.data(withJSONObject: row, options: [.sortedKeys]) {
++            handle.write(data); handle.write(Data([10]))
++        }
++    }
++    deinit { try? handle.close() }
++}
+diff --git a/Sources/SwiftletCore/QwenMetalModel.swift b/Sources/SwiftletCore/QwenMetalModel.swift
+index 9404fd4..236731c 100644
+--- a/Sources/SwiftletCore/QwenMetalModel.swift
++++ b/Sources/SwiftletCore/QwenMetalModel.swift
+@@ -282,7 +282,9 @@ public final class QwenMetalModel {
+     /// order in the token-major paths, layer-major order (per layer, tokens
+     /// ascending) in the S1b prefill. The routes themselves are identical
+     /// either way; only the visit order differs. Stays internal.
+-    var routedExpertObserver: ((_ layer: Int, _ experts: [Int]) -> Void)?
++    var routedExpertObserver: ((_ layer: Int, _ experts: [Int]) -> Void)? = ExpertIOTrace.shared.map { trace in
++        { layer, experts in trace.emit(["event": "route", "layer": layer, "experts": experts]) }
++    }
+     /// Test hook (S1b): the expert union the layer-major prefill actually
+     /// fetched and encoded for one (chunk, layer), ascending expert order —
+     /// what the PrefillExpertUnionPlan oracle predicts. Stays internal.
+-- 
+2.50.1 (Apple Git-155)
+

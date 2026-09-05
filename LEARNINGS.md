@@ -600,3 +600,19 @@ VM/driver cause remains unproven. Do not integrate this transport or claim
 agentic speedup. P1 remains unchanged; actual routed-access/physical-I/O traces
 are needed to choose the next structural experiment. Locality-specific wins
 are not accepted as general agent improvements.
+
+## 2026-09-05 — Real routing reveals sustained disk demand and weak adjacent reuse
+
+AW-0031's isolated trace captures 2120 actual token-layer routes and 1000 cache
+batches; hashes, route/batch reconciliation and exact LFU replay pass. Same
+output and hit/miss counts with trace off/on/off. Model-step tracing overhead
+observed 1.5–2.4%; not a performance win. Process-attributed disk reads 21–22 GiB
+versus 28.79 GiB logical expert reads show the warm mapping microbench was missing
+real I/O demand. Cache selection 58 ms is tiny next to 6.98 seconds read batches.
+Each decoded step requests 320 layer/expert pairs (~1 GiB), with mean 29.9%
+adjacent-step overlap. A doubled cache removes only 9.2% logical reads in fixed-
+route replay, without accounting for OS residency or pressure. Keep P1 unchanged.
+Use actual routing/I/O traces for further transport work; reducing expert bytes
+or overlapping reads merits investigation with capability gates, not narrower
+agent behavior. All raw traces, isolated patch and failed relocated-cache build
+are preserved in AW-0031. Process disk accounting is not per-expert media I/O.

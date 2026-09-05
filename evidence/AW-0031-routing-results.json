@@ -1,0 +1,161 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0031/20260905T183732Z",
+  "raw_hashes_passed": true,
+  "routing_and_batch_reconciliation_passed": true,
+  "route_events": 2120,
+  "fetch_batches": 1000,
+  "observed": {
+    "hits": 1448,
+    "misses": 9249
+  },
+  "selection_seconds": 0.05810637504328042,
+  "read_batch_seconds": 6.977982209064066,
+  "logical_expert_read_GiB": 28.79022216796875,
+  "decode_distinct_layer_experts_per_step": [
+    320
+  ],
+  "one_decode_step_logical_expert_GiB": 0.99609375,
+  "adjacent_decode_step_overlap": {
+    "min": 49,
+    "mean": 95.6086956521739,
+    "max": 146,
+    "of": 320
+  },
+  "fixed_trace_lfu_simulation": [
+    {
+      "capacity": 160,
+      "hits": 1448,
+      "misses": 9249,
+      "per_phase_hits_misses": {
+        "prefill": [
+          0,
+          3017
+        ],
+        "decode": [
+          1448,
+          6232
+        ]
+      },
+      "logical_miss_GiB": 28.79022216796875
+    },
+    {
+      "capacity": 240,
+      "hits": 1831,
+      "misses": 8866,
+      "per_phase_hits_misses": {
+        "prefill": [
+          0,
+          3017
+        ],
+        "decode": [
+          1831,
+          5849
+        ]
+      },
+      "logical_miss_GiB": 27.5980224609375
+    },
+    {
+      "capacity": 320,
+      "hits": 2295,
+      "misses": 8402,
+      "per_phase_hits_misses": {
+        "prefill": [
+          0,
+          3017
+        ],
+        "decode": [
+          2295,
+          5385
+        ]
+      },
+      "logical_miss_GiB": 26.1536865234375
+    },
+    {
+      "capacity": 480,
+      "hits": 2860,
+      "misses": 7837,
+      "per_phase_hits_misses": {
+        "prefill": [
+          0,
+          3017
+        ],
+        "decode": [
+          2860,
+          4820
+        ]
+      },
+      "logical_miss_GiB": 24.39495849609375
+    }
+  ],
+  "arms": [
+    {
+      "arm": "C1",
+      "metrics": {
+        "prefill": {
+          "wall": 7.672,
+          "wait": 4.644,
+          "gap": 3.011,
+          "fetch": 2.971
+        },
+        "decode": {
+          "wall": 10.939,
+          "wait": 6.833,
+          "gap": 4.026,
+          "fetch": 3.947
+        }
+      },
+      "disk_read_GiB_observed": 22.035064697265625,
+      "io_samples": 888,
+      "footprint_peak_GiB": 2.6114150285720825,
+      "output_sha256": "eff45ac9c2bcbd363eb559b9679709edf2367863e707e79c9a21444d49b7e4be"
+    },
+    {
+      "arm": "T1",
+      "metrics": {
+        "prefill": {
+          "wall": 7.636,
+          "wait": 4.599,
+          "gap": 3.026,
+          "fetch": 2.976
+        },
+        "decode": {
+          "wall": 11.414,
+          "wait": 7.05,
+          "gap": 4.295,
+          "fetch": 4.18
+        }
+      },
+      "disk_read_GiB_observed": 21.79224395751953,
+      "io_samples": 836,
+      "footprint_peak_GiB": 2.624369740486145,
+      "output_sha256": "eff45ac9c2bcbd363eb559b9679709edf2367863e707e79c9a21444d49b7e4be"
+    },
+    {
+      "arm": "C2",
+      "metrics": {
+        "prefill": {
+          "wall": 7.574,
+          "wait": 4.637,
+          "gap": 2.925,
+          "fetch": 2.897
+        },
+        "decode": {
+          "wall": 11.193,
+          "wait": 6.989,
+          "gap": 4.12,
+          "fetch": 4.037
+        }
+      },
+      "disk_read_GiB_observed": 20.975055694580078,
+      "io_samples": 802,
+      "footprint_peak_GiB": 2.6279556155204773,
+      "output_sha256": "eff45ac9c2bcbd363eb559b9679709edf2367863e707e79c9a21444d49b7e4be"
+    }
+  ],
+  "limits": [
+    "One short coding prompt, not a general agent capability test",
+    "Trace-off/on/off uses same instrumented build; sampler overhead common to all arms",
+    "OS process-attributed disk counters are sampled, may omit final I/O and include non-expert files; not hardware-only SSD attribution",
+    "Larger-cache simulations hold routes fixed and omit memory pressure, changed OS residency and fetch latency; not performance predictions"
+  ]
+}
