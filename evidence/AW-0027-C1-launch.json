@@ -1,0 +1,15 @@
+{
+  "experiment": "AW-0027",
+  "slot": "C1",
+  "run_directory": "/Users/chad/Models/agentwing/evidence/AW-0027/20260905T010110Z",
+  "plan_sha256": "21d761e32a17501d0bec81ab844cbe7f3f4be1e883f9a0cfb54afc56df6683b2",
+  "manifest_sha256": "0348104b343cf4a8736448c4759e3934207fe94e4db4381bbcfc1220932972f0",
+  "launch_revision": "73fec172bf0d4ccd915d4628dac9513dfac0d1e4",
+  "exec_session": 10183,
+  "runner_pid": 3471,
+  "server_pid": 3533,
+  "observed_listener": "127.0.0.1:8080",
+  "pressure_at_launch": 1,
+  "status": "running",
+  "observed_at": "2026-09-05T01:01:54.497544+00:00"
+}

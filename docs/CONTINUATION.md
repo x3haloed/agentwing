@@ -17,6 +17,16 @@ process was running at takeover. The prior 12 local commits were preserved.
 
 ## Next bounded work
 
+**LIVE:** AW-0027 C1 full suite started at `20260905T010110Z` using launch
+revision `73fec17`. Exec session `10183`, runner PID `3471`, server PID `3533`.
+Evidence `/Users/chad/Models/agentwing/evidence/AW-0027/20260905T010110Z`.
+Manifest confirms all eight tasks, control max192/ngram3/no retained boundary,
+scoped permissions, and original pinned executable. Listener observed only
+127.0.0.1:8080; launch pressure1. Poll this same session; do not restart a live
+run. After terminal, audit and record it, then launch A1 through the frozen
+helper. No builds, payload hashing, or concurrent model work while running.
+
+
 1. AW-0024's real-model boundary gate is terminal and audited. Session `44831`,
    runner `98431`, and server `98487` are gone. Run
    `/Users/chad/Models/agentwing/evidence/AW-0024/20260905T004228Z` passed bounded
