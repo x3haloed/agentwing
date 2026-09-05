@@ -17,6 +17,14 @@ process was running at takeover. The prior 12 local commits were preserved.
 
 ## Next bounded work
 
+**LIVE A1:** Full candidate suite launched `20260905T024837Z`, revision
+`dad3181`, exec session `76879`, runner PID `34667`, server PID `34729`.
+Evidence `/Users/chad/Models/agentwing/evidence/AW-0027/20260905T024837Z`.
+Manifest confirms max512/ngram0/retained boundary and all common measured
+settings matching C1. Loopback listener127.0.0.1:8080, pressure1. Poll this same
+handle; do not restart while live. No builds, payload hashes or concurrent
+model work. After terminal, audit then assess C1/A1 before continuing C2/A2.
+
 C1 is terminal and audited:3/8 in6276 endpoint seconds,1.7208413001912046
 utility/hour, pressure1, zero swap growth. Session10183 exited0; runner3471 and
 server3533 are gone. Evidence `AW-0027/20260905T010110Z`. See corrected audit
@@ -25,9 +33,7 @@ last line; same-request known post-generation diagnostics are now permitted.
 All13 Python tests pass. No measured execution input or scoring changed.
 
 Use `evidence/AW-0027-frozen-plan-v2.json` for remaining A1 → C2 → A2. Original
-plan is retained, and v2 explicitly records the auditor-only amendment. A1 is
-next; do not rerun C1 or modify runtime/runner/benchmark inputs. Record its live
-session and evidence path immediately after launch.
+plan is retained, and v2 explicitly records the auditor-only amendment. A1 is live above; do not rerun C1 or modify runtime/runner/benchmark inputs.
 
 1. AW-0024's real-model boundary gate is terminal and audited. Session `44831`,
    runner `98431`, and server `98487` are gone. Run
