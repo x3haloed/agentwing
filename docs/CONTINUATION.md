@@ -26,15 +26,16 @@ Poll this same session; no builds/runtime edits/payload hashing/concurrent
 models. After terminal: audit A2, assess C2/A2, then complete all four-run
 identity/order and promotion checks in docs/PROMOTION_CHECKLIST.md.
 
-A2 checkpoint at 2026-09-05 06:23 UTC: task05 data transformation is active.
-Tasks01/02/03/04 passed in373/631/721/827 seconds,5/7/9/11 tool calls,
-0/2/2/3 failed calls, and no model errors/rejections/prefix salvage.
-Task04 transcript SHA256:
-b51ef1d058b592e767ded187f8b5bf8554ba371c8ee4f295b2bac8a1784843b6.
+A2 checkpoint at 2026-09-05 06:33 UTC: task06 failure recovery is active.
+Tasks01–05 passed in373/631/721/827/656 seconds. Task05 used3 tool calls,
+zero failed calls and no model errors/rejections/prefix salvage. Its transcript
+SHA256 is00c2ed52ccdd0622678b1ea6d27ecec250cd397dd6136c044c45d35d4f87044b.
+The final task05 request refilled1076 tokens with0 reused despite868 matching;
+TTFT280.2 seconds, consistent with the already recorded history limitation.
 Pressure1, swap735.50MiB (zero growth from A2 start). Runner85350/server85411
-remain live. Poll session56985. The four-launch identity/chronology check
+remain live; poll session56985. The four-launch identity/chronology check
 passes in evidence/AW-0027-four-launch-identity.json; A2's terminal audit and
-pair2 performance check remain pending. Four passes alone do not meet the
+pair2 performance check remain pending. Five passes alone do not meet the
 full-suite/two-pair promotion requirement.
 
 C2 is terminal and audited:3/8 in5582 endpoint seconds,1.9347903977069152

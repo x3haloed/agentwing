@@ -7,7 +7,7 @@ configuration or change the frozen AW-0027 execution plan.
 | --- | --- | --- |
 | Frozen eight-task benchmark and measured floor | Stage A manifest/verifiers; AW-0008 audited3/8,2.064615/hour | Recorded |
 | First interleaved pair | AW-0027-pair-1.json; C1 then A1 launch receipts and raw manifests | Passed:3.67098x, A1 8/8 |
-| Second interleaved pair | Terminal C2/A2 summaries, independent audits, pair checker | C2 audited; A2 live, first four tasks passed |
+| Second interleaved pair | Terminal C2/A2 summaries, independent audits, pair checker | C2 audited; A2 live, first five tasks passed |
 | Same arms and correct ordering | Compare all four manifests to frozen plan v2, original plan amendment, slot receipts and timestamps | Four-launch identity/order check passed; A2 terminal audit pending |
 | Preserve success and double utility in each pair | Each candidate>=3 and>=control successes;>=2x its control and>=4.129230/hour | Pair1 passed; pair2 pending |
 | Pressure, swap and one model owner | Complete pressure traces, summaries, owned-process cleanup, no concurrent benchmark model | Pair1 passed; second pair pending |
