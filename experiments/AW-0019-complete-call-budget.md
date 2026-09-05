@@ -124,7 +124,9 @@ has since passed in 640 task seconds with seven calls, two failed shell/test
 calls, zero model errors/rejections/salvage, and seven full-prefix reuse hits.
 Task 03 subsequently passed in 731 task seconds with nine calls, two failed
 calls, zero model errors/rejections/salvage, and nine prefix reuse hits. Task 04
-is now running. These are provisional per-task records, not a complete suite
+subsequently passed in 802 task seconds with eleven calls, three failed
+shell/test calls, zero model errors/rejections/salvage, and eleven prefix reuse
+hits. Task 05 is now running. These are provisional per-task records, not a complete suite
 or an independently audited aggregate result.
 
 `evidence/AW-0019-live-endpoint-observation.json` records one live-process and
