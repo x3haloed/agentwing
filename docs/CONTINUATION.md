@@ -17,10 +17,18 @@ process was running at takeover. The prior 12 local commits were preserved.
 
 ## Next bounded work
 
+**LIVE C2:** `20260905T040519Z`, launch revision4831a34, exec session77088,
+runner57579/server57634. Frozen plan v2 passed all input hashes. Manifest
+common fields match C1; control flags max192, hard ngram3, no retained stop.
+Listener127.0.0.1:8080 verified. Evidence:
+`/Users/chad/Models/agentwing/evidence/AW-0027/20260905T040519Z`.
+Poll this existing session; no runtime edits/builds or concurrent models.
+After terminal audit C2, then launch A2 with the unchanged v2 plan.
+
 A1 is terminal and audited:8/8 in4559 endpoint seconds,6.317174819039263
 utility/hour. First pair passes at3.670980478175038 times C1. Pressure1,
 zero swap growth; session76879 exited0 and both owned processes terminated.
-Port8080 confirmed free. Next: launch C2 with frozen plan v2, then A2.
+Port8080 confirmed free. C2 is now live as recorded above; A2 follows it.
 See `evidence/AW-0027-A1-audit.json` and `evidence/AW-0027-pair-1.json`.
 
 C1 is terminal and audited:3/8 in6276 endpoint seconds,1.7208413001912046
