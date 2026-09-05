@@ -21,14 +21,14 @@ process was running at takeover. The prior 12 local commits were preserved.
    runner `98431`, and server `98487` are gone. Run
    `/Users/chad/Models/agentwing/evidence/AW-0024/20260905T004228Z` passed bounded
    reading in 222 endpoint seconds, with pressure1 and zero swap growth.
-   No model process is currently owned by this thread. AW-0026's clean release
-   build and full-test pipeline is confirmed live as exec session `6832`.
-   Checkout: `/Users/chad/Models/agentwing/reproductions/Swiftlet-459b201-20260905T004950Z`.
-   Evidence: `/Users/chad/Models/agentwing/evidence/AW-0026/20260905T004950Z`.
-   It uses two build jobs and resolved dependencies. Poll the same handle and
-   inspect logs; do not start model measurements during compilation. Once
-   terminal, verify the test result, clean tracked tree and artifact hashes,
-   then freeze and launch the two interleaved comparison pairs.
+   AW-0026 clean release build and all 180 tests in 29 suites passed; checkout
+   remained clean. All 50 installed qpack payload hashes also matched.
+   Evidence: `evidence/AW-0026-clean-build.json` and model payload verification.
+   AW-0027 now freezes C1 → A1 → C2 → A2 in
+   `evidence/AW-0027-frozen-plan.json`. Launch each full suite using
+   `python3 scripts/run_frozen_arm.py evidence/AW-0027-frozen-plan.json SLOT`.
+   Do not change frozen execution files or runtime during this sequence.
+
 2. The boundary gate passed. Freeze the comparison
    plan and run two interleaved full-suite control/candidate pairs. Use the same
    scoped permission policy in both arms; the pair checker now verifies this.
@@ -95,7 +95,5 @@ commands. At continuation, 304 GiB was available, so no reclamation was needed.
 - AW-0023's optional 1,024-character result cap was deprioritized: actual hook
   replay saves only 12 tokens across the baseline and 37 on clean repair.
   Source/evidence retained; do not integrate without new material evidence.
-- AW-0024's `scripts/run_task_boundary.py` and `config/task-boundary.sb` are
-  prepared but unused. They need disposable descendant-process canaries and
-  real Pi protocol validation after the live inference run terminates. If
-  adopted, explicitly record and apply the same policy to both paired arms.
+- AW-0024's task boundary passed descendant canaries, Pi protocol, and real-model
+  compatibility. Both AW-0027 arms explicitly enable this identical policy.

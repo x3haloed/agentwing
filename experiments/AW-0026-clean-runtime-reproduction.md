@@ -33,4 +33,8 @@ run must still record which actual binary it uses.
 
 ## Results and disposition
 
-Pending. This does not replace two interleaved full-suite comparisons.
+Passed: independent release build and all 180 tests in 29 suites. Tracked
+checkout remains clean. See `evidence/AW-0026-clean-build.json` for log hashes.
+The executable hash differs from the original build; this proves source/build
+reproduction, not byte-identical compilation or endpoint equivalence. Paired
+runs will use the original pinned executable in both arms. Retained.

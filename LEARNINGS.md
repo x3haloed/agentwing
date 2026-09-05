@@ -521,3 +521,13 @@ the historical 3/8 floor, but this comparison is non-interleaved.
 **Disposition:** retain for paired validation, not promotion. AW-0024's inherited
 write/network canaries and real Pi fixture pass; its opt-in policy needs a short
 real-model gate and must be identical in both subsequent paired arms.
+
+## 2026-09-05 — Clean source reproduction and installed payloads verified
+
+AW-0026 independently built the pinned runtime and passed all 180 Swift tests
+in 29 suites, with clean tracked files. All 50 installed model payload hashes
+match the pinned manifest. The clean executable differs in bytes from the
+original, so AW-0027 pins the original executable across all four runs. This
+is source/build reproduction, not bit-identical compilation. AW-0024's real
+model boundary gate also passed, permitting identical scoped policy in both
+arms. No default is promoted before the two interleaved comparisons.

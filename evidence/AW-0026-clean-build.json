@@ -1,0 +1,21 @@
+{
+  "experiment": "AW-0026",
+  "source_commit": "459b2011375022a6716463bd1e1f1b00741f91c3",
+  "source_tree": "2f1cbc79a36fe3a46c7bc43701ff4e77f2c5ec6c",
+  "release_build_passed": true,
+  "swift_tests_passed": true,
+  "tracked_tree_clean": true,
+  "evidence_directory": "/Users/chad/Models/agentwing/evidence/AW-0026/20260905T004950Z",
+  "files": {
+    "git-status.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "swift-tests.log": "76c1f2ed1649a20cae5d5cf8dbf54930458a0d2ddb1413e7588406654916d603",
+    "os.txt": "cd5d6399b3785b04ceaae75045a9ca9f80f0bbc3526eff9d0c36b170ed1ec348",
+    "release-build.log": "4da2872072e01e78de0238ad7ee7706dc2a3cd6afaf84ffd0150660683ec7055",
+    "checkout-path.txt": "bc95a1bcd6c9724a42fcbefed9e281c214ba954433cd2fe67a272aa778427add",
+    "compiler.txt": "b674f79b747370a1c05ae7cec551fffe557816c6c807f35f39f933ecbcca80d7",
+    "architecture.txt": "c1669e1d8edca98769c37d494b76442a1d6e5ffffd7b4da1fb63aef8ebaf6f01",
+    "clone.log": "3ae5f642be51544cb2ebd0f1fc35f64fc2cb4372c3780ec5ff56a1be62ca1636",
+    "artifact-hashes.txt": "8bdb54f410f7980aed7c06d1be47cc1201c182b5540fbda3bb28b1217d07d164"
+  },
+  "binary_identity": "Clean build differs from original executable; source/build reproduction only, not bit-identical binary reproduction."
+}
