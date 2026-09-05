@@ -35,3 +35,25 @@ count as full-suite replications. Numeric historical screens are not promotion.
 ## Results and disposition
 
 Frozen; pending measurements. No configuration promoted.
+
+### C1 terminal result and observer-only amendment
+
+C1 `20260905T010110Z` completed all eight tasks:3 accepted in6276 endpoint
+seconds (1.7208413001912046 utility/hour). Passes01/06/07; timeouts02/03/04/05/08.
+Task03's artifact passed but timed-out completion correctly earns0. Pressure1,
+swap735.19MiB unchanged. All five terminal cancellation drains observed. Model
+owner and runner terminated; port8080 was free before the next launch.
+Summary SHA256:e69bf54474a32d022bc7f240b3751c540fa699ef1df42fca41a38e9b315470c0.
+
+The original offline audit rejected tasks02/03/04 solely because a known
+same-request rejection diagnostic follows their terminal generation metric.
+Swiftlet main.swift lines538–567 confirms this ordering after stream completion.
+`evidence/AW-0027-C1-audit-original.json` preserves that failure. The corrected
+predicate permits only the three known post-generation diagnostics, scoped to
+the terminal request ID; missing metrics, foreign IDs, new replay activity and
+unknown lines reject. All13 Python tests pass, including positive/negative
+boundary regressions. The corrected full evidence audit passes.
+
+Plan v2 records this observer-only amendment and updated auditor/test hashes.
+Original plan is preserved. No measured execution input or scoring rule changed;
+C1 remains the first paired control. Use v2 for A1/C2/A2. No promotion yet.

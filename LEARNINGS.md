@@ -531,3 +531,12 @@ original, so AW-0027 pins the original executable across all four runs. This
 is source/build reproduction, not bit-identical compilation. AW-0024's real
 model boundary gate also passed, permitting identical scoped policy in both
 arms. No default is promoted before the two interleaved comparisons.
+
+## 2026-09-05 — Terminal metrics can precede parser diagnostics
+
+C1's full audit exposed an overly strict offline last-line predicate. Runtime
+source confirms generation metrics precede request-scoped parse diagnostics.
+Preserve the original failing audit; accept only known trailing diagnostics for
+the same terminal request. Unknown/new activity remains rejected. All13 Python
+tests and the corrected C1 audit pass. This changes observation only, not scoring
+or any measured execution input; AW-0027 plan v2 records the amendment.

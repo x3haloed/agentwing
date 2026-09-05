@@ -23,6 +23,20 @@ def sha256(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def has_terminal_boundary(lines):
+    """Allow only known post-generation diagnostics for the terminal request."""
+    for index in range(len(lines) - 1, -1, -1):
+        metric = METRIC.fullmatch(lines[index])
+        if metric:
+            diagnostic = re.compile(
+                r"^\[" + re.escape(metric[1]) + r"\] (?:"
+                r"rejected tool output: .+|normalized declared schema-property tags|"
+                r"salvaged complete tool-call prefix before malformed suffix)$"
+            )
+            return all(diagnostic.fullmatch(line) for line in lines[index + 1:])
+    return False
+
+
 def audit(run):
     summary = json.loads((run / "summary.json").read_text())
     manifest = verifier.load_manifest()
@@ -99,8 +113,7 @@ def audit(run):
                 int(not failures) if result["status"] == "completed" else 0
             ),
             "timeout_terminal_boundary": result["status"] != "stopped-timeout"
-            or (result["cancellation_drain_observed"] and bool(lines)
-                and bool(METRIC.match(lines[-1]))),
+            or (result["cancellation_drain_observed"] and has_terminal_boundary(lines)),
         }
         requests_seen.update(requests)
         tasks.append({

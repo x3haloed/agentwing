@@ -17,25 +17,17 @@ process was running at takeover. The prior 12 local commits were preserved.
 
 ## Next bounded work
 
-**LIVE:** AW-0027 C1 full suite started at `20260905T010110Z` using launch
-revision `73fec17`. Exec session `10183`, runner PID `3471`, server PID `3533`.
-Evidence `/Users/chad/Models/agentwing/evidence/AW-0027/20260905T010110Z`.
-Manifest confirms all eight tasks, control max192/ngram3/no retained boundary,
-scoped permissions, and original pinned executable. Listener observed only
-127.0.0.1:8080; launch pressure1. Poll this same session; do not restart a live
-run. After terminal, audit and record it, then launch A1 through the frozen
-helper. No builds, payload hashing, or concurrent model work while running.
+C1 is terminal and audited:3/8 in6276 endpoint seconds,1.7208413001912046
+utility/hour, pressure1, zero swap growth. Session10183 exited0; runner3471 and
+server3533 are gone. Evidence `AW-0027/20260905T010110Z`. See corrected audit
+and preserved original audit. Original observer wrongly required metric as the
+last line; same-request known post-generation diagnostics are now permitted.
+All13 Python tests pass. No measured execution input or scoring changed.
 
-
-
-C1 checkpoint at 2026-09-05 01:59 UTC: task05 is live. Task01 passed in615
-seconds; task02 timed out in914 seconds and failed verification; task03 timed
-out in925 seconds although its artifact passed; task04 timed out in924 seconds
-and failed verification. Accepted utility is1 across these four tasks under
-the frozen completion/deadline rule. All three timeout drains were observed,
-so the runner continued. Pressure remained1 and swap735.19MiB (zero growth).
-These are partial results, not a full-suite score. No model/build changes or
-reclamation were performed. About303GiB remains free.
+Use `evidence/AW-0027-frozen-plan-v2.json` for remaining A1 → C2 → A2. Original
+plan is retained, and v2 explicitly records the auditor-only amendment. A1 is
+next; do not rerun C1 or modify runtime/runner/benchmark inputs. Record its live
+session and evidence path immediately after launch.
 
 1. AW-0024's real-model boundary gate is terminal and audited. Session `44831`,
    runner `98431`, and server `98487` are gone. Run
