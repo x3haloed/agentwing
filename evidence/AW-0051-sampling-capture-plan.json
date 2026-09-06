@@ -1,0 +1,35 @@
+{
+  "frozen_at_utc": "2026-09-06T12:15:50.262579+00:00",
+  "runner": "scripts/run_sampling_observer.py",
+  "runner_sha256": "49f97b87c97ff57db357fb08a07cc964b04fa97433ca723d607b07e5453397d8",
+  "candidate_plan": "spec/sampling-observer-development.json",
+  "candidate_plan_sha256": "56c3a0127e851adda7b52adcb1c314df0da6143c6ac6049dd230cee6cd165b2d",
+  "workspace_helper_sha256": "5dbacb84bd2fc3878f94193fc6aa7ea2510f411118ec53c930f4311ba91889a0",
+  "workspace_policy": {
+    "path": "/Users/chad/Models/agentwing/active/workspace",
+    "private_state": "/Users/chad/Models/agentwing/active/agentwing-task-state",
+    "archive": "rename workspace and private state after owned processes stop"
+  },
+  "corpus_receipt_sha256": "d67041e34c10676ed8583d33a9148b2fe1518ea436caba58cb107c46d34ac4b5",
+  "task": "dev-multi-file",
+  "task_timeout_seconds": 1800,
+  "startup_timeout_seconds": 60,
+  "reference_run": "/Users/chad/Models/agentwing/evidence/AW-0049/20260906T113623.976317Z",
+  "reference_receipt_sha256": "a864012ec12e7f47e60f576257f752fc0a72abb538546af7e1af771e561e0ca5",
+  "observer_environment": {
+    "SWIFTLET_SAMPLING_TRACE": "<unique-run>/sampling.jsonl"
+  },
+  "primary_diagnostic": "Complete request/token decision trace with reproduced structured visible trajectory and protocol failure; divergent behavior is retained without a neutrality claim",
+  "trace_checks": [
+    "All completed server requests have one begin and end plus ordered greedy decisions",
+    "Recorded generated IDs, occurrence counts, raw/adjusted selected scores and selected argmax agree",
+    "Prompt/reuse/cache counts agree with runtime metrics and recorded token histories",
+    "Selected tokens respect declared suppression/EOS gates; numerical anomalies reported explicitly",
+    "Compare full structured visible contents and tool results to pinned AW-0049 after removing generated call IDs"
+  ],
+  "stop_on": [
+    "host-gate failure",
+    "declared task deadline"
+  ],
+  "scope": "Single development observer capture, expected failure retained. No settings or scoring repair, no held-out execution or performance claim."
+}

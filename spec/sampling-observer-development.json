@@ -17,5 +17,5 @@
     "SWIFTLET_TOOL_REPLAY_HISTORY": "1"
   },
   "control": "spec/validated-local-agent.json",
-  "scope": "Observer-only isolated runtime. Same candidate mechanisms and sampling; dynamic SWIFTLET_SAMPLING_TRACE is supplied by the forthcoming diagnostic runner. No promotion."
+  "scope": "Observer-only isolated runtime. Same candidate mechanisms and sampling; run_sampling_observer.py supplies dynamic SWIFTLET_SAMPLING_TRACE. No performance or promotion claim."
 }
