@@ -1,0 +1,15 @@
+{
+  "experiment": "AW-0052",
+  "status": "terminal",
+  "disposition": "rejected-as-sufficient-tool-completion-fix",
+  "raw_run": "/Users/chad/Models/agentwing/evidence/AW-0052/20260906T124847.512867Z",
+  "raw_receipt_sha256": "a752e38cbd2848c296d55e0083ed1354eb5358eba0983575a1e0e87dc7ad7c8a",
+  "audit_sha256": "a4b5c9922e6be5a9f62000e03325ad3d54feb3553528583c3057d833d5476117",
+  "controls_reproduce_original": true,
+  "zero_penalty_complete_tool_call": false,
+  "primary_hypothesis_supported": false,
+  "model_only_wall_seconds": 2183.480836834,
+  "earlier_stopped_launch_wall_seconds": 39.030687,
+  "cost_scope": "Model-probe arms and stopped launch only; builds/audits retained separately, no endpoint rate claim",
+  "next": "AW-0053 conditional prerequisite satisfied; exact-prefix larger-budget falsifier remains unrun"
+}

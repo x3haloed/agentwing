@@ -1028,3 +1028,18 @@ owner, supply its Testing framework path, and verify ownership on the real run.
 Prior completed diagnostic probes are not thereby shown contaminated, but
 future timeout guarantees must follow the actual model owner rather than the
 SwiftPM wrapper. P1's server/Pi runner is unchanged.
+
+## 2026-09-06 — Removing frequency penalty fixes one degeneration but not completion
+
+AW-0052 fresh-prefill C/A/C completes with all receipts and decision audits
+passing. Both 0.5 controls reproduce the original cached 512-token failure
+exactly; the first control also matches every recorded bounded score summary.
+Zero penalty diverges at token 46 and produces coherent distinct regression
+tests, but still reaches 512 tokens mid-function without closing its tool call.
+All host gates pass. The primary completion hypothesis is rejected. This
+separates penalty-induced code distortion from a remaining output-budget limit;
+neither issue is solved at the endpoint. A bounded 1024-token diagnostic may
+now test completion while requiring the existing zero-penalty prefix to match.
+Do not generalize one coherent prefix to capability preservation or silently
+change frozen P1 or matched-sampling acceptance. The earlier stopped launch
+and all three unsuccessful tool outputs remain part of the evidence.

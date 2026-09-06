@@ -116,3 +116,19 @@ penalty completes this call within 512 tokens therefore fails. Test-run exit 0
 only means probe execution succeeded; no generated command was executed and no
 endpoint utility is claimed. The second 0.5 control is running as predeclared.
 Evidence: `evidence/AW-0052-A1-trace-audit.json`; whole-run audit remains pending.
+
+## Terminal comparison and disposition
+
+C2 completed in 728.26142075 seconds, pressure 1, swap growth 0, reproducing all
+512 original generated tokens and text. The entire C/A/C receipt/launch/input/
+trace/host audit passes; all 1536 decisions are free of the audited sampling
+anomalies. A1 first differs at token 46. Every arm ends at length 512 with an
+incomplete call. The zero-penalty completion hypothesis is rejected; retain
+only the causal diagnostic that removing the penalty changes the pathological
+suffix into coherent but still unfinished test code. No utility or speed claim.
+
+Raw receipt SHA256:
+`a752e38cbd2848c296d55e0083ed1354eb5358eba0983575a1e0e87dc7ad7c8a`.
+See `evidence/AW-0052-comparison-audit.json` and terminal-result JSON. All model
+processes are stopped and P1 preflight passes. AW-0053's declared prerequisite
+is satisfied; its larger-budget result remains unknown. Goal remains active.
