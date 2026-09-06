@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "id": "AW0054-bounded-calls",
+  "status": "development-diagnostic-only",
+  "checkout": "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0054",
+  "source_revision": "73c2a95527d34d16f01ada1cb2cb1dbb552499e1",
+  "server_binary": "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0054/.build/release/swiftlet-server",
+  "server_binary_sha256": "097ef6b09a5b6f84823f6f97203ffef273d0d93eebe9f8f2e8800a10f35adc83",
+  "runtime_files": {
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0054/.build/release/Swiftlet_SwiftletCore.bundle/Kernels.metal.txt": "6fe537e8b0d6dfe5b1b8a0b1b465dfa89a753ddcbd674327304b4786931f97ce"
+  },
+  "environment": {
+    "SWIFTLET_EXPERT_OVERLAP": "1",
+    "SWIFTLET_CHUNK_OVERLAP": "1",
+    "SWIFTLET_CHUNK_FULL_OVERLAP": "1",
+    "SWIFTLET_STREAM_OVERSIZED_UNIONS": "1",
+    "SWIFTLET_TOOL_REPLAY_HISTORY": "1"
+  },
+  "control": "spec/validated-local-agent.json",
+  "scope": "Candidate-only full-task development screen: changed prompt and explicit --zero-frequency-penalty, same 512-token cap and original task/permissions/scoring; no causal rate or promotion claim",
+  "system_prompt": "config/bounded-call-development-prompt.txt",
+  "system_prompt_sha256": "ec4a68c9bc5401726e2841f4a024a54edfe2db5ba31b50e1b31d13cbbd4a8204"
+}

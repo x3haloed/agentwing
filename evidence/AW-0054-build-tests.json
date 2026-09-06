@@ -1,0 +1,14 @@
+{
+  "runtime_revision": "73c2a95527d34d16f01ada1cb2cb1dbb552499e1",
+  "runtime_tree": "fb12d7430a40ab5cdc59c3b37393d9e0033f9c83",
+  "base": "e781ebeb6c77101dbf845419c5ece099d1d1e4d2",
+  "patch": "/Users/chad/Repos/agentwing/experiments/AW-0054-zero-frequency.patch",
+  "patch_sha256": "e7d3938c25c7a6dce9ce77469c55b7cdf69435c7c68774926858311eaa1c1705",
+  "log": "/Users/chad/Models/agentwing/evidence/AW-0054/build-tests.log",
+  "log_sha256": "5b3328cc9873928cd3b73175cd186f81b4dce1018f6143508ff08f05ab437105",
+  "exit": 0,
+  "tests": 85,
+  "suites": 10,
+  "server_binary_sha256": "097ef6b09a5b6f84823f6f97203ffef273d0d93eebe9f8f2e8800a10f35adc83",
+  "kernel_sha256": "6fe537e8b0d6dfe5b1b8a0b1b465dfa89a753ddcbd674327304b4786931f97ce"
+}

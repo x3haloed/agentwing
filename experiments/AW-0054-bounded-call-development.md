@@ -80,3 +80,18 @@ options/session/observer tests is running; results are not yet established.
 The separate development runner pins/copies the new prompt and replaces the
 actual Pi --system-prompt argument while retaining the original boundary.
 No model run has started and no candidate binary is frozen yet.
+
+## Build and frozen candidate
+
+Release build succeeds with 85 focused tests in ten suites, including the new
+opt-in/default-preservation test. Runtime revision
+`73c2a95527d34d16f01ada1cb2cb1dbb552499e1`, tree
+`fb12d7430a40ab5cdc59c3b37393d9e0033f9c83`. Source patch, log, server and kernel
+hashes are in `evidence/AW-0054-build-tests.json`.
+
+Candidate profile `spec/bounded-call-development.json` and
+`evidence/AW-0054-development-plan.json` pin the changed prompt, CLI setting,
+runtime, runner, helpers, corpus and unchanged acceptance. Candidate/P1 checks
+and all 215 corpus-file checks pass. No held-out model evaluation occurred.
+
+Command: `PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 scripts/run_bounded_call_development.py --task dev-multi-file --candidate-plan spec/bounded-call-development.json`.

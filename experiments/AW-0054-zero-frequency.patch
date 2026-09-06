@@ -1,0 +1,69 @@
+diff --git a/Sources/SwiftletServer/main.swift b/Sources/SwiftletServer/main.swift
+index 70f5e20..1ea756d 100644
+--- a/Sources/SwiftletServer/main.swift
++++ b/Sources/SwiftletServer/main.swift
+@@ -92,13 +92,15 @@ struct ChatRequest: Decodable {
+     let stop: StopSequences?
+ 
+     func generationOptions(
+-        allowRepeatedNGrams: Bool = false, stopAfterToolCall: Bool = false
++        allowRepeatedNGrams: Bool = false, stopAfterToolCall: Bool = false,
++        zeroFrequencyPenalty: Bool = false
+     ) -> SwiftletSession.GenerationOptions {
+         var options = SwiftletSession.GenerationOptions()
+         if let temperature {
+             if temperature <= 0 { options = .greedy } else { options.temperature = temperature }
+         }
+         if let top_p { options.topP = top_p }
++        if zeroFrequencyPenalty { options.frequencyPenalty = 0 }
+         options.stopSequences = stop?.values ?? []
+         // Code, literal addresses, and tool markup require repeated n-grams.
+         // Keep this experimental arm explicit; all other controls are retained.
+@@ -169,6 +171,7 @@ let acceptSchemaTags = cliArgs.contains("--accept-schema-tags")
+ let salvageToolPrefix = cliArgs.contains("--salvage-tool-prefix")
+ let allowRepeatedNGrams = cliArgs.contains("--allow-repeated-ngrams")
+ let stopAfterToolCall = cliArgs.contains("--stop-after-tool-call")
++let zeroFrequencyPenalty = cliArgs.contains("--zero-frequency-penalty")
+ let modelURL = URL(fileURLWithPath: modelPath)
+ let toolReplayCache = ToolReplayCache(debug: debugToolOutput)
+ 
+@@ -466,7 +469,8 @@ final class HTTPHandler: ChannelInboundHandler {
+         }
+ 
+         let options = request.generationOptions(
+-            allowRepeatedNGrams: allowRepeatedNGrams, stopAfterToolCall: stopAfterToolCall)
++            allowRepeatedNGrams: allowRepeatedNGrams, stopAfterToolCall: stopAfterToolCall,
++            zeroFrequencyPenalty: zeroFrequencyPenalty)
+ 
+         // Agent clients (OpenCode etc.) send multi-thousand-token prompts, so
+         // prefill can run minutes with no output. SSE comment heartbeats keep
+diff --git a/Tests/SwiftletServerTests/FrequencyOptionTests.swift b/Tests/SwiftletServerTests/FrequencyOptionTests.swift
+new file mode 100644
+index 0000000..8c5cdf5
+--- /dev/null
++++ b/Tests/SwiftletServerTests/FrequencyOptionTests.swift
+@@ -0,0 +1,24 @@
++import Foundation
++import Testing
++@testable import SwiftletServer
++
++@Suite struct FrequencyOptionTests {
++    @Test func optInChangesOnlyFrequencyAndDefaultIsPreserved() throws {
++        for temperature in [0.0, 0.7] {
++            let data = try JSONSerialization.data(withJSONObject: ["messages": [["role": "user", "content": "hello"]], "temperature": temperature])
++            let request = try JSONDecoder().decode(ChatRequest.self, from: data)
++            let baseline = request.generationOptions(allowRepeatedNGrams: true, stopAfterToolCall: true)
++            let candidate = request.generationOptions(allowRepeatedNGrams: true, stopAfterToolCall: true, zeroFrequencyPenalty: true)
++            #expect(baseline.frequencyPenalty == 0.5)
++            #expect(candidate.frequencyPenalty == 0)
++            #expect(candidate.temperature == baseline.temperature)
++            #expect(candidate.presencePenalty == baseline.presencePenalty)
++            #expect(candidate.noRepeatNGram == baseline.noRepeatNGram)
++            #expect(candidate.minNew == baseline.minNew)
++            #expect(candidate.topK == baseline.topK)
++            #expect(candidate.topP == baseline.topP)
++            #expect(candidate.stopSequences == baseline.stopSequences)
++            #expect(candidate.stopAfterSequences == baseline.stopAfterSequences)
++        }
++    }
++}

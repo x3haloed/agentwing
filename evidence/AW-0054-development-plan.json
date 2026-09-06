@@ -1,0 +1,42 @@
+{
+  "experiment": "AW-0054",
+  "task": "dev-multi-file",
+  "order": [
+    "candidate-only-single-task"
+  ],
+  "candidate_profile": "/Users/chad/Repos/agentwing/spec/bounded-call-development.json",
+  "candidate_profile_sha256": "cdf98166504911825240fee03c728b5a4fab460c4f254814255ad3a95f82f57c",
+  "runtime_revision": "73c2a95527d34d16f01ada1cb2cb1dbb552499e1",
+  "runtime_tree": "fb12d7430a40ab5cdc59c3b37393d9e0033f9c83",
+  "server_binary_sha256": "097ef6b09a5b6f84823f6f97203ffef273d0d93eebe9f8f2e8800a10f35adc83",
+  "hashes": {
+    "/Users/chad/Repos/agentwing/scripts/run_bounded_call_development.py": "8340c54903e1752e497f9586ec47dd8894f70ac6f352e577d1d10e9bf6355325",
+    "/Users/chad/Repos/agentwing/scripts/run_local_agent.py": "dee0e63573c60137226b541f5380b768799ad1682006438471eec95d511a6fdd",
+    "/Users/chad/Repos/agentwing/scripts/stable_workspace.py": "5dbacb84bd2fc3878f94193fc6aa7ea2510f411118ec53c930f4311ba91889a0",
+    "/Users/chad/Repos/agentwing/scripts/run_task_boundary.py": "33d7fcefbec9124e1c56e5c2b810265ad8c72e313c31ed42a7e35f0eba35bbd7",
+    "/Users/chad/Repos/agentwing/scripts/verify_p2_task.py": "19264f48594244b9efa19e54c1f1c41d4bec56406851299da9d914dd81af3ff3",
+    "/Users/chad/Repos/agentwing/scripts/audit_multifile_coverage.py": "a3c494d42f444a6b1b96afacf28015a24ccf642b7d7cd670377b1fe0de87f52f",
+    "/Users/chad/Repos/agentwing/config/pi-models-validated.json": "c1d6b1fb64ce0d8fd95c58a7e51c1d86bfbaf617ec59af17448520e1c39f9da7",
+    "/Users/chad/Repos/agentwing/config/bounded-call-development-prompt.txt": "ec4a68c9bc5401726e2841f4a024a54edfe2db5ba31b50e1b31d13cbbd4a8204",
+    "/Users/chad/Repos/agentwing/evidence/AW-0034-corpus-freeze-v1.json": "d67041e34c10676ed8583d33a9148b2fe1518ea436caba58cb107c46d34ac4b5",
+    "/Users/chad/Repos/agentwing/spec/p2-acceptance.json": "c6fd235eadf41d67eff1cffea23963178e880b1186210625e22c6bd6e4f12203",
+    "/Users/chad/Repos/agentwing/spec/validated-local-agent.json": "e3de38b2a4ddad8ad057ea99935b0b9f7b6a181fe77b3d33e81aa99959400c82",
+    "/Users/chad/Repos/agentwing/spec/bounded-call-development.json": "cdf98166504911825240fee03c728b5a4fab460c4f254814255ad3a95f82f57c",
+    "/Users/chad/Repos/agentwing/experiments/AW-0054-zero-frequency.patch": "e7d3938c25c7a6dce9ce77469c55b7cdf69435c7c68774926858311eaa1c1705"
+  },
+  "sampling": {
+    "temperature": 0,
+    "frequency_penalty": 0,
+    "presence_penalty": 0,
+    "max_new": 512,
+    "no_repeat_ngram": 0
+  },
+  "changed_prompt": "config/bounded-call-development-prompt.txt",
+  "workspace": "/Users/chad/Models/agentwing/active/workspace",
+  "task_timeout_seconds": 1800,
+  "startup_timeout_seconds": 60,
+  "primary": "Frozen accepted utility 1 plus independent evidence of added meaningful regression coverage and validation",
+  "supplemental_coverage_audit": "scripts/audit_multifile_coverage.py; copied artifacts only, cost separate from unchanged score",
+  "stop": "After one task, or earlier existing host/execution gates; no mid-run changes",
+  "scope": "Development-only combined candidate; no matched-prompt/sampling claim, no comparison rate or promotion; held-out untouched"
+}
