@@ -1,0 +1,39 @@
+{
+  "task": "dev-recovery",
+  "arm": "A1",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0047/20260906T093621.794299Z",
+  "raw_receipt_sha256": "d56f084b8a3950334893390b8bd89e925e1abc3d7001d86a8727c7ddeab09048",
+  "utility": 0,
+  "wall_seconds": 630.185570333,
+  "verified_utility_per_hour": 0.0,
+  "protocol": {
+    "passed": true,
+    "checks": {
+      "events_nonempty": true,
+      "paired_unique_tool_events": true,
+      "bash_schema_valid": true,
+      "no_model_error": true,
+      "no_server_tool_rejection": true,
+      "fresh_model_state": true,
+      "unique_requests": true,
+      "terminal_metric": true,
+      "no_explicit_authority_access": true
+    },
+    "tool_calls": 11,
+    "failed_tool_calls": 1,
+    "repeated_command_occurrences": 1,
+    "productivity_classification": "not inferred from command success; full transcript retained for separate review",
+    "request_count": 12,
+    "new_prompt_tokens": 1253,
+    "generated_tokens": 847,
+    "reported_ttft_seconds": 300.7,
+    "declared_normalizations": 0,
+    "declared_salvages": 0
+  },
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0,
+  "large_refills": [],
+  "history_charged_peak_bytes": 7259,
+  "task_failure": "Added NFKD decomposition changes composed accented characters; independent grade rejects equipe-nord case. Local validator passed but task contract did not.",
+  "scope": "Failed development candidate; shorter elapsed time is not a utility gain; C2 pending"
+}

@@ -901,3 +901,14 @@ passes protocol with 18 tool calls, two failures and three repeated commands.
 Pressure 1, zero swap growth, integrity/grader replay and post-run P1 preflight
 pass. This is demonstrated development-task success to preserve, not a candidate
 gain. The frozen joint candidate has not run yet.
+
+## 2026-09-06 — Joint candidate loses the solved recovery task
+
+AW-0047 recovery A1 finishes in 630.19 seconds but scores 0: unnecessary NFKD
+decomposition violates accented-character preservation despite passing the local
+validator. Protocol, pressure 1 and zero swap growth pass. Eleven tool calls and
+one failure replace C1's 18/two, but lost verified utility disqualifies the apparent
+elapsed-time saving. Preserve the semantic failure and the successful P1 outcome;
+do not weaken Unicode grading or infer general capability from protocol success.
+Specific attribution to history retention versus different path/context tokens
+remains open. Continue the frozen comparison unchanged; no promotion claim.

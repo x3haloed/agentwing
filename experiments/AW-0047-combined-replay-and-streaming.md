@@ -70,3 +70,14 @@ Recovery A1 started at
 frozen joint candidate. It is active; resume it without restarting or changing
 the candidate. Audit its completed record and host/protocol gates before recovery
 C2. No relative utility result is available until the fixed case completes.
+
+Recovery A1 finishes with utility 0 in 630.186 seconds. Protocol, pressure 1 and
+zero swap growth pass; 11 tool calls, one failure and one repeated command.
+Local validation passes, but independent grading rejects the unnecessary NFKD
+normalization: composed accented characters are decomposed, violating the required
+output. A1 has lost C1's solved task, so its shorter time cannot qualify as a
+utility gain. Attribution to candidate history versus path/context variation is
+not isolated by this sample. The frozen candidate stays unchanged for C2 and
+the remaining predeclared task. Integrity/grader replay passes in
+`evidence/AW-0047-recovery-A1-audit.json`; summary in the adjacent result file.
+The stop policy covers host/protocol failures, neither of which occurred here.
