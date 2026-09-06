@@ -1,0 +1,298 @@
+diff --git a/Sources/SwiftletCore/ExpertCache.swift b/Sources/SwiftletCore/ExpertCache.swift
+index 9b1b4df..34a5c7b 100644
+--- a/Sources/SwiftletCore/ExpertCache.swift
++++ b/Sources/SwiftletCore/ExpertCache.swift
+@@ -109,7 +109,7 @@ public final class ExpertCache {
+     /// room for another member). Misses are read into their slots together
+     /// (concurrent preads when there is more than one); a failed read leaves
+     /// its slot free rather than claiming a key whose bytes never landed.
+-    func buffers(layer: Int, experts: [Int]) throws -> [MTLBuffer] {
++    func buffers(layer: Int, experts: [Int], ready: ((Int, MTLBuffer) -> Void)? = nil) throws -> [MTLBuffer] {
+         let trace = ExpertIOTrace.shared
+         let traceStart = trace == nil ? 0 : ProcessInfo.processInfo.systemUptime
+         tick += 1
+@@ -152,11 +152,21 @@ public final class ExpertCache {
+                             "read_batch_seconds": end - traceReadStart])
+             }
+         }
++        if let ready {
++            let missed = Set(fills.map { $0.expert })
++            for (i, expert) in experts.enumerated() where !missed.contains(expert) {
++                ready(i, result[i])
++            }
++        }
+         if !fills.isEmpty {
+             do {
+                 try reader.readExperts(
+                     layer: layer,
+-                    fills.map { (expert: $0.expert, into: slots[$0.slot].contents()) })
++                    fills.map { (expert: $0.expert, into: slots[$0.slot].contents()) },
++                    ready: ready.map { callback in { i in
++                        let expert = fills[i].expert
++                        callback(experts.firstIndex(of: expert)!, self.slots[fills[i].slot])
++                    } })
+             } catch {
+                 // Nothing in the batch is trustworthy after a short read:
+                 // release every slot this batch filled so no key points at
+diff --git a/Sources/SwiftletCore/Qpack.swift b/Sources/SwiftletCore/Qpack.swift
+index 7903580..6c5fb51 100644
+--- a/Sources/SwiftletCore/Qpack.swift
++++ b/Sources/SwiftletCore/Qpack.swift
+@@ -230,11 +230,43 @@ public final class QpackExpertReader {
+     /// decode step's clustered cache misses from serial SSD latency into
+     /// queue depth. Any failure is rethrown after every read has stopped.
+     public func readExperts(
+-        layer: Int, _ requests: [(expert: Int, into: UnsafeMutableRawPointer)]
++        layer: Int, _ requests: [(expert: Int, into: UnsafeMutableRawPointer)],
++        ready: ((Int) -> Void)? = nil
+     ) throws {
+         guard !requests.isEmpty else { return }
+         let fd = try descriptor(layer: layer)
+         let stride = layout.expertStride
++        if let ready {
++            // Descriptor is opened on the caller before workers start. Callback
++            // runs only on the caller; all workers drain before return or throw.
++            let group = DispatchGroup()
++            let semaphores = requests.map { _ in DispatchSemaphore(value: 0) }
++            let lock = NSLock()
++            var failures: [Swift.Error?] = Array(repeating: nil, count: requests.count)
++            for i in requests.indices {
++                group.enter()
++                DispatchQueue.global(qos: .userInitiated).async {
++                    do {
++                        try Self.readBlob(fd, layer: layer, expert: requests[i].expert,
++                                          stride: stride, into: requests[i].into)
++                    } catch {
++                        lock.lock(); failures[i] = error; lock.unlock()
++                    }
++                    semaphores[i].signal()
++                    group.leave()
++                }
++            }
++            defer { group.wait() }
++            var firstFailure: Swift.Error?
++            for i in requests.indices {
++                semaphores[i].wait()
++                lock.lock(); let failure = failures[i]; lock.unlock()
++                if let failure { if firstFailure == nil { firstFailure = failure } }
++                else if firstFailure == nil { ready(i) }
++            }
++            if let firstFailure { throw firstFailure }
++            return
++        }
+         if requests.count == 1 {
+             try Self.readBlob(fd, layer: layer, expert: requests[0].expert, stride: stride,
+                            into: requests[0].into)
+diff --git a/Sources/SwiftletCore/QwenMetalModel.swift b/Sources/SwiftletCore/QwenMetalModel.swift
+index 236731c..7bd7165 100644
+--- a/Sources/SwiftletCore/QwenMetalModel.swift
++++ b/Sources/SwiftletCore/QwenMetalModel.swift
+@@ -347,7 +347,9 @@ public final class QwenMetalModel {
+         var weights: [Float]
+         var stacksLayer: Int
+         var picks: [(Int, Float)]
++        var routedAlreadyEncoded = false
+     }
++    var overlapExperts = ProcessInfo.processInfo.environment["SWIFTLET_EXPERT_OVERLAP"] == "1"
+ 
+     // S1b layer-major prefill scratch: one Regions stride and one hidden row
+     // per chunk token. Allocated lazily on the first layer-major prompt call
+@@ -1462,6 +1464,59 @@ extension QwenMetalModel {
+         }
+     }
+ 
++    /// AW-0040: caller-thread encoding while distinct cache-slot reads run.
++    /// Drain committed GPU work even on read, encoding or cancellation failure.
++    private func fetchAndEncodeExperts(
++        _ cache: ExpertCache, layer: Int, picks: [(Int, Float)], slot: TokenSlot,
++        shouldCancel: () -> Bool
++    ) throws -> [MTLBuffer] {
++        guard let projs = expertProjs else {
++            throw Checkpoint.Error.badShape("overlap requires qpack projections")
++        }
++        let D = config.hiddenSize, inter = config.moeIntermediateSize, K = picks.count
++        var commands: [MTLCommandBuffer] = []
++        defer { for cb in commands { cb.waitUntilCompleted() } }
++        var failure: Swift.Error?
++        let bufs = try withoutActuallyEscaping(shouldCancel) { cancellation in
++            try cache.buffers(layer: layer, experts: picks.map { $0.0 }) { [self] ki, buf in
++            guard failure == nil else { return }
++            do {
++                try checkGenerationCancellation(cancellation)
++                guard let cb = engine.queue.makeCommandBuffer(),
++                      let enc = cb.makeComputeCommandEncoder() else {
++                    throw Checkpoint.Error.badShape("overlap command allocation")
++                }
++                do {
++                    try engine.encodeGemv(enc, projs.gate.linear(on: buf), rows: inter,
++                        x: slot.scratch, xOff: slot.base + reg.xmoe,
++                        y: slot.scratch, yOff: slot.base + reg.exp + ki * inter)
++                    try engine.encodeGemv(enc, projs.up.linear(on: buf), rows: inter,
++                        x: slot.scratch, xOff: slot.base + reg.xmoe,
++                        y: slot.scratch, yOff: slot.base + reg.exp + K * inter + ki * inter)
++                    barrier(enc)
++                    try engine.encodeSiluMul(enc, buf: slot.scratch, count: inter,
++                        gOff: slot.base + reg.exp + ki * inter,
++                        uOff: slot.base + reg.exp + K * inter + ki * inter,
++                        dstOff: slot.base + reg.exp + 2 * K * inter + ki * inter)
++                    barrier(enc)
++                    try engine.encodeGemv(enc, projs.down.linear(on: buf), rows: D,
++                        x: slot.scratch, xOff: slot.base + reg.exp + 2 * K * inter + ki * inter,
++                        y: slot.scratch, yOff: slot.base + reg.dexp + ki * D)
++                    enc.endEncoding(); cb.commit(); commands.append(cb)
++                } catch { enc.endEncoding(); throw error }
++            } catch { failure = error }
++        }
++        }
++        if let failure { throw failure }
++        for cb in commands {
++            cb.waitUntilCompleted()
++            guard cb.status == .completed else {
++                throw cb.error ?? Checkpoint.Error.badShape("overlap GPU failure")
++            }
++        }
++        return bufs
++    }
++
+     private func encodePendingMoE(
+         _ enc: MTLComputeCommandEncoder, _ pend: PendingMoE, slot: TokenSlot
+     ) throws {
+@@ -1472,7 +1527,7 @@ extension QwenMetalModel {
+         let fl = fastLayers[pend.stacksLayer]
+         let projs = expertProjs
+ 
+-        for (ki, pick) in pend.picks.enumerated() {
++        for (ki, pick) in pend.picks.enumerated() where !pend.routedAlreadyEncoded {
+             let gLin: GPULinear
+             let uLin: GPULinear
+             var wE = 0, sE = 0
+@@ -1504,7 +1559,7 @@ extension QwenMetalModel {
+             y: slot.scratch, yOff: slot.base + reg.shg)
+         barrier(enc)
+         let K = pend.picks.count
+-        for ki in 0..<K {
++        for ki in 0..<K where !pend.routedAlreadyEncoded {
+             try engine.encodeSiluMul(enc, buf: slot.scratch, count: inter,
+                 gOff: slot.base + reg.exp + ki * inter,
+                 uOff: slot.base + reg.exp + K * inter + ki * inter,
+@@ -1514,7 +1569,7 @@ extension QwenMetalModel {
+             gOff: slot.base + reg.sh, uOff: slot.base + reg.sh + shInter,
+             dstOff: slot.base + reg.sh + 2 * shInter)
+         barrier(enc)
+-        for (ki, pick) in pend.picks.enumerated() {
++        for (ki, pick) in pend.picks.enumerated() where !pend.routedAlreadyEncoded {
+             let dLin: GPULinear
+             var wE = 0, sE = 0
+             if let projs = expertProjs, ki < pend.bufs.count {
+@@ -1703,9 +1758,15 @@ extension QwenMetalModel {
+             var bufs: [MTLBuffer] = []
+             if let cache = expertCache {
+                 try checkGenerationCancellation(shouldCancel)
+-                bufs = try fetchExperts(cache, layer: li, experts: picks.map { $0.0 })
++                if overlapExperts {
++                    bufs = try fetchAndEncodeExperts(cache, layer: li, picks: picks,
++                                                    slot: slot, shouldCancel: shouldCancel)
++                } else {
++                    bufs = try fetchExperts(cache, layer: li, experts: picks.map { $0.0 })
++                }
+             }
+-            pending = PendingMoE(bufs: bufs, weights: weights, stacksLayer: li, picks: picks)
++            pending = PendingMoE(bufs: bufs, weights: weights, stacksLayer: li, picks: picks,
++                                 routedAlreadyEncoded: overlapExperts && expertCache != nil)
+         }
+ 
+         // Always apply the last layer's experts. Only the final token in a
+diff --git a/Tests/SwiftletCoreTests/ExpertOverlapTests.swift b/Tests/SwiftletCoreTests/ExpertOverlapTests.swift
+new file mode 100644
+index 0000000..e2864c3
+--- /dev/null
++++ b/Tests/SwiftletCoreTests/ExpertOverlapTests.swift
+@@ -0,0 +1,88 @@
++import Foundation
++import Metal
++import Testing
++@testable import SwiftletCore
++
++@Suite struct ExpertOverlapTests {
++    @Test func readyBytesAndPolicyAcrossEvictions() throws {
++        let out = try ExpertCacheTests.repackedTiny()
++        defer { try? FileManager.default.removeItem(at: out) }
++        let device = try #require(MTLCreateSystemDefaultDevice())
++        let cache = try ExpertCache(containerDir: out, device: device,
++            budgetBytes: ExpertCacheTests.budget(slots: 16, container: out))
++        let oracle = try QpackExpertReader(containerDir: out)
++        var reference = ExpertCacheTests.ReferencePolicy(maxSlots: cache.slotCount)
++        let caller = Thread.current
++        for request in 0..<100 {
++            let layer = (request / 2) % 8
++            let seed = request / 2
++            let experts = [seed % 8, (seed + 2) % 8, (seed + 5) % 8]
++            let expectedSlots = reference.buffers(layer: layer, experts: experts)
++            var expected: [Data] = []
++            for expert in experts {
++                var bytes = Data(count: cache.stride)
++                try bytes.withUnsafeMutableBytes {
++                    try oracle.readExpert(layer: layer, expert: expert, into: $0.baseAddress!)
++                }
++                expected.append(bytes)
++            }
++            var seen = Set<Int>()
++            let buffers = try cache.buffers(layer: layer, experts: experts) { i, buffer in
++                #expect(Thread.current === caller)
++                #expect(seen.insert(i).inserted)
++                #expect(Data(bytes: buffer.contents(), count: cache.stride) == expected[i])
++            }
++            #expect(seen == Set(experts.indices))
++            #expect(buffers.count == experts.count)
++            #expect(cache.hits == reference.hits && cache.misses == reference.misses)
++            for (i, expert) in experts.enumerated() {
++                #expect(cache.residentSlot(layer: layer, expert: expert) == expectedSlots[i])
++            }
++        }
++        #expect(cache.hits > 0 && cache.misses > 16)
++    }
++
++    @Test func cancellationAfterSubmissionDrainsAndFreshStateRecovers() throws {
++        let out = try ExpertCacheTests.repackedTiny()
++        defer { try? FileManager.default.removeItem(at: out) }
++        let model = try QwenMetalModel(modelDir: out, cacheBudgetGB: 0.05)
++        model.overlapExperts = true
++        var routed = false
++        var checks = 0
++        model.routedExpertObserver = { _, _ in routed = true }
++        #expect(throws: GenerationInterruption.cancelled) {
++            try model.step([1], state: QwenCPUModel.DecodeState(), shouldCancel: {
++                if routed { checks += 1 }
++                return checks >= 3
++            })
++        }
++        #expect(checks == 3)
++        model.routedExpertObserver = nil
++        let recovered = try model.step([1], state: QwenCPUModel.DecodeState())
++        model.overlapExperts = false
++        let control = try model.step([1], state: QwenCPUModel.DecodeState())
++        #expect(recovered.map(\.bitPattern) == control.map(\.bitPattern))
++    }
++
++    @Test func partialFailureInvalidatesAndDrains() throws {
++        let out = try ExpertCacheTests.repackedTiny()
++        defer { try? FileManager.default.removeItem(at: out) }
++        let device = try #require(MTLCreateSystemDefaultDevice())
++        let cache = try ExpertCache(containerDir: out, device: device,
++            budgetBytes: ExpertCacheTests.budget(slots: 16, container: out))
++        _ = try cache.buffers(layer: 2, experts: [0])
++        let handle = try FileHandle(forWritingTo: out.appendingPathComponent("packed_experts/layer_02.bin"))
++        try handle.truncate(atOffset: UInt64(cache.stride * 5 / 2)); try handle.close()
++        var seen: [Int] = []
++        #expect(throws: (any Error).self) {
++            try cache.buffers(layer: 2, experts: [0, 1, 2, 3]) { i, _ in seen.append(i) }
++        }
++        #expect(seen == [0, 1])
++        for expert in [1, 2, 3] { #expect(cache.residentSlot(layer: 2, expert: expert) == nil) }
++        #expect(cache.residentSlot(layer: 2, expert: 0) != nil)
++        let count = seen.count
++        // Subsequent fills can safely reuse freed storage after every old read drains.
++        let recovered = try cache.buffers(layer: 4, experts: Array(0..<8)) { _, _ in }
++        #expect(recovered.count == 8 && seen.count == count)
++    }
++}

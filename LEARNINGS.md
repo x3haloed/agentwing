@@ -745,3 +745,18 @@ and its control groups operations differently from P1. Retain for isolated
 runtime investigation, preserving those costs and comparing real trajectories.
 Pressure 1, zero swap growth, post-run P1 preflight passes. This changes execution
 submission only; it removes no expert bytes and supplies no representation gain.
+
+## 2026-09-06 — Runtime overlap survives real disk traffic and short trajectories
+
+AW-0040 integrates opt-in single-token read/compute overlap in isolated Swiftlet
+revision 2340281. Eleven focused tests pass, including cancellation after GPU
+submission and fresh-state recovery. Nine three-prompt C/A/C runs preserve text,
+every route and all cache decisions. Candidate decode time is 88.54%, 88.80%,
+and 80.38% of neighboring-control means; full-process wall is 84.74%, 98.25%,
+and 83.04%. Observed disk traffic is substantial (12.53–16.86 GiB/arm), unlike the
+cached AW-0039 screen. Pressure 1, zero swap growth and P1 preflight pass.
+Retain this mechanism, not promote: logical expert bytes are unchanged, startup
+and OS residency vary, and only short development trajectories were exercised.
+Chunked prefill remains original; extra submissions and shared-memory traffic
+must stay charged. Broader capability and >=25% verified utility/hour remain
+unproven. Initial test-fixture and command-directory failures are preserved.

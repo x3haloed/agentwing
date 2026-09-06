@@ -1,0 +1,25 @@
+{
+  "runtime_revision": "234028121de5fe4d082b3198105466ff34f36cb6",
+  "patch_reconstructs_runtime_tree": "e58f27e7fa421f03a31e4050dfb44f7aa14c98d8",
+  "focused_tests": {
+    "passed": 11,
+    "suites": 3,
+    "command": "swift test -c release --jobs 2 --disable-automatic-resolution --filter ExpertOverlapTests|ExpertCacheTests|GenerationControlTests"
+  },
+  "initial_failures": [
+    "Test fixture had zero hits; corrected request sequence, retaining assertions",
+    "Second invocation ran from Agentwing instead of Swiftlet and found no Package.swift; rerun in package directory"
+  ],
+  "warnings": "Existing warnings remain; new Qpack async path has Sendable capture warnings for raw pointers and lock-protected failures. Read destinations are distinct and all workers drain before return; Swift 6 strict-mode migration is not established.",
+  "sha256": {
+    "/Users/chad/Repos/agentwing/experiments/AW-0040-runtime-overlap.patch": "2d78053fba55a011d07c38173bce4d4e1c8f3c1575614901003741db38460381",
+    "/Users/chad/Repos/agentwing/scripts/prepare_expert_overlap.py": "e4a82e8613843c1784a95657f4c7d2a5ceb72995ed5ee8ba581a1a0e54af7bd0",
+    "/Users/chad/Repos/agentwing/probes/runtime_overlap/ExpertOverlapTests.swift": "7755116d4eabe427d5a2c6cc36200ef6c562d8ffac3d4313c60e449184879446",
+    "/Users/chad/Models/agentwing/evidence/AW-0040/build.log": "7d2ddce63de2c3cea6f18ecaed5d0f2dd3b38803353cd596843ac247a381aead",
+    "/Users/chad/Models/agentwing/evidence/AW-0040/first-tests.log": "8287c55195b38559e1ec0f47f13707544671e3f6e15f55f41c580015838169e5",
+    "/Users/chad/Models/agentwing/evidence/AW-0040/tests-second.log": "ed7bd6ce9a6e9c7c4d7e02a3d2b53b2be54f3c93f92db3fa81390f428083581e",
+    "/Users/chad/Models/agentwing/evidence/AW-0040/tests-third.log": "2176bf577b6c351683a61c5bfedc2246b1e18e28f47663ebaec0f33f920491ea",
+    "/Users/chad/Models/agentwing/evidence/AW-0040/ExpertOverlapTests-first.swift": "42cbccecb93f7ed4d95d9425d4ac9767d1ab274a4a2b647810847cba312ec7c9",
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0040/.build/release/swiftlet": "bc032c791dda7cbd849efaf3ab047d06fed67eb522238585cdd03dd60e40b7a3"
+  }
+}
