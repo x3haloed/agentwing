@@ -1,0 +1,18 @@
+{
+  "experiment": "AW-0057",
+  "pins": {
+    "probes/expert_sixbit_rne.m": "b9e849a81d4b020339a84d86b82b83eb4c9b7abdb5d4f4bb98e20ca911f95592",
+    "scripts/probe_expert_sixbit_rne.py": "edf6faf23d5fd752107fcf501e5fe20cc03ebebddcc63fb998ff6a8448d31979",
+    "scripts/audit_expert_sixbit_rne.py": "4a71f7330b83e99b9b27d63fecacd386178afe87d16d3b544453485fb67a6cd9",
+    "experiments/AW-0057-sixbit-nearest-even-fidelity.md": "26ef6503758bfc05399808d372267fe8f5994102a2cbbe65f3ced0f80cf3239f",
+    "scripts/run_local_agent.py": "dee0e63573c60137226b541f5380b768799ad1682006438471eec95d511a6fdd",
+    "scripts/probe_expert_residency.py": "47690428fa2d9d3257cf0738ed728f7f7d54a990a498f98327a526ca9fc23c52",
+    "/Users/chad/Models/agentwing/dependencies/Swiftlet/Sources/SwiftletCore/Kernels.metal.txt": "875d1d010de14df6d9bcb6931e1d09da914a1ca7685fb9bebaaac9fb47542ded"
+  },
+  "mixture_relative_l2_max": 0.05,
+  "expert_down_relative_l2_max": 0.1,
+  "implementation_relative_l2_max": 0.0001,
+  "candidate_bytes": 2555904,
+  "source_bytes": 3342336,
+  "expansion_is_diagnostic_only": true
+}
