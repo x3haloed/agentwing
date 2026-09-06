@@ -718,3 +718,17 @@ for recoding tests, not full-model parity or smaller-representation fidelity.
 A compiler macro-name collision was repaired and its failed build preserved.
 Pressure 1, swap growth 0 and post-run P1 preflight pass. Next compare executable
 recodings against these source references before any bank conversion.
+
+## 2026-09-05 — First direct four-bit representation rejected before bank conversion
+
+AW-0038 maps each source group64 q8 code to q4 with a BF16 scale-times-17
+adjustment, using the original fast4 kernel. Artifact bytes fall to 52.94% of P1,
+but 71/72 source-activation mixtures exceed the predeclared 5% relative-L2 screen;
+the maximum is 38.67%. 473/576 expert-down outputs exceed 10%. Independent
+candidate arithmetic checks pass (maximum projection error 4.293e-6), so the
+observed discrepancy belongs to this representation rather than a broken
+implementation. Reject this form; preserve the references and negative evidence.
+No accumulated-model or agent-capability conclusion follows, and other four-bit
+forms remain untested. Source-sized diagnostic buffers and on-the-fly recoding
+do not establish physical residency or throughput savings. Pressure 1, zero swap
+growth, and post-run P1 preflight pass. No production or frozen input changed.
