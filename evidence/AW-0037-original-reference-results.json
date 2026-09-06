@@ -1,0 +1,16 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0037/20260906T063224.469387Z",
+  "raw_receipt_sha256": "fbc63d32717ae642bd97c5f319120c148cd95573fff002829ca54c4a208a44a4",
+  "raw_hashes_and_fixture_alignment_passed": true,
+  "fixtures": 72,
+  "expert_executions": 576,
+  "distinct_layer_experts": 250,
+  "maximum_projection_relative_l2": 7.415531443191133e-06,
+  "maximum_silu_relative_l2": 1.201760024688178e-07,
+  "maximum_mixture_relative_l2": 7.625419724722087e-08,
+  "predeclared_reference_gate": 0.0001,
+  "wall_seconds_diagnostic_only": 5.0296035,
+  "max_pressure": 1,
+  "max_swap_growth_mib": 0.0,
+  "scope": "Original fast8 stage reference against scalar double, routed mixture isolated with zero shared/residual terms; not full model parity or candidate fidelity"
+}

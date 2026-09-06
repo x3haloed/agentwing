@@ -706,3 +706,15 @@ single-token coverage. Pressure 1, zero swap growth, P1 preflight passes after
 cleanup. These are source fixtures, not quantization or agent-performance gains.
 Use original fast8 GPU execution to establish the next projection/mixture rung;
 production rarity and candidate-accumulated behavior remain unresolved.
+
+## 2026-09-05 — Original fast8 projection/mixture references pass independent checks
+
+AW-0037 replays all 72 real input fixtures and 576 experts using P1's original
+Metal kernels. Independent double dequantization/projection checks differ by at
+most 7.42e-6 relative L2; SwiGLU and isolated routed-mixture discrepancies are
+1.21e-7 and 7.63e-8, below the predeclared 1e-4 implementation gate. Raw F32 stages
+and source hashes are preserved and audited. This resolves a reference needed
+for recoding tests, not full-model parity or smaller-representation fidelity.
+A compiler macro-name collision was repaired and its failed build preserved.
+Pressure 1, swap growth 0 and post-run P1 preflight pass. Next compare executable
+recodings against these source references before any bank conversion.
