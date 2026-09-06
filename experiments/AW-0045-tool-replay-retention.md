@@ -1,7 +1,8 @@
 # AW-0045 — Investigate disappearing historical tool spellings
 
-Status: source investigation and test authored; not executed. Do not build or run
-this experiment concurrently with the fixed AW-0044 model comparison.
+Status: baseline falsifier and 39 focused candidate tests pass after AW-0044
+completed. Retained for model/agent validation; no endpoint gain or promotion.
+The following design notes were predeclared before execution; results follow.
 
 C1's final request matched 2237 prefix tokens but reused zero and re-prefilled
 2425 tokens (654.1 seconds TTFT). P1 `ToolReplayCache` stores one signature array
@@ -55,3 +56,27 @@ compares the complete rendered token sequence with explicit accepted raw history
 It must show a changed older history in off-mode and exact retained tokens in
 history mode. This is still unexecuted; even a pass would establish the mechanism
 on this constructed fixture, not attribution of C1's exact 2237-token mismatch.
+
+## Executed results
+
+Isolated runtime `08433117ca886d4b0c710a500a44a3af97d3bfab` is based on AW-0043.
+The baseline one-entry test passes before applying history retention. Candidate
+release build and 39 tests in four suites pass, including strict call fields,
+canonical arguments, edited visible content, eviction, oversized replacement,
+existing protocol checks and the real local tokenizer. No model weights are
+loaded by the tokenizer test. Off-mode changes the prior history from 281 to 291
+tokens, common prefix 247; full rendering has 334 tokens and differs from exact
+raw history. On-mode retains all 281 tokens; full rendering has 324 tokens and
+matches exact raw history. This proves the constructed mechanism, not C1/C2's
+specific mismatch or any saved model/agent wall time.
+
+The first build failed on copied absolute-path module caches; a repeated attempt
+failed identically. `swift package clean` removed only cloned AW-0045 build
+products, then local rebuilding passed the baseline. The initial candidate build
+caught missing inner `try` in the tokenizer test; corrected before the passing
+run. Logs and hashes, source/kernel/server/tokenizer pins and patch reconstruction
+are in `evidence/AW-0045-tokenizer-and-tests.json`; raw logs are under
+`/Users/chad/Models/agentwing/evidence/AW-0045`. Archived patch reconstructs exact
+tree `b71eab0a6e376cba0b4bd3f3dc3a447c79f40a4e`. P1 preflight passes afterward.
+Next: validate AW-0046 independently, then choose a declared model/tool-history
+trajectory check before another costly endpoint comparison. No held-out exposure.

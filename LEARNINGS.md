@@ -842,3 +842,18 @@ promotion; the overlap mechanism remains available for isolated repair. The
 repeated large prefix refill strengthens the priority of historical-token replay
 investigation, while its exact causal mismatch remains unproven. P1 preflight
 passes after cleanup. No held-out execution or acceptance threshold changed.
+
+## 2026-09-06 — Historical tool replay removes a reproduced token rewrite
+
+AW-0045 confirms that a second accepted reply displaces the first in the original
+cache. Bounded history retention passes 39 focused tests and the real tokenizer:
+a constructed noncanonical earlier reply changes a 281-token history to 291
+tokens in original mode (247-token common prefix), while history mode retains
+all 281 tokens and exactly renders both accepted raw replies. Strict call and
+visible-content bindings plus byte/count eviction preserve fallback semantics.
+This supports removing redundant prefill as a real mechanism without restricting
+agent work. It does not identify the exact C1/C2 mismatch or prove saved task
+time, RSS bounds, accumulated model behavior or capability. Retain isolated
+0843311 for further validation; no promotion. Build/test fixture failures,
+reconstructed patch and tokenizer/source/binary hashes are preserved; P1 passes
+preflight after tests.

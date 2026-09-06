@@ -11,9 +11,9 @@ import Tokenizers
         let tokenizer = try await AutoTokenizer.from(modelFolder: URL(fileURLWithPath: folder))
         let raw1 = "<tool_call><function=bash><command>printf one</command></function></tool_call>"
         let raw2 = "<tool_call>\n<function=bash>\n<parameter=command>printf two</parameter>\n</function>\n</tool_call>"
-        let first = try #require(parseToolReply(raw1, declaredTools: ["bash"],
+        let first = try #require(try parseToolReply(raw1, declaredTools: ["bash"],
             acceptedSchemaTags: ["bash": ["command"]]))
-        let second = try #require(parseToolReply(raw2, declaredTools: ["bash"]))
+        let second = try #require(try parseToolReply(raw2, declaredTools: ["bash"]))
         func assistant(_ reply: ParsedToolReply) -> [String: Any] {
             ["role": "assistant", "content": reply.content as Any? ?? NSNull(),
              "tool_calls": reply.calls.map { call in
@@ -58,7 +58,7 @@ import Tokenizers
                 tools: exact.tools, additionalContext: ["enable_thinking": false])
             #expect((before == after) == enabled)
             #expect((actualFull == expectedFull) == enabled)
-            let common = zip(before, after).prefix(while: { $0 == $1 }).count
+            let common = zip(before, after).prefix(while: { $0.0 == $0.1 }).count
             print("AW45 tokenizer history=\(enabled) before=\(before.count) after=\(after.count) common=\(common) full=\(actualFull.count) exact=\(actualFull == expectedFull)")
         }
     }

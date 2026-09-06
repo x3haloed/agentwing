@@ -1,0 +1,53 @@
+{
+  "base_revision": "e707647e9139dbcca86403a1e0a06a705ddabaa3",
+  "runtime_revision": "08433117ca886d4b0c710a500a44a3af97d3bfab",
+  "reconstructed_tree": "b71eab0a6e376cba0b4bd3f3dc3a447c79f40a4e",
+  "baseline_retention_test_passed": true,
+  "candidate_tests": {
+    "count": 39,
+    "suites": 4,
+    "command": "AW45_TOKENIZER_DIR=<pinned qpack> swift test -c release --jobs 2 --disable-automatic-resolution --filter ReplayRetentionTests|ReplayHistoryTests|ReplayTokenizerTests|ChatRequestTests"
+  },
+  "tokenizer_fixture": {
+    "off": {
+      "before_tokens": 281,
+      "after_tokens": 291,
+      "common_tokens": 247,
+      "full_tokens": 334,
+      "exact_raw_history": false
+    },
+    "on": {
+      "before_tokens": 281,
+      "after_tokens": 281,
+      "common_tokens": 281,
+      "full_tokens": 324,
+      "exact_raw_history": true
+    }
+  },
+  "setup_failures": [
+    "Copied absolute-path module cache failed compilation; repeated once, then swift package clean and local rebuild",
+    "New tokenizer test needed try inside #require; fixed and rerun"
+  ],
+  "limits": [
+    "Tokenizer and protocol fixture evidence only; no model trajectory or endpoint gain yet",
+    "Exact C1/C2 prefix mismatch not reconstructed",
+    "Text budget is charged logical payload plus metadata allowance, not measured RSS"
+  ],
+  "sha256": {
+    "/Users/chad/Repos/agentwing/experiments/AW-0045-tool-replay-retention.patch": "c05f1c352f16f0c94ec9dc25611b633747f4114ee5ca7ddde33f1f61d5919119",
+    "/Users/chad/Models/agentwing/evidence/AW-0045/baseline-retention-clean.log": "c3df7b719230a200dd939295e6bd769612913bf759e44c8466788c07cf45388a",
+    "/Users/chad/Models/agentwing/evidence/AW-0045/baseline-retention.log": "7d4b1307813918bbd3845181e0163cd2db132eb2a5ec9c9f67115303de0323c6",
+    "/Users/chad/Models/agentwing/evidence/AW-0045/history-tests-fixed.log": "4568230e4ab4c54f80efaa40d2539c9549ecdc2cca686a6f595fb645a9580e21",
+    "/Users/chad/Models/agentwing/evidence/AW-0045/history-tests.log": "a46cd1fab27edb4422b608cae7b759af131eea139850bd9235d27c4d84e07f2f",
+    "/Users/chad/Repos/agentwing/probes/prefix_replay/ReplayHistoryTests.swift": "7b9eebd4b971f7415b3943e0c9a1de823405d9b542b60c47b1be02d64a2eb7a0",
+    "/Users/chad/Repos/agentwing/probes/prefix_replay/ReplayRetentionTests.swift": "94d85cf4335239dcc51e33f276ca32a527c19bc6d11d35058fa35e503ae2ccdf",
+    "/Users/chad/Repos/agentwing/probes/prefix_replay/ReplayTokenizerTests.swift": "4758f13c50a415849de36b5889f5a0ba08e011af003bcff8203279e76339745a",
+    "/Users/chad/Repos/agentwing/probes/prefix_replay/ToolReplayCache.swift": "b87186ee666cf9cb34985e3b1343561a0f5d45ffac584851ff7e72f855a8063a",
+    "/Users/chad/Repos/agentwing/scripts/prepare_replay_history.py": "403924b431ed43516a77d276e1d83e6a9d6825dd727e7fee618c5a0abcc2f58f",
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0045/.build/release/swiftlet-server": "c396fc65ee38a869be211d0fa3cdfa423d1afb17005cd740d332200d57e4fdfa",
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0045/.build/release/Swiftlet_SwiftletCore.bundle/Kernels.metal.txt": "6fe537e8b0d6dfe5b1b8a0b1b465dfa89a753ddcbd674327304b4786931f97ce",
+    "/Users/chad/Models/agentwing/checkpoints/qwen3.6-35b-a3b-8bit.qpack/tokenizer.json": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+    "/Users/chad/Models/agentwing/checkpoints/qwen3.6-35b-a3b-8bit.qpack/tokenizer_config.json": "e98f1901ac6f0adff67b1d540bfa0c36ac1a0cf59eb72ed78146ef89aafa1182",
+    "/Users/chad/Models/agentwing/checkpoints/qwen3.6-35b-a3b-8bit.qpack/config.json": "5da49c3a84c5a4a751b720b62b9f8703bdb8a0796b5fc55df3278f8b9d6ce296"
+  }
+}
