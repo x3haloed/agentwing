@@ -760,3 +760,17 @@ and OS residency vary, and only short development trajectories were exercised.
 Chunked prefill remains original; extra submissions and shared-memory traffic
 must stay charged. Broader capability and >=25% verified utility/hour remain
 unproven. Initial test-fixture and command-directory failures are preserved.
+
+## 2026-09-06 — Chunk gate/up overlap adds a viable prefill path
+
+AW-0041 retains token-batched gate/up projections while submitting each union
+expert as its read becomes ready. Original SwiGLU/down/shared/accumulation stay
+deferred. Thirteen focused tests pass, including chunk cancellation and recovery;
+a missing cancellation-parameter build failure is preserved. Three short C/A/C
+comparisons with both overlap paths preserve text, routes and every cache decision.
+Prefill wall ratios are 0.905/0.913/0.892, decode 0.792/0.808/0.819 and full-process
+wall 0.810/0.821/0.815. Pressure 1, zero swap growth, P1 preflight passes.
+Retain revision d44752e for longer/uncommon accumulated-trajectory checks. Its
+roughly 1.22–1.23x diagnostic speedup is not the 1.25x autonomous utility goal.
+Expert bytes are unchanged; sampled disk and startup variation prevent assigning
+all full-wall savings to overlap. No held-out execution or promotion occurred.

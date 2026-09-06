@@ -1,0 +1,191 @@
+diff --git a/Sources/SwiftletCore/QwenMetalModel.swift b/Sources/SwiftletCore/QwenMetalModel.swift
+index 7bd7165..3301eab 100644
+--- a/Sources/SwiftletCore/QwenMetalModel.swift
++++ b/Sources/SwiftletCore/QwenMetalModel.swift
+@@ -350,6 +350,7 @@ public final class QwenMetalModel {
+         var routedAlreadyEncoded = false
+     }
+     var overlapExperts = ProcessInfo.processInfo.environment["SWIFTLET_EXPERT_OVERLAP"] == "1"
++    var overlapChunkGateUp = ProcessInfo.processInfo.environment["SWIFTLET_CHUNK_OVERLAP"] == "1"
+ 
+     // S1b layer-major prefill scratch: one Regions stride and one hidden row
+     // per chunk token. Allocated lazily on the first layer-major prompt call
+@@ -2125,6 +2126,7 @@ extension QwenMetalModel {
+         var union: [Int]
+         var buffers: [Int: MTLBuffer]
+         var perToken: [(picks: [(Int, Float)], weights: [Float])]
++        var gateUpAlreadyEncoded = false
+     }
+ 
+     /// Where the chunked DeltaNet recurrence stages its contiguous
+@@ -2295,7 +2297,7 @@ extension QwenMetalModel {
+             let end = min(start + chunkCapacity, tokens.count)
+             logits = try prefillChunkLayerMajor(
+                 Array(tokens[start..<end]), state: state,
+-                projectLogits: end == tokens.count
++                projectLogits: end == tokens.count, shouldCancel: shouldCancel
+             )
+             start = end
+         }
+@@ -2309,7 +2311,8 @@ extension QwenMetalModel {
+     /// conv history, recurrence state, and KV appends advance exactly as the
+     /// token-major path does.
+     private func prefillChunkLayerMajor(
+-        _ chunk: [Int], state: QwenCPUModel.DecodeState, projectLogits: Bool
++        _ chunk: [Int], state: QwenCPUModel.DecodeState, projectLogits: Bool,
++        shouldCancel: () -> Bool
+     ) throws -> [Float] {
+         let cfg = config
+         let D = cfg.hiddenSize
+@@ -2420,11 +2423,18 @@ extension QwenMetalModel {
+             prefillExpertUnionObserver?(li, union)
+             var buffers: [Int: MTLBuffer] = [:]
+             if let cache = expertCache {
+-                let bufs = try fetchExperts(cache, layer: li, experts: union)
++                let bufs: [MTLBuffer]
++                if overlapChunkGateUp {
++                    bufs = try fetchAndEncodeChunkGateUp(cache, layer: li, union: union,
++                                                        perToken: perToken, shouldCancel: shouldCancel)
++                } else {
++                    bufs = try fetchExperts(cache, layer: li, experts: union)
++                }
+                 for (i, e) in union.enumerated() { buffers[e] = bufs[i] }
+             }
+             pending = PendingChunkMoE(
+-                layer: li, union: union, buffers: buffers, perToken: perToken)
++                layer: li, union: union, buffers: buffers, perToken: perToken,
++                gateUpAlreadyEncoded: overlapChunkGateUp && expertCache != nil)
+         }
+ 
+         // Tail: flush the last layer's experts for the whole chunk; only the
+@@ -2568,6 +2578,66 @@ extension QwenMetalModel {
+     /// whole chunk; outputs land in disjoint per-token slots so a stage runs
+     /// fully in parallel, and each token's weighted accumulation uses the
+     /// legacy pick order, keeping numerics identical to the token-major path.
++    /// AW-0041: preserve per-expert token batching; issue gate/up after the
++    /// corresponding union read is ready. Original strided SwiGLU/down stay
++    /// deferred, avoiding a per-assignment dispatch expansion.
++    private func fetchAndEncodeChunkGateUp(
++        _ cache: ExpertCache, layer: Int, union: [Int],
++        perToken: [(picks: [(Int, Float)], weights: [Float])],
++        shouldCancel: () -> Bool
++    ) throws -> [MTLBuffer] {
++        guard let projs = expertProjs else {
++            throw Checkpoint.Error.badShape("chunk overlap requires qpack projections")
++        }
++        let inter = config.moeIntermediateSize
++        var assignments: [Int: [(t: Int, ki: Int)]] = [:]
++        for (t, entry) in perToken.enumerated() {
++            for (ki, pick) in entry.picks.enumerated() {
++                assignments[pick.0, default: []].append((t, ki))
++            }
++        }
++        var commands: [MTLCommandBuffer] = []
++        defer { for cb in commands { cb.waitUntilCompleted() } }
++        var failure: Swift.Error?
++        let bufs = try withoutActuallyEscaping(shouldCancel) { cancellation in
++            try cache.buffers(layer: layer, experts: union) { [self] i, buf in
++                guard failure == nil else { return }
++                do {
++                    try checkGenerationCancellation(cancellation)
++                    guard let cb = engine.queue.makeCommandBuffer(),
++                          let enc = cb.makeComputeCommandEncoder() else {
++                        throw Checkpoint.Error.badShape("chunk overlap command allocation")
++                    }
++                    do {
++                        let assigned = assignments[union[i]] ?? []
++                        try engine.encodeGemvBatch(enc, projs.gate.linear(on: buf), rows: inter,
++                            x: prefillScratchBuf!, y: prefillScratchBuf!,
++                            slots: assigned.map { a in
++                                (xOff: a.t * reg.total + reg.xmoe,
++                                 yOff: a.t * reg.total + reg.exp + a.ki * inter)
++                            })
++                        try engine.encodeGemvBatch(enc, projs.up.linear(on: buf), rows: inter,
++                            x: prefillScratchBuf!, y: prefillScratchBuf!,
++                            slots: assigned.map { a in
++                                let K = perToken[a.t].picks.count
++                                return (xOff: a.t * reg.total + reg.xmoe,
++                                        yOff: a.t * reg.total + reg.exp + K * inter + a.ki * inter)
++                            })
++                        enc.endEncoding(); cb.commit(); commands.append(cb)
++                    } catch { enc.endEncoding(); throw error }
++                } catch { failure = error }
++            }
++        }
++        if let failure { throw failure }
++        for cb in commands {
++            cb.waitUntilCompleted()
++            guard cb.status == .completed else {
++                throw cb.error ?? Checkpoint.Error.badShape("chunk overlap GPU failure")
++            }
++        }
++        return bufs
++    }
++
+     private func encodeChunkMoE(_ enc: MTLComputeCommandEncoder, _ pend: PendingChunkMoE) throws {
+         let cfg = config
+         let D = cfg.hiddenSize, inter = cfg.moeIntermediateSize
+@@ -2598,7 +2668,7 @@ extension QwenMetalModel {
+         // projection); then the shared gate/up and shared-gate logit, each
+         // one dispatch covering every chunk token.
+         let S = pend.perToken.count
+-        for expert in pend.union {
++        for expert in pend.union where !pend.gateUpAlreadyEncoded {
+             let lin = linears(for: expert)
+             let assigned = assignments[expert] ?? []
+             try engine.encodeGemvBatch(enc, lin.g, rows: inter,
+diff --git a/Tests/SwiftletCoreTests/ChunkOverlapTests.swift b/Tests/SwiftletCoreTests/ChunkOverlapTests.swift
+new file mode 100644
+index 0000000..e185d09
+--- /dev/null
++++ b/Tests/SwiftletCoreTests/ChunkOverlapTests.swift
+@@ -0,0 +1,49 @@
++import Foundation
++import Testing
++@testable import SwiftletCore
++
++@Suite struct ChunkOverlapTests {
++    @Test func chunkBoundariesAndDecodeRemainBitIdentical() throws {
++        let out = try ExpertCacheTests.repackedTiny()
++        defer { try? FileManager.default.removeItem(at: out) }
++        let model = try QwenMetalModel(modelDir: out, cacheBudgetGB: 0.05)
++        model.prefillMode = .layerMajor(chunkTokens: 3)
++        var results: [[UInt32]] = []
++        var observed: [[Int]] = []
++        model.routedExpertObserver = { layer, experts in observed.append([layer] + experts) }
++        for enabled in [false, true, false] {
++            model.overlapChunkGateUp = enabled
++            model.overlapExperts = enabled
++            let state = QwenCPUModel.DecodeState()
++            observed = []
++            var logits = try model.step([1, 5, 9, 2, 4, 7, 3], state: state)
++            for token in [6, 8, 2] { logits += try model.step([token], state: state) }
++            results.append(logits.map(\.bitPattern))
++            if enabled { #expect(!observed.isEmpty) }
++        }
++        #expect(results[0] == results[1] && results[1] == results[2])
++    }
++
++    @Test func cancellationInsideChunkSubmissionDrains() throws {
++        let out = try ExpertCacheTests.repackedTiny()
++        defer { try? FileManager.default.removeItem(at: out) }
++        let model = try QwenMetalModel(modelDir: out, cacheBudgetGB: 0.05)
++        model.overlapChunkGateUp = true
++        model.prefillMode = .layerMajor(chunkTokens: 4)
++        var routed = false
++        var checks = 0
++        model.prefillExpertUnionObserver = { _, _ in routed = true }
++        #expect(throws: GenerationInterruption.cancelled) {
++            try model.step([1, 5, 9, 2], state: QwenCPUModel.DecodeState(), shouldCancel: {
++                if routed { checks += 1 }
++                return checks >= 2
++            })
++        }
++        #expect(checks == 2)
++        model.prefillExpertUnionObserver = nil
++        let recovered = try model.step([1, 5, 9, 2], state: QwenCPUModel.DecodeState())
++        model.overlapChunkGateUp = false
++        let control = try model.step([1, 5, 9, 2], state: QwenCPUModel.DecodeState())
++        #expect(recovered.map(\.bitPattern) == control.map(\.bitPattern))
++    }
++}

@@ -1,0 +1,161 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0041/20260906T070759.500426Z",
+  "raw_receipt_sha256": "b91c51f6ddc48cf2e7ee14a460d98fe4b469c9daa82b44e269bc2106fb284605",
+  "source_revision": "d44752e26afbe7d469e425694224c11830ddd5f4",
+  "all_text_routes_and_cache_decisions_match": true,
+  "cases": {
+    "coding": {
+      "text_routes_and_cache_decisions_match": true,
+      "arms": [
+        {
+          "arm": "C1",
+          "wall_seconds": 18.203788667,
+          "prefill_seconds": 7.793,
+          "decode_seconds": 5.838,
+          "sampled_disk_read_gib": 16.425426483154297,
+          "peak_sampled_footprint_gib": 2.63563072681427,
+          "logical_expert_read_gib": 19.10321044921875,
+          "route_events": 1640,
+          "fetch_batches": 520,
+          "max_pressure": 1,
+          "max_swap_growth_mib": 0.0
+        },
+        {
+          "arm": "A1",
+          "wall_seconds": 14.52043575,
+          "prefill_seconds": 6.954,
+          "decode_seconds": 4.646,
+          "sampled_disk_read_gib": 15.12530517578125,
+          "peak_sampled_footprint_gib": 2.640940845012665,
+          "logical_expert_read_gib": 19.10321044921875,
+          "route_events": 1640,
+          "fetch_batches": 520,
+          "max_pressure": 1,
+          "max_swap_growth_mib": 0.0
+        },
+        {
+          "arm": "C2",
+          "wall_seconds": 17.648867083999995,
+          "prefill_seconds": 7.581,
+          "decode_seconds": 5.898,
+          "sampled_disk_read_gib": 16.449783325195312,
+          "peak_sampled_footprint_gib": 2.6209365129470825,
+          "logical_expert_read_gib": 19.10321044921875,
+          "route_events": 1640,
+          "fetch_batches": 520,
+          "max_pressure": 1,
+          "max_swap_growth_mib": 0.0
+        }
+      ],
+      "candidate_ratios_to_neighbor_control_mean": {
+        "wall_seconds": 0.8100061457564408,
+        "prefill_seconds": 0.9046442045011057,
+        "decode_seconds": 0.7917518745739605
+      }
+    },
+    "arithmetic": {
+      "text_routes_and_cache_decisions_match": true,
+      "arms": [
+        {
+          "arm": "C1",
+          "wall_seconds": 14.459689291000004,
+          "prefill_seconds": 5.491,
+          "decode_seconds": 5.774,
+          "sampled_disk_read_gib": 13.16170883178711,
+          "peak_sampled_footprint_gib": 2.61548912525177,
+          "logical_expert_read_gib": 17.75225830078125,
+          "route_events": 1240,
+          "fetch_batches": 520,
+          "max_pressure": 1,
+          "max_swap_growth_mib": 0.0
+        },
+        {
+          "arm": "A1",
+          "wall_seconds": 12.263624332999996,
+          "prefill_seconds": 4.975,
+          "decode_seconds": 4.666,
+          "sampled_disk_read_gib": 12.413948059082031,
+          "peak_sampled_footprint_gib": 2.64606773853302,
+          "logical_expert_read_gib": 17.75225830078125,
+          "route_events": 1240,
+          "fetch_batches": 520,
+          "max_pressure": 1,
+          "max_swap_growth_mib": 0.0
+        },
+        {
+          "arm": "C2",
+          "wall_seconds": 15.407331959000004,
+          "prefill_seconds": 5.413,
+          "decode_seconds": 5.778,
+          "sampled_disk_read_gib": 13.585899353027344,
+          "peak_sampled_footprint_gib": 2.6301528215408325,
+          "logical_expert_read_gib": 17.75225830078125,
+          "route_events": 1240,
+          "fetch_batches": 520,
+          "max_pressure": 1,
+          "max_swap_growth_mib": 0.0
+        }
+      ],
+      "candidate_ratios_to_neighbor_control_mean": {
+        "wall_seconds": 0.8212150940897726,
+        "prefill_seconds": 0.9125091709464416,
+        "decode_seconds": 0.8078254847645431
+      }
+    },
+    "structured": {
+      "text_routes_and_cache_decisions_match": true,
+      "arms": [
+        {
+          "arm": "C1",
+          "wall_seconds": 14.981504541999996,
+          "prefill_seconds": 6.192,
+          "decode_seconds": 5.452,
+          "sampled_disk_read_gib": 12.827308654785156,
+          "peak_sampled_footprint_gib": 2.618663012981415,
+          "logical_expert_read_gib": 17.53436279296875,
+          "route_events": 1400,
+          "fetch_batches": 520,
+          "max_pressure": 1,
+          "max_swap_growth_mib": 0.0
+        },
+        {
+          "arm": "A1",
+          "wall_seconds": 12.511939084000005,
+          "prefill_seconds": 5.503,
+          "decode_seconds": 4.441,
+          "sampled_disk_read_gib": 12.334571838378906,
+          "peak_sampled_footprint_gib": 2.6292527318000793,
+          "logical_expert_read_gib": 17.53436279296875,
+          "route_events": 1400,
+          "fetch_batches": 520,
+          "max_pressure": 1,
+          "max_swap_growth_mib": 0.0
+        },
+        {
+          "arm": "C2",
+          "wall_seconds": 15.738538958999996,
+          "prefill_seconds": 6.143,
+          "decode_seconds": 5.393,
+          "sampled_disk_read_gib": 13.567623138427734,
+          "peak_sampled_footprint_gib": 2.633433520793915,
+          "logical_expert_read_gib": 17.53436279296875,
+          "route_events": 1400,
+          "fetch_batches": 520,
+          "max_pressure": 1,
+          "max_swap_growth_mib": 0.0
+        }
+      ],
+      "candidate_ratios_to_neighbor_control_mean": {
+        "wall_seconds": 0.8145782139659222,
+        "prefill_seconds": 0.8922578029995946,
+        "decode_seconds": 0.8189949285384971
+      }
+    }
+  },
+  "limits": [
+    "Short development prompts, 12 generated tokens each; no broad capability or utility claim",
+    "Sampled process disk bytes include non-expert files and may omit final activity; not hardware-only SSD attribution",
+    "Overlap path per-phase fetch and GPU counters are not comparable",
+    "Candidate combines single-token chain overlap and chunk gate/up overlap; phase attribution is incomplete"
+  ]
+}

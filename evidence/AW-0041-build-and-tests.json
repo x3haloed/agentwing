@@ -1,0 +1,19 @@
+{
+  "runtime_revision": "d44752e26afbe7d469e425694224c11830ddd5f4",
+  "patch_reconstructs_runtime_tree": "a2e6841c15d022a3aa37ec13b88b9af5a623a916",
+  "focused_tests": {
+    "passed": 13,
+    "suites": 4,
+    "command": "swift test -c release --jobs 2 --disable-automatic-resolution --filter ChunkOverlapTests|ExpertOverlapTests|ExpertCacheTests|GenerationControlTests"
+  },
+  "initial_failure": "Cancellation closure was not passed into prefillChunkLayerMajor. Propagated it from prefillLayerMajor, then passed focused cancellation and recovery tests.",
+  "sha256": {
+    "/Users/chad/Repos/agentwing/experiments/AW-0041-chunk-overlap.patch": "a1ebae7c86554b0553ca1d93c304daa968b222f61f2ea442ebbfdb4193a78432",
+    "/Users/chad/Repos/agentwing/scripts/prepare_chunk_overlap.py": "dcf42b897d36d3c9e7cc79082fa9cf3630ad5b9f1b28010fe0896367f2fa79ec",
+    "/Users/chad/Repos/agentwing/probes/runtime_overlap/ChunkOverlapTests.swift": "ad674218c4d9f2b3def307c2ab3100bf2263abeb9674c5bff187b73020397323",
+    "/Users/chad/Models/agentwing/evidence/AW-0041/build-tests.log": "0febecae83c392f43ce491b29b6b57f4d82b5395aaae0d6132555336f4faf15d",
+    "/Users/chad/Models/agentwing/evidence/AW-0041/build-tests-second.log": "497b2aa829dcb0597e5484e257a26012dcd905a1624df51bccf8424e11117482",
+    "/Users/chad/Models/agentwing/evidence/AW-0041/QwenMetalModel-first-build.swift": "c8e6b9bf239973a24cb077a0f9fc2104a3578051a885b80ee7e79d51d12aa8ca",
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0041/.build/release/swiftlet": "1e2792492a52ad1482c5400a11d32b09ba5361fd8e0f34ac33a45ca3977852d2"
+  }
+}
