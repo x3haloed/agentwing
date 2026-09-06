@@ -9,6 +9,6 @@ assert not subprocess.check_output(['git','status','--porcelain'],cwd=p,text=Tru
 f=p/'Sources/SwiftletServer/ToolProtocol.swift';s=f.read_text();a=s.index('final class ToolReplayCache:');b=s.index('\n/// Strict parser',a)
 f.write_text(s[:a]+(ROOT/'probes/prefix_replay/ToolReplayCache.swift').read_text()+s[b:])
 f=p/'Sources/SwiftletServer/main.swift';s=f.read_text();old='replayCache?.replayText(for: tool_calls)';assert s.count(old)==1;f.write_text(s.replace(old,'replayCache?.replayText(for: tool_calls, content: content.text)'))
-for name in ['ReplayRetentionTests.swift','ReplayHistoryTests.swift']:
+for name in ['ReplayRetentionTests.swift','ReplayHistoryTests.swift','ReplayTokenizerTests.swift']:
  (p/'Tests/SwiftletServerTests'/name).write_bytes((ROOT/'probes/prefix_replay'/name).read_bytes())
 print('Applied isolated history draft; build, protocol and tokenizer validation required')

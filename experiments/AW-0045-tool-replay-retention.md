@@ -47,3 +47,11 @@ fixed metadata allowances, distinguishes this from RSS, and invalidates an old
 binding before skipping an oversized replacement. Tests include actual
 ChatRequest template conversion and edited-content preservation; tokenizer and
 model trajectory checks remain outstanding even if these unit tests pass.
+
+`ReplayTokenizerTests.swift` additionally drafts a model-free reproduction with
+the real local tokenizer selected by `AW45_TOKENIZER_DIR`. It parses two accepted
+spellings, compares the same history before/after the second cache record, and
+compares the complete rendered token sequence with explicit accepted raw history.
+It must show a changed older history in off-mode and exact retained tokens in
+history mode. This is still unexecuted; even a pass would establish the mechanism
+on this constructed fixture, not attribution of C1's exact 2237-token mismatch.
