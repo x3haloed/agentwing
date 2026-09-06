@@ -2,8 +2,8 @@
 
 ## Status
 
-Planned. Lifecycle and existing-boundary engineering checks pass; no model arm
-has run. AW-0047 remains terminal and negative, with no promotion.
+Running the first P1 control. Lifecycle and existing-boundary engineering checks
+pass. AW-0047 remains terminal and negative, with no promotion.
 
 ## Hypothesis
 
@@ -89,3 +89,14 @@ Frozen pins: `evidence/AW-0048-fixed-workspace-plan.json`.
 Large raw evidence: `/Users/chad/Models/agentwing/evidence/AW-0048/`.
 Engineering log: `workspace-tests.log`, with its hash in the frozen plan.
 Unresolved pending the declared comparison. No candidate promotion.
+
+### C1 launch
+
+Plan and implementation committed at `f192b83` before model execution.
+C1 raw directory is
+`/Users/chad/Models/agentwing/evidence/AW-0048/20260906T104140.560820Z`.
+The live Pi session confirms cwd equals the frozen workspace path. Initial
+pressure is 1, swap 705.31 MiB. These are startup observations, not final gates
+or task results. A1 and C2 remain unattempted; inspect C1's terminal summary,
+protocol and host gates before advancing. The runner owns process shutdown,
+sampling, deadlines and archival even if the surrounding tool call yields.
