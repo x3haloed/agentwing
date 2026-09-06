@@ -1,0 +1,19 @@
+{
+  "source_revision": "e781ebeb6c77101dbf845419c5ece099d1d1e4d2",
+  "source_tree": "8f2921d1df248714b275ef5055aa009c3dfeb31a",
+  "base_revision": "4dff62e867d62288d4224974c4add523dad50437",
+  "patch_sha256": "18ae09ecac2527cb094f009eb0e26dcf91a83209a56a01c479e2a60795f4219d",
+  "exact_tree_reconstruction": true,
+  "server_binary": "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0051/.build/release/swiftlet-server",
+  "server_sha256": "7c6e83ba05d33e524f06230d651167d2b90c925bdc889b75bc6226d644784f1f",
+  "kernel_sha256": "6fe537e8b0d6dfe5b1b8a0b1b465dfa89a753ddcbd674327304b4786931f97ce",
+  "test_log": "/Users/chad/Models/agentwing/evidence/AW-0051/observer-tests.log",
+  "test_log_sha256": "8a5bd4308e698636b2c4bd5afb1ae1f31f2a6a17b0d931cfa417413da68fc9c5",
+  "tests": {
+    "passed": 53,
+    "suites": 8,
+    "scope": "Trace serialization/nonfinite/no-overwrite and session equivalence plus existing focused lifecycle/context/stop/repetition tests"
+  },
+  "build": "swift test -c release --jobs 2 --disable-automatic-resolution with focused filter",
+  "model_execution": "None; real-model neutrality and repetition capture pending"
+}

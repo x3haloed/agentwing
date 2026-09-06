@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "AW0051-sampling-observer",
+  "status": "development-diagnostic-only",
+  "checkout": "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0051",
+  "source_revision": "e781ebeb6c77101dbf845419c5ece099d1d1e4d2",
+  "server_binary": "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0051/.build/release/swiftlet-server",
+  "server_binary_sha256": "7c6e83ba05d33e524f06230d651167d2b90c925bdc889b75bc6226d644784f1f",
+  "runtime_files": {
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0051/.build/release/Swiftlet_SwiftletCore.bundle/Kernels.metal.txt": "6fe537e8b0d6dfe5b1b8a0b1b465dfa89a753ddcbd674327304b4786931f97ce"
+  },
+  "environment": {
+    "SWIFTLET_EXPERT_OVERLAP": "1",
+    "SWIFTLET_CHUNK_OVERLAP": "1",
+    "SWIFTLET_CHUNK_FULL_OVERLAP": "1",
+    "SWIFTLET_STREAM_OVERSIZED_UNIONS": "1",
+    "SWIFTLET_TOOL_REPLAY_HISTORY": "1"
+  },
+  "control": "spec/validated-local-agent.json",
+  "scope": "Observer-only isolated runtime. Same candidate mechanisms and sampling; dynamic SWIFTLET_SAMPLING_TRACE is supplied by the forthcoming diagnostic runner. No promotion."
+}

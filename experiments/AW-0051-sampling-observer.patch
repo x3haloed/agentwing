@@ -1,0 +1,258 @@
+diff --git a/Sources/SwiftletCore/SamplingTrace.swift b/Sources/SwiftletCore/SamplingTrace.swift
+new file mode 100644
+index 0000000..c556ad6
+--- /dev/null
++++ b/Sources/SwiftletCore/SamplingTrace.swift
+@@ -0,0 +1,85 @@
++import Foundation
++import Darwin
++
++/// Diagnostic only. Never alters logits, counts, or the chosen token.
++final class SamplingTrace: @unchecked Sendable {
++    private let handle: FileHandle
++    private let lock = NSLock()
++    private var ordinal = 0
++    private var failed = false
++
++    init(path: String) throws {
++        let fd = Darwin.open(path, O_WRONLY | O_CREAT | O_EXCL, mode_t(0o600))
++        guard fd >= 0 else { throw POSIXError(POSIXErrorCode(rawValue: errno) ?? .EIO) }
++        handle = FileHandle(fileDescriptor: fd, closeOnDealloc: true)
++    }
++
++    static func fromEnvironment() -> SamplingTrace? {
++        guard let path = ProcessInfo.processInfo.environment["SWIFTLET_SAMPLING_TRACE"], !path.isEmpty else { return nil }
++        do { return try SamplingTrace(path: path) }
++        catch { print("[sampling-trace] unavailable: \(error)"); return nil }
++    }
++
++    private func write(_ record: [String: Any]) {
++        lock.lock(); defer { lock.unlock() }
++        guard !failed else { return }
++        do {
++            var data = try JSONSerialization.data(withJSONObject: record, options: [.sortedKeys])
++            data.append(10)
++            try handle.write(contentsOf: data)
++        } catch {
++            failed = true
++            print("[sampling-trace] write failed: \(error)")
++        }
++    }
++
++    func begin(_ fields: [String: Any]) -> Int {
++        lock.lock(); ordinal += 1; let id = ordinal; lock.unlock()
++        var record = fields
++        record["event"] = "begin"; record["request"] = id; record["schema"] = 1
++        write(record)
++        return id
++    }
++
++    static func score(_ value: Float) -> Any {
++        if value.isNaN { return "nan" }
++        if value == .infinity { return "+inf" }
++        if value == -.infinity { return "-inf" }
++        return Double(value)
++    }
++
++    static func describe(_ logits: [Float], vocabulary: Int) -> [String: Any] {
++        var top: [(Int, Float)] = []
++        var nonfinite = 0
++        var minimum = Float.infinity, maximum = -Float.infinity
++        for id in 0..<min(vocabulary, logits.count) {
++            let value = logits[id]
++            if value.isFinite { minimum = min(minimum, value); maximum = max(maximum, value) }
++            else { nonfinite += 1 }
++            if value.isNaN { continue }
++            if top.count < 8 || value > top.last!.1 {
++                top.append((id, value))
++                top.sort { $0.1 == $1.1 ? $0.0 < $1.0 : $0.1 > $1.1 }
++                if top.count > 8 { top.removeLast() }
++            }
++        }
++        return ["top": top.map { ["id": $0.0, "score": score($0.1)] as [String: Any] },
++                "nonfinite": nonfinite, "finite_min": score(minimum), "finite_max": score(maximum)]
++    }
++
++    func decision(request: Int?, generated: Int, raw: [Float], adjusted: [Float],
++                  vocabulary: Int, selected: Int, seen: Int, banEOS: Bool, isEOS: Bool) {
++        guard let request else { return }
++        write(["event": "decision", "request": request, "generated_before": generated,
++               "selected": selected, "seen_before": seen, "ban_eos": banEOS, "is_eos": isEOS,
++               "selected_raw": Self.score(raw[selected]), "selected_adjusted": Self.score(adjusted[selected]),
++               "raw": Self.describe(raw, vocabulary: vocabulary),
++               "adjusted": Self.describe(adjusted, vocabulary: vocabulary)])
++    }
++
++    func end(request: Int?, generated: [Int], text: String, reason: String, cached: Int) {
++        guard let request else { return }
++        write(["event": "end", "request": request, "generated_ids": generated,
++               "text": text, "finish_reason": reason, "cached_tokens_after": cached])
++    }
++}
+diff --git a/Sources/SwiftletCore/SwiftletSession.swift b/Sources/SwiftletCore/SwiftletSession.swift
+index a1df310..9756030 100644
+--- a/Sources/SwiftletCore/SwiftletSession.swift
++++ b/Sources/SwiftletCore/SwiftletSession.swift
+@@ -194,6 +194,8 @@ public final class SwiftletSession: @unchecked Sendable {
+         self.generationCleanupHook = generationCleanupHook
+     }
+ 
++    var samplingTrace = SamplingTrace.fromEnvironment()
++
+     private let suppressedIds: Set<Int>
+     private let usesThinkPrompt: Bool
+ 
+@@ -421,7 +423,7 @@ public final class SwiftletSession: @unchecked Sendable {
+     /// so far; top-k/top-p/temperature otherwise standard. `generated` is the
+     /// ordered history, used only for the no-repeat-n-gram loop guard.
+     private func sample(_ logitsIn: [Float], options: GenerationOptions,
+-                        generated: [Int], seen: [Int: Int], banEOS: Bool) -> Int {
++                        generated: [Int], seen: [Int: Int], banEOS: Bool, traceRequest: Int? = nil) -> Int {
+         var logits = logitsIn
+         for t in suppressedIds { logits[t] = -.infinity }
+         if banEOS {
+@@ -445,6 +447,9 @@ public final class SwiftletSession: @unchecked Sendable {
+         if options.temperature <= 0 {
+             var best = 0
+             for v in 1..<vocab where logits[v] > logits[best] { best = v }
++            samplingTrace?.decision(request: traceRequest, generated: generated.count,
++                raw: logitsIn, adjusted: logits, vocabulary: vocab, selected: best,
++                seen: seen[best, default: 0], banEOS: banEOS, isEOS: generator.eosTokens.contains(best))
+             return best
+         }
+         // Partial top-k selection: fixed candidate set, replace the minimum.
+@@ -561,6 +566,17 @@ public final class SwiftletSession: @unchecked Sendable {
+                         return
+                     }
+ 
++                    let traceRequest = self.samplingTrace?.begin([
++                        "actual_prompt_ids": tokensBeforeGeneration, "rendered_prompt_ids": fullPrompt,
++                        "new_prompt_tokens": suffix.count, "reused_prompt_tokens": reusedPromptTokens,
++                        "matched_prompt_tokens": matchedPromptTokens, "admitted_max_new": admittedMaxNew,
++                        "temperature": options.temperature, "frequency_penalty": options.frequencyPenalty,
++                        "presence_penalty": options.presencePenalty, "no_repeat_ngram": options.noRepeatNGram,
++                        "min_new": options.minNew, "top_k": options.topK, "top_p": options.topP,
++                        "eos_ids": self.generator.eosTokens.sorted(), "suppressed_ids": self.suppressedIds.sorted(),
++                        "stop_sequences": options.stopSequences, "stop_after_sequences": options.stopAfterSequences,
++                        "greedy_observation_supported": options.temperature <= 0
++                    ])
+                     let start = Date()
+                     var firstTokenAt: Date?
+                     var generated: [Int] = []
+@@ -603,7 +619,7 @@ public final class SwiftletSession: @unchecked Sendable {
+                                 && (tail || eosIsTop || generated.count >= 300)
+                             let best = self.sample(
+                                 logits, options: options, generated: generated,
+-                                seen: generatedCounts, banEOS: !eosAllowed
++                                seen: generatedCounts, banEOS: !eosAllowed, traceRequest: traceRequest
+                             )
+                             if self.generator.eosTokens.contains(best) {
+                                 finishReason = .stop
+@@ -709,6 +725,8 @@ public final class SwiftletSession: @unchecked Sendable {
+                         self.resetConversationState()
+                     }
+ 
++                    self.samplingTrace?.end(request: traceRequest, generated: generated,
++                        text: stopFilter.output, reason: finishReason.rawValue, cached: self.cachedTokens.count)
+                     self.storeMetrics(Metrics(
+                         promptTokens: suffix.count,
+                         reusedPromptTokens: reusedPromptTokens,
+diff --git a/Tests/SwiftletCoreTests/SamplingTraceTests.swift b/Tests/SwiftletCoreTests/SamplingTraceTests.swift
+new file mode 100644
+index 0000000..2f41b5b
+--- /dev/null
++++ b/Tests/SwiftletCoreTests/SamplingTraceTests.swift
+@@ -0,0 +1,93 @@
++import Foundation
++import Testing
++@testable import SwiftletCore
++
++@Suite struct SamplingTraceTests {
++    private final class ProbeModel: InferenceModel, @unchecked Sendable {
++        let config: QwenConfig
++        let modelDir: URL
++        let contextCapacity = 128
++        private let lock = NSLock()
++        private var callsStorage: [[Int]] = []
++        var calls: [[Int]] { lock.lock(); defer { lock.unlock() }; return callsStorage }
++        init() throws {
++            modelDir = URL(fileURLWithPath: #filePath).deletingLastPathComponent()
++                .deletingLastPathComponent().deletingLastPathComponent()
++                .appendingPathComponent("fixtures/tiny-model")
++            config = try QwenConfig(url: modelDir.appendingPathComponent("config.json"))
++        }
++        func step(_ tokens: [Int], state: QwenCPUModel.DecodeState) throws -> [Float] {
++            lock.lock(); callsStorage.append(tokens); lock.unlock()
++            state.position += tokens.count
++            var logits = [Float](repeating: 0, count: config.vocabSize)
++            logits[65 + state.position % 3] = 10
++            return logits
++        }
++    }
++
++    @Test func observerDoesNotChangeSessionCallsOrText() async throws {
++        func session(_ model: ProbeModel) -> SwiftletSession {
++            SwiftletSession(testingModel: model, modelDir: model.modelDir,
++                encodeText: { _ in [10,11,12] },
++                decodeTokens: { String(String.UnicodeScalarView($0.compactMap { Unicode.Scalar($0) })) },
++                renderMessages: { _ in [10,11,12] })
++        }
++        func collect(_ session: SwiftletSession) async throws -> String {
++            var options = SwiftletSession.GenerationOptions.greedy
++            options.minNew = 0; options.noRepeatNGram = 0
++            var output = ""
++            for try await delta in session.streamChat(messages: [["role":"user","content":"test"]], maxNew:12, options:options) { output += delta }
++            return output
++        }
++        let offModel = try ProbeModel(), onModel = try ProbeModel()
++        let off = session(offModel), on = session(onModel)
++        off.samplingTrace = nil
++        let url = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
++        defer { try? FileManager.default.removeItem(at: url) }
++        on.samplingTrace = try SamplingTrace(path: url.path)
++        let offText = try await collect(off), onText = try await collect(on)
++        #expect(offText == onText)
++        #expect(offModel.calls == onModel.calls)
++        #expect(off.lastMetrics.generatedTokens == on.lastMetrics.generatedTokens)
++        let rows = try String(contentsOf: url, encoding: .utf8).split(separator: "\n").map {
++            try #require(JSONSerialization.jsonObject(with: Data($0.utf8)) as? [String:Any])
++        }
++        #expect(rows.count == 14)
++        #expect(rows.first?["actual_prompt_ids"] as? [Int] == [10,11,12])
++        #expect(rows.last?["text"] as? String == onText)
++    }
++
++    @Test func boundedRankingAndNonfiniteSerialization() throws {
++        let values: [Float] = [0, 5, 5, .nan, .infinity, -.infinity, 1, 2, 3, 4, 6, 7]
++        let record = SamplingTrace.describe(values, vocabulary: values.count)
++        let top = try #require(record["top"] as? [[String: Any]])
++        #expect(top.compactMap { $0["id"] as? Int } == [4,11,10,1,2,9,8,7])
++        #expect(record["nonfinite"] as? Int == 3)
++        #expect(record["finite_min"] as? Double == 0)
++        #expect(record["finite_max"] as? Double == 7)
++        _ = try JSONSerialization.data(withJSONObject: record)
++    }
++
++    @Test func noOverwriteAndExactDecisionFields() throws {
++        let url = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
++        defer { try? FileManager.default.removeItem(at: url) }
++        let trace = try SamplingTrace(path: url.path)
++        let id = trace.begin(["actual_prompt_ids": [10,11], "frequency_penalty": 0.5])
++        let raw: [Float] = [1,4,3]; let adjusted: [Float] = [1,2,3]
++        trace.decision(request: id, generated: 4, raw: raw, adjusted: adjusted,
++                       vocabulary: 3, selected: 2, seen: 0, banEOS: false, isEOS: false)
++        trace.end(request: id, generated: [2], text: "x", reason: "length", cached: 3)
++        let before = try Data(contentsOf: url)
++        #expect(throws: (any Error).self) { _ = try SamplingTrace(path: url.path) }
++        #expect(try Data(contentsOf: url) == before)
++        let rows = try String(decoding: before, as: UTF8.self).split(separator: "\n").map {
++            try #require(JSONSerialization.jsonObject(with: Data($0.utf8)) as? [String: Any])
++        }
++        #expect(rows.count == 3)
++        #expect(rows[1]["selected"] as? Int == 2)
++        #expect(rows[1]["generated_before"] as? Int == 4)
++        #expect(rows[1]["selected_raw"] as? Double == 3)
++        #expect(rows[2]["generated_ids"] as? [Int] == [2])
++        #expect(raw == [1,4,3] && adjusted == [1,2,3])
++    }
++}
