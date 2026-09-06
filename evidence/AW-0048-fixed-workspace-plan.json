@@ -1,0 +1,42 @@
+{
+  "candidate_plan": "spec/joint-development-candidate.json",
+  "candidate_plan_sha256": "d5ef68f14831c7929a993511983c95a000c31b4a2be0447fe55a50fafe8428a6",
+  "runner": "scripts/run_stable_development.py",
+  "runner_sha256": "9aee29dfcfff00e73ff96abd5f246166c54f6bceae5c5e08bd61fcd04229a604",
+  "corpus_receipt_sha256": "d67041e34c10676ed8583d33a9148b2fe1518ea436caba58cb107c46d34ac4b5",
+  "order": [
+    {
+      "task": "dev-recovery",
+      "arm": "C1",
+      "profile": "P1"
+    },
+    {
+      "task": "dev-recovery",
+      "arm": "A1",
+      "profile": "AW0047-replay-streaming"
+    },
+    {
+      "task": "dev-recovery",
+      "arm": "C2",
+      "profile": "P1"
+    }
+  ],
+  "task_timeout_seconds": 1800,
+  "startup_timeout_seconds": 60,
+  "stop_on": [
+    "host-gate failure",
+    "protocol failure"
+  ],
+  "scope": "Fixed-path development diagnostic; prior failures retained, no held-out or promotion claim",
+  "frozen_at_utc": "2026-09-06T10:41:27.477873+00:00",
+  "workspace_helper_sha256": "5dbacb84bd2fc3878f94193fc6aa7ea2510f411118ec53c930f4311ba91889a0",
+  "audit_sha256": "0e939bcee611686cbfdb1fbb727f01650553eb62a7a3bb171cc053d64789038e",
+  "lifecycle_tests_sha256": "564c1b07f5776d5a9cdf1aa356a4d6bc99eca1db3fdeb188a9e1ac6ef7167a65",
+  "lifecycle_test_log_sha256": "383f31d99ac307591cb3c716f2e67681c1e5ac7ed38bdc54e03b170b9123f19d",
+  "workspace_policy": {
+    "path": "/Users/chad/Models/agentwing/active/workspace",
+    "private_state": "/Users/chad/Models/agentwing/active/agentwing-task-state",
+    "archive": "rename workspace and private state after owned processes stop"
+  },
+  "primary_diagnostic": "Exact agreement of the two controls first repair commands conditional on identical structured visible prefix; raw wire identity remains unrecorded"
+}
