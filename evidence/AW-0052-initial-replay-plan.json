@@ -11,8 +11,7 @@
     "SWIFTLET_CHUNK_OVERLAP": "1",
     "SWIFTLET_CHUNK_FULL_OVERLAP": "1",
     "SWIFTLET_STREAM_OVERSIZED_UNIONS": "1",
-    "SWIFTLET_TOOL_REPLAY_HISTORY": "1",
-    "DYLD_FRAMEWORK_PATH": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks"
+    "SWIFTLET_TOOL_REPLAY_HISTORY": "1"
   },
   "timeout_seconds_per_arm": 1800,
   "order": [
@@ -30,7 +29,7 @@
     ]
   ],
   "hashes": {
-    "/Users/chad/Repos/agentwing/scripts/probe_sampling_replay.py": "0e16cc7ff8acf896fc57b97745144ad9619dc969facae4f14ec3a5892a0cf18e",
+    "/Users/chad/Repos/agentwing/scripts/probe_sampling_replay.py": "832d3ce01c6afbb85fd3580e21c0e982798b78b198de8986e9970ff75d8ab892",
     "/Users/chad/Repos/agentwing/scripts/run_local_agent.py": "dee0e63573c60137226b541f5380b768799ad1682006438471eec95d511a6fdd",
     "/Users/chad/Repos/agentwing/scripts/audit_sampling_capture.py": "e75ac3df3193b867a39c2d32c1f5810af04c64763c464c3de9ee01f16bff7f7c",
     "/Users/chad/Repos/agentwing/probes/sampling_replay/SamplingReplayTests.swift": "12a25bb12dfee4b3fc97ed672370986184132cda3f8c722de1b8c226ad5ae89d",
@@ -41,9 +40,7 @@
     "/Users/chad/Models/agentwing/evidence/AW-0051/analysis-20260906T121550.770279Z/request-13-input.json": "ddad2cf7529bd1bb5a7fc81cae04a6eee4b3d3e25f11df77661a77d288bfe5ac",
     "/Users/chad/Repos/agentwing/experiments/AW-0052-sampling-replay.patch": "2b7ca769a1b273d696a1ad327707218c0f1e069653cb7f747375fe3040a11e1f",
     "/Users/chad/Repos/agentwing/spec/validated-local-agent.json": "e3de38b2a4ddad8ad057ea99935b0b9f7b6a181fe77b3d33e81aa99959400c82",
-    "/Users/chad/Repos/agentwing/spec/dependencies.json": "f342b63ba54d3104dc55a64f386bee13f0f21a3ec7ed3ad4468c27733cecb308",
-    "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec/swift/pm/swiftpm-testing-helper": "da2601bc562f2e0dd0cd7e00e923aee763ce94bdbf3eddccdebf1a4b8d5d313d",
-    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/Testing.framework/Versions/A/Testing": "96b6c248ff012a338421f468bb4ab26c3b2aafa75e6d94fc430b75f552e64677"
+    "/Users/chad/Repos/agentwing/spec/dependencies.json": "f342b63ba54d3104dc55a64f386bee13f0f21a3ec7ed3ad4468c27733cecb308"
   },
   "scope": "Fresh-prefill diagnostic only; no endpoint utility or promotion claim",
   "control_gate": "Both controls must match AW51 request 13 generated IDs and text exactly; stop sequence on first mismatch",
@@ -57,9 +54,5 @@
     "suites": 8,
     "build_exit": 0,
     "failed_initial_build_retained": true
-  },
-  "testing_helper": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec/swift/pm/swiftpm-testing-helper",
-  "test_binary": "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0052/.build/arm64-apple-macosx/release/SwiftletPackageTests.xctest/Contents/MacOS/SwiftletPackageTests",
-  "supersedes_initial_plan_sha256": "c801247d9e9a6bbe012ddca2ef47e9d042a58b452c98dfb5aabbc491d1112a50",
-  "launch_revision": "direct-helper-owned-process-group"
+  }
 }

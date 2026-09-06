@@ -43,7 +43,8 @@ def main():
             'AW52_OUTPUT':str(directory/'report.json'),'AW52_FREQUENCY':frequency,
             'SWIFTLET_SAMPLING_TRACE':str(directory/'sampling.jsonl')}
         env.update(extra)
-        command=['swift','test','-c','release','--skip-build','--disable-automatic-resolution','--filter','SamplingReplayTests']
+        command=[plan['testing_helper'],'--test-bundle-path',plan['test_binary'],
+                 '--filter','SamplingReplayTests',plan['test_binary'],'--testing-library','swift-testing']
         (directory/'launch.json').write_text(json.dumps({'command':command,'environment':extra,'cwd':str(CHECKOUT)},indent=2)+'\n')
         try:
             with (directory/'test.log').open('w') as log, (directory/'pressure.jsonl').open('w') as pressure:

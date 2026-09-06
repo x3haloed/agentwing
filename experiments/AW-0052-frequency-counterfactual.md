@@ -67,3 +67,19 @@ against original generated IDs and text before the next arm can run.
 Command: `PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 scripts/probe_sampling_replay.py`.
 The probe adds no executable tools or network listener. Output content requires
 independent protocol/coverage review before interpreting a completed sequence.
+
+## Initial launch stopped; supervision corrected
+
+First C1 stopped at 39.03 seconds after observing SwiftPM's testing helper in
+PGID 74249 outside wrapper PGID 73849. Explicitly terminated the observed helper
+group; wrapper/supervisor exited, both process IDs are gone, preflight passes.
+Pressure 1, swap growth 0. Preserve this as a supervision failure, not a sampling
+result. Raw run `AW-0052/20260906T124616.055538Z`; receipt and reason are recorded
+in `evidence/AW-0052-initial-launch-stop.json`. Initial frozen plan is archived.
+
+Revised launcher executes that same helper directly as the owned process-group
+leader, with pinned Xcode Testing framework path. The first direct smoke exposed
+a missing framework search path; the corrected empty-filter smoke loads with
+zero tests (exit 69), and actual SamplingTraceTests then pass with exit 0.
+Preserve these logs. Revised plan pins helper and framework as well as prior
+identities. All model/sampling/input conditions remain unchanged.

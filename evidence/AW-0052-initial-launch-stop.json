@@ -1,0 +1,10 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0052/20260906T124616.055538Z",
+  "receipt_sha256": "7024cd8326013a6a655847fa3ec88007111caa043a94facb42990e6a27d953fe",
+  "disposition": "stopped-supervision-gap-before-counterfactual-result",
+  "reason": "swift-test launched model helper PID/PGID 74249 outside wrapper PGID 73849; explicitly terminated observed helper group; wrapper and supervisor then exited",
+  "wall_seconds": 39.030687,
+  "pressure": 1,
+  "swap_growth_mib": 0,
+  "next_change": "Launch same testing helper directly as process-group owner; no runtime or sampling change"
+}

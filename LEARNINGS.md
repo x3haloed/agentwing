@@ -1017,3 +1017,14 @@ necessarily suitable for code. It does not establish counterfactual causality:
 test reduced penalty on the captured input, first checking that fresh-prefill
 control reproduces the incrementally cached failure. No promotion or frozen
 sampling/acceptance changes follow from this diagnostic.
+
+## 2026-09-06 — SwiftPM testing helpers can escape wrapper process groups
+
+AW-0052 launch inspection found swift-test's model-owning testing helper in a
+separate process group. Wrapper-group cleanup alone was insufficient. Stopped
+and retained the 39.03-second attempt with pressure 1 and no swap growth before
+interpreting model results. Launch the pinned helper directly as the process
+owner, supply its Testing framework path, and verify ownership on the real run.
+Prior completed diagnostic probes are not thereby shown contaminated, but
+future timeout guarantees must follow the actual model owner rather than the
+SwiftPM wrapper. P1's server/Pi runner is unchanged.

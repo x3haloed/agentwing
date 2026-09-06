@@ -10,5 +10,10 @@
   "retry_exit": 0,
   "tests_passed": 53,
   "suites": 8,
-  "binary_sha256": "9b2c5000789e99bee0cd4fc2eb6e935340b9ee35b3822a311aad9d9094f3012f"
+  "binary_sha256": "9b2c5000789e99bee0cd4fc2eb6e935340b9ee35b3822a311aad9d9094f3012f",
+  "direct_helper_tests": {
+    "exit": 0,
+    "log": "/Users/chad/Models/agentwing/evidence/AW-0052/direct-helper-tests.log",
+    "sha256": "0c03380eed54e7daecc6b611b9aefe0d53d4912cf519f8e483d1440e1677f5a7"
+  }
 }
