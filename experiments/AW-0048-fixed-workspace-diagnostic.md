@@ -2,7 +2,7 @@
 
 ## Status
 
-First P1 control completed successfully; unchanged candidate is running. Lifecycle
+First P1 control and unchanged candidate completed successfully; C2 is next. Lifecycle
 and existing-boundary engineering checks pass. AW-0047 remains terminal and
 negative, with no promotion.
 
@@ -128,3 +128,25 @@ with harness revision `1792ca3`. The live Pi session confirms the same frozen
 cwd as C1. Initial pressure is 1 and swap remains 705.31 MiB. These are startup
 observations only. C2 remains unattempted, pending A1's terminal host/protocol
 checks. Candidate grade and utility rate are not yet known.
+
+### A1 completed
+
+A1 earns accepted utility 1 in 645.059094 measured seconds (5.580884/hour).
+Protocol passes with 12 tool calls, one reported tool error, one repeated command
+and 13 requests. Pressure peaks at 1 with zero swap growth. Independent receipt
+and grader replay pass; profile/source/path pins and archival checks pass.
+
+The first 18 structured visible events match C1 after removing generated call
+IDs, including the identical first repair and following validation. The next
+assistant narration differs, while the stale-launcher command remains equal.
+On that request A1 processes 21 new tokens with 1540 reused, TTFT 5.4 seconds;
+C1 processes all 1561 with no reuse, TTFT 405.6 seconds. Total new prompt tokens
+are 1113 versus C1's 2605, and generated tokens 982 versus 1057. Visible equality
+does not establish unrecorded wire-token equality, and later behavior differs.
+
+The preliminary utility-rate ratio to C1 alone is about 1.80353. C2 and the
+predeclared control-repeatability diagnostic remain pending; this is not a
+pooled comparison, broad capability result, or promotion. It does not revise
+AW-0047's failed preservation result. Records are
+`evidence/AW-0048-recovery-A1-audit.json`, `...-A1-result.json` and
+`evidence/AW-0048-recovery-C1-A1-prefix.json`.

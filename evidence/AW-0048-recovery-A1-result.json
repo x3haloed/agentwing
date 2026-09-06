@@ -1,0 +1,77 @@
+{
+  "arm": "A1",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0048/20260906T110307.710521Z",
+  "raw_receipt_sha256": "fad7fc967de0959d9f2a91f173c5df8a74765184b8db5e7749d50a271ed3f01f",
+  "plan_sha256": "402c6936dc6f099ac5c4551e1b5b3dccfa4b022890869dcd3d671456adbfe459",
+  "source_profile_and_workspace_pins_passed": true,
+  "workspace_and_state_archived": true,
+  "staging_root_empty_except_owner_marker": true,
+  "summary": {
+    "complete_selection": true,
+    "error": null,
+    "wall_seconds": 645.059094417,
+    "utility": 1,
+    "verified_utility_per_hour": 5.5808840324213325,
+    "tasks": [
+      {
+        "task_id": "dev-recovery",
+        "category": "tool-failure-recovery",
+        "utility": 1,
+        "execution": {
+          "status": "client-completed",
+          "error": null,
+          "pi_exit": 0,
+          "wall_seconds": 644.667703875,
+          "verified_utility": null,
+          "scope": "User task, not scored benchmark. Inspect artifacts and independently validate.",
+          "pressure_peak": 1,
+          "swap_growth_peak_mib": 0.0,
+          "server_pid": 47756,
+          "client_pid": 47801
+        },
+        "protocol": {
+          "passed": true,
+          "checks": {
+            "events_nonempty": true,
+            "paired_unique_tool_events": true,
+            "bash_schema_valid": true,
+            "no_model_error": true,
+            "no_server_tool_rejection": true,
+            "fresh_model_state": true,
+            "unique_requests": true,
+            "terminal_metric": true,
+            "no_explicit_authority_access": true
+          },
+          "tool_calls": 12,
+          "failed_tool_calls": 1,
+          "repeated_command_occurrences": 1,
+          "productivity_classification": "not inferred from command success; full transcript retained for separate review",
+          "request_count": 13,
+          "new_prompt_tokens": 1113,
+          "generated_tokens": 982,
+          "reported_ttft_seconds": 266.90000000000003,
+          "declared_normalizations": 0,
+          "declared_salvages": 0
+        },
+        "grading": {
+          "task_id": "dev-recovery",
+          "utility": 1,
+          "exit": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        "full_wall_seconds": 644.8553965
+      }
+    ],
+    "scope": "Development diagnostic only; not held-out or paired promotion evidence"
+  },
+  "preliminary_utility_rate_ratio_to_C1": 1.8034895884375282,
+  "request_10": {
+    "new_prompt_tokens": 21,
+    "reused_tokens": 1540,
+    "prefix_matched_tokens": 1540,
+    "ttft_seconds": 5.4,
+    "visible_command_matches_C1": true
+  },
+  "disposition": "Successful development candidate retained pending C2; prior AW-0047 failure retained; no broad capability or promotion claim"
+}

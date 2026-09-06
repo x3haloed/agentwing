@@ -1,0 +1,85 @@
+{
+  "arms": [
+    {
+      "run": "/Users/chad/Models/agentwing/evidence/AW-0048/20260906T104140.560820Z",
+      "receipt_sha256": "0ff567f7c2dc889d08b0941e7192f280fc7427850b87f05c01f097d2a16262bc",
+      "cwd": "/Users/chad/Models/agentwing/active/workspace"
+    },
+    {
+      "run": "/Users/chad/Models/agentwing/evidence/AW-0048/20260906T110307.710521Z",
+      "receipt_sha256": "fad7fc967de0959d9f2a91f173c5df8a74765184b8db5e7749d50a271ed3f01f",
+      "cwd": "/Users/chad/Models/agentwing/active/workspace"
+    }
+  ],
+  "comparison_type": "C1 versus A1, not the required C1/C2 primary diagnostic",
+  "comparison": {
+    "left": "/Users/chad/Models/agentwing/evidence/AW-0048/20260906T104140.560820Z",
+    "right": "/Users/chad/Models/agentwing/evidence/AW-0048/20260906T110307.710521Z",
+    "same_cwd": true,
+    "equal_visible_event_prefix_length": 18,
+    "complete_visible_transcripts_equal": false,
+    "first_differing_visible_events": {
+      "left": {
+        "kind": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "Validator passes. Now let me verify the old retired command is indeed broken (as expected), and create the VALIDATION.md:"
+          },
+          {
+            "type": "toolCall",
+            "name": "bash",
+            "arguments": {
+              "command": "cd /Users/chad/Models/agentwing/active/workspace && sh scripts/validate.sh 2>&1 || true"
+            }
+          }
+        ]
+      },
+      "right": {
+        "kind": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "Validator passes. Now let me verify the old `validate.sh` still fails (as expected \u2014 it's retired):"
+          },
+          {
+            "type": "toolCall",
+            "name": "bash",
+            "arguments": {
+              "command": "cd /Users/chad/Models/agentwing/active/workspace && sh scripts/validate.sh 2>&1 || true"
+            }
+          }
+        ]
+      }
+    },
+    "enough_events_for_seven_call_comparison": true,
+    "first_seven_commands": [
+      [
+        "find /Users/chad/Models/agentwing/active/workspace -maxdepth 3 -type f | head -80",
+        "cat /Users/chad/Models/agentwing/active/workspace/docs/tooling.md",
+        "cat /Users/chad/Models/agentwing/active/workspace/tools/check.py",
+        "cat /Users/chad/Models/agentwing/active/workspace/queue_names.py",
+        "cat /Users/chad/Models/agentwing/active/workspace/scripts/validate.sh",
+        "cat /Users/chad/Models/agentwing/active/workspace/README.md",
+        "cd /Users/chad/Models/agentwing/active/workspace && python3 tools/check.py"
+      ],
+      [
+        "find /Users/chad/Models/agentwing/active/workspace -maxdepth 3 -type f | head -80",
+        "cat /Users/chad/Models/agentwing/active/workspace/docs/tooling.md",
+        "cat /Users/chad/Models/agentwing/active/workspace/tools/check.py",
+        "cat /Users/chad/Models/agentwing/active/workspace/queue_names.py",
+        "cat /Users/chad/Models/agentwing/active/workspace/scripts/validate.sh",
+        "cat /Users/chad/Models/agentwing/active/workspace/README.md",
+        "cd /Users/chad/Models/agentwing/active/workspace && python3 tools/check.py"
+      ]
+    ],
+    "first_seven_commands_match_original_inspection_spelling": false,
+    "identical_seven_call_structured_visible_prefix": true,
+    "eighth_commands_equal_given_identical_prefix": true,
+    "eighth_commands": [
+      "cat > /Users/chad/Models/agentwing/active/workspace/queue_names.py << 'EOF'\nimport re\n\n\ndef normalize(value):\n    # Strip surrounding whitespace, casefold for Unicode case-folding\n    v = value.strip().casefold()\n    # Replace each run of whitespace or hyphens with a single underscore\n    v = re.sub(r'[\\s\\-]+', '_', v)\n    # Trim outer underscores (handles all-separator input)\n    v = v.strip('_')\n    return v\nEOF",
+      "cat > /Users/chad/Models/agentwing/active/workspace/queue_names.py << 'EOF'\nimport re\n\n\ndef normalize(value):\n    # Strip surrounding whitespace, casefold for Unicode case-folding\n    v = value.strip().casefold()\n    # Replace each run of whitespace or hyphens with a single underscore\n    v = re.sub(r'[\\s\\-]+', '_', v)\n    # Trim outer underscores (handles all-separator input)\n    v = v.strip('_')\n    return v\nEOF"
+    ]
+  },
+  "scope": "Structured visible contents only, with generated call IDs removed; no wire-token equivalence or promotion claim"
+}

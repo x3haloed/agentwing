@@ -954,3 +954,15 @@ One subsequent 1561-token full refill costs 405.6 seconds TTFT despite 1466
 matching prefix tokens. Fixed paths remove one between-arm input difference;
 this single control cannot prove causality, determinism or candidate utility.
 Continue the unchanged frozen A1/C2 sequence. AW-0047's negative result remains.
+
+## 2026-09-06 — Fixed-path candidate preserves recovery success and avoids refill
+
+AW-0048 A1 scores 1 in 645.06 seconds, with protocol pass, pressure 1 and zero
+swap growth. Receipt/grader replay and source/profile/path checks pass. Its first
+18 structured visible events match C1, including the repair and validation.
+The next command also matches, while narration differs: A1 reuses 1540 tokens
+and processes 21 new ones in 5.4 seconds TTFT, versus C1's 1561-token full refill
+and 405.6 seconds. The preliminary single-control utility-rate ratio is 1.80x.
+This supports the redundant-prefill mechanism in a successful agent task without
+narrowing work. C2, broader capability and replicated promotion accounting are
+still required; AW-0047's negative result remains unchanged.
