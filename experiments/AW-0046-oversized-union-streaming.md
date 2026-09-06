@@ -76,3 +76,26 @@ is a functional oracle, not a throughput comparison or capability task, and
 does not change production chunk/cache settings. If no oversized union occurs,
 the test is inconclusive. Follow with ordinary representative trajectories before
 combining with AW-0045 or spending another endpoint run.
+
+## Full-model boundary result
+
+The predeclared C/A/C functional oracle completes at
+`/Users/chad/Models/agentwing/evidence/AW-0046/20260906T085900.600713Z`, runtime
+`a48dfbc569d9e7d697f18af7dd21f2b5408618cd` (62e4a08 plus diagnostic test only).
+All arms encounter five unions above 160; maximum 217. Candidate completes 33
+windows at 160 slots/534,773,760 allocated bytes. References use 321 slots/
+1,072,889,856 allocated bytes. All nine complete logit arrays, 10,560 route records
+per arm, union lists, input IDs and eight greedy continuation IDs match exactly.
+Pressure stays 1 and swap growth 0. Independent receipt/config/output checks pass
+in `evidence/AW-0046-real-boundary-audit.json`. This synthetic 256-token/chunk
+stress check establishes functional streaming beyond actual capacity; it does
+not recreate A1's exact request or establish task capability or a throughput gain.
+The production candidate still uses 0.5 GiB and its original chunk policy.
+
+Next ordinary-trajectory check is predeclared in
+`scripts/probe_streaming_trajectory.py`: reuse AW-0043's Rust-queue and Unicode
+development prompts, 64 generated tokens, normal chunk policy, 0.5 GiB in every
+arm, sequential C/A/C per prompt, full route/activation captures and host gates.
+Candidate enables all overlap flags plus oversized streaming; reference disables
+them in the same repaired source. AW-0045 is still separate. Compare exact
+outputs/routes/activation records; do not derive task utility from this screen.

@@ -871,3 +871,15 @@ and original cache/scheduling checks. Retain isolated 62e4a08; a full-model unio
 larger than 160 still needs functional validation. No real-agent repair, utility
 gain or promotion is established by these tests. Failed evidence, reconstruction
 and source/binary hashes are preserved; P1 preflight passes afterward.
+
+## 2026-09-06 — Real-model streaming crosses the physical cache boundary exactly
+
+AW-0046's synthetic full-model C/A/C diagnostic reaches five unions above 160,
+maximum 217. At the unchanged 0.5 GiB budget, candidate executes 33 drained
+windows and matches all nine complete logit vectors, 10,560 route records per
+arm, union sets and eight greedy continuation tokens against both references.
+The functional references use 1 GiB and all arms a diagnostic 256-token chunk;
+their timings are not comparable endpoint or production-throughput evidence.
+Pressure 1, zero swap growth and P1 preflight pass. This validates actual
+oversized-union streaming, beyond the previous forced tiny-model test, while
+ordinary accumulated trajectories and tool-driven capability remain required.

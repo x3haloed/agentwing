@@ -1,0 +1,47 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0046/20260906T085900.600713Z",
+  "raw_receipt_sha256": "fc08be42830e86d80a99aabe0828f3263dc5a23d7a1e1cb424a510bf3b94930e",
+  "passed": true,
+  "runtime_revision": "a48dfbc569d9e7d697f18af7dd21f2b5408618cd",
+  "all_nine_logits_exact": true,
+  "all_routes_and_tokens_exact": true,
+  "arms": [
+    {
+      "arm": "C1",
+      "wall_seconds": 55.765746,
+      "max_union": 217,
+      "oversized_union_count": 5,
+      "streamed_windows": 0,
+      "cache_slots": 321,
+      "allocated_bytes": 1072889856,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "route_records": 10560
+    },
+    {
+      "arm": "A1",
+      "wall_seconds": 52.071966583,
+      "max_union": 217,
+      "oversized_union_count": 5,
+      "streamed_windows": 33,
+      "cache_slots": 160,
+      "allocated_bytes": 534773760,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "route_records": 10560
+    },
+    {
+      "arm": "C2",
+      "wall_seconds": 51.280796708,
+      "max_union": 217,
+      "oversized_union_count": 5,
+      "streamed_windows": 0,
+      "cache_slots": 321,
+      "allocated_bytes": 1072889856,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "route_records": 10560
+    }
+  ],
+  "scope": "Synthetic full-model functional boundary oracle; reference cache/chunk differ from production P1, no throughput or capability claim"
+}
