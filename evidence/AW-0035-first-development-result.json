@@ -1,0 +1,22 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0035/20260906T060736.561511Z",
+  "receipt_sha256": "cf276194ef54ce33a26d94124d21116a11b7b1ea0ed60c4419b7b0c79e4c8c8f",
+  "complete_selection": true,
+  "verified_utility": 0,
+  "wall_seconds": 773.734772959,
+  "execution_status": "model-error-or-empty-transcript",
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0.0,
+  "requests": 6,
+  "generated_tokens": 895,
+  "reported_ttft_seconds": 369.5,
+  "observed_tool_calls": 5,
+  "tool_classification": {
+    "productive_repository_reads": 4,
+    "productive_failed_test_commands": 1,
+    "redundant_exact_repeats": 0,
+    "rejected_truncated_repair_responses": 1
+  },
+  "cause": "512-token generation ended inside a verbose bash tool call; server rejected incomplete output and original implementation remained unchanged",
+  "scope": "One P1 development failure, not a candidate comparison or held-out result"
+}

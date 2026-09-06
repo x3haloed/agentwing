@@ -685,3 +685,13 @@ model/workspace state per task, charges full wall and independently grades outpu
 Initial tests reject malformed event pairing, model errors and reused state.
 A first dev-debugging run is active with stable host readings; completion and
 utility are not yet established. Full paired promotion support remains separate.
+
+## 2026-09-05 — Broader development task exposes P1 output-budget failure
+
+AW-0035 dev-debugging earns 0/1 in 773.7 seconds. P1 reads the repository and
+reproduces both visible failures, then spends 512 generated tokens explaining
+and drafting a repair that truncates inside a tool call. The server rejects it;
+source remains unchanged. Independent failure replay passes; pressure 1, swap
+0 growth and post-run preflight pass. This is a measured limit of P1 beyond its
+original suite, not a reason to narrow tasks or silently change the comparison.
+Preserve this failure while proceeding with the representation/capability campaign.
