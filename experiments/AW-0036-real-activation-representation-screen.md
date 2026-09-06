@@ -54,3 +54,14 @@ fail closed. Legacy non-fast execution is intentionally unsupported by this
 observer; a real run must prove expected schedule coverage before fixture use.
 Build, disabled/enabled output equivalence and actual fixture validation remain
 pending until AW-0035 relinquishes the model owner. No capture evidence exists yet.
+
+The prepared supervisor `probe_real_activations.py` uses three public diagnostic
+prompts (coding, arithmetic explanation, structured output), each in capture-
+disabled/enabled/disabled order with 12 greedy generated tokens and the original
+0.5-GB cache. Every arm enables the existing AW-0031 route observer as a common
+diagnostic. Acceptance requires identical greedy output and complete route
+sequences across each triple. Captured expert IDs must reconcile to layer/position
+in the route log; bit patterns must be finite and normalized weights sum to one.
+At most 24 captures per prompt are admitted. Each arm has a 180-second deadline
+and host gates; failures and raw hashes are preserved. This supervisor is prepared
+but not run, and its observer build still needs validation.
