@@ -1,0 +1,35 @@
+{
+  "experiment": "AW-0055",
+  "status": "terminal",
+  "disposition": "rejected-exact-single-feedback-strategy",
+  "raw_run": "/Users/chad/Models/agentwing/evidence/AW-0055/20260906T142213.206217Z",
+  "receipt_sha256": "3e640d600d46e218592365f5b08eb2e96385b85886611de18399a60a3039264e",
+  "audit_sha256": "c0c1f910d47d1c44ecdeff57c34307d51515e3c47687bf9423860d501fdc35df",
+  "captured_prefix_preserved": true,
+  "feedback_suffix_decoded_and_verified": true,
+  "generated_tokens": 512,
+  "finish_reason": "length",
+  "wall_seconds": 879.648387084,
+  "host_gates_pass": true,
+  "peak_pressure": 1,
+  "peak_swap_growth_mib": 0.0,
+  "complete_tool_call": false,
+  "parser_results": [
+    {
+      "parser_accepted": false,
+      "reason": "malformed model tool output: no complete tool_call block",
+      "schema_tags_and_prefix_salvage": false
+    },
+    {
+      "parser_accepted": false,
+      "reason": "malformed model tool output: no complete tool_call block",
+      "schema_tags_and_prefix_salvage": true
+    }
+  ],
+  "parser_positive_fixture_passes": true,
+  "parser_review_manifest": "/Users/chad/Models/agentwing/evidence/AW-0055/parser-review/manifest.json",
+  "parser_review_manifest_sha256": "4ed3e448f3e79daedb62371b79f299d31620d05869edb4249613ac8575233a89",
+  "tools_executed": false,
+  "primary_hypothesis_supported": false,
+  "scope": "Single model-only recovery falsifier; fresh prefill, no endpoint utility or live-cache equivalence. Parser compilation/review overhead separate from model wall. No additional feedback attempts in this experiment."
+}

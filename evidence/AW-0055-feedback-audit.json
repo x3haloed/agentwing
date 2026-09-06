@@ -1,0 +1,18 @@
+{
+  "trace_integrity_passed": true,
+  "decisions": 512,
+  "generated_tokens": 512,
+  "finish_reason": "length",
+  "sampling_anomalies": [],
+  "raw_winner_changes": [],
+  "repeated_8gram_occurrences": 149,
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0055/20260906T142213.206217Z",
+  "receipt_sha256": "3e640d600d46e218592365f5b08eb2e96385b85886611de18399a60a3039264e",
+  "record_integrity_passed": true,
+  "captured_prefix_preserved": true,
+  "feedback_suffix_decoded_and_verified": true,
+  "host_gates_pass": true,
+  "wall_seconds": 879.648387084,
+  "complete_protocol_and_useful_progress": "requires separate frozen-parser/content review",
+  "scope": "Model-only recovery diagnostic. No partial tool execution, endpoint utility or live-cache equivalence claimed; interrupted attempts require separate failure audit."
+}

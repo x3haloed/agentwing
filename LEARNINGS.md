@@ -1073,3 +1073,17 @@ and misses a verified archived-inclusion mutation. Reject this exact combined
 candidate. A prompt's stated response budget does not enforce complete work
 units, and correct implementation code alone is not autonomous task success.
 No held-out tasks or acceptance criteria changed; preserve all negative arms.
+
+## 2026-09-06 — Explicit truncation feedback still fails to produce a bounded call
+
+AW-0055 preserves the rejected AW-0054 prompt and generation exactly and adds
+a tokenizer-verified runtime-feedback turn: no command executed, start a new
+smaller complete call, retain all requested work. The single zero-penalty
+512-token response nevertheless starts another comprehensive test replacement
+and truncates inside an assertion. Both frozen parser modes reject it; positive
+fixture passes. All trace, receipt and host checks pass (879.65 seconds, pressure
+1, zero swap growth). Reject this exact feedback strategy. Neither up-front
+budget guidance nor one explicit post-failure notice established reliable call
+decomposition on this captured task. This does not disprove other recovery
+mechanisms, but provides no basis for integrating this one or claiming endpoint
+utility. No commands executed, no held-out tuning, no promotion.

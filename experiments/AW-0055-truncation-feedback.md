@@ -85,3 +85,26 @@ introduced by this diagnostic. The unchanged SamplingReplayTests fixture uses
 AW52_* environment names; the launcher records those explicit values.
 
 Command: `PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 scripts/probe_truncation_feedback.py`.
+
+## Terminal result — rejected
+
+The single feedback generation finished in 879.648387084 seconds, producing
+512 tokens and stopping at length. It begins another comprehensive test-file
+replacement and truncates inside the ascending-sort assertion. The frozen
+parser rejects it in both strict and existing schema/prefix recovery modes:
+no complete tool_call block. A complete positive fixture passes both modes.
+No generated command was executed; the primary recovery hypothesis fails.
+
+Independent audit verifies the preserved 2807-token prefix, decoded 80-token
+feedback suffix, all 512 sampling decisions, frozen pins and recursive receipt.
+No audited sampling anomalies; pressure 1 and zero swap growth. Raw evidence:
+`/Users/chad/Models/agentwing/evidence/AW-0055/20260906T142213.206217Z`.
+Receipt SHA-256:
+`3e640d600d46e218592365f5b08eb2e96385b85886611de18399a60a3039264e`.
+See `evidence/AW-0055-feedback-audit.json` and
+`evidence/AW-0055-terminal-result.json` for audit and parser provenance.
+Parser compilation/review costs are separate from the model-only wall time.
+
+Reject this exact single-feedback strategy without another tuned attempt in
+AW-0055. No recovery integration, endpoint gain or promotion follows. Frozen
+P1, held-out tasks and acceptance gates remain unchanged.
