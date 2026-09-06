@@ -26,6 +26,26 @@ neither broad capability evidence nor the replicated full promotion protocol.
 
 C1 (P1) started at
 `/Users/chad/Models/agentwing/evidence/AW-0044/20260906T073105.428996Z`.
-The frozen corpus audit passed and the owned runner is active; task utility and
-completion are not yet known. Resume the existing run rather than restarting it.
-A1 and C2 have not started. Preserve the planned order and pinned candidate.
+Completed with utility 0 in 1617.620 seconds (26.96 minutes). Client completion,
+protocol, pressure 1 and zero swap growth all pass; independent grading rejects
+the evidence set because the answer cites `config/edge.json` instead of required
+`deploy/launch.sh`. Preserve this failure. All 11 tool calls are valid: three
+discovery searches, six source reads, an answer write and its readback. No tool
+errors or repeated commands were reported; reading back the answer did not catch
+its semantic evidence error. Integrity and grader replay pass in
+`evidence/AW-0044-C1-audit.json`; summary in `evidence/AW-0044-C1-result.json`.
+
+The last request reports 2425 new prompt tokens, zero reuse despite 2237 matched
+prefix tokens, 193 generated tokens, and 654.1 seconds to first token. Source
+inspection confirms tools require the entire cached-token sequence to match;
+there is no partial-prefix state rollback on this branch. The cause of this
+specific mismatch remains untraced. It is a concrete future work-removal target,
+not grounds to alter this comparison's fixed candidate midstream.
+
+A1 started at
+`/Users/chad/Models/agentwing/evidence/AW-0044/20260906T075848.611936Z` using the
+pinned candidate and is active. Resume it rather than restarting. C2 has not
+started. `scripts/audit_development_comparison.py` is ready for the three completed
+arms, including source/configuration pins, ordering, grading and pooled-control
+utility-rate comparison. Static admission checks precede this diagnostic's timed
+clock; a final promotion runner still needs complete accounting.

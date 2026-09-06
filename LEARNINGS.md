@@ -803,3 +803,16 @@ promotion: approximately 1.15–1.19x model-process speedup still does not estab
 the >=1.25x utility goal. The increment over prior runs is not causally isolated
 from OS/startup variation, and expert bytes are unchanged. AW-0044 will test the
 actual tool-driven path with an explicitly pinned server and kernel resource.
+
+## 2026-09-06 — First navigation control fails evidence contract and exposes prefix refill
+
+AW-0044 C1 finishes normally in 1617.62 seconds but scores 0: its evidence list
+substitutes config/edge.json for required deploy/launch.sh. Eleven valid tool
+calls, no tool errors/repeats, protocol pass, pressure 1 and zero swap growth do
+not imply task success. Independent grader replay preserves the failure.
+The final request re-prefills 2425 tokens despite a 2237-token common prefix;
+TTFT is 654.1 seconds. SwiftletSession only reuses an entire matching cached
+sequence for tools, so a partial match cannot restore state. The particular
+mismatch still needs tracing. This identifies potentially large redundant model
+work without narrowing agent capability; keep it separate from the ongoing fixed
+AW-0044 comparison. Candidate A1 is now active; no relative utility result yet.

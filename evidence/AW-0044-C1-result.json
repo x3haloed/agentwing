@@ -1,0 +1,29 @@
+{
+  "arm": "C1",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0044/20260906T073105.428996Z",
+  "raw_receipt_sha256": "ea03da9f9cfe339e47d0b9bcc7394b5a7a96040e1930cdcac6c1b37f79d75051",
+  "utility": 0,
+  "wall_seconds": 1617.6198961660002,
+  "execution_status": "client-completed",
+  "protocol_passed": true,
+  "tool_calls": 11,
+  "failed_tool_calls": 0,
+  "repeated_commands": 0,
+  "manual_tool_roles": {
+    "discovery_searches": 3,
+    "source_reads": 6,
+    "answer_write": 1,
+    "answer_readback": 1
+  },
+  "task_failure": "Independent grader rejected evidence set: config/edge.json was supplied instead of required deploy/launch.sh. No score or task changes.",
+  "last_request": {
+    "new_prompt_tokens": 2425,
+    "reused_prompt_tokens": 0,
+    "matched_prefix_tokens": 2237,
+    "generated_tokens": 193,
+    "ttft_seconds": 654.1
+  },
+  "interpretation": "One P1 development failure, not a candidate comparison. The all-or-nothing cached-token prefix check explains why a partial match alone cannot reuse model state; the exact reason for the token mismatch is not traced yet.",
+  "next_arm": "A1",
+  "next_run": "/Users/chad/Models/agentwing/evidence/AW-0044/20260906T075848.611936Z"
+}
