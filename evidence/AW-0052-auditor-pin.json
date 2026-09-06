@@ -1,0 +1,9 @@
+{
+  "auditor": "scripts/audit_sampling_replay.py",
+  "sha256": "50158da7ba656739003482569b4db786abe75f993e8085b1542ba610763bd7f2",
+  "fixture": "AW51 request13 decisions with synthetic fresh-prefill header; not real replay evidence",
+  "accepted_decisions": 512,
+  "counter_corruption_rejected": true,
+  "score_corruption_flagged": true,
+  "eos_scope": "Checks minNew, 300-token and raw-EOS bounds; decoded punctuation-tail condition not recomputed"
+}
