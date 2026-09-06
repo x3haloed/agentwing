@@ -64,3 +64,9 @@ the required documentation. Independent grader replay/receipt audit passes in
 `evidence/AW-0047-recovery-C1-audit.json`; detailed result is adjacent. This is a
 successful expanded control task that the joint candidate must preserve. P1
 preflight passes after cleanup. Proceed to the frozen recovery A1.
+
+Recovery A1 started at
+`/Users/chad/Models/agentwing/evidence/AW-0047/20260906T093621.794299Z` using the
+frozen joint candidate. It is active; resume it without restarting or changing
+the candidate. Audit its completed record and host/protocol gates before recovery
+C2. No relative utility result is available until the fixed case completes.
