@@ -1,0 +1,112 @@
+{
+  "source_run": "/Users/chad/Models/agentwing/evidence/AW-0051/20260906T121550.770279Z",
+  "source_receipt_sha256": "bb207c26a41199085ab048b9e54314885e1a8bb3796a30b134f9dc41d17e6cb9",
+  "trace_sha256": "5993441d20088f6d53914e40b07685d27d3733957824331f42b15d420ce958a4",
+  "tokenizer_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+  "complete_generated_text_decode_verified": true,
+  "last_request_raw_winner_changes": 29,
+  "changes_displacing_a_newline": 22,
+  "representative_transitions": [
+    {
+      "position": 46,
+      "prefix_tail": "e regression tests:\n\n<tool_call>\n<function=bash>\n<parameter=command>\ncat > /Users/chad/Models/agentwing/active/workspace/test_ledger.py << 'EOF'\nimport unittest",
+      "raw_winner": "\n",
+      "raw_winner_count": 4,
+      "raw_winner_score": 26.88264274597168,
+      "raw_winner_adjusted": 24.88264274597168,
+      "selected": ",",
+      "selected_count": 0,
+      "selected_raw": 25.516483306884766,
+      "selected_adjusted": 25.516483306884766
+    },
+    {
+      "position": 302,
+      "prefix_tail": "e},\n            {'id': 2},\n            {'id': 3, 'archived': False},\n        ]\n        self.assertEqual(\n            list_items(records, include_archived=True),",
+      "raw_winner": "\n",
+      "raw_winner_count": 25,
+      "raw_winner_score": 28.297725677490234,
+      "raw_winner_adjusted": 15.797725677490234,
+      "selected": " records",
+      "selected_count": 2,
+      "selected_raw": 22.000917434692383,
+      "selected_adjusted": 21.000917434692383
+    },
+    {
+      "position": 303,
+      "prefix_tail": "        {'id': 2},\n            {'id': 3, 'archived': False},\n        ]\n        self.assertEqual(\n            list_items(records, include_archived=True), records",
+      "raw_winner": "\n",
+      "raw_winner_count": 25,
+      "raw_winner_score": 27.44727325439453,
+      "raw_winner_adjusted": 14.947273254394531,
+      "selected": "[:",
+      "selected_count": 0,
+      "selected_raw": 20.452119827270508,
+      "selected_adjusted": 20.452119827270508
+    },
+    {
+      "position": 306,
+      "prefix_tail": "    {'id': 2},\n            {'id': 3, 'archived': False},\n        ]\n        self.assertEqual(\n            list_items(records, include_archived=True), records[:3]",
+      "raw_winner": "\n",
+      "raw_winner_count": 25,
+      "raw_winner_score": 28.596250534057617,
+      "raw_winner_adjusted": 16.096250534057617,
+      "selected": " if",
+      "selected_count": 0,
+      "selected_raw": 18.864639282226562,
+      "selected_adjusted": 18.864639282226562
+    },
+    {
+      "position": 318,
+      "prefix_tail": "archived': False},\n        ]\n        self.assertEqual(\n            list_items(records, include_archived=True), records[:3] if len(records) <= 3 else records[:3]",
+      "raw_winner": "\n",
+      "raw_winner_count": 25,
+      "raw_winner_score": 26.555110931396484,
+      "raw_winner_adjusted": 14.055110931396484,
+      "selected": " +",
+      "selected_count": 0,
+      "selected_raw": 17.942249298095703,
+      "selected_adjusted": 17.942249298095703
+    },
+    {
+      "position": 349,
+      "prefix_tail": "clude_archived=True), records[:3] if len(records) <= 3 else records[:3] + [] + [] + [] + [] + [] + [] + [] + [] + [], # noqa: E501 pylint: disable=line-too-long",
+      "raw_winner": "\n",
+      "raw_winner_count": 25,
+      "raw_winner_score": 22.41970443725586,
+      "raw_winner_adjusted": 9.91970443725586,
+      "selected": " \n",
+      "selected_count": 0,
+      "selected_raw": 15.367591857910156,
+      "selected_adjusted": 15.367591857910156
+    },
+    {
+      "position": 364,
+      "prefix_tail": "ds[:3] + [] + [] + [] + [] + [] + [] + [] + [] + [], # noqa: E501 pylint: disable=line-too-long \n        )\n\n    def test_include_archived_true_with_limit(self):",
+      "raw_winner": "\n",
+      "raw_winner_count": 25,
+      "raw_winner_score": 27.045825958251953,
+      "raw_winner_adjusted": 14.545825958251953,
+      "selected": "\n\n",
+      "selected_count": 5,
+      "selected_raw": 17.5976505279541,
+      "selected_adjusted": 15.097650527954102
+    },
+    {
+      "position": 460,
+      "prefix_tail": "    def test_include_archived_true_with_limit(self):\n\n    def test_include_archived_true_with_limit(self):\n\n    def test_include_archived_true_with_limit(self):",
+      "raw_winner": "\n\n",
+      "raw_winner_count": 13,
+      "raw_winner_score": 21.58155059814453,
+      "raw_winner_adjusted": 15.081550598144531,
+      "selected": "\n\n\n",
+      "selected_count": 1,
+      "selected_raw": 15.617229461669922,
+      "selected_adjusted": 15.117229461669922
+    }
+  ],
+  "external_analysis_files": {
+    "/Users/chad/Models/agentwing/evidence/AW-0051/analysis-20260906T121550.770279Z/penalty-transitions.json": "4314fe33231c6a5717f8e7689b3f0b4a77a74362c1514848e46fd907c300e2b2",
+    "/Users/chad/Models/agentwing/evidence/AW-0051/analysis-20260906T121550.770279Z/request-13-input.json": "ddad2cf7529bd1bb5a7fc81cae04a6eee4b3d3e25f11df77661a77d288bfe5ac"
+  },
+  "interpretation": "Accumulated token penalties repeatedly displace the raw winning newline around the pathological suffix. Correct arithmetic does not imply a suitable sampling policy. Counterfactual generation is still needed to establish whether reducing the penalty prevents the loop."
+}

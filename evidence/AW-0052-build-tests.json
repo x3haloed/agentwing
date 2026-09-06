@@ -1,0 +1,14 @@
+{
+  "runtime_revision": "17cc21ae4f372cc704af45834ade0b51c7e4ca3d",
+  "runtime_tree": "7da946442128d571cf68c911028c0d57d953920d",
+  "logs": {
+    "/Users/chad/Models/agentwing/evidence/AW-0052/build-tests.log": "895f84deff50e437824f81e1ccc8aba7ec495b036db6f824eebc19dbedf545cd",
+    "/Users/chad/Models/agentwing/evidence/AW-0052/build-tests-retry.log": "5eb7800063e0394a01503cdd6f5be23901e01c76215eeb29c5fb849d2a45aa54"
+  },
+  "first_attempt_exit": 1,
+  "first_attempt_error": "Nested Testing #require macro expansion in probe; corrected without runtime changes",
+  "retry_exit": 0,
+  "tests_passed": 53,
+  "suites": 8,
+  "binary_sha256": "9b2c5000789e99bee0cd4fc2eb6e935340b9ee35b3822a311aad9d9094f3012f"
+}

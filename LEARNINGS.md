@@ -1002,3 +1002,18 @@ A synthetic added assertion kills that same verified mutation, validating the
 auditor's positive path. All real source receipts remain intact and frozen
 scores unchanged. Full acceptance needs explicit evidence for requested tests
 and other artifacts beyond whichever behaviors a grader happens to check.
+
+## 2026-09-06 — Sampling trace reproduces failure and implicates newline penalties
+
+AW-0051 reproduces AW-0049's complete structured visible trajectory and rejected
+output. All 1439 decisions across 13 requests pass trace, finite-logit, selected
+score arithmetic, argmax and mask checks. Accepted utility remains 0 after
+874.13 seconds; pressure 1 and zero swap growth pass. In the final 512-token
+response, penalties change the raw winner 29 times, displacing a newline 22
+times. At position 302, 25 earlier newlines subtract 12.5 from its raw score,
+leading into redundant expressions and later repeated definitions. This
+supersedes any presumption that correctly implemented repetition penalties are
+necessarily suitable for code. It does not establish counterfactual causality:
+test reduced penalty on the captured input, first checking that fresh-prefill
+control reproduces the incrementally cached failure. No promotion or frozen
+sampling/acceptance changes follow from this diagnostic.

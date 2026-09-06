@@ -1,0 +1,63 @@
+diff --git a/Tests/SwiftletCoreTests/SamplingReplayTests.swift b/Tests/SwiftletCoreTests/SamplingReplayTests.swift
+new file mode 100644
+index 0000000..c9ff8ed
+--- /dev/null
++++ b/Tests/SwiftletCoreTests/SamplingReplayTests.swift
+@@ -0,0 +1,57 @@
++import Foundation
++import Testing
++import Tokenizers
++@testable import SwiftletCore
++
++/// Development-only, raw-token fresh-prefill counterfactual. No tool is executed.
++@Suite struct SamplingReplayTests {
++    @Test func capturedRequest() async throws {
++        let env = ProcessInfo.processInfo.environment
++        let input = URL(fileURLWithPath: try #require(env["AW52_INPUT"]))
++        let output = URL(fileURLWithPath: try #require(env["AW52_OUTPUT"]))
++        let modelDir = URL(fileURLWithPath: try #require(env["AW52_QPACK_DIR"]))
++        let frequency = try #require(env["AW52_FREQUENCY"])
++        let penalty = try #require(Float(frequency))
++        try #require(penalty == 0 || penalty == 0.5)
++        let row = try #require(JSONSerialization.jsonObject(with: Data(contentsOf: input)) as? [String: Any])
++        let ids = try #require(row["actual_prompt_ids"] as? [Int])
++        try #require(!ids.isEmpty)
++        let tokenizer = try await AutoTokenizer.from(modelFolder: modelDir)
++        let model = try QwenMetalModel(modelDir: modelDir, cacheBudgetGB: 0.5)
++        try #require(ids.allSatisfy { $0 >= 0 && $0 < model.config.vocabSize })
++        let eos = try #require(row["eos_ids"] as? [Int])
++        try #require(TextGenerator(model: model).eosTokens == Set(eos))
++        let session = SwiftletSession(testingModel: model, modelDir: modelDir,
++            encodeText: { tokenizer.encode(text: $0) },
++            decodeTokens: { tokenizer.decode(tokens: $0) },
++            renderMessages: { _ in ids },
++            suppressedIds: Set(try #require(row["suppressed_ids"] as? [Int])))
++        var options = SwiftletSession.GenerationOptions.greedy
++        options.temperature = try #require(row["temperature"] as? NSNumber).floatValue
++        options.frequencyPenalty = penalty
++        options.presencePenalty = try #require(row["presence_penalty"] as? NSNumber).floatValue
++        options.noRepeatNGram = try #require(row["no_repeat_ngram"] as? Int)
++        options.minNew = try #require(row["min_new"] as? Int)
++        options.topK = try #require(row["top_k"] as? Int)
++        options.topP = try #require(row["top_p"] as? NSNumber).floatValue
++        options.stopSequences = try #require(row["stop_sequences"] as? [String])
++        options.stopAfterSequences = try #require(row["stop_after_sequences"] as? [String])
++        try #require(options.temperature == 0 && options.presencePenalty == 0 && options.noRepeatNGram == 0)
++        let maxNew = try #require(row["admitted_max_new"] as? Int)
++        try #require(maxNew == 512)
++        var text = ""
++        for try await fragment in session.streamChat(messages: [["role": "user", "content": "captured-token replay"]],
++                                                    maxNew: maxNew, options: options) {
++            text += fragment
++        }
++        let metrics = session.lastMetrics
++        try #require(metrics.promptTokens == ids.count && metrics.reusedPromptTokens == 0)
++        let report: [String: Any] = ["text": text, "frequency_penalty": penalty,
++            "prompt_tokens": metrics.promptTokens, "reused_prompt_tokens": metrics.reusedPromptTokens,
++            "generated_tokens": metrics.generatedTokens, "finish_reason": String(describing: metrics.finishReason),
++            "time_to_first_token": metrics.timeToFirstToken, "tokens_per_second": metrics.tokensPerSecond,
++            "input_mode": "fresh-prefill-exact-captured-ids", "tools_executed": false]
++        try JSONSerialization.data(withJSONObject: report, options: [.sortedKeys, .prettyPrinted])
++            .write(to: output, options: [.withoutOverwriting])
++    }
++}

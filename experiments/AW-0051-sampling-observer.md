@@ -92,3 +92,23 @@ Initial pressure is 1 and swap remains 705.31 MiB. These observations establish
 that capture started, not complete trace validity or behavior neutrality. Keep
 the same supervised process through its terminal outcome, then audit the
 predeclared checks against the pinned AW-0049 reference. No performance claim.
+
+## Terminal result (supersedes running status above)
+
+Capture completed with accepted utility 0 in 874.131608125 seconds, pressure 1,
+zero swap growth. All 13 requests / 1439 sampling decisions audit successfully.
+Complete structured visible trajectory and rejected output equal AW-0049.
+No observed raw nonfinite logits, selected-score arithmetic mismatches, argmax
+mismatches or mask violations. The final 512 IDs decode exactly to rejected text.
+Penalties displace the raw winner 29 times, including 22 newline displacements.
+A repeated newline count of 25 subtracts 12.5 at position 302; the selected
+continuation enters redundant expressions. These are observed decisions, not
+proof that removing the penalty prevents degeneration.
+
+Raw receipt SHA256:
+`bb207c26a41199085ab048b9e54314885e1a8bb3796a30b134f9dc41d17e6cb9`.
+Trace SHA256: `5993441d20088f6d53914e40b07685d27d3733957824331f42b15d420ce958a4`.
+See `evidence/AW-0051-sampling-capture-audit.json` and
+`evidence/AW-0051-repetition-diagnosis.json` for checks and external analysis
+hashes. Original sealed run is unchanged. Disposition: retained diagnostic;
+observation hypothesis supported for this trajectory; capability repair unresolved.
