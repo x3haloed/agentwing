@@ -676,3 +676,12 @@ No held-out model outcomes have been observed or used for tuning. Corpus coverag
 is local and authored, not universal capability evidence. Next: full-path runner
 integration and development-only P1 measurements while representation work proceeds.
 P1's original frozen inputs remain intact.
+
+## 2026-09-05 — P2 development runner reaches live P1 execution
+
+AW-0035 adds a development-only adapter around P1's unchanged execution and task
+boundary. It verifies the frozen corpus, refuses held-out selection, uses fresh
+model/workspace state per task, charges full wall and independently grades output.
+Initial tests reject malformed event pairing, model errors and reused state.
+A first dev-debugging run is active with stable host readings; completion and
+utility are not yet established. Full paired promotion support remains separate.
