@@ -37,3 +37,20 @@ before candidate measurements; end-to-end task preservation remains authoritativ
 This design does not justify a full bank conversion, kernel promotion or fidelity
 claim. Candidate-generated accumulated routes/activations and held-out behavior
 remain required after source-activation screening.
+
+## Observer implementation prepared, not built
+
+`probes/activation_capture/ExpertActivationTrace.swift` and
+`scripts/prepare_activation_capture.py` now prepare the fast-path observer for a
+clean, explicitly named isolated AW-0031 descendant. The original runtime is not
+an accepted target. Hooks run after router synchronization, with lazy input reads
+only when enabled. Capture layers 0/20/39, first four records per layer/schedule,
+at most 24 records. Record position and schedule explicitly; do not equate every
+single-token invocation with decode without reconciling prompt length.
+
+Inputs and normalized weights are stored as exact uint32 Float bit patterns.
+Dimension, expert IDs/count, finite values and exclusive output-file creation
+fail closed. Legacy non-fast execution is intentionally unsupported by this
+observer; a real run must prove expected schedule coverage before fixture use.
+Build, disabled/enabled output equivalence and actual fixture validation remain
+pending until AW-0035 relinquishes the model owner. No capture evidence exists yet.
