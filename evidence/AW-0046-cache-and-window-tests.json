@@ -1,0 +1,40 @@
+{
+  "base_revision": "e707647e9139dbcca86403a1e0a06a705ddabaa3",
+  "runtime_revision": "62e4a084b119f4d975acd768e1e285fe12662093",
+  "reconstructed_tree": "8bf6d837c690973506ed91bf8df64e1bd9236735",
+  "initial_window_tests_passed": 17,
+  "real_cache_recovery_before": {
+    "test_exit": 1,
+    "stale_resident_entries": 160,
+    "bytes_match_disk": false,
+    "allocated_bytes": 534773760,
+    "slots": 160
+  },
+  "repaired_tests": {
+    "passed": 18,
+    "suites": 7,
+    "stale_resident_entries": 0,
+    "bytes_match_disk": true,
+    "allocated_bytes": 534773760,
+    "slots": 160,
+    "command": "AW46_QPACK_DIR=<pinned qpack> swift test -c release --jobs 2 --disable-automatic-resolution --filter CacheOverflowRecoveryTests|OversizedUnionTests|FullChunkOverlapTests|ChunkOverlapTests|ExpertOverlapTests|ExpertCacheTests|GenerationControlTests"
+  },
+  "limits": [
+    "Streaming whole-trajectory and cancellation tested with forced tiny-model windows",
+    "161 valid experts exercised real cache rejection/recovery, not full-model oversized streaming",
+    "No endpoint gain, broad capability or promotion proof",
+    "No peak RSS or disk-throughput claim from these unit tests"
+  ],
+  "sha256": {
+    "/Users/chad/Repos/agentwing/experiments/AW-0046-oversized-union-streaming.patch": "323d26a1d9e79e0e486ba44e5087249bb734f6539cd6b94e34fa83e8fe5b7b69",
+    "/Users/chad/Models/agentwing/evidence/AW-0046/cache-recovery-before.log": "978cbf5077bed314704c3e346dd908e929191c301bda1e35fa7069ef354ccd62",
+    "/Users/chad/Models/agentwing/evidence/AW-0046/recovery-and-windows-fixed.log": "156d0d48ef328ec4352d6268d70209635f49d041b8aba5299d7d8ea0421ea962",
+    "/Users/chad/Models/agentwing/evidence/AW-0046/window-tests.log": "d7432917bd02ad06347decb556ac4f042f9b5b827aa6ca82812bc27946eec6ba",
+    "/Users/chad/Repos/agentwing/scripts/prepare_oversized_union_streaming.py": "63e5c21996292306007b3492ab1c275ab2b0ff036ccea0aac95c66d0955ff48f",
+    "/Users/chad/Repos/agentwing/scripts/prepare_cache_fill_cleanup.py": "9ec1cb3cac54206ccc2a5d8ebf034b40ce6de429ecf588bfd0af68fab52bdd3c",
+    "/Users/chad/Repos/agentwing/probes/runtime_overlap/OversizedUnionTests.swift": "8ff6dec9cf4cc982143c5263b6212b852f5fe7c32b5d224dda116c1e8a5e21bc",
+    "/Users/chad/Repos/agentwing/probes/runtime_overlap/CacheOverflowRecoveryTests.swift": "1a427327e6ab119500f85eb20aa51a4f34562de3111e3814ea5891cbe3c23842",
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0046/.build/release/swiftlet-server": "67f5f2992a19cec132146024a5885575550d7ff1c285af75d26408eab6fb0ba1",
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0046/.build/release/Swiftlet_SwiftletCore.bundle/Kernels.metal.txt": "6fe537e8b0d6dfe5b1b8a0b1b465dfa89a753ddcbd674327304b4786931f97ce"
+  }
+}

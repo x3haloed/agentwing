@@ -857,3 +857,17 @@ time, RSS bounds, accumulated model behavior or capability. Retain isolated
 0843311 for further validation; no promotion. Build/test fixture failures,
 reconstructed patch and tokenizer/source/binary hashes are preserved; P1 passes
 preflight after tests.
+
+## 2026-09-06 — Oversized-cache errors can poison recovery; bounded repair passes
+
+AW-0046's real-cache falsifier confirms that a rejected 161-expert cold batch
+leaves 160 keys pointing at unread buffers. A subsequent fetch falsely hits and
+returns bytes unequal to disk. This is an inherited selection-error cleanup gap,
+separate from windowed execution. Cleanup now invalidates pending fills across
+every throwing exit; the same test leaves zero stale entries and recovers exact
+disk bytes, with the unchanged 534,773,760-byte physical allocation/160 slots.
+Eighteen tests pass, including forced tiny-model window trajectories, cancellation
+and original cache/scheduling checks. Retain isolated 62e4a08; a full-model union
+larger than 160 still needs functional validation. No real-agent repair, utility
+gain or promotion is established by these tests. Failed evidence, reconstruction
+and source/binary hashes are preserved; P1 preflight passes afterward.

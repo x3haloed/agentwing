@@ -1,7 +1,8 @@
 # AW-0046 — Drain expert windows instead of exceeding cache capacity
 
-Status: separate draft source and tests; not applied, built, or executed.
-Complete AW-0044 C2 and its audit before any follow-up build/model experiment.
+Status: isolated implementation passes 18 focused tests after AW-0044 completion.
+Retained for full-model boundary validation; no endpoint or promotion claim.
+The design and falsifier notes below preceded execution; results follow.
 
 AW-0044 A1 fails when a prefill union requests 161 experts from 160 cache slots.
 The existing cache protects the entire batch during selection, so it throws
@@ -41,3 +42,37 @@ confirmed; test error recovery using actual valid expert IDs and compare bytes
 with an independent reader. Windowing alone must not be claimed to repair this
 separate error path. If confirmed, invalidate pending fills on every throwing
 exit and retain the failed-control evidence before testing the repair.
+
+## Executed results
+
+Isolated runtime `62e4a084b119f4d975acd768e1e285fe12662093` builds in release mode.
+First, 17 window/scheduling/cache/cancellation tests pass. Then the separate
+real-cache test requests 161 valid layer-0 experts with the frozen 0.5 GiB budget.
+It fails as predicted: 160 entries remain falsely resident, the next expert-0
+fetch is counted as a hit, and its bytes differ from an independent disk read.
+The failed test and three assertions are preserved in `cache-recovery-before.log`.
+
+`scripts/prepare_cache_fill_cleanup.py` moves pending-fill invalidation into a
+defer covering both slot selection and reads. Successful selection/read behavior
+is unchanged. With that repair, 18 tests in seven suites pass: zero stale entries,
+the recovery fetch is a miss, bytes exactly match disk, and allocation remains
+534,773,760 bytes across 160 slots. Tiny-model forced-window trajectories remain
+bit-identical and cancellation after a completed window recovers successfully.
+The real-cache test loads no full model; this does not yet validate real-model
+oversized streaming or reproduce A1's exact routing history.
+
+Logs are under `/Users/chad/Models/agentwing/evidence/AW-0046`; receipt and source,
+binary, kernel and log hashes are in `evidence/AW-0046-cache-and-window-tests.json`.
+Archived patch reconstructs exact tree
+`8bf6d837c690973506ed91bf8df64e1bd9236735`. P1 preflight passes after tests.
+
+Next boundary diagnostic: use one model process per arm with a fixed synthetic
+diverse-token prefix and larger diagnostic chunk size to exercise unions above
+160. Compare streaming at the production 0.5 GiB budget against a fit-entire-union
+reference with a larger diagnostic cache, on the same token/chunk schedule.
+Record actual union sizes, complete logits, subsequent greedy routes, allocation,
+pressure and swap; require actual overflow and exact accumulated outputs. This
+is a functional oracle, not a throughput comparison or capability task, and
+does not change production chunk/cache settings. If no oversized union occurs,
+the test is inconclusive. Follow with ordinary representative trajectories before
+combining with AW-0045 or spending another endpoint run.

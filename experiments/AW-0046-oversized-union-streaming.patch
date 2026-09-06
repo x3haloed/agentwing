@@ -1,0 +1,213 @@
+diff --git a/Sources/SwiftletCore/ExpertCache.swift b/Sources/SwiftletCore/ExpertCache.swift
+index 34a5c7b..1182546 100644
+--- a/Sources/SwiftletCore/ExpertCache.swift
++++ b/Sources/SwiftletCore/ExpertCache.swift
+@@ -117,6 +117,18 @@ public final class ExpertCache {
+         var result: [MTLBuffer] = []
+         result.reserveCapacity(experts.count)
+         var fills: [(slot: Int, expert: Int)] = []
++        var fillsCompleted = false
++        defer {
++            if !fillsCompleted {
++                // Selection can throw before reads begin, too. Never publish
++                // assigned keys whose bytes did not successfully arrive.
++                for fill in fills {
++                    keyToSlot.removeValue(forKey: slotKey[fill.slot])
++                    slotKey[fill.slot] = -1
++                    slotFreq[fill.slot] = 0
++                }
++            }
++        }
+ 
+         for e in experts {
+             let k = key(layer, e)
+@@ -159,26 +171,15 @@ public final class ExpertCache {
+             }
+         }
+         if !fills.isEmpty {
+-            do {
+-                try reader.readExperts(
+-                    layer: layer,
+-                    fills.map { (expert: $0.expert, into: slots[$0.slot].contents()) },
+-                    ready: ready.map { callback in { i in
+-                        let expert = fills[i].expert
+-                        callback(experts.firstIndex(of: expert)!, self.slots[fills[i].slot])
+-                    } })
+-            } catch {
+-                // Nothing in the batch is trustworthy after a short read:
+-                // release every slot this batch filled so no key points at
+-                // bytes that never arrived.
+-                for fill in fills {
+-                    keyToSlot.removeValue(forKey: slotKey[fill.slot])
+-                    slotKey[fill.slot] = -1
+-                    slotFreq[fill.slot] = 0
+-                }
+-                throw error
+-            }
++            try reader.readExperts(
++                layer: layer,
++                fills.map { (expert: $0.expert, into: slots[$0.slot].contents()) },
++                ready: ready.map { callback in { i in
++                    let expert = fills[i].expert
++                    callback(experts.firstIndex(of: expert)!, self.slots[fills[i].slot])
++                } })
+         }
++        fillsCompleted = true
+         return result
+     }
+ 
+diff --git a/Sources/SwiftletCore/QwenMetalModel.swift b/Sources/SwiftletCore/QwenMetalModel.swift
+index 5014294..044ee72 100644
+--- a/Sources/SwiftletCore/QwenMetalModel.swift
++++ b/Sources/SwiftletCore/QwenMetalModel.swift
+@@ -352,6 +352,10 @@ public final class QwenMetalModel {
+     var overlapExperts = ProcessInfo.processInfo.environment["SWIFTLET_EXPERT_OVERLAP"] == "1"
+     var overlapChunkGateUp = ProcessInfo.processInfo.environment["SWIFTLET_CHUNK_OVERLAP"] == "1"
+     var overlapChunkFull = ProcessInfo.processInfo.environment["SWIFTLET_CHUNK_FULL_OVERLAP"] == "1"
++    var streamOversizedUnions = ProcessInfo.processInfo.environment["SWIFTLET_STREAM_OVERSIZED_UNIONS"] == "1"
++    // Test/diagnostic scheduling cap only; production uses actual cache capacity.
++    var oversizedUnionWindowLimit: Int?
++    private(set) var streamedExpertUnionWindows = 0
+ 
+     // S1b layer-major prefill scratch: one Regions stride and one hidden row
+     // per chunk token. Allocated lazily on the first layer-major prompt call
+@@ -2440,7 +2444,11 @@ extension QwenMetalModel {
+                 } else {
+                     bufs = try fetchExperts(cache, layer: li, experts: union)
+                 }
+-                for (i, e) in union.enumerated() { buffers[e] = bufs[i] }
++                // Full chains have already written every routed down output.
++                // Their source buffers need not remain pinned in pending MoE.
++                if !overlapChunkFull {
++                    for (i, e) in union.enumerated() { buffers[e] = bufs[i] }
++                }
+             }
+             pending = PendingChunkMoE(
+                 layer: li, union: union, buffers: buffers, perToken: perToken,
+@@ -2600,6 +2608,27 @@ extension QwenMetalModel {
+         guard let projs = expertProjs else {
+             throw Checkpoint.Error.badShape("chunk overlap requires qpack projections")
+         }
++        let effectiveCapacity = max(1, min(cache.slotCount,
++            oversizedUnionWindowLimit ?? cache.slotCount))
++        if streamOversizedUnions && overlapChunkFull && union.count > effectiveCapacity {
++            var start = 0
++            while start < union.count {
++                try checkGenerationCancellation(shouldCancel)
++                // Re-read capacity each window; cache allocation may discover a
++                // smaller physical cap. Never keep an oversized protected set.
++                let width = max(1, min(32, min(cache.slotCount,
++                    oversizedUnionWindowLimit ?? cache.slotCount)))
++                let end = min(start + width, union.count)
++                _ = try fetchAndEncodeChunkGateUp(cache, layer: layer,
++                    union: Array(union[start..<end]), perToken: perToken,
++                    shouldCancel: shouldCancel)
++                // The recursive call drains reads and GPU commands on all exits.
++                // Only completed outputs remain live before slots can be reused.
++                streamedExpertUnionWindows += 1
++                start = end
++            }
++            return []
++        }
+         let inter = config.moeIntermediateSize
+         var assignments: [Int: [(t: Int, ki: Int)]] = [:]
+         for (t, entry) in perToken.enumerated() {
+diff --git a/Tests/SwiftletCoreTests/CacheOverflowRecoveryTests.swift b/Tests/SwiftletCoreTests/CacheOverflowRecoveryTests.swift
+new file mode 100644
+index 0000000..0227de6
+--- /dev/null
++++ b/Tests/SwiftletCoreTests/CacheOverflowRecoveryTests.swift
+@@ -0,0 +1,36 @@
++import Foundation
++import Metal
++import Testing
++@testable import SwiftletCore
++
++/// Real valid expert IDs and the frozen 0.5 GiB budget; cache/reader only,
++/// without loading a model or executing a generation. Run explicitly.
++@Suite struct CacheOverflowRecoveryTests {
++    @Test func rejected161ExpertBatchCannotPublishUnfilledHits() throws {
++        let path = try #require(ProcessInfo.processInfo.environment["AW46_QPACK_DIR"])
++        let container = URL(fileURLWithPath: path)
++        let device = try #require(MTLCreateSystemDefaultDevice())
++        let cache = try ExpertCache(containerDir: container, device: device,
++                                    budgetBytes: 536_870_912)
++        #expect(cache.slotCount == 160)
++        #expect(cache.reader.layout.expertCount >= 161)
++        #expect(throws: Checkpoint.Error.self) {
++            try cache.buffers(layer: 0, experts: Array(0..<161))
++        }
++        let falselyResident = (0..<160).filter { cache.residentSlot(layer: 0, expert: $0) != nil }.count
++        #expect(falselyResident == 0)
++        let oracle = try QpackExpertReader(containerDir: container)
++        var scratch = [UInt8](repeating: 0, count: cache.stride)
++        try scratch.withUnsafeMutableBytes {
++            try oracle.readExpert(layer: 0, expert: 0, into: $0.baseAddress!)
++        }
++        let missesBefore = cache.misses
++        let buffer = try #require(try cache.buffers(layer: 0, experts: [0]).first)
++        let recovered = Array(UnsafeRawBufferPointer(start: buffer.contents(), count: cache.stride))
++        let bytesMatch = recovered == scratch
++        #expect(bytesMatch)
++        #expect(cache.misses == missesBefore + 1)
++        #expect(cache.allocatedBytes <= cache.budgetBytes)
++        print("AW46 recovery stale=\(falselyResident) bytesMatch=\(bytesMatch) allocated=\(cache.allocatedBytes) slots=\(cache.slotCount)")
++    }
++}
+diff --git a/Tests/SwiftletCoreTests/OversizedUnionTests.swift b/Tests/SwiftletCoreTests/OversizedUnionTests.swift
+new file mode 100644
+index 0000000..cf393c5
+--- /dev/null
++++ b/Tests/SwiftletCoreTests/OversizedUnionTests.swift
+@@ -0,0 +1,51 @@
++import Foundation
++import Testing
++@testable import SwiftletCore
++
++@Suite struct OversizedUnionTests {
++    @Test func forcedWindowsPreserveWholeTrajectory() throws {
++        let out = try ExpertCacheTests.repackedTiny()
++        defer { try? FileManager.default.removeItem(at: out) }
++        let model = try QwenMetalModel(modelDir: out, cacheBudgetGB: 0.05)
++        model.prefillMode = .layerMajor(chunkTokens: 4)
++        model.overlapChunkFull = true
++        let controlState = QwenCPUModel.DecodeState()
++        var control = try model.step([1, 5, 9, 2, 4, 7, 3], state: controlState)
++        for token in [6, 8, 2] { control += try model.step([token], state: controlState) }
++        let cache = try #require(model.expertCache)
++        let budget = cache.budgetBytes
++        model.streamOversizedUnions = true
++        model.oversizedUnionWindowLimit = 1
++        let state = QwenCPUModel.DecodeState()
++        var candidate = try model.step([1, 5, 9, 2, 4, 7, 3], state: state)
++        for token in [6, 8, 2] { candidate += try model.step([token], state: state) }
++        #expect(candidate.map(\.bitPattern) == control.map(\.bitPattern))
++        #expect(model.streamedExpertUnionWindows > 0)
++        #expect(cache.budgetBytes == budget && cache.allocatedBytes <= budget)
++    }
++
++    @Test func cancellationAfterFirstWindowAndRecovery() throws {
++        let out = try ExpertCacheTests.repackedTiny()
++        defer { try? FileManager.default.removeItem(at: out) }
++        let model = try QwenMetalModel(modelDir: out, cacheBudgetGB: 0.05)
++        model.prefillMode = .layerMajor(chunkTokens: 4)
++        model.overlapChunkFull = true
++        model.streamOversizedUnions = true
++        model.oversizedUnionWindowLimit = 1
++        var routed = false
++        var checks = 0
++        model.prefillExpertUnionObserver = { _, _ in routed = true }
++        #expect(throws: GenerationInterruption.cancelled) {
++            try model.step([1, 5, 9, 2], state: QwenCPUModel.DecodeState(), shouldCancel: {
++                if routed { checks += 1 }
++                return checks >= 3
++            })
++        }
++        #expect(checks == 3 && model.streamedExpertUnionWindows == 1)
++        model.prefillExpertUnionObserver = nil
++        let recovered = try model.step([1, 5, 9, 2], state: QwenCPUModel.DecodeState())
++        model.streamOversizedUnions = false
++        let control = try model.step([1, 5, 9, 2], state: QwenCPUModel.DecodeState())
++        #expect(recovered.map(\.bitPattern) == control.map(\.bitPattern))
++    }
++}
