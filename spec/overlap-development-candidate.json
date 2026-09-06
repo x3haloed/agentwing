@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "AW0043-full-overlap",
+  "status": "development-diagnostic-only",
+  "checkout": "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0043",
+  "source_revision": "e707647e9139dbcca86403a1e0a06a705ddabaa3",
+  "server_binary": "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0043/.build/release/swiftlet-server",
+  "server_binary_sha256": "a67524ba9b7190b6a47d6186cb0d4014cfe9269c1796caa2901ff440b41ac044",
+  "runtime_files": {
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0043/.build/release/Swiftlet_SwiftletCore.bundle/Kernels.metal.txt": "6fe537e8b0d6dfe5b1b8a0b1b465dfa89a753ddcbd674327304b4786931f97ce"
+  },
+  "environment": {
+    "SWIFTLET_EXPERT_OVERLAP": "1",
+    "SWIFTLET_CHUNK_OVERLAP": "1",
+    "SWIFTLET_CHUNK_FULL_OVERLAP": "1"
+  },
+  "control": "spec/validated-local-agent.json",
+  "scope": "Same model and agent profile; execution scheduling only. Not promoted."
+}

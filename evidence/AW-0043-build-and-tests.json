@@ -1,0 +1,19 @@
+{
+  "runtime_revision": "e707647e9139dbcca86403a1e0a06a705ddabaa3",
+  "patch_reconstructs_runtime_tree": "9504224a50a7a13b0c0fd9215d9f12e791efd2e0",
+  "focused_tests": {
+    "passed": 15,
+    "suites": 5,
+    "command": "swift test -c release --jobs 2 --disable-automatic-resolution --filter FullChunkOverlapTests|ChunkOverlapTests|ExpertOverlapTests|ExpertCacheTests|GenerationControlTests"
+  },
+  "sha256": {
+    "/Users/chad/Repos/agentwing/experiments/AW-0043-full-chunk-overlap.patch": "bdd31c22694d66bc285d92b7c6738bdf6b08d11ae7c74d8a3cb3472ad7de46fa",
+    "/Users/chad/Repos/agentwing/scripts/prepare_full_chunk_overlap.py": "f5fd695603926c8a226db7642eaf4d3f0e6a7b06f5d766272ab0b701a4a1b6f8",
+    "/Users/chad/Repos/agentwing/probes/runtime_overlap/FullChunkOverlapTests.swift": "3a911725ba1da5767c513e9d94bef4da5f449d1988d21509c20a387471eccf26",
+    "/Users/chad/Repos/agentwing/probes/runtime_overlap/silu_mul_indexed.metal": "83516206d6537b1b2393daf0e54fd38441cef6f6573b62015a33d8bf29c8caec",
+    "/Users/chad/Models/agentwing/evidence/AW-0043/build-tests.log": "c079c6c9c8f164b9a380ae4d0690263076560601268d332094acfe8e36625959",
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0043/.build/release/swiftlet": "d5993e5f1b0fde0dbbe8255fd66185280b1049d82b99039c3a837ef3d0ccc8be",
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0043/.build/release/swiftlet-server": "a67524ba9b7190b6a47d6186cb0d4014cfe9269c1796caa2901ff440b41ac044",
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0043/.build/release/Swiftlet_SwiftletCore.bundle/Kernels.metal.txt": "6fe537e8b0d6dfe5b1b8a0b1b465dfa89a753ddcbd674327304b4786931f97ce"
+  }
+}

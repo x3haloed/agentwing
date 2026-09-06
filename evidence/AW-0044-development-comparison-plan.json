@@ -1,0 +1,25 @@
+{
+  "id": "AW-0044",
+  "scope": "Development endpoint diagnostic, not held-out or promotion",
+  "task": "dev-navigation",
+  "order": [
+    {
+      "arm": "C1",
+      "profile": "P1"
+    },
+    {
+      "arm": "A1",
+      "profile": "AW0043-full-overlap"
+    },
+    {
+      "arm": "C2",
+      "profile": "P1"
+    }
+  ],
+  "candidate_plan_sha256": "c83b11fd5ecc50abc863cd9a951ea74ea5866826476d52944ee72908ec4adea4",
+  "runner_sha256": "c6c676937dc4c992307d9ea6711ecefb7ed2e25dcd9a4de923a868b451417526",
+  "corpus_receipt_sha256": "d67041e34c10676ed8583d33a9148b2fe1518ea436caba58cb107c46d34ac4b5",
+  "primary_metric": "verified utility per full wall-clock hour; failures score zero and all overhead remains charged",
+  "gates": "Original P1 and P2 protocol, permissions, pressure, swap and 1800s task deadline unchanged",
+  "interpretation": "One task cannot establish broad non-regression or promote; compare work traces for path/order variability"
+}

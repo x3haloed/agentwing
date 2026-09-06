@@ -1,0 +1,141 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0043/20260906T072517.665454Z",
+  "raw_receipt_sha256": "5372b816d5018f631d8948a2e5d1ebc03b2c2b89b78e7e521760f2e789e1c022",
+  "source_revision": "e707647e9139dbcca86403a1e0a06a705ddabaa3",
+  "all_text_routes_and_cache_decisions_match": true,
+  "cases": {
+    "rust-queue": {
+      "text_routes_and_cache_decisions_match": true,
+      "arms": [
+        {
+          "arm": "C1",
+          "wall_seconds": 47.963142375000004,
+          "prefill_seconds": 14.629,
+          "decode_seconds": 28.631,
+          "sampled_disk_read_gib": 44.025474548339844,
+          "peak_sampled_footprint_gib": 2.6496232748031616,
+          "logical_expert_read_gib": 69.216064453125,
+          "route_events": 4840,
+          "fetch_batches": 2640,
+          "max_pressure": 1,
+          "max_swap_growth_mib": 0.0
+        },
+        {
+          "arm": "A1",
+          "wall_seconds": 39.628080542,
+          "prefill_seconds": 12.833,
+          "decode_seconds": 23.495,
+          "sampled_disk_read_gib": 43.82257080078125,
+          "peak_sampled_footprint_gib": 2.663081645965576,
+          "logical_expert_read_gib": 69.216064453125,
+          "route_events": 4840,
+          "fetch_batches": 2640,
+          "max_pressure": 1,
+          "max_swap_growth_mib": 0.0
+        },
+        {
+          "arm": "C2",
+          "wall_seconds": 46.204051292,
+          "prefill_seconds": 14.056,
+          "decode_seconds": 27.977,
+          "sampled_disk_read_gib": 43.79358673095703,
+          "peak_sampled_footprint_gib": 2.660411238670349,
+          "logical_expert_read_gib": 69.216064453125,
+          "route_events": 4840,
+          "fetch_batches": 2640,
+          "max_pressure": 1,
+          "max_swap_growth_mib": 0.0
+        }
+      ],
+      "candidate_ratios_to_neighbor_control_mean": {
+        "wall_seconds": 0.8416536375106457,
+        "prefill_seconds": 0.8947533554122364,
+        "decode_seconds": 0.8300946862634256
+      },
+      "activation_records_per_arm": 27,
+      "activation_bit_patterns_match": true,
+      "coverage": {
+        "full_route_distinct_identities": 5186,
+        "new_relative_to_aw0036_fixtures": 4976,
+        "absent_from_aw0031_trace": 2245,
+        "seen_once_or_twice_in_aw0031": 1613,
+        "captured_distinct_identities": 142,
+        "captured_new_relative_to_aw0036": 55,
+        "captured_absent_from_aw0031": 32,
+        "captured_seen_once_or_twice_in_aw0031": 59
+      }
+    },
+    "unicode-records": {
+      "text_routes_and_cache_decisions_match": true,
+      "arms": [
+        {
+          "arm": "C1",
+          "wall_seconds": 47.849087499999996,
+          "prefill_seconds": 16.11,
+          "decode_seconds": 28.02,
+          "sampled_disk_read_gib": 43.886962890625,
+          "peak_sampled_footprint_gib": 2.661097824573517,
+          "logical_expert_read_gib": 71.79656982421875,
+          "route_events": 5160,
+          "fetch_batches": 2680,
+          "max_pressure": 1,
+          "max_swap_growth_mib": 0.0
+        },
+        {
+          "arm": "A1",
+          "wall_seconds": 41.61221425000002,
+          "prefill_seconds": 14.644,
+          "decode_seconds": 22.977,
+          "sampled_disk_read_gib": 44.18184280395508,
+          "peak_sampled_footprint_gib": 2.664622724056244,
+          "logical_expert_read_gib": 71.79656982421875,
+          "route_events": 5160,
+          "fetch_batches": 2680,
+          "max_pressure": 1,
+          "max_swap_growth_mib": 0.0
+        },
+        {
+          "arm": "C2",
+          "wall_seconds": 47.78600974999998,
+          "prefill_seconds": 16.11,
+          "decode_seconds": 27.956,
+          "sampled_disk_read_gib": 43.836341857910156,
+          "peak_sampled_footprint_gib": 2.660945236682892,
+          "logical_expert_read_gib": 71.79656982421875,
+          "route_events": 5160,
+          "fetch_batches": 2680,
+          "max_pressure": 1,
+          "max_swap_growth_mib": 0.0
+        }
+      ],
+      "candidate_ratios_to_neighbor_control_mean": {
+        "wall_seconds": 0.8702289315651851,
+        "prefill_seconds": 0.9090006207324643,
+        "decode_seconds": 0.8209589824210376
+      },
+      "activation_records_per_arm": 30,
+      "activation_bit_patterns_match": true,
+      "coverage": {
+        "full_route_distinct_identities": 5096,
+        "new_relative_to_aw0036_fixtures": 4884,
+        "absent_from_aw0031_trace": 2239,
+        "seen_once_or_twice_in_aw0031": 1572,
+        "captured_distinct_identities": 163,
+        "captured_new_relative_to_aw0036": 67,
+        "captured_absent_from_aw0031": 50,
+        "captured_seen_once_or_twice_in_aw0031": 55
+      }
+    }
+  },
+  "limits": [
+    "Two development prompts with 64 generated tokens each; not autonomous tasks or universal capability",
+    "Historical rarity is defined only relative to AW-0031; fixture novelty is relative to 250 AW-0036 identities",
+    "Common activation observer and incomplete overlapped phase attribution; timing remains diagnostic",
+    "No held-out task exposure or promotion"
+  ],
+  "activation_records_all_arms": 171,
+  "historical_receipts": {
+    "/Users/chad/Models/agentwing/evidence/AW-0031/20260905T183732Z": "7d897785cda7156ffd7fa98d5c6c32dcf43838050bb3889d9e3b0f2431b6d5d7",
+    "/Users/chad/Models/agentwing/evidence/AW-0037/20260906T063224.469387Z": "fbc63d32717ae642bd97c5f319120c148cd95573fff002829ca54c4a208a44a4"
+  }
+}

@@ -790,3 +790,16 @@ utility objective. Retain the exact mechanism, pursue further cost reduction,
 and keep expensive promotion comparisons pending a stronger performance case.
 Pressure 1, zero swap growth, P1 preflight passes; no held-out exposure. Candidate
 observer revision f0ae501 and all setup/build/evidence provenance are preserved.
+
+## 2026-09-06 — Complete chunk expert overlap survives accumulated checks
+
+AW-0043 adds an indexed SwiGLU batch so each ready prefill expert can execute its
+whole chain while preserving token-batched GEMVs and final sum order. Fifteen
+focused tests pass. Six longer C/A/C runs retain all 171 activation records,
+outputs, routes and cache decisions exactly. Full-wall ratios are 0.842/0.870,
+prefill 0.895/0.909 and decode 0.830/0.821. Pressure 1, zero swap growth; P1 and
+corpus preflight pass. Retain e707647 for a development agent comparison, not
+promotion: approximately 1.15–1.19x model-process speedup still does not establish
+the >=1.25x utility goal. The increment over prior runs is not causally isolated
+from OS/startup variation, and expert bytes are unchanged. AW-0044 will test the
+actual tool-driven path with an explicitly pinned server and kernel resource.

@@ -1,0 +1,180 @@
+diff --git a/Sources/SwiftletCore/Kernels.metal.txt b/Sources/SwiftletCore/Kernels.metal.txt
+index 8b3ee85..5b6b134 100644
+--- a/Sources/SwiftletCore/Kernels.metal.txt
++++ b/Sources/SwiftletCore/Kernels.metal.txt
+@@ -1387,3 +1387,19 @@ kernel void deinterleave_qkvz_batch(
+         data[p.aOff + b + hk * p.rep + ri] = data[baSrc + p.rep + ri];
+     }
+ }
++
++// AW-0043: original SwiGLU arithmetic, arbitrary token/pick offsets.
++// Each uint4 is (count, gate offset, up offset, destination offset).
++kernel void silu_mul_indexed(
++    device const float *g [[buffer(0)]],
++    device const float *u [[buffer(1)]],
++    device float *h [[buffer(2)]],
++    constant uint4 *slots [[buffer(3)]],
++    uint2 tpg [[thread_position_in_grid]])
++{
++    const uint4 po = slots[tpg.y];
++    const uint i = tpg.x;
++    if (i >= po.x) return;
++    float gv = g[po.y + i];
++    h[po.w + i] = (gv / (1.0f + metal::exp(-gv))) * u[po.z + i];
++}
+diff --git a/Sources/SwiftletCore/QwenMetalModel.swift b/Sources/SwiftletCore/QwenMetalModel.swift
+index 7d533b7..5014294 100644
+--- a/Sources/SwiftletCore/QwenMetalModel.swift
++++ b/Sources/SwiftletCore/QwenMetalModel.swift
+@@ -351,6 +351,7 @@ public final class QwenMetalModel {
+     }
+     var overlapExperts = ProcessInfo.processInfo.environment["SWIFTLET_EXPERT_OVERLAP"] == "1"
+     var overlapChunkGateUp = ProcessInfo.processInfo.environment["SWIFTLET_CHUNK_OVERLAP"] == "1"
++    var overlapChunkFull = ProcessInfo.processInfo.environment["SWIFTLET_CHUNK_FULL_OVERLAP"] == "1"
+ 
+     // S1b layer-major prefill scratch: one Regions stride and one hidden row
+     // per chunk token. Allocated lazily on the first layer-major prompt call
+@@ -2131,6 +2132,7 @@ extension QwenMetalModel {
+         var buffers: [Int: MTLBuffer]
+         var perToken: [(picks: [(Int, Float)], weights: [Float])]
+         var gateUpAlreadyEncoded = false
++        var fullChainAlreadyEncoded = false
+     }
+ 
+     /// Where the chunked DeltaNet recurrence stages its contiguous
+@@ -2432,7 +2434,7 @@ extension QwenMetalModel {
+             var buffers: [Int: MTLBuffer] = [:]
+             if let cache = expertCache {
+                 let bufs: [MTLBuffer]
+-                if overlapChunkGateUp {
++                if overlapChunkGateUp || overlapChunkFull {
+                     bufs = try fetchAndEncodeChunkGateUp(cache, layer: li, union: union,
+                                                         perToken: perToken, shouldCancel: shouldCancel)
+                 } else {
+@@ -2442,7 +2444,8 @@ extension QwenMetalModel {
+             }
+             pending = PendingChunkMoE(
+                 layer: li, union: union, buffers: buffers, perToken: perToken,
+-                gateUpAlreadyEncoded: overlapChunkGateUp && expertCache != nil)
++                gateUpAlreadyEncoded: (overlapChunkGateUp || overlapChunkFull) && expertCache != nil,
++                fullChainAlreadyEncoded: overlapChunkFull && expertCache != nil)
+         }
+ 
+         // Tail: flush the last layer's experts for the whole chunk; only the
+@@ -2631,6 +2634,34 @@ extension QwenMetalModel {
+                                 return (xOff: a.t * reg.total + reg.xmoe,
+                                         yOff: a.t * reg.total + reg.exp + K * inter + a.ki * inter)
+                             })
++                        if overlapChunkFull {
++                            barrier(enc)
++                            let slots = assigned.map { a -> SIMD4<UInt32> in
++                                let K = perToken[a.t].picks.count
++                                return SIMD4(UInt32(inter),
++                                    UInt32(a.t * reg.total + reg.exp + a.ki * inter),
++                                    UInt32(a.t * reg.total + reg.exp + K * inter + a.ki * inter),
++                                    UInt32(a.t * reg.total + reg.exp + 2 * K * inter + a.ki * inter))
++                            }
++                            enc.setComputePipelineState(try engine.pipeline("silu_mul_indexed"))
++                            for index in 0..<3 { enc.setBuffer(prefillScratchBuf!, offset: 0, index: index) }
++                            // Metal's inline argument limit is 4096 bytes; chunk
++                            // the offset table without constraining model context.
++                            for start in stride(from: 0, to: slots.count, by: 256) {
++                                let batch = Array(slots[start..<min(start + 256, slots.count)])
++                                batch.withUnsafeBytes { enc.setBytes($0.baseAddress!, length: $0.count, index: 3) }
++                                enc.dispatchThreads(MTLSize(width: inter, height: batch.count, depth: 1),
++                                    threadsPerThreadgroup: MTLSize(width: 64, height: 1, depth: 1))
++                            }
++                            barrier(enc)
++                            try engine.encodeGemvBatch(enc, projs.down.linear(on: buf), rows: config.hiddenSize,
++                                x: prefillScratchBuf!, y: prefillScratchBuf!,
++                                slots: assigned.map { a in
++                                    let K = perToken[a.t].picks.count
++                                    return (xOff: a.t * reg.total + reg.exp + 2 * K * inter + a.ki * inter,
++                                            yOff: a.t * reg.total + reg.dexp + a.ki * config.hiddenSize)
++                                })
++                        }
+                         enc.endEncoding(); cb.commit(); commands.append(cb)
+                     } catch { enc.endEncoding(); throw error }
+                 } catch { failure = error }
+@@ -2714,7 +2745,7 @@ extension QwenMetalModel {
+         // count keeps the legacy per-token loop.
+         let uniformK = pend.perToken.allSatisfy { $0.picks.count == topK }
+         if S > 1, uniformK {
+-            for ki in 0..<topK {
++            for ki in 0..<topK where !pend.fullChainAlreadyEncoded {
+                 try engine.encodeSiluMulBatch(enc, buf: prefillScratchBuf!, count: inter,
+                     gOff: reg.exp + ki * inter,
+                     uOff: reg.exp + topK * inter + ki * inter,
+@@ -2728,7 +2759,7 @@ extension QwenMetalModel {
+             for (t, entry) in pend.perToken.enumerated() {
+                 let slot = prefillSlot(t)
+                 let K = entry.picks.count
+-                for ki in 0..<K {
++                for ki in 0..<K where !pend.fullChainAlreadyEncoded {
+                     try engine.encodeSiluMul(enc, buf: slot.scratch, count: inter,
+                         gOff: slot.base + reg.exp + ki * inter,
+                         uOff: slot.base + reg.exp + K * inter + ki * inter,
+@@ -2743,7 +2774,7 @@ extension QwenMetalModel {
+ 
+         // Stage 3: down projections, one token-batched dispatch per union
+         // expert, plus the shared down covering every chunk token.
+-        for expert in pend.union {
++        for expert in pend.union where !pend.fullChainAlreadyEncoded {
+             let lin = linears(for: expert)
+             try engine.encodeGemvBatch(enc, lin.d, rows: D,
+                 wExtra: lin.e * (moe.stacks?.down.wStride ?? 0),
+diff --git a/Tests/SwiftletCoreTests/FullChunkOverlapTests.swift b/Tests/SwiftletCoreTests/FullChunkOverlapTests.swift
+new file mode 100644
+index 0000000..66d9961
+--- /dev/null
++++ b/Tests/SwiftletCoreTests/FullChunkOverlapTests.swift
+@@ -0,0 +1,49 @@
++import Foundation
++import Testing
++@testable import SwiftletCore
++
++@Suite struct FullChunkOverlapTests {
++    @Test func chunkBoundariesAndDecodeRemainBitIdentical() throws {
++        let out = try ExpertCacheTests.repackedTiny()
++        defer { try? FileManager.default.removeItem(at: out) }
++        let model = try QwenMetalModel(modelDir: out, cacheBudgetGB: 0.05)
++        model.prefillMode = .layerMajor(chunkTokens: 3)
++        var results: [[UInt32]] = []
++        var observed: [[Int]] = []
++        model.routedExpertObserver = { layer, experts in observed.append([layer] + experts) }
++        for enabled in [false, true, false] {
++            model.overlapChunkFull = enabled
++            model.overlapExperts = enabled
++            let state = QwenCPUModel.DecodeState()
++            observed = []
++            var logits = try model.step([1, 5, 9, 2, 4, 7, 3], state: state)
++            for token in [6, 8, 2] { logits += try model.step([token], state: state) }
++            results.append(logits.map(\.bitPattern))
++            if enabled { #expect(!observed.isEmpty) }
++        }
++        #expect(results[0] == results[1] && results[1] == results[2])
++    }
++
++    @Test func cancellationInsideChunkSubmissionDrains() throws {
++        let out = try ExpertCacheTests.repackedTiny()
++        defer { try? FileManager.default.removeItem(at: out) }
++        let model = try QwenMetalModel(modelDir: out, cacheBudgetGB: 0.05)
++        model.overlapChunkFull = true
++        model.prefillMode = .layerMajor(chunkTokens: 4)
++        var routed = false
++        var checks = 0
++        model.prefillExpertUnionObserver = { _, _ in routed = true }
++        #expect(throws: GenerationInterruption.cancelled) {
++            try model.step([1, 5, 9, 2], state: QwenCPUModel.DecodeState(), shouldCancel: {
++                if routed { checks += 1 }
++                return checks >= 2
++            })
++        }
++        #expect(checks == 2)
++        model.prefillExpertUnionObserver = nil
++        let recovered = try model.step([1, 5, 9, 2], state: QwenCPUModel.DecodeState())
++        model.overlapChunkFull = false
++        let control = try model.step([1, 5, 9, 2], state: QwenCPUModel.DecodeState())
++        #expect(recovered.map(\.bitPattern) == control.map(\.bitPattern))
++    }
++}
