@@ -1,0 +1,1 @@
+{"command":"store","handler":"archive.handlers:persist","adapter":"archive.adapters:Journal","table":"archive_entries_v3"}

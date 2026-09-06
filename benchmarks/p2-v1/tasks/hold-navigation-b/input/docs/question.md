@@ -1,0 +1,1 @@
+ANSWER.json fields: job (selected retention job name), source_table (physical event source), timestamp_column (source column used for report date), excluded_status (status excluded from the active report). Follow views and aliases.

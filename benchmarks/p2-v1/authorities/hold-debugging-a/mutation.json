@@ -1,0 +1,5 @@
+{
+  "path": "planner.py",
+  "old": "node=ready[0]",
+  "new": "node=ready[-1]"
+}

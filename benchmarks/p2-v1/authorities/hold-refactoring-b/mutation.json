@@ -1,0 +1,5 @@
+{
+  "path": "paths.py",
+  "old": "if '..' in parts:raise ValueError('parent')",
+  "new": "if False:raise ValueError('parent')"
+}

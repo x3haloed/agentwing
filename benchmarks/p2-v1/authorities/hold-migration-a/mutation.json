@@ -1,0 +1,5 @@
+{
+  "path": "upgrade.py",
+  "old": " or name in flags",
+  "new": ""
+}

@@ -17,3 +17,6 @@ for raw,expected in cases:
  (w/'case.csv').write_text(raw);(w/'out.json').write_text('old content')
  p=subprocess.run([sys.executable,'summarize.py','case.csv','out.json'],cwd=w,text=True,capture_output=True,timeout=10);assert p.returncode==0,p.stderr
  result=json.loads((w/'out.json').read_text());assert result==expected;assert list(result['cents_by_service'])==sorted(result['cents_by_service']);assert (w/'case.csv').read_text()==raw
+
+original=pathlib.Path(__file__).parents[2]/'tasks/dev-data/input/events.csv'
+assert (w/'events.csv').read_bytes()==original.read_bytes()

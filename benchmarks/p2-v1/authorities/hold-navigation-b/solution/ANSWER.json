@@ -1,0 +1,1 @@
+{"job":"retention_v2","source_table":"warehouse.event_log","timestamp_column":"occurred_at","excluded_status":"void"}

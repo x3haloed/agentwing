@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "P2-campaign",
-  "status": "contract-established-corpus-not-yet-frozen",
+  "status": "corpus-frozen-runner-pending",
   "control": "spec/validated-local-agent.json",
   "objective": "At least 25% higher verified autonomous utility/hour with preserved demonstrated general capability",
   "promotion": {
@@ -21,7 +21,16 @@
     "expanded_task_count_minimum": 24,
     "development_tasks": 8,
     "held_out_tasks": 16,
-    "categories": ["unfamiliar-repository-navigation", "debugging", "multi-file-change", "refactoring", "tool-failure-recovery", "data-processing", "configuration-migration", "longer-investigation"],
+    "categories": [
+      "unfamiliar-repository-navigation",
+      "debugging",
+      "multi-file-change",
+      "refactoring",
+      "tool-failure-recovery",
+      "data-processing",
+      "configuration-migration",
+      "longer-investigation"
+    ],
     "minimum_tasks_per_category": 3,
     "minimum_held_out_tasks_per_category": 2,
     "freeze_before_candidate_comparison": true,
@@ -44,10 +53,27 @@
     "P1_declared_protocol_normalization_preserved": true
   },
   "representation_screen": {
-    "account_for": ["physical_storage_reads", "compressed_residency", "decoder_work", "installation_writes", "executable_memory_reads", "metadata_padding", "fixed_model_work", "host_pressure", "complete_agent_wall"],
-    "correctness_ladder": ["layout-and-tiny-reference", "real-early-middle-late-projections", "routed-mixtures-and-rare-selections", "candidate-accumulated-activations-routes-logits", "development-agent-tasks", "sealed-held-out-interleaved-full-path"],
+    "account_for": [
+      "physical_storage_reads",
+      "compressed_residency",
+      "decoder_work",
+      "installation_writes",
+      "executable_memory_reads",
+      "metadata_padding",
+      "fixed_model_work",
+      "host_pressure",
+      "complete_agent_wall"
+    ],
+    "correctness_ladder": [
+      "layout-and-tiny-reference",
+      "real-early-middle-late-projections",
+      "routed-mixtures-and-rare-selections",
+      "candidate-accumulated-activations-routes-logits",
+      "development-agent-tasks",
+      "sealed-held-out-interleaved-full-path"
+    ],
     "foreign_model_numeric_thresholds_are_not_acceptance_authority": true,
     "fixed_source_routes_do_not_establish_candidate_behavior": true,
-    "corpus_freeze_receipt": null
+    "corpus_freeze_receipt": "evidence/AW-0034-corpus-freeze-v1.json"
   }
 }

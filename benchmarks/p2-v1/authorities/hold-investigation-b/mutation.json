@@ -1,0 +1,5 @@
+{
+  "path": "release/summarize.py",
+  "old": "if b['status']=='success'",
+  "new": "if True"
+}

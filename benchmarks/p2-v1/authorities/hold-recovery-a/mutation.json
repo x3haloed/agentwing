@@ -1,0 +1,5 @@
+{
+  "path": "records.py",
+  "old": "encoding='utf-8-sig'",
+  "new": "encoding='utf-8'"
+}

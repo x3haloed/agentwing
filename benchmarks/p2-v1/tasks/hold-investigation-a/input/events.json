@@ -1,0 +1,1 @@
+[{"tenant":"a","account":"cash","event_id":"e1","delta":100},{"tenant":"a","account":"cash","event_id":"e1","delta":100},{"tenant":"b","account":"cash","event_id":"e1","delta":50},{"tenant":"a","account":"cash","event_id":"e2","delta":-100}]

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "suite_id": "agentwing-p2-v1",
-  "status": "construction-not-frozen",
+  "status": "corpus-frozen-v1",
   "utility_per_task": 1,
   "default_timeout_seconds": 1800,
   "tasks": [
@@ -52,6 +52,102 @@
       "split": "development",
       "category": "longer-investigation",
       "prompt": "Investigate the incorrect tenant revenue export using the incident report, runbook, inputs and pipeline code. Fix the root cause, regenerate revenue.json, and write FINDINGS.json using the schema in INCIDENT.md."
+    },
+    {
+      "id": "hold-navigation-a",
+      "split": "held-out",
+      "category": "unfamiliar-repository-navigation",
+      "prompt": "Trace the public archive command to its active storage adapter. Write ANSWER.json following docs/question.md. Preserve repository inputs."
+    },
+    {
+      "id": "hold-debugging-a",
+      "split": "held-out",
+      "category": "debugging",
+      "prompt": "Repair planner.order to satisfy the dependency ordering contract in README.md, including deterministic ordering and error handling."
+    },
+    {
+      "id": "hold-multi-file-a",
+      "split": "held-out",
+      "category": "multi-file-change",
+      "prompt": "Implement the atomic catalog-save contract in README.md across storage and CLI. Preserve prior data on serialization failure and keep the default CLI format compatible."
+    },
+    {
+      "id": "hold-refactoring-a",
+      "split": "held-out",
+      "category": "refactoring",
+      "prompt": "Extract the duplicated query-string serializer into query.encode while preserving both public callers and the exact behavior documented in README.md."
+    },
+    {
+      "id": "hold-recovery-a",
+      "split": "held-out",
+      "category": "tool-failure-recovery",
+      "prompt": "Recover the portable validation entry point and repair the line reader according to README.md. The launcher must work when invoked from another directory, including paths with spaces."
+    },
+    {
+      "id": "hold-data-a",
+      "split": "held-out",
+      "category": "data-processing",
+      "prompt": "Write rank.py and ranking.json to implement the ranking contract in README.md for scores.tsv and arbitrary inputs with the same schema."
+    },
+    {
+      "id": "hold-migration-a",
+      "split": "held-out",
+      "category": "configuration-migration",
+      "prompt": "Implement upgrade.py for the feature-flag schema transition documented in POLICY.md and generate result.json from flags.json."
+    },
+    {
+      "id": "hold-investigation-a",
+      "split": "held-out",
+      "category": "longer-investigation",
+      "prompt": "Investigate the replayed-payment incident, repair the event projection, regenerate balances.json, and write FINDINGS.md explaining the causal defect with source references. Use INCIDENT.md and the runbook."
+    },
+    {
+      "id": "hold-navigation-b",
+      "split": "held-out",
+      "category": "unfamiliar-repository-navigation",
+      "prompt": "Trace the shipped retention report through its SQL lineage. Write ANSWER.json using docs/question.md, and preserve existing files."
+    },
+    {
+      "id": "hold-debugging-b",
+      "split": "held-out",
+      "category": "debugging",
+      "prompt": "Repair the expiring LRU cache in cache.py to satisfy README.md. Preserve the constructor and get/put APIs."
+    },
+    {
+      "id": "hold-multi-file-b",
+      "split": "held-out",
+      "category": "multi-file-change",
+      "prompt": "Add recursive secret redaction through the library and JSONL CLI according to README.md. Keep the existing rules as the authority and preserve input values."
+    },
+    {
+      "id": "hold-refactoring-b",
+      "split": "held-out",
+      "category": "refactoring",
+      "prompt": "Extract the duplicated artifact-path canonicalizer into paths.canonical. Preserve both callers and their validation behavior, as specified in README.md."
+    },
+    {
+      "id": "hold-recovery-b",
+      "split": "held-out",
+      "category": "tool-failure-recovery",
+      "prompt": "Repair the validation launcher so it actually runs the maintained checks, then fix discount.py to meet POLICY.md. Do not alter the maintained checks to obtain success."
+    },
+    {
+      "id": "hold-data-b",
+      "split": "held-out",
+      "category": "data-processing",
+      "prompt": "Implement durations.py and generate totals.json according to README.md, correctly handling UTC offsets and unordered session events."
+    },
+    {
+      "id": "hold-migration-b",
+      "split": "held-out",
+      "category": "configuration-migration",
+      "prompt": "Implement the INI-to-JSON migration in README.md and produce migrated.json from app.ini. Keep unknown settings and correctly parse false values and units."
+    },
+    {
+      "id": "hold-investigation-b",
+      "split": "held-out",
+      "category": "longer-investigation",
+      "prompt": "Diagnose the incorrect release totals using INCIDENT.md, repair the join and aggregation, regenerate totals.json, and document the root cause in FINDINGS.md with source references."
     }
   ]
 }

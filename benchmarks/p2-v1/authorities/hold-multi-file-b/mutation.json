@@ -1,0 +1,5 @@
+{
+  "path": "redactor/api.py",
+  "old": "k.casefold() in SECRET_KEYS",
+  "new": "k in SECRET_KEYS"
+}

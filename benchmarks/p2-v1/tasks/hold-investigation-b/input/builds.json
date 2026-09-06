@@ -1,0 +1,1 @@
+[{"project":"a","build_id":"a1","sequence":1,"status":"success"},{"project":"a","build_id":"a2","sequence":2,"status":"failed"},{"project":"b","build_id":"b1","sequence":1,"status":"success"},{"project":"b","build_id":"b1","sequence":1,"status":"success"}]

@@ -1,0 +1,5 @@
+{
+  "path": "durations.py",
+  "old": "t<g['start'][0]",
+  "new": "t>g['start'][0]"
+}

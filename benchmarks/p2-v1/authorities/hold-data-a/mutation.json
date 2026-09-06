@@ -1,0 +1,5 @@
+{
+  "path": "rank.py",
+  "old": "if score!=previous:rank=i",
+  "new": "if score!=previous:rank+=1"
+}

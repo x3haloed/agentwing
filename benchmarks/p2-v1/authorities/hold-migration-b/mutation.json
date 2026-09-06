@@ -1,0 +1,5 @@
+{
+  "path": "convert.py",
+  "old": "enabled=enabled in ('true','yes','1')",
+  "new": "enabled=bool(enabled)"
+}

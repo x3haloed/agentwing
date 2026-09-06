@@ -1,0 +1,5 @@
+{
+  "path": "query.py",
+  "old": "safe='')",
+  "new": "safe='/')"
+}

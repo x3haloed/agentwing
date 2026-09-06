@@ -1,0 +1,1 @@
+billing/project.py lacked idempotent projection. docs/runbook.md and logs/reconnect.log establish tenant-local event identity and redelivery; deduplicate (tenant,event_id), retaining the first payload.

@@ -1,0 +1,198 @@
+{
+  "tasks_audited": 24,
+  "results": [
+    {
+      "task_id": "dev-navigation",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "dev-debugging",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 1,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "dev-multi-file",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 1,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "dev-refactoring",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 1,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "dev-recovery",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "dev-data",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "dev-migration",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "dev-investigation",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "hold-navigation-a",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "hold-debugging-a",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 1,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "hold-multi-file-a",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "hold-refactoring-a",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "hold-recovery-a",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "hold-data-a",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "hold-migration-a",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "hold-investigation-a",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "hold-navigation-b",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "hold-debugging-b",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 1,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "hold-multi-file-b",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "hold-refactoring-b",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "hold-recovery-b",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "hold-data-b",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "hold-migration-b",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    },
+    {
+      "task_id": "hold-investigation-b",
+      "pristine_rejected": true,
+      "visible_test_files_removed": 0,
+      "visible_test_deletion_rejected": true,
+      "reference_passed": true,
+      "incomplete_repair_rejected": true
+    }
+  ],
+  "scope": "Author correctness and mutation smoke, not model capability; zero-file test deletion is vacuous"
+}

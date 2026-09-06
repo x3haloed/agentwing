@@ -664,3 +664,15 @@ syntax-valid incomplete semantic repairs fail. Initial newline-generation bugs
 in two graders were caught and preserved before any model run. This completes
 the development-category scaffold, not the 24-task panel: sixteen substantively
 distinct held-out tasks and full-path integration remain. Corpus is not frozen.
+
+## 2026-09-05 — Full P2 capability corpus is frozen before model comparisons
+
+AW-0034 now contains all 24 tasks, eight development and sixteen held out across
+eight categories. Every independent authority accepts its reference and rejects
+pristine and semantic-mutant submissions. A 215-file receipt pins inputs and
+authorities; copied-tree checks reject changed, additional and missing inputs.
+Fixture-generation failures were preserved and repaired before any model run.
+No held-out model outcomes have been observed or used for tuning. Corpus coverage
+is local and authored, not universal capability evidence. Next: full-path runner
+integration and development-only P1 measurements while representation work proceeds.
+P1's original frozen inputs remain intact.

@@ -1,0 +1,1 @@
+[{"session":"x","kind":"stop","at":"2026-01-02T00:30:00Z","service":"ignored"},{"session":"x","kind":"start","at":"2026-01-01T23:30:00+01:00","service":"api"},{"session":"y","kind":"start","at":"2026-01-02T00:00:00Z","service":"db"}]

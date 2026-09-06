@@ -18,7 +18,8 @@ def main():
             shutil.copytree(SUITE/'tasks'/task_id/'input',workspace)
             pristine=verify(task_id,workspace)
             assert pristine['utility']==0,(task_id,'pristine accepted')
-            for p in workspace.rglob('test_*.py'):p.unlink()
+            visible_tests=list(workspace.rglob('test_*.py'))
+            for p in visible_tests:p.unlink()
             erased=verify(task_id,workspace)
             assert erased['utility']==0,(task_id,'deleting tests accepted')
             solution=SUITE/'authorities'/task_id/'solution'
@@ -43,8 +44,8 @@ def main():
                 ast.parse(source_file.read_text(), str(source_file))
             mutated=verify(task_id,workspace)
             assert mutated['utility']==0,(task_id,'incomplete fix accepted')
-            rows.append({'task_id':task_id,'pristine_rejected':True,'visible_test_deletion_rejected':True,'reference_passed':True,'incomplete_repair_rejected':True})
-    print(json.dumps({'tasks_audited':len(rows),'results':rows,'scope':'Author correctness and mutation smoke, not model capability; suite construction ongoing'},indent=2))
+            rows.append({'task_id':task_id,'pristine_rejected':True,'visible_test_files_removed':len(visible_tests),'visible_test_deletion_rejected':True,'reference_passed':True,'incomplete_repair_rejected':True})
+    print(json.dumps({'tasks_audited':len(rows),'results':rows,'scope':'Author correctness and mutation smoke, not model capability; zero-file test deletion is vacuous'},indent=2))
 
 
 if __name__=='__main__':main()

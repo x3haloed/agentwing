@@ -1,0 +1,1 @@
+release/select.py filtered success before selecting latest. CONTRACT.md requires selection before status filtering; release/summarize.py now filters after per-project latest selection, which also collapses retry duplicates.

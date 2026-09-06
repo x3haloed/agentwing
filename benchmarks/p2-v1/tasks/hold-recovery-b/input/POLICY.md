@@ -1,0 +1,1 @@
+discount.apply(cents,percent) returns integer cents after a percentage discount. Both arguments are integers excluding bool; cents>=0 and 0<=percent<=100. Use exact integer arithmetic, rounding half up to the nearest cent. Invalid values raise ValueError. No float conversion, including large cents.

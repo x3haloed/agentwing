@@ -40,3 +40,30 @@ CSV grader fixtures. Invalid sources are preserved outside Git at
 They were fixed before model evaluation. The corrected full audit passes;
 `evidence/AW-0034-development-audit.json` records the final result. No inference
 or task-performance measurement was made, and corpus status remains unfrozen.
+
+## Complete corpus and freeze v1
+
+All 24 tasks are now authored: eight development tasks plus two distinct held-out
+tasks per category. The complete authority audit passes pristine/reference/semantic-
+mutation checks for all 24. Visible-test deletion counts are recorded explicitly;
+a zero-file deletion is vacuous, not an anti-tampering result. Held-out task models
+have not run, and no candidate has been tuned on held-out outcomes.
+
+Construction caught escaped-newline errors in reference sources and a backspace
+instead of backslash in a negative grader case. The failed source snapshots and
+failed full audit are preserved under external `AW-0034/heldout-a-construction`
+and `AW-0034/heldout-b-construction`; all were corrected before model evaluation.
+These are fixture authoring defects, not candidate failures.
+
+The corpus receipt is `evidence/AW-0034-corpus-freeze-v1.json`, SHA256
+`d67041e34c10676ed8583d33a9148b2fe1518ea436caba58cb107c46d34ac4b5`.
+It pins 215 files including task inputs, independent graders, solutions,
+acceptance contract, auditing source and final authority results. A copied-tree
+freeze audit accepts identical inputs and rejects a changed manifest, an added
+file and a missing grader. It leaves the actual frozen tree untouched.
+
+Disposition: corpus and authorities retained and frozen; full-path runner,
+comparison plans and candidate identities remain unimplemented/unfrozen. P1
+preflight still passes. Locally authored incident investigations are broader
+than Stage A, but no interaction-length or real-world transfer claim is made.
+This completes corpus construction, not model evaluation or the active goal.

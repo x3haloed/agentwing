@@ -1,0 +1,5 @@
+{
+  "path": "catalog/cli.py",
+  "old": "records=sorted(records,key=lambda r:r['id'])",
+  "new": "records=list(records)"
+}
