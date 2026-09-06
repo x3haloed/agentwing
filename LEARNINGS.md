@@ -943,3 +943,14 @@ do not override the protocol gate. The declared stop policy leaves multi-file
 A1/C2 unattempted; their results must not be inferred. AW-0047 is terminal with
 the joint candidate rejected on recovery preservation, not a completed goal.
 Preserve artifact-only success separately from fully valid autonomous completion.
+
+## 2026-09-06 — Fixed-path recovery control succeeds and still incurs a full refill
+
+AW-0048 C1 scores 1 in 1163.36 seconds with 12 tool calls, protocol pass,
+pressure 1 and no swap growth. Receipt/grader replay, frozen harness pins,
+actual fixed cwd and workspace/private-state archival pass. Its first repair
+passes validation without the earlier controls' invalid Unicode API detour.
+One subsequent 1561-token full refill costs 405.6 seconds TTFT despite 1466
+matching prefix tokens. Fixed paths remove one between-arm input difference;
+this single control cannot prove causality, determinism or candidate utility.
+Continue the unchanged frozen A1/C2 sequence. AW-0047's negative result remains.

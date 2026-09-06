@@ -2,8 +2,9 @@
 
 ## Status
 
-Running the first P1 control. Lifecycle and existing-boundary engineering checks
-pass. AW-0047 remains terminal and negative, with no promotion.
+First P1 control completed successfully; unchanged candidate is next. Lifecycle
+and existing-boundary engineering checks pass. AW-0047 remains terminal and
+negative, with no promotion.
 
 ## Hypothesis
 
@@ -100,3 +101,21 @@ pressure is 1, swap 705.31 MiB. These are startup observations, not final gates
 or task results. A1 and C2 remain unattempted; inspect C1's terminal summary,
 protocol and host gates before advancing. The runner owns process shutdown,
 sampling, deadlines and archival even if the surrounding tool call yields.
+
+### C1 completed
+
+C1 earns accepted utility 1 in 1163.357361 measured seconds (3.094492/hour).
+All protocol checks pass: 12 tool calls, one reported tool error, two repeated
+commands, and 13 requests. Pressure peaks at 1, with zero swap growth.
+Independent recursive-receipt and grader replay pass. The workspace and private
+state were archived, and the fixed staging root contains only its ownership
+marker. Runner/helper hashes and actual Pi cwd match the frozen plan.
+
+The first repair is still call eight, following a different inspection order
+than AW-0047. It uses string casefold without Unicode decomposition and passes
+both the maintained validator and independent grader. Documentation is saved.
+A later full refill processes 1561 tokens despite a 1466-token matching prefix,
+costing 405.6 seconds TTFT. This is charged diagnostic model work, not a candidate
+gain. A1/C2 remain required and AW-0047's failed preservation remains unchanged.
+Small records: `evidence/AW-0048-recovery-C1-audit.json` and
+`evidence/AW-0048-recovery-C1-result.json`.
