@@ -1,0 +1,49 @@
+{
+  "runtime_revision": "62aefb4570d205dfb69bf8ed0771d105d95c5aa3",
+  "runtime_tree": "955856ec667af5631e2bfbaeb9e63c27802c4e48",
+  "base_runtime_revision": "17cc21ae4f372cc704af45834ade0b51c7e4ca3d",
+  "input": "/Users/chad/Models/agentwing/evidence/AW-0051/analysis-20260906T121550.770279Z/request-13-input.json",
+  "source_run": "/Users/chad/Models/agentwing/evidence/AW-0052/20260906T124847.512867Z",
+  "source_receipt_sha256": "a752e38cbd2848c296d55e0083ed1354eb5358eba0983575a1e0e87dc7ad7c8a",
+  "model": "/Users/chad/Models/agentwing/checkpoints/qwen3.6-35b-a3b-8bit.qpack",
+  "environment": {
+    "SWIFTLET_EXPERT_OVERLAP": "1",
+    "SWIFTLET_CHUNK_OVERLAP": "1",
+    "SWIFTLET_CHUNK_FULL_OVERLAP": "1",
+    "SWIFTLET_STREAM_OVERSIZED_UNIONS": "1",
+    "SWIFTLET_TOOL_REPLAY_HISTORY": "1",
+    "DYLD_FRAMEWORK_PATH": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks"
+  },
+  "testing_helper": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec/swift/pm/swiftpm-testing-helper",
+  "test_binary": "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0053/.build/arm64-apple-macosx/release/SwiftletPackageTests.xctest/Contents/MacOS/SwiftletPackageTests",
+  "timeout_seconds_per_arm": 1800,
+  "max_new": 1024,
+  "frequency_penalty": 0,
+  "cache_gib": 0.5,
+  "hashes": {
+    "/Users/chad/Repos/agentwing/scripts/probe_output_budget.py": "f3b71cdd942065dd035d01c528e564da7d54d3018c3150f6ec3946ce1b11c368",
+    "/Users/chad/Repos/agentwing/scripts/run_local_agent.py": "dee0e63573c60137226b541f5380b768799ad1682006438471eec95d511a6fdd",
+    "/Users/chad/Repos/agentwing/scripts/audit_sampling_capture.py": "e75ac3df3193b867a39c2d32c1f5810af04c64763c464c3de9ee01f16bff7f7c",
+    "/Users/chad/Repos/agentwing/probes/sampling_replay/OutputBudgetTests.swift": "8b47da480ad710bf61e0dc2638f1cf92cd2c0d8156cc63c0a822bbcb3c2b5b59",
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0053/Tests/SwiftletCoreTests/OutputBudgetTests.swift": "8b47da480ad710bf61e0dc2638f1cf92cd2c0d8156cc63c0a822bbcb3c2b5b59",
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0053/Package.resolved": "c50a068480c2426110d75e86ed876d313f82aa3459beb26f0b797fc853cc0b40",
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0053/.build/arm64-apple-macosx/release/SwiftletPackageTests.xctest/Contents/MacOS/SwiftletPackageTests": "eade2865a0df47f674b15e6f50423b314362c0eb67bb7cbcbc1edf6bad308cd6",
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0053/.build/release/Swiftlet_SwiftletCore.bundle/Kernels.metal.txt": "6fe537e8b0d6dfe5b1b8a0b1b465dfa89a753ddcbd674327304b4786931f97ce",
+    "/Users/chad/Models/agentwing/evidence/AW-0051/analysis-20260906T121550.770279Z/request-13-input.json": "ddad2cf7529bd1bb5a7fc81cae04a6eee4b3d3e25f11df77661a77d288bfe5ac",
+    "/Users/chad/Repos/agentwing/experiments/AW-0053-output-budget.patch": "c093488c45e540910ba1c1e73d831bdb8b6c79bdf386aaa41d98b7105e1bf118",
+    "/Users/chad/Repos/agentwing/spec/validated-local-agent.json": "e3de38b2a4ddad8ad057ea99935b0b9f7b6a181fe77b3d33e81aa99959400c82",
+    "/Users/chad/Repos/agentwing/spec/dependencies.json": "f342b63ba54d3104dc55a64f386bee13f0f21a3ec7ed3ad4468c27733cecb308",
+    "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec/swift/pm/swiftpm-testing-helper": "da2601bc562f2e0dd0cd7e00e923aee763ce94bdbf3eddccdebf1a4b8d5d313d",
+    "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks/Testing.framework/Versions/A/Testing": "96b6c248ff012a338421f468bb4ab26c3b2aafa75e6d94fc430b75f552e64677",
+    "/Users/chad/Repos/agentwing/evidence/AW-0052-comparison-audit.json": "a4b5c9922e6be5a9f62000e03325ad3d54feb3553528583c3057d833d5476117",
+    "/Users/chad/Repos/agentwing/evidence/AW-0052-terminal-result.json": "0e8dde39a6bc002075b0167d2a03ebe31f247832b382866bd16011b0f2ec875c"
+  },
+  "primary": "Complete valid tool call with useful regression tests within 1024 tokens; protocol and content review required independently",
+  "prefix_gate": "All 512 A1 reference selected IDs and observed score summaries must match",
+  "host_gates": {
+    "critical_pressure_stop": 4,
+    "maximum_swap_growth_mib": 1024,
+    "one_model_owner": true
+  },
+  "scope": "Single model-only falsifier; no endpoint performance or promotion claim"
+}

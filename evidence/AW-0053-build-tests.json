@@ -1,0 +1,13 @@
+{
+  "runtime_revision": "62aefb4570d205dfb69bf8ed0771d105d95c5aa3",
+  "runtime_tree": "955856ec667af5631e2bfbaeb9e63c27802c4e48",
+  "exit": 0,
+  "tests": 53,
+  "suites": 8,
+  "log": "/Users/chad/Models/agentwing/evidence/AW-0053/build-tests.log",
+  "log_sha256": "2c5ab9dd6535f439c6bf6cb2b02ae39f0d0f6e71f7fcb69925ef3d1e8dba19d9",
+  "test_binary_sha256": "eade2865a0df47f674b15e6f50423b314362c0eb67bb7cbcbc1edf6bad308cd6",
+  "kernel_sha256": "6fe537e8b0d6dfe5b1b8a0b1b465dfa89a753ddcbd674327304b4786931f97ce",
+  "production_source_changes": false,
+  "p1_preflight": "passed"
+}

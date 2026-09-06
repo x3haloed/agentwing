@@ -71,3 +71,20 @@ sampler as frozen P1 or weaken criteria because this development case improves.
 ## Disposition
 
 Unresolved conditional diagnostic; no model attempt or new candidate promotion.
+
+## Prerequisite, build and frozen launch
+
+AW-0052 completed and its full receipt/trace audit passes, including both exact
+controls. Isolated AW-0053 runtime revision
+`62aefb4570d205dfb69bf8ed0771d105d95c5aa3` changes only one new test source from
+AW-0052. Release build and 53 focused tests in eight suites pass. P1 preflight
+passes; no model was active during compilation. Build log/binary/kernel hashes
+are in `evidence/AW-0053-build-tests.json`.
+
+`evidence/AW-0053-budget-plan.json` pins the input, source negative reference,
+source tree, test binary, kernel, direct helper/framework and launcher. The
+launcher restores captured sampling fields except the declared zero frequency
+and 1024-token ceiling; it checks actual admission and exact 512-decision prefix.
+The probe cannot execute tools. Strict protocol/content review remains separate.
+
+Command: `PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 scripts/probe_output_budget.py`.
