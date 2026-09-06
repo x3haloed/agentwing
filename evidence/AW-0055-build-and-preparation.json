@@ -1,0 +1,21 @@
+{
+  "runtime_revision": "68c5b723ae26b1a54ba7cf6a4decb0b22e775002",
+  "runtime_tree": "ef1381f2fc606edaa05e707c3cab28e84467b89c",
+  "initial_build_exit": 1,
+  "initial_error": "Tokenizer applyChatTemplate overload requires explicit tools argument; corrected to nil",
+  "retry_exit": 0,
+  "tests": 85,
+  "suites": 10,
+  "tokenizer_preparation_exit": 0,
+  "tokenizer_preparation_tests": 1,
+  "prefix_tokens": 2807,
+  "suffix_tokens": 80,
+  "prepared_tokens": 2887,
+  "logs": {
+    "/Users/chad/Models/agentwing/evidence/AW-0055/build-tests.log": "3c7d24ac889dea4bf088f89cee9005d0fb6f09e3478ae85b89c4c503d0b86c35",
+    "/Users/chad/Models/agentwing/evidence/AW-0055/build-tests-retry.log": "0c1635429dabacebfd8f9428606feaa0cf3542c9d6621aaf9ce3214af86237db",
+    "/Users/chad/Models/agentwing/evidence/AW-0055/tokenizer-preparation.log": "c2ff5ce4bc4102e756c5b4f6a1d30b5109c1d4488b31cdba1d2455d5b57899aa"
+  },
+  "binary_sha256": "061034ffa24914eaf21a9a285babe17d259e7185cf79c7aa62c5ea9abd71cd5e",
+  "kernel_sha256": "6fe537e8b0d6dfe5b1b8a0b1b465dfa89a753ddcbd674327304b4786931f97ce"
+}

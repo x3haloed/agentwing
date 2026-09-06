@@ -17,7 +17,7 @@ import Tokenizers
         try #require(generated.count == 512)
         let feedback = try String(contentsOf: feedbackURL, encoding: .utf8).trimmingCharacters(in: .whitespacesAndNewlines)
         let tokenizer = try await AutoTokenizer.from(modelFolder: modelDir)
-        let turn = try tokenizer.applyChatTemplate(messages: [["role": "user", "content": feedback]],
+        let turn = try tokenizer.applyChatTemplate(messages: [["role": "user", "content": feedback]], tools: nil,
             additionalContext: ["enable_thinking": false])
         let spelling = "<|im_start|>user\n" + feedback + "<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
         try #require(turn == tokenizer.encode(text: spelling))

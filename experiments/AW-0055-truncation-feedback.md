@@ -67,3 +67,21 @@ this diagnostic alone cannot satisfy or override them.
 ## Status
 
 Preparation; no model execution yet.
+
+## Build, tokenizer preparation and frozen launch
+
+Initial build failed because the tokenizer overload requires an explicit tools
+argument. Corrected it to nil; failed log retained. Release rebuild and 85 tests
+in ten suites pass. The separate tokenizer-only test passes without loading
+model weights: 2807 original prompt/generated tokens are preserved exactly and
+80 suffix tokens form the feedback/user turn plus non-thinking assistant prefix.
+Prepared input has 2887 tokens. Exact suffix IDs equal the template spelling.
+
+Source, binary, kernel, tokenizer/template, captured source, feedback, prepared
+IDs, helper/framework and runner are pinned in
+`evidence/AW-0055-feedback-plan.json`. Build and preparation evidence is in
+`evidence/AW-0055-build-and-preparation.json`. No production core changes are
+introduced by this diagnostic. The unchanged SamplingReplayTests fixture uses
+AW52_* environment names; the launcher records those explicit values.
+
+Command: `PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 scripts/probe_truncation_feedback.py`.
