@@ -1102,3 +1102,19 @@ The diagnostic expanded q8 in memory, so it proves neither compressed execution
 nor savings in physical reads, residency, runtime or autonomous work. A different
 error mechanism needs its own fixed-form screen; widening bits alone is not
 established as a route to the endpoint target.
+
+## 2026-09-06 — Nearest-even six-bit rounding improves but does not resolve fidelity
+
+AW-0057 preserves source multiples of four and uses independently enumerated
+nearest-even coding with upper clipping. At the same 76.4706% artifact ratio,
+worst mixture error falls from midpoint's 13.3866% to 10.1449%, but 3/72 mixtures
+still fail 5%; 5/576 experts fail 10% (max 29.7439%). All failing mixtures are
+layer 20 across the three source trajectories. Expert 17's up projection already
+has over 22% error, and expert 175 shows nonlinear amplification. These are
+required cases, not exemptions. Scalar, saved-stage, receipt and host checks
+pass (9.01 seconds, pressure 1, zero swap growth). Reject the exact nearest-even
+form; the comparison does not isolate mean bias from changed individual codes.
+Do not keep adjusting scalar rounding inside either completed experiment.
+A compact successor needs a distinct error-correction or calibrated representation
+mechanism, with its full byte and execution costs, before deeper model work.
+P1, all capability gates and the unexposed held-out panel remain unchanged.

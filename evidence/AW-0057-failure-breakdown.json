@@ -1,0 +1,198 @@
+{
+  "raw_receipt_sha256": "904ac3f6907307f9d771db25d77777f973c710f18207fa62bdcf6bd88f0cfea6",
+  "failed_mixtures": [
+    {
+      "fixture": 4,
+      "case": "coding",
+      "layer": 20,
+      "mixture_relative_l2": 0.08902569502541932,
+      "experts": [
+        {
+          "expert": 17,
+          "gate_fidelity_l2": 0.08288355606924976,
+          "up_fidelity_l2": 0.2304924914419073,
+          "silu_fidelity_l2": 0.3001719019543065,
+          "down_fidelity_l2": 0.2929231835805422
+        },
+        {
+          "expert": 127,
+          "gate_fidelity_l2": 0.07860720738287134,
+          "up_fidelity_l2": 0.148015133922826,
+          "silu_fidelity_l2": 0.08698528396257428,
+          "down_fidelity_l2": 0.08515150361297338
+        },
+        {
+          "expert": 175,
+          "gate_fidelity_l2": 0.0389100422101669,
+          "up_fidelity_l2": 0.029937977115443788,
+          "silu_fidelity_l2": 0.09139052727033914,
+          "down_fidelity_l2": 0.0919166900544793
+        },
+        {
+          "expert": 217,
+          "gate_fidelity_l2": 0.030418019768214854,
+          "up_fidelity_l2": 0.03694838443493909,
+          "silu_fidelity_l2": 0.05518906815532222,
+          "down_fidelity_l2": 0.05814066922678396
+        },
+        {
+          "expert": 18,
+          "gate_fidelity_l2": 0.029982074691654773,
+          "up_fidelity_l2": 0.03193376024801152,
+          "silu_fidelity_l2": 0.054012848156398285,
+          "down_fidelity_l2": 0.05895294708068133
+        },
+        {
+          "expert": 223,
+          "gate_fidelity_l2": 0.030988164212391218,
+          "up_fidelity_l2": 0.033690295105364663,
+          "silu_fidelity_l2": 0.05365692785726111,
+          "down_fidelity_l2": 0.05517586104401429
+        },
+        {
+          "expert": 11,
+          "gate_fidelity_l2": 0.02727347870691128,
+          "up_fidelity_l2": 0.034107086758603695,
+          "silu_fidelity_l2": 0.03379124384975511,
+          "down_fidelity_l2": 0.03476812375624893
+        },
+        {
+          "expert": 8,
+          "gate_fidelity_l2": 0.02756609502536707,
+          "up_fidelity_l2": 0.031985132011940656,
+          "silu_fidelity_l2": 0.044797420806066884,
+          "down_fidelity_l2": 0.0497734971697503
+        }
+      ]
+    },
+    {
+      "fixture": 28,
+      "case": "arithmetic",
+      "layer": 20,
+      "mixture_relative_l2": 0.09730449139066262,
+      "experts": [
+        {
+          "expert": 17,
+          "gate_fidelity_l2": 0.08367051118396826,
+          "up_fidelity_l2": 0.2347986483161778,
+          "silu_fidelity_l2": 0.30090414601417115,
+          "down_fidelity_l2": 0.29743919904873145
+        },
+        {
+          "expert": 127,
+          "gate_fidelity_l2": 0.07961839471849506,
+          "up_fidelity_l2": 0.15019066068294293,
+          "silu_fidelity_l2": 0.08938009129924868,
+          "down_fidelity_l2": 0.08823470052383417
+        },
+        {
+          "expert": 175,
+          "gate_fidelity_l2": 0.03886801358615113,
+          "up_fidelity_l2": 0.02997801440823344,
+          "silu_fidelity_l2": 0.12263403896276075,
+          "down_fidelity_l2": 0.1187472545669261
+        },
+        {
+          "expert": 217,
+          "gate_fidelity_l2": 0.030289981018665948,
+          "up_fidelity_l2": 0.03701971705370135,
+          "silu_fidelity_l2": 0.0549165989820192,
+          "down_fidelity_l2": 0.057879958075450016
+        },
+        {
+          "expert": 18,
+          "gate_fidelity_l2": 0.029994042983379418,
+          "up_fidelity_l2": 0.031911549861265036,
+          "silu_fidelity_l2": 0.05370793485684372,
+          "down_fidelity_l2": 0.05871507321802899
+        },
+        {
+          "expert": 223,
+          "gate_fidelity_l2": 0.03092770755013382,
+          "up_fidelity_l2": 0.033704533008761695,
+          "silu_fidelity_l2": 0.05319367586190835,
+          "down_fidelity_l2": 0.054932046950784
+        },
+        {
+          "expert": 11,
+          "gate_fidelity_l2": 0.027128817705788694,
+          "up_fidelity_l2": 0.03409733211182723,
+          "silu_fidelity_l2": 0.03350933721689648,
+          "down_fidelity_l2": 0.034684920245892405
+        },
+        {
+          "expert": 8,
+          "gate_fidelity_l2": 0.027495880028999626,
+          "up_fidelity_l2": 0.03200575467193627,
+          "silu_fidelity_l2": 0.0446699993351878,
+          "down_fidelity_l2": 0.049779408118089195
+        }
+      ]
+    },
+    {
+      "fixture": 52,
+      "case": "structured",
+      "layer": 20,
+      "mixture_relative_l2": 0.10144905695286724,
+      "experts": [
+        {
+          "expert": 17,
+          "gate_fidelity_l2": 0.08395065675601904,
+          "up_fidelity_l2": 0.22628218462974695,
+          "silu_fidelity_l2": 0.2910543389735066,
+          "down_fidelity_l2": 0.2838231903536088
+        },
+        {
+          "expert": 127,
+          "gate_fidelity_l2": 0.07946563551138917,
+          "up_fidelity_l2": 0.14930721605279165,
+          "silu_fidelity_l2": 0.08461573952728033,
+          "down_fidelity_l2": 0.08380422367033694
+        },
+        {
+          "expert": 175,
+          "gate_fidelity_l2": 0.03879551974094603,
+          "up_fidelity_l2": 0.029802729191008157,
+          "silu_fidelity_l2": 0.1673047326647202,
+          "down_fidelity_l2": 0.1582952552409051
+        },
+        {
+          "expert": 217,
+          "gate_fidelity_l2": 0.030437882886305428,
+          "up_fidelity_l2": 0.03671537456813456,
+          "silu_fidelity_l2": 0.05467115346570417,
+          "down_fidelity_l2": 0.05769848514280754
+        },
+        {
+          "expert": 18,
+          "gate_fidelity_l2": 0.030118551751675708,
+          "up_fidelity_l2": 0.03193734343655602,
+          "silu_fidelity_l2": 0.05392275591652435,
+          "down_fidelity_l2": 0.058824967533443066
+        },
+        {
+          "expert": 223,
+          "gate_fidelity_l2": 0.031072642627836104,
+          "up_fidelity_l2": 0.033693955694464574,
+          "silu_fidelity_l2": 0.05351919798905894,
+          "down_fidelity_l2": 0.055197266395434666
+        },
+        {
+          "expert": 11,
+          "gate_fidelity_l2": 0.027398419012771135,
+          "up_fidelity_l2": 0.033987445724346275,
+          "silu_fidelity_l2": 0.03351450656245889,
+          "down_fidelity_l2": 0.03451485853756252
+        },
+        {
+          "expert": 8,
+          "gate_fidelity_l2": 0.027459149809018674,
+          "up_fidelity_l2": 0.031998113078247674,
+          "silu_fidelity_l2": 0.04484260327839457,
+          "down_fidelity_l2": 0.049802615963817076
+        }
+      ]
+    }
+  ],
+  "interpretation": "All failed mixtures are layer 20, with expert 17 up-projection error above 22% and expert 175 nonlinear amplification. This is source-fixture localization, not permission to exempt identities or positions, nor proof of rounding-bias causality."
+}

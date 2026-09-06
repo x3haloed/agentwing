@@ -39,3 +39,25 @@ changes; no held-out execution or endpoint claim.
 Command: `PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 scripts/probe_expert_sixbit_rne.py`.
 
 Status: frozen single-form source-activation screen.
+
+## Terminal result — rejected
+
+All 72 fixtures / 576 experts complete in 9.006945209 seconds with pressure 1
+and zero swap growth. Exhaustive nearest-even and pack/unpack checks pass.
+Scalar implementation discrepancy is at most 6.5431e-6. Independent saved-stage
+and recursive-receipt audit passes. P1 post-run preflight passes.
+
+Nevertheless 3 mixtures exceed 5%, reaching 10.1449%, and 5 experts exceed
+10%, reaching 29.7439%. Layer maxima are 2.8943%, 10.1449%, and 3.4604%.
+All failed mixtures occur at layer 20 across coding/arithmetic/structured;
+expert 17 already has 22.6–23.5% up-projection error before SwiGLU. Expert 175
+also shows nonlinear amplification. Preserve the full breakdown without
+excluding these identities or positions. Rounding changed both error bias and
+individual codes, so the improvement over midpoint is not a bias-only causal
+measurement. This exact form is rejected before kernel or bank construction.
+
+Raw: `/Users/chad/Models/agentwing/evidence/AW-0057/20260906T145908.631998Z`.
+Receipt SHA-256:
+`904ac3f6907307f9d771db25d77777f973c710f18207fa62bdcf6bd88f0cfea6`.
+Results and localization: `evidence/AW-0057-sixbit-results.json` and
+`evidence/AW-0057-failure-breakdown.json`. No endpoint benefit or promotion.
