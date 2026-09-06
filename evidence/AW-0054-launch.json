@@ -1,0 +1,16 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0054/20260906T135420.586738Z",
+  "supervisor_session": 71937,
+  "server_pid": 99069,
+  "status": "running-not-result",
+  "recorded_prompt_sha256": "ec4a68c9bc5401726e2841f4a024a54edfe2db5ba31b50e1b31d13cbbd4a8204",
+  "trace_first_request": {
+    "new_prompt_tokens": 502,
+    "reused_prompt_tokens": 0,
+    "frequency_penalty": 0,
+    "admitted_max_new": 512
+  },
+  "observed_pi_cwd": [
+    "/Users/chad/Models/agentwing/active/workspace"
+  ]
+}
