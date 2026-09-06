@@ -1,0 +1,8 @@
+{
+  "files": {
+    "scripts/audit_visible_recovery.py": "50761df8e5f7a0268cafccfc14a3a5cd78ae8f314ea277c12ef82db70cafb3af",
+    "/Users/chad/Models/agentwing/evidence/AW-0048/visible-audit-prior-control-check.json": "821197ddd832ad5635a299234bb821727f6f7b4f3ec0cc43445cc5be3a2e250c"
+  },
+  "check": "Completed AW-0047 controls reproduce 13 equal visible events, different seventh tool result, different eighth commands; conditional equality correctly inconclusive without path normalization",
+  "scope": "Post-freeze read-only evidence auditor validation; no runner, task, candidate or model input change"
+}
