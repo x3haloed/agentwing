@@ -1,0 +1,7 @@
+{
+  "auditor": "scripts/audit_candidate_screen.py",
+  "sha256": "f8a723e363c82f102e387f96f2e3210adb24cfaf27dedec39cec0db7c206e184",
+  "plan_sha256": "f472044b48ff772b1428505dbb1cf5d0ea85847f454127779d25dc33a4184e41",
+  "validation": "AST parse passed; completed AW-0049 record validation pending first model attempt",
+  "scope": "Pre-execution audit implementation pin; no performance or capability evidence"
+}
