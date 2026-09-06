@@ -45,3 +45,12 @@ The real tokenizer and 161-expert recovery tests pass in the combined build.
 `spec/joint-development-candidate.json` pins server, kernel and all five flags;
 `evidence/AW-0047-development-plan.json` freezes the runner/order/corpus before
 outcomes. Candidate admission and all 215 frozen corpus files pass checks.
+
+Recovery C1 (P1) started at
+`/Users/chad/Models/agentwing/evidence/AW-0047/20260906T091156.920519Z`.
+Resume its live process rather than restarting. After completion, audit its
+receipt/grade with `audit_p2_development.py`; check protocol and host gates before
+starting A1 under the frozen stop policy. `scripts/audit_joint_development.py`
+audits each completed three-arm case with `--task`, preserving zero rates and
+explicitly distinguishing elapsed time from utility. Its CLI parses; actual
+three-arm audit awaits the runs. Candidate plan and runner remain unchanged.
