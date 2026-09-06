@@ -87,3 +87,13 @@ Recovery C2 (P1) started at
 It is active; resume without restarting. After its individual audit, run
 `audit_joint_development.py --task dev-recovery` on C1/A1/C2 in that order,
 then continue to the frozen multi-file case if host/protocol gates permit.
+
+Recovery C2 completes with utility 1 in 1163.161 seconds, protocol pass,
+pressure 1 and 1.06 MiB peak swap growth. It makes 14 tool calls with two failures
+and three repeats. Its independent audit and the complete C1/A1/C2 comparison
+pass in `evidence/AW-0047-recovery-C2-audit.json` and
+`evidence/AW-0047-recovery-comparison-audit.json`. Both controls solve recovery;
+candidate utility-rate ratio is 0 and control-success preservation fails.
+Reject the joint profile for promotion on this case. Retain its mechanisms for
+further investigation; finishing the predeclared multi-file case does not undo
+this failure. P1 preflight passes; no frozen inputs or scoring changed.

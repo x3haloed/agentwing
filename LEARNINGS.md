@@ -912,3 +912,12 @@ elapsed-time saving. Preserve the semantic failure and the successful P1 outcome
 do not weaken Unicode grading or infer general capability from protocol success.
 Specific attribution to history retention versus different path/context tokens
 remains open. Continue the frozen comparison unchanged; no promotion claim.
+
+## 2026-09-06 — Both recovery controls succeed; joint candidate fails preservation
+
+AW-0047 recovery C2 scores 1 in 1163.16 seconds, with protocol pass, pressure 1
+and 1.06 MiB swap growth. Independent three-arm audit confirms C1=1, A1=0, C2=1.
+The candidate utility-rate ratio is zero and solved-task preservation fails;
+reject promotion despite a much shorter candidate run. Both controls' repeated
+validation and error correction are charged. Continue the frozen multi-file
+diagnostic unchanged; additional results cannot erase this failed requirement.
