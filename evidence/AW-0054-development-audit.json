@@ -1,0 +1,107 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0054/20260906T135420.586738Z",
+  "raw_receipt_sha256": "e779c74a4c2264cbae68d5e5ee324c04bfcf3ba989faa984c2a0f1c08fa7a4df",
+  "plan_sha256": "8d22175cb0c5a3a581147c482924b2073c14b261d25de21378c6466fbe0caa2e",
+  "configuration_and_prompt_trace_checks_passed": true,
+  "tokenizer_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+  "integrity": {
+    "run": "/Users/chad/Models/agentwing/evidence/AW-0054/20260906T135420.586738Z",
+    "checks": {
+      "hashes_match": true,
+      "complete_selection": true,
+      "development_only": true,
+      "utility_sum": true,
+      "utility_rate": true,
+      "wall_includes_tasks": true
+    },
+    "tasks": [
+      {
+        "task_id": "dev-multi-file",
+        "protocol_recomputed": true,
+        "grader_utility_replayed": true,
+        "accepted_utility": true,
+        "execution_matches": true,
+        "pressure_safe": true,
+        "reported_swap_safe": true
+      }
+    ],
+    "passed": true,
+    "scope": "Evidence integrity and verifier replay, not paired promotion or sandbox certification"
+  },
+  "requests": [
+    {
+      "request": 1,
+      "generated_tokens": 94,
+      "finish_reason": "stop",
+      "sampling_anomalies": []
+    },
+    {
+      "request": 2,
+      "generated_tokens": 40,
+      "finish_reason": "stop",
+      "sampling_anomalies": []
+    },
+    {
+      "request": 3,
+      "generated_tokens": 41,
+      "finish_reason": "stop",
+      "sampling_anomalies": []
+    },
+    {
+      "request": 4,
+      "generated_tokens": 41,
+      "finish_reason": "stop",
+      "sampling_anomalies": []
+    },
+    {
+      "request": 5,
+      "generated_tokens": 41,
+      "finish_reason": "stop",
+      "sampling_anomalies": []
+    },
+    {
+      "request": 6,
+      "generated_tokens": 43,
+      "finish_reason": "stop",
+      "sampling_anomalies": []
+    },
+    {
+      "request": 7,
+      "generated_tokens": 41,
+      "finish_reason": "stop",
+      "sampling_anomalies": []
+    },
+    {
+      "request": 8,
+      "generated_tokens": 63,
+      "finish_reason": "stop",
+      "sampling_anomalies": []
+    },
+    {
+      "request": 9,
+      "generated_tokens": 238,
+      "finish_reason": "stop",
+      "sampling_anomalies": []
+    },
+    {
+      "request": 10,
+      "generated_tokens": 258,
+      "finish_reason": "stop",
+      "sampling_anomalies": []
+    },
+    {
+      "request": 11,
+      "generated_tokens": 56,
+      "finish_reason": "stop",
+      "sampling_anomalies": []
+    },
+    {
+      "request": 12,
+      "generated_tokens": 512,
+      "finish_reason": "length",
+      "sampling_anomalies": []
+    }
+  ],
+  "passed": true,
+  "scope": "Record/prompt/sampling/grader audit only. Added regression coverage and actual validation require separate review; no promotion claim."
+}

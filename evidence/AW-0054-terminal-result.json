@@ -1,0 +1,21 @@
+{
+  "experiment": "AW-0054",
+  "status": "terminal",
+  "disposition": "rejected-combined-guidance-and-zero-penalty-candidate",
+  "raw_run": "/Users/chad/Models/agentwing/evidence/AW-0054/20260906T135420.586738Z",
+  "receipt_sha256": "e779c74a4c2264cbae68d5e5ee324c04bfcf3ba989faa984c2a0f1c08fa7a4df",
+  "audit_sha256": "0624ed53b1b0e15dc8671e0c8efadcaddac9bbf0e71301ce827ca8f8c8954ae2",
+  "accepted_utility": 0,
+  "artifact_grader_utility": 1,
+  "protocol_passed": false,
+  "wall_seconds": 891.981828875,
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0.0,
+  "tool_calls": 11,
+  "failed_tools": 1,
+  "requests": 12,
+  "actual_prompt_and_sampling_verified": true,
+  "regression_tests_added": false,
+  "coverage_followup_wall_seconds": 0.6738805,
+  "scope": "Functional code pass does not override protocol failure or missing requested coverage. No comparison-rate or promotion claim; no further attempts in this experiment."
+}

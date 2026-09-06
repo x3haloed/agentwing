@@ -1,0 +1,106 @@
+{
+  "source_run": "/Users/chad/Models/agentwing/evidence/AW-0054/20260906T135420.586738Z",
+  "audit_run": "/Users/chad/Models/agentwing/evidence/AW-0050/20260906T140930.249522Z",
+  "summary": {
+    "cases": [
+      {
+        "case": "submitted-tests-unchanged",
+        "exit": 0,
+        "error": null,
+        "seconds": 0.16528129099999997,
+        "probe": {
+          "default": [
+            {
+              "id": 2
+            }
+          ],
+          "opt_in": [
+            {
+              "id": 1,
+              "archived": true
+            },
+            {
+              "id": 2
+            }
+          ],
+          "input_preserved": true
+        }
+      },
+      {
+        "case": "submitted-tests-mutant",
+        "exit": 0,
+        "error": null,
+        "seconds": 0.162206792,
+        "probe": {
+          "default": [
+            {
+              "id": 2
+            }
+          ],
+          "opt_in": [
+            {
+              "id": 2
+            }
+          ],
+          "input_preserved": true
+        }
+      },
+      {
+        "case": "original-tests-unchanged",
+        "exit": 0,
+        "error": null,
+        "seconds": 0.17130641600000007,
+        "probe": {
+          "default": [
+            {
+              "id": 2
+            }
+          ],
+          "opt_in": [
+            {
+              "id": 1,
+              "archived": true
+            },
+            {
+              "id": 2
+            }
+          ],
+          "input_preserved": true
+        }
+      },
+      {
+        "case": "original-tests-mutant",
+        "exit": 0,
+        "error": null,
+        "seconds": 0.16495733300000004,
+        "probe": {
+          "default": [
+            {
+              "id": 2
+            }
+          ],
+          "opt_in": [
+            {
+              "id": 2
+            }
+          ],
+          "input_preserved": true
+        }
+      }
+    ],
+    "follow_up_wall_seconds": 0.6738805,
+    "targeted_mutation_verified": true,
+    "added_archived_option_coverage_demonstrated": false,
+    "submitted_suite_passed": true,
+    "test_sources_changed": false,
+    "source_receipt_still_intact": true,
+    "limits": [
+      "One targeted mutation is positive evidence when killed; survival does not disprove coverage of other requested behavior",
+      "Original-tests control replaces discovered test*.py files; other submitted implementation/helper files remain",
+      "Unsupported signatures, timeouts and other errors remain inconclusive; inspect logs",
+      "Frozen utility is unchanged; required prompt artifacts still need direct inspection"
+    ]
+  },
+  "audit_manifest_sha256": "2665bf201c5a7e7f492c2b2b4340d7cb592f36262d4ae673599756b04312010e",
+  "launch_summary_sha256": "08803eff8e296f28d7cf7251cd8b29cdd98fae4a020bb5deb5502c22bd5ec3e5"
+}

@@ -95,3 +95,26 @@ runtime, runner, helpers, corpus and unchanged acceptance. Candidate/P1 checks
 and all 215 corpus-file checks pass. No held-out model evaluation occurred.
 
 Command: `PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 scripts/run_bounded_call_development.py --task dev-multi-file --candidate-plan spec/bounded-call-development.json`.
+
+## Terminal negative result
+
+Run `AW-0054/20260906T135420.586738Z` completes in 891.981828875 seconds,
+accepted utility 0. Artifact-only grade is 1; protocol fails on request 12's
+512-token unclosed comprehensive test write. Eleven earlier tool calls include
+one initial failing test run; the later original-suite run passes. The new test
+write is rejected before execution, leaving the original test file unchanged.
+Actual first-prompt tokens contain the complete revised instruction, and all
+requests use the declared zero penalty and original response ceiling.
+
+The complete receipt/configuration/trace/grader audit passes. Pressure peaks
+at 1 with zero swap growth. Supplemental AW-0050 coverage audit on preserved
+copies takes 0.6738805 seconds, verifies the archived-option mutation, and finds
+no added regression coverage. Its source receipt remains intact. These costs
+are separate from unchanged frozen scoring and do not create a rate comparison.
+
+Raw receipt SHA256:
+`e779c74a4c2264cbae68d5e5ee324c04bfcf3ba989faa984c2a0f1c08fa7a4df`.
+See `evidence/AW-0054-development-audit.json`, coverage-audit and terminal-result
+JSON. Disposition: reject the exact combined candidate on this task. No further
+trial in this experiment, no held-out model use, no promotion. P1 preflight
+passes after all owned model/task processes stop. Goal remains active.

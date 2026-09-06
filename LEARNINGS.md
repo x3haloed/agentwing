@@ -1057,3 +1057,19 @@ budgets alone do not ensure executable progress. Do not keep raising caps in
 this experiment. Test generic work decomposition into complete bounded tool
 calls next, without removing requested tests, task breadth or validation.
 P1, frozen benchmarks and acceptance remain unchanged; no endpoint gain claimed.
+
+## 2026-09-06 — Generic call-size guidance still permits a truncated test write
+
+AW-0054 full dev-multi-file completes in 891.98 seconds with accepted utility 0.
+The saved API/CLI independently grade 1, including explicit Boolean-limit
+rejection, and the agent reruns the original suite successfully after editing.
+But it then attempts a comprehensive test-file replacement, reaches 512 tokens,
+and fails tool protocol. All 11 prior calls, including one expected initial
+test failure, remain recorded. The changed generic size/splitting instruction
+is verified in actual prompt tokens, and every request uses zero frequency
+penalty. Receipt, trace, score replay and host checks pass; pressure 1, no swap
+growth. Supplemental copied-artifact audit confirms the test file is unchanged
+and misses a verified archived-inclusion mutation. Reject this exact combined
+candidate. A prompt's stated response budget does not enforce complete work
+units, and correct implementation code alone is not autonomous task success.
+No held-out tasks or acceptance criteria changed; preserve all negative arms.
