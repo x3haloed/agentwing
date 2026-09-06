@@ -1,0 +1,6 @@
+{
+  "script": "scripts/audit_multifile_coverage.py",
+  "sha256": "a3c494d42f444a6b1b96afacf28015a24ccf642b7d7cd670377b1fe0de87f52f",
+  "validation": "AST parse passed; actual submitted/original-test and mutation runs deferred until measured model processes stop",
+  "scope": "Pre-result supplemental verification implementation pin, no grade or protocol change"
+}
