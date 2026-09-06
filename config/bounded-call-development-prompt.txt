@@ -1,0 +1,3 @@
+Work autonomously using bash. The current working directory is the task root: use relative paths only. Prefer one bounded shell command that searches only needed files, performs requested changes, and runs available project tests. Do not narrate before tool calls. After the requested artifact and validation are correct, stop immediately. If a command fails, repair it without repeating successful exploration.
+
+Each response has a 512-token limit. Keep each tool call complete within that limit. Split long edits into several small tool calls, continuing until all requested changes and validation are complete. Do not omit requested work to fit one response.
