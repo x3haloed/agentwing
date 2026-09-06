@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "AW0047-replay-streaming",
+  "status": "development-diagnostic-only",
+  "checkout": "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0047",
+  "source_revision": "4dff62e867d62288d4224974c4add523dad50437",
+  "server_binary": "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0047/.build/release/swiftlet-server",
+  "server_binary_sha256": "c6403872520458769f929f2411c11b92a13a1ec4309ddddb6f06554230c57f3b",
+  "runtime_files": {
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0047/.build/release/Swiftlet_SwiftletCore.bundle/Kernels.metal.txt": "6fe537e8b0d6dfe5b1b8a0b1b465dfa89a753ddcbd674327304b4786931f97ce"
+  },
+  "environment": {
+    "SWIFTLET_EXPERT_OVERLAP": "1",
+    "SWIFTLET_CHUNK_OVERLAP": "1",
+    "SWIFTLET_CHUNK_FULL_OVERLAP": "1",
+    "SWIFTLET_STREAM_OVERSIZED_UNIONS": "1",
+    "SWIFTLET_TOOL_REPLAY_HISTORY": "1"
+  },
+  "control": "spec/validated-local-agent.json",
+  "scope": "Same model, tasks, prompt, tools and generation settings; overlap, bounded streaming/recovery and strict historical replay. Not promoted."
+}

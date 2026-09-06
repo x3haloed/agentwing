@@ -1,0 +1,15 @@
+{
+  "runtime_revision": "4dff62e867d62288d4224974c4add523dad50437",
+  "reconstructed_tree": "d325b9d190ed0b9f2587d485d745b4f922ae9963",
+  "focused_tests_passed": 57,
+  "focused_suites": 11,
+  "real_tokenizer_and_cache_recovery_passed": true,
+  "hashes": {
+    "/Users/chad/Repos/agentwing/experiments/AW-0047-combined-runtime.patch": "f1834d75952417b4cbb0616cd6e410bc997205c4213620aa0b5bbf33353d5feb",
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0047/.build/release/swiftlet-server": "c6403872520458769f929f2411c11b92a13a1ec4309ddddb6f06554230c57f3b",
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0047/.build/release/Swiftlet_SwiftletCore.bundle/Kernels.metal.txt": "6fe537e8b0d6dfe5b1b8a0b1b465dfa89a753ddcbd674327304b4786931f97ce",
+    "/Users/chad/Repos/agentwing/scripts/run_joint_development.py": "97e990fe44773edb038cbbf199ac3535edc9e63a92f4d22f70622d6b635dd761",
+    "/Users/chad/Models/agentwing/evidence/AW-0047/joint-tests.log": "01ce0cdc73acaff1df7494656903cb85cccffb0df86ebdf9edc7ac8509e67b94"
+  },
+  "scope": "Joint unit/integration checks; agent utility and broad capability unproven"
+}

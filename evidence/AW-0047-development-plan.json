@@ -1,0 +1,46 @@
+{
+  "candidate_plan": "spec/joint-development-candidate.json",
+  "candidate_plan_sha256": "d5ef68f14831c7929a993511983c95a000c31b4a2be0447fe55a50fafe8428a6",
+  "runner": "scripts/run_joint_development.py",
+  "runner_sha256": "97e990fe44773edb038cbbf199ac3535edc9e63a92f4d22f70622d6b635dd761",
+  "corpus_receipt_sha256": "d67041e34c10676ed8583d33a9148b2fe1518ea436caba58cb107c46d34ac4b5",
+  "order": [
+    {
+      "task": "dev-recovery",
+      "arm": "C1",
+      "profile": "P1"
+    },
+    {
+      "task": "dev-recovery",
+      "arm": "A1",
+      "profile": "AW0047-replay-streaming"
+    },
+    {
+      "task": "dev-recovery",
+      "arm": "C2",
+      "profile": "P1"
+    },
+    {
+      "task": "dev-multi-file",
+      "arm": "C1",
+      "profile": "P1"
+    },
+    {
+      "task": "dev-multi-file",
+      "arm": "A1",
+      "profile": "AW0047-replay-streaming"
+    },
+    {
+      "task": "dev-multi-file",
+      "arm": "C2",
+      "profile": "P1"
+    }
+  ],
+  "task_timeout_seconds": 1800,
+  "startup_timeout_seconds": 60,
+  "stop_on": [
+    "host-gate failure",
+    "protocol failure"
+  ],
+  "scope": "Development comparison; failures retained, no held-out or promotion claim"
+}
