@@ -1,0 +1,32 @@
+{
+  "source": "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0053/Sources/SwiftletServer/ToolProtocol.swift",
+  "source_sha256": "054782d101c47d6d5739fbb017f27fd063bb7e4d3cfa477f3df1221dd0170752",
+  "extracted_sha256": "c821adf82d769d9de3264d8483986be67db2e0de68887c5646803d4d151bf16c",
+  "driver_sha256": "567919e63172ff2ae27e923b1ecdfaa05cc48078396d3e6ccf8fabd62a35a617",
+  "command": [
+    "swiftc",
+    "/Users/chad/Models/agentwing/evidence/AW-0053/parser-review/FrozenParser.swift",
+    "/Users/chad/Models/agentwing/evidence/AW-0053/parser-review/main.swift",
+    "-o",
+    "/Users/chad/Models/agentwing/evidence/AW-0053/parser-review/review-tool-output"
+  ],
+  "build_exit": 0,
+  "reports": [
+    {
+      "input": "/Users/chad/Models/agentwing/evidence/AW-0053/20260906T132945.841596Z/A1/report.json",
+      "input_sha256": "eea44664964dac38e81e9c66372c92241d22e1455969c606b7d3715624fc5b46",
+      "exit": 0,
+      "review_file": "review-0.json",
+      "review_sha256": "6391d9a32baf4af7784245ba20935c039782eb2f81365e8c5cd6cee796d1a1c9"
+    },
+    {
+      "input": "/Users/chad/Models/agentwing/evidence/AW-0053/parser-positive-fixture.json",
+      "input_sha256": "997d363ad06b254b49cad76d5c37dce60fbbead8c69b258000f54105cda54f22",
+      "exit": 0,
+      "review_file": "review-1.json",
+      "review_sha256": "eb02b0dd0aef17985d438177acb5b347ae2e165d430735b4f914f4cd0a5fa500"
+    }
+  ],
+  "binary_sha256": "3e107d7cfbceee9953ccda8d10fbbde6a04b7cd6d610c44320efcd3254af50d2",
+  "scope": "Exact frozen parser declarations only; does not execute commands or validate artifact behavior."
+}

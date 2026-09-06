@@ -1,0 +1,17 @@
+{
+  "trace_integrity_passed": true,
+  "decisions": 1024,
+  "generated_tokens": 1024,
+  "finish_reason": "length",
+  "sampling_anomalies": [],
+  "raw_winner_changes": [],
+  "repeated_8gram_occurrences": 324,
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0053/20260906T132945.841596Z",
+  "receipt_sha256": "3b954938c3906456ba5aa1393a1a2aded25bf3c6d185dc71aa3dabf3b7a8737d",
+  "record_integrity_passed": true,
+  "prefix_512_tokens_and_observed_scores_match": true,
+  "host_gates_pass": true,
+  "wall_seconds": 936.871808959,
+  "complete_protocol_and_useful_coverage": "requires separate frozen-parser and content review",
+  "scope": "No endpoint utility or promotion claim. Audit assumes terminal report exists; interrupted attempts need separate failure audit."
+}

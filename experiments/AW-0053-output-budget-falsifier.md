@@ -88,3 +88,27 @@ and 1024-token ceiling; it checks actual admission and exact 512-decision prefix
 The probe cannot execute tools. Strict protocol/content review remains separate.
 
 Command: `PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 scripts/probe_output_budget.py`.
+
+## Terminal negative result
+
+Raw run `AW-0053/20260906T132945.841596Z` completed in 936.871808959 seconds,
+pressure 1 and zero swap growth. The full receipt/configuration/trace audit
+passes; all first-512 selected tokens and bounded recorded scores exactly match
+AW-0052 A1. Generation ends at length 1024 during CLI test setup without any
+closing parameter/function/tool-call block. All 1024 decisions are free of the
+audited sampling anomalies. The model emits additional coherent tests but no
+executable complete call. No generated command was executed or repaired.
+
+For protocol review, compile byte-identical error, parsed-call and parser
+function declarations extracted from the frozen runtime, excluding unrelated
+history-cache integration. Both strict and existing schema/prefix-recovery
+modes reject the actual output as no complete tool_call block. A complete
+synthetic bash fixture passes both modes. Source/extraction/driver/binary and
+input/output hashes are preserved in `evidence/AW-0053-parser-review.json` and
+external `AW-0053/parser-review`; the reusable review script is committed.
+
+Receipt SHA256:
+`3b954938c3906456ba5aa1393a1a2aded25bf3c6d185dc71aa3dabf3b7a8737d`.
+See `evidence/AW-0053-budget-audit.json` and terminal-result JSON. Primary
+completion hypothesis rejected; no additional cap increase in this experiment.
+P1 preflight passes after model termination. No utility/performance promotion.

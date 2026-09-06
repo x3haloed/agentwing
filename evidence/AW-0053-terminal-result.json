@@ -1,0 +1,47 @@
+{
+  "experiment": "AW-0053",
+  "status": "terminal",
+  "disposition": "rejected-1024-token-completion-hypothesis",
+  "raw_run": "/Users/chad/Models/agentwing/evidence/AW-0053/20260906T132945.841596Z",
+  "receipt_sha256": "3b954938c3906456ba5aa1393a1a2aded25bf3c6d185dc71aa3dabf3b7a8737d",
+  "audit_sha256": "eea1171c03b2432dc07e5a851a459ae3df47d55adf64f81cdc1a4162dce33e60",
+  "prefix_512_tokens_and_scores_exact": true,
+  "generated_tokens": 1024,
+  "finish_reason": "length",
+  "wall_seconds": 936.871808959,
+  "host_gates_pass": true,
+  "complete_tool_call": false,
+  "parser_results": [
+    {
+      "parser_accepted": false,
+      "reason": "malformed model tool output: no complete tool_call block",
+      "schema_tags_and_prefix_salvage": false
+    },
+    {
+      "parser_accepted": false,
+      "reason": "malformed model tool output: no complete tool_call block",
+      "schema_tags_and_prefix_salvage": true
+    }
+  ],
+  "parser_positive_fixture_passes": true,
+  "parser_review_manifest": "/Users/chad/Models/agentwing/evidence/AW-0053/parser-review/manifest.json",
+  "parser_review_manifest_sha256": "76a82c248c2d4b2e5784776b6f818f1deeb0155c8cd8c995320e5142efbabb6c",
+  "review_script_sha256": "adc814f127bcba1c680ba066c02c37eaee6a43b8a866a965f773612512d568b0",
+  "named_test_functions": [
+    "test_filter_before_limit",
+    "test_default_hides_archived",
+    "test_include_archived_shows_all",
+    "test_sort_ascending_by_id",
+    "test_limit_applied_after_filter",
+    "test_limit_zero_raises_valueerror",
+    "test_limit_negative_raises_valueerror",
+    "test_preserves_input_records",
+    "test_empty_records",
+    "test_limit_larger_than_results",
+    "test_cli_default_hides_archived"
+  ],
+  "truncated_suffix": "    ])\n        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:\n            f.write(data)\n",
+  "tools_executed": false,
+  "primary_hypothesis_supported": false,
+  "scope": "Model-only negative diagnostic. Compilation/parser-review overhead is separate and not included in reported model wall; no endpoint utility/rate claim. No further cap increases in this experiment."
+}

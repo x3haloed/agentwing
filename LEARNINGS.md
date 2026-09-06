@@ -1043,3 +1043,17 @@ now test completion while requiring the existing zero-penalty prefix to match.
 Do not generalize one coherent prefix to capability preservation or silently
 change frozen P1 or matched-sampling acceptance. The earlier stopped launch
 and all three unsuccessful tool outputs remain part of the evidence.
+
+## 2026-09-06 — Doubling the output cap still fails to complete a coherent tool call
+
+AW-0053 zero-penalty 1024-token diagnostic preserves every first-512 selected
+ID and recorded score summary from AW-0052 A1, then continues coherent regression
+tests until truncating during CLI test setup. It completes in 936.87 seconds
+with pressure 1, no swap growth and no audited sampling anomalies, but never
+closes its tool call. Exact frozen parser declarations reject it in strict and
+existing recovery modes; a complete positive fixture passes. The primary
+1024-token completion hypothesis is rejected. Coherent generation and larger
+budgets alone do not ensure executable progress. Do not keep raising caps in
+this experiment. Test generic work decomposition into complete bounded tool
+calls next, without removing requested tests, task breadth or validation.
+P1, frozen benchmarks and acceptance remain unchanged; no endpoint gain claimed.
