@@ -1,0 +1,39 @@
+{
+  "pristine_checks": [
+    {
+      "task_id": "01-navigation",
+      "pristine_utility": 0
+    },
+    {
+      "task_id": "02-single-file-fix",
+      "pristine_utility": 0
+    },
+    {
+      "task_id": "03-multi-file-fix",
+      "pristine_utility": 0
+    },
+    {
+      "task_id": "04-refactor",
+      "pristine_utility": 0
+    },
+    {
+      "task_id": "05-data-transform",
+      "pristine_utility": 0
+    },
+    {
+      "task_id": "06-failure-recovery",
+      "pristine_utility": 0
+    },
+    {
+      "task_id": "07-bounded-read",
+      "pristine_utility": 0
+    },
+    {
+      "task_id": "08-config-sync",
+      "pristine_utility": 0
+    }
+  ],
+  "synthetic_positive_utility": 1,
+  "source_unchanged": true,
+  "scope": "No model execution; unchanged frozen grader on disposable copies"
+}
