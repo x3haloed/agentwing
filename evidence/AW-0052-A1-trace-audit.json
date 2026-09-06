@@ -1,0 +1,38 @@
+{
+  "trace_integrity_passed": true,
+  "decisions": 512,
+  "generated_tokens": 512,
+  "finish_reason": "length",
+  "sampling_anomalies": [],
+  "raw_winner_changes": [],
+  "repeated_8gram_occurrences": 163,
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0052/20260906T124847.512867Z",
+  "arm": "A1",
+  "record": {
+    "arm": "A1",
+    "frequency_penalty": 0.0,
+    "exit": 0,
+    "error": null,
+    "wall_seconds": 730.0008465419999,
+    "swap_baseline_mib": 705.31,
+    "peak_pressure": 1,
+    "peak_swap_growth_mib": 0.75
+  },
+  "complete_tool_call": false,
+  "protocol_reason": "No closing parameter/function/tool_call markers; no complete block matches the frozen parser call pattern",
+  "named_test_functions": [
+    "test_filter_before_limit",
+    "test_default_hides_archived",
+    "test_include_archived_shows_all",
+    "test_sort_ascending_by_id"
+  ],
+  "truncated_suffix": "        {'id': 3},\n            {'id': 5},\n        ])\n\n    def test_limit_applied",
+  "source_files_sha256": {
+    "/Users/chad/Models/agentwing/evidence/AW-0052/20260906T124847.512867Z/A1/sampling.jsonl": "90438b196af893b62e6df3c0d1806c53d12d9b45e5ef3f0fbce11163d2402a5f",
+    "/Users/chad/Models/agentwing/evidence/AW-0052/20260906T124847.512867Z/A1/report.json": "0ae1a9e5fe2d0159c0966d2d97dd341304bf360d4e5fa7d43d0098612900b9b5",
+    "/Users/chad/Models/agentwing/evidence/AW-0052/20260906T124847.512867Z/A1/result.json": "d5ea703c4c1e2a0f5303363d374c6fcc62f17373e0c4b88cc9251bd3f4d9a4df"
+  },
+  "interpretation": "Observed earlier pathological suffix absent in this output, but 512-token tool-completion hypothesis fails. Content is unexecuted and not an agent endpoint success.",
+  "scope": "Completed A1 trace/content inspection; C2 and whole-run receipt pending",
+  "observed_next_arm_process": "84557 74792 84557 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec/swift/pm/swiftpm-testing-helper --test-bundle-path /Users/chad/Models/agentwing/reproductions/Swiftlet-AW0052/.build/arm64-apple-macosx/release/SwiftletPackageTests.xctest/Contents/MacOS/SwiftletPackageTests --filter SamplingReplayTests /Users/chad/Models/agentwing/reproductions/Swiftlet-AW0052/.build/arm64-apple-macosx/release/SwiftletPackageTests.xctest/Contents/MacOS/SwiftletPackageTests --testing-library swift-testing"
+}

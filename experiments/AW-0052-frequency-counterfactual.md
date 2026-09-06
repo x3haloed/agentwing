@@ -102,3 +102,17 @@ all 512 positions. Maximum selected raw-score absolute difference is 0. This
 strengthens the observed replay equivalence without asserting full-logit or
 hidden-state identity. Trace hashes and field counts are in
 `evidence/AW-0052-C1-observed-score-comparison.json`.
+
+## Zero-penalty arm completes with an incomplete tool call
+
+A1 completed in 730.000846542 seconds, pressure 1 and swap growth 0.75 MiB.
+All 512 decisions pass the trace/sampling checks. Output contains coherent,
+distinct regression tests for filtering, default behavior, archived inclusion
+and sorting, then ends at `def test_limit_applied` at the unchanged token cap.
+The earlier redundant-expression/repeated-definition suffix is absent, but no
+parameter, function or tool-call closing markers exist. No complete block can
+match the frozen parser call pattern. The primary hypothesis that removing the
+penalty completes this call within 512 tokens therefore fails. Test-run exit 0
+only means probe execution succeeded; no generated command was executed and no
+endpoint utility is claimed. The second 0.5 control is running as predeclared.
+Evidence: `evidence/AW-0052-A1-trace-audit.json`; whole-run audit remains pending.
