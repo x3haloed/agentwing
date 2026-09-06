@@ -99,3 +99,12 @@ arm, sequential C/A/C per prompt, full route/activation captures and host gates.
 Candidate enables all overlap flags plus oversized streaming; reference disables
 them in the same repaired source. AW-0045 is still separate. Compare exact
 outputs/routes/activation records; do not derive task utility from this screen.
+
+The ordinary check completes at
+`/Users/chad/Models/agentwing/evidence/AW-0046/20260906T090305.221423Z`.
+All six runs match text, every route/cache decision and all 171 activation
+records exactly. Rust/Unicode candidate full-wall ratios are 0.831/0.893 against
+neighboring controls; these remain model diagnostics, not autonomous utility.
+Pressure 1, swap growth 0, independent accumulated/historical-coverage audit and
+P1 preflight all pass. `evidence/AW-0046-ordinary-trajectory-audit.json` preserves
+the result and receipt. Retain for combination with AW-0045 and tool evaluation.

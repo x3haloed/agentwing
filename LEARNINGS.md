@@ -883,3 +883,12 @@ their timings are not comparable endpoint or production-throughput evidence.
 Pressure 1, zero swap growth and P1 preflight pass. This validates actual
 oversized-union streaming, beyond the previous forced tiny-model test, while
 ordinary accumulated trajectories and tool-driven capability remain required.
+
+## 2026-09-06 — Streaming repair preserves ordinary accumulated trajectories
+
+AW-0046's ordinary Rust/Unicode C/A/C runs match text, complete routes and cache
+decisions, and all 171 sampled accumulated activations exactly. Candidate wall
+ratios are 0.831/0.893 with pressure 1 and no swap growth; they are model-only
+diagnostics. Combined with the separate real oversized-union boundary check,
+this supports integrating the repair with AW-0045 historical replay for tool
+evaluation. It does not yet establish repaired autonomous capability or utility.
