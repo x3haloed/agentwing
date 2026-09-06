@@ -82,3 +82,25 @@ First capture run launched at
 It follows the declared nine-arm schedule. At launch, no P1 process remained.
 Actual capture coverage, route/output equivalence and fixture admission remain
 pending until this run completes. P1's source/binary/profile are unchanged.
+
+## Capture admitted
+
+All nine arms exited zero. Exact greedy output and full route sequences match
+within each of the three disabled/enabled/disabled triples. All 72 activation
+records pass float-bit finiteness, normalized-weight, shape and layer/position
+route reconciliation. They contain 576 expert selections covering 250 distinct
+(layer, expert) identities at layers 0, 20 and 39. Every case covers four prefill
+and four single-token positions per selected layer. This does not establish
+production rare-route coverage or numerical equivalence of any recoding.
+
+All raw hashes pass. Receipt SHA256:
+`5bfe6b7014c61786a9afab361fde295a90779f7b34b0caed9d56ec36f5eaf4e8`.
+Compact result: `evidence/AW-0036-activation-results.json`.
+Pressure remained 1, sampled swap growth 0, and P1 preflight passed after every
+owned process ended. Existing build warnings are preserved in the build log;
+no claim of a warning-free or full-runtime-test build is made.
+
+Disposition: source activation fixtures admitted for the next diagnostic rung.
+Next establish original fast8 GPU projection/mixture references, then screen
+candidate representations against these inputs and complete physical accounting.
+Candidate-accumulated behavior and full-path capability remain unproven.

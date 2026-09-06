@@ -695,3 +695,14 @@ source remains unchanged. Independent failure replay passes; pressure 1, swap
 0 growth and post-run preflight pass. This is a measured limit of P1 beyond its
 original suite, not a reason to narrow tasks or silently change the comparison.
 Preserve this failure while proceeding with the representation/capability campaign.
+
+## 2026-09-05 — Real multi-layer activation fixtures admitted
+
+AW-0036's isolated observer preserves greedy outputs and route sequences in nine
+control/capture/control runs across coding, arithmetic and structured prompts.
+All 72 exact-bit input/weight records reconcile to source layer/position routes:
+576 selections, 250 distinct layer/expert identities, layers 0/20/39, prefill and
+single-token coverage. Pressure 1, zero swap growth, P1 preflight passes after
+cleanup. These are source fixtures, not quantization or agent-performance gains.
+Use original fast8 GPU execution to establish the next projection/mixture rung;
+production rarity and candidate-accumulated behavior remain unresolved.

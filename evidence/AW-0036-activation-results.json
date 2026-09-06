@@ -1,0 +1,29 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0036/20260906T062421.091973Z",
+  "raw_receipt_sha256": "5bfe6b7014c61786a9afab361fde295a90779f7b34b0caed9d56ec36f5eaf4e8",
+  "raw_hashes_passed": true,
+  "output_equivalence": {
+    "coding": true,
+    "arithmetic": true,
+    "structured": true
+  },
+  "route_equivalence": {
+    "coding": true,
+    "arithmetic": true,
+    "structured": true
+  },
+  "activation_records": 72,
+  "expert_selections": 576,
+  "distinct_layer_experts": 250,
+  "layers": [
+    0,
+    20,
+    39
+  ],
+  "all_exits_zero": true,
+  "max_pressure": 1,
+  "max_swap_growth_mib": 0.0,
+  "source_revision": "c3ee0db4b8569d2a03a50156573ed88563714308",
+  "build_log_sha256": "3b09e52d917a6404f2705e4f11a6d216e1b83af239f057f570c210053915463b",
+  "scope": "Three short public prompts, exact source activations and routing weights; not quantization fidelity, general rare-route coverage, or agent performance"
+}
