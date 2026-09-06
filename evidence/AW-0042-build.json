@@ -1,0 +1,14 @@
+{
+  "runtime_revision": "f0ae501b4658a138cb77dd7cdd4e34947c70db80",
+  "patch_reconstructs_runtime_tree": "37aec8220723e2fdaddeb86d33be71e1ef57d770",
+  "build_command": "swift build -c release --product swiftlet --jobs 2 --disable-automatic-resolution",
+  "setup_issue": "Initial prepare invocation omitted its required checkout argument. First build was unchanged AW-0041; preparation was then called with the explicit AW-0042 checkout and observer build completed before measurements.",
+  "sha256": {
+    "/Users/chad/Repos/agentwing/experiments/AW-0042-accumulated-capture.patch": "f3295432448796895e86dc105bf195853dc66b3cacdf2b25d07c25fde02265d3",
+    "/Users/chad/Repos/agentwing/scripts/prepare_accumulated_capture.py": "c46922bfed44a76ca32a2f84daf108bdf263ba761498bb25ab57f252cdf5e6f1",
+    "/Users/chad/Repos/agentwing/probes/activation_capture/AccumulatedActivationTrace.swift": "6bdc664c9ad575525dd9b7a3cd832577118a3016936d71f232b3005782ffa773",
+    "/Users/chad/Models/agentwing/evidence/AW-0042/build.log": "51988f0e1348ff685473b7e30f212c5fc5a3580fd6f310e48928201ff1b2fed9",
+    "/Users/chad/Models/agentwing/evidence/AW-0042/build-observer.log": "05dd68e126475070339642f7431ee8608b1fb3d097f611730240a299edab8b43",
+    "/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0042/.build/release/swiftlet": "a013e0fea0cc4b0550cbb1f68b538aa8caa5ea832fe484a21b71d931385fc841"
+  }
+}

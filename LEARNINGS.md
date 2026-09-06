@@ -774,3 +774,19 @@ Retain revision d44752e for longer/uncommon accumulated-trajectory checks. Its
 roughly 1.22–1.23x diagnostic speedup is not the 1.25x autonomous utility goal.
 Expert bytes are unchanged; sampled disk and startup variation prevent assigning
 all full-wall savings to overlap. No held-out execution or promotion occurred.
+
+## 2026-09-06 — Accumulated overlap checks pass, but longer speed gains shrink
+
+AW-0042 compares two new 64-token development trajectories with checkpoints at
+layers 0/20/39 through decode ordinal 63. All 171 records across six arms match
+corresponding input/weight bit patterns; text, full routing and cache decisions
+also match. Captures include 55/67 identities outside AW-0036 fixtures and 32/50
+absent from AW-0031, plus historically infrequent identities. These are explicit
+historical coverage measures, not exhaustive rarity or general capability proof.
+Full-wall candidate ratios are 0.891 and 0.895; decode ratios about 0.846/0.849.
+Thus longer trajectories weaken the performance extrapolation from AW-0041's
+short runs: roughly 1.12x full-process speedup remains well below the 1.25x
+utility objective. Retain the exact mechanism, pursue further cost reduction,
+and keep expensive promotion comparisons pending a stronger performance case.
+Pressure 1, zero swap growth, P1 preflight passes; no held-out exposure. Candidate
+observer revision f0ae501 and all setup/build/evidence provenance are preserved.
