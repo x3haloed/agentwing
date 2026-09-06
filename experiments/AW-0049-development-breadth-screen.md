@@ -57,9 +57,12 @@ PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 scripts/run_breadth_development.py --
 ```
 
 Substitute the next declared development task only after checking the previous
-result. Replay independent grading with `scripts/audit_p2_development.py` and
-check source/profile/path pins. Preserve incomplete receipts and host stops
-separately if the completed-run auditor cannot accept them.
+result. `scripts/audit_candidate_screen.py` combines independent grader replay
+with source/profile/path checks and reports protocol success separately from
+record integrity. Its implementation pin is in
+`evidence/AW-0049-auditor-pin.json`; AST validation passed, while validation on
+a completed AW-0049 record is pending. Preserve incomplete receipts and host
+stops separately if the completed-run auditor cannot accept them.
 
 ## Confounders and evidence
 
@@ -69,7 +72,7 @@ This is not the final promotion accounting runner. OS cache and thermal state
 may vary between tasks; different task times are not causal mechanism estimates.
 Development selection is informed by prior failures and is not held-out proof.
 
-Frozen pins will be recorded before model execution in
+Frozen pins were committed before model execution in
 `evidence/AW-0049-development-breadth-plan.json`. Raw traces belong under
 `/Users/chad/Models/agentwing/evidence/AW-0049/`.
 
