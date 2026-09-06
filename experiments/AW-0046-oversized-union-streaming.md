@@ -31,3 +31,13 @@ identical cache decisions there. Charge extra submissions, assignment-map work,
 reads, cache effects and complete wall time. Existing fit-in-cache unions retain
 their original fetch schedule. This draft is independent of AW-0045 replay
 history; validate individually before combining. P1 and AW-0044 remain frozen.
+
+Additional source concern to falsify after C2: `ExpertCache.buffers` assigns
+`slotKey`/`keyToSlot` during selection, before any batch reads. Selection can
+throw for capacity or allocation outside the later read-failure cleanup. A cold
+oversized request may therefore leave keys pointing at unfilled buffers, which
+could be returned as hits on a later request. This has not been executed or
+confirmed; test error recovery using actual valid expert IDs and compare bytes
+with an independent reader. Windowing alone must not be claimed to repair this
+separate error path. If confirmed, invalidate pending fills on every throwing
+exit and retain the failed-control evidence before testing the repair.
