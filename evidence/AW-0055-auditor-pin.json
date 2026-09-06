@@ -1,0 +1,8 @@
+{
+  "hashes": {
+    "scripts/audit_truncation_feedback.py": "ce20c2bf64b503b96ef5bb344998c4e75bfc9ee9fcf1e52cf7781e41ebd68e5b",
+    "scripts/audit_sampling_replay.py": "50158da7ba656739003482569b4db786abe75f993e8085b1542ba610763bd7f2",
+    "scripts/audit_bounded_call_development.py": "b87810215041f0456ac66ebde6ef709debd93c1c8a57e214a79e17b74eaab2c6"
+  },
+  "status": "syntax checked; completed-record validation pending; existing trace and token-decoding helpers previously exercised"
+}
