@@ -1,0 +1,46 @@
+{
+  "task": "dev-recovery",
+  "arm": "C1",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0047/20260906T091156.920519Z",
+  "raw_receipt_sha256": "7476ff37311be8043e71b984e3c981b20cba31d2298a4327d756a68613a4891b",
+  "utility": 1,
+  "wall_seconds": 1415.473251625,
+  "verified_utility_per_hour": 2.543318989509061,
+  "protocol": {
+    "passed": true,
+    "checks": {
+      "events_nonempty": true,
+      "paired_unique_tool_events": true,
+      "bash_schema_valid": true,
+      "no_model_error": true,
+      "no_server_tool_rejection": true,
+      "fresh_model_state": true,
+      "unique_requests": true,
+      "terminal_metric": true,
+      "no_explicit_authority_access": true
+    },
+    "tool_calls": 18,
+    "failed_tool_calls": 2,
+    "repeated_command_occurrences": 3,
+    "productivity_classification": "not inferred from command success; full transcript retained for separate review",
+    "request_count": 19,
+    "new_prompt_tokens": 2940,
+    "generated_tokens": 1414,
+    "reported_ttft_seconds": 769.3,
+    "declared_normalizations": 0,
+    "declared_salvages": 0
+  },
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0,
+  "large_refills": [
+    {
+      "request": "chatcmpl-1E3B11FB",
+      "new_prompt_tokens": 1685,
+      "reused_tokens": 0,
+      "prefix_matched": 1404,
+      "generated_tokens": 36,
+      "ttft_seconds": 435.8
+    }
+  ],
+  "scope": "One development control; success to preserve, no candidate comparison yet"
+}

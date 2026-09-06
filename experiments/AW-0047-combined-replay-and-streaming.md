@@ -54,3 +54,13 @@ starting A1 under the frozen stop policy. `scripts/audit_joint_development.py`
 audits each completed three-arm case with `--task`, preserving zero rates and
 explicitly distinguishing elapsed time from utility. Its CLI parses; actual
 three-arm audit awaits the runs. Candidate plan and runner remain unchanged.
+
+Recovery C1 completes with utility 1 in 1415.473 seconds (23.59 minutes),
+2.5433 verified utility/hour. All protocol gates pass; pressure 1 and zero swap
+growth. It used 18 tool calls, two failures and three repeated-command occurrences.
+The model initially introduced an invalid `unicodedata.casefold` call, investigated
+it, switched to the string method, passed the maintained validator and completed
+the required documentation. Independent grader replay/receipt audit passes in
+`evidence/AW-0047-recovery-C1-audit.json`; detailed result is adjacent. This is a
+successful expanded control task that the joint candidate must preserve. P1
+preflight passes after cleanup. Proceed to the frozen recovery A1.

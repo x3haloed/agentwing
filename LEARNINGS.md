@@ -892,3 +892,12 @@ ratios are 0.831/0.893 with pressure 1 and no swap growth; they are model-only
 diagnostics. Combined with the separate real oversized-union boundary check,
 this supports integrating the repair with AW-0045 historical replay for tool
 evaluation. It does not yet establish repaired autonomous capability or utility.
+
+## 2026-09-06 — P1 establishes a successful expanded recovery control
+
+AW-0047 recovery C1 independently scores 1 in 1415.47 seconds. It recovers from
+its own invalid Python API repair, completes validation and documentation, and
+passes protocol with 18 tool calls, two failures and three repeated commands.
+Pressure 1, zero swap growth, integrity/grader replay and post-run P1 preflight
+pass. This is demonstrated development-task success to preserve, not a candidate
+gain. The frozen joint candidate has not run yet.
