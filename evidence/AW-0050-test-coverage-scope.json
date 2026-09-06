@@ -1,0 +1,11 @@
+{
+  "prompt_requirement": "Implement the archived-item option described in README.md across the API and CLI, repair pagination behavior, and add regression coverage. Preserve existing default callers.",
+  "grader_sha256": "0a0367b66dbd33ea5cb6ceb9453b39da662557d6749e8695a6d5c14e094fc384",
+  "grader_scope_observed": "API and CLI behavior; does not execute or inspect submitted regression tests",
+  "initial_test_sha256": "ceeeb938f4e8cf7733ee21f7cc6f63c1f8a6e73d6b2fda8a5b76e205d19703b4",
+  "AW0047_C1_test_sha256": "ceeeb938f4e8cf7733ee21f7cc6f63c1f8a6e73d6b2fda8a5b76e205d19703b4",
+  "AW0047_C1_test_unchanged": true,
+  "prior_result": "Artifact grader 1, accepted utility 0 due protocol failure; unchanged",
+  "current_AW0049_result": "Pending; no score or prompt change",
+  "follow_up": "After measured run terminates, audit copied submitted unittest suite and added regression coverage separately from frozen grader"
+}
