@@ -65,7 +65,7 @@ def check(run):
     previous=None;findings=[]
     for g,metric in zip(groups,metrics):
         b,end=g['begin'],g['end'];assert b['temperature']==b['frequency_penalty']==b['presence_penalty']==b['no_repeat_ngram']==0
-        assert b['admitted_max_new']==512 and b['actual_prompt_ids']==b['rendered_prompt_ids']
+        assert 0 < b['admitted_max_new'] <= 512 and b['actual_prompt_ids']==b['rendered_prompt_ids']
         assert len(b['actual_prompt_ids'])==b['new_prompt_tokens']+b['reused_prompt_tokens']
         if b['reused_prompt_tokens']:assert previous is not None and b['actual_prompt_ids'][:b['reused_prompt_tokens']]==previous and len(previous)==b['reused_prompt_tokens']
         counts=Counter();generated=[];anomalies=[]
@@ -75,7 +75,7 @@ def check(run):
             if d['raw']['nonfinite'] or d['selected_raw']!=d['selected_adjusted'] or d['adjusted']['top'][0]['id']!=t or t in b['suppressed_ids'] or (d['ban_eos'] and d['is_eos']):anomalies.append(index)
             if d['is_eos']:assert index==len(g['decisions'])-1
             else:generated.append(t);counts[t]+=1
-        assert generated==end['generated_ids']
+        assert generated==end['generated_ids'] and len(generated)<=b['admitted_max_new']
         assert [b['new_prompt_tokens'],b['reused_prompt_tokens'],b['matched_prompt_tokens'],len(generated)]==[int(metric[i]) for i in [2,3,4,5]]
         previous=b['actual_prompt_ids']+generated if end['cached_tokens_after'] else None
         if previous:assert len(previous)==end['cached_tokens_after']

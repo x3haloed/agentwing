@@ -1,5 +1,6 @@
 {
   "auditor": "scripts/audit_bounded_call_development.py",
-  "sha256": "55d32be859aebf17e1c2784616404901aee6d95bf0fc42c5298e9f4d8942124d",
-  "status": "syntax checked; terminal record replay pending"
+  "sha256": "b87810215041f0456ac66ebde6ef709debd93c1c8a57e214a79e17b74eaab2c6",
+  "status": "syntax checked; terminal record replay pending",
+  "admission_scope": "Requested 512-token ceiling is pinned; unchanged context admission may lower the actual budget"
 }
