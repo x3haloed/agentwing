@@ -48,3 +48,26 @@ selected the fast4 pipeline despite expanded q8 bytes. Scalar projection error
 2.4253 correctly rejected it. Select the original fast8 pipeline as predeclared;
 representation and thresholds remain unchanged. Preserve the initial plan, raw
 receipt and failure in `evidence/AW-0056-initial-implementation-failure.json`.
+
+## Terminal result — rejected
+
+Corrected fast8 run completes all 72 mixtures and 576 expert executions in
+8.185706542 seconds, with pressure 1 and no swap growth. Independent scalar
+implementation error is at most 7.630e-6, below 1e-4. The separate Python audit
+recomputes every gate/up/SwiGLU/down/mixture fidelity error from sealed float
+stages, verifies source identities, fixture equality and both recursive receipts.
+
+The representation fails the unchanged continuation thresholds: 3/72 mixtures
+exceed 5%, reaching 13.3866%; 6/576 experts exceed 10%, reaching 37.7662%.
+Layer-wise mixture maxima are 2.9410%, 13.3866%, and 3.5672% for 0/20/39.
+The middle-layer failure prevents continuation despite the much better early
+and late results. Reject this exact midpoint form; no direct kernel, bank,
+accumulated rollout or endpoint comparison is justified by it.
+
+Raw evidence:
+`/Users/chad/Models/agentwing/evidence/AW-0056/20260906T145536.879659Z`.
+Receipt SHA-256:
+`36cacc247d87b292806909bbb4daed85b82f76851273b88aed9f845f6270f361`.
+Results: `evidence/AW-0056-sixbit-results.json`.
+Post-run P1 preflight passes. Initial implementation failure remains preserved.
+This rejects midpoint high-six-bit truncation, not every six-bit representation.

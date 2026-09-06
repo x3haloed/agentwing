@@ -1087,3 +1087,18 @@ budget guidance nor one explicit post-failure notice established reliable call
 decomposition on this captured task. This does not disprove other recovery
 mechanisms, but provides no basis for integrating this one or claiming endpoint
 utility. No commands executed, no held-out tuning, no promotion.
+
+## 2026-09-06 — Six-bit midpoint coding fails on middle-layer routed mixtures
+
+AW-0056 packs source q8 high six bits and reconstructs 4*code+2 while retaining
+BF16 metadata. Its 76.4706%-byte artifact has no scale-rounding error, but still
+fails the frozen source-activation screen: 3/72 mixtures exceed 5% (max 13.3866%)
+and 6/576 expert outputs exceed 10% (max 37.7662%). Early/late layer maxima below
+3.6% would have concealed the middle-layer failure. Scalar implementation and
+independent saved-stage audits pass; pressure 1 and zero swap growth. Preserve
+the initial wrong-kernel attempt separately, which the scalar gate rejected.
+Reject this exact midpoint representation before direct-kernel or bank work.
+The diagnostic expanded q8 in memory, so it proves neither compressed execution
+nor savings in physical reads, residency, runtime or autonomous work. A different
+error mechanism needs its own fixed-form screen; widening bits alone is not
+established as a route to the endpoint target.

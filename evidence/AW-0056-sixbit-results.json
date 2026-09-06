@@ -1,0 +1,26 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0056/20260906T145536.879659Z",
+  "raw_receipt_sha256": "36cacc247d87b292806909bbb4daed85b82f76851273b88aed9f845f6270f361",
+  "record_and_stage_audit_passed": true,
+  "fixtures": 72,
+  "expert_executions": 576,
+  "maximum_mixture_relative_l2": 0.1338656154583124,
+  "maximum_expert_down_relative_l2": 0.3776624929920596,
+  "mixtures_exceeding_gate": 3,
+  "experts_exceeding_gate": 6,
+  "maximum_implementation_relative_l2": 7.629688654777256e-06,
+  "by_layer_max": {
+    "0": 0.02940978299753108,
+    "20": 0.1338656154583124,
+    "39": 0.03567234594859073
+  },
+  "candidate_bytes": 2555904,
+  "source_bytes": 3342336,
+  "size_ratio": 0.7647058823529411,
+  "max_pressure": 1,
+  "max_swap_growth_mib": 0.0,
+  "wall_seconds": 8.185706542,
+  "numerical_continuation_gate_passed": false,
+  "disposition": "rejected-exact-midpoint-form",
+  "scope": "Source fixed-route numerical screen using expanded q8, not packed execution, uncommon-route coverage, accumulated behavior, throughput or agent capability."
+}
