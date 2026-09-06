@@ -1,0 +1,14 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0055/20260906T142213.206217Z",
+  "supervisor_session": 40313,
+  "model_pid": 6558,
+  "model_pgid": 6558,
+  "observed_process": "6558  6540  6558 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec/swift/pm/swiftpm-testing-helper --test-bundle-path /Users/chad/Models/agentwing/reproductions/Swiftlet-AW0055/.build/arm64-apple-macosx/release/SwiftletPackageTests.xctest/Contents/MacOS/SwiftletPackageTests --filter SamplingReplayTests /Users/chad/Models/agentwing/reproductions/Swiftlet-AW0055/.build/arm64-apple-macosx/release/SwiftletPackageTests.xctest/Contents/MacOS/SwiftletPackageTests --testing-library swift-testing",
+  "first_request": {
+    "new_prompt_tokens": 2887,
+    "reused_prompt_tokens": 0,
+    "frequency_penalty": 0,
+    "admitted_max_new": 512
+  },
+  "status": "running-not-result"
+}
