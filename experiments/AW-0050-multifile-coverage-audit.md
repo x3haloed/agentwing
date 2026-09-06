@@ -2,9 +2,9 @@
 
 ## Status and scope
 
-Verification gap identified while AW-0049 dev-multi-file is still running.
-No model/configuration/benchmark change and no supplemental test execution yet.
-The frozen AW-0049 grade and stop policy remain unchanged.
+Complete. The actual artifact has no added tests, and its original test misses
+the targeted regression. A synthetic positive control validates detection of
+added coverage. No model/configuration/benchmark change; frozen scores remain.
 
 ## Requirement and observed gap
 
@@ -49,4 +49,25 @@ Large follow-up evidence belongs under
 
 ## Disposition
 
-Open verification limitation; no candidate acceptance or rejection yet.
+Confirmed missing prompt requirement in the AW-0049 artifact. Its accepted
+utility was already 0 for protocol and grading failures; that score is unchanged.
+
+## Results
+
+`scripts/audit_multifile_coverage.py` runs four disposable workspace variants
+under the unchanged task boundary after measured model processes stop. The
+submitted and original tests both pass with and without the targeted mutation.
+The probe confirms that the mutation disables archived-item inclusion while
+preserving the tested default and input records. Submitted test sources are
+unchanged. This confirms the missing added-test requirement for this artifact;
+it does not make one mutation an exhaustive coverage criterion.
+
+A separately labeled synthetic fixture adds one opt-in assertion. Its submitted
+suite passes original code and fails the mutant; original tests pass both.
+This validates the auditor's positive path without altering actual agent output.
+Both source receipts remain intact. Actual follow-up execution costs 0.6864
+seconds; all supplemental costs are separately recorded rather than rewriting
+the frozen task clock. Raw evidence:
+`/Users/chad/Models/agentwing/evidence/AW-0050/20260906T115222.370947Z` and
+`/Users/chad/Models/agentwing/evidence/AW-0050/20260906T115557.175099Z`.
+Summary/receipt hashes: `evidence/AW-0050-coverage-audit-result.json`.

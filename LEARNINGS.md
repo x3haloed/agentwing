@@ -980,3 +980,25 @@ prefill, not broad generalization or promotion. Retain the candidate and fixed
 workspace harness for the other development categories. Keep AW-0047's negative
 result and require the original suite, held-out panel and replicated full-path
 acceptance before declaring the project goal achieved.
+
+## 2026-09-06 — Broader task still degenerates with prefix replay working
+
+AW-0049 dev-multi-file fails in 866.45 seconds: the final response reuses 2198
+tokens with only 21 new prompt tokens and 5.3 seconds TTFT, then repeats test
+definitions through the 512-token cap without closing its tool call. Protocol
+rejection is correct. The saved API also accepts Boolean True as a limit, so
+the independent artifact grader scores 0. Pressure 1 and zero swap growth pass;
+record/configuration audits preserve the failure. The frozen stop leaves six
+later development tasks unattempted. AW-0048's 1.807x recovery gain remains, but
+removing redundant prefill does not solve long code-generation degeneration.
+
+## 2026-09-06 — Functional grading does not cover every requested artifact
+
+The multi-file prompt asks for added regression coverage; its frozen grader
+checks API/CLI behavior without executing or inspecting submitted tests.
+AW-0050 confirms AW-0049 left the original test unchanged. Both submitted and
+original tests pass even when opt-in archived inclusion is broken in a copy.
+A synthetic added assertion kills that same verified mutation, validating the
+auditor's positive path. All real source receipts remain intact and frozen
+scores unchanged. Full acceptance needs explicit evidence for requested tests
+and other artifacts beyond whichever behaviors a grader happens to check.

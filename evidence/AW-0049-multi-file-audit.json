@@ -1,0 +1,54 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0049/20260906T113623.976317Z",
+  "plan_sha256": "f472044b48ff772b1428505dbb1cf5d0ea85847f454127779d25dc33a4184e41",
+  "raw_receipt_sha256": "a864012ec12e7f47e60f576257f752fc0a72abb538546af7e1af771e561e0ca5",
+  "integrity": {
+    "run": "/Users/chad/Models/agentwing/evidence/AW-0049/20260906T113623.976317Z",
+    "checks": {
+      "hashes_match": true,
+      "complete_selection": true,
+      "development_only": true,
+      "utility_sum": true,
+      "utility_rate": true,
+      "wall_includes_tasks": true
+    },
+    "tasks": [
+      {
+        "task_id": "dev-multi-file",
+        "protocol_recomputed": true,
+        "grader_utility_replayed": true,
+        "accepted_utility": true,
+        "execution_matches": true,
+        "pressure_safe": true,
+        "reported_swap_safe": true
+      }
+    ],
+    "passed": true,
+    "scope": "Evidence integrity and verifier replay, not paired promotion or sandbox certification"
+  },
+  "checks": {
+    "single_declared_task": true,
+    "candidate_plan_pin": true,
+    "server_binary_pin": true,
+    "runner_pin": true,
+    "workspace_helper_pin": true,
+    "corpus_pin": true,
+    "workspace_policy": true,
+    "task_deadline": true,
+    "no_inherited_overrides": true,
+    "server_environment_and_binary": true
+  },
+  "task_checks": [
+    {
+      "task": "dev-multi-file",
+      "actual_cwd": true,
+      "prompt_pin": true,
+      "models_pin": true,
+      "archived_workspace_and_state": true
+    }
+  ],
+  "passed": true,
+  "accepted_utility": 0,
+  "protocol_passed": false,
+  "scope": "Record integrity and frozen configuration checks. A zero-utility or protocol-failed record may pass integrity; no speedup or promotion claim."
+}

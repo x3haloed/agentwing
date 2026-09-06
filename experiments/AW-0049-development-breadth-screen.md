@@ -2,8 +2,9 @@
 
 ## Status
 
-Running dev-multi-file, the first declared candidate attempt. AW-0048 completed
-its frozen order and terminal audits, and candidate preflight passed before launch.
+Terminal, negative. Dev-multi-file fails protocol and independent grading.
+The frozen stop policy leaves all six later tasks unattempted. AW-0048's
+positive recovery result remains valid but does not qualify broad capability.
 
 ## Hypothesis
 
@@ -78,7 +79,8 @@ Frozen pins were committed before model execution in
 
 ## Disposition
 
-Unresolved, pending the prerequisite comparison and declared screen.
+Reject this breadth screen for promotion; retain its failed evidence and prior
+positive mechanism results. Further runtime/capability work is required.
 
 ### First launch
 
@@ -90,3 +92,28 @@ Those results remain specific to recovery. The breadth screen starts from
 Dev-multi-file uses the frozen candidate and workspace path. No other AW-0049
 task has run. Inspect its terminal grade, protocol and host gates before
 advancing; no result is implied by launch.
+
+### Terminal result
+
+Dev-multi-file earns utility 0 in 866.447190 seconds. Twelve tool calls and one
+reported tool error precede the failed final response. Request 13 reuses 2198
+tokens and processes 21 new tokens (TTFT 5.3 seconds), then reaches 512 generated
+tokens while repeating test definitions and leaving the tool call incomplete.
+Strict rejection prevents execution of that test-writing command. This failure
+persists despite avoiding prefix refill. Pressure is 1 and swap growth zero.
+
+The independent artifact grader also scores 0: the API accepts `True` as a
+positive limit. Direct reproduction rejects 0, -1 and 1.5 but accepts True,
+matching the implementation's `isinstance(limit, int)` check without Boolean
+exclusion. No measured code was repaired. The final test file remains unchanged.
+
+All record-integrity, configuration/path and grader-replay checks pass. Their
+success validates the failed record; it does not mean protocol or task success.
+The remaining navigation, debugging, refactoring, data, migration and
+investigation tasks were not run, as required by the declared protocol stop.
+
+AW-0050 separately confirms the missing added-test requirement. Keep that
+supplemental audit distinct from the frozen score. Records:
+`evidence/AW-0049-multi-file-audit.json`,
+`evidence/AW-0049-multi-file-result.json`, and
+`evidence/AW-0049-terminal-ledger.json`.

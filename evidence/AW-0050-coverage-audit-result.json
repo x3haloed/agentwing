@@ -1,0 +1,213 @@
+{
+  "agent_artifact_audit": {
+    "run": "/Users/chad/Models/agentwing/evidence/AW-0050/20260906T115222.370947Z",
+    "summary": {
+      "cases": [
+        {
+          "case": "submitted-tests-unchanged",
+          "exit": 0,
+          "error": null,
+          "seconds": 0.16309275,
+          "probe": {
+            "default": [
+              {
+                "id": 2
+              }
+            ],
+            "opt_in": [
+              {
+                "id": 1,
+                "archived": true
+              },
+              {
+                "id": 2
+              }
+            ],
+            "input_preserved": true
+          }
+        },
+        {
+          "case": "submitted-tests-mutant",
+          "exit": 0,
+          "error": null,
+          "seconds": 0.170872917,
+          "probe": {
+            "default": [
+              {
+                "id": 2
+              }
+            ],
+            "opt_in": [
+              {
+                "id": 2
+              }
+            ],
+            "input_preserved": true
+          }
+        },
+        {
+          "case": "original-tests-unchanged",
+          "exit": 0,
+          "error": null,
+          "seconds": 0.17126091599999993,
+          "probe": {
+            "default": [
+              {
+                "id": 2
+              }
+            ],
+            "opt_in": [
+              {
+                "id": 1,
+                "archived": true
+              },
+              {
+                "id": 2
+              }
+            ],
+            "input_preserved": true
+          }
+        },
+        {
+          "case": "original-tests-mutant",
+          "exit": 0,
+          "error": null,
+          "seconds": 0.17085658300000006,
+          "probe": {
+            "default": [
+              {
+                "id": 2
+              }
+            ],
+            "opt_in": [
+              {
+                "id": 2
+              }
+            ],
+            "input_preserved": true
+          }
+        }
+      ],
+      "follow_up_wall_seconds": 0.6864080419999999,
+      "targeted_mutation_verified": true,
+      "added_archived_option_coverage_demonstrated": false,
+      "submitted_suite_passed": true,
+      "test_sources_changed": false,
+      "source_receipt_still_intact": true,
+      "limits": [
+        "One targeted mutation is positive evidence when killed; survival does not disprove coverage of other requested behavior",
+        "Original-tests control replaces discovered test*.py files; other submitted implementation/helper files remain",
+        "Unsupported signatures, timeouts and other errors remain inconclusive; inspect logs",
+        "Frozen utility is unchanged; required prompt artifacts still need direct inspection"
+      ]
+    }
+  },
+  "synthetic_auditor_positive_control": {
+    "run": "/Users/chad/Models/agentwing/evidence/AW-0050/20260906T115557.175099Z",
+    "summary": {
+      "cases": [
+        {
+          "case": "submitted-tests-unchanged",
+          "exit": 0,
+          "error": null,
+          "seconds": 0.16166379199999997,
+          "probe": {
+            "default": [
+              {
+                "id": 2
+              }
+            ],
+            "opt_in": [
+              {
+                "id": 1,
+                "archived": true
+              },
+              {
+                "id": 2
+              }
+            ],
+            "input_preserved": true
+          }
+        },
+        {
+          "case": "submitted-tests-mutant",
+          "exit": 1,
+          "error": null,
+          "seconds": 0.16370045800000005,
+          "probe": {
+            "default": [
+              {
+                "id": 2
+              }
+            ],
+            "opt_in": [
+              {
+                "id": 2
+              }
+            ],
+            "input_preserved": true
+          }
+        },
+        {
+          "case": "original-tests-unchanged",
+          "exit": 0,
+          "error": null,
+          "seconds": 0.169541167,
+          "probe": {
+            "default": [
+              {
+                "id": 2
+              }
+            ],
+            "opt_in": [
+              {
+                "id": 1,
+                "archived": true
+              },
+              {
+                "id": 2
+              }
+            ],
+            "input_preserved": true
+          }
+        },
+        {
+          "case": "original-tests-mutant",
+          "exit": 0,
+          "error": null,
+          "seconds": 0.16466845800000007,
+          "probe": {
+            "default": [
+              {
+                "id": 2
+              }
+            ],
+            "opt_in": [
+              {
+                "id": 2
+              }
+            ],
+            "input_preserved": true
+          }
+        }
+      ],
+      "follow_up_wall_seconds": 0.6697602500000001,
+      "targeted_mutation_verified": true,
+      "added_archived_option_coverage_demonstrated": true,
+      "submitted_suite_passed": true,
+      "test_sources_changed": true,
+      "source_receipt_still_intact": true,
+      "limits": [
+        "One targeted mutation is positive evidence when killed; survival does not disprove coverage of other requested behavior",
+        "Original-tests control replaces discovered test*.py files; other submitted implementation/helper files remain",
+        "Unsupported signatures, timeouts and other errors remain inconclusive; inspect logs",
+        "Frozen utility is unchanged; required prompt artifacts still need direct inspection"
+      ]
+    }
+  },
+  "receipts": {
+    "/Users/chad/Models/agentwing/evidence/AW-0050/20260906T115222.370947Z": "d92e19bdb43ab8f56603db3db54ce99178a73426e0732c1c2a747ecfbe4ce8a0",
+    "/Users/chad/Models/agentwing/evidence/AW-0050/20260906T115557.175099Z": "7ae298c3f246d5c64f10a35d9c2641a116a553a82502552a5936d49584c82ec0"
+  },
+  "conclusion": "Actual agent test sources remain unchanged and do not catch the targeted regression. Synthetic added coverage is detected. No original artifact, grade or run clock changed."
+}

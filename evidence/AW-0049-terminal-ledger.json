@@ -1,0 +1,46 @@
+{
+  "status": "stopped-by-predeclared-protocol-gate",
+  "completed": [
+    {
+      "task": "dev-multi-file",
+      "run": "/Users/chad/Models/agentwing/evidence/AW-0049/20260906T113623.976317Z",
+      "accepted_utility": 0,
+      "protocol_passed": false,
+      "artifact_grade": 0
+    }
+  ],
+  "unattempted": [
+    {
+      "task": "dev-navigation",
+      "profile": "AW0047-replay-streaming",
+      "reason": "Prior protocol failure triggers frozen stop"
+    },
+    {
+      "task": "dev-debugging",
+      "profile": "AW0047-replay-streaming",
+      "reason": "Prior protocol failure triggers frozen stop"
+    },
+    {
+      "task": "dev-refactoring",
+      "profile": "AW0047-replay-streaming",
+      "reason": "Prior protocol failure triggers frozen stop"
+    },
+    {
+      "task": "dev-data",
+      "profile": "AW0047-replay-streaming",
+      "reason": "Prior protocol failure triggers frozen stop"
+    },
+    {
+      "task": "dev-migration",
+      "profile": "AW0047-replay-streaming",
+      "reason": "Prior protocol failure triggers frozen stop"
+    },
+    {
+      "task": "dev-investigation",
+      "profile": "AW0047-replay-streaming",
+      "reason": "Prior protocol failure triggers frozen stop"
+    }
+  ],
+  "prior_positive_evidence": "AW-0048 recovery comparison retained; insufficient for broad capability or promotion",
+  "supplemental_requirement_audit": "AW-0050 confirms no added regression tests; frozen utility unchanged"
+}

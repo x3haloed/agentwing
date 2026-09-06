@@ -1,0 +1,98 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0049/20260906T113623.976317Z",
+  "raw_receipt_sha256": "a864012ec12e7f47e60f576257f752fc0a72abb538546af7e1af771e561e0ca5",
+  "summary": {
+    "complete_selection": true,
+    "error": null,
+    "wall_seconds": 866.447190209,
+    "utility": 0,
+    "verified_utility_per_hour": 0.0,
+    "tasks": [
+      {
+        "task_id": "dev-multi-file",
+        "category": "multi-file-change",
+        "utility": 0,
+        "execution": {
+          "status": "model-error-or-empty-transcript",
+          "error": null,
+          "pi_exit": 0,
+          "wall_seconds": 866.087210208,
+          "verified_utility": null,
+          "scope": "User task, not scored benchmark. Inspect artifacts and independently validate.",
+          "pressure_peak": 1,
+          "swap_growth_peak_mib": 0.0,
+          "server_pid": 57297,
+          "client_pid": 57345
+        },
+        "protocol": {
+          "passed": false,
+          "checks": {
+            "events_nonempty": true,
+            "paired_unique_tool_events": true,
+            "bash_schema_valid": true,
+            "no_model_error": false,
+            "no_server_tool_rejection": false,
+            "fresh_model_state": true,
+            "unique_requests": true,
+            "terminal_metric": true,
+            "no_explicit_authority_access": true
+          },
+          "tool_calls": 12,
+          "failed_tool_calls": 1,
+          "repeated_command_occurrences": 0,
+          "productivity_classification": "not inferred from command success; full transcript retained for separate review",
+          "request_count": 13,
+          "new_prompt_tokens": 1292,
+          "generated_tokens": 1439,
+          "reported_ttft_seconds": 308.00000000000006,
+          "declared_normalizations": 0,
+          "declared_salvages": 0
+        },
+        "grading": {
+          "task_id": "dev-multi-file",
+          "utility": 0,
+          "exit": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/Users/chad/Repos/agentwing/benchmarks/p2-v1/authorities/dev-multi-file/grade.py\", line 13, in <module>\n    else:raise AssertionError('invalid limit')\nAssertionError: invalid limit\n"
+        },
+        "full_wall_seconds": 866.238288875
+      }
+    ],
+    "scope": "Development diagnostic only; not held-out or paired promotion evidence"
+  },
+  "invalid_limit_reproduction": [
+    {
+      "limit": 0,
+      "type": "int",
+      "accepted": false,
+      "exception": "ValueError"
+    },
+    {
+      "limit": -1,
+      "type": "int",
+      "accepted": false,
+      "exception": "ValueError"
+    },
+    {
+      "limit": 1.5,
+      "type": "float",
+      "accepted": false,
+      "exception": "ValueError"
+    },
+    {
+      "limit": true,
+      "type": "bool",
+      "accepted": true,
+      "output": []
+    }
+  ],
+  "failed_response": {
+    "request": 13,
+    "new_prompt_tokens": 21,
+    "reused_tokens": 2198,
+    "generated_tokens": 512,
+    "ttft_seconds": 5.3,
+    "behavior": "Repetitive incomplete test-writing tool call; rejected without execution"
+  },
+  "disposition": "Rejected breadth screen at frozen protocol stop; no promotion or speedup claim"
+}
