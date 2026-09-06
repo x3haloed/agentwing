@@ -44,7 +44,7 @@ int main(int argc,const char**argv){@autoreleasepool{
  if(argc!=6)fail(@"usage: expert_sixbit model-dir fixtures.json kernels.txt output-dir reference-stages");NSError*e=nil;
  NSArray*fixtures=[NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:@(argv[2])] options:0 error:&e];if(fixtures.count!=72)fail(@"expected 72 fixtures");
  NSString*source=[NSString stringWithContentsOfFile:@(argv[3]) encoding:NSUTF8StringEncoding error:&e];id<MTLDevice>d=MTLCreateSystemDefaultDevice();id<MTLLibrary>lib=[d newLibraryWithSource:source options:nil error:&e];if(!lib)fail(e.description);
- id<MTLComputePipelineState>gemv=pipeline(d,lib,@"gemv_affine_fast"),silu=pipeline(d,lib,@"silu_mul"),accum=pipeline(d,lib,@"weighted_accum");id<MTLCommandQueue>queue=[d newCommandQueue];
+ id<MTLComputePipelineState>gemv=pipeline(d,lib,@"gemv_affine_fast8"),silu=pipeline(d,lib,@"silu_mul"),accum=pipeline(d,lib,@"weighted_accum");id<MTLCommandQueue>queue=[d newCommandQueue];
  const NSUInteger stride=3342336,D=2048,interWidth=512,N=3*interWidth+D;
  id<MTLBuffer>w=[d newBufferWithLength:stride options:MTLResourceStorageModeShared],x=[d newBufferWithLength:D*4 options:MTLResourceStorageModeShared],y=[d newBufferWithLength:N*4 options:MTLResourceStorageModeShared],mixdata=[d newBufferWithLength:(9*D+1)*4 options:MTLResourceStorageModeShared],mixture=[d newBufferWithLength:D*4 options:MTLResourceStorageModeShared];if(!w||!x||!y||!mixdata||!mixture)fail(@"allocation");
  int fds[40];for(int l=0;l<40;l++)fds[l]=-1;

@@ -40,3 +40,11 @@ rollout, held-out execution, promotion or agent utility claim.
 Command: `PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 scripts/probe_expert_sixbit.py`.
 
 Status: frozen for the single numerical screen; failure rejects this exact form.
+
+## Initial implementation failure retained
+
+The first 0.844-second attempt stopped at fixture 0 because the copied probe
+selected the fast4 pipeline despite expanded q8 bytes. Scalar projection error
+2.4253 correctly rejected it. Select the original fast8 pipeline as predeclared;
+representation and thresholds remain unchanged. Preserve the initial plan, raw
+receipt and failure in `evidence/AW-0056-initial-implementation-failure.json`.

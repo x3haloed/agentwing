@@ -1,0 +1,37 @@
+{
+  "raw_run": "/Users/chad/Models/agentwing/evidence/AW-0056/20260906T145451.510567Z",
+  "receipt_sha256": "872f0e1ce200d98ac065f2aceba8b2f21eb7b4efa5dedc3e97a30f9510e267a9",
+  "result": {
+    "command": [
+      "/Users/chad/Models/agentwing/evidence/AW-0056/20260906T145451.510567Z/expert_sixbit",
+      "/Users/chad/Models/agentwing/checkpoints/qwen3.6-35b-a3b-8bit.qpack",
+      "/Users/chad/Models/agentwing/evidence/AW-0056/20260906T145451.510567Z/fixtures.json",
+      "/Users/chad/Models/agentwing/evidence/AW-0056/20260906T145451.510567Z/Kernels.metal.txt",
+      "/Users/chad/Models/agentwing/evidence/AW-0056/20260906T145451.510567Z/stages",
+      "/Users/chad/Models/agentwing/evidence/AW-0037/20260906T063224.469387Z/stages"
+    ],
+    "exit": 1,
+    "error": null,
+    "wall_seconds": 0.8437634579999997,
+    "pressure_samples": [
+      [
+        0.005349499999999896,
+        1,
+        706.06
+      ],
+      [
+        0.28028787499999996,
+        1,
+        706.06
+      ],
+      [
+        0.5414042079999999,
+        1,
+        706.06
+      ]
+    ],
+    "swap_baseline_mib": 706.06
+  },
+  "failure": "reference discrepancy fixture=0 expert=188 projection=2.42533882 activation=6.21924486e-08\n",
+  "disposition": "Implementation gate correctly stopped wrong fast4 pipeline; no fidelity conclusion"
+}

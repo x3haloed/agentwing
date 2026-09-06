@@ -1,9 +1,9 @@
 {
   "experiment": "AW-0056",
   "pins": {
-    "probes/expert_sixbit.m": "29148602dc5292f8597ba4f83d7b57a250a79374488e9fe91973c197a4daade3",
+    "probes/expert_sixbit.m": "a26cb2c1f34ee2a8a9b0a3e23763ab8edec79f61d3ac6793de184261bcf79a08",
     "scripts/probe_expert_sixbit.py": "8b60aa97ae496506b835792fe55cf4a334d66d012d14a60b7806f8b3fb8354c8",
-    "experiments/AW-0056-sixbit-midpoint-fidelity.md": "f678f9969c175c42352c335243c819217e2781446296a10a0f6d53bdd67a6d23",
+    "experiments/AW-0056-sixbit-midpoint-fidelity.md": "ac031d7fcbed2829827a9b4aabeb170c6ffdff20d1a00e90b5b6bd437756f2d9",
     "scripts/run_local_agent.py": "dee0e63573c60137226b541f5380b768799ad1682006438471eec95d511a6fdd",
     "scripts/probe_expert_residency.py": "47690428fa2d9d3257cf0738ed728f7f7d54a990a498f98327a526ca9fc23c52",
     "/Users/chad/Models/agentwing/dependencies/Swiftlet/Sources/SwiftletCore/Kernels.metal.txt": "875d1d010de14df6d9bcb6931e1d09da914a1ca7685fb9bebaaac9fb47542ded"
@@ -13,6 +13,5 @@
   "implementation_relative_l2_max": 0.0001,
   "candidate_bytes": 2555904,
   "source_bytes": 3342336,
-  "expansion_is_diagnostic_only": true,
-  "implementation_correction": "Select original fast8 pipeline for expanded q8; initial fast4 pipeline attempt rejected by scalar gate."
+  "expansion_is_diagnostic_only": true
 }
