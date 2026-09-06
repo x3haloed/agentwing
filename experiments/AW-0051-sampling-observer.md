@@ -2,8 +2,8 @@
 
 ## Status
 
-Observer build and focused tests pass after terminal AW-0049/AW-0050. No real
-model capture yet; diagnostic runner and capture audit remain to be prepared.
+Observer build and focused tests pass after terminal AW-0049/AW-0050. The frozen
+real-model capture is running; its terminal trace/behavior audit remains pending.
 
 ## Hypothesis
 
@@ -73,3 +73,22 @@ P1 preflight passes afterward; no model process remains live.
 Evidence: `evidence/AW-0051-observer-build-tests.json`;
 isolated profile: `spec/sampling-observer-development.json`;
 reconstruction: `experiments/AW-0051-sampling-observer.patch`.
+
+## Capture launch
+
+Runner/profile/reference pins were frozen in
+`evidence/AW-0051-sampling-capture-plan.json` and committed at `8008477` before
+launch. Candidate and corpus preflight passed. Command:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 scripts/run_sampling_observer.py --task dev-multi-file --candidate-plan spec/sampling-observer-development.json
+```
+
+Raw directory:
+`/Users/chad/Models/agentwing/evidence/AW-0051/20260906T121550.770279Z`.
+The trace is being written and its first request records 452 new prompt tokens,
+zero reuse, temperature 0, frequency penalty 0.5 and admitted output budget 512.
+Initial pressure is 1 and swap remains 705.31 MiB. These observations establish
+that capture started, not complete trace validity or behavior neutrality. Keep
+the same supervised process through its terminal outcome, then audit the
+predeclared checks against the pinned AW-0049 reference. No performance claim.
