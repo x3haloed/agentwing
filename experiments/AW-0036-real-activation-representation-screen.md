@@ -65,3 +65,20 @@ in the route log; bit patterns must be finite and normalized weights sum to one.
 At most 24 captures per prompt are admitted. Each arm has a 180-second deadline
 and host gates; failures and raw hashes are preserved. This supervisor is prepared
 but not run, and its observer build still needs validation.
+
+## Isolated build and first capture run
+
+Observer source is committed as c3ee0db in
+`/Users/chad/Models/agentwing/reproductions/Swiftlet-AW0036`, derived from AW-0031
+406f992. Full patch is archived beside this record. Only dependency checkouts,
+repositories and workspace-state were copied from the prior isolated build;
+no relocated compiled module cache was reused. Release CLI build succeeded in
+78.81 seconds using:
+`swift build --package-path /Users/chad/Models/agentwing/reproductions/Swiftlet-AW0036 -c release --jobs 2 --disable-automatic-resolution --product swiftlet`.
+Build log: `/Users/chad/Models/agentwing/evidence/AW-0036/build.log`.
+
+First capture run launched at
+`/Users/chad/Models/agentwing/evidence/AW-0036/20260906T062421.091973Z`.
+It follows the declared nine-arm schedule. At launch, no P1 process remained.
+Actual capture coverage, route/output equivalence and fixture admission remain
+pending until this run completes. P1's source/binary/profile are unchanged.
