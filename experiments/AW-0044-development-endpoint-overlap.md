@@ -21,3 +21,11 @@ complete. Replay each independent grader with `audit_p2_development.py` and
 inspect tool traces for productive/failed/redundant work and protocol errors.
 Compare verified utility/hour, preserving zeros. A single development task is
 neither broad capability evidence nor the replicated full promotion protocol.
+
+## Execution ledger
+
+C1 (P1) started at
+`/Users/chad/Models/agentwing/evidence/AW-0044/20260906T073105.428996Z`.
+The frozen corpus audit passed and the owned runner is active; task utility and
+completion are not yet known. Resume the existing run rather than restarting it.
+A1 and C2 have not started. Preserve the planned order and pinned candidate.
