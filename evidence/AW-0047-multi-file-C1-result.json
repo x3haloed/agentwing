@@ -1,0 +1,38 @@
+{
+  "task": "dev-multi-file",
+  "arm": "C1",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0047/20260906T100843.065478Z",
+  "raw_receipt_sha256": "72b133de6630f90b4da099c44f69453e5f587ee5f50f1a80e36aa423f604cc9e",
+  "utility": 0,
+  "artifact_grader_utility": 1,
+  "wall_seconds": 1152.765673375,
+  "protocol": {
+    "passed": false,
+    "checks": {
+      "events_nonempty": true,
+      "paired_unique_tool_events": true,
+      "bash_schema_valid": true,
+      "no_model_error": false,
+      "no_server_tool_rejection": false,
+      "fresh_model_state": true,
+      "unique_requests": true,
+      "terminal_metric": true,
+      "no_explicit_authority_access": true
+    },
+    "tool_calls": 10,
+    "failed_tool_calls": 0,
+    "repeated_command_occurrences": 0,
+    "productivity_classification": "not inferred from command success; full transcript retained for separate review",
+    "request_count": 11,
+    "new_prompt_tokens": 1293,
+    "generated_tokens": 1788,
+    "reported_ttft_seconds": 340.8,
+    "declared_normalizations": 0,
+    "declared_salvages": 0
+  },
+  "execution_status": "model-error-or-empty-transcript",
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0.0,
+  "failure": "Final 512-token response repeats test comments and ends in an incomplete tool call. Strict parser rejects it; saved code independently grades 1 but accepted utility is 0.",
+  "scope": "Preserved protocol failure; remaining AW-0047 arms stopped by frozen policy"
+}

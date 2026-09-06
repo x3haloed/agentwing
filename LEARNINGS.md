@@ -932,3 +932,14 @@ This supports testing stable paths as a measurement-control improvement, not
 blaming or exonerating the runtime: exact wire tokens and raw accepted spellings
 were not captured. Candidate grade 0 and failed preservation remain unchanged.
 Do not alter the ongoing fixed multi-file comparison or weaken the verifier.
+
+## 2026-09-06 — Multi-file code passes but final tool protocol fails
+
+AW-0047 multi-file C1 saves code that independently grades 1, then emits a
+repetitive 512-token test-writing block without completing its tool call. Strict
+parser rejection and assistant error correctly reduce accepted utility to 0
+after 1152.77 seconds. Ten earlier tool calls, pressure 1 and zero swap growth
+do not override the protocol gate. The declared stop policy leaves multi-file
+A1/C2 unattempted; their results must not be inferred. AW-0047 is terminal with
+the joint candidate rejected on recovery preservation, not a completed goal.
+Preserve artifact-only success separately from fully valid autonomous completion.

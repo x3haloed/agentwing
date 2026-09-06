@@ -1,0 +1,40 @@
+{
+  "plan_sha256": "cfe133b43c0c3adf16323f4a651e2d18553dae98313e263dcbcc8b655c22fb89",
+  "status": "stopped-by-predeclared-protocol-gate",
+  "completed_arms": [
+    {
+      "task": "dev-recovery",
+      "arm": "C1",
+      "utility": 1
+    },
+    {
+      "task": "dev-recovery",
+      "arm": "A1",
+      "utility": 0
+    },
+    {
+      "task": "dev-recovery",
+      "arm": "C2",
+      "utility": 1
+    },
+    {
+      "task": "dev-multi-file",
+      "arm": "C1",
+      "utility": 0
+    }
+  ],
+  "unattempted_arms": [
+    {
+      "task": "dev-multi-file",
+      "arm": "A1",
+      "reason": "Prior control protocol failure triggers frozen stop policy"
+    },
+    {
+      "task": "dev-multi-file",
+      "arm": "C2",
+      "reason": "Prior control protocol failure triggers frozen stop policy"
+    }
+  ],
+  "disposition": "Joint candidate rejected for promotion on recovery preservation; multi-file comparison incomplete",
+  "scope": "Negative development evidence, not completion of the project goal"
+}

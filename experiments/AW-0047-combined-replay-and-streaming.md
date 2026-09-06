@@ -1,7 +1,8 @@
 # AW-0047 — Combine validated replay retention and bounded expert streaming
 
-Status: joint release build and 57 tests in 11 suites pass; development plan
-frozen, agent comparison pending. No utility or promotion claim.
+Status: stopped by the predeclared protocol gate. Recovery C1/A1/C2=1/0/1;
+multi-file C1=0 due to protocol failure. Remaining two arms unattempted. Joint
+profile rejected for promotion; implementation mechanisms retained for research.
 
 Combine AW-0046 a48dfbc (streaming, failed-fill cleanup and diagnostics) with
 AW-0045 0843311 (bounded accepted tool-history spellings) in a fresh isolated
@@ -114,3 +115,17 @@ this identifies a path/context confounder rather than proving attribution.
 The candidate's failed grade and preservation failure stand. After this fixed
 comparison, a separately declared shared-workspace-path comparison could isolate
 runtime effects without narrowing tasks/tools or changing their contracts.
+
+Multi-file C1 ends in 1152.766 seconds with utility 0. Its saved code independently
+grades 1, but the last 512-token response repeats test comments and ends inside
+an incomplete tool call. Strict server rejection makes `no_model_error` and
+`no_server_tool_rejection` fail. Ten prior tool calls were valid; no completed
+tool errors/repeats. Pressure 1 and zero swap growth pass. Individual integrity
+and grader replay pass in `evidence/AW-0047-multi-file-C1-audit.json`, preserving
+the distinction between accepted task utility and artifact-only grading.
+
+The frozen stop policy now applies: multi-file A1 and C2 are unattempted, not
+silently removed successes or failures. `evidence/AW-0047-terminal-ledger.json`
+records the incomplete comparison. P1 preflight passes after cleanup. No model
+process from AW-0047 remains active. Any further evaluation needs a new declared
+plan; preserve this candidate's failed recovery and P1's incomplete tool call.
