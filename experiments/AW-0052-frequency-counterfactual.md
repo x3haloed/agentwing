@@ -95,3 +95,10 @@ output, not autonomous task success. `evidence/AW-0052-C1-trace-audit.json`
 records hashes of the completed arm; whole-run receipt remains pending.
 The frozen supervisor advanced to A1 with frequency 0, verified as its own
 process-group leader. C2 and full comparison/content audit remain outstanding.
+
+The completed C1 also matches every recorded selected raw/adjusted score,
+bounded raw/adjusted candidate summary, seen count and EOS-mask decision across
+all 512 positions. Maximum selected raw-score absolute difference is 0. This
+strengthens the observed replay equivalence without asserting full-logit or
+hidden-state identity. Trace hashes and field counts are in
+`evidence/AW-0052-C1-observed-score-comparison.json`.

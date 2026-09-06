@@ -1,0 +1,20 @@
+{
+  "source": "AW51 request13 versus AW52 C1",
+  "decisions": 512,
+  "equal_decisions_by_field": {
+    "selected": 512,
+    "seen_before": 512,
+    "selected_raw": 512,
+    "selected_adjusted": 512,
+    "raw": 512,
+    "adjusted": 512,
+    "ban_eos": 512,
+    "is_eos": 512
+  },
+  "max_selected_raw_absolute_difference": 0.0,
+  "scope": "Bounded observed scores/top candidates only; not full-logit or hidden-state identity",
+  "source_trace_sha256": {
+    "/Users/chad/Models/agentwing/evidence/AW-0051/20260906T121550.770279Z/sampling.jsonl": "5993441d20088f6d53914e40b07685d27d3733957824331f42b15d420ce958a4",
+    "/Users/chad/Models/agentwing/evidence/AW-0052/20260906T124847.512867Z/C1/sampling.jsonl": "72ee2e5cd959806eb8ed58760505871d267ee3d5266b88f2b14152b372f0e652"
+  }
+}
