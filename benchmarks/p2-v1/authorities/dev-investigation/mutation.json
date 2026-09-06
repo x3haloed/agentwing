@@ -1,0 +1,5 @@
+{
+  "path": "jobs/join.py",
+  "old": "raise ValueError('unknown customer')",
+  "new": "continue"
+}

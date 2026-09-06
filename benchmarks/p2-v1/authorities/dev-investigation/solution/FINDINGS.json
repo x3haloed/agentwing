@@ -1,0 +1,1 @@
+{"cause":"The join ignored tenant identity, so customer ids shared across tenants multiplied and misattributed invoices.","evidence":["jobs/join.py","data/customers.json","logs/export.log"],"corrected_totals":{"north":1000,"south":700}}

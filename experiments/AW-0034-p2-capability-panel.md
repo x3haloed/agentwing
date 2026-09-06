@@ -23,3 +23,20 @@ requires evidence paths and preservation of original inputs.
 This tranche is incomplete: five development and sixteen held-out tasks,
 full-path runner integration, corpus freeze, and P1 capability measurements are
 still required. Do not interpret authority checks as demonstrated model capability.
+
+## Eight-category development tranche
+
+Added shared money-rounding refactoring, stale-validator recovery, revisioned
+CSV aggregation, non-mutating schema migration, and tenant-join investigation.
+All eight development authorities reject pristine inputs, reject broken code
+with visible tests removed, accept reference repairs, and reject a specific
+incomplete semantic repair. Mutated Python sources must parse before their
+rejection counts, preventing syntax failure from masquerading as behavioral
+coverage. Sixteen distinct held-out tasks remain to be authored and audited.
+
+The first eight-task audit exposed newline escaping mistakes in recovery and
+CSV grader fixtures. Invalid sources are preserved outside Git at
+`/Users/chad/Models/agentwing/evidence/AW-0034/initial-eight-audit/`.
+They were fixed before model evaluation. The corrected full audit passes;
+`evidence/AW-0034-development-audit.json` records the final result. No inference
+or task-performance measurement was made, and corpus status remains unfrozen.

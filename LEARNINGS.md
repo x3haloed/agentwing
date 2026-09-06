@@ -654,3 +654,13 @@ visible tests does not grant success. The grader copies submissions and drains
 owned processes. This is authority validation, not model capability evidence.
 The panel is explicitly incomplete and unfrozen: five development and sixteen
 held-out tasks, run integration and control measurements remain. P1 is unchanged.
+
+## 2026-09-05 — All eight P2 development categories have audited authorities
+
+AW-0034 now covers refactoring, tool recovery, data processing, configuration
+migration and longer investigation in addition to its first three categories.
+All eight pristine/test-deletion cases fail, reference repairs pass, and
+syntax-valid incomplete semantic repairs fail. Initial newline-generation bugs
+in two graders were caught and preserved before any model run. This completes
+the development-category scaffold, not the 24-task panel: sixteen substantively
+distinct held-out tasks and full-path integration remain. Corpus is not frozen.

@@ -1,0 +1,7 @@
+event_id,revision,service,cents,deleted
+a,2,"api,west",125,0
+b,1,db,80,0
+a,1,"api,west",100,0
+b,2,db,80,1
+c,1,worker,-25,0
+a,2,"api,west",125,0

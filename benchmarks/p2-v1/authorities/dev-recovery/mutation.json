@@ -1,0 +1,5 @@
+{
+  "path": "queue_names.py",
+  "old": ".casefold()",
+  "new": ".lower()"
+}

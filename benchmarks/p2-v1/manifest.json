@@ -22,6 +22,36 @@
       "split": "development",
       "category": "multi-file-change",
       "prompt": "Implement the archived-item option described in README.md across the API and CLI, repair pagination behavior, and add regression coverage. Preserve existing default callers."
+    },
+    {
+      "id": "dev-refactoring",
+      "split": "development",
+      "category": "refactoring",
+      "prompt": "Consolidate the money rounding behavior as described in README.md. Preserve both public interfaces and their outputs, and ensure they call the shared implementation."
+    },
+    {
+      "id": "dev-recovery",
+      "split": "development",
+      "category": "tool-failure-recovery",
+      "prompt": "Follow the repository validation instructions, recover from the stale launcher using the maintained tooling, and repair the normalization bug. Preserve the maintained validator and leave a concise VALIDATION.md identifying the working command."
+    },
+    {
+      "id": "dev-data",
+      "split": "development",
+      "category": "data-processing",
+      "prompt": "Implement summarize.py according to CONTRACT.md. It must handle the supplied CSV and other files following that contract; produce report.json for events.csv."
+    },
+    {
+      "id": "dev-migration",
+      "split": "development",
+      "category": "configuration-migration",
+      "prompt": "Implement migrate.upgrade and its CLI to satisfy POLICY.md, and generate upgraded.json from legacy.json. Preserve unrelated settings and leave the source input intact."
+    },
+    {
+      "id": "dev-investigation",
+      "split": "development",
+      "category": "longer-investigation",
+      "prompt": "Investigate the incorrect tenant revenue export using the incident report, runbook, inputs and pipeline code. Fix the root cause, regenerate revenue.json, and write FINDINGS.json using the schema in INCIDENT.md."
     }
   ]
 }

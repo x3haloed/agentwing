@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Check P2 authorities against pristine, repaired, and deliberately wrong work."""
+import ast
 import json
 from pathlib import Path
 import shutil
@@ -34,7 +35,12 @@ def main():
             elif task_id=='dev-multi-file':
                 p=workspace/'ledger/cli.py';p.write_text(p.read_text().replace('a.limit,a.include_archived','a.limit,False'))
             else:
-                raise AssertionError('missing mutation fixture: '+task_id)
+                mutation=json.loads((SUITE/'authorities'/task_id/'mutation.json').read_text())
+                p=workspace/mutation['path'];source=p.read_text()
+                assert mutation['old'] in source, 'mutation does not apply'
+                p.write_text(source.replace(mutation['old'],mutation['new']))
+            for source_file in workspace.rglob('*.py'):
+                ast.parse(source_file.read_text(), str(source_file))
             mutated=verify(task_id,workspace)
             assert mutated['utility']==0,(task_id,'incomplete fix accepted')
             rows.append({'task_id':task_id,'pristine_rejected':True,'visible_test_deletion_rejected':True,'reference_passed':True,'incomplete_repair_rejected':True})

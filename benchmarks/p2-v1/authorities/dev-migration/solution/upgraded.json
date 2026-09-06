@@ -1,0 +1,1 @@
+{"schema":2,"network":{"proxy":"http://local","attempts":5,"timeout_ms":7000},"tags":["keep"],"owner":"ops"}

@@ -1,0 +1,1 @@
+[{"tenant_id":"north","customer_id":1,"cents":1200},{"tenant_id":"south","customer_id":1,"cents":700},{"tenant_id":"north","customer_id":2,"cents":-200}]

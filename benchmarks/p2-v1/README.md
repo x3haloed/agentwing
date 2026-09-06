@@ -3,7 +3,7 @@
 This is a new suite. Stage A and P1's frozen acceptance inputs are unchanged.
 The campaign requires 24 tasks: eight development tasks and sixteen held-out
 tasks, with three distinct tasks in each of eight categories. The current
-manifest contains only three development tasks. **Do not freeze or use this
+manifest contains all eight development tasks, and no held-out tasks. **Do not freeze or use this
 partial corpus for a promotion claim.**
 
 The executing model receives only its task prompt and a copy of
@@ -26,7 +26,7 @@ inputs. These fixtures are authored locally and are unfamiliar to the executing
 model in this campaign; they are not independent real-world repository samples
 or proof of universal generalization.
 
-Before freeze: complete all categories and both held-out tasks per category,
+Before freeze: complete both held-out tasks per category,
 audit independent authorities, freeze input/authority/source hashes, integrate
 full-path run evidence, and establish a P1 control. Held-out variants must be
 substantively different tasks, not development fixtures with renamed constants.

@@ -1,0 +1,5 @@
+{
+  "path": "migrate.py",
+  "old": "attempts=retries+1",
+  "new": "attempts=retries"
+}

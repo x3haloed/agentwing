@@ -1,0 +1,5 @@
+{
+  "path": "summarize.py",
+  "old": "int(row['revision'])>int(latest[row['event_id']]['revision'])",
+  "new": "row['revision']>latest[row['event_id']]['revision']"
+}
