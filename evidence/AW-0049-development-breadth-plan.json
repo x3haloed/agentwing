@@ -1,0 +1,55 @@
+{
+  "frozen_at_utc": "2026-09-06T11:22:07.556597+00:00",
+  "candidate_plan": "spec/joint-development-candidate.json",
+  "candidate_plan_sha256": "d5ef68f14831c7929a993511983c95a000c31b4a2be0447fe55a50fafe8428a6",
+  "runner": "scripts/run_breadth_development.py",
+  "runner_sha256": "684ea749154e47e7e170ad4b334b6f4b57108493e3c1926bdee21123a6d0757a",
+  "workspace_helper_sha256": "5dbacb84bd2fc3878f94193fc6aa7ea2510f411118ec53c930f4311ba91889a0",
+  "corpus_receipt_sha256": "d67041e34c10676ed8583d33a9148b2fe1518ea436caba58cb107c46d34ac4b5",
+  "workspace_policy": {
+    "path": "/Users/chad/Models/agentwing/active/workspace",
+    "private_state": "/Users/chad/Models/agentwing/active/agentwing-task-state",
+    "archive": "rename workspace and private state after owned processes stop"
+  },
+  "order": [
+    {
+      "task": "dev-multi-file",
+      "profile": "AW0047-replay-streaming"
+    },
+    {
+      "task": "dev-navigation",
+      "profile": "AW0047-replay-streaming"
+    },
+    {
+      "task": "dev-debugging",
+      "profile": "AW0047-replay-streaming"
+    },
+    {
+      "task": "dev-refactoring",
+      "profile": "AW0047-replay-streaming"
+    },
+    {
+      "task": "dev-data",
+      "profile": "AW0047-replay-streaming"
+    },
+    {
+      "task": "dev-migration",
+      "profile": "AW0047-replay-streaming"
+    },
+    {
+      "task": "dev-investigation",
+      "profile": "AW0047-replay-streaming"
+    }
+  ],
+  "task_timeout_seconds": 1800,
+  "startup_timeout_seconds": 60,
+  "stop_on": [
+    "host-gate failure",
+    "protocol failure"
+  ],
+  "continue_after": "independent-grader failure with passing protocol and host gates; preserve zero utility",
+  "launch_prerequisite": "AW-0048 frozen sequence terminal and audited; no live model owner or unresolved host-gate violation",
+  "prerequisite_plan_sha256": "402c6936dc6f099ac5c4551e1b5b3dccfa4b022890869dcd3d671456adbfe459",
+  "primary_metric": "Per-task accepted utility and protocol/host validity across remaining development categories",
+  "scope": "Candidate-only development breadth screen. Recovery evidence retained separately. No speedup, held-out, broad non-regression or promotion claim."
+}
