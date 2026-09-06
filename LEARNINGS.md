@@ -816,3 +816,16 @@ sequence for tools, so a partial match cannot restore state. The particular
 mismatch still needs tracing. This identifies potentially large redundant model
 work without narrowing agent capability; keep it separate from the ongoing fixed
 AW-0044 comparison. Candidate A1 is now active; no relative utility result yet.
+
+## 2026-09-06 — Agent candidate exposes an oversized expert union
+
+AW-0044 A1 ends in 1181.98 seconds with utility 0. It repeats C1's evidence-set
+error and fails protocol completion: the final request asks for 161 experts in
+a cache with 160 physical slots. Pressure 1 and zero swap growth pass, but the
+model-error and terminal-metric gates fail. Shorter elapsed time cannot be called
+a speedup. The whole-batch-fit assumption is inherited from P1; attribution of
+this particular union to path/context variation versus arithmetic remains open.
+Full expert-chain execution offers a possible bounded-memory repair: drain a
+subset before reusing its cache slots, while keeping routed output and final
+accumulation order. Increasing memory or narrowing tasks is not required by that
+design. No repair is implemented yet; finish fixed C2 before follow-up builds.

@@ -44,8 +44,23 @@ not grounds to alter this comparison's fixed candidate midstream.
 
 A1 started at
 `/Users/chad/Models/agentwing/evidence/AW-0044/20260906T075848.611936Z` using the
-pinned candidate and is active. Resume it rather than restarting. C2 has not
-started. `scripts/audit_development_comparison.py` is ready for the three completed
+pinned candidate. It ended after 1181.981 seconds with utility 0, wrong evidence
+set, and a model error on the final request: `expert cache budget fits 160
+physical slots; batch requires at least 161`. Protocol fails `no_model_error`
+and `terminal_metric`. Pressure stays 1 and swap growth 0. Integrity/grader replay
+pass, which certifies the failed record, not candidate acceptance. Its shorter
+duration is not a speedup result. The original P1 cache also requires the entire
+requested batch to fit, so this run alone does not attribute the 161-expert route
+union to changed arithmetic rather than different context/path tokens.
+
+C2 (P1) started at
+`/Users/chad/Models/agentwing/evidence/AW-0044/20260906T081848.364672Z` and is
+active. Resume it rather than restarting. After it ends, run the full comparison
+audit with the three recorded directories in order. The current candidate cannot
+be promoted on A1's protocol failure. A bounded streaming path for oversized
+expert unions is a concrete follow-up; do not alter A1 or C2 retroactively.
+
+`scripts/audit_development_comparison.py` is ready for the three completed
 arms, including source/configuration pins, ordering, grading and pooled-control
 utility-rate comparison. Static admission checks precede this diagnostic's timed
 clock; a final promotion runner still needs complete accounting.

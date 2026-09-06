@@ -1,0 +1,20 @@
+{
+  "arm": "A1",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0044/20260906T075848.611936Z",
+  "raw_receipt_sha256": "7b6cba4f8fdfc08239ec22fe3e8f8290e69df1becbe030e2fda9d3f2f337b8e8",
+  "utility": 0,
+  "wall_seconds": 1181.9808759589998,
+  "execution_status": "model-error-or-empty-transcript",
+  "protocol_passed": false,
+  "tool_calls": 11,
+  "model_errors": [
+    "\"badShape(\\\"expert cache budget fits 160 physical slots; batch requires at least 161\\\")\""
+  ],
+  "grader_failure": "Wrong evidence set, same substituted path as C1",
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0.0,
+  "disposition": "Failed development task and protocol gate; shorter time is not a speedup result",
+  "attribution_limit": "The 160-slot whole-batch requirement also exists in P1; this run alone does not isolate why candidate context routed to a 161-expert union.",
+  "next_arm": "C2",
+  "next_run": "/Users/chad/Models/agentwing/evidence/AW-0044/20260906T081848.364672Z"
+}
