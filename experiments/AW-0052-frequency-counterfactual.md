@@ -83,3 +83,15 @@ a missing framework search path; the corrected empty-filter smoke loads with
 zero tests (exit 69), and actual SamplingTraceTests then pass with exit 0.
 Preserve these logs. Revised plan pins helper and framework as well as prior
 identities. All model/sampling/input conditions remain unchanged.
+
+## First control completes and reproduces original failure
+
+Revised run `AW-0052/20260906T124847.512867Z` C1 completed in
+725.218569542 seconds, exit 0, pressure 1, swap growth 0. All 512 generated IDs
+and emitted text match AW-0051 request 13 exactly. Independent decision audit
+finds no sampling anomalies. This validates the fresh-prefill control for this
+captured trajectory; test exit 0 denotes successful reproduction of a rejected
+output, not autonomous task success. `evidence/AW-0052-C1-trace-audit.json`
+records hashes of the completed arm; whole-run receipt remains pending.
+The frozen supervisor advanced to A1 with frequency 0, verified as its own
+process-group leader. C2 and full comparison/content audit remain outstanding.
