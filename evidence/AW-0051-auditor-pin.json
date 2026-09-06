@@ -1,0 +1,6 @@
+{
+  "script": "scripts/audit_sampling_capture.py",
+  "sha256": "e75ac3df3193b867a39c2d32c1f5810af04c64763c464c3de9ee01f16bff7f7c",
+  "validation": "AST parse passed; complete trace audit pending terminal capture",
+  "scope": "Trace integrity and sampling findings are separate; no promotion criterion changed"
+}
