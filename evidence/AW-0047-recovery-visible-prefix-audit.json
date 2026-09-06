@@ -1,0 +1,35 @@
+{
+  "checks": {
+    "first_seven_commands_equal": true,
+    "first_seven_structured_assistant_contents_equal_ignoring_call_ids": true,
+    "first_six_tool_results_equal": true,
+    "all_seven_tool_results_equal_after_only_workspace_path_replacement": true,
+    "seventh_tool_result_differs_before_path_replacement": true,
+    "eighth_commands_differ": true
+  },
+  "arms": [
+    {
+      "arm": "C1",
+      "run": "/Users/chad/Models/agentwing/evidence/AW-0047/20260906T091156.920519Z",
+      "receipt_sha256": "7476ff37311be8043e71b984e3c981b20cba31d2298a4327d756a68613a4891b",
+      "eighth_command": "cat > queue_names.py << 'EOF'\nimport re\nimport unicodedata\n\n\ndef normalize(value):\n    # Casefold Unicode (e.g. \"Straße\" -> \"strasse\")\n    value = unicodedata.casefold(value)\n    # Strip surrounding whitespace\n    value = value.strip()\n    # Replace each run of whitespace or hyphens with one underscore\n    value = re.sub(r'[\\s\\-]+', '_', value)\n    # Trim outer underscores\n    value = value.strip('_')\n    return value if value else ''  # Return empty string for all-separator input\n\n\nif __name__ == '__main__':\n    from tools.check import *  # noqa: F401,F403 -- run assertions via check.py path setup is separate; just test here too.\n\nEOF"
+    },
+    {
+      "arm": "A1",
+      "run": "/Users/chad/Models/agentwing/evidence/AW-0047/20260906T093621.794299Z",
+      "receipt_sha256": "d56f084b8a3950334893390b8bd89e925e1abc3d7001d86a8727c7ddeab09048",
+      "eighth_command": "cat > queue_names.py << 'EOF'\nimport re\nimport unicodedata\n\n\ndef normalize(value):\n    # Casefold and NFKD-normalize (handles e.g. ß → ss)\n    value = unicodedata.normalize(\"NFKD\", value).casefold()\n    # Replace each run of whitespace or hyphens with a single underscore\n    value = re.sub(r\"[\\s\\-]+\", \"_\", value)\n    # Trim outer underscores\n    return value.strip(\"_\")\nEOF"
+    },
+    {
+      "arm": "C2",
+      "run": "/Users/chad/Models/agentwing/evidence/AW-0047/20260906T094822.332630Z",
+      "receipt_sha256": "1844216038218cd0b9c6b50b537b9c46dc5edc29847858ae78d4b1652618f96a",
+      "eighth_command": "cat > queue_names.py << 'EOF'\nimport re\nimport unicodedata\n\n\ndef normalize(value):\n    # Casefold (handles e.g. ß → ss) and NFC-normalize Unicode\n    value = unicodedata.normalize(\"NFC\", unicodedata.casefold(value))\n    # Replace each run of whitespace or hyphens with a single underscore\n    value = re.sub(r\"[\\s\\-]+\", \"_\", value)\n    # Trim outer underscores\n    return value.strip(\"_\")\nEOF"
+    }
+  ],
+  "limits": [
+    "Structured visible transcript only; exact rendered request tokens and accepted raw reply spellings were not captured",
+    "Workspace paths differ immediately before first differing repair; this is a confounder, not isolated causal proof",
+    "No change to the failed candidate grade, completed controls or ongoing frozen comparison"
+  ]
+}

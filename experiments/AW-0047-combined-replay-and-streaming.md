@@ -102,3 +102,15 @@ Multi-file C1 (P1) started at
 `/Users/chad/Models/agentwing/evidence/AW-0047/20260906T100843.065478Z`.
 It is active; resume it without restarting. Audit completion before starting the
 frozen multi-file A1, then C2, under the same host/protocol stop policy.
+
+Completed recovery visible-prefix audit (`audit_recovery_prefix.py`) confirms
+all three first-seven commands and structured assistant contents match after
+ignoring generated call IDs. First-six tool results are identical; the seventh
+differs only in the workspace path, and all results match after only that path
+replacement. Eighth commands (first repairs) differ across all three arms.
+`evidence/AW-0047-recovery-visible-prefix-audit.json` preserves the result and
+receipt checks. Exact wire tokens/raw accepted spellings were not captured, so
+this identifies a path/context confounder rather than proving attribution.
+The candidate's failed grade and preservation failure stand. After this fixed
+comparison, a separately declared shared-workspace-path comparison could isolate
+runtime effects without narrowing tasks/tools or changing their contracts.

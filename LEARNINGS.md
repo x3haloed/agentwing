@@ -921,3 +921,14 @@ The candidate utility-rate ratio is zero and solved-task preservation fails;
 reject promotion despite a much shorter candidate run. Both controls' repeated
 validation and error correction are charged. Continue the frozen multi-file
 diagnostic unchanged; additional results cannot erase this failed requirement.
+
+## 2026-09-06 — Recovery divergence follows a visible workspace-path difference
+
+Independent completed-trace audit finds identical first-seven commands and
+structured assistant contents (ignoring generated call IDs) across recovery
+C1/A1/C2. First-six tool results match exactly; seventh results differ only in
+the workspace path. First repair commands then differ across all three runs.
+This supports testing stable paths as a measurement-control improvement, not
+blaming or exonerating the runtime: exact wire tokens and raw accepted spellings
+were not captured. Candidate grade 0 and failed preservation remain unchanged.
+Do not alter the ongoing fixed multi-file comparison or weaken the verifier.
