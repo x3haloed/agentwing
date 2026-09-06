@@ -966,3 +966,17 @@ and 405.6 seconds. The preliminary single-control utility-rate ratio is 1.80x.
 This supports the redundant-prefill mechanism in a successful agent task without
 narrowing work. C2, broader capability and replicated promotion accounting are
 still required; AW-0047's negative result remains unchanged.
+
+## 2026-09-06 — Fixed-path recovery comparison closes with preserved utility
+
+AW-0048 C2 scores 1 in 1167.82 seconds, protocol pass, pressure 1 and zero swap
+growth. Both controls' complete 25-event structured visible transcripts match
+after removing call IDs; their first repairs agree, supporting the declared
+repeatability diagnostic. C2 repeats the 1561-token refill at 408.3 seconds TTFT.
+All three receipts, grades, configuration pins, paths and run order audit cleanly.
+With all utilities equal to 1, candidate utility/hour is 1.80695x the pooled
+controls. This is positive task-level development evidence for avoiding redundant
+prefill, not broad generalization or promotion. Retain the candidate and fixed
+workspace harness for the other development categories. Keep AW-0047's negative
+result and require the original suite, held-out panel and replicated full-path
+acceptance before declaring the project goal achieved.

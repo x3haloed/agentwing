@@ -2,9 +2,10 @@
 
 ## Status
 
-First P1 control and unchanged candidate completed successfully; C2 is running. Lifecycle
-and existing-boundary engineering checks pass. AW-0047 remains terminal and
-negative, with no promotion.
+Complete, positive development diagnostic. All three arms score 1 and pass
+protocol/host gates; candidate utility-rate ratio to pooled controls is 1.80695.
+The primary control-repeatability prediction is supported. AW-0047 remains
+terminal and negative. No promotion.
 
 ## Hypothesis
 
@@ -89,7 +90,8 @@ generalization estimate. Prior demonstrated successes remain regression gates.
 Frozen pins: `evidence/AW-0048-fixed-workspace-plan.json`.
 Large raw evidence: `/Users/chad/Models/agentwing/evidence/AW-0048/`.
 Engineering log: `workspace-tests.log`, with its hash in the frozen plan.
-Unresolved pending the declared comparison. No candidate promotion.
+Retain the unchanged candidate and fixed-path harness for broader development
+screening. No candidate promotion.
 
 ### C1 launch
 
@@ -158,3 +160,34 @@ After A1's terminal audit and successful P1 preflight, C2 started at
 with harness revision `f267f4b`. It uses the unchanged P1 binary and frozen
 workspace policy. The primary C1/C2 repeatability diagnostic and pooled utility
 comparison await C2's terminal receipt and grader/protocol audit.
+
+### Completed comparison
+
+C2 scores 1 in 1167.820926 seconds (3.082664/hour), with 12 tool calls, one
+reported tool error, two repeated commands and 13 requests. Protocol passes,
+pressure peaks at 1, and swap growth is zero. C2 repeats the 1561-token full
+refill with 1466 matched tokens, TTFT 408.3 seconds. Receipt/grader replay and
+three-arm configuration, order and workspace audits pass.
+
+| Arm | Accepted utility | Measured seconds | Utility/hour |
+| --- | ---: | ---: | ---: |
+| P1 C1 | 1 | 1163.357361 | 3.094492 |
+| Joint A1 | 1 | 645.059094 | 5.580884 |
+| P1 C2 | 1 | 1167.820926 | 3.082664 |
+
+Pooled control utility/hour is 3.088567. Candidate ratio is 1.806949, with
+control-success preservation and protocol checks passing. The two controls'
+complete 25-event structured visible transcripts agree after removing generated
+call IDs, including the first repair. This supports the predeclared diagnostic
+and using fixed paths for subsequent comparisons; it does not prove path-only
+causality for AW-0047 or unrecorded wire-token equality.
+
+The candidate matches both controls through 18 visible events, then differs
+in narration and later documentation/validation details while retaining a
+successful final artifact. This single development task does not prove broad
+capability, satisfy replicated full-path accounting or revise prior failures.
+All raw traces, receipts, source pins and outcomes are retained. Final records:
+`evidence/AW-0048-recovery-C2-result.json`,
+`evidence/AW-0048-recovery-comparison-audit.json`,
+`evidence/AW-0048-recovery-visible-comparison.json`, and
+`evidence/AW-0048-terminal-ledger.json`.

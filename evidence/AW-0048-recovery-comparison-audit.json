@@ -1,0 +1,210 @@
+{
+  "plan_sha256": "402c6936dc6f099ac5c4551e1b5b3dccfa4b022890869dcd3d671456adbfe459",
+  "arms": [
+    {
+      "arm": "C1",
+      "run": "/Users/chad/Models/agentwing/evidence/AW-0048/20260906T104140.560820Z",
+      "raw_receipt_sha256": "0ff567f7c2dc889d08b0941e7192f280fc7427850b87f05c01f097d2a16262bc",
+      "integrity_audit": {
+        "run": "/Users/chad/Models/agentwing/evidence/AW-0048/20260906T104140.560820Z",
+        "checks": {
+          "hashes_match": true,
+          "complete_selection": true,
+          "development_only": true,
+          "utility_sum": true,
+          "utility_rate": true,
+          "wall_includes_tasks": true
+        },
+        "tasks": [
+          {
+            "task_id": "dev-recovery",
+            "protocol_recomputed": true,
+            "grader_utility_replayed": true,
+            "accepted_utility": true,
+            "execution_matches": true,
+            "pressure_safe": true,
+            "reported_swap_safe": true
+          }
+        ],
+        "passed": true,
+        "scope": "Evidence integrity and verifier replay, not paired promotion or sandbox certification"
+      },
+      "utility": 1,
+      "wall_seconds": 1163.357360708,
+      "utility_per_hour": 3.09449196058647,
+      "task_protocol": {
+        "passed": true,
+        "checks": {
+          "events_nonempty": true,
+          "paired_unique_tool_events": true,
+          "bash_schema_valid": true,
+          "no_model_error": true,
+          "no_server_tool_rejection": true,
+          "fresh_model_state": true,
+          "unique_requests": true,
+          "terminal_metric": true,
+          "no_explicit_authority_access": true
+        },
+        "tool_calls": 12,
+        "failed_tool_calls": 1,
+        "repeated_command_occurrences": 2,
+        "productivity_classification": "not inferred from command success; full transcript retained for separate review",
+        "request_count": 13,
+        "new_prompt_tokens": 2605,
+        "generated_tokens": 1057,
+        "reported_ttft_seconds": 681.6999999999999,
+        "declared_normalizations": 0,
+        "declared_salvages": 0
+      },
+      "grading": {
+        "task_id": "dev-recovery",
+        "utility": 1,
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "server_binary_sha256": "5223ce7bd0fb92c0cf5c2adddf54a9b30b971e3bcf7dd25ac62ea5e7ec2cf4ff"
+    },
+    {
+      "arm": "A1",
+      "run": "/Users/chad/Models/agentwing/evidence/AW-0048/20260906T110307.710521Z",
+      "raw_receipt_sha256": "fad7fc967de0959d9f2a91f173c5df8a74765184b8db5e7749d50a271ed3f01f",
+      "integrity_audit": {
+        "run": "/Users/chad/Models/agentwing/evidence/AW-0048/20260906T110307.710521Z",
+        "checks": {
+          "hashes_match": true,
+          "complete_selection": true,
+          "development_only": true,
+          "utility_sum": true,
+          "utility_rate": true,
+          "wall_includes_tasks": true
+        },
+        "tasks": [
+          {
+            "task_id": "dev-recovery",
+            "protocol_recomputed": true,
+            "grader_utility_replayed": true,
+            "accepted_utility": true,
+            "execution_matches": true,
+            "pressure_safe": true,
+            "reported_swap_safe": true
+          }
+        ],
+        "passed": true,
+        "scope": "Evidence integrity and verifier replay, not paired promotion or sandbox certification"
+      },
+      "utility": 1,
+      "wall_seconds": 645.059094417,
+      "utility_per_hour": 5.5808840324213325,
+      "task_protocol": {
+        "passed": true,
+        "checks": {
+          "events_nonempty": true,
+          "paired_unique_tool_events": true,
+          "bash_schema_valid": true,
+          "no_model_error": true,
+          "no_server_tool_rejection": true,
+          "fresh_model_state": true,
+          "unique_requests": true,
+          "terminal_metric": true,
+          "no_explicit_authority_access": true
+        },
+        "tool_calls": 12,
+        "failed_tool_calls": 1,
+        "repeated_command_occurrences": 1,
+        "productivity_classification": "not inferred from command success; full transcript retained for separate review",
+        "request_count": 13,
+        "new_prompt_tokens": 1113,
+        "generated_tokens": 982,
+        "reported_ttft_seconds": 266.90000000000003,
+        "declared_normalizations": 0,
+        "declared_salvages": 0
+      },
+      "grading": {
+        "task_id": "dev-recovery",
+        "utility": 1,
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "server_binary_sha256": "c6403872520458769f929f2411c11b92a13a1ec4309ddddb6f06554230c57f3b"
+    },
+    {
+      "arm": "C2",
+      "run": "/Users/chad/Models/agentwing/evidence/AW-0048/20260906T111516.491668Z",
+      "raw_receipt_sha256": "877ebd96bdec7332f657ec27451b9e64b5a7084c494894ccf883ab7ee9cd558a",
+      "integrity_audit": {
+        "run": "/Users/chad/Models/agentwing/evidence/AW-0048/20260906T111516.491668Z",
+        "checks": {
+          "hashes_match": true,
+          "complete_selection": true,
+          "development_only": true,
+          "utility_sum": true,
+          "utility_rate": true,
+          "wall_includes_tasks": true
+        },
+        "tasks": [
+          {
+            "task_id": "dev-recovery",
+            "protocol_recomputed": true,
+            "grader_utility_replayed": true,
+            "accepted_utility": true,
+            "execution_matches": true,
+            "pressure_safe": true,
+            "reported_swap_safe": true
+          }
+        ],
+        "passed": true,
+        "scope": "Evidence integrity and verifier replay, not paired promotion or sandbox certification"
+      },
+      "utility": 1,
+      "wall_seconds": 1167.820925667,
+      "utility_per_hour": 3.0826644058838584,
+      "task_protocol": {
+        "passed": true,
+        "checks": {
+          "events_nonempty": true,
+          "paired_unique_tool_events": true,
+          "bash_schema_valid": true,
+          "no_model_error": true,
+          "no_server_tool_rejection": true,
+          "fresh_model_state": true,
+          "unique_requests": true,
+          "terminal_metric": true,
+          "no_explicit_authority_access": true
+        },
+        "tool_calls": 12,
+        "failed_tool_calls": 1,
+        "repeated_command_occurrences": 2,
+        "productivity_classification": "not inferred from command success; full transcript retained for separate review",
+        "request_count": 13,
+        "new_prompt_tokens": 2605,
+        "generated_tokens": 1057,
+        "reported_ttft_seconds": 685.2,
+        "declared_normalizations": 0,
+        "declared_salvages": 0
+      },
+      "grading": {
+        "task_id": "dev-recovery",
+        "utility": 1,
+        "exit": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "server_binary_sha256": "5223ce7bd0fb92c0cf5c2adddf54a9b30b971e3bcf7dd25ac62ea5e7ec2cf4ff"
+    }
+  ],
+  "pooled_control_utility_per_hour": 3.088566859978803,
+  "candidate_to_control_utility_rate_ratio": 1.806949399327439,
+  "candidate_preserves_control_success": true,
+  "candidate_protocol_passed": true,
+  "candidate_wall_ratio_to_neighbor_control_mean": 0.553418928262301,
+  "limits": [
+    "One frozen development task per audit; no broad capability or promotion claim",
+    "Elapsed-time ratio is not a speedup if utility is zero or protocol fails",
+    "Control-success preservation is vacuous when both controls score zero",
+    "A zero control utility rate has no finite comparison ratio",
+    "Live workspace and private-state paths are fixed; cache state and unrecorded wire spellings can still vary",
+    "Static admission checks precede the timed runner clock; this is not the full promotion accounting runner"
+  ]
+}

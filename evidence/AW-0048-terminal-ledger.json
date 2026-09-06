@@ -1,0 +1,17 @@
+{
+  "status": "completed-development-diagnostic",
+  "all_arms_utility": [
+    1,
+    1,
+    1
+  ],
+  "candidate_to_pooled_control_utility_rate_ratio": 1.806949399327439,
+  "candidate_preserves_control_success": true,
+  "primary_control_repair_prediction_supported": true,
+  "complete_control_visible_transcripts_equal": true,
+  "audits": {
+    "evidence/AW-0048-recovery-comparison-audit.json": "e53f4f8e82a53f583d6c697b05f162e87ad730c0b0a6a4c84196b024e2535825",
+    "evidence/AW-0048-recovery-visible-comparison.json": "af8fc11595107b0fbf3a4ac9a6498d7dde9f7bb9aadf63dd26ba56a7f9d8f8aa"
+  },
+  "disposition": "Retain unchanged candidate and fixed-path harness for breadth screening; no promotion; AW-0047 negative result preserved"
+}
