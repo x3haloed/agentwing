@@ -55,10 +55,17 @@ union to changed arithmetic rather than different context/path tokens.
 
 C2 (P1) started at
 `/Users/chad/Models/agentwing/evidence/AW-0044/20260906T081848.364672Z` and is
-active. Resume it rather than restarting. After it ends, run the full comparison
-audit with the three recorded directories in order. The current candidate cannot
-be promoted on A1's protocol failure. A bounded streaming path for oversized
-expert unions is a concrete follow-up; do not alter A1 or C2 retroactively.
+complete: utility 0 in 1476.436 seconds, protocol pass, pressure 1 and 0.75 MiB
+peak swap growth. It also fails the required evidence set, with ten valid tool
+calls and no failures or repeats. Its final request re-prefills 2234 tokens after
+2046 prefix tokens match, with zero reused tokens and 599.4 seconds TTFT.
+Both control processes and the client exited. The three-arm integrity audit
+passes in `evidence/AW-0044-comparison-audit.json`. All three utilities are zero;
+the candidate/control utility ratio is undefined. The reported elapsed-time
+ratio 0.764 is not a speedup because A1 aborted. The control-success predicate is
+vacuous with no solved control task and supplies no capability evidence.
+Disposition: reject this candidate for promotion; retain overlap as an unresolved
+mechanism for repair. Proceed with separate AW-0045/AW-0046 falsifiers.
 
 `scripts/audit_development_comparison.py` is ready for the three completed
 arms, including source/configuration pins, ordering, grading and pooled-control

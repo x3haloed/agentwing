@@ -829,3 +829,16 @@ Full expert-chain execution offers a possible bounded-memory repair: drain a
 subset before reusing its cache slots, while keeping routed output and final
 accumulation order. Increasing memory or narrowing tasks is not required by that
 design. No repair is implemented yet; finish fixed C2 before follow-up builds.
+
+## 2026-09-06 — Completed development comparison establishes no utility gain
+
+AW-0044 C2 finishes in 1476.44 seconds with utility 0 on the same evidence-set
+contract, ten valid tool calls, passing protocol, pressure 1 and 0.75 MiB swap
+growth. Its final 2234-token full refill costs 599.4 seconds TTFT despite 2046
+matched tokens. All three records pass independent integrity/grader replay;
+all three utilities are zero, so no finite utility-rate improvement is established.
+A1's shorter failed execution cannot supply a speedup. Its protocol error rejects
+promotion; the overlap mechanism remains available for isolated repair. The
+repeated large prefix refill strengthens the priority of historical-token replay
+investigation, while its exact causal mismatch remains unproven. P1 preflight
+passes after cleanup. No held-out execution or acceptance threshold changed.

@@ -1,0 +1,22 @@
+{
+  "arm": "C2",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0044/20260906T081848.364672Z",
+  "raw_receipt_sha256": "167783a61bd3d3938e996f0673e79c47e01e602d3264dca2bb60b5fb3cdd478c",
+  "utility": 0,
+  "wall_seconds": 1476.4361106669999,
+  "execution_status": "client-completed",
+  "protocol_passed": true,
+  "tool_calls": 10,
+  "failed_tool_calls": 0,
+  "repeated_commands": 0,
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0.75,
+  "task_failure": "Independent grader rejected evidence set; preserved without scoring changes.",
+  "last_request": {
+    "new_prompt_tokens": 2234,
+    "reused_tokens": 0,
+    "prefix_matched_tokens": 2046,
+    "generated_tokens": 199,
+    "ttft_seconds": 599.4
+  }
+}
