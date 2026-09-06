@@ -1,0 +1,41 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0033/20260906T054119Z",
+  "scope": "Deterministic 12-expert sample, one short route trace, exact zlib-1 size screen only",
+  "source_model": "/Users/chad/Models/agentwing/checkpoints/qwen3.6-35b-a3b-8bit.qpack",
+  "trace_sha256": "3b17bf92ff2f1b3de9f4327ed1e9071851137abe3f1ae47acf9d0f2ad9074bf1",
+  "layout_sha256": "ee307b98d28a85ac469f31cdc0b9e65d2b994693eb1d0328bfad6ffc55c0866c",
+  "script_sha256": "15ec231733e341d1b231c73e0cc13a56de95150845ad4393d57c05da3ee1bd5e",
+  "zlib_version": "1.2.12",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.6.2\nBuildVersion:\t\t25G83\n",
+  "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+  "swap_baseline_mib": 703.5,
+  "layout": {
+    "weight_bytes": 3145728,
+    "scale_bias_bytes": 196608,
+    "padding_bytes": 0
+  },
+  "diagnostic_amdahl": {
+    "source": "AW-0031 T1, traced model steps; not end-to-end agent wall",
+    "read_fraction": 0.3662982786910271,
+    "half_read_time_speedup": 1.2242136822856118,
+    "read_time_ratio_needed_for_1_25x": 0.4539968882335367,
+    "hypothetical_four_bit_same_metadata_size_ratio": 0.5294117647058824,
+    "limits": "Assumes fixed non-read time and proportional read time, no decompression overhead or memory/execution changes; not a prediction or universal bound"
+  },
+  "raw_receipt_sha256": "9af40601b6a2d4e386b1f85e280454fed9aee689edf1bb07fa1cbeaa1fba054d",
+  "codec_summary": {
+    "raw": {
+      "min_page_aligned_ratio": 0.6029411764705882,
+      "max_page_aligned_ratio": 0.9558823529411765,
+      "mean_page_aligned_ratio": 0.8745915032679737
+    },
+    "even-odd": {
+      "min_page_aligned_ratio": 0.6078431372549019,
+      "max_page_aligned_ratio": 0.9558823529411765,
+      "mean_page_aligned_ratio": 0.8733660130718954
+    }
+  },
+  "max_pressure": 1,
+  "max_swap_growth_mib": 0.0,
+  "disposition": "Reject these zlib-1 forms as a half-size representation on this sample; no universal codec or low-bit rejection"
+}

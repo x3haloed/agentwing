@@ -629,3 +629,18 @@ buffers, no retained LFU contents or model state, scan rather than matrix work,
 and reference output storage affect residency. The ~16 versus ~21–22 GiB disk
 read difference reinforces that replay is a filter, not endpoint evidence.
 Preserve the replay for further layout/transport experiments; P1 unchanged.
+
+## 2026-09-05 — P2 needs executable savings and broader capability evidence
+
+The P2 campaign contract preserves P1 and requires 25% greater verified utility
+per hour in two interleaved comparisons, no loss of control-solved tasks, and
+an expanded 24-task evaluation including 16 held-out tasks. Corpus construction
+and freeze remain pending; this is not an implemented acceptance check yet.
+Prismwing and Firewing teach separate SSD/decode/install/executable-memory
+accounting and representative routed plus candidate-accumulated fidelity.
+AW-0033 rejects raw/even-odd zlib-1 as half-size representations on 12 selected
+real experts (best page-aligned ratios 60.29%/60.78%). All round trips pass.
+At AW-0031's 36.63% read fraction, halving read time alone gives only 1.224x;
+this is a conditional model-step calculation, not a general endpoint bound.
+Do not promise the goal from smaller files alone. Direct execution savings and
+broader workload measurements remain necessary. P1 is unchanged.

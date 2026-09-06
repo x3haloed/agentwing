@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "id": "P2-campaign",
+  "status": "contract-established-corpus-not-yet-frozen",
+  "control": "spec/validated-local-agent.json",
+  "objective": "At least 25% higher verified autonomous utility/hour with preserved demonstrated general capability",
+  "promotion": {
+    "minimum_interleaved_full_comparison_pairs": 2,
+    "minimum_combined_utility_rate_ratio_each_pair": 1.25,
+    "require_no_original_suite_utility_rate_regression_each_pair": true,
+    "require_no_expanded_suite_utility_rate_regression_each_pair": true,
+    "require_preserving_every_control_solved_task_each_pair": true,
+    "require_no_category_success_count_regression_each_pair": true,
+    "require_original_stage_a_candidate_successes_each_pair": 8,
+    "include_startup_failures_timeouts_tools_and_verification_in_wall": true,
+    "component_evidence_can_promote": false,
+    "require_reproducible_usable_launcher": true
+  },
+  "capability_evaluation": {
+    "original_suite": "benchmarks/stage-a-v1/manifest.json",
+    "expanded_task_count_minimum": 24,
+    "development_tasks": 8,
+    "held_out_tasks": 16,
+    "categories": ["unfamiliar-repository-navigation", "debugging", "multi-file-change", "refactoring", "tool-failure-recovery", "data-processing", "configuration-migration", "longer-investigation"],
+    "minimum_tasks_per_category": 3,
+    "minimum_held_out_tasks_per_category": 2,
+    "freeze_before_candidate_comparison": true,
+    "independent_verifiers_outside_model_workspace": true,
+    "require_pristine_failure_and_reference_solution_pass": true,
+    "require_verifier_mutation_checks": true,
+    "held_out_results_must_not_tune_candidate": true,
+    "after_held_out_failure": "Preserve failure; any tuned successor requires a fresh frozen held-out panel, with the prior panel retained as regression evidence",
+    "limitations": "Finite local task evidence does not prove universal non-regression"
+  },
+  "invariants": {
+    "host": "16GB M1 Mac mini with internal SSD",
+    "maximum_concurrent_model_owners": 1,
+    "critical_pressure_allowed": false,
+    "maximum_swap_growth_bytes": 1073741824,
+    "preserve_P1_original_files_and_binary": true,
+    "narrowing_tasks_tools_reasoning_or_scoring_to_gain_speed_allowed": false,
+    "matched_prompt_sampling_context_tool_permissions_and_timeout_between_arms": true,
+    "unknown_or_silently_repaired_protocol_allowed": false,
+    "P1_declared_protocol_normalization_preserved": true
+  },
+  "representation_screen": {
+    "account_for": ["physical_storage_reads", "compressed_residency", "decoder_work", "installation_writes", "executable_memory_reads", "metadata_padding", "fixed_model_work", "host_pressure", "complete_agent_wall"],
+    "correctness_ladder": ["layout-and-tiny-reference", "real-early-middle-late-projections", "routed-mixtures-and-rare-selections", "candidate-accumulated-activations-routes-logits", "development-agent-tasks", "sealed-held-out-interleaved-full-path"],
+    "foreign_model_numeric_thresholds_are_not_acceptance_authority": true,
+    "fixed_source_routes_do_not_establish_candidate_behavior": true,
+    "corpus_freeze_receipt": null
+  }
+}
