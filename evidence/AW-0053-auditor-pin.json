@@ -1,0 +1,7 @@
+{
+  "auditor": "scripts/audit_output_budget.py",
+  "sha256": "f992268c6e9b10292b96ec151395f7cd7d5e576f5fae231b7180a856965ad1bf",
+  "uses_trace_auditor": "scripts/audit_sampling_replay.py",
+  "trace_auditor_sha256": "50158da7ba656739003482569b4db786abe75f993e8085b1542ba610763bd7f2",
+  "status": "syntax checked; completed record validation pending; core trace checks exercised in AW52"
+}
