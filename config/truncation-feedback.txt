@@ -1,0 +1,1 @@
+Runtime feedback: Your last response reached the 512-token limit before completing a tool call. No command from that response was executed. Start a new, complete tool call that performs a smaller part of the remaining work. Do not continue the unfinished text. You can use additional calls afterward to finish all requested work and validation.
