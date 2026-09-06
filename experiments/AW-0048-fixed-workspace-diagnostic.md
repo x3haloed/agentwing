@@ -2,7 +2,7 @@
 
 ## Status
 
-First P1 control completed successfully; unchanged candidate is next. Lifecycle
+First P1 control completed successfully; unchanged candidate is running. Lifecycle
 and existing-boundary engineering checks pass. AW-0047 remains terminal and
 negative, with no promotion.
 
@@ -119,3 +119,12 @@ costing 405.6 seconds TTFT. This is charged diagnostic model work, not a candida
 gain. A1/C2 remain required and AW-0047's failed preservation remains unchanged.
 Small records: `evidence/AW-0048-recovery-C1-audit.json` and
 `evidence/AW-0048-recovery-C1-result.json`.
+
+### A1 launch
+
+After C1's terminal audit and successful candidate preflight, A1 started at
+`/Users/chad/Models/agentwing/evidence/AW-0048/20260906T110307.710521Z`,
+with harness revision `1792ca3`. The live Pi session confirms the same frozen
+cwd as C1. Initial pressure is 1 and swap remains 705.31 MiB. These are startup
+observations only. C2 remains unattempted, pending A1's terminal host/protocol
+checks. Candidate grade and utility rate are not yet known.
