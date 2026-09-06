@@ -36,3 +36,14 @@ prefill and disk traffic, and complete agent wall. Matching typed calls alone
 does not prove identical token trajectories: compare rendered tokens and then
 accumulated behavior. No held-out exposure, scoring change or promotion follows
 from this source inspection.
+
+Draft implementation and tests are now staged as probe sources only:
+`probes/prefix_replay/ToolReplayCache.swift`, `ReplayHistoryTests.swift`, and
+`scripts/prepare_replay_history.py`. They have not been applied to a runtime,
+built or executed. The preparation script requires a clean isolated AW-0045
+checkout at AW-0043 e707647. History is opt-in; off-mode retains P1's single-entry
+logic. The draft charges raw text, visible content, signature UTF-8 bytes and
+fixed metadata allowances, distinguishes this from RSS, and invalidates an old
+binding before skipping an oversized replacement. Tests include actual
+ChatRequest template conversion and edited-content preservation; tokenizer and
+model trajectory checks remain outstanding even if these unit tests pass.
