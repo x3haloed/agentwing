@@ -2,7 +2,7 @@
 
 ## Status
 
-First P1 control and unchanged candidate completed successfully; C2 is next. Lifecycle
+First P1 control and unchanged candidate completed successfully; C2 is running. Lifecycle
 and existing-boundary engineering checks pass. AW-0047 remains terminal and
 negative, with no promotion.
 
@@ -144,9 +144,17 @@ C1 processes all 1561 with no reuse, TTFT 405.6 seconds. Total new prompt tokens
 are 1113 versus C1's 2605, and generated tokens 982 versus 1057. Visible equality
 does not establish unrecorded wire-token equality, and later behavior differs.
 
-The preliminary utility-rate ratio to C1 alone is about 1.80353. C2 and the
+The preliminary utility-rate ratio to C1 alone is about 1.80349. C2 and the
 predeclared control-repeatability diagnostic remain pending; this is not a
 pooled comparison, broad capability result, or promotion. It does not revise
 AW-0047's failed preservation result. Records are
 `evidence/AW-0048-recovery-A1-audit.json`, `...-A1-result.json` and
 `evidence/AW-0048-recovery-C1-A1-prefix.json`.
+
+### C2 launch
+
+After A1's terminal audit and successful P1 preflight, C2 started at
+`/Users/chad/Models/agentwing/evidence/AW-0048/20260906T111516.491668Z`,
+with harness revision `f267f4b`. It uses the unchanged P1 binary and frozen
+workspace policy. The primary C1/C2 repeatability diagnostic and pooled utility
+comparison await C2's terminal receipt and grader/protocol audit.
