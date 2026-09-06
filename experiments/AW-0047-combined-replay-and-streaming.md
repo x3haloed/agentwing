@@ -97,3 +97,8 @@ candidate utility-rate ratio is 0 and control-success preservation fails.
 Reject the joint profile for promotion on this case. Retain its mechanisms for
 further investigation; finishing the predeclared multi-file case does not undo
 this failure. P1 preflight passes; no frozen inputs or scoring changed.
+
+Multi-file C1 (P1) started at
+`/Users/chad/Models/agentwing/evidence/AW-0047/20260906T100843.065478Z`.
+It is active; resume it without restarting. Audit completion before starting the
+frozen multi-file A1, then C2, under the same host/protocol stop policy.
