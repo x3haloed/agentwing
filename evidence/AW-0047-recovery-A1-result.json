@@ -34,6 +34,6 @@
   "swap_growth_peak_mib": 0,
   "large_refills": [],
   "history_charged_peak_bytes": 7259,
-  "task_failure": "Added NFKD decomposition changes composed accented characters; independent grade rejects equipe-nord case. Local validator passed but task contract did not.",
+  "task_failure": "Added NFKD decomposition changes composed accented characters; independent grade rejects normalize(\"équipe--nord\") != \"équipe_nord\". Local validator passed but task contract did not.",
   "scope": "Failed development candidate; shorter elapsed time is not a utility gain; C2 pending"
 }

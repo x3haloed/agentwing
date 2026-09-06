@@ -81,3 +81,9 @@ not isolated by this sample. The frozen candidate stays unchanged for C2 and
 the remaining predeclared task. Integrity/grader replay passes in
 `evidence/AW-0047-recovery-A1-audit.json`; summary in the adjacent result file.
 The stop policy covers host/protocol failures, neither of which occurred here.
+
+Recovery C2 (P1) started at
+`/Users/chad/Models/agentwing/evidence/AW-0047/20260906T094822.332630Z`.
+It is active; resume without restarting. After its individual audit, run
+`audit_joint_development.py --task dev-recovery` on C1/A1/C2 in that order,
+then continue to the frozen multi-file case if host/protocol gates permit.
