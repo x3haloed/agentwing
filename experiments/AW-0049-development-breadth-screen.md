@@ -2,8 +2,8 @@
 
 ## Status
 
-Prepared while AW-0048 C2 runs. No AW-0049 model attempt or preflight yet.
-Launch depends on AW-0048 completing its frozen order and terminal audits.
+Running dev-multi-file, the first declared candidate attempt. AW-0048 completed
+its frozen order and terminal audits, and candidate preflight passed before launch.
 
 ## Hypothesis
 
@@ -79,3 +79,14 @@ Frozen pins were committed before model execution in
 ## Disposition
 
 Unresolved, pending the prerequisite comparison and declared screen.
+
+### First launch
+
+The prerequisite AW-0048 comparison is terminal: C1/A1/C2 all score 1 with
+passing gates and a candidate utility-rate ratio of 1.806949 to pooled controls.
+Those results remain specific to recovery. The breadth screen starts from
+`000b1f6` at
+`/Users/chad/Models/agentwing/evidence/AW-0049/20260906T113623.976317Z`.
+Dev-multi-file uses the frozen candidate and workspace path. No other AW-0049
+task has run. Inspect its terminal grade, protocol and host gates before
+advancing; no result is implied by launch.
