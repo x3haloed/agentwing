@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "suite_id": "agentwing-p2-v1",
+  "status": "construction-not-frozen",
+  "utility_per_task": 1,
+  "default_timeout_seconds": 1800,
+  "tasks": [
+    {
+      "id": "dev-navigation",
+      "split": "development",
+      "category": "unfamiliar-repository-navigation",
+      "prompt": "Determine the effective retry_ms, attempts and profile used by deploy/launch.sh. Write ANSWER.json with those values and an evidence array naming the three files that establish deployment selection, environment overrides, and resolution behavior. Do not modify existing files."
+    },
+    {
+      "id": "dev-debugging",
+      "split": "development",
+      "category": "debugging",
+      "prompt": "Fix windows.merge to meet the complete README contract, preserving its public interface. Run the project tests and add regression tests for uncovered edge cases."
+    },
+    {
+      "id": "dev-multi-file",
+      "split": "development",
+      "category": "multi-file-change",
+      "prompt": "Implement the archived-item option described in README.md across the API and CLI, repair pagination behavior, and add regression coverage. Preserve existing default callers."
+    }
+  ]
+}

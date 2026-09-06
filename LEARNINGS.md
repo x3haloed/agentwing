@@ -644,3 +644,13 @@ At AW-0031's 36.63% read fraction, halving read time alone gives only 1.224x;
 this is a conditional model-step calculation, not a general endpoint bound.
 Do not promise the goal from smaller files alone. Direct execution savings and
 broader workload measurements remain necessary. P1 is unchanged.
+
+## 2026-09-05 — P2 independent capability grading begins
+
+AW-0034 adds the first three development repositories and external behavioral
+authorities: deployment precedence, interval debugging, and API/CLI pagination.
+All three pristine and incomplete repairs fail; reference repairs pass; deleting
+visible tests does not grant success. The grader copies submissions and drains
+owned processes. This is authority validation, not model capability evidence.
+The panel is explicitly incomplete and unfrozen: five development and sixteen
+held-out tasks, run integration and control measurements remain. P1 is unchanged.
