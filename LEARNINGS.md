@@ -732,3 +732,16 @@ No accumulated-model or agent-capability conclusion follows, and other four-bit
 forms remain untested. Source-sized diagnostic buffers and on-the-fly recoding
 do not establish physical residency or throughput savings. Pressure 1, zero swap
 growth, and post-run P1 preflight pass. No production or frozen input changed.
+
+## 2026-09-05 — Causal expert submission clears a cached integrity screen
+
+AW-0039 launches eight original expert reads together and submits each expert's
+GPU chain after its own read completes, retaining original routed order. All
+2,880 executions across C/A/C/A/C reproduce AW-0037 stage hashes exactly. The
+candidate uses 89.46% and 89.04% of neighboring-control mean wall time in this
+small cached diagnostic. All input-block deltas are zero; no SSD or endpoint
+gain is established. The diagnostic omits production LFU/shared/chunk scheduling,
+and its control groups operations differently from P1. Retain for isolated
+runtime investigation, preserving those costs and comparing real trajectories.
+Pressure 1, zero swap growth, post-run P1 preflight passes. This changes execution
+submission only; it removes no expert bytes and supplies no representation gain.

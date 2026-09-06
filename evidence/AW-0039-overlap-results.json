@@ -1,0 +1,103 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0039/20260906T065000.783222Z",
+  "raw_receipt_sha256": "546695393768759e6ea70837dee4efa238b25f07a4bcec51561b4fe3bac1e03b",
+  "reference_receipt_sha256": "fbc63d32717ae642bd97c5f319120c148cd95573fff002829ca54c4a208a44a4",
+  "all_stage_hashes_match_reference": true,
+  "expert_executions": 2880,
+  "arms": [
+    {
+      "arm": 0,
+      "overlap": false,
+      "seconds": 0.362274,
+      "process_input_blocks": 0
+    },
+    {
+      "arm": 1,
+      "overlap": true,
+      "seconds": 0.327641083,
+      "process_input_blocks": 0
+    },
+    {
+      "arm": 2,
+      "overlap": false,
+      "seconds": 0.370233459,
+      "process_input_blocks": 0
+    },
+    {
+      "arm": 3,
+      "overlap": true,
+      "seconds": 0.323073958,
+      "process_input_blocks": 0
+    },
+    {
+      "arm": 4,
+      "overlap": false,
+      "seconds": 0.355487958,
+      "process_input_blocks": 0
+    }
+  ],
+  "candidate_wall_ratios_to_neighbor_control_mean": [
+    0.8945740523851785,
+    0.8903525524588454
+  ],
+  "pressure_samples": [
+    [
+      0.005259917000000058,
+      1,
+      703.5
+    ],
+    [
+      0.281110125,
+      1,
+      703.5
+    ],
+    [
+      0.5515112920000002,
+      1,
+      703.5
+    ],
+    [
+      0.82217,
+      1,
+      703.5
+    ],
+    [
+      1.091591084,
+      1,
+      703.5
+    ],
+    [
+      1.3588671249999997,
+      1,
+      703.5
+    ],
+    [
+      1.6283807919999997,
+      1,
+      703.5
+    ],
+    [
+      1.89659675,
+      1,
+      703.5
+    ],
+    [
+      2.164586875,
+      1,
+      703.5
+    ],
+    [
+      2.432938792,
+      1,
+      703.5
+    ]
+  ],
+  "swap_baseline_mib": 703.5,
+  "disposition": "Retain for full-runtime causal scheduling investigation; not promoted",
+  "limits": [
+    "All process input-block counters zero; no SSD claim",
+    "Three-layer source fixtures only; no accumulated trajectories",
+    "No actual LFU cache, shared expert, chunk batching or agent endpoint",
+    "Control is one command buffer with per-expert sequencing, not exact P1 all-gate/up then all-down sequence"
+  ]
+}
