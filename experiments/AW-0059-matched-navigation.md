@@ -38,3 +38,18 @@ PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 scripts/run_matched_navigation.py --t
 ```
 
 Status: frozen; C1 pending launch.
+
+## C1 terminal — shared failure reproduced
+
+C1 finishes with utility 0 in 272.784372209 seconds, valid protocol, maximum
+pressure 2 and zero swap growth. Frozen grader replay and configuration/receipt
+checks pass. All nine structured visible events match AW-0058 exactly after
+removing generated call IDs, including the wrong answer 1000. This is evidence
+against attributing that visible failure specifically to the candidate runtime;
+it is not hidden-state equivalence or a path-only causal attribution. Continue
+A1 then C2 unchanged. No utility-rate gain exists from this zero-utility arm.
+
+C1 raw: `/Users/chad/Models/agentwing/evidence/AW-0059/20260908T045929.095918Z`.
+Receipt: `4deb69b15b1f46c85c6221c643241aba670858e6253b2019b0237db203251502`.
+Audits: `evidence/AW-0059-C1-audit.json` and
+`evidence/AW-0059-C1-versus-AW0058.json`.

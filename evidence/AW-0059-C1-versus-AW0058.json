@@ -1,0 +1,12 @@
+{
+  "left": "/Users/chad/Models/agentwing/evidence/AW-0059/20260908T045929.095918Z",
+  "right": "/Users/chad/Models/agentwing/evidence/AW-0058/20260906T150403.217514Z",
+  "same_cwd": true,
+  "complete_visible_transcripts_equal": true,
+  "equal_prefix_events": 9,
+  "event_counts": [
+    9,
+    9
+  ],
+  "first_difference": null
+}

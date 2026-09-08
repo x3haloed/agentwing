@@ -1132,3 +1132,13 @@ not establish original-suite capability. Historical P1 used different workspace
 paths and server lifecycle, so this is not causal proof of runtime regression.
 Resolve that distinction with matched setup before patching model behavior or
 narrowing discovery. P1, frozen graders and held-out panel remain unchanged.
+
+## 2026-09-08 — Matched P1 reproduces candidate's original navigation failure
+
+AW-0059 C1 scores 0 with the same development-default answer 1000. All nine
+visible assistant/tool events match AW-0058 after removing generated call IDs.
+Independent frozen grader, configuration and recursive receipt audits pass;
+272.78 seconds, pressure peak 2, zero swap growth. This supersedes a presumption
+that the failed original preservation screen uniquely implicates runtime changes.
+It does not establish why historical P1 succeeded, hidden-state parity, general
+capability or utility-rate gain. Finish the frozen A1/C2 comparison unchanged.
