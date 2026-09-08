@@ -1,0 +1,12 @@
+{
+  "slot": "C1",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0059/20260908T045929.095918Z",
+  "session_id": 87111,
+  "supervisor_pid": 96074,
+  "server_pid": 96116,
+  "observed_processes": "  PID  PGID ELAPSED\n96074 96074   00:44\n96116 96116   00:43\n",
+  "observed_pressure": "2026-09-08T05:00:12.318588+00:00\t2\t499.69",
+  "plan_sha256": "8b80b4868a75789fef036427dc250e8787c9d6227e1dcb360749dd860b581519",
+  "auditor_sha256": "bd023be2d92712aeea2d8478421fd1230120628e32a31eac091194b4aa4adc47",
+  "status": "running-at-observation; not terminal evidence"
+}
