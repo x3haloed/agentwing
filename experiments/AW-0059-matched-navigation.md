@@ -53,3 +53,15 @@ C1 raw: `/Users/chad/Models/agentwing/evidence/AW-0059/20260908T045929.095918Z`.
 Receipt: `4deb69b15b1f46c85c6221c643241aba670858e6253b2019b0237db203251502`.
 Audits: `evidence/AW-0059-C1-audit.json` and
 `evidence/AW-0059-C1-versus-AW0058.json`.
+
+## A1 terminal — identical visible failure
+
+A1 finishes with utility 0 in 233.703038125 seconds, valid protocol and passing
+host gates. Independent record/grader audit passes. Its complete nine-event
+visible transcript equals C1 after removing generated call IDs only. Shorter
+failed execution is not a utility/hour gain. Continue the frozen C2 control.
+
+Raw: `/Users/chad/Models/agentwing/evidence/AW-0059/20260908T050442.310841Z`.
+Receipt: `df163e0bbc04174cde31a4ff37f5a8e4347affbee2655cee188ad32077bf7514`.
+Audits: `evidence/AW-0059-A1-audit.json` and
+`evidence/AW-0059-C1-A1-visible.json`.
