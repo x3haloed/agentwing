@@ -1118,3 +1118,17 @@ Do not keep adjusting scalar rounding inside either completed experiment.
 A compact successor needs a distinct error-correction or calibrated representation
 mechanism, with its full byte and execution costs, before deeper model work.
 P1, all capability gates and the unexposed held-out panel remain unchanged.
+
+## 2026-09-07 — Exact candidate fails the original navigation preservation screen
+
+AW-0058 stops after one original task: candidate writes development default 1000
+instead of production override 2750. Its extension-filtered search omits README
+and the deployment shell script; reading the answer back validates only the
+write, not the reasoning. Four valid calls, passing protocol and host gates
+(pressure 1, zero swap growth) yield utility 0 in 234.66 seconds. Seven tasks
+remain unattempted. Independent receipt/configuration and copied frozen-grader
+replay pass. Reject this preservation screen; retained recovery-task gains do
+not establish original-suite capability. Historical P1 used different workspace
+paths and server lifecycle, so this is not causal proof of runtime regression.
+Resolve that distinction with matched setup before patching model behavior or
+narrowing discovery. P1, frozen graders and held-out panel remain unchanged.

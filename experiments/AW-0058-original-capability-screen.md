@@ -38,3 +38,28 @@ Expanded held-out tasks remain unexposed; all full-goal gates remain pending.
 Command: `PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 scripts/run_original_candidate_screen.py --task all --candidate-plan spec/joint-development-candidate.json`.
 
 Status: preparation; no model execution yet.
+
+## Terminal result — original preservation screen failed
+
+The first task completes with valid protocol but utility 0 in 234.655291708
+seconds including charged staging/startup/grading. The agent searches selected
+source/config extensions, reads only config/defaults.json, writes 1000, reads
+it back and stops. README and the production shell override are not inspected;
+the required answer is 2750. Four valid calls, no failures or repeats, five
+requests, 560 new prompt tokens and 245 generated tokens. No original input
+files changed. Pressure 1, zero swap growth. Seven later tasks are unattempted
+under the predeclared stop rule.
+
+Independent recursive receipt, frozen input/profile/source/binary, workspace,
+protocol, host and copied original-grader replay all pass. This rejects the
+candidate's original-suite screen. It does not attribute a regression to the
+runtime: unlike the historical P1 results, this used the fixed workspace path
+and a fresh server per task. A matched P1/candidate diagnostic is needed to
+separate runtime effects from those conversation/setup changes. No acceptance
+threshold, prior result or P1 artifact is changed.
+
+Raw: `/Users/chad/Models/agentwing/evidence/AW-0058/20260906T150403.217514Z`.
+Receipt: `c2d3969d07a24444b910f72755f858bdbbc8a65cc91d0314e6c4086162baeed2`.
+See `evidence/AW-0058-terminal-audit.json` and
+`evidence/AW-0058-terminal-result.json`. Processes are terminal and P1 preflight
+passes. No model run is active from this experiment; no promotion.
