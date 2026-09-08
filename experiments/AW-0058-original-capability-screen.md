@@ -63,3 +63,9 @@ Receipt: `c2d3969d07a24444b910f72755f858bdbbc8a65cc91d0314e6c4086162baeed2`.
 See `evidence/AW-0058-terminal-audit.json` and
 `evidence/AW-0058-terminal-result.json`. Processes are terminal and P1 preflight
 passes. No model run is active from this experiment; no promotion.
+
+### Evidence description correction
+
+The production override referred to above is `deploy/production.env`, not a
+shell script. The frozen file contains `RETRY_DELAY_MS=2750`. The failed search
+excluded its extension. Grades, raw evidence and disposition are unchanged.

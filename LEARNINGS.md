@@ -1142,3 +1142,11 @@ Independent frozen grader, configuration and recursive receipt audits pass;
 that the failed original preservation screen uniquely implicates runtime changes.
 It does not establish why historical P1 succeeded, hidden-state parity, general
 capability or utility-rate gain. Finish the frozen A1/C2 comparison unchanged.
+
+## 2026-09-08 — Navigation evidence-file description correction
+
+The AW-0058 entry incorrectly called the omitted production override a shell
+script. The frozen original fixture contains deploy/production.env with
+RETRY_DELAY_MS=2750. Historical successful P1 listed all files, then read this
+override; AW-0058 and AW-0059 C1 filtered out .env and README. This corrects the
+file-type description only, not grades or runtime attribution.

@@ -20,5 +20,6 @@
   "wall_seconds": 234.65529170800002,
   "interpretation": "The agent limited discovery to selected config/source extensions, omitted README and deployment shell evidence, and mistook development defaults for production. Current fixed-path P1 control is missing; cannot attribute semantic failure causally to runtime changes.",
   "audit_sha256": "ec14017410aba53da4c1373ef819ff21570339573d3f56da38e09b88141ba759",
-  "auditor_sha256": "58e02e016bad1a779873f03e17a93bcc5ee3e0c61b126310adf0b6656b0ac378"
+  "auditor_sha256": "58e02e016bad1a779873f03e17a93bcc5ee3e0c61b126310adf0b6656b0ac378",
+  "interpretation_correction": "The omitted production override is deploy/production.env, an environment file, not a shell script. It contains RETRY_DELAY_MS=2750. This corrects the file-type description only; task outcome and raw evidence remain unchanged."
 }
