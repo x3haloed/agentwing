@@ -65,3 +65,24 @@ Raw: `/Users/chad/Models/agentwing/evidence/AW-0059/20260908T050442.310841Z`.
 Receipt: `df163e0bbc04174cde31a4ff37f5a8e4347affbee2655cee188ad32077bf7514`.
 Audits: `evidence/AW-0059-A1-audit.json` and
 `evidence/AW-0059-C1-A1-visible.json`.
+
+## Terminal comparison — shared failure confirmed, no utility gain
+
+C2 finishes with utility 0 in 262.123784458 seconds. All three arms pass
+configuration/receipt, protocol, host and independent frozen-grader replay.
+All nine structured visible events are identical across C1/A1/C2 after removing
+generated call IDs only. Every arm writes development default 1000, overlooking
+the production.env override of 2750. The recorded pressure intervals establish
+C1/A1/C2 order without overlap; the sum of charged arm walls is 768.611194792 s.
+
+Retain this as a completed attribution diagnostic: the exact candidate did not
+introduce a distinct visible failure on this matched slice. This does not prove
+hidden-state equivalence, explain historical workspace/setup sensitivity, or
+restore original-suite preservation. All utilities are zero; shorter candidate
+wall is not a utility-rate improvement. No promotion or further AW-0059 attempts.
+
+C2 raw: `/Users/chad/Models/agentwing/evidence/AW-0059/20260908T050901.081651Z`.
+Receipt: `4728745e52d7810c1ef053af5451628555c89be170a95877e42450ed78017782`.
+Full comparison: `evidence/AW-0059-comparison-audit.json`, containing each arm's
+receipt, grading audit and pairwise visible comparison. P1 preflight passes;
+all experiment processes are terminal. P1 and the held-out panel are unchanged.

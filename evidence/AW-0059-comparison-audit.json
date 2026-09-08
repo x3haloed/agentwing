@@ -1,0 +1,118 @@
+{
+  "experiment": "AW-0059",
+  "record_and_configuration_audits_passed": true,
+  "observed_pressure_intervals_interleaved_without_overlap": true,
+  "arms": [
+    {
+      "run": "/Users/chad/Models/agentwing/evidence/AW-0059/20260908T045929.095918Z",
+      "raw_receipt_sha256": "4deb69b15b1f46c85c6221c643241aba670858e6253b2019b0237db203251502",
+      "record_integrity_passed": true,
+      "tasks": [
+        {
+          "task_id": "01-navigation",
+          "utility": 0,
+          "protocol_passed": true,
+          "grader_replay_passed": true,
+          "host_gates_passed": true
+        }
+      ],
+      "unattempted": [],
+      "wall_seconds": 272.78437220899997,
+      "accepted_utility": 0,
+      "slot": "C1",
+      "complete_arm": true,
+      "post_run_p1_preflight_passed": true,
+      "scope": "Configuration, receipt, protocol and copied frozen-grader replay. Negative result cannot establish relative runtime regression without matched controls."
+    },
+    {
+      "run": "/Users/chad/Models/agentwing/evidence/AW-0059/20260908T050442.310841Z",
+      "raw_receipt_sha256": "df163e0bbc04174cde31a4ff37f5a8e4347affbee2655cee188ad32077bf7514",
+      "record_integrity_passed": true,
+      "tasks": [
+        {
+          "task_id": "01-navigation",
+          "utility": 0,
+          "protocol_passed": true,
+          "grader_replay_passed": true,
+          "host_gates_passed": true
+        }
+      ],
+      "unattempted": [],
+      "wall_seconds": 233.703038125,
+      "accepted_utility": 0,
+      "slot": "A1",
+      "complete_arm": true,
+      "post_run_p1_preflight_passed": true,
+      "scope": "Configuration, receipt, protocol and copied frozen-grader replay. Negative result cannot establish relative runtime regression without matched controls."
+    },
+    {
+      "run": "/Users/chad/Models/agentwing/evidence/AW-0059/20260908T050901.081651Z",
+      "raw_receipt_sha256": "4728745e52d7810c1ef053af5451628555c89be170a95877e42450ed78017782",
+      "record_integrity_passed": true,
+      "tasks": [
+        {
+          "task_id": "01-navigation",
+          "utility": 0,
+          "protocol_passed": true,
+          "grader_replay_passed": true,
+          "host_gates_passed": true
+        }
+      ],
+      "unattempted": [],
+      "wall_seconds": 262.123784458,
+      "accepted_utility": 0,
+      "slot": "C2",
+      "complete_arm": true,
+      "post_run_p1_preflight_passed": true,
+      "scope": "Configuration, receipt, protocol and copied frozen-grader replay. Negative result cannot establish relative runtime regression without matched controls."
+    }
+  ],
+  "visible_comparisons": [
+    {
+      "left": "/Users/chad/Models/agentwing/evidence/AW-0059/20260908T045929.095918Z",
+      "right": "/Users/chad/Models/agentwing/evidence/AW-0059/20260908T050442.310841Z",
+      "same_cwd": true,
+      "complete_visible_transcripts_equal": true,
+      "equal_prefix_events": 9,
+      "event_counts": [
+        9,
+        9
+      ],
+      "first_difference": null
+    },
+    {
+      "left": "/Users/chad/Models/agentwing/evidence/AW-0059/20260908T050442.310841Z",
+      "right": "/Users/chad/Models/agentwing/evidence/AW-0059/20260908T050901.081651Z",
+      "same_cwd": true,
+      "complete_visible_transcripts_equal": true,
+      "equal_prefix_events": 9,
+      "event_counts": [
+        9,
+        9
+      ],
+      "first_difference": null
+    },
+    {
+      "left": "/Users/chad/Models/agentwing/evidence/AW-0059/20260908T045929.095918Z",
+      "right": "/Users/chad/Models/agentwing/evidence/AW-0059/20260908T050901.081651Z",
+      "same_cwd": true,
+      "complete_visible_transcripts_equal": true,
+      "equal_prefix_events": 9,
+      "event_counts": [
+        9,
+        9
+      ],
+      "first_difference": null
+    }
+  ],
+  "shared_visible_failure_reproduced": true,
+  "sum_charged_arm_wall_seconds": 768.6111947919999,
+  "accepted_utilities": [
+    0,
+    0,
+    0
+  ],
+  "utility_rate_gain_established": false,
+  "scope": "One matched navigation diagnostic. Zero utility cannot establish speedup; visible equality does not prove hidden-state equality or explain historical-path sensitivity. Full preservation/performance goal remains unmet.",
+  "auditor_sha256": "5a65176808043ea8e5c32dda9ac62fe4d4569982fecaf12279c05beb933d22f6"
+}

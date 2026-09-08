@@ -1150,3 +1150,16 @@ script. The frozen original fixture contains deploy/production.env with
 RETRY_DELAY_MS=2750. Historical successful P1 listed all files, then read this
 override; AW-0058 and AW-0059 C1 filtered out .env and README. This corrects the
 file-type description only, not grades or runtime attribution.
+
+## 2026-09-08 — Matched navigation controls close with the same failure
+
+AW-0059 C1/A1/C2 all score 0 and produce identical nine-event visible transcripts,
+excluding generated call IDs only. C2 completes in 262.12 seconds; all source,
+configuration, receipt, copied-grader, protocol and host checks pass. The shared
+mistake is extension-filtered discovery that excludes production.env and README.
+Retain the exact runtime mechanism, but do not call this original-capability
+preservation or a utility gain. It rules out a candidate-specific visible failure
+on this setup, not arithmetic drift elsewhere or sensitivity to historical path,
+context and harness conditions. Full original and expanded acceptance remain
+unmet. The next capability work must address robust evidence gathering without
+selecting favorable paths or removing required tasks.
