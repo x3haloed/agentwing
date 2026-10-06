@@ -1,0 +1,19 @@
+--- a/ggml/src/ggml-metal/kernels/quantize.metal
++++ b/ggml/src/ggml-metal/kernels/quantize.metal
+@@ -851,9 +851,13 @@
+         turbo_rotate_forward(x, turbo_wht_signs1, turbo_wht_signs2);
+ 
+ 
+-        for(int j=0;j<96;j++)blk.qs[j]=0;
+-        float rn=0;uint ids[128];for(int j=0;j<128;j++){uint lo=0,hi=63;while(lo<hi){uint m=(lo+hi)/2;if(x[j]>=turbo_mid_6bit[m])lo=m+1;else hi=m;}ids[j]=lo;float c=turbo_centroids_6bit[lo];rn+=c*c;}
+-        for(int j=0;j<32;j++){uint v=ids[4*j]|(ids[4*j+1]<<6)|(ids[4*j+2]<<12)|(ids[4*j+3]<<18);blk.qs[3*j]=uchar(v);blk.qs[3*j+1]=uchar(v>>8);blk.qs[3*j+2]=uchar(v>>16);}
++        float rn=0;uint packed=0;
++        for(int j=0;j<128;j++){
++            uint lo=0,hi=63;while(lo<hi){uint m=(lo+hi)/2;if(x[j]>=turbo_mid_6bit[m])lo=m+1;else hi=m;}
++            float c=turbo_centroids_6bit[lo];rn+=c*c;
++            packed|=lo<<((j%4)*6);
++            if(j%4==3){int byte=(j/4)*3;blk.qs[byte]=uchar(packed);blk.qs[byte+1]=uchar(packed>>8);blk.qs[byte+2]=uchar(packed>>16);packed=0;}
++        }
+         blk.rnorm=half(0);rn=sqrt(rn);blk.norm=half(rn>1e-10f?grp_norm/rn:grp_norm);
+     }
+ }

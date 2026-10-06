@@ -2512,3 +2512,17 @@ Receipts `evidence/AW-0204-turbo6-math-mode.json` and
 Rejectcurrentwritercostscreen, retainparityrepair; trycheapeststreampacking
 implementation beforeattention/modelintegration. No gatewaiver orspeed/
 agentclaim, defaults/P1unchanged. Fullgoalremainsprequalification.
+
+### AW-0206/AW-0207 — fixed lookup produces native6bit writer survivor
+
+Streamingpackingalone exactall12fixtures but fails4/6 pairedcostgates
+(1.317–1.387 versusdeclared<=1.35). PreservedAW206negative. Fixedsixstage
+lookup binsequivalent on191F32boundarychecks then12nativeactualearly/mid/
+late reversedrow cases exactCPUpackedbytes;3840completeops, sixpairedratios
+1.092–1.151 allpass unchangedcostgate. Independenthash/bytes/timing/pressure/
+capacityauditpasses, pressure1/swapgrowth0. Receipts
+`evidence/AW-0206-turbo6-stream-writer.json` and
+`evidence/AW-0207-turbo6-lookup-writer.json` pinexternalAW206/AW207raw.
+RetainAW207nativewriter survivor for nativeattentionconsumer screen, not
+model/vision/tool/endpoint qualification. No causalold/newoptimizationratio
+or agent-speedclaim, defaults/P1 unchanged, fullgoalremainsprequalification.

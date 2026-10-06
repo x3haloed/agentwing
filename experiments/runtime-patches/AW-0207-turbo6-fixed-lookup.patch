@@ -1,0 +1,16 @@
+--- a/ggml/src/ggml-metal/kernels/quantize.metal
++++ b/ggml/src/ggml-metal/kernels/quantize.metal
+@@ -853,7 +853,12 @@
+ 
+         float rn=0;uint packed=0;
+         for(int j=0;j<128;j++){
+-            uint lo=0,hi=63;while(lo<hi){uint m=(lo+hi)/2;if(x[j]>=turbo_mid_6bit[m])lo=m+1;else hi=m;}
++            uint lo=x[j]>=turbo_mid_6bit[31]?32:0;
++            lo+=x[j]>=turbo_mid_6bit[lo+15]?16:0;
++            lo+=x[j]>=turbo_mid_6bit[lo+7]?8:0;
++            lo+=x[j]>=turbo_mid_6bit[lo+3]?4:0;
++            lo+=x[j]>=turbo_mid_6bit[lo+1]?2:0;
++            lo+=x[j]>=turbo_mid_6bit[lo]?1:0;
+             float c=turbo_centroids_6bit[lo];rn+=c*c;
+             packed|=lo<<((j%4)*6);
+             if(j%4==3){int byte=(j/4)*3;blk.qs[byte]=uchar(packed);blk.qs[byte+1]=uchar(packed>>8);blk.qs[byte+2]=uchar(packed>>16);packed=0;}
