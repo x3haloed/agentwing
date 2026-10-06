@@ -1,0 +1,117 @@
+{
+  "experiment": "AW-0065",
+  "scope": "Single-task development diagnostic, temperature 0 vs AW-0064 temperature 1; all other operational settings unchanged. No suite capability, matched-P1 speed or promotion claim",
+  "selection": [
+    "05-data-transform"
+  ],
+  "successes_required": 1,
+  "stop_on_first_failure": true,
+  "task_timeout_seconds": 900,
+  "startup_timeout_seconds": 60,
+  "pins": {
+    "scripts/run_bonsai_greedy_data.py": "091091021006239e54eff11aa42282abf8d7fb6b9e7bf88265db6cadfc600db7",
+    "scripts/bonsai_server.py": "057ae88fab62760caf0c5e792b144c1b2bdbea504838719c372ae1b40a3afe63",
+    "scripts/run_local_agent.py": "dee0e63573c60137226b541f5380b768799ad1682006438471eec95d511a6fdd",
+    "scripts/stable_workspace.py": "5dbacb84bd2fc3878f94193fc6aa7ea2510f411118ec53c930f4311ba91889a0",
+    "scripts/run_task_boundary.py": "33d7fcefbec9124e1c56e5c2b810265ad8c72e313c31ed42a7e35f0eba35bbd7",
+    "scripts/verify_original_copy.py": "af9618bc9f56cc90528007a33cdf7dbb16d1a5ac66899cbdde0bb5c4c809ec96",
+    "scripts/verify_stage_a.py": "55bd3f793d581ba537c779e42ec59ecdf8597fab1e7c532d3e13cfcd93665977",
+    "config/pi-bonsai-greedy-models.json": "a37c9c3bd7ff446bcdc178e245944cd50a8bba86076a307289a36ec31937c1b3",
+    "config/task-boundary.sb": "184e8ff7b377a6aae618ac39dfb862f4cd665d9567c03c9af31634775d529f91",
+    "config/validated-local-agent-prompt.txt": "2a10a1d915626f007b56c88a9f5ab9d1a9b6926e962587495475eced47c4b976",
+    "spec/bonsai-local.json": "f346a9bd654623043dd3c35a6b707aaecd3033c87a4d3bf4c49d4f4f59155ea0",
+    "spec/bonsai-greedy-candidate.json": "f1e10f4c20c8acdceca86521469935b40b9dd921aac59f9de53c61446e7ff0e7",
+    "spec/validated-local-agent.json": "e3de38b2a4ddad8ad057ea99935b0b9f7b6a181fe77b3d33e81aa99959400c82",
+    "spec/p2-acceptance.json": "c6fd235eadf41d67eff1cffea23963178e880b1186210625e22c6bd6e4f12203",
+    "evidence/AW-0034-corpus-freeze-v1.json": "d67041e34c10676ed8583d33a9148b2fe1518ea436caba58cb107c46d34ac4b5",
+    "benchmarks/stage-a-v1/README.md": "ee87c4dc18ba1b0baff7f612885acf1e469d6f68f6f52d067226b01371e2df86",
+    "benchmarks/stage-a-v1/manifest.json": "8375ddea1e619b88d28afd613da2fd5843683aa4624e7204bb3f0d5b467d4851",
+    "benchmarks/stage-a-v1/tasks/04-refactor/input/beta.py": "ca46825e1dbc5cd05fa5d85f8673eebfd0f4be9dced38a1ba2888c5a40fbcd54",
+    "benchmarks/stage-a-v1/tasks/04-refactor/input/test_totals.py": "d44662c9c1d4d4306ef5914866d97deb9d340cd6d1d53abdc66c668f7310b1a6",
+    "benchmarks/stage-a-v1/tasks/04-refactor/input/alpha.py": "c32891802574c8da2b284c25d182763bbe9ac2d73e2f6d79b250eb6b66bbe590",
+    "benchmarks/stage-a-v1/tasks/03-multi-file-fix/input/config.py": "68540e43b9bcb2537c3ed0e8c3d3ad21a20552fd7a8c6021e576843958041069",
+    "benchmarks/stage-a-v1/tasks/03-multi-file-fix/input/README.md": "d260550e9015635eacff74b5376bfcf093f7c004d46356ddd70338062cfb8ee1",
+    "benchmarks/stage-a-v1/tasks/03-multi-file-fix/input/test_slug.py": "23d1e2f32232a0480652fae26970fb1a917bfba5ec108661c48df21de9e228dd",
+    "benchmarks/stage-a-v1/tasks/03-multi-file-fix/input/slug.py": "bcce71338526772d89628c686a192ff2bea479cc34b8f6456d7356526b8f35de",
+    "benchmarks/stage-a-v1/tasks/05-data-transform/input/events.csv": "698605de4fab40b7c823442f19a84f4713f2afcb1491b484e4cf613e053e659f",
+    "benchmarks/stage-a-v1/tasks/08-config-sync/input/config.json": "0f15db8a990bd3be7e0a5b31795c0f6beab7c1811ec3019706d690fcaee7601d",
+    "benchmarks/stage-a-v1/tasks/08-config-sync/input/test_config.py": "08cf19d2c953a2da96e156e3424a9e8c28e993de599b7f55203ecb1d137cbe57",
+    "benchmarks/stage-a-v1/tasks/08-config-sync/input/POLICY.md": "468f5f179e3f43eea2a9040901477cfb3c00cdf0c32f694e50f906c91e4e2791",
+    "benchmarks/stage-a-v1/tasks/07-bounded-read/input/service.log": "b84f24f27a79e298dc5ed1f8c6150d488acc34f3996d980db431a8198a6b18ce",
+    "benchmarks/stage-a-v1/tasks/02-single-file-fix/input/math_utils.py": "60be77cd5da9d1e8ec1a93aebbdd0db302cee91aa80501dda92485f3e9cd3fd7",
+    "benchmarks/stage-a-v1/tasks/02-single-file-fix/input/test_math_utils.py": "75b5a866189902ff0664d9527cc5a950ee42a4647ae53f9c0a24edbbca7f44b7",
+    "benchmarks/stage-a-v1/tasks/01-navigation/input/README.md": "086c8b5de542d8cca6247faf9ea77df66355e7863a4313467c9bcd290c22a9c1",
+    "benchmarks/stage-a-v1/tasks/01-navigation/input/config/defaults.json": "6c91d9ab1460a19a18d7b9ed7bb1719cc3c79b39b8a9bae521d2fc109cfa4a33",
+    "benchmarks/stage-a-v1/tasks/01-navigation/input/deploy/production.env": "5b3bbd045eaf16821a26442530ef22d2d2d9d8d0d59015b50481fd4c7286a4a5",
+    "benchmarks/stage-a-v1/tasks/06-failure-recovery/input/README.md": "5ded1f31588f426b372bf9c0a0f1437a5b17b4808b59265a96f1633fe8e25c6d",
+    "benchmarks/stage-a-v1/tasks/06-failure-recovery/input/app.py": "387c99b4d9483c739ca6fbca17b5e5ab4030e3614f29970395b94d434aff36c9",
+    "benchmarks/stage-a-v1/tasks/06-failure-recovery/input/scripts/validate.sh": "8d0dfbd2029965da294104794133b97c00173009d1ba8fa62ffccd18c62dfeb7"
+  },
+  "candidate": {
+    "schema_version": 1,
+    "model": {
+      "repository": "prism-ml/Ternary-Bonsai-2-27B-gguf",
+      "revision": "b072e1d3b35a0a630cece372c2127528e0994386",
+      "license": "Apache-2.0",
+      "artifacts": [
+        {
+          "filename": "Ternary-Bonsai-2-27B-PTQ1_0.gguf",
+          "bytes": 5946648928,
+          "sha256": "53107f530aa52eb00912263ab1ee29bd199261c87cd7b4ad4ca1318c1fe33ee3"
+        },
+        {
+          "filename": "Ternary-Bonsai-2-27B-mmproj-Q8_0.gguf",
+          "bytes": 629246976,
+          "sha256": "6807ede61d570bb86ba34b756a0fa109edc33668604de867c6ea6d8f1d631903"
+        }
+      ]
+    },
+    "runtime": {
+      "repository": "https://github.com/PrismML-Eng/llama.cpp",
+      "release": "prism-b10743-adfffbe",
+      "backend": "Metal",
+      "demo_revision": "74fab33d81d81a535525bd98c7a676b22d4dca46",
+      "asset": {
+        "name": "llama-prism-b10743-adfffbe-bin-macos-arm64.tar.gz",
+        "size": 11517506,
+        "digest": "sha256:596d257973080ca5011a4be50477c5f93ed1d231fcccfc2afb44bb573bb9629a",
+        "browser_download_url": "https://github.com/PrismML-Eng/llama.cpp/releases/download/prism-b10743-adfffbe/llama-prism-b10743-adfffbe-bin-macos-arm64.tar.gz"
+      },
+      "server_sha256": "446c46ffc82ace68d83d15c77c27d301a45e99ac5988ca919c4fc32e26082fba",
+      "revision": "adfffbe41b2cabcd51fff326ab045662265062bb"
+    },
+    "context_tokens": 8192,
+    "parallel": 1,
+    "image_max_tokens": 1024,
+    "sampling": {
+      "temperature": 0,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.05,
+      "presence_penalty": 0.0,
+      "repeat_penalty": 1.0,
+      "seed": 42
+    },
+    "reasoning_effort": "medium",
+    "host_gates": {
+      "critical_pressure_level": 4,
+      "max_swap_growth_mib": 1024
+    },
+    "status": "development-diagnostic-only",
+    "harness": {
+      "package": "@earendil-works/pi-coding-agent",
+      "version": "0.84.4"
+    },
+    "experiment": "AW-0065",
+    "limits": "Functional local admission; no autonomous work-rate superiority established.",
+    "scope": "Cheap re-screen of original data task only; not eight-task preservation or comparative promotion"
+  },
+  "system_prompt": "config/validated-local-agent-prompt.txt",
+  "thinking": "medium",
+  "tools": [
+    "bash"
+  ],
+  "workspace_path": "/Users/chad/Models/agentwing/active/workspace",
+  "permissions": "workspace-state-write-local-outbound-v1",
+  "network": "acquisition already complete; task network restricted to loopback; no benchmark authority passed to model"
+}

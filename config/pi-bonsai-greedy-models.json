@@ -1,0 +1,37 @@
+{
+  "providers": {
+    "agentwing-bonsai": {
+      "baseUrl": "http://127.0.0.1:8080/v1",
+      "api": "openai-completions",
+      "apiKey": "local-no-auth",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": true,
+        "supportsUsageInStreaming": true,
+        "maxTokensField": "max_tokens"
+      },
+      "models": [
+        {
+          "id": "bonsai2-27b",
+          "name": "Bonsai 2 27B PTQ1_0 + Q8 vision via Prism Metal",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "contextWindow": 8192,
+          "maxTokens": 2048,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "samplingParams": {
+            "temperature": 0
+          }
+        }
+      ]
+    }
+  }
+}

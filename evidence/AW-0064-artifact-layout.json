@@ -1,0 +1,40 @@
+{
+  "model_revision": "b072e1d3b35a0a630cece372c2127528e0994386",
+  "artifacts": [
+    {
+      "path": "/Users/chad/Models/agentwing/checkpoints/bonsai2-27b/Ternary-Bonsai-2-27B-PTQ1_0.gguf",
+      "file_bytes": 5946648928,
+      "architecture": "qwen35",
+      "tensor_count": 851,
+      "logical_tensor_elements": 26895998464,
+      "directory_end_bytes": 11120982,
+      "alignment_padding_bytes": 10,
+      "payload_bytes": 5935527936,
+      "tensor_types": {
+        "143": 402,
+        "0": 353,
+        "30": 96
+      },
+      "expert_named_tensors": []
+    },
+    {
+      "path": "/Users/chad/Models/agentwing/checkpoints/bonsai2-27b/Ternary-Bonsai-2-27B-mmproj-Q8_0.gguf",
+      "file_bytes": 629246976,
+      "architecture": "clip",
+      "tensor_count": 334,
+      "logical_tensor_elements": 460730096,
+      "directory_end_bytes": 19646,
+      "alignment_padding_bytes": 2,
+      "payload_bytes": 629227328,
+      "tensor_types": {
+        "0": 224,
+        "8": 83,
+        "1": 27
+      },
+      "expert_named_tensors": []
+    }
+  ],
+  "language_payload_average_bits_per_logical_element": 1.7654753941021046,
+  "source_sha256": "ee54f8478f0a8d6970999c20f551b0d1d77b5c232c4254f03872f646c6095077",
+  "scope": "Static GGUF directory inspection only. Both language and vision headers contain no expert-named tensors. Storage/padding measured; per-token physical reads, decoder work and exact arithmetic not inferred."
+}

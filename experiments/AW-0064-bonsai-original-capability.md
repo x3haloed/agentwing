@@ -2,7 +2,7 @@
 
 ## Status
 
-Running, 2026-10-05. Active successor campaign remains incomplete.
+Completed negative screen, 2026-10-05. Active successor campaign remains incomplete.
 
 ## Hypothesis and primary metric
 
@@ -75,13 +75,17 @@ PYTHONDONTWRITEBYTECODE=1 python3 scripts/run_bonsai_capability.py
 
 ## Results and evidence
 
-Run /Users/chad/Models/agentwing/evidence/AW-0064/20261006T024451.079850Z is live. Original navigation passed its unchanged verifier in 119.311 seconds, with four productive valid calls, pressure peak 1 and zero swap growth. Task 02 is executing; no claim about the remaining six unstarted tasks. First-task hashes and audit snapshot: evidence/AW-0064-first-task.json.
+Run /Users/chad/Models/agentwing/evidence/AW-0064/20261006T024451.079850Z terminated as a recorded capability failure. Navigation, single-file debugging, multi-file repair and refactoring passed; data transformation failed. Utility 4 across five attempted tasks in 781.323 diagnostic seconds. Recovery, bounded-read and config-sync remain unattempted, not removed from the gate. All five runs passed protocol, had pressure peak 1 and zero swap growth. All original test files stayed unchanged. Sixteen valid calls: fifteen productive and one valid but incorrect-result write; zero redundant, malformed, denied or failed shell calls. The data task manually wrote successful_events=3, although the source has four ok rows; JSON syntax/readback checks did not validate this statistic.
+
+Independent recursive-hash, frozen-grader replay, protocol and arithmetic audit passes in evidence/AW-0064-terminal-audit.json. Audit pass confirms the failure is correctly recorded. Three temporary-copy falsifiers reject unexpected evidence, inflated success with refreshed hashes, and changed artifacts with refreshed hashes (evidence/AW-0064-auditor-mutations.json).
+
+Bounded GGUF-directory inspection confirmed a 26,895,998,464-element qwen35 language artifact and 460,730,096-element clip vision artifact, with no expert-named tensors. Language directory is 11,120,982 bytes, alignment padding 10 bytes and payload 5,935,527,936 bytes; vision directory 19,646 bytes, padding 2 and payload 629,227,328. The language payload averages about 1.7655 bits per logical tensor element, counting storage overhead; this is serialized size, not decoder work or memory-read savings. Exact report in evidence/AW-0064-artifact-layout.json. It confirms the changed dense model premise, not cross-model numeric equivalence.
 All source/task/model/runtime pins, commands, thermal state, host samples,
 transcripts, independent grades and hashes are recorded.
 
 ## Disposition
 
-Unresolved. Even eight successes only allow expanded development work. Required
+Reject the exact medium-reasoning/temperature-1 original-capability preservation arm. Retain operational local multimodal admission as a different scope. AW-0065 separately tests only temperature zero on the failed task; a positive result still requires a new full original screen and expanded development. Even eight successes only allow expanded development work. Required
 25% replicated interleaved original-plus-expanded work-rate gains, every
 control-solved task, category preservation and matched comparison policy are
 still unproven. P1 and the 24-task corpus stay frozen.

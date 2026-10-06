@@ -1,0 +1,18 @@
+{
+  "all_passed": true,
+  "scope": "No-model temporary-copy auditor falsifiers; original raw evidence untouched",
+  "cases": [
+    {
+      "case": "unexpected-evidence-file",
+      "rejected": true
+    },
+    {
+      "case": "inflated-success-with-refreshed-hashes",
+      "rejected": true
+    },
+    {
+      "case": "changed-artifact-with-refreshed-hashes",
+      "rejected": true
+    }
+  ]
+}

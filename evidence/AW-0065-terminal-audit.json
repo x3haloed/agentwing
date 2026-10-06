@@ -1,0 +1,43 @@
+{
+  "audit_passed": true,
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0065/20261006T030339.427325Z",
+  "raw_receipt_sha256": "2e325fd6780e4a53ce370c3ad67bfe52ad317bd985bf4a26c29db11a956eca52",
+  "plan_sha256": "f29720af69f173abf14ec662f103648631447072db923b54065fa20bede8a332",
+  "screen_passed": true,
+  "utility": 1,
+  "wall_seconds": 134.23010420799983,
+  "diagnostic_utility_per_hour": 26.81961711376998,
+  "unattempted": [],
+  "error": null,
+  "tasks": [
+    {
+      "original_test_file_integrity": {},
+      "task_id": "05-data-transform",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 130.31105729200044,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 3,
+        "valid": 3,
+        "productive": 2,
+        "redundant": 1,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0
+      },
+      "commands": [
+        "head -20 events.csv && echo \"---\" && wc -l events.csv",
+        "cat > summary.json << 'EOF'\n{\"total_events\":6,\"successful_events\":4,\"latency_ms_by_service\":{\"api\":63,\"db\":60,\"worker\":27}}\nEOF\ncat summary.json",
+        "python3 -c \"import json; d=json.load(open('summary.json')); print(d); assert d['total_events']==6; assert d['successful_events']==4; assert d['latency_ms_by_service']=={'api':63,'db':60,'worker':27}; print('OK')\""
+      ],
+      "classification_note": "Source inspection and correct artifact write are productive. Subsequent assertions repeat the same model-chosen constants, rather than independently deriving them from CSV, and are counted as redundant verification."
+    }
+  ],
+  "supplemental_original_tests_unchanged": true,
+  "scope": "Single-task development diagnostic, temperature 0 vs AW-0064 temperature 1; all other operational settings unchanged. No suite capability, matched-P1 speed or promotion claim",
+  "accounting_limit": "Summary timing excludes final recursive receipt creation; not promotion accounting."
+}

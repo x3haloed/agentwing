@@ -1,0 +1,160 @@
+{
+  "audit_passed": true,
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0064/20261006T024451.079850Z",
+  "raw_receipt_sha256": "aebee540cc9a5c8c280c2f633d5cefef92c1cd64682c53670a55f9ba54a72d0b",
+  "plan_sha256": "fb8b6d051eb72e7b95ac4bd52f78ecaeebde032b46f6824ba1d960294f34787f",
+  "screen_passed": false,
+  "utility": 4,
+  "wall_seconds": 781.3225660830003,
+  "diagnostic_utility_per_hour": 18.43028811031458,
+  "unattempted": [
+    "06-failure-recovery",
+    "07-bounded-read",
+    "08-config-sync"
+  ],
+  "error": "original-capability-failure; remaining tasks unattempted",
+  "tasks": [
+    {
+      "original_test_file_integrity": {},
+      "task_id": "01-navigation",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 119.31145325000034,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 4,
+        "valid": 4,
+        "productive": 4,
+        "redundant": 0,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0,
+        "valid_but_incorrect_result": 0
+      },
+      "commands": [
+        "ls -la /Users/chad/Models/agentwing/active/workspace",
+        "find /Users/chad/Models/agentwing/active/workspace -type f | head -50; echo \"---\"; cat /Users/chad/Models/agentwing/active/workspace/README.md",
+        "cat /Users/chad/Models/agentwing/active/workspace/config/defaults.json; echo \"===DEPLOY===\"; cat /Users/chad/Models/agentwing/active/workspace/deploy/production.env",
+        "printf '2750' > /Users/chad/Models/agentwing/active/workspace/ANSWER.txt && cat /Users/chad/Models/agentwing/active/workspace/ANSWER.txt"
+      ]
+    },
+    {
+      "original_test_file_integrity": {
+        "test_math_utils.py": true
+      },
+      "task_id": "02-single-file-fix",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 146.18205616700016,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 3,
+        "valid": 3,
+        "productive": 3,
+        "redundant": 0,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0,
+        "valid_but_incorrect_result": 0
+      },
+      "commands": [
+        "find . -type f -not -path '*/node_modules/*' -not -path '*/.git/*' | head -100 && echo --- && ls -la",
+        "cat math_utils.py; echo ===; cat test_math_utils.py",
+        "sed -i '' 's/min(lower, max(value, upper))/max(lower, min(value, upper))/' math_utils.py && cat math_utils.py && python3 -m pytest test_math_utils.py -q 2>/dev/null || python3 -m unittest -v"
+      ]
+    },
+    {
+      "original_test_file_integrity": {
+        "test_slug.py": true
+      },
+      "task_id": "03-multi-file-fix",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 184.36896762499964,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 3,
+        "valid": 3,
+        "productive": 3,
+        "redundant": 0,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0,
+        "valid_but_incorrect_result": 0
+      },
+      "commands": [
+        "ls -la /Users/chad/Models/agentwing/active/workspace && cat README.md",
+        "cat config.py slug.py test_slug.py",
+        "cat > slug.py <<'EOF'\nfrom config import NAMESPACE\n\n\ndef display_slug(text: str) -> str:\n    words = text.lower().split()\n    return \"/\".join([NAMESPACE, \"-\".join(words)])\nEOF\npython3 test_slug.py"
+      ]
+    },
+    {
+      "original_test_file_integrity": {
+        "test_totals.py": true
+      },
+      "task_id": "04-refactor",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 209.86227449999933,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 4,
+        "valid": 4,
+        "productive": 4,
+        "redundant": 0,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0,
+        "valid_but_incorrect_result": 0
+      },
+      "commands": [
+        "find /Users/chad/Models/agentwing/active/workspace -type f | head -50 && echo --- && grep -rn \"legacy_total\" /Users/chad/Models/agentwing/active/workspace | head -50",
+        "cat /Users/chad/Models/agentwing/active/workspace/alpha.py /Users/chad/Models/agentwing/active/workspace/beta.py /Users/chad/Models/agentwing/active/workspace/test_totals.py",
+        "cat > /Users/chad/Models/agentwing/active/workspace/totals.py << 'EOF'\ndef nonnegative_total(values):\n    return sum(value for value in values if value >= 0)\nEOF\ncat > /Users/chad/Models/agentwing/active/workspace/alpha.py << 'EOF'\nfrom totals import nonnegative_total\n\n\ndef alpha_total(values):\n    return nonnegative_total(values)\nEOF\ncat > /Users/chad/Models/agentwing/active/workspace/beta.py << 'EOF'\nfrom totals import nonnegative_total\n\n\ndef beta_total(values):\n    return nonnegative_total(values)\nEOF",
+        "grep -rn \"legacy_total\" /Users/chad/Models/agentwing/active/workspace; echo \"grep exit: $?\" && python3 /Users/chad/Models/agentwing/active/workspace/test_totals.py"
+      ]
+    },
+    {
+      "original_test_file_integrity": {},
+      "task_id": "05-data-transform",
+      "utility": 0,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 116.53771066699937,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 2,
+        "valid": 2,
+        "productive": 1,
+        "redundant": 0,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0,
+        "valid_but_incorrect_result": 1
+      },
+      "commands": [
+        "ls -la; head -20 events.csv",
+        "cat > summary.json <<'EOF'\n{\"total_events\":6,\"successful_events\":3,\"latency_ms_by_service\":{\"api\":63,\"db\":60,\"worker\":27}}\nEOF\ncat summary.json; python3 -m json.tool summary.json"
+      ],
+      "classification_note": "Source inspection was productive. The subsequent command wrote a wrong count and only checked JSON syntax/readback; it is valid but does not establish useful completion. This is a semantic failure, not a failed shell call."
+    }
+  ],
+  "supplemental_original_tests_unchanged": true,
+  "scope": "Original capability diagnostic only; profile reasoning/sampling differ from P1, no comparative speed or promotion claim",
+  "accounting_limit": "Summary timing excludes final recursive receipt creation; not promotion accounting.",
+  "classification_note": "Manual full-command/result review supplements observable counts; all other attempted calls contributed unique discovery, source inspection, repair or first verification."
+}

@@ -58,3 +58,9 @@ controls. Publisher throughput and benchmark scores are not local endpoint resul
 Admission passed twice with zero swap growth (pressure peak 2). Managed Pi image
 attachment also passed with zero swap growth (pressure peak 1). See
 `evidence/AW-0063-admission-audit.json` and `evidence/AW-0063-managed-vision.json`.
+
+The native operational profile failed the AW-0064 original-task preservation
+screen on a wrong data statistic (four of five attempted tasks passed; three
+remained unattempted). Local multimodal admission does not qualify it as a P1
+capability-preserving successor. AW-0065 separately investigates temperature zero
+without changing reasoning, tools, output budget or scoring.

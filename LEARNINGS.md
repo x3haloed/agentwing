@@ -1182,3 +1182,35 @@ model, runtime, OS and reasoning differ: it is not causal runtime attribution or
 a matched-P1 speedup. The original eight-task screen remains live; broad
 capability, expanded panel, matched policy and >=25% replicated interleaved
 promotion are unproven. P1 and held-out authorities remain frozen.
+
+## 2026-10-05 — Bonsai original preservation fails on uncomputed data statistic
+
+AW-0064 terminates at 4 successes / 5 attempted original tasks. The data task
+writes successful_events=3 instead of four source ok rows, then checks JSON
+syntax/readback rather than recomputing the statistic. The other four tasks pass,
+all original tests remain unchanged, all five protocol audits pass, pressure
+peaks at 1 and swap growth is zero. Independent recursive hashes, grade replay,
+protocol and arithmetic audit pass; three rehashed/tampered evidence falsifiers
+are rejected. Reject this exact native operational profile as an original-suite
+preservation arm. Do not call its 18.43 partial-screen diagnostic utility/hour a
+full-suite or matched-P1 gain. Three original tasks remain unattempted; P2 held-out
+remains unexposed. AW-0065 tests temperature alone, without reducing reasoning,
+output budget, tools or scoring; one success cannot qualify a successor.
+
+Bounded artifact inspection confirms dense qwen35 language and clip vision
+layouts with no expert-named tensors, 5,935,527,936 and 629,227,328 payload bytes.
+This clarifies the model-change premise; old MoE route/fidelity thresholds do not
+establish this branch's numeric or general capability. Full storage-read, decoder,
+installation/residency attribution and replicated endpoint promotion remain open.
+
+## 2026-10-05 — Temperature-zero data trial passes without reducing reasoning
+
+AW-0065 correctly writes successful_events=4 under temperature zero with the
+same medium reasoning, 2048 output, 8K context, prompt, tools, deadlines and
+verifier. Independent raw hash/protocol/grade replay passes; pressure 1 and zero
+swap growth. Two productive valid calls plus one redundant constant assertion;
+no malformed, denied or failed calls. The assertion still does not independently
+compute from CSV, so this is a correct single realization, not robust data-work
+validation or causal sampling improvement. Retain this arm for the full original
+AW-0066 screen before expanded development. P1 and held-out panel remain frozen;
+no work-rate promotion follows from a single task.
