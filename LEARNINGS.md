@@ -1796,3 +1796,13 @@ minimal request, not the exact failed Pi accumulated request or cache fidelity.
 No missing-default-medium fix warranted; retain native settings. Raw evidence
 /Users/chad/Models/agentwing/evidence/AW-0143; all hashes in
 evidence/AW-0143-reasoning-render.json. No endpoint performance claim/promotion.
+
+
+### AW-0145 — full accumulated conversation rendering verified
+
+Installed Pi message conversion plus live medium renderer matches captured prior
+prompt and AW-0144 reconstructed fourth-turn base byte for byte. This supersedes
+AW-0144's rendering gap for the complete saved history; it does not prove cache
+fidelity or task capability. Host gates pass and clean shutdown; no inference or
+endpoint speed claim. Raw bodies/dependency hashes: external AW-0145; receipt
+evidence/AW-0145-full-render.json. Ready to freeze identical-prefix cache screen.

@@ -1,0 +1,65 @@
+{
+  "experiment": "AW-0145",
+  "passed": true,
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0145",
+  "result": {
+    "experiment": "AW-0145",
+    "passed": true,
+    "rendering_checked": true,
+    "error": null,
+    "healthy": true,
+    "http": [
+      {
+        "endpoint": "health",
+        "status": 200
+      },
+      {
+        "endpoint": "props",
+        "status": 200
+      },
+      {
+        "endpoint": "apply-template",
+        "mode": "prior",
+        "status": 200
+      },
+      {
+        "endpoint": "apply-template",
+        "mode": "fourth",
+        "status": 200
+      }
+    ],
+    "allocator_line": "0.00.400.857 I llama_kv_cache: size =  408.00 MiB ( 16384 cells,  16 layers,  1/1 seqs), K (q8_0):  272.00 MiB, V (turbo4):  136.00 MiB",
+    "wall_seconds_diagnostic": 4.253767542002606,
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "server_exit_after_cleanup": 0,
+    "plan_sha256": "85dd54230d0628fc023ab57488ae0f1d91f1180e54ef75334aa90f506d1ac043",
+    "scope": "Actual prompt rendering only; no generation, agent utility or speed claim"
+  },
+  "raw_sha256": {
+    "host.tsv": "15964ef8dd003de2fccc89f54c58a35a23fb305310abdbe510af4b8167b0a561",
+    "prior-render.json": "2a2962e13190cdcbc407937756f63bf49a6407409f13b480638819d0402a884a",
+    "plan.json": "85dd54230d0628fc023ab57488ae0f1d91f1180e54ef75334aa90f506d1ac043",
+    "result.json": "8817b68c1e75bbee6520d69f87c1243958d2b11cdb522d8cbfa5098284b6ff07",
+    "fourth-render.json": "86e539f968bdfb445037b42a4f79762e8bf290a91a717d5e97462a0f65c0d1c7",
+    "fourth-request.json": "16638e0160e6dcd8840e9c75b2ec3a006576e7a42de0522312d2cfef76fe9ec1",
+    "health.json": "a29ee2b15c494311c52521766e44af56a3ad2248e7a8ab465e5206463c13d288",
+    "prior-context.json": "2b04d2412178673430a5427b31aedcaa460238312109ed885134ab6cb0ea7618",
+    "fourth-context.json": "12a071152393446f48ef98bc852b0cf42609534f73e7304b497ce7261a621ddd",
+    "prior-authority.txt": "0e018509f08ae745399196acfc3c6fd05e2c426c6aa89638fec3cf8048619ff3",
+    "prior-tools.json": "acd674d2c517bd917e65137ff098ba71dd122886bc3d071ad3b8a69d37dac23f",
+    "fourth-tools.json": "acd674d2c517bd917e65137ff098ba71dd122886bc3d071ad3b8a69d37dac23f",
+    "props.json": "86d3ee931e82bff80c9ff7cba271955165a79bee439cbf9ee405e936e6acbe4b",
+    "prior-request.json": "fac35f0023f4fd151a09667e90dc8aed1f772a764dc33e862dacbce1d0f1d1cc",
+    "server.log": "3fbc9c79502fae49f6f3f6c3c2b3b3a3734dd53c0a89060449656189de667ea3",
+    "adapter-dependencies.json": "8982b5efc593cd0bd24f531b721f4e4ca016f8c6b3639e2ea7b5d62fc0eff6d4"
+  },
+  "source_pins": {
+    "scripts/prepare_bonsai_render_requests.mjs": "58d9abb6b11a6201b40bdbbcd6e5265349942f571378a51edb0ccd8c63308aae",
+    "scripts/probe_bonsai_full_conversation_render.py": "ca5c934fcdd34ef811b837e9a7834d67902787925fe1f977bf04fe135995aca4",
+    "config/pi-bonsai-turbo-models.json": "128d258efdddee57983ee4a0b916d706c2caf856671f138c0fd2e2782d3f6d8e",
+    "node_modules/@earendil-works/pi-coding-agent/dist/bundle/chunks/openai-completions-ERMU2SS7.js": "3ef9e2c266064fea04c076ae8b9e0a8317ebc68f0b543efb4b01da32b394b628"
+  },
+  "scope": "Full Pi conversation adapter and live rendering; no inference/cache quality or endpoint claim",
+  "context_preparation": "AW141 message_end messages first5 for prior and first7 for fourth; system text extracted from first captured prompt beginning at frozen system prompt; tool schema parsed from same prompt tools block. Live prior equality independently validates reconstruction. Raw contexts retained with hashes."
+}
