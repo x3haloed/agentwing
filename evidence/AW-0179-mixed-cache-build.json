@@ -1,0 +1,73 @@
+{
+  "experiment": "AW-0179",
+  "status": "Native C++ build passed; runtime Metal compilation/numeric gates pending",
+  "plan": {
+    "experiment": "AW-0179",
+    "status": "Prepared, unbuilt and untested",
+    "source": "/Users/chad/Models/agentwing/runtime-sources/prism-turbo-mixed",
+    "parent_runtime_commit": "adfffbe41b2cabcd51fff326ab045662265062bb",
+    "parent_patch_sha256": "4864e0cb10c475ad193022d5f2e06fc1a9974b93d957ee3c6869a3c3bcfbab5b",
+    "candidate_patch_sha256": "d6c885e681f0871d9a37cf3f36b38cf631f8de2db0b87d5e800f24580a146b82",
+    "changed_sources_sha256": {
+      "src/llama-context.cpp": "9c859b7a330fcbb48e29ce792cf0d96dae4eafe369ed77c913d9b952e1361f2a",
+      "ggml/src/ggml-metal/ggml-metal-device.m": "1d60a21b0b23e4ccf98c55c195af6ce07ff62ceb88b7a6861f6ae76790799c62",
+      "ggml/src/ggml-metal/ggml-metal-ops.cpp": "3edad28d18ba990be54b29fabce75d3d5b7892e595aaae69ae5e5c39b67b9b22",
+      "ggml/src/ggml-metal/kernels/fa.metal": "63c5789f374e7596d8818c13511fb351a8cf5d64c6f96a4a3f41f115f28509fc"
+    },
+    "hypothesis": "Independent existing dequantizers permit Metal q8K/F16V and F16K/Turbo4V at256-head dimensions, avoiding same-type scratch misuse.",
+    "required_gates": [
+      "Native build",
+      "Prefill/decode shape and finite numeric oracle for both combinations",
+      "Backend/pipeline authority",
+      "Full16K host gates",
+      "Identical-prefix own32 replay",
+      "Native tool/vision and full endpoint gates"
+    ],
+    "disposition": "Unresolved; no admitted profile/runtime changes"
+  },
+  "source_files_compared": 3531,
+  "source_differences": [
+    "ggml/src/ggml-metal/ggml-metal-device.m",
+    "ggml/src/ggml-metal/ggml-metal-ops.cpp",
+    "ggml/src/ggml-metal/kernels/fa.metal",
+    "src/llama-context.cpp"
+  ],
+  "build_directory": "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-mixed",
+  "targets": [
+    "llama",
+    "ggml-metal"
+  ],
+  "parallel_jobs": 4,
+  "generator": "Ninja",
+  "build_type": "Release",
+  "metal_embedded": true,
+  "openssl": false,
+  "build_log_sha256": "e514b38958441e45fc6e0979a9030e2abf3c3ece92b362a2dbb0f5962b9fbb6a",
+  "configure_log_sha256": "b8046afde7afcb52930b8f418007f223c45ea83076d685aff74952384b79c360",
+  "cmake_cache_sha256": "769984c9ba85e323172c701915aef2a4e90f14d57cb0a1eda8be8cf509958fd8",
+  "libraries_sha256": {
+    "libllama.0.dylib": "36f5a437dff62fabcdefc7a82da1e10c965c5c48466c78dc74e9d9cc12964cb0",
+    "libggml.dylib": "50ee965e4782a84e0eaa0ba28be6fe98f8ad2ce4735a7c94d32319cb66333bb5",
+    "libggml-base.0.21.0.dylib": "06f068ceba365f4d744e6ccbbfa83191da0e11e5b48567c38ce69c1e91160539",
+    "libggml.0.dylib": "50ee965e4782a84e0eaa0ba28be6fe98f8ad2ce4735a7c94d32319cb66333bb5",
+    "libggml-base.dylib": "06f068ceba365f4d744e6ccbbfa83191da0e11e5b48567c38ce69c1e91160539",
+    "libggml-blas.dylib": "384f909e5c5cbe873570e8ce49036d39fff698694d7172915b4ffe818c76aaef",
+    "libggml-metal.0.dylib": "6a56a5357eaabebaf346701bf5cfec872d68659eb8b94f5b5c9218186a280689",
+    "libllama.dylib": "36f5a437dff62fabcdefc7a82da1e10c965c5c48466c78dc74e9d9cc12964cb0",
+    "libggml-cpu.dylib": "244a242760f18c72007f7d93f1070964ccfef538681156fc18ecf1a5b7e985c6",
+    "libggml-metal.dylib": "6a56a5357eaabebaf346701bf5cfec872d68659eb8b94f5b5c9218186a280689",
+    "libggml-blas.0.21.0.dylib": "384f909e5c5cbe873570e8ce49036d39fff698694d7172915b4ffe818c76aaef",
+    "libggml.0.21.0.dylib": "50ee965e4782a84e0eaa0ba28be6fe98f8ad2ce4735a7c94d32319cb66333bb5",
+    "libggml-base.0.dylib": "06f068ceba365f4d744e6ccbbfa83191da0e11e5b48567c38ce69c1e91160539",
+    "libllama.0.2.0.dylib": "36f5a437dff62fabcdefc7a82da1e10c965c5c48466c78dc74e9d9cc12964cb0",
+    "libggml-blas.0.dylib": "384f909e5c5cbe873570e8ce49036d39fff698694d7172915b4ffe818c76aaef",
+    "libggml-cpu.0.21.0.dylib": "244a242760f18c72007f7d93f1070964ccfef538681156fc18ecf1a5b7e985c6",
+    "libggml-cpu.0.dylib": "244a242760f18c72007f7d93f1070964ccfef538681156fc18ecf1a5b7e985c6",
+    "libggml-metal.0.21.0.dylib": "6a56a5357eaabebaf346701bf5cfec872d68659eb8b94f5b5c9218186a280689"
+  },
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+  "scope": "Isolated build/source identity only; no shader runtime compilation, model/tool/vision or performance qualification",
+  "disposition": "Unresolved; original runtime/default/P1 unchanged"
+}

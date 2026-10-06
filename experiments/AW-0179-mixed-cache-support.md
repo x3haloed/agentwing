@@ -23,3 +23,15 @@ Pins/plan: evidence/AW-0179-mixed-cache-plan.json.
 External source: /Users/chad/Models/agentwing/runtime-sources/prism-turbo-mixed.
 External evidence: /Users/chad/Models/agentwing/evidence/AW-0179.
 P1/default/deployed runtimes unchanged.
+
+## Native build result
+
+Pinned CMake3.31.6/Ninja explicit paths, Release/embeddedMetal/OpenSSLoff;
+llama and ggml-metal targets269steps -j4 completed exit0. Compared3531 source
+files against AW137 port: only declared fourfiles differ. All generated dylib
+hashes recorded. Archive-derived source has noGit version identity; pinned
+base/patch/source hashes are authority. This C++ build embeds Metal source,
+not proof of runtime shader compilation or numerical correctness. Next run
+real early/middle/late attention decode/prefill canaries against independently
+dequantized CPU oracle before full-model replay. No acceptance/promotion.
+Receipt: evidence/AW-0179-mixed-cache-build.json.
