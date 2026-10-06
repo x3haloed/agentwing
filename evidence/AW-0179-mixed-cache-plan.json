@@ -1,0 +1,24 @@
+{
+  "experiment": "AW-0179",
+  "status": "Prepared, unbuilt and untested",
+  "source": "/Users/chad/Models/agentwing/runtime-sources/prism-turbo-mixed",
+  "parent_runtime_commit": "adfffbe41b2cabcd51fff326ab045662265062bb",
+  "parent_patch_sha256": "4864e0cb10c475ad193022d5f2e06fc1a9974b93d957ee3c6869a3c3bcfbab5b",
+  "candidate_patch_sha256": "d6c885e681f0871d9a37cf3f36b38cf631f8de2db0b87d5e800f24580a146b82",
+  "changed_sources_sha256": {
+    "src/llama-context.cpp": "9c859b7a330fcbb48e29ce792cf0d96dae4eafe369ed77c913d9b952e1361f2a",
+    "ggml/src/ggml-metal/ggml-metal-device.m": "1d60a21b0b23e4ccf98c55c195af6ce07ff62ceb88b7a6861f6ae76790799c62",
+    "ggml/src/ggml-metal/ggml-metal-ops.cpp": "3edad28d18ba990be54b29fabce75d3d5b7892e595aaae69ae5e5c39b67b9b22",
+    "ggml/src/ggml-metal/kernels/fa.metal": "63c5789f374e7596d8818c13511fb351a8cf5d64c6f96a4a3f41f115f28509fc"
+  },
+  "hypothesis": "Independent existing dequantizers permit Metal q8K/F16V and F16K/Turbo4V at256-head dimensions, avoiding same-type scratch misuse.",
+  "required_gates": [
+    "Native build",
+    "Prefill/decode shape and finite numeric oracle for both combinations",
+    "Backend/pipeline authority",
+    "Full16K host gates",
+    "Identical-prefix own32 replay",
+    "Native tool/vision and full endpoint gates"
+  ],
+  "disposition": "Unresolved; no admitted profile/runtime changes"
+}

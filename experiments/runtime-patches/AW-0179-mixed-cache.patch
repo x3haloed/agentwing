@@ -1,0 +1,79 @@
+--- a/src/llama-context.cpp
++++ b/src/llama-context.cpp
+@@ -3872,8 +3872,8 @@
+         }
+     }
+ 
+-    if ((params.type_v == GGML_TYPE_TURBO3_0 || params.type_v == GGML_TYPE_TURBO4_0) && params.type_k != GGML_TYPE_Q8_0) {
+-        LLAMA_LOG_ERROR("%s: Turbo V cache requires q8_0 K in this port\n", __func__);
++    if ((params.type_v == GGML_TYPE_TURBO3_0 || params.type_v == GGML_TYPE_TURBO4_0) && params.type_k != GGML_TYPE_Q8_0 && !(params.type_k == GGML_TYPE_F16 && params.type_v == GGML_TYPE_TURBO4_0)) {
++        LLAMA_LOG_ERROR("%s: Turbo V cache requires q8_0 K, or f16 K with Turbo4 V in this port\n", __func__);
+         return nullptr;
+     }
+ 
+--- a/ggml/src/ggml-metal/ggml-metal-device.m
++++ b/ggml/src/ggml-metal/ggml-metal-device.m
+@@ -1634,8 +1634,10 @@
+                 return false;
+             }
+             if (op->src[1]->type != op->src[2]->type) {
+-                return has_simdgroup_mm && op->src[1]->type == GGML_TYPE_Q8_0 &&
+-                    (op->src[2]->type == GGML_TYPE_TURBO3_0 || op->src[2]->type == GGML_TYPE_TURBO4_0) &&
++                return has_simdgroup_mm &&
++                    ((op->src[1]->type == GGML_TYPE_Q8_0 && op->src[2]->type == GGML_TYPE_F16) ||
++                     ((op->src[1]->type == GGML_TYPE_Q8_0 || (op->src[1]->type == GGML_TYPE_F16 && op->src[2]->type == GGML_TYPE_TURBO4_0)) &&
++                      (op->src[2]->type == GGML_TYPE_TURBO3_0 || op->src[2]->type == GGML_TYPE_TURBO4_0))) &&
+                     op->src[1]->ne[0] == 256 && op->src[2]->ne[0] == 256;
+             }
+             switch (op->src[1]->type) {
+--- a/ggml/src/ggml-metal/ggml-metal-ops.cpp
++++ b/ggml/src/ggml-metal/ggml-metal-ops.cpp
+@@ -3280,6 +3280,7 @@
+ // dequantize the quantized KV cache to F16 before running the F16 flash attention kernels
+ static bool ggml_metal_op_flash_attn_ext_use_kv_f16(const ggml_tensor * op) {
+     assert(op->op == GGML_OP_FLASH_ATTN_EXT);
++    if (op->src[1]->type != op->src[2]->type) return false; // mixed formats require independent dequantizers
+     if (op->src[2]->type == GGML_TYPE_TURBO3_0 || op->src[2]->type == GGML_TYPE_TURBO4_0) return false;
+ 
+     // depending on compute/bandwidth ratio, dequant to f16 kv is not always beneficial
+@@ -3494,8 +3495,9 @@
+ 
+     GGML_ASSERT(op->src[0]->type == GGML_TYPE_F32);
+     GGML_ASSERT(op->src[1]->type == op->src[2]->type ||
+-        (op->src[1]->type == GGML_TYPE_Q8_0 &&
+-         (op->src[2]->type == GGML_TYPE_TURBO3_0 || op->src[2]->type == GGML_TYPE_TURBO4_0)));
++        ((op->src[1]->type == GGML_TYPE_Q8_0 && op->src[2]->type == GGML_TYPE_F16) ||
++         ((op->src[1]->type == GGML_TYPE_Q8_0 || (op->src[1]->type == GGML_TYPE_F16 && op->src[2]->type == GGML_TYPE_TURBO4_0)) &&
++          (op->src[2]->type == GGML_TYPE_TURBO3_0 || op->src[2]->type == GGML_TYPE_TURBO4_0))));
+ 
+     //GGML_ASSERT(ggml_are_same_shape (src1, src2));
+     GGML_ASSERT(ne11 == ne21);
+@@ -3736,7 +3738,7 @@
+             ggml_metal_op_concurrency_reset(ctx);
+         }
+ 
+-        const int is_q = !use_kv_f16 && ggml_is_quantized(op->src[1]->type) ? 1 : 0;
++        const int is_q = !use_kv_f16 && (ggml_is_quantized(op->src[1]->type) || ggml_is_quantized(op->src[2]->type)) ? 1 : 0;
+ 
+         // 2*(2*ncpsg)
+         // ncpsg soft_max values + ncpsg mask values
+--- a/ggml/src/ggml-metal/kernels/fa.metal
++++ b/ggml/src/ggml-metal/kernels/fa.metal
+@@ -1055,6 +1055,8 @@
+ 
+ template [[host_name("kernel_flash_attn_ext_kq8_0_vturbo3_dk256_dv256")]] kernel flash_attn_ext_t kernel_flash_attn_ext<FA_TYPES, block_q8_0, 2, dequantize_q8_0, block_turbo3_0, NL_TURBO3, dequantize_turbo3_0, 256, 256>;
+ template [[host_name("kernel_flash_attn_ext_kq8_0_vturbo4_dk256_dv256")]] kernel flash_attn_ext_t kernel_flash_attn_ext<FA_TYPES, block_q8_0, 2, dequantize_q8_0, block_turbo4_0, 8, dequantize_turbo4_0, 256, 256>;
++template [[host_name("kernel_flash_attn_ext_kf16_vturbo4_dk256_dv256")]] kernel flash_attn_ext_t kernel_flash_attn_ext<FA_TYPES, half4x4, 1, dequantize_f16, block_turbo4_0, 8, dequantize_turbo4_0, 256, 256>;
++template [[host_name("kernel_flash_attn_ext_kq8_0_vf16_dk256_dv256")]] kernel flash_attn_ext_t kernel_flash_attn_ext<FA_TYPES, block_q8_0, 2, dequantize_q8_0, half4x4, 1, dequantize_f16, 256, 256>;
+ #undef FA_TYPES
+ #undef FA_TYPES_BF
+ #undef FA_TYPES_F32
+@@ -2058,6 +2060,8 @@
+ 
+ template [[host_name("kernel_flash_attn_ext_vec_kq8_0_vturbo3_dk256_dv256")]] kernel flash_attn_ext_vec_t kernel_flash_attn_ext_vec<FA_TYPES, block_q8_0, 8, dequantize_q8_0_t4, block_turbo3_0, NL_TURBO3_VEC, dequantize_turbo3_0_t4, 256, 256, 1>;
+ template [[host_name("kernel_flash_attn_ext_vec_kq8_0_vturbo4_dk256_dv256")]] kernel flash_attn_ext_vec_t kernel_flash_attn_ext_vec<FA_TYPES, block_q8_0, 8, dequantize_q8_0_t4, block_turbo4_0, 32, dequantize_turbo4_0_t4, 256, 256, 1>;
++template [[host_name("kernel_flash_attn_ext_vec_kf16_vturbo4_dk256_dv256")]] kernel flash_attn_ext_vec_t kernel_flash_attn_ext_vec<FA_TYPES, half4, 1, dequantize_f16_t4, block_turbo4_0, 32, dequantize_turbo4_0_t4, 256, 256, 1>;
++template [[host_name("kernel_flash_attn_ext_vec_kq8_0_vf16_dk256_dv256")]] kernel flash_attn_ext_vec_t kernel_flash_attn_ext_vec<FA_TYPES, block_q8_0, 8, dequantize_q8_0_t4, half4, 1, dequantize_f16_t4, 256, 256, 1>;
+ #undef FA_TYPES
+ #undef FA_TYPES_F32
+ 
