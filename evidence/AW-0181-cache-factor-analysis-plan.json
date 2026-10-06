@@ -1,0 +1,11 @@
+{
+  "experiment": "AW-0181",
+  "status": "Supplementary analysis prepared before compressed-arm results; actual data pending",
+  "source_sha256": "9872248bc908332d471209ebb1104f09d3abe185d0ac19c93dd910792cf5f87a",
+  "checks": {
+    "probability_normalized": true,
+    "constant_shift_invariant": true,
+    "disjoint_support_total_variation_one": true
+  },
+  "method": "First identical-prefix logits only; all frozen original numeric/resource gates must pass before analysis. DeltaK,DeltaV,combineddelta and residualinteraction; float64 topk20/topp.95/minp.05/T1 probability diagnostic. No threshold change, no native-bitexact claim, no task/performance attribution."
+}

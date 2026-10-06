@@ -31,3 +31,11 @@ python3 scripts/audit_bonsai_native_mixed_cache_replay.py (partial observation
 never acceptance). External directory/plan refuses overwrite.
 Raw: /Users/chad/Models/agentwing/evidence/AW-0181.
 Manifest: evidence/AW-0181-native-mixed-cache-plan.json.
+
+Supplementary analysis frozen while initialF16 arm still running: separate K-only,
+V-only and combined first-row displacement, preserve nonadditive interaction;
+float64 native-profile topk/topp/minp/T1 distribution TV/JS diagnostics. Require
+all original gates before analysis, never change acceptance. Synthetic probability
+normalization, common-logit-shift invariance and disjoint-support TV1 checks pass.
+Native-bitexact sampling and behavior equivalence not presumed. Plan receipt
+evidence/AW-0181-cache-factor-analysis-plan.json; script analyze_bonsai_cache_factors.py.
