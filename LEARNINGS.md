@@ -2096,3 +2096,14 @@ forms; no causal register-spill or endpoint conclusion. Prior AW91–94 uniformP
 single-column FFN negatives remain relevant, do not repeat without new evidence.
 P1/runtime/default unchanged. RawexternalAW173 and all pins/timings in
  evidence/AW-0173-scalar-lut-screen.json. No promotion.
+
+
+### AW-0174 — fixed5KiB weight decoder table also cost-rejected
+
+Same real matrix/input/ABBA: no activation workspace, exact coefficient palette,
+numericrelativeL2 3.86541e-7. Complete2.533/2.532ms versus native1.109/1.130ms
+(~2.3x component cost), raw/output/timing replay valid, host1/growth0. Reject
+standalone implementation; not a causal table/dispatcher bottleneck conclusion.
+Validate comparable unchanged-arithmetic standalone control before more redesign.
+P1/runtime/default unchanged. RawexternalAW174, allpins/timings in
+ evidence/AW-0174-weight-decoder-table-screen.json. No promotion.

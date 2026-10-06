@@ -1,0 +1,139 @@
+{
+  "experiment": "AW-0174",
+  "status": "numeric-passed-cost-rejected",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0174",
+  "plan_sha256": "19885e4d5eef62149c9143f67a621a880e2801ee5bcb9fb2ee0d5894588491f9",
+  "execution_plan_sha256": "9efb3e27d60c06928f17b0bcfd793a40ca1d052e1560b3d9bd7fd1991d6d37c5",
+  "summary_sha256": "13ef47849de722f722b28e1e52453c3bbaf3efb3a975eeff1a3cf541d9d9d619",
+  "independent_raw_output_timing_replay": true,
+  "candidate_cost_over_control_pairs": [
+    2.2832938381149734,
+    2.240667673063718
+  ],
+  "rows": [
+    {
+      "arm": "control",
+      "index": 0,
+      "command": [
+        "/Users/chad/Models/agentwing/evidence/AW-0167/control",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/weights.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/input.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0174/0-control.bin",
+        "17408",
+        "5120"
+      ],
+      "error": null,
+      "exit": 0,
+      "numeric_passed": true,
+      "relative_L2": 0.0,
+      "all_iteration_seconds": [
+        0.001970833,
+        0.001125709,
+        0.001105084,
+        0.00111375,
+        0.001099583
+      ],
+      "steady_median_seconds": 0.0011094170000000001,
+      "fixture_lifetime_seconds": 0.1354153749998659,
+      "pressure_peak": 1,
+      "baseline_swap_mib": 1135.12,
+      "swap_growth_peak_mib": 0,
+      "output_sha256": "9eaff890915c03606ed9c3415da8dadf6eceb937c4c3ee92247ac453f27cb6ec",
+      "log_sha256": "6a4b1e3102a2a56da3c28cc7d46b557e88ca759d6d9eebeab3d6bbe38a4532f7"
+    },
+    {
+      "arm": "candidate",
+      "index": 1,
+      "command": [
+        "/Users/chad/Models/agentwing/evidence/AW-0174/candidate",
+        "/Users/chad/Repos/agentwing/experiments/fixtures/bonsai-weight-decoder-table.metal",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/weights.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/input.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0174/1-candidate.bin",
+        "17408",
+        "5120"
+      ],
+      "error": null,
+      "exit": 0,
+      "numeric_passed": true,
+      "relative_L2": 3.8654088113426397e-07,
+      "all_iteration_seconds": [
+        0.003186,
+        0.00252575,
+        0.00255875,
+        0.002513833,
+        0.0025405
+      ],
+      "steady_median_seconds": 0.002533125,
+      "fixture_lifetime_seconds": 0.48630441699788207,
+      "pressure_peak": 1,
+      "baseline_swap_mib": 1135.12,
+      "swap_growth_peak_mib": 0,
+      "output_sha256": "92d597e9f2a6c6c8c65197d4443b494396440ebfd8314a5a45bd4d488d79870d",
+      "log_sha256": "ea5adc7220c4a65f21f5e736ac3c98405f8ec481b8544ba52b496344761fc196"
+    },
+    {
+      "arm": "candidate",
+      "index": 2,
+      "command": [
+        "/Users/chad/Models/agentwing/evidence/AW-0174/candidate",
+        "/Users/chad/Repos/agentwing/experiments/fixtures/bonsai-weight-decoder-table.metal",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/weights.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/input.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0174/2-candidate.bin",
+        "17408",
+        "5120"
+      ],
+      "error": null,
+      "exit": 0,
+      "numeric_passed": true,
+      "relative_L2": 3.8654088113426397e-07,
+      "all_iteration_seconds": [
+        0.003196625,
+        0.00253075,
+        0.002508917,
+        0.002545209,
+        0.002533625
+      ],
+      "steady_median_seconds": 0.0025321874999999997,
+      "fixture_lifetime_seconds": 0.14071408299787436,
+      "pressure_peak": 1,
+      "baseline_swap_mib": 1135.12,
+      "swap_growth_peak_mib": 0,
+      "output_sha256": "92d597e9f2a6c6c8c65197d4443b494396440ebfd8314a5a45bd4d488d79870d",
+      "log_sha256": "464d85ba2c59b5d36ae3983354a206e93eac6addd3c31f9d10f6751f05792177"
+    },
+    {
+      "arm": "control",
+      "index": 3,
+      "command": [
+        "/Users/chad/Models/agentwing/evidence/AW-0167/control",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/weights.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/input.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0174/3-control.bin",
+        "17408",
+        "5120"
+      ],
+      "error": null,
+      "exit": 0,
+      "numeric_passed": true,
+      "relative_L2": 0.0,
+      "all_iteration_seconds": [
+        0.001585375,
+        0.001122291,
+        0.001137917,
+        0.001107416,
+        0.001149042
+      ],
+      "steady_median_seconds": 0.001130104,
+      "fixture_lifetime_seconds": 0.13719045799371088,
+      "pressure_peak": 1,
+      "baseline_swap_mib": 1135.12,
+      "swap_growth_peak_mib": 0,
+      "output_sha256": "9eaff890915c03606ed9c3415da8dadf6eceb937c4c3ee92247ac453f27cb6ec",
+      "log_sha256": "95359c50e1bf3d24bfe0822d27440f7d300885eb8fef9cb57301c087a90bfadd"
+    }
+  ],
+  "scope": "Tiny single-matrix complete candidate arithmetic path only; real middle/late/multiple-matrix/candidate behavior and endpoint remain required.",
+  "disposition": "Reject standalone fixed decoder table implementation. Validate standalone execution against an unchanged arithmetic control before attributing cost or further decoder redesign. No model/P1/runtime/default changes or promotion."
+}
