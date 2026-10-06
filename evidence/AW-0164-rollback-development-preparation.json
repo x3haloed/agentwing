@@ -1,0 +1,14 @@
+{
+  "experiment": "AW-0164",
+  "status": "planned-not-run-awaiting-AW162-terminal-gate",
+  "plan_v2_sha256": "0a52d1ec2b1896b59d20168b79ddbf627c26b83b6d04ac0766d0282477ab04a4",
+  "runner_sha256": "73a64aaa357989660b32d09ed09ea0554c04d6d4e491d29a8b24f77742c57aca",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0164",
+  "planning_v1_retirement": {
+    "reason": "Prelaunch inspection found prerequisite audit code absent from source pins and preflight outside diagnostic wall timer. Freeze v2 with prerequisite sources pinned and timer moved to main entry. No model/task run under v1. Preserve original source/plan externally.",
+    "plan_v1_sha256": "8aeb096bc53519938ef2aa288f2b1483622ae3e682e9a8be79ff3e74afd5e37a",
+    "runner_v1_sha256": "d3b6e71f679b6a8b9d6dc27a65d1c8622d24bdd45636ec51a707d276cbf077f0"
+  },
+  "retirement_receipt_sha256": "e7d93f58585d0fb293002a2a7afd71fcec315f2deacbcf96788426e5756b3e44",
+  "scope": "Real-agent exposed development falsifier with unchanged task/verifier/prompt/permissions/native thinking and deadline; gated full-request prerequisite. No actual task run or promotion."
+}
