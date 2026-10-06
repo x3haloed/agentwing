@@ -1171,3 +1171,14 @@ AW-0062 verified local text, image ordering, native tool selection and associate
 ## 2026-10-05 — Bonsai 2 full local vision and Pi loop admitted
 
 AW-0063 resolves AW-0062's Pi context mismatch with an actual matching 8192-token server/Pi declaration. Two cold-server functional replications passed local text, reversed-image ordering, native tool selection, associated-result continuation and sandboxed Pi file-copy verification (188.659 and 173.253 seconds). Both peaked at pressure 2 with zero incremental swap; existing allocated swap was present at run start. Independent evidence hashes, image pixels, output bytes and tool IDs pass. Seven Pi calls were valid: four productive, three redundant; the two native API fixture calls were productive. No malformed, denied or failed calls. A separate managed Pi image-attachment task wrote blue,red correctly with one productive shell call, pressure 1 and zero swap growth. Promote Bonsai/Prism Metal/Pi as the user-directed operational default at 8K context and a 1024 image-token cap; retain P1 as historical control. Full vision encoding is local. Functional admission does not establish higher autonomous utility/hour, sustained-session safety, full 262K context or uncapped OCR quality. Evidence: AW-0063 admission and managed-vision summaries; raw data external under Models/agentwing.
+
+## 2026-10-05 — Bonsai passes the first frozen original navigation task
+
+AW-0064's first task found the production override and wrote 2750; the unchanged
+original grader and native terminal/tool-event audit pass. Four productive valid
+calls, 119.311 task seconds, pressure peak 1 and zero swap growth. This contrasts
+with AW-0058/0059's recorded extension-filtered discovery failure, but profile,
+model, runtime, OS and reasoning differ: it is not causal runtime attribution or
+a matched-P1 speedup. The original eight-task screen remains live; broad
+capability, expanded panel, matched policy and >=25% replicated interleaved
+promotion are unproven. P1 and held-out authorities remain frozen.

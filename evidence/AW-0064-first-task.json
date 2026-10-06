@@ -1,0 +1,50 @@
+{
+  "scope": "First-task diagnostic snapshot; remaining suite is running, no promotion claim",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0064/20261006T024451.079850Z",
+  "task_id": "01-navigation",
+  "utility": 1,
+  "full_wall_seconds": 119.31145325000034,
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0.0,
+  "protocol": {
+    "events_nonempty": true,
+    "paired_unique_calls": true,
+    "bash_schema_valid": true,
+    "no_model_errors": true,
+    "fresh_model_load": true,
+    "serialized_unique_requests": true,
+    "all_requests_terminal": true,
+    "server_cleanup": true,
+    "no_explicit_authority_access": true
+  },
+  "tool_accounting": {
+    "attempted": 4,
+    "valid": 4,
+    "productive": 4,
+    "redundant": 0,
+    "malformed": 0,
+    "denied": 0,
+    "failed": 0
+  },
+  "classification": "Manual transcript review: root layout, recursive discovery plus repository instruction, configuration evidence, and answer write/readback each advanced the requested task. All commands succeeded with no denial.",
+  "raw_evidence_sha256": {
+    "pi.jsonl": "28dfb8aa4377fd53b704ca5963247877c0caf3c495c6248708e62bf9767c4d3e",
+    "result.json": "098039dacf7fbbdbc3b50376fe5a687aa704b2a2795f9684c7d050849dd6b3a4",
+    "pressure.tsv": "b513ac5bb9607442de8c1472ce3b4ca7c8aa33a53e575a78bb0c11a01482206b",
+    "sha256.json": "6e69f122d1ab8e2a84b89f1f071dee5cfd536f38dad7fb5a3dd8a127cc68efd5",
+    "task.txt": "728e91e112ab8b3f189c74b0883f29e165613f7f3b4d497b0414f07cc16222d6",
+    "system-prompt.txt": "2a10a1d915626f007b56c88a9f5ab9d1a9b6926e962587495475eced47c4b976",
+    "pi-models.json": "080e2abebb0f4daf422dbbf6b849d488a09d0143edb957407a90a288d7254947",
+    "scored-result.json": "768881d78aa60a29f12925cc418c07acfcf64f4a1abc1ddef29c297f943cb186",
+    "client-command.json": "c218feb62582087246cc99d474437cad84ea5f7d96554035dab1215a6488705d",
+    "server.log": "dbc1a8245601c2d4ada5c908962c8a8de45016dab4ffea8d469a65934571e9c3",
+    "pi.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "workspace/README.md": "086c8b5de542d8cca6247faf9ea77df66355e7863a4313467c9bcd290c22a9c1",
+    "workspace/ANSWER.txt": "de50a7572962ea01141a07b78f79e64175f8e4fa7f67aae0ef9ab6abadd3440f",
+    "workspace/config/defaults.json": "6c91d9ab1460a19a18d7b9ed7bb1719cc3c79b39b8a9bae521d2fc109cfa4a33",
+    "workspace/deploy/production.env": "5b3bbd045eaf16821a26442530ef22d2d2d9d8d0d59015b50481fd4c7286a4a5",
+    "agentwing-task-state/pi/models.json": "080e2abebb0f4daf422dbbf6b849d488a09d0143edb957407a90a288d7254947",
+    "agentwing-task-state/pi/models-store.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "agentwing-task-state/pi/auth.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+  }
+}
