@@ -1,0 +1,59 @@
+{
+  "experiment": "AW-0122",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0122",
+  "result": {
+    "experiment": "AW-0122",
+    "passed": false,
+    "records": [
+      {
+        "phase": 0,
+        "exit": 0,
+        "wall_seconds": 3.5764730000009877,
+        "log_sha256": "962c19c8cc86a60add69eff3306a8ce9eab326c39dd7e1521e240c608c48faec"
+      },
+      {
+        "phase": 1,
+        "exit": 1,
+        "wall_seconds": 4.618020625002828,
+        "log_sha256": "a74048d5574a3dce4c2c1f0a3d7012cc79e57594677ab8cf2b5a7165b95e0364"
+      }
+    ],
+    "error": null,
+    "libraries": {},
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "plan_sha256": "376f2d7a9fa294c44adc802b00000fe647a2564993c02e2d6006ea5a12da1cb4",
+    "scope": "Isolated remapped Turbo types and CPU codec registration build; no Metal/runtime cache graph or endpoint claim"
+  },
+  "files": {
+    "host.tsv": {
+      "bytes": 434,
+      "sha256": "7a48f0274a4101641b3d46613e3b8352084b90e65e9f8bd152b470b59d208173"
+    },
+    "plan.json": {
+      "bytes": 2267,
+      "sha256": "376f2d7a9fa294c44adc802b00000fe647a2564993c02e2d6006ea5a12da1cb4"
+    },
+    "result.json": {
+      "bytes": 718,
+      "sha256": "1a8672e8ceca8d2e4184ae1a17dd081e99747cbd52fbbb02d232494f2e4a0c88"
+    },
+    "build_prism_turbo_registration.py": {
+      "bytes": 3780,
+      "sha256": "e35563b85f74d3ace443b4306b5125d6fbd9b34efa74d378fafa0d3a456f6ad6"
+    },
+    "runtime.patch": {
+      "bytes": 46346,
+      "sha256": "b9eaf383630fa3bdd9aa63b0d6c5419f755974f3cd2fb3764f85328cda0a6c3b"
+    },
+    "phase-0.log": {
+      "bytes": 4252,
+      "sha256": "962c19c8cc86a60add69eff3306a8ce9eab326c39dd7e1521e240c608c48faec"
+    },
+    "phase-1.log": {
+      "bytes": 11339,
+      "sha256": "a74048d5574a3dce4c2c1f0a3d7012cc79e57594677ab8cf2b5a7165b95e0364"
+    }
+  },
+  "limitations": "Experimental remapped type/CPU codec registration only. No full CPU attention backend, Metal registry/cache graph, compressed model trajectory, vision or endpoint acceptance."
+}

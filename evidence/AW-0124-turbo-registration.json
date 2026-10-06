@@ -1,0 +1,138 @@
+{
+  "experiment": "AW-0124",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0124",
+  "result": {
+    "experiment": "AW-0124",
+    "passed": true,
+    "traits": [
+      {
+        "id": 42,
+        "name": "q2_0",
+        "block": 64,
+        "bytes": 18
+      },
+      {
+        "id": 142,
+        "name": "pq2_0",
+        "block": 128,
+        "bytes": 34
+      },
+      {
+        "id": 143,
+        "name": "ptq1_0",
+        "block": 128,
+        "bytes": 28
+      },
+      {
+        "id": 144,
+        "name": "turbo2",
+        "block": 128,
+        "bytes": 34
+      },
+      {
+        "id": 145,
+        "name": "turbo3",
+        "block": 128,
+        "bytes": 50
+      },
+      {
+        "id": 146,
+        "name": "turbo4",
+        "block": 128,
+        "bytes": 68
+      }
+    ],
+    "records": [
+      {
+        "layer": 3,
+        "bits": 2,
+        "byte_identical": true,
+        "canaries": true,
+        "packed_sha256": "f0eb02242a7e89413f588499d4496a2dc0148f4359a81cffadb66d6d6b762292"
+      },
+      {
+        "layer": 31,
+        "bits": 2,
+        "byte_identical": true,
+        "canaries": true,
+        "packed_sha256": "07830ab02cb8bf353716ef691a2fbd65086abf5be6404b4e73fdd1b1b9905863"
+      },
+      {
+        "layer": 63,
+        "bits": 2,
+        "byte_identical": true,
+        "canaries": true,
+        "packed_sha256": "7b5c0a16a5f2a7af964fd8d1097fe6aaaca82dc990349a23f51563d5cd27a1bd"
+      },
+      {
+        "layer": 3,
+        "bits": 3,
+        "byte_identical": true,
+        "canaries": true,
+        "packed_sha256": "5e6db74f6b9957ab66e45812f648fc35b53ea72ebe1b66269bdab6f353438230"
+      },
+      {
+        "layer": 31,
+        "bits": 3,
+        "byte_identical": true,
+        "canaries": true,
+        "packed_sha256": "d1f36e323f829a82c547550e4a1c8abb00dae065d2be22161fdaaad6f5eb3a60"
+      },
+      {
+        "layer": 63,
+        "bits": 3,
+        "byte_identical": true,
+        "canaries": true,
+        "packed_sha256": "5b9e2defd31f813386651ac837f8d43aa48502d092bfbfce172e39663d83adf7"
+      },
+      {
+        "layer": 3,
+        "bits": 4,
+        "byte_identical": true,
+        "canaries": true,
+        "packed_sha256": "b8ac7c975a4c2570c9cce3c9911763db532cfae5580f6da795412523a9c952c0"
+      },
+      {
+        "layer": 31,
+        "bits": 4,
+        "byte_identical": true,
+        "canaries": true,
+        "packed_sha256": "313b76da70aa5903f215b3fd9f01a0c126e54460d3ddaa4879a77589adae2b26"
+      },
+      {
+        "layer": 63,
+        "bits": 4,
+        "byte_identical": true,
+        "canaries": true,
+        "packed_sha256": "a24eb3afd14f812c3c2e26b1743696fe343a09429cc766a1709e8a99736a1660"
+      }
+    ],
+    "phase_host_samples": [
+      [
+        1,
+        898.06
+      ],
+      [
+        1,
+        898.06
+      ]
+    ],
+    "plan_sha256": "10e49db88542c5b0b66aa200b19cf62c3acf50fef1fe75dc62e02d9713741880",
+    "scope": "Integrated Prism base traits/direct CPU codec entrypoints, not CPU attention backend or Metal/cache graph"
+  },
+  "files": {
+    "plan.json": {
+      "bytes": 831,
+      "sha256": "10e49db88542c5b0b66aa200b19cf62c3acf50fef1fe75dc62e02d9713741880"
+    },
+    "result.json": {
+      "bytes": 2671,
+      "sha256": "31917de54ee6003af6745b02d5c96aa135a2cc4ef40c3319fc7991fbd5980484"
+    },
+    "check_prism_registered_turbo.py": {
+      "bytes": 3646,
+      "sha256": "567bf1e5c03e6f1bffb482a445ad4fe2a150e2b0ad5792776e119476fd0e557d"
+    }
+  },
+  "limitations": "Experimental remapped type/CPU codec registration only. No full CPU attention backend, Metal registry/cache graph, compressed model trajectory, vision or endpoint acceptance."
+}

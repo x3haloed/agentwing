@@ -1,0 +1,132 @@
+{
+  "experiment": "AW-0123",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0123",
+  "result": {
+    "experiment": "AW-0123",
+    "passed": true,
+    "records": [
+      {
+        "phase": 0,
+        "exit": 0,
+        "wall_seconds": 3.085477833999903,
+        "log_sha256": "c1a718d0fceb48f72ee68bbb0074b615f745204519ec1a64c10b06c891bb25a5"
+      },
+      {
+        "phase": 1,
+        "exit": 0,
+        "wall_seconds": 71.03067941699919,
+        "log_sha256": "7ddde07e9f08478de45847291533aceee1ca6453420d039c92cb8d48c3dd5ba0"
+      }
+    ],
+    "error": null,
+    "libraries": {
+      "bin/libllama.0.dylib": {
+        "bytes": 3180480,
+        "sha256": "a3bc60d681c172ce63e793a7ebdd3e452e9398dfab0db7b84ef8b2e81c60bd1c"
+      },
+      "bin/libggml.dylib": {
+        "bytes": 59968,
+        "sha256": "ecfd4a080b6d1eb056ec1cde2c563c03741af08d883f04f25441713d1bcf2005"
+      },
+      "bin/libggml-base.0.21.0.dylib": {
+        "bytes": 769000,
+        "sha256": "e3777efe9e57dee2954557d8588bc7905d9d16772961573f455e8198b5ab3a8f"
+      },
+      "bin/libggml.0.dylib": {
+        "bytes": 59968,
+        "sha256": "ecfd4a080b6d1eb056ec1cde2c563c03741af08d883f04f25441713d1bcf2005"
+      },
+      "bin/libggml-base.dylib": {
+        "bytes": 769000,
+        "sha256": "e3777efe9e57dee2954557d8588bc7905d9d16772961573f455e8198b5ab3a8f"
+      },
+      "bin/libggml-blas.dylib": {
+        "bytes": 58776,
+        "sha256": "05b1e7c4e293ee9db97e559eb521959f9778e27d958467734798d1d8ad467972"
+      },
+      "bin/libggml-metal.0.dylib": {
+        "bytes": 2162792,
+        "sha256": "fe60d014d0f56674d656cdfed67c1c378c04ee0e3e350db5f7ce67da9f7bbaa9"
+      },
+      "bin/libllama.dylib": {
+        "bytes": 3180480,
+        "sha256": "a3bc60d681c172ce63e793a7ebdd3e452e9398dfab0db7b84ef8b2e81c60bd1c"
+      },
+      "bin/libggml-cpu.dylib": {
+        "bytes": 991232,
+        "sha256": "317d45712659a3e05e0134ec2563e9ab13461fcb79df6d22f062618360b2eedc"
+      },
+      "bin/libggml-metal.dylib": {
+        "bytes": 2162792,
+        "sha256": "fe60d014d0f56674d656cdfed67c1c378c04ee0e3e350db5f7ce67da9f7bbaa9"
+      },
+      "bin/libggml-blas.0.21.0.dylib": {
+        "bytes": 58776,
+        "sha256": "05b1e7c4e293ee9db97e559eb521959f9778e27d958467734798d1d8ad467972"
+      },
+      "bin/libggml.0.21.0.dylib": {
+        "bytes": 59968,
+        "sha256": "ecfd4a080b6d1eb056ec1cde2c563c03741af08d883f04f25441713d1bcf2005"
+      },
+      "bin/libggml-base.0.dylib": {
+        "bytes": 769000,
+        "sha256": "e3777efe9e57dee2954557d8588bc7905d9d16772961573f455e8198b5ab3a8f"
+      },
+      "bin/libllama.0.2.0.dylib": {
+        "bytes": 3180480,
+        "sha256": "a3bc60d681c172ce63e793a7ebdd3e452e9398dfab0db7b84ef8b2e81c60bd1c"
+      },
+      "bin/libggml-blas.0.dylib": {
+        "bytes": 58776,
+        "sha256": "05b1e7c4e293ee9db97e559eb521959f9778e27d958467734798d1d8ad467972"
+      },
+      "bin/libggml-cpu.0.21.0.dylib": {
+        "bytes": 991232,
+        "sha256": "317d45712659a3e05e0134ec2563e9ab13461fcb79df6d22f062618360b2eedc"
+      },
+      "bin/libggml-cpu.0.dylib": {
+        "bytes": 991232,
+        "sha256": "317d45712659a3e05e0134ec2563e9ab13461fcb79df6d22f062618360b2eedc"
+      },
+      "bin/libggml-metal.0.21.0.dylib": {
+        "bytes": 2162792,
+        "sha256": "fe60d014d0f56674d656cdfed67c1c378c04ee0e3e350db5f7ce67da9f7bbaa9"
+      }
+    },
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "plan_sha256": "533b57929454ae6a90b5b07bace7098bb60477144531c78e19500bcea2613ca2",
+    "scope": "Isolated remapped Turbo types and CPU codec registration build; no Metal/runtime cache graph or endpoint claim"
+  },
+  "files": {
+    "host.tsv": {
+      "bytes": 3908,
+      "sha256": "467aa878ff5081b62570dd8965759b72959c4062a6932045685784262df137f7"
+    },
+    "plan.json": {
+      "bytes": 2246,
+      "sha256": "533b57929454ae6a90b5b07bace7098bb60477144531c78e19500bcea2613ca2"
+    },
+    "result.json": {
+      "bytes": 3354,
+      "sha256": "6383752d8f5d0e07cea6a71d79dea46134d5155315a3b4af7723a57f7ed03b6e"
+    },
+    "runtime.patch": {
+      "bytes": 32420,
+      "sha256": "30a11b0ba5fad9631ad576fe1950a059489c16b1abb74a1b79caa871c455df6e"
+    },
+    "phase-0.log": {
+      "bytes": 4245,
+      "sha256": "c1a718d0fceb48f72ee68bbb0074b615f745204519ec1a64c10b06c891bb25a5"
+    },
+    "phase-1.log": {
+      "bytes": 26303,
+      "sha256": "7ddde07e9f08478de45847291533aceee1ca6453420d039c92cb8d48c3dd5ba0"
+    },
+    "build_prism_turbo_codec.py": {
+      "bytes": 3773,
+      "sha256": "5e86792d2e37c5df46f38230c1d0f4522db9237879481541d03c549d884496a8"
+    }
+  },
+  "limitations": "Experimental remapped type/CPU codec registration only. No full CPU attention backend, Metal registry/cache graph, compressed model trajectory, vision or endpoint acceptance."
+}

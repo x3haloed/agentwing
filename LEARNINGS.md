@@ -1682,3 +1682,13 @@ final attention files and index are byte-identical to release AW-0109; header
 pins verified. Retain stronger native baseline before Turbo port. Equality is
 this raw prompt/seed/FP16-cache probe only; no server/vision/harness admission
 or endpoint-quality/performance conclusion.
+
+## AW-0122/AW-0123/AW-0124 — Remapped Turbo types/codecs integrate in Prism base
+
+First patch fails because complete Atomic file includes unrelated unsupported
+TQ3_1S/TQ4_1S weight formats; preserveAW122. Revised patch excludes only that
+weight section, preserves KV routines and remapsTurbo IDs144/145/146,COUNT147.
+Full isolated build passes with pressure1/swap growth0. Integratedbase identity
+and nine real populated-cache encoding checks pass byte-exactly; Prism42/142/143
+preserved. Retain stage, not full CPU/Metal cache backend or model generation
+admission. Turbo2 remains quality-screen rejected despite ABI coverage.
