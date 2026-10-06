@@ -2191,3 +2191,16 @@ decoded or numericgeneration/vision/tool/endpoint/performance qualification.
 Repeat complete same-runtime cache screen next; AW181 failure preserved. P1 /
 default/runtime unchanged. ExternalAW182, pins
 evidence/AW-0182-mixed-cache-graph-init.json.
+
+
+### AW-0183 — complete isolation attributes dominant late logit drift to V codec
+
+All4same-runtime arms pass provisional technical/resource/nativepipeline gates.
+Late8881tokens firstL2 K-only.001359678, V-only.052783456, combined.052938836;
+centered shifts preserve dominantV effect. Native-profile float64 TV.001036 /
+.009309/.006961, samefirsttop1/support6, nonadditiveinteractionnorm5.23499.
+Own32 matchedprefix32/9/9; F16/q8-only repeat old32logits/bytes bitexact. Host1 /
+growth0. Retain diagnostic: not task-quality or causal speed evidence. Check
+claimed 16-entry LloydMax codebook mathematics next; current codec not full
+Google PolarQuant/QJL. P1/default unchanged, endpoint≥25%unproven. External
+AW183 and evidence/AW-0183-graph-mixed-cache-terminal.json.
