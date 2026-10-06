@@ -1864,3 +1864,14 @@ confirms empty4/3 and expected nonempty3/3,4/4 positive controls. No inference.
 Retain negative;3/3 is eligible and fits total4 PTQ columns, still requires
 complete-cost/real-trace/fidelity/end-to-end screens. Receipt source/raw hashes
 in evidence/AW-0152-ngram-eligibility.json, external AW-0152. No promotion.
+
+
+### AW-0153 — stream fragments are not universally single vocabulary tokens
+
+Exact vocabulary-piece recovery matches7694 of7695 AW141 thinking fragments
+uniquely; one is not a single token piece. Refuse guessing/retokenization as exact
+generated IDs. Exit4 before proposal replay, no acceptance or speed estimate.
+This qualifies prior chunk-count diagnostics: native prefix token counts are
+measured, but arbitrary stream fragment identity is not guaranteed. Preserve
+result/source/input hashes in evidence/AW-0153-token-recovery-screen.json; raw
+external AW-0153. Next resolve unmatched fragment or capture authoritative IDs.

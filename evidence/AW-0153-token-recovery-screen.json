@@ -1,0 +1,22 @@
+{
+  "experiment": "AW-0153",
+  "status": "unresolved-exact-token-recovery",
+  "exit": 4,
+  "source_sha256": "5ea0b68328810a993ab351cbae9cc97e04b9c08f84e10da23859f292b31f7fd1",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0153",
+  "raw_sha256": {
+    "result.txt": "b201ba292752b580a2ebfb5c9f003a05359c68cebd56c3f08336b1d3b4cab535",
+    "pieces.bin": "cded6d512aa8b1a90fb9d01e0d991d9eaf09aa1c32d92ee802b0ab6533bf465d",
+    "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native.log": "0b6689669c6ea83d64a54b0b9ce38bd7debf279d695ecf57b3de402fd09aeffa",
+    "screen": "e06e2ca0accd8d3a0de467891b5eb2f77e622499dd1b1322543881ed54d34f81"
+  },
+  "source_trace_sha256": "1e68d914db11474b4ff266de3808dc40741dcd0d46a4cb65cfd3699132320ef2",
+  "initial_token_ids_sha256": "8c3d7018bdb0fdc04fc246682da432e2fceae1eaf2703522ebf24e245386aee3",
+  "runtime_spec_sha256": "7b90c1047cfc23de542708df626f46eeae40de3c9eb2508b8468b47a3eda702d",
+  "proposer_source_sha256": "e216b3a607204e75d1c9a2e9c61473b5d3abdc95c794d55c6e62ced7f7f1aed7",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "result": "7694 unique fragments;1 fragment has no single matching vocabulary token;0 ambiguous duplicates",
+  "scope": "Vocabulary-only metadata load, no model weights loaded or inference. No oracle acceptance ratio, performance or capability claim. Proposer remains unmeasured on exact full trace.",
+  "disposition": "Preserve incomplete token-recovery result; resolve fragment or use authoritative token IDs before measuring proposal opportunity."
+}
