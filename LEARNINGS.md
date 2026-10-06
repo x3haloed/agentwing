@@ -2769,3 +2769,13 @@ executed, no utility/causal speed claim. Complete independent audit and raw
 hashes in `evidence/AW-0218-sixth-request-terminal.json`. Reject behavior
 qualification, preserve P1/endpoints; investigate a new runtime/harness
 hypothesis rather than waiving task/reasoning/output/deadline gates.
+
+### AW-0219 — proposed incremental execution prompt remains untested
+
+AW218 reasoning revisits implementation before issuing a complete write
+call. Current prompt prefers one combined command; permitting incremental
+exploration/edit/validation is a plausible general harness hypothesis, not
+a causal finding. Candidate prompt prepared with same tasks/tools/reasoning/
+budgets/permissions/verifiers. Receipt
+`evidence/AW-0219-incremental-prompt-hypothesis.json` pins raw/prompt hashes.
+Untested, not default or promoted; preserve all negative evidence.

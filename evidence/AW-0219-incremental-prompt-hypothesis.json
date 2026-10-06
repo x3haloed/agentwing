@@ -1,0 +1,31 @@
+{
+  "experiment": "AW-0219",
+  "scope": "Offline diagnostic and proposed general harness prompt; no model evaluation or causal attribution",
+  "source_rows": [
+    {
+      "arm": "f16",
+      "reasoning_characters": 30087,
+      "readiness_phrase_occurrences": 4,
+      "wait_phrase_occurrences": 11,
+      "source_response_sha256": "c4e4c073a64904a093077ea4cb8cf1ae13c4e7b35d50f841fbbdfeed4925b2ec"
+    },
+    {
+      "arm": "turbo",
+      "reasoning_characters": 28360,
+      "readiness_phrase_occurrences": 3,
+      "wait_phrase_occurrences": 18,
+      "source_response_sha256": "1198d86faf379d4e85806bc159e6f6a4981007b38ac874e999e80a45630bad53"
+    }
+  ],
+  "old_prompt_sha256": "3e0afb4c385339f702868f5f5c1c6bff3ee27c4435195536c585b5b04d538518",
+  "candidate_prompt_sha256": "f61e300ee99d30c451ce695166bc99f89b3531a033d4e8dc0ae9291714f8eb25",
+  "hypothesis": "Removing the preference to combine search/edit/test in one command may support incremental autonomous execution instead of repeated pre-write planning. Not established by phrase counts.",
+  "invariants": [
+    "fixed tasks/verifiers/scoring/deadlines",
+    "same bash permissions",
+    "same medium reasoning and native sampling",
+    "same context/output budget",
+    "no thought truncation or malformed-call salvage"
+  ],
+  "disposition": "Prepared hypothesis only; require fixed complete-development comparison before any endpoint promotion"
+}

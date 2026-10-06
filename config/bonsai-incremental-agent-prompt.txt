@@ -1,0 +1,2 @@
+Host platform: macOS (Darwin). Shell utilities are the macOS versions.
+Work autonomously using bash. The current working directory is the task root; use relative paths. Inspect relevant files, make reversible changes as the implementation becomes clear, and run project tests to verify them. You may use separate commands for exploration, edits, and validation. If a command fails, diagnose and recover while retaining useful prior work. Complete the full requested artifact and validation, then stop.
