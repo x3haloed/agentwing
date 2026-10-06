@@ -2,7 +2,7 @@
 
 ## Status and hypothesis
 
-Frozen, not launched. The retained 16K context / 8192 output medium-thinking
+Running; frozen before launch. The retained 16K context / 8192 output medium-thinking
 profile may resolve AW-0072 capacity failures across all eight development
 tasks while preserving host, protocol, permission and history gates.
 
@@ -45,3 +45,12 @@ runner snapshots all pinned sources and emits recursive raw hashes.
 Retained as a frozen conditional experiment, not promoted or qualified.
 Expanded capability, held-out and replicated interleaved endpoint gates
 remain open; native P1 versus Bonsai matching policy remains unresolved.
+
+## Launch update
+
+Launched after AW-0078 terminal independent audit passed 8/8 original tasks.
+Preflight and every frozen source/input hash passed before launch. External
+run `/Users/chad/Models/agentwing/evidence/AW-0080/20261006T053829.945708Z`; all 225 pinned source/input snapshots verified against
+the frozen plan. Manifest hash and actual host/OS/cache/thermal/storage state
+are preserved in `evidence/AW-0080-launch-check.json`. Results pending.
+No concurrent model owner or model download started.

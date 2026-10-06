@@ -1,0 +1,24 @@
+{
+  "scope": "Launch provenance and pinned source-snapshot integrity only; no task result implied",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0080/20261006T053829.945708Z",
+  "manifest_sha256": "c811c5b0bcd74fb8c6e7547e2f0f7e5b1534cb53b44c161127e11d570104936c",
+  "plan_sha256": "e129d35e09e27c0a5be9605b5c99b50721d7380c8c2caa946210ebed9768f6d5",
+  "git_head_at_launch": "6b91c31053fd742fb7eea8ad5a1905a15221b46b",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "host": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+  "storage": "internal SSD",
+  "free_bytes": 300552896512,
+  "cache": "fresh model process per task; existing OS page cache uncontrolled",
+  "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+  "pinned_snapshots_verified": 225,
+  "selection": [
+    "dev-navigation",
+    "dev-debugging",
+    "dev-multi-file",
+    "dev-refactoring",
+    "dev-recovery",
+    "dev-data",
+    "dev-migration",
+    "dev-investigation"
+  ]
+}
