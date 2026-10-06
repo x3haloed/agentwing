@@ -1,0 +1,13 @@
+{
+  "scope": "Actual pinned Pi clamp on saved pre-failure messages; no model inference",
+  "current_context_budget": 2048,
+  "raising_output_only_budget": 3116,
+  "proposed_16k_budget": 8192,
+  "passed": true,
+  "clamp_source": "node_modules/@earendil-works/pi-coding-agent/dist/bundle/chunks/chunk-AXIIZGTV.js",
+  "clamp_source_sha256": "2f285cc0649d8c8099ef24957c3cbbebd15e07911151d39859e4bef406237efe",
+  "saved_context": "/Users/chad/Models/agentwing/evidence/AW-0073/pre-inference-capacity-check/context.json",
+  "saved_context_sha256": "385c98974b15d9745e5771faadc47a30ee9c78012cea8f1d28fcbc477eb65b0e",
+  "source_fixture": "/Users/chad/Models/agentwing/evidence/AW-0072/20261006T040507.320499Z/dev-debugging/pi.jsonl",
+  "node_version": "v24.19.0"
+}

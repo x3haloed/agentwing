@@ -1301,3 +1301,13 @@ failure and440.693s charged zero-utility work, not model-only capability evidenc
 The original profile's output cap is not proven adequate for expanded tasks.
 Preserve current frozen run and all remaining outcomes; a larger response/history
 budget requires a new declared candidate, with its full reasoning cost charged.
+
+## 2026-10-05 — Actual Pi clamp requires history room for a larger response
+
+AW73 executes pinned Pi clamp on saved AW72 pre-failure context. Current2048
+allowed; requesting8192 at8K would yield3116;16K context allows8192. This is
+actual harness behavior, not proof of model success or memory safety. Prepare
+separate full-vision16K/8192 capacity candidate, retaining all sampler/reasoning,
+task/tool/verifier/deadline/gates. Startup memory probe must precede AW74 exposed
+debugging retry. AW72 remains frozen and running. No reduction of reasoning to
+obtain speed and no held-out tuning; all larger-budget work must be charged.

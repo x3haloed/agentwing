@@ -20,15 +20,22 @@ def audit(run):
         assert digest(ROOT/name)==sha, f'Frozen source/input changed: {name}'
         snapshot=run/'source-snapshot'/name
         if snapshot.exists():assert digest(snapshot)==sha, f'Source snapshot changed: {name}'
-    expanded=plan.get('suite_kind')=='p2-development'
+    expanded=plan.get('suite_kind') in {'p2-development','p2-development-falsifier'}
     SUITE=EXPANDED_SUITE if expanded else ORIGINAL_SUITE
     verify=verify_expanded if expanded else verify_original
     check_protocol=protocol
     if expanded:
-        from run_bonsai_development import protocol as check_protocol
+        if plan['suite_kind']=='p2-development-falsifier':
+            from run_bonsai_budget_debugging import protocol as check_protocol
+        else:
+            from run_bonsai_development import protocol as check_protocol
     tasks=json.loads((SUITE/'manifest.json').read_text())['tasks']
     if expanded:
-        assert plan['selection']==[t['id'] for t in tasks if t['split']=='development']
+        if plan['suite_kind']=='p2-development-falsifier':
+            assert plan['selection']==['dev-debugging']
+            assert next(t for t in tasks if t['id']=='dev-debugging')['split']=='development'
+        else:
+            assert plan['selection']==[t['id'] for t in tasks if t['split']=='development']
     assert len(set(plan['selection']))==len(plan['selection'])
     assert plan['selection']==[t['id'] for t in tasks if t['id'] in plan['selection']]
     assert plan['successes_required']==len(plan['selection'])
