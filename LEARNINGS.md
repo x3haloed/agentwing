@@ -1579,3 +1579,13 @@ strides;256 cache slots include only16 populated keys. Independent causal/GQA
 CPU oracle agrees over294912 outputs (max3.244e-4), wrong-head corruption is
 caught. Retain for lossy cache screen; never quantize padded/inactive cells as
 real data. No compressed Metal cache, long-context or endpoint acceptance.
+
+## AW-0108 — Real short-prompt cache rejects Turbo2, retains Turbo3/4
+
+With actual causal/GQA bindings at layers3/31/63 and q8 keys, Turbo2 value
+reconstruction changes complete attention output by .268–.315 relative L2,
+exceeding predeclared provisional .25 rejection threshold. Turbo3 .134–.163
+and Turbo4 .095–.113 survive this cheap component screen. Retain3/4 for broader
+context/accumulated-cache falsifiers; reject2 under this screen without changing
+its threshold. Survival is not model-quality acceptance, full Google equivalence,
+Metal integration or endpoint improvement. Runtime remains FP16 KV.

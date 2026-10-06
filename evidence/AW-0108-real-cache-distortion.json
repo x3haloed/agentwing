@@ -1,0 +1,175 @@
+{
+  "experiment": "AW-0108",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0108",
+  "files": {
+    "plan.json": {
+      "bytes": 900,
+      "sha256": "71e54ea17acaca631cde4fc04192437f22087e2044aae39e8bf89194207e16bc"
+    },
+    "result.json": {
+      "bytes": 3242,
+      "sha256": "b352faf9cf0f092092c87451f0f3ef4babe4b00b0280185f153e15c851da5e01"
+    },
+    "31-turbo3-v.bin": {
+      "bytes": 6400,
+      "sha256": "54ce014f76779c28e696cbae9040f20431cee53e54bdb9f0274c605f8133dfcf"
+    },
+    "63-turbo3-v.bin": {
+      "bytes": 6400,
+      "sha256": "ffa9dadd3ce829b68952f7b6ec645e3ac57de64e881361033b50d4e9644b5287"
+    },
+    "check_bonsai_turbo_attention.py": {
+      "bytes": 4819,
+      "sha256": "adc8f2f32e2819f0b1a0bff6238efc9bfe392831f5fcf95a685132add554fa43"
+    },
+    "31-turbo4-v.bin": {
+      "bytes": 8704,
+      "sha256": "14d87dc70201d127ab181b5c1b7c71f8ff16b9130fea1553cb722e3a0e5ec7f2"
+    },
+    "63-turbo4-v.bin": {
+      "bytes": 8704,
+      "sha256": "aed41db062078a80dc1019696f1ec9849cbd04ee7369299308678da79fdda89d"
+    },
+    "3-q8-k.bin": {
+      "bytes": 17408,
+      "sha256": "8e18e921ef03ff141f18bf72b3a4490d3c09179e8c072c0ca22f7e0fa574f8c5"
+    },
+    "check_bonsai_attention_oracle.py": {
+      "bytes": 4079,
+      "sha256": "6bdf82bde40e948b3957f4830ddfa8cb49cdd88a97b194563124c1cc13eb21f9"
+    },
+    "63-turbo2-v.bin": {
+      "bytes": 4352,
+      "sha256": "0e20a384468e556bf66e99d3c00ad6543e02b7744d2236dbae27c541dff7d592"
+    },
+    "31-turbo2-v.bin": {
+      "bytes": 4352,
+      "sha256": "137404cd87d9155da8ab7e33ba0bbba5052ee1a7e3a0aabb9f29ecfd2d6d18f0"
+    },
+    "3-turbo2-v.bin": {
+      "bytes": 4352,
+      "sha256": "2dec4809c2cbb1dd944fade7bfc474a7d8c7838247eb613ee9ea8a3529679e5f"
+    },
+    "run_local_agent.py": {
+      "bytes": 11164,
+      "sha256": "dee0e63573c60137226b541f5380b768799ad1682006438471eec95d511a6fdd"
+    },
+    "63-q8-k.bin": {
+      "bytes": 17408,
+      "sha256": "11f8c795b1792b2b5a95f08dadf30a28c30bb720aefda44545d92d0ec1a72569"
+    },
+    "3-turbo4-v.bin": {
+      "bytes": 8704,
+      "sha256": "465c11c05745f6256b3f98a9198ec2440b7efd40b594a18375e0afe6baf31889"
+    },
+    "31-q8-k.bin": {
+      "bytes": 17408,
+      "sha256": "2c453616fd625abd3eb407fad9922b31c884ec0c3373102f44a6f1b725097f77"
+    },
+    "3-turbo3-v.bin": {
+      "bytes": 6400,
+      "sha256": "e7042c971a6f2d1e0307ab4bbfefb307b339043e5ac10268325291b64dbcf566"
+    }
+  },
+  "result": {
+    "experiment": "AW-0108",
+    "records": [
+      {
+        "layer": 3,
+        "key_format": "q8_0",
+        "value_format": "turbo2",
+        "output_values": 98304,
+        "relative_l2": 0.2879922475274917,
+        "survives_provisional_screen": false,
+        "packed_value_sha256": "2dec4809c2cbb1dd944fade7bfc474a7d8c7838247eb613ee9ea8a3529679e5f"
+      },
+      {
+        "layer": 3,
+        "key_format": "q8_0",
+        "value_format": "turbo3",
+        "output_values": 98304,
+        "relative_l2": 0.15120891930644112,
+        "survives_provisional_screen": true,
+        "packed_value_sha256": "e7042c971a6f2d1e0307ab4bbfefb307b339043e5ac10268325291b64dbcf566"
+      },
+      {
+        "layer": 3,
+        "key_format": "q8_0",
+        "value_format": "turbo4",
+        "output_values": 98304,
+        "relative_l2": 0.11252027319161863,
+        "survives_provisional_screen": true,
+        "packed_value_sha256": "465c11c05745f6256b3f98a9198ec2440b7efd40b594a18375e0afe6baf31889"
+      },
+      {
+        "layer": 31,
+        "key_format": "q8_0",
+        "value_format": "turbo2",
+        "output_values": 98304,
+        "relative_l2": 0.3151029177353496,
+        "survives_provisional_screen": false,
+        "packed_value_sha256": "137404cd87d9155da8ab7e33ba0bbba5052ee1a7e3a0aabb9f29ecfd2d6d18f0"
+      },
+      {
+        "layer": 31,
+        "key_format": "q8_0",
+        "value_format": "turbo3",
+        "output_values": 98304,
+        "relative_l2": 0.16340286509823865,
+        "survives_provisional_screen": true,
+        "packed_value_sha256": "54ce014f76779c28e696cbae9040f20431cee53e54bdb9f0274c605f8133dfcf"
+      },
+      {
+        "layer": 31,
+        "key_format": "q8_0",
+        "value_format": "turbo4",
+        "output_values": 98304,
+        "relative_l2": 0.09514044776092158,
+        "survives_provisional_screen": true,
+        "packed_value_sha256": "14d87dc70201d127ab181b5c1b7c71f8ff16b9130fea1553cb722e3a0e5ec7f2"
+      },
+      {
+        "layer": 63,
+        "key_format": "q8_0",
+        "value_format": "turbo2",
+        "output_values": 98304,
+        "relative_l2": 0.2684014228500772,
+        "survives_provisional_screen": false,
+        "packed_value_sha256": "0e20a384468e556bf66e99d3c00ad6543e02b7744d2236dbae27c541dff7d592"
+      },
+      {
+        "layer": 63,
+        "key_format": "q8_0",
+        "value_format": "turbo3",
+        "output_values": 98304,
+        "relative_l2": 0.1335283018621033,
+        "survives_provisional_screen": true,
+        "packed_value_sha256": "ffa9dadd3ce829b68952f7b6ec645e3ac57de64e881361033b50d4e9644b5287"
+      },
+      {
+        "layer": 63,
+        "key_format": "q8_0",
+        "value_format": "turbo4",
+        "output_values": 98304,
+        "relative_l2": 0.10235633832615251,
+        "survives_provisional_screen": true,
+        "packed_value_sha256": "aed41db062078a80dc1019696f1ec9849cbd04ee7369299308678da79fdda89d"
+      }
+    ],
+    "plan_sha256": "71e54ea17acaca631cde4fc04192437f22087e2044aae39e8bf89194207e16bc",
+    "host_phase_samples": [
+      [
+        1,
+        898.06
+      ],
+      [
+        1,
+        898.06
+      ]
+    ],
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "scope": "Real16-token causal prompt; q8 K and Turbo2/3/4 V, two128 WHT groups per256 head; CPU only, no Metal/cache integration",
+    "disposition": "Component screen only; no endpoint promotion"
+  },
+  "limitations": "CPU short-prompt component screen only. Provisional 0.25 distortion threshold does not establish model quality. No long-context, candidate accumulated-cache behavior, full Google equivalence, Metal integration, runtime speed or endpoint acceptance. Inactive padded cache cells excluded. Source/codec/model capture provenance inherited by frozen hashed AW105/106/107 authorities. Phase host sampling only; no performance claim."
+}
