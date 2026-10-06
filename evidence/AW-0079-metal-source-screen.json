@@ -1,0 +1,35 @@
+{
+  "runtime_commit": "adfffbe41b2cabcd51fff326ab045662265062bb",
+  "files": [
+    {
+      "path": "ggml/src/ggml-metal/kernels/dequantize.h",
+      "bytes": 34619,
+      "sha256": "7e5fea58ff0d994aadc1903a0fddcf54d9521aa3388e7d5f72c67b0b02dcf74b"
+    },
+    {
+      "path": "ggml/src/ggml-metal/kernels/mul_mv.metal",
+      "bytes": 159553,
+      "sha256": "0c022d8b5b573fcf19fdbcb8694949ec71323ec7547589585edfb210eecca8da"
+    },
+    {
+      "path": "ggml/src/ggml-metal/kernels/mul_mm.metal",
+      "bytes": 54009,
+      "sha256": "bcb19e28417b2e7f362213e437ea2386ed831b319a10ed816b30075a50dfbbed"
+    },
+    {
+      "path": "ggml/src/ggml-metal/ggml-metal-ops.cpp",
+      "bytes": 209742,
+      "sha256": "4fc444e4ee1f97f327db3b76c71f933c21e48111258bc292db1e1d696f34c8f5"
+    }
+  ],
+  "scope": "Pinned source inspection only; no compile, timing or weights evaluated",
+  "external_location": "/Users/chad/Models/agentwing/evidence/AW-0079/source-screen",
+  "tree_sha256": "6155ced31a8aa132065dfed5b5a0d01d05a0d5f2d83098dd615ef94dd8cda61e",
+  "findings": [
+    "Pinned Metal source includes dedicated PQ2_0 matrix-vector entry point and matrix-matrix dequantization support.",
+    "PQ2_0 dequantization extracts four positional 2-bit codes per byte and applies per-block scale.",
+    "PTQ1_0 element mapping handles staged base-3 packing via lookup. Both formats have specialized existing runtime support.",
+    "Source shape motivates measuring decode versus larger weight traffic; it does not establish M1 speed, resident memory, equivalence or utility improvement."
+  ],
+  "disposition": "Retained for isolated fidelity/cost experiment after current owner stops"
+}

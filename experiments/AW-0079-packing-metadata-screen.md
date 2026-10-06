@@ -62,3 +62,16 @@ hashes are in `evidence/AW-0079-prefill-only-bound.json`; full hardware,
 OS, model, runtime, harness, prompt, cache, sampling and thermal provenance
 remain in the referenced AW-0076 frozen plan and run manifest. Timing excludes
 final receipt creation and is not a qualification endpoint.
+
+## Pinned Metal source screen
+
+Downloaded four small source files (457,923 bytes total) from runtime commit
+`adfffbe41b2cabcd51fff326ab045662265062bb`, not model data.
+PQ2_0 has a dedicated matrix-vector entry point and matrix-matrix
+dequantization support; its positional 2-bit extraction differs from
+PTQ1_0 staged base-3 lookup. This motivates isolated measurement of unpack
+work versus larger weight traffic. No compile, execution, tensor fidelity or
+speed result is inferred. Exact source paths/hashes and external location
+are in `evidence/AW-0079-metal-source-screen.json`. The initial attempt at
+the obsolete monolithic Metal source path returned 404; pinned tree lookup
+located the split kernel sources. Retain candidate conditionally.
