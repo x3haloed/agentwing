@@ -1268,3 +1268,13 @@ runner. AW72 selects all eight frozen development categories, continues semantic
 failures and aborts host/protocol/history failures. No held-out content exposed.
 Ownership preflight correctly refuses a concurrent run during AW70. This closes
 a diagnostic integrity gap; it proves no model capability or speed improvement.
+
+## 2026-10-05 — AW70 single-file wall is primarily generation
+
+The first two bounded-state tasks independently pass grade/protocol replay at
+pressure1, zero swap growth. Single-file fix340.205s includes294.022s decode for
+1595 tokens versus41.200s prompt processing. One BSD sed failure is recovered.
+This evidence makes generation the main observed component, not proof that
+checkpoint eviction caused full re-prefill. Preserve full reasoning and count
+all recovery/output wall; do not optimize by silently reducing budgets or tasks.
+The incomplete screen still cannot qualify the successor.

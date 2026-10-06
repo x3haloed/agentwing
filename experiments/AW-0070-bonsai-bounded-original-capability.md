@@ -15,3 +15,15 @@ Command: `PYTHONDONTWRITEBYTECODE=1 python3 scripts/run_bonsai_bounded_capabilit
 Raw run location appears in ignored `var/AW-0070-driver.log`; complete receipts
 and source/config pins are retained externally. All215 P2 files match the freeze;
 held-out tasks remain unexposed. No matched-P1 or promotion claim from this screen.
+
+## Interim completed-task evidence
+
+First two tasks independently pass grade/protocol replay; full selection remains
+running. `evidence/AW-0070-first-two-component-notes.json` records exact saved
+log/result hashes and native timing extraction. Navigation118.404s, single-file
+fix340.205s. Both pressure1 with zero swap growth. Fix has41.200s prompt work and
+294.022s decode for1595 generated tokens across6 requests, plus other task wall.
+One BSD sed failure is recovered by a portable file rewrite and tests. This
+trace does not establish checkpoint recomputation as the delay cause: decode
+dominates. No universal sampler/cache performance conclusion, partial-suite
+rate promotion, task shortening or reasoning restriction follows.

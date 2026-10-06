@@ -1,0 +1,53 @@
+{
+  "scope": "First two terminal tasks only; full selection still running; no comparative speed or causal cache claim",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0070/20261006T033702.268337Z",
+  "plan_sha256": "145cf3ce6594f0baa1e77dc0df29a009dbf82d55eb902ba6de970d2f145cce14",
+  "configuration": "spec/bonsai-bounded-cache.json",
+  "independent_grade_protocol_replay": true,
+  "tasks": [
+    {
+      "task_id": "01-navigation",
+      "verified_utility": 1,
+      "wall_seconds": 118.40413783300028,
+      "prompt_seconds": 34.7543,
+      "prompt_tokens": 795,
+      "decode_seconds": 78.95012,
+      "decode_tokens": 433,
+      "generation_requests": 5,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "scored_result_sha256": "da03529f904b1336970f18379c3d5a0bcf0786c861fefad361639dde94201e64",
+      "server_log_sha256": "2f0807de274e36b55b0eaaf3da4bed2d4484c39716bbb7629973352ccf16045a",
+      "commands": [
+        "ls -la /Users/chad/Models/agentwing/active/workspace",
+        "find /Users/chad/Models/agentwing/active/workspace -type f | head -50; echo \"---\"; cat /Users/chad/Models/agentwing/active/workspace/README.md",
+        "cat /Users/chad/Models/agentwing/active/workspace/config/defaults.json; echo \"===DEPLOY===\"; cat /Users/chad/Models/agentwing/active/workspace/deploy/production.env",
+        "printf '2750' > /Users/chad/Models/agentwing/active/workspace/ANSWER.txt && cat /Users/chad/Models/agentwing/active/workspace/ANSWER.txt"
+      ],
+      "failed_tool_calls": 0
+    },
+    {
+      "task_id": "02-single-file-fix",
+      "verified_utility": 1,
+      "wall_seconds": 340.20529808299943,
+      "prompt_seconds": 41.199630000000006,
+      "prompt_tokens": 950,
+      "decode_seconds": 294.02205,
+      "decode_tokens": 1595,
+      "generation_requests": 6,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "scored_result_sha256": "182532ede42422ce359b8997c313f43bc3bac1118435669696caecc07325ea2d",
+      "server_log_sha256": "2a5654a2a317c67b6f033ecd30243a6cea691c5b2453743df28079c20550926f",
+      "commands": [
+        "find . -type f -not -path '*/node_modules/*' -not -path '*/.git/*' | head -100 && echo --- && ls -la",
+        "echo \"===== math_utils.py =====\"; cat math_utils.py; echo; echo \"===== test_math_utils.py =====\"; cat test_math_utils.py",
+        "sed -i 's/return min(lower, max(value, upper))/return max(lower, min(value, upper))/' math_utils.py && cat math_utils.py",
+        "cat > math_utils.py << 'EOF'\ndef clamp(value: int, lower: int, upper: int) -> int:\n    \"\"\"Clamp value to the inclusive interval [lower, upper].\"\"\"\n    return max(lower, min(value, upper))\nEOF\ncat math_utils.py",
+        "python3 -m unittest -v 2>&1"
+      ],
+      "failed_tool_calls": 1
+    }
+  ],
+  "limitations": "Native prompt/decode times omit other full-path overhead; token counts include reasoning and emitted tool text. Wall is authoritative diagnostic task wall, not final promotion accounting."
+}
