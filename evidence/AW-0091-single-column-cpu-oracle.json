@@ -1,0 +1,180 @@
+{
+  "experiment": "AW-0091",
+  "passed": true,
+  "error": null,
+  "records": [
+    {
+      "tensor": "blk.0.ffn_up.weight",
+      "metrics": {
+        "ptq": {
+          "relative_l2": 3.824719423968901e-06,
+          "max_absolute": 1.3013110873316691e-06
+        },
+        "pq": {
+          "relative_l2": 4.302649219495857e-06,
+          "max_absolute": 1.395408517623764e-06
+        }
+      },
+      "cpu_rows": [
+        0,
+        561,
+        1123,
+        1684,
+        2246,
+        2807,
+        3369,
+        3930,
+        4492,
+        5053,
+        5615,
+        6176,
+        6738,
+        7299,
+        7861,
+        8422,
+        8984,
+        9545,
+        10107,
+        10668,
+        11230,
+        11791,
+        12353,
+        12914,
+        13476,
+        14037,
+        14599,
+        15160,
+        15722,
+        16283,
+        16845,
+        17407
+      ],
+      "output_values_per_arm": 17408,
+      "rotated_row_reference_relative_l2": 1.5417359046706292,
+      "files": {
+        "outputs.bin": "dcf6483db16d0cb1623afc5028d813b6087cdb96802b595e7a81599265692036",
+        "input.bin": "52c56b4147e54a09c2174e057b500c511fbf3972a0e0bd3bb6506787599227c7",
+        "native.log": "172044d1f15e55943a334616daee4ce48e380af4ace5f4cc964796da666753b0"
+      }
+    },
+    {
+      "tensor": "blk.31.ffn_up.weight",
+      "metrics": {
+        "ptq": {
+          "relative_l2": 2.9639380692043404e-06,
+          "max_absolute": 2.1939916337032628e-06
+        },
+        "pq": {
+          "relative_l2": 5.823047263248083e-06,
+          "max_absolute": 3.4921004754551177e-06
+        }
+      },
+      "cpu_rows": [
+        0,
+        561,
+        1123,
+        1684,
+        2246,
+        2807,
+        3369,
+        3930,
+        4492,
+        5053,
+        5615,
+        6176,
+        6738,
+        7299,
+        7861,
+        8422,
+        8984,
+        9545,
+        10107,
+        10668,
+        11230,
+        11791,
+        12353,
+        12914,
+        13476,
+        14037,
+        14599,
+        15160,
+        15722,
+        16283,
+        16845,
+        17407
+      ],
+      "output_values_per_arm": 17408,
+      "rotated_row_reference_relative_l2": 1.3079961214988498,
+      "files": {
+        "outputs.bin": "560d7309b9ad98d8b05fdb2e87063b4d0d24532d8c38b8b05a8776be7012943e",
+        "input.bin": "e7dde843b2b00d38e7ac73ad6f94298d8053ecf55d5d665e251801b1aae5fedc",
+        "native.log": "6ed63a20bbc0493edc5b49541304eea4c3cfe6445927aacba6912d41d874718e"
+      }
+    },
+    {
+      "tensor": "blk.63.ffn_up.weight",
+      "metrics": {
+        "ptq": {
+          "relative_l2": 2.3850798766513045e-06,
+          "max_absolute": 8.947181527219072e-06
+        },
+        "pq": {
+          "relative_l2": 1.83048382498482e-06,
+          "max_absolute": 7.485349954095e-06
+        }
+      },
+      "cpu_rows": [
+        0,
+        561,
+        1123,
+        1684,
+        2246,
+        2807,
+        3369,
+        3930,
+        4492,
+        5053,
+        5615,
+        6176,
+        6738,
+        7299,
+        7861,
+        8422,
+        8984,
+        9545,
+        10107,
+        10668,
+        11230,
+        11791,
+        12353,
+        12914,
+        13476,
+        14037,
+        14599,
+        15160,
+        15722,
+        16283,
+        16845,
+        17407
+      ],
+      "output_values_per_arm": 17408,
+      "rotated_row_reference_relative_l2": 1.403500972216331,
+      "files": {
+        "outputs.bin": "45f0628856784b421bbada4c720d289ae0f03719377572fe5f529a96d3f6d9fe",
+        "input.bin": "ff07af6c6aa2bb9bd798609b72eba9da0d3ae4ab3529c2e3d1b16241ec74b40b",
+        "native.log": "c331571c3d05edbb13d3cab2916846bf4ac338f620b2b2f3e612ab18fe12e006"
+      }
+    }
+  ],
+  "plan_sha256": "033d6c0d53a90ceb270642e7b7dec420cf4fe1d530a1510f05856215de520f8a",
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0,
+  "pressure_sha256": "cd85a40067813c3ef822e3654224dd0526687e04f1b7f006fb2879e16f436a25",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0091",
+  "scope": "Single-column native matvec on real prompt-token input; no generated-token capture, candidate accumulation, vision, timing or endpoint claim",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+  "recursive_receipt_sha256": "002507474ac6f05dec4f79a76032096b23c0b02ff9d88a6eb74527ec0cf87671",
+  "raw_result_sha256": "d9a1fe4496dd2e6bfa2eb767c837aee54d09d49383b49005b9efe7816dd1cf66",
+  "source_and_raw_hash_audit": "passed"
+}

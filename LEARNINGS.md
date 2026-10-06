@@ -1466,3 +1466,13 @@ Exploratory32-row CPU oracle shows PTQ3.82e-6/PQ4.30e-6, mutualall-row6.89e-6;
 this does not reverse the rejection but motivates a predeclared independent
 CPU decode oracle rather than post-hoc relaxed cross-kernel tolerances.
 Middle/late single-column checks and generated-token capture remain open.
+
+## AW-0091/AW-0092 — Packing fidelity survives, cost is mixed
+
+Both single-column paths agree with sampled independent CPU dots at all three
+real FFN-up layers (max L2 5.83e-6), without reversing AW-0090. Interleaved ABBA
+cost screen shows PQ slower for single-column graph totals and compute, but
+8–10% faster graph totals for16 columns. Uniform PQ adds1.173GiB artifact size.
+Retain for other families/resident-weight costs under predeclared rule; this
+screen does not justify full conversion or establish an endpoint improvement.
+Generated-token and accumulated candidate behavior remain unvalidated.

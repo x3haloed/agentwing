@@ -1,0 +1,192 @@
+{
+  "experiment": "AW-0092",
+  "completed": true,
+  "error": null,
+  "records": [
+    {
+      "tensor": "blk.0.ffn_up.weight",
+      "capture_index": 0,
+      "dimensions": [
+        5120,
+        17408
+      ],
+      "columns": 1,
+      "process_wall_seconds": 0.45916366600067704,
+      "warm_medians": {
+        "ptq": {
+          "installation_ms": 1.69869,
+          "compute_ms": 1.198475,
+          "readback_cleanup_ms": 0.08085400000000001,
+          "graph_total_ms": 2.978335
+        },
+        "pq": {
+          "installation_ms": 1.93246,
+          "compute_ms": 1.262815,
+          "readback_cleanup_ms": 0.083229,
+          "graph_total_ms": 3.338795
+        }
+      },
+      "graph_total_ptq_over_pq": 0.8920388942717357,
+      "files": {
+        "timings.tsv": "d4d144b46f872061c60bd2b86a12cca157b6ca7ef7123686e495af88e7e25ac7",
+        "native.log": "ac8f976b805bb012299744012803113bf2a9250a3df9fe37662b94f1a1da3418"
+      }
+    },
+    {
+      "tensor": "blk.0.ffn_up.weight",
+      "capture_index": 0,
+      "dimensions": [
+        5120,
+        17408
+      ],
+      "columns": 16,
+      "process_wall_seconds": 0.22999741699823062,
+      "warm_medians": {
+        "ptq": {
+          "installation_ms": 1.97169,
+          "compute_ms": 6.99729,
+          "readback_cleanup_ms": 0.221104,
+          "graph_total_ms": 9.210455
+        },
+        "pq": {
+          "installation_ms": 2.340225,
+          "compute_ms": 5.82352,
+          "readback_cleanup_ms": 0.220875,
+          "graph_total_ms": 8.409790000000001
+        }
+      },
+      "graph_total_ptq_over_pq": 1.0952063012274977,
+      "files": {
+        "timings.tsv": "505ead858ca791b17908f9f3d4c691b260c402a96a0640e01770d012fb3889b3",
+        "native.log": "0d434e117a502fadb23f0a8de81a2caa960a69a7d5f1a36f2b7ab2fc95601061"
+      }
+    },
+    {
+      "tensor": "blk.31.ffn_up.weight",
+      "capture_index": 1,
+      "dimensions": [
+        5120,
+        17408
+      ],
+      "columns": 1,
+      "process_wall_seconds": 0.22890204199939035,
+      "warm_medians": {
+        "ptq": {
+          "installation_ms": 1.714165,
+          "compute_ms": 1.19244,
+          "readback_cleanup_ms": 0.07452049999999999,
+          "graph_total_ms": 2.9655
+        },
+        "pq": {
+          "installation_ms": 2.051255,
+          "compute_ms": 1.53925,
+          "readback_cleanup_ms": 0.096354,
+          "graph_total_ms": 3.8051649999999997
+        }
+      },
+      "graph_total_ptq_over_pq": 0.7793354558869326,
+      "files": {
+        "timings.tsv": "3e7dd86841889975ba4147ad466ad0b044ff36af83b790389eea76f42a9cbf9f",
+        "native.log": "71496dc08211986f3fbd868ed44814e91947b58db4b79dc5c3302de8ce6fce84"
+      }
+    },
+    {
+      "tensor": "blk.31.ffn_up.weight",
+      "capture_index": 1,
+      "dimensions": [
+        5120,
+        17408
+      ],
+      "columns": 16,
+      "process_wall_seconds": 0.23112800000308198,
+      "warm_medians": {
+        "ptq": {
+          "installation_ms": 1.96323,
+          "compute_ms": 6.887915,
+          "readback_cleanup_ms": 0.2078125,
+          "graph_total_ms": 9.014125
+        },
+        "pq": {
+          "installation_ms": 2.324855,
+          "compute_ms": 5.767645,
+          "readback_cleanup_ms": 0.199563,
+          "graph_total_ms": 8.323395
+        }
+      },
+      "graph_total_ptq_over_pq": 1.0829865697831234,
+      "files": {
+        "timings.tsv": "42379f2a9c5657f251770196c2d8d8aebe1a57d2698a5a3d7284deb1bf8538f0",
+        "native.log": "018d8576b02e3711c12b633837faadd3158d4d789cac728fc6a4d93f05b74349"
+      }
+    },
+    {
+      "tensor": "blk.63.ffn_up.weight",
+      "capture_index": 2,
+      "dimensions": [
+        5120,
+        17408
+      ],
+      "columns": 1,
+      "process_wall_seconds": 0.2321618749992922,
+      "warm_medians": {
+        "ptq": {
+          "installation_ms": 1.720375,
+          "compute_ms": 1.1967750000000001,
+          "readback_cleanup_ms": 0.0714375,
+          "graph_total_ms": 2.9937500000000004
+        },
+        "pq": {
+          "installation_ms": 2.07523,
+          "compute_ms": 1.6223100000000001,
+          "readback_cleanup_ms": 0.093188,
+          "graph_total_ms": 3.7625849999999996
+        }
+      },
+      "graph_total_ptq_over_pq": 0.7956630880099721,
+      "files": {
+        "timings.tsv": "d0878da378bde7b75c0deac3c89c1e9cf65431384fb48c8d71868185368f57f3",
+        "native.log": "bbf2fa8cf4f50244eed816a3f5054cca9a6a6b505ea9c6da75f0598b2b53ca79"
+      }
+    },
+    {
+      "tensor": "blk.63.ffn_up.weight",
+      "capture_index": 2,
+      "dimensions": [
+        5120,
+        17408
+      ],
+      "columns": 16,
+      "process_wall_seconds": 0.2365472920027969,
+      "warm_medians": {
+        "ptq": {
+          "installation_ms": 1.9457300000000002,
+          "compute_ms": 6.916040000000001,
+          "readback_cleanup_ms": 0.210229,
+          "graph_total_ms": 9.07733
+        },
+        "pq": {
+          "installation_ms": 2.296605,
+          "compute_ms": 5.761,
+          "readback_cleanup_ms": 0.219292,
+          "graph_total_ms": 8.285915
+        }
+      },
+      "graph_total_ptq_over_pq": 1.0955132897211715,
+      "files": {
+        "timings.tsv": "fc2b67b114532790a00f6c2cf82fc27d11c608fd1314c440c012f7ee1ac893c7",
+        "native.log": "6956020b6784cac1b16f9d47259a9b3b4d2b977d692f7e8790827b28d73bf521"
+      }
+    }
+  ],
+  "plan_sha256": "8c68f7ac6d41d35b12a991839473706ce50aae47d5a01ba1f0a81af9cd56a2cd",
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0,
+  "pressure_sha256": "92afa0356e1c799eb7d2ec6aade1b8c35b16c69c6b0a9d90c20acf3d918e9ead",
+  "thermal_after": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0092",
+  "scope": "Real dense FFN-up operation cost only, not full storage/install/unified-memory/full-model or agent endpoint cost",
+  "recursive_receipt_sha256": "f0391ea12c166444eae8f7383d1851495c48df8b42a8a87bfb0aeb343867f755",
+  "raw_result_sha256": "0f85666c8476dd0f8998ccbc8e5c5b1d9c148e0f67c6ffd1e0a1b718a7740638",
+  "source_and_raw_hash_audit": "passed",
+  "disposition": "Retained for other projection families and resident-weight cost screening; no full artifact integration justified"
+}
