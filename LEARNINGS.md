@@ -1664,3 +1664,12 @@ outputs byte-identical to AW-0118. CPU final oracle error max.001299 (gate.005),
 pressure1/swap growth0. Retain standalone whole GPU cache/attention path for
 Prism integration; no registered runtime or compressed generated trajectory,
 long-context/vision/endpoint acceptance follows yet.
+
+## AW-0120 — Exact Prism source builds locally with embedded Metal
+
+Pinned unmodified Prismadfffbe source/tree builds isolated with CMake3.31.6,
+Ninja1.11.1.4, Release embedded Metal, two workers. Configure/build exits0,
+pressure1/swap growth0; exact source clean and dylibs hashed. Retain baseline
+for integration, avoiding missing offline Metal toolchain. Newly built hashes
+are different from release and not yet model-admitted; no compressed-runtime
+or endpoint performance claim.

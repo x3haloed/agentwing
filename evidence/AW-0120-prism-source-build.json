@@ -1,0 +1,148 @@
+{
+  "experiment": "AW-0120",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0120",
+  "result": {
+    "experiment": "AW-0120",
+    "passed": true,
+    "records": [
+      {
+        "phase": 0,
+        "exit": 0,
+        "wall_seconds": 3.60168516700287,
+        "log_sha256": "d0c2e2d4499eb0196b844e94a50dbd2bb41a68fe8c55fd1120b1d1b74e221925"
+      },
+      {
+        "phase": 1,
+        "exit": 0,
+        "wall_seconds": 70.99768266699903,
+        "log_sha256": "dde3a3cb88065fce4540edf75d980de7c3817d952b34cbb91de4e90be4ed39a8"
+      }
+    ],
+    "error": null,
+    "libraries": {
+      "bin/libllama.0.dylib": {
+        "bytes": 3180480,
+        "sha256": "2f9b4c5855a2c6256c15d53a3058177ab9e8246e5cc996cf3e52b64352a13a3e"
+      },
+      "bin/libggml.dylib": {
+        "bytes": 59968,
+        "sha256": "ea795c6a784a7f0d48b0f1a48f071efdf297dda430a6af75c6178e087bcb178c"
+      },
+      "bin/libggml-base.0.21.0.dylib": {
+        "bytes": 751368,
+        "sha256": "f8d8d19fec8fd61c68fec85222ea55e729fc4eb27d05090ad04fda132fea2e12"
+      },
+      "bin/libggml.0.dylib": {
+        "bytes": 59968,
+        "sha256": "ea795c6a784a7f0d48b0f1a48f071efdf297dda430a6af75c6178e087bcb178c"
+      },
+      "bin/libggml-base.dylib": {
+        "bytes": 751368,
+        "sha256": "f8d8d19fec8fd61c68fec85222ea55e729fc4eb27d05090ad04fda132fea2e12"
+      },
+      "bin/libggml-blas.dylib": {
+        "bytes": 58776,
+        "sha256": "3b9015bbaed31d5b73e9596914bd28e28a3d24d171e57d29e446f6bbf985e1ad"
+      },
+      "bin/libggml-metal.0.dylib": {
+        "bytes": 2146280,
+        "sha256": "0fcffa681c9f1bab04d2cf8dbfb575d2251c008c6975347d56d5d8a55d6b6143"
+      },
+      "bin/libllama.dylib": {
+        "bytes": 3180480,
+        "sha256": "2f9b4c5855a2c6256c15d53a3058177ab9e8246e5cc996cf3e52b64352a13a3e"
+      },
+      "bin/libggml-cpu.dylib": {
+        "bytes": 991232,
+        "sha256": "2754017273be759c25bf19b5982c5dd43608d35c20e2680f84253d593e492d24"
+      },
+      "bin/libggml-metal.dylib": {
+        "bytes": 2146280,
+        "sha256": "0fcffa681c9f1bab04d2cf8dbfb575d2251c008c6975347d56d5d8a55d6b6143"
+      },
+      "bin/libggml-blas.0.21.0.dylib": {
+        "bytes": 58776,
+        "sha256": "3b9015bbaed31d5b73e9596914bd28e28a3d24d171e57d29e446f6bbf985e1ad"
+      },
+      "bin/libggml.0.21.0.dylib": {
+        "bytes": 59968,
+        "sha256": "ea795c6a784a7f0d48b0f1a48f071efdf297dda430a6af75c6178e087bcb178c"
+      },
+      "bin/libggml-base.0.dylib": {
+        "bytes": 751368,
+        "sha256": "f8d8d19fec8fd61c68fec85222ea55e729fc4eb27d05090ad04fda132fea2e12"
+      },
+      "bin/libllama.0.2.0.dylib": {
+        "bytes": 3180480,
+        "sha256": "2f9b4c5855a2c6256c15d53a3058177ab9e8246e5cc996cf3e52b64352a13a3e"
+      },
+      "bin/libggml-blas.0.dylib": {
+        "bytes": 58776,
+        "sha256": "3b9015bbaed31d5b73e9596914bd28e28a3d24d171e57d29e446f6bbf985e1ad"
+      },
+      "bin/libggml-cpu.0.21.0.dylib": {
+        "bytes": 991232,
+        "sha256": "2754017273be759c25bf19b5982c5dd43608d35c20e2680f84253d593e492d24"
+      },
+      "bin/libggml-cpu.0.dylib": {
+        "bytes": 991232,
+        "sha256": "2754017273be759c25bf19b5982c5dd43608d35c20e2680f84253d593e492d24"
+      },
+      "bin/libggml-metal.0.21.0.dylib": {
+        "bytes": 2146280,
+        "sha256": "0fcffa681c9f1bab04d2cf8dbfb575d2251c008c6975347d56d5d8a55d6b6143"
+      }
+    },
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "plan_sha256": "b1c01e00f740df92d615ed08bdbf07a3e9358d30033423a6c727e2f993167bb1",
+    "scope": "Isolated unmodified pinned Prism runtime baseline; existing launchers/control unchanged"
+  },
+  "acquisition": {
+    "repository": "https://github.com/PrismML-Eng/llama.cpp.git",
+    "revision": "adfffbe41b2cabcd51fff326ab045662265062bb",
+    "method": "git init; remote add origin; fetch --depth=1 origin exact-revision; checkout --detach FETCH_HEAD",
+    "source_tree": "f701dae3247ff1ba55db24d1fd83dff0cd2edff8",
+    "license_sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d",
+    "license": "MIT",
+    "isolated_build_tools": {
+      "directory": "/Users/chad/Models/agentwing/build-tools",
+      "packages": [
+        "cmake==3.31.6",
+        "ninja==1.11.1.4"
+      ]
+    },
+    "free_space_before": "274GiB available internal SSD; no artifact deletion"
+  },
+  "files": {
+    "host.tsv": {
+      "bytes": 3936,
+      "sha256": "0e182f8eed108ebf9a460d929d4f069c7fa9c0df5c85ca4ada3f687a55e34697"
+    },
+    "plan.json": {
+      "bytes": 2118,
+      "sha256": "b1c01e00f740df92d615ed08bdbf07a3e9358d30033423a6c727e2f993167bb1"
+    },
+    "result.json": {
+      "bytes": 3330,
+      "sha256": "e07c7da7ea7cf63e49d1a7b0b2e46d5abd9055161ea5998bd49ab59a28ea2914"
+    },
+    "acquisition.json": {
+      "bytes": 649,
+      "sha256": "92ef2d8cbdf848f5fa4ca1dbf1a43ea97a722cb75812b8c5c4c23a6a78deeab6"
+    },
+    "phase-0.log": {
+      "bytes": 4236,
+      "sha256": "d0c2e2d4499eb0196b844e94a50dbd2bb41a68fe8c55fd1120b1d1b74e221925"
+    },
+    "phase-1.log": {
+      "bytes": 25436,
+      "sha256": "dde3a3cb88065fce4540edf75d980de7c3817d952b34cbb91de4e90be4ed39a8"
+    },
+    "executed-build.py": {
+      "bytes": 3697,
+      "sha256": "c04ca707bd2688e4c9e891367c3be263a9bffed7f121c0f6c4d7ea9dc91257a0"
+    }
+  },
+  "limitations": "Unmodified isolated source build only. Newly built dylibs differ from publisher release hashes and have not been admitted or run with model. No Turbo integration or endpoint/performance claim."
+}
