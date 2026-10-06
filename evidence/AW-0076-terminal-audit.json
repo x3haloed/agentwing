@@ -1,0 +1,83 @@
+{
+  "audit_passed": true,
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0076/20261006T043958.805777Z",
+  "raw_receipt_sha256": "09d54a2cf9747ab92116a6907b1005b23ad984978b71fc3c2c5a1769088e2c6c",
+  "plan_sha256": "7f6c4736ddf1faed97e73100403ceaaa2c270fbc8b2d081e577fa1e5c03974d6",
+  "complete_selection": true,
+  "all_selected_tasks_passed": true,
+  "screen_passed": true,
+  "utility": 1,
+  "wall_seconds": 1185.620168042,
+  "diagnostic_utility_per_hour": 3.036385595519384,
+  "unattempted": [],
+  "error": null,
+  "tasks": [
+    {
+      "original_test_file_integrity": {
+        "test_windows.py": false
+      },
+      "task_id": "dev-debugging",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 1181.605317167001,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 5,
+        "valid": 5,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "find . -maxdepth 2 -type f | head -50; echo ---; ls -la",
+        "cat README.md; echo ====; cat windows.py; echo ====; cat test_windows.py",
+        "python3 -m unittest -q 2>&1 | tail -10",
+        "cat > windows.py <<'EOF'\ndef merge(windows):\n    \"\"\"Merge overlapping or touching integer half-open windows.\n\n    Args:\n        windows: An iterable of (start, end) pairs, each an integer\n            half-open interval [start, end).\n\n    Returns:\n        A sorted list of disjoint (start, end) tuples. Overlapping or\n        touching windows are merged into one. Empty windows (start == end)\n        are dropped.\n\n    Raises:\n        ValueError: If any window is reversed (start > end).\n\n    The caller's input is never mutated (iterators are simply consumed).\n    \"\"\"\n    # Materialize into a fresh list so callers' lists/tuples/iterators\n    # are never sorted in place.\n    intervals = sorted(windows)\n    merged = []\n    for start, end in intervals:\n        if start > end:\n            raise ValueError(\"reversed window: (%s, %s)\" % (start, end))\n        if start == end:\n            continue\n        if merged and start <= merged[-1][1]:\n            last_start, last_end = merged[-1]\n            merged[-1] = (last_start, max(last_end, end))\n        else:\n            merged.append((start, end))\n    return merged\nEOF\ncat > test_windows.py <<'EOF'\nimport unittest\nfrom windows import merge\n\n\nclass TestWindows(unittest.TestCase):\n    def test_contained(self):\n        self.assertEqual(merge([(1, 9), (3, 5)]), [(1, 9)])\n\n    def test_touching(self):\n        self.assertEqual(merge([(1, 3), (3, 4)]), [(1, 4)])\n\n    # ---- regression: overlapping windows must extend, not shrink ----\n    def test_overlap_extended_not_shrunk(self):\n        self.assertEqual(merge([(1, 4), (2, 6), (2, 5)]), [(1, 6)])\n\n    def test_nested_reversed_order(self):\n        self.assertEqual(merge([(3, 5), (1, 9), (10, 12)]), [(1, 9), (10, 12)])\n\n    def test_chain_of_touching(self):\n        self.assertEqual(merge([(1, 2), (2, 3), (3, 4)]), [(1, 4)])\n\n    def test_all_merge_to_one(self):\n        self.assertEqual(merge([(3, 4), (1, 2), (2, 3), (4, 6)]), [(1, 6)])\n\n    # ---- regression: reversed windows must raise ValueError ----\n    def test_reversed_raises(self):\n        with self.assertRaises(ValueError):\n            merge([(2, 1), (3, 4)])\n        with self.assertRaises(ValueError):\n            merge([(5, 5), (3, 2), (0, 0)])\n        with self.assertRaises(ValueError):\n            merge(iter([(1, 2), (2, 1)]))\n\n    # ---- regression: empty windows are dropped, not kept ----\n    def test_empty_windows_dropped(self):\n        self.assertEqual(merge([(1, 1), (3, 3), (3, 4)]), [(3, 4)])\n\n        # empties sandwiched between touching windows still merge\n        self.assertEqual(merge([(1, 3), (3, 3), (3, 5)]), [(1, 5)])\n\n        self.assertEqual(merge([(2, 2)]), [])\n\n    # ---- regression: input is never mutated ----\n    def test_input_list_not_mutated(self):\n        original = [(10, 20), (1, 2), (2, 3)]\n        input_data = list(original)\n        result = merge(input_data)\n        self.assertEqual(result, [(1, 3), (10, 20)])\n        self.assertEqual(input_data, original)\n\n    def test_result_is_sorted_list_of_tuples(self):\n        result = merge([(2, 3), (1, 2), (4, 5)])\n        self.assertIsInstance(result, list)\n        self.assertEqual(result, [(1, 3), (4, 5)])\n        for item in result:\n            self.assertIsInstance(item, tuple)\n\n    # ---- regression: iterators and empty input are supported ----\n    def test_empty_input(self):\n        self.assertEqual(merge([]), [])\n        self.assertEqual(merge(iter([])), [])\n\n    def test_iterators_supported(self):\n        self.assertEqual(merge(iter([(5, 7), (1, 4), (2, 3)])), [(1, 4), (5, 7)])\n\n    def test_generator_and_negative_values(self):\n        gen = ((-2, 0), (-1, -1), (0, 1))\n        self.assertEqual(merge(gen), [(-2, 1)])\n\n    def test_same_start_order_independent(self):\n        self.assertEqual(merge([(1, 2), (1, 5), (1, 3)]), [(1, 5)])\n\n    def test_single_window(self):\n        self.assertEqual(merge([(5, 7)]), [(5, 7)])\n\n\nif __name__ == \"__main__\":\n    unittest.main()\nEOF\npython3 -m unittest -q",
+        "python3 -c \"\nfrom windows import merge\n# tuple input, set input (arbitrary order)\nassert merge(((1,3),(3,5))) == [(1,5)]\nassert merge({(5,6),(1,2),(2,2),(2,3)}) == [(1,3),(5,6)]\n# ValueError is the exact type, message present\ntry:\n    merge([(3,1)])\nexcept ValueError as e:\n    assert 'reversed' in str(e)\n# input object identity preserved (no reassignment into caller)\nsrc = [(3,4),(1,2)]\nids_before = [id(x) for x in src]\n_ = merge(src)\nassert src == [(3,4),(1,2)]\nprint('all good')\n\""
+      ]
+    }
+  ],
+  "supplemental_original_tests_unchanged": false,
+  "scope": "Single previously exposed development debugging capacity falsifier; larger full history and response budgets, no held-out exposure, suite preservation or matched-P1 promotion claim",
+  "accounting_limit": "Summary timing excludes final recursive receipt creation; not promotion accounting.",
+  "supplemental_model_stop_reasons": [
+    "toolUse",
+    "toolUse",
+    "toolUse",
+    "toolUse",
+    "toolUse",
+    "stop"
+  ],
+  "supplemental_output_tokens": [
+    68,
+    57,
+    3425,
+    1546,
+    395,
+    511
+  ],
+  "public_test_extension": {
+    "original_methods_preserved_by_AST": {
+      "test_contained": true,
+      "test_touching": true
+    },
+    "original_methods": 2,
+    "new_methods": 15,
+    "note": "Public tests are intentionally extended by task contract; independent frozen authority unchanged. Byte-level supplemental integrity flag alone does not determine this task grade."
+  },
+  "supplemental_tool_review": {
+    "attempted": 5,
+    "valid": 5,
+    "productive": 5,
+    "redundant": 0,
+    "malformed": 0,
+    "denied": 0,
+    "failed_returns": 0,
+    "note": "Baseline failing-test command is productive diagnosis; piped output masks failure exit. Edit/regression suite and additional contract probes pass. No output-length termination."
+  }
+}

@@ -1337,3 +1337,15 @@ AW73 full16K startup passes pressure1/swap growth0, peakRSS7,858,544KiB; KV1GiB.
 This proves startup admission only. AW76 begins exposed debugging with8192
 response allowance after ownership release; broader history/utility/pressure and
 interleaved qualification remain unproven. No held-out task exposed.
+
+## 2026-10-05 — Adequate capacity permits exposed debugging, at substantial wall cost
+
+AW76 solves the unchanged exposed debugging task with16K context/8192 output,
+valid protocol, no truncated responses and pressure1/swap growth0. Independent
+full receipt/grade replay passes. Original public assertions preserved by AST,
+extended to15 tests; frozen independent authority unchanged. Five productive
+valid calls. Task1181.605s, diagnostic total1185.620s: capacity enables useful
+work here but does not establish a competitive endpoint. Retain candidate only.
+AW77 screens frozen P1 contemporaneously on same exposed task/prompt/workspace/
+verifier/deadline before expensive repeat panels. Native profiles differ; no
+matched/interleaved/model-only gain claim. All capability/performance gates remain.
