@@ -1,0 +1,134 @@
+{
+  "audit_passed": true,
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0066/20261006T030925.719807Z",
+  "raw_receipt_sha256": "d29b560f9ebe66725673dcdbcad76072958568fb3eaf5414bde7905f4b0c23b6",
+  "plan_sha256": "96ca88604c5d11c7b89cb0d6fdc68652bebec267ab5cca4f1f5a5f08a7e6bc4b",
+  "complete_selection": false,
+  "all_selected_tasks_passed": false,
+  "screen_passed": false,
+  "utility": 3,
+  "wall_seconds": 634.8349850000004,
+  "diagnostic_utility_per_hour": 17.01229493519484,
+  "unattempted": [
+    "05-data-transform",
+    "06-failure-recovery",
+    "07-bounded-read",
+    "08-config-sync"
+  ],
+  "error": "stopped-critical-pressure",
+  "tasks": [
+    {
+      "original_test_file_integrity": {},
+      "task_id": "01-navigation",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 85.87102249999953,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 3,
+        "valid": 3,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "find . -type f | head -50",
+        "cat config/defaults.json deploy/production.env README.md",
+        "echo -n \"2750\" > ANSWER.txt"
+      ]
+    },
+    {
+      "original_test_file_integrity": {
+        "test_math_utils.py": true
+      },
+      "task_id": "02-single-file-fix",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 181.02324158400006,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 5,
+        "valid": 5,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 1
+      },
+      "commands": [
+        "find /Users/chad/Models/agentwing/active/workspace -type f -not -path '*/node_modules/*' -not -path '*/.git/*' | head -100",
+        "cat /Users/chad/Models/agentwing/active/workspace/math_utils.py; echo '====='; cat /Users/chad/Models/agentwing/active/workspace/test_math_utils.py",
+        "sed -i 's/return min(lower, max(value, upper))/return max(lower, min(value, upper))/' /Users/chad/Models/agentwing/active/workspace/math_utils.py && cat /Users/chad/Models/agentwing/active/workspace/math_utils.py",
+        "python3 - <<'EOF'\np = '/Users/chad/Models/agentwing/active/workspace/math_utils.py'\ns = open(p).read()\nassert 'min(lower, max(value, upper))' in s\ns = s.replace('min(lower, max(value, upper))', 'max(lower, min(value, upper))')\nopen(p, 'w').write(s)\nprint(s)\nEOF",
+        "cd /Users/chad/Models/agentwing/active/workspace && python3 -m unittest -v"
+      ]
+    },
+    {
+      "original_test_file_integrity": {
+        "test_slug.py": true
+      },
+      "task_id": "03-multi-file-fix",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 275.17499487499936,
+      "pressure_peak": 2,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 6,
+        "valid": 6,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 2
+      },
+      "commands": [
+        "ls -la && cat README.md",
+        "cat config.py slug.py test_slug.py",
+        "sed -i 's/words = text.lower().split(\"_\")/words = text.lower().split()/' slug.py && cat slug.py && python3 -m unittest test_slug -v",
+        "sed -i 's|words = text.lower().split(\"_\")|words = text.lower().split()|' slug.py && cat slug.py && python3 -m unittest test_slug -v",
+        "python3 - <<'EOF'\nsrc = open('slug.py').read()\nsrc = src.replace('words = text.lower().split(\"_\")', 'words = text.lower().split()')\nopen('slug.py', 'w').write(src)\nprint(src)\nEOF\npython3 -m unittest test_slug -v",
+        "python3 -m unittest test_slug -v"
+      ]
+    },
+    {
+      "original_test_file_integrity": {
+        "test_totals.py": true
+      },
+      "task_id": "04-refactor",
+      "utility": 0,
+      "grade_replay_matches": true,
+      "protocol_passed": false,
+      "host_passed": false,
+      "full_wall_seconds": 87.61207537500013,
+      "pressure_peak": 4,
+      "swap_growth_peak_mib": 675.0,
+      "tool_accounting": {
+        "attempted": 2,
+        "valid": 2,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "find /Users/chad/Models/agentwing/active/workspace -type f | head -100",
+        "cat /Users/chad/Models/agentwing/active/workspace/alpha.py /Users/chad/Models/agentwing/active/workspace/beta.py /Users/chad/Models/agentwing/active/workspace/test_totals.py"
+      ]
+    }
+  ],
+  "supplemental_original_tests_unchanged": true,
+  "scope": "Complete original capability diagnostic for temperature-zero Bonsai, full admitted reasoning and output retained; no matched-P1 speed or promotion claim",
+  "accounting_limit": "Summary timing excludes final recursive receipt creation; not promotion accounting."
+}

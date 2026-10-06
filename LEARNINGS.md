@@ -1214,3 +1214,19 @@ compute from CSV, so this is a correct single realization, not robust data-work
 validation or causal sampling improvement. Retain this arm for the full original
 AW-0066 screen before expanded development. P1 and held-out panel remain frozen;
 no work-rate promotion follows from a single task.
+
+## 2026-10-05 — AW-0066 rejected at critical host pressure
+
+The temperature-zero original screen passes three tasks, then stops during task
+four at pressure 4 and peak swap growth 675 MiB. Independent raw receipt, grade,
+protocol and arithmetic audit preserves the interrupted failure and four
+unattempted tasks. This is a host-safety rejection, not evidence of task-four
+model incapability or a complete utility-rate comparison. No cause is assigned
+to ambient applications from a post-stop snapshot. The memory gate is unchanged.
+
+Supersede AW-0065's proposed retention for expanded development. Temperature zero
+was an unsupported diagnostic; use the publisher's separate thinking/instruct
+recipes with explicit parameters in future candidates. Thinking uses T1, p.95,
+k20, min_p.05, presence0, repetition1 and medium effort. Low effort is unsupported;
+budgets must be declared rather than silently restricting reasoning. Preserve
+AW-0064/65/66 negative and positive realizations and their immutable pins.

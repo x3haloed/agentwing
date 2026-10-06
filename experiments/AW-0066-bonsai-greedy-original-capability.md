@@ -2,7 +2,7 @@
 
 ## Status
 
-Running, 2026-10-05. Successor campaign remains active and unqualified.
+Rejected by host-safety gate, 2026-10-05. Successor campaign remains active and unqualified.
 
 ## Hypothesis / Primary metric
 
@@ -39,7 +39,7 @@ PYTHONDONTWRITEBYTECODE=1 python3 scripts/run_bonsai_greedy_capability.py
 
 ## Evidence / Accounting
 
-Live run: /Users/chad/Models/agentwing/evidence/AW-0066/20261006T030925.719807Z. Source snapshots are preserved alongside the frozen plan.
+Terminal run: /Users/chad/Models/agentwing/evidence/AW-0066/20261006T030925.719807Z. Source snapshots are preserved alongside the frozen plan.
 Archive task workspaces/state by rename only after owned processes stop. Preserve
 commands, events, host samples, independent grades and recursive hashes. As in
 AW-0064/0065, receipt generation and initial integrity preflight are outside the
@@ -47,7 +47,27 @@ printed diagnostic timer: no final promotion/accounting claim is permitted.
 
 ## Conclusion / Disposition
 
-Unresolved. Eight successes permit expanded development, not promotion. The
->=25% two-pair interleaved complete-path gain, solved-task/category preservation,
-matched comparison policy, all-overhead timing and broad capability gates remain
-mandatory and unproven. No task narrowing, held-out tuning or discarded failure.
+The first three tasks pass independent grade replay. During task four the
+watchdog stops the model at critical pressure 4, with peak swap growth 675 MiB.
+Task four receives zero utility; four remaining tasks are unattempted. Preserve
+this as a host-safety rejection, not a completed model-quality comparison.
+The interrupted native protocol is incomplete after cancellation. Original test
+bytes remain unchanged. Ambient host pressure returns to 1 after shutdown;
+that does not invalidate the recorded peak or establish its cause.
+
+Independent audit: `evidence/AW-0066-terminal-audit.json`. Raw recursive receipt
+SHA256: `d29b560f9ebe66725673dcdbcad76072958568fb3eaf5414bde7905f4b0c23b6`.
+Frozen plan SHA256: `96ca88604c5d11c7b89cb0d6fdc68652bebec267ab5cca4f1f5a5f08a7e6bc4b`.
+Diagnostic wall 634.835 seconds excludes final receipt creation. No endpoint
+performance or promotion claim follows from this incomplete selection.
+
+AW-0065's retention is superseded: temperature zero is an unsupported diagnostic,
+not either publisher mode's recipe. Future thinking candidates use temperature
+1, top_p .95, top_k 20, min_p .05, presence 0 and repetition 1, with medium effort.
+Instruct candidates must separately declare temperature .7, top_p .8, top_k 20,
+min_p 0, presence 1.5 and repetition 1. Do not mix modes, use unsupported low
+effort, mutate these frozen diagnostics, or relax host gates to obtain completion.
+
+The >=25% two-pair interleaved complete-path gain, solved-task/category
+preservation, matched comparison policy, all-overhead timing and broad capability
+gates remain mandatory and unproven. Held-out tasks remain unexposed.

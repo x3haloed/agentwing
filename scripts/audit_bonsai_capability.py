@@ -19,6 +19,7 @@ def audit(run):
         assert digest(ROOT/name)==sha, f'Frozen source/input changed: {name}'
         snapshot=run/'source-snapshot'/name
         if snapshot.exists():assert digest(snapshot)==sha, f'Source snapshot changed: {name}'
+    check_protocol=protocol
     tasks=json.loads((SUITE/'manifest.json').read_text())['tasks']
     assert len(set(plan['selection']))==len(plan['selection'])
     assert plan['selection']==[t['id'] for t in tasks if t['id'] in plan['selection']]
@@ -28,7 +29,7 @@ def audit(run):
     for row in rows:
         directory=run/row['task_id']
         assert json.loads((directory/'scored-result.json').read_text())==row
-        audit_protocol=protocol(directory);assert audit_protocol==row['protocol']
+        audit_protocol=check_protocol(directory);assert audit_protocol==row['protocol']
         grading=verify(row['task_id'],directory/'workspace');assert grading['utility']==row['grading']['utility']
         execution=row['execution']
         assert json.loads((directory/'result.json').read_text())==execution
@@ -47,13 +48,15 @@ def audit(run):
                         'swap_growth_peak_mib':execution['swap_growth_peak_mib'],'tool_accounting':audit_protocol['tool_accounting'],
                         'commands':audit_protocol['commands']})
     assert summary['unattempted']==plan['selection'][len(rows):]
-    if any(row['utility']!=1 for row in rows):assert rows[-1]['utility']==0 and summary['error']
+    if plan['stop_on_first_failure'] and any(row['utility']!=1 for row in rows):assert rows[-1]['utility']==0 and summary['error']
     assert summary['complete']==(len(rows)==len(plan['selection']) and summary['error'] is None)
     utility=sum(r['utility'] for r in rows);assert utility==summary['utility']
     assert summary['wall_seconds']>=sum(r['full_wall_seconds'] for r in rows)
     assert abs(summary['diagnostic_utility_per_hour']-3600*utility/summary['wall_seconds'])<1e-9
     return {'audit_passed':True,'run':str(run),'raw_receipt_sha256':digest(run/'sha256-recursive.json'),
-            'plan_sha256':manifest['plan_sha256'],'screen_passed':summary['complete'],
+            'plan_sha256':manifest['plan_sha256'],'complete_selection':summary['complete'],
+            'all_selected_tasks_passed':summary['complete'] and utility==len(plan['selection']),
+            'screen_passed':summary['complete'] and utility==len(plan['selection']),
             'utility':utility,'wall_seconds':summary['wall_seconds'],'diagnostic_utility_per_hour':summary['diagnostic_utility_per_hour'],
             'unattempted':summary['unattempted'],'error':summary['error'],'tasks':checked,
             'supplemental_original_tests_unchanged':all(all(t['original_test_file_integrity'].values()) for t in checked),
