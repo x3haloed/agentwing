@@ -1,0 +1,154 @@
+{
+  "experiment": "AW-0105",
+  "compile": {
+    "exit": 0,
+    "log_sha256": "0f44cdf1b705bbcc18564fbc9149e7c75efb7cc32b8bcfb73ee04ec2c607cca1"
+  },
+  "plan_sha256": "3175385b8e6e6e8fe61d29473bcab9bd61afdaa886c8f4e95e215da1da089753",
+  "smoke": {
+    "experiment": "AW-0105",
+    "passed": true,
+    "records": [
+      {
+        "format": "turbo2",
+        "pattern": "zero",
+        "packed_bytes": 68,
+        "finite": true,
+        "deterministic": true,
+        "canaries_unchanged": true,
+        "reconstruction_relative_l2_or_zero_absolute": 0.0,
+        "packed_sha256": "0f54be358ae3389532098011c96870f57ddf485ab9d53462a558a2c08e79b529"
+      },
+      {
+        "format": "turbo2",
+        "pattern": "one_hot",
+        "packed_bytes": 68,
+        "finite": true,
+        "deterministic": true,
+        "canaries_unchanged": true,
+        "reconstruction_relative_l2_or_zero_absolute": 0.0002478361129760742,
+        "packed_sha256": "5c6428a7a4af939bd5956f0de44ec8dae6357f4038411bc1a1d7ba19dcaecb4b"
+      },
+      {
+        "format": "turbo2",
+        "pattern": "sine",
+        "packed_bytes": 68,
+        "finite": true,
+        "deterministic": true,
+        "canaries_unchanged": true,
+        "reconstruction_relative_l2_or_zero_absolute": 0.3108999289071596,
+        "packed_sha256": "def25a68f6b3e90e1e61aeb26330a16253e54260123a5519164dffa5e09df266"
+      },
+      {
+        "format": "turbo2",
+        "pattern": "gaussian",
+        "packed_bytes": 68,
+        "finite": true,
+        "deterministic": true,
+        "canaries_unchanged": true,
+        "reconstruction_relative_l2_or_zero_absolute": 0.3231095089529012,
+        "packed_sha256": "be4383ffc6cac19bf2203e704383eec5a06c50f97c4c2d7e32730366306d5d27"
+      },
+      {
+        "format": "turbo3",
+        "pattern": "zero",
+        "packed_bytes": 100,
+        "finite": true,
+        "deterministic": true,
+        "canaries_unchanged": true,
+        "reconstruction_relative_l2_or_zero_absolute": 0.0,
+        "packed_sha256": "a76ec07781dd75e501bf2d7c82043a6feb77308d821ddf22c9ab9958ec6cedb6"
+      },
+      {
+        "format": "turbo3",
+        "pattern": "one_hot",
+        "packed_bytes": 100,
+        "finite": true,
+        "deterministic": true,
+        "canaries_unchanged": true,
+        "reconstruction_relative_l2_or_zero_absolute": 0.00019186735153198242,
+        "packed_sha256": "7ac356a7b02ea859958a0c802ae4b278b94538d7dd419bcacede494248221f87"
+      },
+      {
+        "format": "turbo3",
+        "pattern": "sine",
+        "packed_bytes": 100,
+        "finite": true,
+        "deterministic": true,
+        "canaries_unchanged": true,
+        "reconstruction_relative_l2_or_zero_absolute": 0.17108309305814837,
+        "packed_sha256": "5c7057d6725ec5aa1e6e08fca84764a88e9749e70c383692ceff37cddd6bef1c"
+      },
+      {
+        "format": "turbo3",
+        "pattern": "gaussian",
+        "packed_bytes": 100,
+        "finite": true,
+        "deterministic": true,
+        "canaries_unchanged": true,
+        "reconstruction_relative_l2_or_zero_absolute": 0.1767966906114989,
+        "packed_sha256": "bf6d71e1e61c897aeb5405a69151ec1c987ec6dc14730cc99404878be9533793"
+      },
+      {
+        "format": "turbo4",
+        "pattern": "zero",
+        "packed_bytes": 136,
+        "finite": true,
+        "deterministic": true,
+        "canaries_unchanged": true,
+        "reconstruction_relative_l2_or_zero_absolute": 0.0,
+        "packed_sha256": "b16362214400a205c70dd4c295ae3ebd82ab24980e8bf924bf9e927cbb5ad525"
+      },
+      {
+        "format": "turbo4",
+        "pattern": "one_hot",
+        "packed_bytes": 136,
+        "finite": true,
+        "deterministic": true,
+        "canaries_unchanged": true,
+        "reconstruction_relative_l2_or_zero_absolute": 2.3603439331054688e-05,
+        "packed_sha256": "16cc29d6a54fe1435a3f0f147d576257f47aecf8cfe68b88f6756821fa761929"
+      },
+      {
+        "format": "turbo4",
+        "pattern": "sine",
+        "packed_bytes": 136,
+        "finite": true,
+        "deterministic": true,
+        "canaries_unchanged": true,
+        "reconstruction_relative_l2_or_zero_absolute": 0.1172113534875036,
+        "packed_sha256": "db078b3da2f0e3d2a69e113b8f2fed91c043ef05c8e0fa79fcbe60cf98fe446e"
+      },
+      {
+        "format": "turbo4",
+        "pattern": "gaussian",
+        "packed_bytes": 136,
+        "finite": true,
+        "deterministic": true,
+        "canaries_unchanged": true,
+        "reconstruction_relative_l2_or_zero_absolute": 0.12221175655236789,
+        "packed_sha256": "9ca3d6d1d4b9b49ffc764b967e69d387df3361af63652e39ac28b3d3b2415b32"
+      }
+    ],
+    "smoke_plan_sha256": "fa874d0689f071850486544efc2279fb9d033f3133d51485a7f0cce3a822c1ba",
+    "host_phase_samples": [
+      [
+        1,
+        914.06
+      ],
+      [
+        1,
+        914.06
+      ]
+    ],
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+    "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0105",
+    "scope": "Block ABI and bounds only; two128 groups, no full K/V attention or Metal graph",
+    "limitations": "No numeric accuracy gate, performance metric, continuous pressure sampling, GGML type registration, Metal dispatch or model integration"
+  },
+  "source_and_library_audit": "passed",
+  "recursive_receipt_sha256": "d897dcc694de71e80b567b4ac177bdb99ae3ad81a927c4d659bbef1e2d2696a8",
+  "standalone_headers_policy": "Pinned Prism public ABI headers plus unchanged Atomic private common/quants/impl headers; no Prism tensor registration or runtime patch",
+  "disposition": "Retained for real K/V and attention fidelity, not accepted cache quality or speed"
+}

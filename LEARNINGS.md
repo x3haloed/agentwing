@@ -1562,3 +1562,12 @@ Turbo2/3/4 V predicts340/372/408MiB at16K, rather than symmetric136/200/272.
 Actual resolved types/allocations need a build. Reject direct copy and optimistic
 symmetric-default cost claim; retain remapped asymmetric path for codec/real KV
 falsifiers. This is not full Google equivalence, quality or endpoint evidence.
+
+## AW-0105 — Turbo CPU block codec ABI smoke passes, lossy error remains
+
+Complete Atomic codec compiles with Prism public headers/base linkage and
+unchanged private headers;12 synthetic256-value cases preserve canaries and
+determinism/finite reconstructions. Gaussian L2 T2 .323/T3 .177/T4 .122,
+while one-hot is nearly exact: sparse smoke is not quality authority. Retain
+for real K/V attention tests, not full registration/Metal or Google equivalence.
+No cache quality, performance, current runtime or endpoint promotion change.
