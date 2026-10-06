@@ -1,6 +1,6 @@
 # AW-0069 — Supported-thinking refactor with prompt archive cache disabled
 
-Running 2026-10-05. Diagnostic only, not a successor promotion.
+Completed and retained, 2026-10-05. Diagnostic only, not a successor promotion.
 
 Cheap falsifier following AW66 host rejection and AW68 allocation evidence.
 Use the unchanged original refactor task/verifier, full 8K context, medium
@@ -18,4 +18,15 @@ Raw evidence `/Users/chad/Models/agentwing/evidence/AW-0069/20261006T033203.6979
 
 Reproduce: `PYTHONDONTWRITEBYTECODE=1 python3 scripts/run_bonsai_cache_refactor.py`.
 Check immutable inputs with `--check-only`; never overwrite the frozen plan.
-Terminal audit, allocation deltas and tool classification remain pending.
+Independent terminal audit `evidence/AW-0069-terminal-audit.json` passes raw
+hashes, grade replay, native tool/request pairing and unchanged original tests.
+Task utility1, wall205.728s; diagnostic total209.663s excludes receipt creation.
+Pressure1 throughout, swap growth0. Four valid productive tool calls: bounded
+exploration, source/test read, shared implementation write, symbol/test check.
+Failed, malformed, denied and redundant calls0. Recurrent checkpoints peak at
+three observed 149.626MiB states, separate from active recurrent state and KV.
+Optional prompt archive is confirmed disabled, supported sampling values are
+confirmed in native request logs. Full 8K history remains; no performance gain
+or attribution of AW66's failure is established by this unpaired realization.
+AW70 advances to all eight original tasks with two saved recurrent checkpoints,
+not a shorter context. Held-out panel remains unexposed.

@@ -1243,3 +1243,19 @@ TurboQuant/PolarQuant remains an explicit user-requested cache candidate; the
 pinned Prism binary does not advertise its codec. Do not label stock q4 KV as
 TurboQuant or infer weight compression from cache compression. The old Swiftlet
 KV estimate in docs/KV_MEMORY.md remains historical, not this runtime's account.
+
+## 2026-10-05 — Supported full refactor passes; recurrent checkpoints are material
+
+AW69 refactor passes independent grade/protocol/hash checks at pressure1 and
+zero swap growth, with publisher thinking sampling and optional prompt archive
+disabled. Four productive calls, no failed/malformed/denied/redundant calls.
+Verbose logs reveal three saved149.626MiB recurrent states. Default limit32
+permits roughly4.68GiB of saved states, separate from512MiB KV. AW70 bounds saved
+checkpoints to2 while keeping full8K history/vision/medium reasoning and all
+eight original tasks. No causal cache or speed inference from the unpaired pass.
+
+AW71 verifies pinned Atomic source hashes and K256/V256 Metal specializations.
+Turbo4 logical KV payload136MiB implies376MiB potential payload saving at8K,
+before extra costs. Prismwing's synthetic fidelity and scheduling negatives
+remain applicable cautions. Retain a port candidate; source presence cannot
+prove Prism PTQ compatibility, accelerated quality, or endpoint improvement.

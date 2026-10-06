@@ -1,0 +1,62 @@
+{
+  "audit_passed": true,
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0069/20261006T033203.697908Z",
+  "raw_receipt_sha256": "67ebfbf6180ef258f06d541cc8be786340f26d6638b479965f1fd216acb20a72",
+  "plan_sha256": "bea1cc7b8a2e32eb1918c57e93ee4407dee065efc6a23382275dd0d470fa6bf4",
+  "complete_selection": true,
+  "all_selected_tasks_passed": true,
+  "screen_passed": true,
+  "utility": 1,
+  "wall_seconds": 209.6633778330006,
+  "diagnostic_utility_per_hour": 17.170380622539827,
+  "unattempted": [],
+  "error": null,
+  "tasks": [
+    {
+      "original_test_file_integrity": {
+        "test_totals.py": true
+      },
+      "task_id": "04-refactor",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 205.72754387500026,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 4,
+        "valid": 4,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "find /Users/chad/Models/agentwing/active/workspace -type f | head -50 && echo --- && grep -rn \"legacy_total\" /Users/chad/Models/agentwing/active/workspace | head -50",
+        "cat /Users/chad/Models/agentwing/active/workspace/alpha.py /Users/chad/Models/agentwing/active/workspace/beta.py /Users/chad/Models/agentwing/active/workspace/test_totals.py",
+        "cat > /Users/chad/Models/agentwing/active/workspace/totals.py << 'EOF'\ndef nonnegative_total(values):\n    return sum(value for value in values if value >= 0)\nEOF\ncat > /Users/chad/Models/agentwing/active/workspace/alpha.py << 'EOF'\nfrom totals import nonnegative_total\n\n\ndef alpha_total(values):\n    return nonnegative_total(values)\nEOF\ncat > /Users/chad/Models/agentwing/active/workspace/beta.py << 'EOF'\nfrom totals import nonnegative_total\n\n\ndef beta_total(values):\n    return nonnegative_total(values)\nEOF",
+        "grep -rn \"legacy_total\" /Users/chad/Models/agentwing/active/workspace; echo \"grep exit: $?\" && python3 /Users/chad/Models/agentwing/active/workspace/test_totals.py"
+      ]
+    }
+  ],
+  "supplemental_original_tests_unchanged": true,
+  "scope": "Single refactor diagnostic; publisher thinking sampler, full 8K context and medium reasoning, RAM prompt cache disabled. Not an isolated comparison to AW-0066 or a promotion claim",
+  "accounting_limit": "Summary timing excludes final recursive receipt creation; not promotion accounting.",
+  "supplemental_tool_classification": {
+    "attempted": 4,
+    "valid": 4,
+    "productive": 4,
+    "redundant": 0,
+    "malformed": 0,
+    "denied": 0,
+    "failed": 0,
+    "basis": "Independent command, result and artifact review; independent grader passes. Exploration/read/write/test check each advances task."
+  },
+  "supplemental_history_check": {
+    "compaction_events": 0,
+    "context_shift_events": 0
+  },
+  "observed_recurrent_checkpoint_peak_mib": 448.87800000000004
+}
