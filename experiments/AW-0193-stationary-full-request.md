@@ -1,6 +1,6 @@
 # AW-0193: Stationary cache full accumulated request replay
 
-Status: prepared, unrun, gated on independent AW-0192 admission.
+Status: running after independent AW-0192 admission; terminal behavior unresolved.
 
 Replay the exact AW-0145 saved native Pi fourth request, with the existing
 AW-0149 explicit 8192-token cap, native thinking sampling and medium effort.
