@@ -1,0 +1,40 @@
+{
+  "experiment": "AW-0154",
+  "hypothesis": "Eligible lookup3/proposal3 saves target verification passes on authoritative AW141 decoded history.",
+  "primary_metric": "Oracle accepted drafts and verification-pass count; no wall-clock speed claim.",
+  "source_server_log": "/Users/chad/Models/agentwing/evidence/AW-0141/20261006T095302.957259Z/dev-multi-file/server.log",
+  "source_server_log_sha256": "b950cfc553e21e436c9b1a66d3152005065c077c2e1abf799e56c69cf36b94ab",
+  "native_records": 7695,
+  "first_position": 1186,
+  "last_position": 8880,
+  "initial_ids_sha256": "8c3d7018bdb0fdc04fc246682da432e2fceae1eaf2703522ebf24e245386aee3",
+  "native_ids_sha256": "1a421a8e305956a99b130c7905f0bbed9ab2ecbf44f29613e4c8816c3745d0e7",
+  "fixture_sha256": "800ca994a92fa3c9cb446d25fe05a91ddb9b834575824bb989fd16f867315b2a",
+  "scope": "Only logged decoded IDs, no inferred stream fragments; final unlogged token excluded. Future IDs verify proposals only; proposer sees past history plus sampled current token. No inference, no task changes, no promotion.",
+  "configuration_provenance": "AW141 frozen full runtime/harness/task/sampling and AW148 identical fourth-request initial input IDs; inherited receipts remain authoritative.",
+  "exit": 0,
+  "result": "baseline_steps=7694 verification_passes=6168 draft_calls=1381 proposed=4143 oracle_accepted=1527 rejection_batches=1029 ideal_equal_pass_ratio=1.247406",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0154",
+  "raw_sha256": {
+    "native-compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "result.txt": "b201ba292752b580a2ebfb5c9f003a05359c68cebd56c3f08336b1d3b4cab535",
+    "plan.json": "2db6e7055202055d042fe95577d3573511ef495cded9293053dfe96689faf669",
+    "screen.cpp": "ac141e4556f5a6ce47a2db9cd8151ac57ab13e61d93ea12fec98081d095cbff2",
+    "native-result.txt": "ce97aa4fa22c1c9419c8d294b8a7d1c67e7c08643c291d74a7280a4eab9bb231",
+    "native-screen": "a112505cac71dffe7b52d6d6d0a19e9b190c8ba61d9834404a7608cdf205bece",
+    "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native.log": "d1eba5ecf78120a48cc32fa5839b95af813c18df737e7ce682aa8abc60bc05fc",
+    "screen": "96246ab905b5495fd3d9d1542b16a5871f8b69a065bf71ba3e96d6526632f6c6",
+    "native-ids.bin": "1a421a8e305956a99b130c7905f0bbed9ab2ecbf44f29613e4c8816c3745d0e7"
+  },
+  "disposition": "Retain for actual batched-target/checkpoint cost and sampling fidelity screen; oracle count is not endpoint performance.",
+  "independent_python_replay": {
+    "verification_passes": 6168,
+    "draft_calls": 1381,
+    "proposed": 4143,
+    "accepted": 1527,
+    "rejection_batches": 1029,
+    "matches_compiled_proposer": true
+  },
+  "limitations": "Ideal equal-cost pass ratio 1.247406 is below 1.25 and ignores batching, lookup, rollback and acceptance costs. It neither establishes an endpoint gain nor universally bounds gains from a changed execution kernel. No inference or performance claim."
+}

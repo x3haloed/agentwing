@@ -1875,3 +1875,16 @@ This qualifies prior chunk-count diagnostics: native prefix token counts are
 measured, but arbitrary stream fragment identity is not guaranteed. Preserve
 result/source/input hashes in evidence/AW-0153-token-recovery-screen.json; raw
 external AW-0153. Next resolve unmatched fragment or capture authoritative IDs.
+
+
+### AW-0154 — exact native history resolves recovery, modest proposal opportunity
+
+AW141 verbose logs provide7695 consecutive decoded IDs at positions1186–8880,
+resolving AW153 recovery without guessing the unmatched three-byte fragment.
+Unchanged native3/3 proposer and independent Python replay agree:7694 baseline
+steps /6168 verification passes,1527 oracle accepted drafts,1029 rejection
+batches of1381. Ideal equal-cost ratio1.247406 is below1.25 before real costs;
+not endpoint speed or a universal kernel bound. Retain only for full batching /
+checkpoint cost and fidelity screen; no promotion, AW141 utility0 unchanged.
+Raw hashes/provenance in evidence/AW-0154-native-history-screen.json, external
+AW-0154; logged span only, no inferred final token, no inference.
