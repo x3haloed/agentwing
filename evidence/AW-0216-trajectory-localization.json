@@ -1,0 +1,62 @@
+{
+  "experiment": "AW-0216",
+  "scope": "Post-run localization; no inference or comparative speed claim",
+  "raw_evidence": "/Users/chad/Models/agentwing/evidence/AW-0215/20261006T214746.364246Z/dev-multi-file",
+  "raw_hashes": {
+    "server.log": "207375d96e0f8207539f692be5bf0c5c9ef07a9f651f8aaa8e1609231c787e61",
+    "pi.jsonl": "545ee8cac98c03d50110cfafa00a7514b1b8cdbb4768fd73d2dde01e25ae0ab7"
+  },
+  "launches": [
+    {
+      "task_id": 0,
+      "elapsed_seconds": 4.042619999999999
+    },
+    {
+      "task_id": 80,
+      "elapsed_seconds": 36.981418000000005
+    },
+    {
+      "task_id": 162,
+      "elapsed_seconds": 62.802116
+    },
+    {
+      "task_id": 234,
+      "elapsed_seconds": 83.278985
+    },
+    {
+      "task_id": 334,
+      "elapsed_seconds": 105.708451
+    },
+    {
+      "task_id": 727,
+      "elapsed_seconds": 188.535569
+    }
+  ],
+  "releases": [
+    {
+      "task_id": 0,
+      "elapsed_seconds": 36.94674
+    },
+    {
+      "task_id": 80,
+      "elapsed_seconds": 62.775207
+    },
+    {
+      "task_id": 162,
+      "elapsed_seconds": 83.26091100000001
+    },
+    {
+      "task_id": 234,
+      "elapsed_seconds": 105.68863
+    },
+    {
+      "task_id": 334,
+      "elapsed_seconds": 188.504372
+    }
+  ],
+  "nonterminal_task": 727,
+  "last_generated_tokens": 6832,
+  "remaining_tokens": 1360,
+  "observed_generation_seconds": 1616.005236,
+  "disposition": "Retain diagnosis: sixth accumulated request dominates failure. Reconstruct exact history before next inference screen; preserve full endpoint requirements."
+}

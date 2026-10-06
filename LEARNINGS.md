@@ -2733,3 +2733,11 @@ confirms timeout and preserves strict protocol failure; original unattempted
 summary entry is collector fallout, not factual absence of task execution.
 Receipt `evidence/AW-0215-turbo6-multifile-terminal.json` pins raw and audit.
 P1/full held-out capability and 25% utility gates remain required.
+
+### AW-0216 — dominant failure is sixth accumulated generation
+
+Six requests launch, five release before188.535569s. Sixth remains
+nonterminal through1804.540805s,6832generated/1360remainingtokens.
+Receipt `evidence/AW-0216-trajectory-localization.json` pins raw. Retain
+diagnosis for exact-history reconstruction; no causal speed/cache claim
+or task/reasoning/deadline/scoring narrowing. P1 unchanged.
