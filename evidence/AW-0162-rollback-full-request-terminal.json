@@ -1,0 +1,63 @@
+{
+  "experiment": "AW-0162",
+  "status": "rejected-full-request-completion-timeout",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0162",
+  "audit": {
+    "experiment": "AW-0162",
+    "complete": true,
+    "rows": [
+      {
+        "arm": "rollback",
+        "result_sha256": "58d4ae4ed848490d8386d8fb7117dd1b3f70184414b8f730194fd9f863919a07",
+        "error": "request-timeout",
+        "client_exit": -15,
+        "server_exit_after_cleanup": 0,
+        "host_passed": true,
+        "response": {
+          "events": 6375,
+          "completion_ids": [
+            "chatcmpl-praX96bPzerrcUuJE4dtgPoFt92nx6wP"
+          ],
+          "finish_reasons": [],
+          "done": false,
+          "done_count": 0,
+          "thinking_characters": 23525,
+          "answer_characters": 423,
+          "errors": [],
+          "proposals": [
+            {
+              "index": 0,
+              "id": "9U4vkIr2K9L2xRD10XxIvGxaFhqpTfJw",
+              "name": "bash",
+              "valid_schema": false,
+              "arguments": null,
+              "classification": "incomplete-proposal",
+              "raw_arguments_sha256": "eb26fb30f3e9d6d406e24a107716540d6a4eee60f8374db9e772889f566ed4cc",
+              "executed": false,
+              "productive": null
+            }
+          ],
+          "terminal_protocol_passed": false,
+          "tools_executed": 0
+        },
+        "wall_seconds_diagnostic": 1804.1542487080005
+      }
+    ],
+    "plan_sha256": "c9377d945ee6e20a7f3abd2e358f908be7cd3ebcb10723d7a2ec277e3b31468f",
+    "auditor_sha256": "e3ea5b0fe0e411cf4f3d613c914f2ece71799f23a535bba997dbc8ea2a9ba584",
+    "scope": "One full native request with bounded rollback; no proposal execution, task score, performance ratio or causal qualification"
+  },
+  "final_audit_sha256": "449eb2835c59cf89528de17182fb0e790125d5f2b13487ab8976c57dc6e845a9",
+  "summary_sha256": "d8aff781b651afb1b8fc082ed8de69d5870d145b59830ccc4673e898f1debee5",
+  "runtime_verification_counts": {
+    "logged_batches": 1968,
+    "logged_accepted_drafts": 1798,
+    "logged_proposed_drafts": 5895,
+    "logged_partial_or_zero_acceptances": 1564,
+    "logged_checkpoint_restores": 0,
+    "mc_c4_pipeline_loaded": true,
+    "mc_c3_pipeline_loaded": true,
+    "scope": "Native counters/pipeline creation only, not timing or endpoint speed evidence."
+  },
+  "disposition": "Reject full-request completion survivor. No valid terminal proposal; AW164 prerequisite failed, task remains unattempted. Numeric/startup survivals retained. No causal speed/cache attribution, no promotion, P1/default unchanged."
+}

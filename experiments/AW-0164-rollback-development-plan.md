@@ -41,3 +41,11 @@ Preparation retirement/hashes:
 /Users/chad/Models/agentwing/evidence/AW-0164.
 Only a frozen follow-up plan; no model inference/result/admission/promotion yet.
 P1, active operating defaults and AW141/AW160 negative results unchanged.
+
+## Prerequisite disposition
+
+AW162 terminates request-timeout with incomplete bash arguments/noDONE. Required
+complete baseline proposal not obtained; do not launch AW164 or relax its gate.
+Task remains unattempted, plan retained as gated/unrun evidence. This is not a
+scored task failure or completed corpus result. Terminal prerequisite hash and
+negative record: evidence/AW-0162-rollback-full-request-terminal.json.

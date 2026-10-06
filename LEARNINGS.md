@@ -1986,3 +1986,17 @@ Turbo incomplete unchanged under replay. Audit-only, retrospective record,
 no candidate/request/runner/task/verifier/timeout/sampling change. AW162 still
 live, no terminal conclusion. Source/raw/test/OS/Python hashes in
  evidence/AW-0163-rollback-stream-audit.json; externalAW163. No promotion.
+
+
+### AW-0162 — bounded history speculation still misses full-request deadline
+
+Full identical AW149 native body with AW158 ngram2/3+3rollback slots+multicol
+hits request1800s deadline(1804.154s arm wall),6375events/23525thinking chars,
+incomplete bash proposal/noDONE/no finish. Zero executed tools, no task utility
+assigned. Host1/growth0; independent allraw/request/allocator/protocol audit
+confirms negative.1968verified batches/1798accepted of5895drafts/1564partial
+batches and0restores show real bounded-path work; c4/c3pipelines loaded, no speed
+claim. Reject completion survivor; do not waive AW164 prerequisite, task unrun.
+Technical numeric/startup passes preserved, no causal cache/rollback ratio or
+promotion. P1/default unchanged. ExternalAW162, final raw hashes/audit in
+ evidence/AW-0162-rollback-full-request-terminal.json.

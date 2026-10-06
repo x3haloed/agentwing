@@ -48,3 +48,24 @@ zero acceptance without logged checkpoint restoration so far. Reasoning SSE is
 streaming, pressure1. Nonterminal snapshot outside Git; it is not completion or
 sampling fidelity evidence. Managed exec session56967 must be revalidated on
 continuation, and the same handle watched until terminal rather than restarted.
+
+## Terminal result
+
+Parent ends normally after preserving diagnostic result; child request is
+watchdog-interrupted(-15), server cleanexit0. Request1800s deadline,1804.154s
+arm diagnostic wall.6375events,23525thinking characters,423answer characters,
+one incomplete bash proposal, noDONE/no finish reason. No proposal executed,
+valid/productive outcomes unestablished; incomplete is not completed-malformed.
+Pressure1/swap baseline1199.12MiB/growth0. Independent final raw/request/allocator /
+protocol/host audit verifies negative outcome. No model/worker left running.
+
+Native logs show1968verification batches/5895drafts/1798accepted,1564partial or
+zero-acceptance batches,0checkpoint-restores. c4/c3 multicol pipelines load during
+generation. These are component diagnostics, not speed or sampling-equivalence
+claims. Rollback integration does not resolve full-request completion failure.
+Unreplicated/unpaired own trajectory cannot establish causal cache/rollback
+speed effects or endpoint utility. Prior numeric/startup passes retained.
+
+Reject completion survivor. AW164 prerequisite fails, so its actual development
+task is unattempted; preserve frozen plan rather than waive the gate. P1/default
+unchanged. Final receipt evidence/AW-0162-rollback-full-request-terminal.json.
