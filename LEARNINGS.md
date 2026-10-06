@@ -1962,3 +1962,16 @@ incomplete, never promoted or deadline extended. Pressure1/growth0 at baseline
 1198.56MiB. Preserve partial passes and charged timeout; remaining numeric case,
 late history and sampler/server fidelity open. ExternalAW160 and all raw hashes
 in evidence/AW-0160-rollback-fidelity-terminal.json. No endpoint claim/P1 change.
+
+
+### AW-0161 — missing rejection depth passes, experimental launcher pinned
+
+One-token rejection same early prefix/runtime/numeric gate passes relativeL2
+.000228832 and identical top1/top20; source loop-only derivation/raw/harness /
+full-logit replay valid. Exit0 pressure1/growth0. AW160 negative timeout remains,
+its completed rejection3/2 and AW161 rejection1 cover early numeric cases only.
+Sampler/server protocol, accumulated late states and complete cost open.
+Separate full-vision rollback launcher verifies weights/binaries/patches/build
+receipt/banner; command matches admittedAW159 except verbosity, explicitmulticol
+and no active-default/P1 change. Retain experimental, no promotion. Rawexternal
+AW161 and evidence/AW-0161-rollback-final-case-terminal.json.
