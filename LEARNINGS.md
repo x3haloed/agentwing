@@ -2390,3 +2390,14 @@ offset (sparse logical size), so capacity must gate future runs. Receipt
 external recovery and object rebuild command. No normal terminal result,
 exact elapsed or complete host baseline is fabricated. P1 frozen; retained
 storage failure, not model timeout or promotion.
+
+### AW-0197 — capacity guarded current-history F16 complete
+
+Fresh F16 completed in724.036 s with one valid native bash proposal, clean
+terminal stream/exits and no tool execution or task score. Strict hashes,
+stream, independent host trace and capacity replay passed: pressure1, swap
+growth0, minimum free268,486,103,040 bytes. Proposal arguments hash matches
+AW-0196 F16 for this input; scoped reproducibility, not causal speed.
+Receipt `evidence/AW-0197-capacity-f16-partial.json` pins external full
+audit/raw hashes in `/Users/chad/Models/agentwing/evidence/AW-0197`.
+Stationary arm still live; pair unresolved, retained diagnostic, P1 frozen.

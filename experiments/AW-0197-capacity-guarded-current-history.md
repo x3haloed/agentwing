@@ -1,6 +1,6 @@
 # AW-0197: Capacity guarded current-history cache replay
 
-Status: prepared; inference unrun, terminal result unresolved.
+Status: F16 terminal and audited; stationary arm live, pair unresolved.
 
 Retry AW-0196 under a new immutable external plan/directory, preserving the
 interrupted run. Same reconstructed AW-0195 history, two fresh F16 then
@@ -24,3 +24,15 @@ Raw: `/Users/chad/Models/agentwing/evidence/AW-0197`.
 Plan pins runner, runtime, current history, strict stream auditor and AW-0196
 storage failure. Per-arm raw hashes, terminal outputs, capacity/host traces,
 commands and full lifetimes remain external. No overwrite or silent retry.
+
+## F16 terminal, pair unresolved
+
+F16 completed in724.036 s: one valid native bash proposal, terminal
+tool_calls/one DONE, clean exits. No tool executed or task score inferred.
+Strict hash/stream, independent host trace and capacity replay passed:
+pressure1/swap growth0 MiB/minimum sampled free268,486,103,040 bytes.
+Generated proposal argument hash matches AW-0196's F16 proposal for this
+fixed current history. This is scoped reproducibility, not a speed ratio.
+Partial receipt: `evidence/AW-0197-capacity-f16-partial.json`; full audit
+and raw hashes external under `/Users/chad/Models/agentwing/evidence/AW-0197`.
+Stationary arm still live; complete-pair acceptance unresolved.

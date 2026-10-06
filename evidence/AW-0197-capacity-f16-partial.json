@@ -1,0 +1,57 @@
+{
+  "experiment": "AW-0197",
+  "complete": false,
+  "rows": [
+    {
+      "arm": "f16",
+      "result_sha256": "4ef53b4a0d061124a695c38b881b9784b7419be4b0bdf9de963e4f224baabe8b",
+      "error": null,
+      "client_exit": 0,
+      "server_exit_after_cleanup": 0,
+      "host_passed": true,
+      "response": {
+        "events": 3566,
+        "completion_ids": [
+          "chatcmpl-GgnO40EIaxRcbk1rhG4TLJ0LtY9ZrI73"
+        ],
+        "finish_reasons": [
+          "tool_calls"
+        ],
+        "done": true,
+        "done_count": 1,
+        "thinking_characters": 13503,
+        "answer_characters": 0,
+        "errors": [],
+        "proposals": [
+          {
+            "index": 0,
+            "id": "5eEwATfZQZjm6sh608OKltmoBk2FUx0S",
+            "name": "bash",
+            "valid_schema": true,
+            "classification": "valid-proposal",
+            "raw_arguments_sha256": "4766e5abcd61e3ee2df60078e87e2ebd18e617f87587ca88cbda3a304daa4d9b",
+            "executed": false,
+            "productive": null
+          }
+        ],
+        "terminal_protocol_passed": true,
+        "tools_executed": 0
+      },
+      "wall_seconds_diagnostic": 724.0357416249972,
+      "host_trace_replay": {
+        "passed": true,
+        "pressure_sha256": "b3ca6eb79f5da4f488bd721b2fb7a8c50aa133371b9634eee336e696c4bbf27f"
+      },
+      "capacity_trace_replay": {
+        "passed": true,
+        "minimum_sampled_free_bytes": 268486103040,
+        "sha256": "46375a2292feb28ad44e849a4412a7f455a1afb5b850eb7e7de7b46a21831cf0"
+      },
+      "prior_f16_proposal_arguments_hash_matches": true
+    }
+  ],
+  "plan_sha256": "49ac935f95d5c8a02dfd0e55dc9620e613a8fa3afb446f51ce0a730cc389e1ca",
+  "auditor_sha256": "b6f7bdabdefb402a60d1f4619b883e73d332065be01fbdca98eefd626c7ba1a0",
+  "scope": "One full native request per cache arm; no proposal execution, task score, performance ratio or causal qualification",
+  "external_full_audit_sha256": "c7fe98b4bb89a08057fa143e2476edfea23b3a816e222a976590bf19612851e5"
+}
