@@ -4,8 +4,9 @@
 
 Complete source screen. Hypothesis: the pinned bundled callback example can
 collect bounded complete early/middle/late activations without a custom collector.
-Primary rule: reject if it copies unrelated tensors, truncates values, or does
-not support generated-token capture. Declare before inspecting callback body.
+Exploratory rejection criteria: unrelated tensor copies, truncated values, or
+absence of generated-token capture. These criteria were recorded after source
+inspection; this is not a predeclared quantitative experiment.
 
 ## Configuration and commands
 
