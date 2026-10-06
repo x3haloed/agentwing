@@ -1230,3 +1230,16 @@ recipes with explicit parameters in future candidates. Thinking uses T1, p.95,
 k20, min_p.05, presence0, repetition1 and medium effort. Low effort is unsupported;
 budgets must be declared rather than silently restricting reasoning. Preserve
 AW-0064/65/66 negative and positive realizations and their immutable pins.
+
+## 2026-10-05 — Full Bonsai memory separates KV from other state
+
+AW-0068 verbose full-vision startup shows 512 MiB FP16 KV, 149.62 MiB recurrent
+state and separate language/vision compute reserves. Pressure1, no swap growth;
+startup peak RSS about 6.96 GiB is not inference peak or exclusive physical
+ownership. The default RAM prompt cache has an 8 GiB ceiling, not an observed
+8 GiB allocation. AW-0069 disables that optional archive cache while keeping
+8K active context and supported medium thinking, to inspect full refactor memory.
+TurboQuant/PolarQuant remains an explicit user-requested cache candidate; the
+pinned Prism binary does not advertise its codec. Do not label stock q4 KV as
+TurboQuant or infer weight compression from cache compression. The old Swiftlet
+KV estimate in docs/KV_MEMORY.md remains historical, not this runtime's account.
