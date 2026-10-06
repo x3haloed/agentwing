@@ -2428,3 +2428,19 @@ hashes under `/Users/chad/Models/agentwing/evidence/AW-0198`. Q8 keys alone
 did not reproduce the combined cache timeout for this input. F16-key/Turbo4
 arm remains live; pair unresolved. Retained diagnostic, no causal speed or
 uniform behavior claim, P1 frozen.
+
+### AW-0198 — value-only precision split exhausts native output budget
+
+Q8 K/F16 V completed1149.308 s/19,994 thinking characters with one valid
+bash proposal. F16 K/stationary Turbo4 V completed1770.350 s/31,611 thinking
+characters at8192 output cap, clean length/DONE, no proposal. Both strict
+protocols pass, but the value-only complete-proposal screen fails; this is
+not a timeout or malformed response. Host/capacity pass: pressure1/2, swap
+growth0/89.31 MiB, value-only minimum free153,374,420,992 bytes. Receipt
+`evidence/AW-0198-cache-split-terminal.json` pins external audit/raw hashes
+under `/Users/chad/Models/agentwing/evidence/AW-0198`. Supersedes unresolved
+split status. Value compression alone reproduces the proposal failure for
+this one history/budget; key-only does not. Reject present stationary Turbo4
+V for promotion, retain key-only as unqualified control/fallback, screen
+higher-fidelity V cheaply. No universal accuracy, causal speed or task-score
+claim; P1 frozen and full goal remains unproven.

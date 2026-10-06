@@ -1,0 +1,90 @@
+{
+  "experiment": "AW-0198",
+  "complete": true,
+  "rows": [
+    {
+      "arm": "q8-f16",
+      "result_sha256": "a21dde3bf38afcf5cb5cc03e8484ae6196549de944bbdd4a770f31d4d4e2e9f7",
+      "error": null,
+      "client_exit": 0,
+      "server_exit_after_cleanup": 0,
+      "host_passed": true,
+      "response": {
+        "events": 5535,
+        "completion_ids": [
+          "chatcmpl-xdQU9xzedUMLrIE7djv6W0ymkrUSFy5G"
+        ],
+        "finish_reasons": [
+          "tool_calls"
+        ],
+        "done": true,
+        "done_count": 1,
+        "thinking_characters": 19994,
+        "answer_characters": 0,
+        "errors": [],
+        "proposals": [
+          {
+            "index": 0,
+            "id": "n4lc3wwNw7c8atsl11vrosVBN3MQBq5m",
+            "name": "bash",
+            "valid_schema": true,
+            "classification": "valid-proposal",
+            "raw_arguments_sha256": "4cdcd0d855726140bd65bedea0c963c905db3e278e50ed15e84aaffeaf09a73e",
+            "executed": false,
+            "productive": null
+          }
+        ],
+        "terminal_protocol_passed": true,
+        "tools_executed": 0
+      },
+      "wall_seconds_diagnostic": 1149.3078695830045,
+      "host_trace_replay": {
+        "passed": true,
+        "pressure_peak": 1,
+        "swap_growth_mib": 0,
+        "sha256": "95f44ec7ce46e82c017c38228e8ca8ce2fe0e0457864e743447898d3d5a1200a"
+      },
+      "minimum_sampled_free_bytes": 196086878208,
+      "complete_tool_proposal_screen_passed": true
+    },
+    {
+      "arm": "f16-turbo",
+      "result_sha256": "289efe4ac8511c4cb84c80c9627cbf87a58b2a2be58fb604aa3fa9b38bbe9df2",
+      "error": null,
+      "client_exit": 0,
+      "server_exit_after_cleanup": 0,
+      "host_passed": true,
+      "response": {
+        "events": 8194,
+        "completion_ids": [
+          "chatcmpl-vRxoU31VJlDLEJmWnnMzDGeGReh88eXV"
+        ],
+        "finish_reasons": [
+          "length"
+        ],
+        "done": true,
+        "done_count": 1,
+        "thinking_characters": 31611,
+        "answer_characters": 0,
+        "errors": [],
+        "proposals": [],
+        "terminal_protocol_passed": true,
+        "tools_executed": 0
+      },
+      "wall_seconds_diagnostic": 1770.3496038750018,
+      "host_trace_replay": {
+        "passed": true,
+        "pressure_peak": 2,
+        "swap_growth_mib": 89.30999999999995,
+        "sha256": "18564637ba071317c013a6c5e9f9aa1b54abad33b9ab64ba898947f519c44f2e"
+      },
+      "minimum_sampled_free_bytes": 153374420992,
+      "complete_tool_proposal_screen_passed": false
+    }
+  ],
+  "plan_sha256": "08e4f76a9002befd383bbd33509a65208471a452b2ea7a05ea832976e006ba3d",
+  "auditor_sha256": "0991ef44f52472fc5ccaa1f7108dbf4d4309a3a2608577ce0e2d721218eac1a3",
+  "scope": "One full native request per cache arm; no proposal execution, task score, performance ratio or causal qualification",
+  "behavior_screen_passed": false,
+  "external_full_audit_sha256": "71fbcaf88db840ba96af5f8392752b6dc55264d1e4c49c52d446900fcabfc57b"
+}

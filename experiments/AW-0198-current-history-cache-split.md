@@ -1,6 +1,6 @@
 # AW-0198: Current-history key/value cache split
 
-Status: Q8-key/F16-value terminal and audited; F16-key/Turbo4-value live, pair unresolved.
+Status: both arms terminal; Q8/F16 proposal passes, F16/Turbo4 proposal screen fails. Retained diagnostic.
 
 Follow AW-0197's valid F16 and failed combined Q8 K/stationary Turbo4 V
 fixed-history screen. Change only cache precision for two fresh-server
@@ -36,3 +36,27 @@ hashes under `/Users/chad/Models/agentwing/evidence/AW-0198`.
 The other split arm remains live. Q8 keys alone did not reproduce the
 combined cache timeout for this one fixed request. Do not infer uniform
 identity/capability, endpoint utility or causal speed from this result.
+
+## Terminal split
+
+Q8 K/F16 V:1149.308 s,19,994 thinking characters, one valid bash proposal,
+terminal tool_calls/DONE. F16 K/stationary Turbo4 V:1770.350 s,31,611
+thinking characters, clean terminal length/DONE at8192 output tokens, no
+tool proposal. Neither executes tools or scores a task. The value-only
+arm is not a timeout or malformed wire response: protocol passes but the
+complete-tool-proposal behavior gate fails. No budget or reasoning waiver.
+
+Strict raw/hash/stream and independent host/capacity replay passed. Q8/F16
+pressure1/swap growth0; F16/Turbo4 pressure2/swap growth89.31 MiB/minimum
+free153,374,420,992 bytes. No live model owner remained after cleanup.
+Receipt: `evidence/AW-0198-cache-split-terminal.json`; full audit/raw hashes
+external under `/Users/chad/Models/agentwing/evidence/AW-0198`.
+
+Together with retained AW-0197, value compression alone reproduces failure
+to produce a complete proposal for this one seeded history/budget, while
+key compression alone does not. This is scoped configuration evidence, not
+a universal accuracy conclusion, causal speed ratio or autonomous utility.
+Reject stationary Turbo4 V for promotion in its present form. Retain Q8 K
+with F16 V as an unqualified fallback/control, and screen higher-fidelity
+compressed V cheaply before another cache integration. All fixed capability
+and replicated interleaved endpoint gates remain required; P1 frozen.
