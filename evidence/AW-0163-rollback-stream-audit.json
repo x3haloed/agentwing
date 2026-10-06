@@ -1,0 +1,35 @@
+{
+  "experiment": "AW-0163",
+  "status": "protocol-negative-fixtures-passed",
+  "scope": "Audit instrumentation regression evidence; no model execution, performance or task score change. Retrospective record; fixtures/rules written before test execution, no claimed preregistered model comparison. AW162 candidate/request/runner/profile remain frozen.",
+  "test_exit": 0,
+  "test_groups": 6,
+  "test_source_sha256": "e4125dbc30cc1293500145c86facc35fb76e7e45e1fd57bdc397181923c48e1b",
+  "auditor_sha256": "e3ea5b0fe0e411cf4f3d613c914f2ece71799f23a535bba997dbc8ea2a9ba584",
+  "historical_replays": [
+    {
+      "arm": "f16",
+      "raw_sha256": "3bf196a88b8620b6747f10db1156bf70cd3ec34c28570f69e3c16fb23ab16197",
+      "terminal_protocol_passed": true,
+      "errors": [],
+      "proposal_classes": [
+        "valid-proposal"
+      ]
+    },
+    {
+      "arm": "turbo",
+      "raw_sha256": "928139c33ab1d22339b75dae51831fd50cdac95d6302c8410138b25f468d8fe5",
+      "terminal_protocol_passed": false,
+      "errors": [],
+      "proposal_classes": [
+        "incomplete-proposal"
+      ]
+    }
+  ],
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0163",
+  "tests_log_sha256": "1e43b905e11ca028139fe5078016515111aaf7cebf8d6a3e224b7d03b9cb6ac9",
+  "python": "3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "rule_provenance": "RED_LINES.md protocol corruption rejection; preserve incomplete/malformed distinction.",
+  "disposition": "Retain stricter wire audit; historical AW149 conclusions and AW162 full request gates unchanged; no promotion."
+}

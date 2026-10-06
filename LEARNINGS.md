@@ -1975,3 +1975,14 @@ Separate full-vision rollback launcher verifies weights/binaries/patches/build
 receipt/banner; command matches admittedAW159 except verbosity, explicitmulticol
 and no active-default/P1 change. Retain experimental, no promotion. Rawexternal
 AW161 and evidence/AW-0161-rollback-final-case-terminal.json.
+
+
+### AW-0163 — strict wire audit covers ambiguous terminal/JSON cases
+
+Six public synthetic negative-fixture groups pass: duplicateDONE, late data,
+changing IDs, duplicate JSON keys/nonfinite arguments rejected; valid fragmented
+bash accepted, partial arguments remain incomplete. HistoricalAW149 FP16 valid /
+Turbo incomplete unchanged under replay. Audit-only, retrospective record,
+no candidate/request/runner/task/verifier/timeout/sampling change. AW162 still
+live, no terminal conclusion. Source/raw/test/OS/Python hashes in
+ evidence/AW-0163-rollback-stream-audit.json; externalAW163. No promotion.

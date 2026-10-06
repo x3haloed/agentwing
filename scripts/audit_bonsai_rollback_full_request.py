@@ -1,34 +1,51 @@
 #!/usr/bin/env python3
 """Independent AW-0162 full-request stream/hash audit; proposals never execute."""
-import argparse,json
+import argparse,json,math
 from pathlib import Path
 from run_local_agent import ROOT,digest
 R=Path('/Users/chad/Models/agentwing/evidence/AW-0162')
 
+def strict_json(data):
+ def constant(value):raise ValueError('Non-JSON constant: '+value)
+ def pairs(values):
+  result={}
+  for key,value in values:
+   if key in result:raise ValueError('Duplicate JSON key: '+key)
+   result[key]=value
+  return result
+ return json.loads(data,parse_constant=constant,object_pairs_hook=pairs)
+
 def stream(path):
- events=0;ids=set();finish=[];done=False;thinking=0;text=0;tools={};errors=[]
+ events=0;ids=set();finish=[];done=False;done_count=0;thinking=0;text=0;tools={};errors=[]
  for line in path.read_bytes().splitlines():
   if not line.startswith(b'data: '):continue
   data=line[6:].strip()
-  if data==b'[DONE]':done=True;continue
-  x=json.loads(data);events+=1
+  if data==b'[DONE]':done=True;done_count+=1;continue
+  if done:errors.append('data-after-DONE')
+  try:x=strict_json(data)
+  except ValueError as exc:errors.append(str(exc));continue
+  events+=1
   if x.get('id'):ids.add(x['id'])
   if x.get('error'):errors.append(x['error'])
   for choice in x.get('choices',[]):
+   if choice.get('index',0)!=0:errors.append('unexpected-choice-index')
    if choice.get('finish_reason') is not None:finish.append(choice['finish_reason'])
    delta=choice.get('delta',{});thinking+=len(delta.get('reasoning_content','') or '');text+=len(delta.get('content','') or '')
    for call in delta.get('tool_calls',[]):
     item=tools.setdefault(call['index'],{'id':'','name':'','arguments':''})
-    if call.get('id'):item['id']=call['id']
+    if call.get('type','function')!='function':errors.append('unexpected-tool-type')
+    if call.get('id'):
+     if item['id'] and item['id']!=call['id']:errors.append('tool-id-changed')
+     item['id']=call['id']
     fn=call.get('function',{});item['name']+=fn.get('name','');item['arguments']+=fn.get('arguments','')
  proposals=[]
  for index,item in sorted(tools.items()):
   parsed=None;valid=False
   try:
-   parsed=json.loads(item['arguments']);valid=item['name']=='bash' and isinstance(parsed,dict) and set(parsed)<={'command','timeout'} and isinstance(parsed.get('command'),str) and bool(parsed['command'].strip()) and ('timeout' not in parsed or isinstance(parsed['timeout'],(int,float)) and not isinstance(parsed['timeout'],bool))
+   parsed=strict_json(item['arguments']);valid=item['name']=='bash' and isinstance(parsed,dict) and set(parsed)<={'command','timeout'} and isinstance(parsed.get('command'),str) and bool(parsed['command'].strip()) and ('timeout' not in parsed or isinstance(parsed['timeout'],(int,float)) and not isinstance(parsed['timeout'],bool) and math.isfinite(parsed['timeout']))
   except (ValueError,TypeError):pass
-  proposals.append({'index':index,'id':item['id'],'name':item['name'],'valid_schema':valid,'arguments':parsed,'raw_arguments_sha256':__import__('hashlib').sha256(item['arguments'].encode()).hexdigest(),'executed':False,'productive':None})
- return {'events':events,'completion_ids':sorted(ids),'finish_reasons':finish,'done':done,'thinking_characters':thinking,'answer_characters':text,'errors':errors,'proposals':proposals,'terminal_protocol_passed':done and len(ids)==1 and len(finish)==1 and not errors and all(t['valid_schema'] and t['id'] for t in proposals) and len({t['id'] for t in proposals})==len(proposals) and finish[0] in ['stop','length','tool_calls'] and (finish[0]!='tool_calls' or bool(proposals)),'tools_executed':0}
+  proposals.append({'index':index,'id':item['id'],'name':item['name'],'valid_schema':valid,'arguments':parsed,'classification':'valid-proposal' if valid else 'malformed-proposal' if done else 'incomplete-proposal','raw_arguments_sha256':__import__('hashlib').sha256(item['arguments'].encode()).hexdigest(),'executed':False,'productive':None})
+ return {'events':events,'completion_ids':sorted(ids),'finish_reasons':finish,'done':done,'done_count':done_count,'thinking_characters':thinking,'answer_characters':text,'errors':errors,'proposals':proposals,'terminal_protocol_passed':done_count==1 and len(ids)==1 and len(finish)==1 and not errors and all(t['valid_schema'] and t['id'] for t in proposals) and len({t['id'] for t in proposals})==len(proposals) and finish[0] in ['stop','length','tool_calls'] and (finish[0]!='tool_calls' or bool(proposals)),'tools_executed':0}
 
 def audit(partial=False):
  plan=json.loads((R/'plan.json').read_text());assert digest(ROOT/'scripts/replay_bonsai_rollback_full_request.py')==plan['harness_sha256'];assert digest(ROOT/'spec/bonsai-turbo-rollback-local.json')==plan['runtime_spec_sha256']
