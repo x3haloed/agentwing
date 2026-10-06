@@ -1,0 +1,62 @@
+{
+  "experiment": "AW-0104",
+  "scope": "Static minimal-port integration/cost falsifier, no build or model runtime claim",
+  "atomic_revision": "074bf826e1b06005a51737d29387e36657f41bf7",
+  "prism_revision": "adfffbe41b2cabcd51fff326ab045662265062bb",
+  "atomic_locked_files_verified": true,
+  "atomic_header_sha256": "9e42362f1975769cdb8ca073e000f073f886f2af5b3d82f083828eddb04d2171",
+  "prism_header_sha256": "9a865c28b0fea8d0adaa3218ac3514bfcef3eb2f35f8e7c67bc7fac90586f5e6",
+  "enum_collision": {
+    "atomic_turbo2": 42,
+    "prism_q2": 42,
+    "preserve_prism_pq2": 142,
+    "preserve_prism_ptq1": 143,
+    "proposed_new_internal_ids": [
+      144,
+      145,
+      146
+    ],
+    "proposed_count": 147,
+    "implemented": false
+  },
+  "bonsai_full_attention": {
+    "query_heads": 24,
+    "kv_heads": 4,
+    "gqa_ratio": 6,
+    "key_dimension": 256,
+    "value_dimension": 256
+  },
+  "auto_asymmetric_default_applies": "Expected from declared24/4 heads if port preserves this upstream constructor policy; actual resolved hparams/cache types must be verified after build",
+  "packed_payload_mib_at_16k": [
+    {
+      "requested": "turbo2 K+V",
+      "effective": "q8_0 K + turbo2 V",
+      "symmetric_requested_mib": 136.0,
+      "default_effective_mib": 340.0,
+      "fp16_mib": 1024
+    },
+    {
+      "requested": "turbo3 K+V",
+      "effective": "q8_0 K + turbo3 V",
+      "symmetric_requested_mib": 200.0,
+      "default_effective_mib": 372.0,
+      "fp16_mib": 1024
+    },
+    {
+      "requested": "turbo4 K+V",
+      "effective": "q8_0 K + turbo4 V",
+      "symmetric_requested_mib": 272.0,
+      "default_effective_mib": 408.0,
+      "fp16_mib": 1024
+    }
+  ],
+  "excluded_costs": [
+    "alignment/rotation/installation/transient buffers",
+    "149.62MiB recurrent state and checkpoints",
+    "model and local vision weights",
+    "full agent wall"
+  ],
+  "disposition": "Reject verbatim port/enum reuse and symmetric default byte assumptions; retain explicit remapped asymmetric integration path for tests",
+  "algorithm_identity": "Practical Atomic WHT/Lloyd-Max implementation, not established complete Google PolarQuant+QJL equivalence",
+  "limitations": "No runtime has been built; effective cache resolution is a source-derived prediction, not an observed allocation"
+}

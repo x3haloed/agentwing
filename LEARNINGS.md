@@ -1553,3 +1553,12 @@ cat-A failure), two masked baseline test failures; long response5481tokens befor
 baseline test. Host1/swap growth0, no compaction/discard. Reject deadline/profile
 result without shortening reasoning or waiving completion; correct code alone
 cannot promote. Preserve original/P1 and frozen task/verifier/permissions/score.
+
+## AW-0104 — TurboQuant port must remap IDs and expose effective K policy
+
+Atomic Turbo2 enum42 conflicts with Prism Q2_0. Bonsai declares24/4 heads,
+matching the upstream ratio6 asymmetric precaution if preserved: q8 K plus
+Turbo2/3/4 V predicts340/372/408MiB at16K, rather than symmetric136/200/272.
+Actual resolved types/allocations need a build. Reject direct copy and optimistic
+symmetric-default cost claim; retain remapped asymmetric path for codec/real KV
+falsifiers. This is not full Google equivalence, quality or endpoint evidence.
