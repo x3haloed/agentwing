@@ -1423,3 +1423,11 @@ Tiny native operations on paired serialized samples complete for both formats
 projection/activation checks; no component speed or accumulated fidelity
 claim. Matrix is rearranged sampled blocks with synthetic inputs, not full
 agent inference. Runtime/header/library/fixture hashes preserved.
+
+## AW-0085 — Tiny native Metal agrees with independent CPU dot oracle
+
+Both packing paths pass a separate CPU-decode/math.fsum dot oracle on the
+AW-0084 tiny sampled-block matrix; relative L2 about 1.02e-6 PTQ and 1.48e-6
+PQ. Rotated-reference corruption is detected. Retain for real projection and
+actual activation checks; no speed, accumulation or full inference claim.
+This strengthens rather than replaces AW-0084 mutual-output evidence.

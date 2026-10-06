@@ -1,0 +1,38 @@
+{
+  "experiment": "AW-0085",
+  "passed": true,
+  "scope": "Tiny sampled-block matrix with synthetic inputs; independent compiled CPU decode plus double-precision fsum dot oracle, not real activations or performance",
+  "output_values_each_arm": 256,
+  "metrics": {
+    "ptq": {
+      "relative_l2": 1.0213862299268321e-06,
+      "maximum_absolute_difference": 7.15090749281444e-07
+    },
+    "pq": {
+      "relative_l2": 1.476787622480154e-06,
+      "maximum_absolute_difference": 6.184687890709029e-07
+    }
+  },
+  "threshold_relative_l2": 0.0001,
+  "threshold_scope": "Cheap component falsifier only, not broader fidelity authority",
+  "rotated_reference_mutation_relative_l2": 1.4890663905283703,
+  "rotated_reference_mutation_rejected": true,
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0085",
+  "external_files": {
+    "outputs.bin": "9d871131e8e501cbe06423dfb359902ecaac62bd755a22e301cbd1125569b296",
+    "native-metal.log": "d906c5b13da96dc47e6e00c693389899d09d5d9b36ae580b4c27b0315374ca38",
+    "native-result.json": "e2444af628b83bbf394cdeea35ed308a45cc7041468ee86e011a2ea60b34ad6b",
+    "packing-metal-oracle": "b623895982e8afd393a0bbeb0c00b3d85e913465da9acb53faf6f94ab8e2ba17"
+  },
+  "native_command": [
+    "/Users/chad/Models/agentwing/evidence/AW-0085/packing-metal-oracle",
+    "/Users/chad/Models/agentwing/evidence/AW-0084/ptq-fixture.bin",
+    "/Users/chad/Models/agentwing/evidence/AW-0084/pq-fixture.bin",
+    "/Users/chad/Models/agentwing/evidence/AW-0085/outputs.bin"
+  ],
+  "script_sha256": "a69436166e18eb1ab28549133ae5c1b0c7ebd4e6c0a2e5a2aea9e9f5432b72b1",
+  "native_source_sha256": "27c3728fd9db03ab6ef717bda3eb49595d9a2761f4507b0f82d7c7d5c0f6d4b6",
+  "runtime_provenance": "AW84 unchanged pinned native libraries/headers; AW82 compiled CPU decoder hash verified",
+  "fixture_provenance": "AW84 original fixture receipt verified; AW83 pinned model sampled blocks",
+  "disposition": "Retained for real projection/activation checks and complete cost measurements; no promotion"
+}
