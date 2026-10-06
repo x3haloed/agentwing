@@ -33,3 +33,10 @@ finite, host gates replayed. Full four-checkpoint verdict remains pending; the
 ongoing arm is1024-chunk Turbo. These are diagnostic results, not endpoint rates.
 Auditor: scripts/audit_bonsai_accumulated_cache_replay.py --partial; interim raw
 audit outside Git at external AW-0148/partial-audit.json.
+
+Second1024-chunk pair also passes provisional numeric gates:2210 identical
+input tokens, first-row L2 .0416344 and top20 overlap .95. Own32 sampled IDs
+match at25 positions; common prefix reported by updated auditor to distinguish
+shared history from later coincidental matches. Longer4096/7695 pairs pending.
+This weakens any extrapolation of short-prompt token identity to general behavior;
+no endpoint/general-quality acceptance or causal timeout attribution.

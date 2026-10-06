@@ -47,7 +47,8 @@ def audit(partial=False):
   x=a['logits'][0].astype(np.float64);y=b['logits'][0].astype(np.float64)
   relative=float(np.linalg.norm(y-x)/max(np.linalg.norm(x),1e-30))
   topa=set(np.argsort(x,kind='stable')[-20:].tolist());topb=set(np.argsort(y,kind='stable')[-20:].tolist());overlap=len(topa&topb)/20
-  pairs.append({'position_chunks':position,'prompt_tokens':a['prompt_tokens'],'first_row_relative_l2':relative,'first_row_top20_overlap':overlap,'numeric_gate_passed':relative<=.10 and overlap>=.50,'own32_token_matches':sum(x==y for x,y in zip(a['tokens'],b['tokens'])),'own_trajectory_scope':'Descriptive only; later logits have potentially different inputs','arm_result_sha256':{arm:digest(verified[(position,arm)]['directory']/'result.json') for arm in ['f16','turbo']}})
+  common_prefix=next((i for i,(u,v) in enumerate(zip(a['tokens'],b['tokens'])) if u!=v),32)
+  pairs.append({'own32_common_token_prefix':common_prefix,'position_chunks':position,'prompt_tokens':a['prompt_tokens'],'first_row_relative_l2':relative,'first_row_top20_overlap':overlap,'numeric_gate_passed':relative<=.10 and overlap>=.50,'own32_token_matches':sum(x==y for x,y in zip(a['tokens'],b['tokens'])),'own_trajectory_scope':'Descriptive only; later logits have potentially different inputs','arm_result_sha256':{arm:digest(verified[(position,arm)]['directory']/'result.json') for arm in ['f16','turbo']}})
  complete=len(verified)==8
  return {'experiment':'AW-0148','complete':complete,'passed':complete and len(pairs)==4 and all(p['numeric_gate_passed'] for p in pairs),'verified_arms':len(verified),'pairs':pairs,'plan_sha256':digest(R/'plan.json'),'auditor_sha256':digest(Path(__file__)),'scope':'Provisional identical-prefix numeric falsifier, not endpoint/general-quality qualification'}
 
