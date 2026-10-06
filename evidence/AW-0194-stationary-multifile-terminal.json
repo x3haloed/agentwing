@@ -1,0 +1,63 @@
+{
+  "audit_passed": true,
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0194/20261006T170250.455912Z",
+  "raw_receipt_sha256": "c7e078dbcf25a66208879d707ddc8cedc3456e70bb017a02fc33883968fa1b6b",
+  "plan_sha256": "90b2d7c85f9060fb0a7bc61d49f3a6673709ecc74ed0e00b6853bdbe15249cc3",
+  "complete_selection": false,
+  "all_selected_tasks_passed": false,
+  "screen_passed": false,
+  "utility": 0,
+  "wall_seconds": 1813.8902280830007,
+  "diagnostic_utility_per_hour": 0.0,
+  "unattempted": [],
+  "error": "stopped-timeout",
+  "tasks": [
+    {
+      "original_test_file_integrity": {
+        "test_ledger.py": true
+      },
+      "task_id": "dev-multi-file",
+      "utility": 0,
+      "grade_replay_matches": true,
+      "protocol_passed": false,
+      "host_passed": true,
+      "full_wall_seconds": 1805.9994281250038,
+      "pressure_peak": 2,
+      "swap_growth_peak_mib": 37.690000000000055,
+      "tool_accounting": {
+        "attempted": 3,
+        "valid": 3,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "ls -la /Users/chad/Models/agentwing/active/workspace && cat /Users/chad/Models/agentwing/active/workspace/README.md",
+        "find /Users/chad/Models/agentwing/active/workspace/ledger -type f | head -50 && echo --- && cat /Users/chad/Models/agentwing/active/workspace/test_ledger.py",
+        "for f in ledger/__init__.py ledger/api.py ledger/cli.py ledger/store.py; do echo \"===$f==\"; cat \"$f\"; echo; done"
+      ]
+    }
+  ],
+  "supplemental_original_tests_unchanged": true,
+  "scope": "Previously exposed fixed dev-multi-file falsifier with q8-K/Turbo4-V compressed cache, stationary codebook and native non-speculative decode at16K/8192 medium; unchanged task/verifier/deadline/tool permissions/scoring, no heldout/interleaved P1 claim",
+  "accounting_limit": "Summary timing excludes final recursive receipt creation; not promotion accounting.",
+  "reviewed_tool_accounting": {
+    "attempted": 3,
+    "valid": 3,
+    "productive": 3,
+    "redundant": 0,
+    "malformed": 0,
+    "denied": 0,
+    "failed": 0,
+    "basis": "Three distinct successful reads establish repository overview, task tests, and implementation files. Fourth request never emitted an executable tool call."
+  },
+  "fourth_request": {
+    "terminal": false,
+    "thinking_characters": 27697,
+    "last_delta_type": "thinking_delta",
+    "source_files_changed": false
+  },
+  "external_audit_sha256": "7e5073ff62b28a22781cdf48a72911b95e28d34bffd3c0d738fee07d0f3869dd"
+}

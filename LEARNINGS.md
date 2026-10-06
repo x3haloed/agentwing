@@ -2337,3 +2337,17 @@ receipt `evidence/AW-0193-stationary-full-request-terminal.json` pins
 external raw/audit hashes under `/Users/chad/Models/agentwing/evidence/AW-0193`.
 This supersedes the partial pair status; retained experimental, P1 frozen.
 AW-0194's full-request prerequisite is now satisfied.
+
+### AW-0194 — stationary-cache multi-file endpoint falsifier still fails
+
+The full fixed dev-multi-file task timed out: utility0, diagnostic wall
+1813.890 s/task wall1805.999 s. Sources/tests unchanged; three successful
+valid productive reads, no redundant/malformed/denied/failed calls. Fourth
+request remained nonterminal after27,697 thinking characters, so protocol
+admission failed. Independent hash/corpus/verifier audit confirms failure;
+host gates passed (pressure2/swap growth37.69 MiB). Receipt
+`evidence/AW-0194-stationary-multifile-terminal.json` pins external raw/audit
+hashes under `/Users/chad/Models/agentwing/evidence/AW-0194`. Rejected for
+promotion, retained negative control; P1 frozen. This supersedes any inference
+that AW-0193's isolated valid proposal implied task completion. Preserve
+that narrower functional result; no timeout, reasoning or scoring waiver.
