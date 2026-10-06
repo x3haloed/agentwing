@@ -1618,3 +1618,12 @@ CPU aggregate-then-inverse reproduces per-row reconstructed attention within
 by1.41–1.43 relative L2 and is detected. Retain bookend with stronger weighted
 aggregate evidence. Attention itself remains CPU; no compressed GPU/cache
 integration, compressed trajectory or endpoint qualification yet.
+
+## AW-0114/AW-0115 — Runtime compiler exposes complete Turbo attention library
+
+Offline xcrun Metal path fails because Metal Toolchain component is absent;
+preserve AW-0114, no installation required. Complete pinned Atomic Metal source
+with embedded unchanged headers compiles via runtime Metal3.0 on Apple M1,
+976functions including both256/256 q8-K/Turbo3/4-V vec attention kernels and WHT.
+Retain available compilation path for dispatch/oracle tests. Presence does not
+prove specialized dispatch, correctness, runtime cache integration or performance.

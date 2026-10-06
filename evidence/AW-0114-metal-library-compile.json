@@ -1,0 +1,39 @@
+{
+  "experiment": "AW-0114",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0114",
+  "result": {
+    "experiment": "AW-0114",
+    "exit": 1,
+    "passed": false,
+    "log_sha256": "89b399788c3fe43373dc237205a99106a2cdb97aa7565465bddb133346329425",
+    "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0114",
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n"
+  },
+  "files": {
+    "plan.json": {
+      "bytes": 896,
+      "sha256": "d9c1c203c957ab7e0db10d5cf26b5acd0b571aa047c9d01f5179898470fffa3f"
+    },
+    "result.json": {
+      "bytes": 305,
+      "sha256": "a5bf3be08b0d964584c0ff1a3b6409444a40d80e847b9c7105a613e5f52c16e1"
+    },
+    "ggml-metal.metal": {
+      "bytes": 647080,
+      "sha256": "0c7c8538c238e762cfa40c241a2e77a869dcc05a79963b7515b32eb05b367540"
+    },
+    "compile.log": {
+      "bytes": 124,
+      "sha256": "89b399788c3fe43373dc237205a99106a2cdb97aa7565465bddb133346329425"
+    },
+    "ggml-common.h": {
+      "bytes": 140430,
+      "sha256": "dc80af53fc4571b4d066e3a62559bc22ba5a13e8db37196aedc15a20fa177bea"
+    },
+    "ggml-metal-impl.h": {
+      "bytes": 27202,
+      "sha256": "5ab2a7d636ae11cdc8e8281759af94f80a50766e4f800e6917e8623f20b65263"
+    }
+  },
+  "limitations": "Compile-only, no compressed GPU attention dispatch, correctness, cache integration, quality or performance claim. No model inference or harness tasks. Source authority preserved in AW114 plan; AW115 embeds headers without modifying arithmetic."
+}

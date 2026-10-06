@@ -1,0 +1,43 @@
+{
+  "experiment": "AW-0115",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0115",
+  "result": {
+    "experiment": "AW-0115",
+    "exit": 0,
+    "passed": true,
+    "stdout": "{\"device\":\"Apple M1\",\"required_functions\":[\"kernel_flash_attn_ext_vec_kq8_0_vturbo3_dk256_dv256\",\"kernel_flash_attn_ext_vec_kq8_0_vturbo4_dk256_dv256\",\"kernel_turbo_wht\"],\"function_count\":976}\n",
+    "stderr": "",
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n"
+  },
+  "files": {
+    "plan.json": {
+      "bytes": 851,
+      "sha256": "c4ab830e791eac3fd7d917eba0d8e0251663086826ea900523075ff008460ef1"
+    },
+    "result.json": {
+      "bytes": 388,
+      "sha256": "7d540ced23fa14ebf1d055b8d7a4e8687066c38c9fdc2e98a048e72d7400f220"
+    },
+    "embedded.metal": {
+      "bytes": 814660,
+      "sha256": "ddca53c082558481ad182d944a029e9e907cdb9c77ddf744eb52567a71d5badd"
+    },
+    "swift-compile.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "compile-library": {
+      "bytes": 57088,
+      "sha256": "ac72803c85b1f5ee14c2bee90567cccac951bff3c80f554240244973e2a33236"
+    },
+    "turbo-metal-library.swift": {
+      "bytes": 695,
+      "sha256": "cc1ee3fa854720b74fee3718a4adf5d4a5eca52f12b70a04a70a7de7a1e9a3ad"
+    },
+    "runtime-compile.log": {
+      "bytes": 193,
+      "sha256": "450a95a108ee7b6a9c1e0a9dad76fc6e9d9a8bfeb9e6098944ad25e63fb7e58e"
+    }
+  },
+  "limitations": "Compile-only, no compressed GPU attention dispatch, correctness, cache integration, quality or performance claim. No model inference or harness tasks. Source authority preserved in AW114 plan; AW115 embeds headers without modifying arithmetic."
+}
