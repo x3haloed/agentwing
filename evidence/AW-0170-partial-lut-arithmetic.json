@@ -1,0 +1,19 @@
+{
+  "experiment": "AW-0170",
+  "passed": true,
+  "cases": 81,
+  "max_candidate_control_relative_L2": 7.632790080320604e-06,
+  "max_candidate_reference_relative_L2": 1.0468762913887398e-07,
+  "max_control_reference_relative_L2": 7.633418023431845e-06,
+  "scratch_bytes_at_17408": 470016,
+  "weight_bytes_changed": 0,
+  "table_f32_values_per_block": 864,
+  "old_floor_terms_per_block_per_output_row": 136,
+  "remaining_qh_floor_terms_per_block_per_output_row": 16,
+  "limitations": "Lookup trades arithmetic for gathered reads and table-build work. Cache hit rate, construction, allocation liveness, real row/scales, GPU numerical fidelity and complete execution cost unknown. Only single-vector candidate; do not allocate per-prefill column.",
+  "plan_sha256": "ddf5d626450ecdef7c6fabaf3f79f9db3c9a68bb20b3339b75175a5fd0c98f9d",
+  "arithmetic_sha256": "724a5efcdbee419bb9a8046f37e3d2221134beaa3f007cd974791ec37a730fc3",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0170",
+  "report_sha256": "47107b911a32aa82216638606b40efccf806565b6f2655fb646b19c925c455af",
+  "disposition": "Retain F32 arithmetic/scratch result only; GPU complete cost tested separately in AW171."
+}

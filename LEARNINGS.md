@@ -2061,3 +2061,16 @@ growth0. Reject full256-entry table form before integration; bottleneck not
 proven. Screen smaller partial-code tables at identical precision/gates first.
 P1/runtime/default unchanged. RawexternalAW169, hashes in
  evidence/AW-0169-row4-lut-screen.json. No endpoint claim/promotion.
+
+
+### AW-0170/AW-0171 — partial F32 tables preserve math, still reject GPU cost
+
+Exact all256byte-code27+9 split,81 captured activation blocks pass CPU gates;
+459KiB scratch at17408, unchanged weights/activation precision. Full real GPU
+matrix ABBA numericrelativeL2 1.63418e-6 passes, but complete build/multiply /
+readback4.621/4.812ms versus native1.081/1.125ms (~4.3x component cost). Raw /
+output/timing replay valid, host1/growth0. Reject current partial implementation
+before integration; phase bottleneck unknown, instrument before more redesign.
+No endpoint/cross-variant causal claim; P1/runtime/default intact. Rawexternal
+AW170/AW171, hashes in evidence/AW-0170-partial-lut-arithmetic.json and
+ evidence/AW-0171-partial-metal-lut-screen.json. No promotion.
