@@ -2560,3 +2560,13 @@ partialhash/shape/host/capacityaudit verifies3terminalarms total. Pressure1,
 swapgrowth0. Receipt `evidence/AW-0209-turbo6-middle-candidate-partial.json`
 pins externalAW209raw/partialaudit. MatchingmiddleF16control live; middle
 numericpair/fullcampaign unresolved, no causal timing orendpointclaim.
+
+### AW-0209 — middle fullmodel pair passes provisional numeric gate
+
+Freshmiddle5282tokenpair firstlogitL2.00385631/top20overlap.95 passes;
+all32finiteownrows/384captures andraw/host/capacityauditvalid. Bothpressure1,
+swapgrowth0. FreshF16middlefull32logits/prompt/generatedbytes identicalAW190
+control. Own32commonprefix0/matches0; notoutputequivalence orbehaviorquality.
+Receipt `evidence/AW-0209-turbo6-middle-pair-partial.json` pins externalAW209
+raw/audit. Supersedes middlepairedstatus; lateF16control live, complete
+campaignunresolved. No causal timing/vision/tool/endpointclaim, P1unchanged.
