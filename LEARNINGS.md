@@ -1349,3 +1349,13 @@ work here but does not establish a competitive endpoint. Retain candidate only.
 AW77 screens frozen P1 contemporaneously on same exposed task/prompt/workspace/
 verifier/deadline before expensive repeat panels. Native profiles differ; no
 matched/interleaved/model-only gain claim. All capability/performance gates remain.
+
+## 2026-10-05 — Frozen P1 exposed debugging realization fails before edit
+
+AW77 independent raw/source/protocol/grade replay confirms zero utility in620.859s.
+Five productive valid source/test calls, then sixth generated tool payload rejected
+as incomplete after prose/code, Pi error; unchanged iterator behavior fails grader.
+Pressure1/swap growth0. No normalizer salvage succeeded; preserve rejected output
+and frozen control, not a model-only or infinite-ratio promotion claim. AW76's
+valid larger-capacity success warrants AW78 full original revalidation, not
+qualification. All later capability,held-out,matched policy and endpoint gates open.

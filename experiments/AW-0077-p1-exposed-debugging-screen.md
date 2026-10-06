@@ -1,6 +1,6 @@
 # AW-0077 — Frozen P1 on exposed debugging, cheap work-rate falsifier
 
-Running, 2026-10-05. Diagnostic only, not a promotion comparison.
+Completed failed control realization, 2026-10-05. Diagnostic only, not a promotion comparison.
 
 AW76 larger-capacity Bonsai solves exposed debugging in19.76min. Before expensive
 full revalidation, screen the same task through exact frozen P1 binary/config,
@@ -24,3 +24,15 @@ causal model-only, matched-sampler, utility-ratio or>=25% qualification claim.
 A promising screen still requires every original/development/held-out capability
 gate and two full interleaved pairs with all overhead. A negative result does not
 complete the goal; it guides further runtime/harness/representation work.
+
+Independent receipt, source snapshot, protocol and grade replay passes as an
+audit of failure: utility0, full diagnostic620.859s. Five valid productive source/
+test calls, one expected failing-test return, followed by one additional rejected
+model tool generation. No implementation edit; independent iterator test fails.
+Model generated a prose explanation and incomplete XML/code tool payload; Swiftlet
+rejects it and Pi records an error. No declared normalization/salvage succeeded.
+Six requests,725 generated tokens,305.4s reported aggregate TTFT; component
+evidence only. Pressure1,swap growth0,all owned processes stop.
+Audit: `evidence/AW-0077-terminal-audit.json`. This does not prove P1 cannot solve
+the task generally or qualify Bonsai via a zero denominator. Retain frozen P1
+unchanged; larger-capacity Bonsai proceeds to full original revalidation (AW78).

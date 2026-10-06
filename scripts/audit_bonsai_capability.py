@@ -24,6 +24,8 @@ def audit(run):
     SUITE=EXPANDED_SUITE if expanded else ORIGINAL_SUITE
     verify=verify_expanded if expanded else verify_original
     check_protocol=protocol
+    if not expanded and plan.get('protocol_version')=='bounded-bash-v2':
+        from run_bonsai_budget_debugging_v2 import protocol as check_protocol
     if expanded:
         if plan['suite_kind']=='p2-development-falsifier':
             if plan.get('protocol_version')=='bounded-bash-v2':

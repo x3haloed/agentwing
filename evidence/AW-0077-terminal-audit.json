@@ -1,0 +1,54 @@
+{
+  "audit_passed": true,
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0077/20261006T050252.191462Z",
+  "receipt_sha256": "38f5165d30db926276c199106a73c7c88692f5cf28b023511d4baad4491ee4d7",
+  "independent_grade_protocol_source_replay": true,
+  "utility": 0,
+  "wall_seconds": 620.8591289579999,
+  "execution": {
+    "status": "model-error-or-empty-transcript",
+    "error": null,
+    "pi_exit": 0,
+    "wall_seconds": 620.4972338749994,
+    "verified_utility": null,
+    "scope": "User task, not scored benchmark. Inspect artifacts and independently validate.",
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0.0,
+    "server_pid": 65459,
+    "client_pid": 65510
+  },
+  "protocol": {
+    "passed": false,
+    "checks": {
+      "events_nonempty": true,
+      "paired_unique_tool_events": true,
+      "bash_schema_valid": true,
+      "no_model_error": false,
+      "no_server_tool_rejection": false,
+      "fresh_model_state": true,
+      "unique_requests": true,
+      "terminal_metric": true,
+      "no_explicit_authority_access": true
+    },
+    "tool_calls": 5,
+    "failed_tool_calls": 1,
+    "repeated_command_occurrences": 0,
+    "productivity_classification": "not inferred from command success; full transcript retained for separate review",
+    "request_count": 6,
+    "new_prompt_tokens": 1172,
+    "generated_tokens": 725,
+    "reported_ttft_seconds": 305.4,
+    "declared_normalizations": 0,
+    "declared_salvages": 0
+  },
+  "tool_accounting": {
+    "executed_attempts": 5,
+    "valid": 5,
+    "productive": 5,
+    "redundant": 0,
+    "failed_returns": 1,
+    "additional_server_rejected_generation": 1,
+    "note": "Five source/test calls; baseline failing test informative. Sixth model request rejected before a parsed executable call exists; not lost from accounting."
+  },
+  "limits": "Native profiles differ; unpaired/cache/order uncontrolled; rejected tool output and unchanged artifact preserve a control failure, not matched performance or model-only attribution."
+}
