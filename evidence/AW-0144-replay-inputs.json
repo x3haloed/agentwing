@@ -1,0 +1,32 @@
+{
+  "experiment": "AW-0144",
+  "status": "inputs-prepared-not-executed",
+  "source_raw_receipt_sha256": "4c4ae530083fe9b34eb1ff5227dab315d5b3af71a7054019446d4f886ecebebf",
+  "source_evidence": "/Users/chad/Models/agentwing/evidence/AW-0141/20261006T095302.957259Z",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0144",
+  "preparer_sha256": "9d67bd9676bf39ff0a827457f00f642b845e7cd99e796509d8bafdc6388a2cc9",
+  "preceding_two_rendered_prefixes_reconstructed_byte_exact": true,
+  "inputs": {
+    "prefix-0-chunks.txt": {
+      "sha256": "9f0d9a9f8c6fddc2e29efcfcdd7dc72b87853e11ff65d4bddf17fa4c2270c415",
+      "bytes": 4734,
+      "thinking_chunks": 0
+    },
+    "prefix-1024-chunks.txt": {
+      "sha256": "794ea2284211ded83ffa90aae644a5da97be3b3fb65ebcf676c36f89553e72c2",
+      "bytes": 8887,
+      "thinking_chunks": 1024
+    },
+    "prefix-4096-chunks.txt": {
+      "sha256": "9fb0bc9a7adbd4d7389832c7624b69c696cc11cf0dd0d9be5348075863b2128b",
+      "bytes": 21083,
+      "thinking_chunks": 4096
+    },
+    "prefix-7695-chunks.txt": {
+      "sha256": "a14bd2744b7046a07ab2e1380eafe5ba624e31906a8e3a8043b258074d617c65",
+      "bytes": 34856,
+      "thinking_chunks": 7695
+    }
+  },
+  "scope": "Frozen candidate-generated accumulated-prefix inputs, no new inference. Chunk positions are not claimed token positions. Fourth prefix is serializer reconstruction, not directly captured full rendered request; live rendering equivalence remains required before fidelity inference."
+}
