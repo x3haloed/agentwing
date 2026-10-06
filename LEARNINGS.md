@@ -2229,3 +2229,14 @@ preserved; unchanged transform copied into test helper. Retain CPU survivor,
 not nativeGPU speed/modelbehavior/vision/tool/endpoint or Googlefull claim.
 P1/runtime/default unchanged. ExternalAW185, pins
 evidence/AW-0185-actual-codebook-screen.json.
+
+
+### AW-0186 — isolated table build and CPU parity pass
+
+Coordinated CPU/Metal16centroid/cut/half/magnitude literals only, same68byte
+4bit/rotation/normcorrection. Native269step build and3531file source identity
+(two changedfiles) pass. CPU packedbytes/decodedvectors bitexact AW185 across
+1152actual early/mid/late blocks. Retain build/CPU integrity, not GPU runtime
+compilation/cost/own-model/vision/tools/endpoints. Oldcache semantics stay with
+oldruntime, no deployed/profile/P1 change. Next native GPU screens; external
+AW186, pins evidence/AW-0186-stationary-codebook-build.json.
