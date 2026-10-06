@@ -69,3 +69,18 @@ calls. Row/raw-log hashes and replay are in
 `evidence/AW-0080-navigation-replay.json`. Debugging remains live; no full
 selection or comparative-rate claim. Early narrow-capacity navigation success
 remains preserved; this result alone does not attribute timing to capacity.
+
+## Debugging completed and replayed
+
+Independent authority grade and safe protocol replay pass at 1477.487s,
+pressure 1, swap growth 0 MiB. Ten valid calls, two failed terminal returns.
+Generated tests exposed a tuple-format ValueError construction bug and a
+list-versus-tuple snapshot assertion; both corrected. Unsupported BSD sed
+usage required recovery. A later invalid tuple checklist raised TypeError
+before its iterator check, masked by shell continuation; a corrected later
+checklist explicitly exercised iterator input. Original public test methods
+preserved (AST comparison), suite extended to 17 methods. Independent
+authority unchanged and passing. Row/raw hashes and limitations are retained
+in `evidence/AW-0080-debugging-replay.json`. The first replay helper command
+had a generator-parenthesization syntax error, corrected before any verifier
+ran. Multi-file task now live. No full capability or comparative claim.

@@ -1,0 +1,40 @@
+{
+  "scope": "Completed debugging row replay within ongoing AW80; no terminal run receipt or broader success implied",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0080/20261006T053829.945708Z",
+  "task_id": "dev-debugging",
+  "scored_result_sha256": "77943c27bc60e264c9c71f18c492226150ec3cbdff6f2caeb11a64cd375c68e9",
+  "grade_replay_matches": true,
+  "protocol_replay_matches": true,
+  "utility": 1,
+  "full_wall_seconds": 1477.4866962919987,
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0.0,
+  "tool_accounting": {
+    "attempted": 10,
+    "valid": 10,
+    "productive": null,
+    "redundant": null,
+    "malformed": 0,
+    "denied": null,
+    "failed": 2
+  },
+  "raw_logs": {
+    "pi.jsonl": "787cfdcfdfdd3464bf5cb07d61bfec0a672fdd503b381add04e33652ff4d5ca2",
+    "server.log": "6ab117cc5b232d3c17fa5fc0000f14d952a876b2ebda69ae49009b671f98ab77",
+    "pressure.tsv": "6e05eb2b9b626eefb08bac29c09e3c16c75ff038f59023dcc4253e65c43fcedb"
+  },
+  "original_public_methods_preserved": {
+    "test_contained": true,
+    "test_touching": true
+  },
+  "original_public_method_count": 2,
+  "candidate_public_method_count": 17,
+  "manual_tool_notes": [
+    "Ten valid calls; two failed terminal returns preserved.",
+    "Baseline unittest failure was piped through tail and is diagnostic, not a passing test.",
+    "Added tests exposed a tuple-format ValueError construction bug and a list-versus-tuple snapshot assertion; source and tests subsequently corrected.",
+    "BSD sed without backup suffix did not apply intended edits; later rewrite and sed -i.bak recovered.",
+    "A later checklist passed an invalid tuple argument, raising TypeError before an iterator check; shell continuation masked that Python failure. A subsequent corrected checklist explicitly exercised iterator input.",
+    "Final independent authority grade passes; original public test methods are preserved and tests expanded to17. Supplementary generated tests alone are not acceptance authority."
+  ]
+}
