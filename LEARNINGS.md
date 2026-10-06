@@ -2263,3 +2263,15 @@ speedup assertion; AW187 shortcostfailure/coldcompile preserved. Retain writer
 nonmaterial-cost/integrity survivor for attentionconsumer screen, not model /
 vision/tool/endpoint promotion. P1/default/runtime unchanged. ExternalAW188,
 pins evidence/AW-0188-codebook-writer-long-screen.json.
+
+
+### AW-0189 — Metal-written stationary V preserves attention gain without costgate failure
+
+48actual early/mid/late Kf16orq8/Turbo4V decode/blockshape runs pass ownpacked
+float64oracleL2<=.005 and all24candidate errors lower than control. All24
+ABBAcostratios .924–1.063<=1.10, no speedup claim. WriterbytesfromactualMetal,
+fullattention+inverse/readback measured in16repeatwindows. Raw/numeric/cost /
+pipeline/host replay valid, host1/growth0. Retain primitive survivor; no fresh
+modelowntrajectory/vision/tools/endpoints yet. P1/default/runtime unchanged,
+AW187failure retained. ExternalAW189, pins
+evidence/AW-0189-codebook-metal-attention.json.
