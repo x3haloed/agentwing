@@ -1,0 +1,111 @@
+{
+  "experiment": "AW-0213",
+  "status": "firstfullreplicate independentlypasses; oppositeimagereplicate live, overalladmissionpending",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0213",
+  "partial_audit": {
+    "experiment": "AW-0213",
+    "complete": false,
+    "passed": false,
+    "plan_sha256": "56007e50f07efd89c1d7f898709ce07afbbab7e7bc053c8cc2efb57d1a60151d",
+    "records": [
+      {
+        "replicate": 0,
+        "run": "/Users/chad/Models/agentwing/evidence/AW-0213/20261006T210645Z-rep0",
+        "result_sha256": "a30980b839b5a97c70b08d6ecadfc3655abf046dfd0e432c3beb78a2effad940",
+        "wall_seconds": 164.38855345800403,
+        "pressure_peak": 1,
+        "swap_growth_peak_mib": 0.0,
+        "minimum_free_bytes": 241104678912,
+        "vision_colors": [
+          "red",
+          "blue"
+        ],
+        "native_tool_accounting": {
+          "attempted": 1,
+          "valid": 1,
+          "productive": 1,
+          "redundant": 0,
+          "malformed": 0,
+          "denied": 0,
+          "failed": 0
+        },
+        "reviewed_pi_tool_accounting": {
+          "attempted": 3,
+          "valid": 3,
+          "productive": 3,
+          "redundant": 0,
+          "malformed": 0,
+          "denied": 0,
+          "failed": 0,
+          "basis": "Readidentifiescontent; hexestablishesnewline; copy+hash+cmp writesandverifies exactartifact."
+        },
+        "pi_protocol": {
+          "passed": true,
+          "checks": {
+            "events_nonempty": true,
+            "paired_unique_calls": true,
+            "bash_schema_valid": true,
+            "no_model_errors": true,
+            "fresh_model_load": true,
+            "serialized_unique_requests": true,
+            "all_requests_terminal": true,
+            "server_cleanup": true,
+            "no_context_shift": true,
+            "no_compaction": true,
+            "no_explicit_authority_access": true
+          },
+          "tool_accounting": {
+            "attempted": 3,
+            "valid": 3,
+            "productive": null,
+            "redundant": null,
+            "malformed": 0,
+            "denied": null,
+            "failed": 0
+          },
+          "commands": [
+            "cat source.txt",
+            "xxd source.txt",
+            "cp source.txt answer.txt && sha256sum source.txt answer.txt && cmp source.txt answer.txt && echo \"FILES MATCH EXACTLY\""
+          ],
+          "request_count": 8,
+          "classification": "Productivity, redundancy and denial need separate transcript review; raw events retained."
+        },
+        "pi_commands": [
+          "cat source.txt",
+          "xxd source.txt",
+          "cp source.txt answer.txt && sha256sum source.txt answer.txt && cmp source.txt answer.txt && echo \"FILES MATCH EXACTLY\""
+        ],
+        "artifact_sha256": "ef7ed79210aa09cc535897ecd1e8d1a4e9d24d774725aa91ef9b399b7addffd7"
+      }
+    ],
+    "auditor_sha256": "223201143eca565568bb1d96283175d44033bb34f6714778b3e6e4824394a766",
+    "tool_review_sha256": "b2d15c4c87d52fb78da45e59099ca6cc2e6549c63cac6682b89fe03e07296b0a",
+    "canonical_protocol_sha256": "5c8f841caffeb8b94dd2e3c09705c3086a6f146712a46361d851edaf37332647",
+    "scope": "Fullmultimodal/toolfunctionaladmission only, no fixedcorpus endpoint/utility claim"
+  },
+  "partial_audit_sha256": "d378502b92f0542ad4ad03d74186a55a53e985a128c0dd4c0385f2c087001c59",
+  "review_snapshot": {
+    "0": {
+      "commands": [
+        "cat source.txt",
+        "xxd source.txt",
+        "cp source.txt answer.txt && sha256sum source.txt answer.txt && cmp source.txt answer.txt && echo \"FILES MATCH EXACTLY\""
+      ],
+      "pi_jsonl_sha256": "37244eb1e98d44acccd5c7f5fedd353a114990cd80941e65dfdd1434331ac781",
+      "accounting": {
+        "attempted": 3,
+        "valid": 3,
+        "productive": 3,
+        "redundant": 0,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0,
+        "basis": "Readidentifiescontent; hexestablishesnewline; copy+hash+cmp writesandverifies exactartifact."
+      }
+    }
+  },
+  "review_snapshot_sha256": "b2d15c4c87d52fb78da45e59099ca6cc2e6549c63cac6682b89fe03e07296b0a",
+  "live_runner_session": 1943,
+  "scope": "Partialcompletefunctionaladmission only, no causalprompt/speed/endpoint/P1promotion"
+}

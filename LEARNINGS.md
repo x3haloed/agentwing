@@ -2674,3 +2674,14 @@ plan/audit/review/raw. Supersedespartialstatus; retainplatformcontextharness
 survivor forcompletefunctional/longbehavior thenendpointladder. Pi-only/full
 visionloaded isnot image/nativeLookup orfullmultimodalrerun, no causalprompt/
 speed claim, AW211negative/P1/defaults preserved andgoal remainsunproven.
+
+### AW-0213 — revised fullfunctional firstreplicate independentlypasses
+
+Platform-contextfullvision6bitserver rep0 passes text42/redleftblueright/
+Lookupnonceassociation/byteexactPifilecopy andcanonicalprotocol. ThreePi
+productivevalidcalls plus1productiveLookup,4attemptedvalidproductive/
+0redundantmalformeddeniedfailed. Independentrawhash/raster/association/
+artifact/host/capacityauditpasses;164.389s diagnostic,pressure1/perarm
+swapgrowth0. Receipt `evidence/AW-0213-first-admission-partial.json` pins
+externalAW213raw/review. Oppositeimagereplicate live; fulladmission andlong
+behavior/endpoints pending, no causalprompt/speed/P1promotionclaim.

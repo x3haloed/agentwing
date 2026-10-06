@@ -2,7 +2,7 @@
 
 ## Status and hypothesis
 
-Running firstreplicate. AW212Pi-onlyplatform-context survivor motivates
+Running: firstreplicate independentlypassed; oppositeimagereplicate live. AW212Pi-onlyplatform-context survivor motivates
 completeunchangedAW211text/vision/nativeLookupassociation/Pifilecopy gates
 on pinned6bitserver. Alltworeplicates mustpass beforefullfunctionaladmission.
 
@@ -35,3 +35,10 @@ Raw `/Users/chad/Models/agentwing/evidence/AW-0213`; artifactverification
 precedesmonitoredreplicates, not completeendpointoverheadaccounting.
 Do notstartanothermodelowner whilecampaignlive. Allresultspending;
 full25%utilitygoal remainsactive/unproven.
+
+Firstrep0 passes164.389s/pressure1/perarm swapgrowth0. Independentrawhash/
+PNGdecode/nonceassociation/byteartifact/canonicalprotocol/zeroexecutionerror/
+host/capacityauditpasses. ThreePi productivevalidcalls plusoneproductive
+Lookup,4attemptedvalidproductive/0redundantmalformeddeniedfailed. Receipt
+`evidence/AW-0213-first-admission-partial.json` pinsraw/audit/review. No causal
+prompt orspeedcomparison; secondreplicate/fulladmission stillunresolved.
