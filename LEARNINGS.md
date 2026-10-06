@@ -2156,3 +2156,14 @@ experiment incomplete2/4; remaining arms unattempted. Raw/host replay valid,
 pressure1/growth0. Runner exit0 does not establish experiment success. No task
 utility/precision-only conclusion. Terminalreceipt
 evidence/AW-0178-cache-factorial-terminal.json; isolated AW179 patch untested.
+
+
+### AW-0180 — isolated mixed K/V Metal kernels pass actual attention integrity
+
+AW179 builds/runtime compiles block/vector q8K/F16V and F16K/Turbo4V;12actual
+early/mid/late own32-captured cases (1query/128replicated-query prefill shape)
+pass finite/fulloutput independent float64 oracle maxL2.001056661<=.005.
+Selected mixed pipelines/raw/host replay valid; wrongKV-head canary fails all12,
+pressure1/growth0. Retain integrity survivor, no speed/whole-model/realprefill
+behavior/tool/vision/endpoint or fullGoogle claim. P1/deployedruntime unchanged.
+ExternalAW180, pins evidence/AW-0180-mixed-attention-canaries.json.
