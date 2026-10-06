@@ -1,0 +1,577 @@
+{
+  "experiment": "AW-0188",
+  "plan": {
+    "experiment": "AW-0188",
+    "hypothesis": "Stationary table Metal writer retains packed/index integrity without material construction-cost regression",
+    "acceptance": "All nibble codes match own CPU reference after reverse192row placement; reserved2byteszero; finite FP16 normrelative<=.0015;12cases exit0/hostgates;5windows of64complete compute/readbacks each. Predeclared cost screen each adjacent candidate/control steady median ratio<=1.10, uncertainty retained; no endpoint promotion",
+    "parent_failed_screen_sha256": "0b3298181f8a4c760b5d0ca2c7d20a3ae3f5a7143e3828fab913377cfc29c860",
+    "repeats_per_window": 64,
+    "source_sha256": "3ef3cc0d1ae2a697d3305f969ec6496d154c4c3386a9382c15f2491f76503b16",
+    "runner_sha256": "d2fdbe661104ba8beaac3721f43944a6d35f3048ceb1f60cf5a509786f139f22",
+    "binaries_sha256": {
+      "control": "cabc0672ebc165fde3b7e421c2971d35e9b47d00e4854544361c3b0d5027c57f",
+      "candidate": "630a802b6e0583ff90b29be5a256a1beb3b5eb57fbad8197ccfa68cf8ff2cf8b"
+    },
+    "builds": {
+      "control": {
+        "experiment": "AW-0182",
+        "status": "Native build passed; context test pending",
+        "plan": {
+          "experiment": "AW-0182",
+          "hypothesis": "Narrow model-graph admission for validated F16K/Turbo4V256-head kernels permits cache isolation without changing original q8/Turbo behavior.",
+          "source": "/Users/chad/Models/agentwing/runtime-sources/prism-turbo-mixed-graph",
+          "build": "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-mixed-graph",
+          "parent_commit": "adfffbe41b2cabcd51fff326ab045662265062bb",
+          "patch_series_sha256": {
+            "experiments/runtime-patches/AW-0137-turbo-server.patch": "4864e0cb10c475ad193022d5f2e06fc1a9974b93d957ee3c6869a3c3bcfbab5b",
+            "experiments/runtime-patches/AW-0179-mixed-cache.patch": "d6c885e681f0871d9a37cf3f36b38cf631f8de2db0b87d5e800f24580a146b82",
+            "experiments/runtime-patches/AW-0182-mixed-cache-graph.patch": "38a2bb985d89127c444723ca107c0bef96a53c35a82b6b2ccec5feec12109c5b"
+          },
+          "parent_build_receipt_sha256": "a6ef5f2b8c9afa85f62455a94b29060c81884e1b543fdee398ca9259194cec7d",
+          "component_gate_receipt_sha256": "c0e26ffc2138c2d78af8ddb3ae429655f931d0926e4fbcefddeeca8a14d419da",
+          "new_graph_source_sha256": "ea5195198281fc784b453a1312ce80717cfba7f8d7184c1f6751d9a8c3be60e4",
+          "required_gates": [
+            "Native build/source identity",
+            "F16K/Turbo4V full context init without assertion",
+            "Full16K late identical-prefix four-arm gates",
+            "Tool/vision and replicated endpoints"
+          ],
+          "status": "Prepared, unbuilt/unqualified"
+        },
+        "build_directory": "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-mixed-graph",
+        "libraries_sha256": {
+          "libllama.0.dylib": "a235f787e7447aa5905b8548b8419a387cb7035aec9bfbc15eaa5a93d9108498",
+          "libggml.dylib": "eedcf2bc4c6c3bc22d6b411ef1000e7aa5d91b45ba704d3cd65feecc7bb95cba",
+          "libggml-base.0.21.0.dylib": "6d7cfc48ae6f19b59589f3d4ae6a600c842c269676c483bfd885a844d9a72429",
+          "libggml.0.dylib": "eedcf2bc4c6c3bc22d6b411ef1000e7aa5d91b45ba704d3cd65feecc7bb95cba",
+          "libggml-base.dylib": "6d7cfc48ae6f19b59589f3d4ae6a600c842c269676c483bfd885a844d9a72429",
+          "libggml-blas.dylib": "0679a64ec72aec354fd9f4929ec6effe04da43093969081b958893dbde3e5e36",
+          "libggml-metal.0.dylib": "47b872d48f15b2bc47b933da9d26e069757a8746954e985358720be3d00ea4b8",
+          "libllama.dylib": "a235f787e7447aa5905b8548b8419a387cb7035aec9bfbc15eaa5a93d9108498",
+          "libggml-cpu.dylib": "7f9245eb66bc14bddb8d78b55aa98c48de11d04f72cda64229d3bc8355bc7d8c",
+          "libggml-metal.dylib": "47b872d48f15b2bc47b933da9d26e069757a8746954e985358720be3d00ea4b8",
+          "libggml-blas.0.21.0.dylib": "0679a64ec72aec354fd9f4929ec6effe04da43093969081b958893dbde3e5e36",
+          "libggml.0.21.0.dylib": "eedcf2bc4c6c3bc22d6b411ef1000e7aa5d91b45ba704d3cd65feecc7bb95cba",
+          "libggml-base.0.dylib": "6d7cfc48ae6f19b59589f3d4ae6a600c842c269676c483bfd885a844d9a72429",
+          "libllama.0.2.0.dylib": "a235f787e7447aa5905b8548b8419a387cb7035aec9bfbc15eaa5a93d9108498",
+          "libggml-blas.0.dylib": "0679a64ec72aec354fd9f4929ec6effe04da43093969081b958893dbde3e5e36",
+          "libggml-cpu.0.21.0.dylib": "7f9245eb66bc14bddb8d78b55aa98c48de11d04f72cda64229d3bc8355bc7d8c",
+          "libggml-cpu.0.dylib": "7f9245eb66bc14bddb8d78b55aa98c48de11d04f72cda64229d3bc8355bc7d8c",
+          "libggml-metal.0.21.0.dylib": "47b872d48f15b2bc47b933da9d26e069757a8746954e985358720be3d00ea4b8"
+        },
+        "source_files_compared": 3531,
+        "source_differences": [
+          "src/llama-graph.cpp"
+        ],
+        "build_log_sha256": "81a768302ca0786f3a1d855d9e1d8137cccab53830a569fc949bb0cd87cbf4e3",
+        "configure_log_sha256": "2439923dfb0136318d0390fd0e646d77010623e152f10a95ac7af681368880d2",
+        "cmake_cache_sha256": "e5bb25c40e572e3db867cb8ed58d6bd6dae77cef6e10b7c84eae4953a3516cd9",
+        "scope": "Build and source identity only"
+      },
+      "candidate": {
+        "experiment": "AW-0186",
+        "status": "Native C++ build and CPU table/packed/decode parity passed; Metal runtime numeric/cost pending",
+        "plan": {
+          "experiment": "AW-0186",
+          "hypothesis": "AW185 same-layout real-vector survivor can be implemented with only coordinated CPU/Metal codebook literal changes; native build intact",
+          "source": "/Users/chad/Models/agentwing/runtime-sources/prism-turbo-codebook",
+          "build": "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-codebook",
+          "parent_commit": "adfffbe41b2cabcd51fff326ab045662265062bb",
+          "patch_series_sha256": {
+            "experiments/runtime-patches/AW-0137-turbo-server.patch": "4864e0cb10c475ad193022d5f2e06fc1a9974b93d957ee3c6869a3c3bcfbab5b",
+            "experiments/runtime-patches/AW-0179-mixed-cache.patch": "d6c885e681f0871d9a37cf3f36b38cf631f8de2db0b87d5e800f24580a146b82",
+            "experiments/runtime-patches/AW-0182-mixed-cache-graph.patch": "38a2bb985d89127c444723ca107c0bef96a53c35a82b6b2ccec5feec12109c5b",
+            "experiments/runtime-patches/AW-0186-stationary-codebook.patch": "a0bd2d81a3f6248f1e76bc6cf7f66bc019cc0b1b4bff9d2608ddfe100fd30ae5"
+          },
+          "changed_sources_sha256": {
+            "ggml/src/ggml-turbo-quant.c": "bc1123404676562d30667068094fdecf58070eaad8b5842dfb0135cf449f67dc",
+            "ggml/src/ggml-metal/kernels/dequantize.h": "b5cbfd6763190091e79e75f9d9856b5821382a3fcb587e912562d5c0dd25c5c6"
+          },
+          "real_vector_gate_sha256": "67ba4ec894277263f7ce30633dcb2059b33f823f971ff00609b8ff5a6bf77023",
+          "table_rounding": "Roundtrip float32 literals; exact zero midpoint retained. Half table compiler rounds same entries to half.",
+          "status": "Prepared, native build pending; no profile/deployed runtime change",
+          "required_gates": [
+            "Native build/source identity",
+            "Metal writer/decode parity and bit count",
+            "Actual block/vector attention numerics and complete cost",
+            "Own accumulated model behavior",
+            "Full vision/tools and replicated endpoint utility"
+          ]
+        },
+        "build_directory": "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-codebook",
+        "libraries_sha256": {
+          "libllama.0.dylib": "8159085966524cad5d4f4505f7fadb2c2bae56b9da1a16c55ff101958d99a546",
+          "libggml.dylib": "ebafae7ed2bf807e9231343660764627934aca83e75b7cf55948f54998c82798",
+          "libggml-base.0.21.0.dylib": "db63c95beb5536a2e80564c8724801b40fd2ad58183b539f69dc8082ef5f6abe",
+          "libggml.0.dylib": "ebafae7ed2bf807e9231343660764627934aca83e75b7cf55948f54998c82798",
+          "libggml-base.dylib": "db63c95beb5536a2e80564c8724801b40fd2ad58183b539f69dc8082ef5f6abe",
+          "libggml-blas.dylib": "4170bb7048c7575c018dc485ecb4523330dee9bba7542da5f483b8d711f6e1b5",
+          "libggml-metal.0.dylib": "eef053905ca767558832adcbee14af33e86d83c8a1b00f151f66721a51551af5",
+          "libllama.dylib": "8159085966524cad5d4f4505f7fadb2c2bae56b9da1a16c55ff101958d99a546",
+          "libggml-cpu.dylib": "a3f7a2706a6de4d1d71d9d75f6ca925fa481c689724a20a5d7b25e79b7d47d94",
+          "libggml-metal.dylib": "eef053905ca767558832adcbee14af33e86d83c8a1b00f151f66721a51551af5",
+          "libggml-blas.0.21.0.dylib": "4170bb7048c7575c018dc485ecb4523330dee9bba7542da5f483b8d711f6e1b5",
+          "libggml.0.21.0.dylib": "ebafae7ed2bf807e9231343660764627934aca83e75b7cf55948f54998c82798",
+          "libggml-base.0.dylib": "db63c95beb5536a2e80564c8724801b40fd2ad58183b539f69dc8082ef5f6abe",
+          "libllama.0.2.0.dylib": "8159085966524cad5d4f4505f7fadb2c2bae56b9da1a16c55ff101958d99a546",
+          "libggml-blas.0.dylib": "4170bb7048c7575c018dc485ecb4523330dee9bba7542da5f483b8d711f6e1b5",
+          "libggml-cpu.0.21.0.dylib": "a3f7a2706a6de4d1d71d9d75f6ca925fa481c689724a20a5d7b25e79b7d47d94",
+          "libggml-cpu.0.dylib": "a3f7a2706a6de4d1d71d9d75f6ca925fa481c689724a20a5d7b25e79b7d47d94",
+          "libggml-metal.0.21.0.dylib": "eef053905ca767558832adcbee14af33e86d83c8a1b00f151f66721a51551af5"
+        },
+        "source_files_compared": 3531,
+        "source_differences": [
+          "ggml/src/ggml-turbo-quant.c",
+          "ggml/src/ggml-metal/kernels/dequantize.h"
+        ],
+        "build_log_sha256": "85b729241d2fa768163e29e03987860163558aa505da821ec59bca828dfe6ab4",
+        "configure_log_sha256": "60fd2f6851302d0fd4cedc7dcc9e41d26a36fdb4525c484f807a387a14e95732",
+        "cmake_cache_sha256": "7c59b6e2eac5c3747f2b861005c64ca129f9966518fa02929005dc4e894547b2",
+        "CPU_parity": [
+          {
+            "layer": 3,
+            "packed_byte_identical_AW185": true,
+            "decoded_bitidentical_AW185": true,
+            "blocks": 384,
+            "output_sha256": "905e727c7bcdf462cb9607f3470737519ed09206374c32a7e771055b3aa908b4"
+          },
+          {
+            "layer": 31,
+            "packed_byte_identical_AW185": true,
+            "decoded_bitidentical_AW185": true,
+            "blocks": 384,
+            "output_sha256": "82e842ff75f8b152c9e418f06c4dd2a4da96af7331f8dd59e44cc3bc101a9255"
+          },
+          {
+            "layer": 63,
+            "packed_byte_identical_AW185": true,
+            "decoded_bitidentical_AW185": true,
+            "blocks": 384,
+            "output_sha256": "e2d75de569a532318ec3fb97dfc8487470b9beb219e46043812424ba5ef39cc8"
+          }
+        ],
+        "scope": "Build and actual CPU codec integrity only; no GPU cost/own-model/vision/tool/endpoint qualification"
+      }
+    },
+    "input_authority_sha256": "67ba4ec894277263f7ce30633dcb2059b33f823f971ff00609b8ff5a6bf77023",
+    "inputs_sha256": {
+      "63-native-attention.bin": "50c09b3a0642235adf3ca783019bf2d9f3d58147f032041a25d20a3f54c44e69",
+      "31-native-decoded.bin": "cbc35aecaf2295143acec713ce6c1da5aa07de92cd155f02e177e85d50e3a41e",
+      "3-native-packed.bin": "b8ac7c975a4c2570c9cce3c9911763db532cfae5580f6da795412523a9c952c0",
+      "31-reference.bin": "1e66a70978163111914f6cf544821ca02713d14b4d953f6d25dd2fb569b2c3b1",
+      "63-candidate-packed.bin": "adb4914bb183b8188c34464ffc4119c3e16d8a06002668ef9ed72818df8bdd55",
+      "31-input.bin": "48ebe1b7e6c085016c55784f3a15703615d40d30baaba1f6fa5c67a5d337d69a",
+      "31-candidate-packed.bin": "7754be7aba0159340d9ab2f1f746665e9cc1f9517b659595a86a45c16e06774c",
+      "31-native-attention.bin": "ae4f93f335f9840659402a4ec74869dce84bea0fee09a69232671c713c54a238",
+      "3-candidate-decoded.bin": "905e727c7bcdf462cb9607f3470737519ed09206374c32a7e771055b3aa908b4",
+      "31-native-packed.bin": "313b76da70aa5903f215b3fd9f01a0c126e54460d3ddaa4879a77589adae2b26",
+      "31-candidate-attention.bin": "7525eaf7b70fe480b73aa4203d708e8a9a12e1a6d576ac47d4a10b8d9a2cd02f",
+      "3-reference.bin": "289b66656c0e58a497d74fc004378031c4d4de68bec0d2164819c8d4b7f4466e",
+      "3-input.bin": "ac52542c599c6cc27d21855fce345ebac2d8c8605e117463ad61471ea17da002",
+      "63-native-packed.bin": "a24eb3afd14f812c3c2e26b1743696fe343a09429cc766a1709e8a99736a1660",
+      "63-input.bin": "f18014ece1a4b3e3f03006d6715268efa79ab666ccd23e1b94f59e23177df69a",
+      "63-reference.bin": "b89c6ac40913a2c8f2bbcb4c5b4a5d43bf9fd2caf2ea0f35bebb265c8f68e382",
+      "31-candidate-decoded.bin": "82e842ff75f8b152c9e418f06c4dd2a4da96af7331f8dd59e44cc3bc101a9255",
+      "63-candidate-decoded.bin": "e2d75de569a532318ec3fb97dfc8487470b9beb219e46043812424ba5ef39cc8",
+      "3-native-attention.bin": "7ef4b2645783c40594e629a1d221fb1148ad2993e87d2e508233fb19dd8ff520",
+      "63-candidate-attention.bin": "95872111a9aab3b9275934f2fc2aebb43b3e5620b92f9c27376d0170e68fdb86",
+      "3-candidate-packed.bin": "38114c690468c93af42d2d24b50906ef0bcfc2eef772fadce151c3437d636288",
+      "3-native-decoded.bin": "a32d9caecacf873c757e9f1d0c45a9af57a252509a8c8e362c013b0295721a34",
+      "3-candidate-attention.bin": "153a87420bd80697d775a9e87c95305aaff8cc6676a98cadd878ffb7e8c05724",
+      "63-native-decoded.bin": "d0b93feebbb9a3499f9cb73a024586f1b3b0d0b5dba99c50ccb1d51de507e3bf"
+    },
+    "order": [
+      [
+        3,
+        "control"
+      ],
+      [
+        3,
+        "candidate"
+      ],
+      [
+        3,
+        "candidate"
+      ],
+      [
+        3,
+        "control"
+      ],
+      [
+        31,
+        "control"
+      ],
+      [
+        31,
+        "candidate"
+      ],
+      [
+        31,
+        "candidate"
+      ],
+      [
+        31,
+        "control"
+      ],
+      [
+        63,
+        "control"
+      ],
+      [
+        63,
+        "candidate"
+      ],
+      [
+        63,
+        "candidate"
+      ],
+      [
+        63,
+        "control"
+      ]
+    ],
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+    "storage": "internalSSD",
+    "cache": "Fresh process per arm; uncontrolled warm OS cache; ABBA per layer; first warmup retained",
+    "scope": "Actual192row V cache writer primitive; setup/compile/uploads retained in lifetime separately; not full writer-attention or endpoint timing"
+  },
+  "result": {
+    "experiment": "AW-0188",
+    "complete": true,
+    "numeric_passed": true,
+    "cost_gate_passed": true,
+    "rows": [
+      {
+        "index": 0,
+        "layer": 3,
+        "arm": "control",
+        "exit": 0,
+        "error": null,
+        "packed_index_scale_gate_passed": true,
+        "max_norm_relative_error": 0.0,
+        "all_iteration_seconds": [
+          0.030239708,
+          0.029459834,
+          0.02861225,
+          0.031752083,
+          0.031931
+        ],
+        "steady_median_seconds": 0.030605958500000002,
+        "pressure_peak": 1,
+        "baseline_swap_mib": 1040.31,
+        "swap_growth_peak_mib": 0,
+        "lifetime_seconds": 0.547539291997964,
+        "output_sha256": "a5737381de9b7faf470b3e5d9b89c2601d83fac765ed23177c9d673e22085641",
+        "log_sha256": "82c77f023906872623b89968f541a4404a2045d1fab1f6ac62b39635af0f8093"
+      },
+      {
+        "index": 1,
+        "layer": 3,
+        "arm": "candidate",
+        "exit": 0,
+        "error": null,
+        "packed_index_scale_gate_passed": true,
+        "max_norm_relative_error": 0.0,
+        "all_iteration_seconds": [
+          0.028771708,
+          0.030224125,
+          0.030298,
+          0.030122833,
+          0.029137666
+        ],
+        "steady_median_seconds": 0.030173479000000003,
+        "pressure_peak": 1,
+        "baseline_swap_mib": 1040.31,
+        "swap_growth_peak_mib": 0,
+        "lifetime_seconds": 0.5501006249978673,
+        "output_sha256": "030e24355d1386d728df17a54ae2a616d93b6bacdacb8dc7eaf9893aa8ea7927",
+        "log_sha256": "901074f2f54e3360aef963fa9d4bb9bfd5eebf195f13a3acb43ff586e1512c34"
+      },
+      {
+        "index": 2,
+        "layer": 3,
+        "arm": "candidate",
+        "exit": 0,
+        "error": null,
+        "packed_index_scale_gate_passed": true,
+        "max_norm_relative_error": 0.0,
+        "all_iteration_seconds": [
+          0.031317542,
+          0.030004167,
+          0.029690875,
+          0.032804417,
+          0.03217125
+        ],
+        "steady_median_seconds": 0.0310877085,
+        "pressure_peak": 1,
+        "baseline_swap_mib": 1040.31,
+        "swap_growth_peak_mib": 0,
+        "lifetime_seconds": 0.28548262499680277,
+        "output_sha256": "030e24355d1386d728df17a54ae2a616d93b6bacdacb8dc7eaf9893aa8ea7927",
+        "log_sha256": "7b95240947c1b26ed96cbd8dfbbccb3c42443a28925063e5dc4f079ba7d695f0"
+      },
+      {
+        "index": 3,
+        "layer": 3,
+        "arm": "control",
+        "exit": 0,
+        "error": null,
+        "packed_index_scale_gate_passed": true,
+        "max_norm_relative_error": 0.0,
+        "all_iteration_seconds": [
+          0.031127292,
+          0.029873666,
+          0.030133416,
+          0.032286292,
+          0.032056833
+        ],
+        "steady_median_seconds": 0.0310951245,
+        "pressure_peak": 1,
+        "baseline_swap_mib": 1040.31,
+        "swap_growth_peak_mib": 0,
+        "lifetime_seconds": 0.2851309580000816,
+        "output_sha256": "a5737381de9b7faf470b3e5d9b89c2601d83fac765ed23177c9d673e22085641",
+        "log_sha256": "96cb1040969aa441782c9e459c8dc7b3f244e4ebfbba483e9aa504084da24e28"
+      },
+      {
+        "index": 4,
+        "layer": 31,
+        "arm": "control",
+        "exit": 0,
+        "error": null,
+        "packed_index_scale_gate_passed": true,
+        "max_norm_relative_error": 0.0005959475566150178,
+        "all_iteration_seconds": [
+          0.031107542,
+          0.030320458,
+          0.029656083,
+          0.030887708,
+          0.032746292
+        ],
+        "steady_median_seconds": 0.030604083,
+        "pressure_peak": 1,
+        "baseline_swap_mib": 1040.31,
+        "swap_growth_peak_mib": 0,
+        "lifetime_seconds": 0.28573229200264905,
+        "output_sha256": "4a39b0c384ca8d0c39db56ca5f3472af2e7b6f5468b5930decda362c3b6456d2",
+        "log_sha256": "c46704122fb2178a73c9a0f46c6d6a48e38b69af626dee87c50a12c4c42d9531"
+      },
+      {
+        "index": 5,
+        "layer": 31,
+        "arm": "candidate",
+        "exit": 0,
+        "error": null,
+        "packed_index_scale_gate_passed": true,
+        "max_norm_relative_error": 0.0,
+        "all_iteration_seconds": [
+          0.029372625,
+          0.029552375,
+          0.030106167,
+          0.030252,
+          0.032226916
+        ],
+        "steady_median_seconds": 0.030179083500000002,
+        "pressure_peak": 1,
+        "baseline_swap_mib": 1040.31,
+        "swap_growth_peak_mib": 0,
+        "lifetime_seconds": 0.2853540419964702,
+        "output_sha256": "b8542bd13fa501ed9ca7ab0c0e974f39957ddee783ec2a60dd3fd1c23996af11",
+        "log_sha256": "92a9fc0676c03740c912f07357d91adf3cc48f7ef99109816ddae84d6126e1cd"
+      },
+      {
+        "index": 6,
+        "layer": 31,
+        "arm": "candidate",
+        "exit": 0,
+        "error": null,
+        "packed_index_scale_gate_passed": true,
+        "max_norm_relative_error": 0.0,
+        "all_iteration_seconds": [
+          0.029555458,
+          0.029090917,
+          0.029827792,
+          0.030012833,
+          0.031049833
+        ],
+        "steady_median_seconds": 0.029920312499999997,
+        "pressure_peak": 1,
+        "baseline_swap_mib": 1040.31,
+        "swap_growth_peak_mib": 0,
+        "lifetime_seconds": 0.2859459999963292,
+        "output_sha256": "b8542bd13fa501ed9ca7ab0c0e974f39957ddee783ec2a60dd3fd1c23996af11",
+        "log_sha256": "17a239aef98fa8bb83bb3331745dc6b34df968deee8a90a46e853d062e189977"
+      },
+      {
+        "index": 7,
+        "layer": 31,
+        "arm": "control",
+        "exit": 0,
+        "error": null,
+        "packed_index_scale_gate_passed": true,
+        "max_norm_relative_error": 0.0005959475566150178,
+        "all_iteration_seconds": [
+          0.029998791,
+          0.028395083,
+          0.028828791,
+          0.030349,
+          0.031775667
+        ],
+        "steady_median_seconds": 0.0295888955,
+        "pressure_peak": 1,
+        "baseline_swap_mib": 1040.31,
+        "swap_growth_peak_mib": 0,
+        "lifetime_seconds": 0.28593041699787136,
+        "output_sha256": "4a39b0c384ca8d0c39db56ca5f3472af2e7b6f5468b5930decda362c3b6456d2",
+        "log_sha256": "64fd88a458383208ae4a9a7838eacc6cc1f35cab5ca6d2e83bbea859e6b5b19b"
+      },
+      {
+        "index": 8,
+        "layer": 63,
+        "arm": "control",
+        "exit": 0,
+        "error": null,
+        "packed_index_scale_gate_passed": true,
+        "max_norm_relative_error": 0.0,
+        "all_iteration_seconds": [
+          0.030161833,
+          0.027746625,
+          0.028654916,
+          0.028434083,
+          0.029446542
+        ],
+        "steady_median_seconds": 0.0285444995,
+        "pressure_peak": 1,
+        "baseline_swap_mib": 1040.31,
+        "swap_growth_peak_mib": 0,
+        "lifetime_seconds": 0.28553225000359816,
+        "output_sha256": "793e91d80c35bceb8ea08378dabd9be1ed6c0a97ec953d772d2a42003a9a7385",
+        "log_sha256": "d1eec1f001dfea000fdf00ed19b6d6f6758fab3592bca41e3befa4090ca3c3d7"
+      },
+      {
+        "index": 9,
+        "layer": 63,
+        "arm": "candidate",
+        "exit": 0,
+        "error": null,
+        "packed_index_scale_gate_passed": true,
+        "max_norm_relative_error": 0.0,
+        "all_iteration_seconds": [
+          0.028644958,
+          0.028790417,
+          0.028948958,
+          0.030987875,
+          0.031631709
+        ],
+        "steady_median_seconds": 0.0299684165,
+        "pressure_peak": 1,
+        "baseline_swap_mib": 1040.31,
+        "swap_growth_peak_mib": 0,
+        "lifetime_seconds": 0.28555016599420924,
+        "output_sha256": "5774d8e2455cda34f8f5848a25b0e934acb020b86f9eb321c59dfd6c25d699e3",
+        "log_sha256": "2b9b585f095902e4cdc48fd9652f6b339bb3c2ba83bb8a3699d63e0764b00a26"
+      },
+      {
+        "index": 10,
+        "layer": 63,
+        "arm": "candidate",
+        "exit": 0,
+        "error": null,
+        "packed_index_scale_gate_passed": true,
+        "max_norm_relative_error": 0.0,
+        "all_iteration_seconds": [
+          0.028509292,
+          0.028060625,
+          0.029064916,
+          0.031228125,
+          0.030989666
+        ],
+        "steady_median_seconds": 0.030027290999999998,
+        "pressure_peak": 1,
+        "baseline_swap_mib": 1040.31,
+        "swap_growth_peak_mib": 0,
+        "lifetime_seconds": 0.27730241599783767,
+        "output_sha256": "5774d8e2455cda34f8f5848a25b0e934acb020b86f9eb321c59dfd6c25d699e3",
+        "log_sha256": "d46e5af90a7eb55cd5543026c3451552d185b0fd3b90e914c68f45c6d66a6320"
+      },
+      {
+        "index": 11,
+        "layer": 63,
+        "arm": "control",
+        "exit": 0,
+        "error": null,
+        "packed_index_scale_gate_passed": true,
+        "max_norm_relative_error": 0.0,
+        "all_iteration_seconds": [
+          0.030017417,
+          0.029066292,
+          0.029045416,
+          0.03157175,
+          0.031251083
+        ],
+        "steady_median_seconds": 0.0301586875,
+        "pressure_peak": 1,
+        "baseline_swap_mib": 1040.31,
+        "swap_growth_peak_mib": 0,
+        "lifetime_seconds": 0.28176983400044264,
+        "output_sha256": "793e91d80c35bceb8ea08378dabd9be1ed6c0a97ec953d772d2a42003a9a7385",
+        "log_sha256": "6d93cd0ec7aff1bfcf845fda865d4f01767e8bd3cce7eb5c56c92d26c97be515"
+      }
+    ],
+    "pairs": [
+      {
+        "layer": 3,
+        "ratio": 0.9858694345416433
+      },
+      {
+        "layer": 31,
+        "ratio": 0.9861129804150642
+      },
+      {
+        "layer": 63,
+        "ratio": 1.0498841116482003
+      },
+      {
+        "layer": 3,
+        "ratio": 0.9997615060200192
+      },
+      {
+        "layer": 31,
+        "ratio": 1.011200722243924
+      },
+      {
+        "layer": 63,
+        "ratio": 0.9956431625215785
+      }
+    ],
+    "unattempted": [],
+    "plan_sha256": "40a6205f772efb522f4e8e307da383d097b384428afd0fbe811bc3f1431cbe1c",
+    "scope": "Actual192row V cache writer primitive; setup/compile/uploads retained in lifetime separately; not full writer-attention or endpoint timing"
+  },
+  "independent_packed_timing_ratio_host_replay_valid": true,
+  "host_trace_sha256": {
+    "0-pressure.tsv": "d99fda6b8f902116cc9d30827fbd792fa4e28eea3f2f71b04de3947e02c7aa06",
+    "1-pressure.tsv": "fbce3edd242df499089ca6648e9c5c80e0e704c3c6b56f9b1bdc925fdd84e8cd",
+    "2-pressure.tsv": "af01392ee1196ac209b6afbbe4db656b7d3a4a60f3803de2f61e2efaa2eb5e8e",
+    "3-pressure.tsv": "e9f62577fcd9effdf34553acf8586cc7b7cd8bd123e983420638524810971c29",
+    "4-pressure.tsv": "3b062d03be8d65a5928873de9924ea0e7de2df2833b3f7b1c6740c586dcda8b9",
+    "5-pressure.tsv": "486de63186f2dad86e2c763fd04940e16c44b94cf2ad7bcf1b828e16db373881",
+    "6-pressure.tsv": "6dade5ba783ff3266849553a89f82a21e746f9d7b043924c94aeaa14dc7a4128",
+    "7-pressure.tsv": "890a3c48b6e691ceab244be2d7a6de24a693f5de7902e114b691b8d00604a47a",
+    "8-pressure.tsv": "79839023c48250912d353872dbf1bb8e397cd7e58dc72b582b49fca5696ef7e3",
+    "9-pressure.tsv": "0415ceeaa493fcaf3b549fc895c1633fc103c9f12a60c1dd0b6ed73fd9936757",
+    "10-pressure.tsv": "2429aa3867591975cc76baa27be073b2105b37c45ba16a8022b7efcd5e7b97cf",
+    "11-pressure.tsv": "2c7f5d67dac717cf67b8bb90ffdba6aa0344aef91ff77f700f83860f06c6dce0"
+  },
+  "all_pair_ratios_recomputed": [
+    0.9858694345416433,
+    0.9997615060200192,
+    0.9861129804150642,
+    1.011200722243924,
+    1.0498841116482003,
+    0.9956431625215785
+  ],
+  "disposition": "Retain nonmaterial-writer-cost integrity survivor under predeclared10%gate; no speedup/wholecache/endpoint claim. Earlier AW187 failure preserved."
+}

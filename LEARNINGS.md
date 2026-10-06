@@ -2252,3 +2252,14 @@ One short steady ratio1.15553 exceeds predeclared1.10gate; preserve cost failure
 not waive it. Numeric retained, cost unresolved; use longer interleaved repeated
 windows before integration. No P1/profile/deployedruntime/endpoint change.
 ExternalAW187, pins evidence/AW-0187-codebook-metal-writer.json.
+
+
+### AW-0188 — longer writer windows pass unchanged cost gate
+
+Sameactual reverseindex/ABBA/numericgates, five64operation windows; all12
+integrity/all6candidatecontrol ratios.986–1.050 pass unchanged1.10limit.
+Independent packed/timing/ratio/hosttrace replay valid, host1/growth0. No
+speedup assertion; AW187 shortcostfailure/coldcompile preserved. Retain writer
+nonmaterial-cost/integrity survivor for attentionconsumer screen, not model /
+vision/tool/endpoint promotion. P1/default/runtime unchanged. ExternalAW188,
+pins evidence/AW-0188-codebook-writer-long-screen.json.
