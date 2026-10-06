@@ -1,0 +1,25 @@
+{
+  "experiment": "AW-0166",
+  "passed": true,
+  "cases": 81,
+  "max_candidate_control_relative_L2": 7.62546788459253e-06,
+  "max_candidate_reference_relative_L2": 1.0701048598122757e-07,
+  "max_control_reference_relative_L2": 7.633418023431845e-06,
+  "scratch_bytes_at_17408": 3342336,
+  "weight_bytes_changed": 0,
+  "table_f32_values_per_block": 6144,
+  "old_floor_terms_per_block_per_output_row": 136,
+  "remaining_qh_floor_terms_per_block_per_output_row": 16,
+  "limitations": "Lookup trades arithmetic for gathered reads and table-build work. Cache hit rate, construction, allocation liveness, real row/scales, GPU numerical fidelity and complete execution cost unknown. Only single-vector candidate; do not allocate per-prefill column.",
+  "plan_sha256": "6d9b6ca03ea838ab1ed5c33ed5e7b761de315524cc5f699d8236921a1399eca1",
+  "arithmetic_sha256": "2b4ace31f370dbe89e98ecfe757b595e22abae7635c62f473e508d52d89cae39",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0166/v2",
+  "report_sha256": "ef8b7d2395c1e94ff88c4831b9c2db92f271e47f655df4e3f376fda325a61043",
+  "initial_screen_preserved": {
+    "source_sha256": "b5ee0f50e08f49cee68986503c3a431f8890ab964c56f473058fce03235ad5ad",
+    "plan_sha256": "cb59bb263c4eb4aa81900b153255e4990ebf768a58c4494d2038e072ee1465a2",
+    "report_sha256": "192e0900ac1b74f97e73eb5c0fe27924a22bff56f5f30ca9dcb7ee2f310e65f6",
+    "qualification": "V1 additive output mutation was weak; v2 changes actual LUT code index for group0. Both pass arithmetic; only v2 indexing check supports retention."
+  },
+  "disposition": "Retain arithmetic/scratch survivor for actual Metal matrix cost including table build and gathered reads. No runtime patch, model change, numeric GPU admission or endpoint promotion."
+}

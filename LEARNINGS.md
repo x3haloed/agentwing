@@ -2013,3 +2013,16 @@ Deprioritize unchanged ngram2/3 presumed acceleration, preserve all prior passes
 failures; screen actual single-token PTQ execution cost next. P1/default intact.
 Raw externalAW165, report/log/parent/script hashes in
  evidence/AW-0165-speculation-cost-diagnostic.json. No promotion.
+
+
+### AW-0166 — activation LUT retains tiny arithmetic/scratch feasibility
+
+81 real captured activation blocks across prefix/decode/layer/block positions
+with exhaustive byte-code coverage pass CPU block emulation: max candidate /
+control relativeL2 7.62547e-6, independent integer reference1.07010e-7. V1 weak
+output perturbation preserved; v2 actual wrong lookup index rejected. Largest
+sample17408 uses3.1875MiB table scratch, weights unchanged. Only mathematical /
+CPU/single-vector screen, not Metal FMA/real full matrices/cache/build/liveness /
+end-to-end cost. Retain for complete Metal matrix cost before integration; no
+runtime change/promotion. P1/default intact. RawexternalAW166, hashes in
+ evidence/AW-0166-activation-lut-screen.json.
