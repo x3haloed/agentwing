@@ -1646,3 +1646,12 @@ CPU encoding; sixth differs one half-scale byte, packed centroid codes identical
 reconstruction3.15e-5 under predeclared.005. Host pressure1/swap growth0. Retain
 writer for integration; q8 K writer and whole cache-update/attention/inverse graph,
 Prism registration and accumulated compressed model generation remain unverified.
+
+## AW-0118 — Connected value-cache GPU execution passes actual attention
+
+Native value writer→compressed attention→inverse WHT runs in ordered GPU
+encoders without CPU intermediate reconstruction. Six actual layer3/31/63
+Turbo3/4 cases agree with compressed CPU authority within.001299 (gate.005),
+pressure1/swap growth0. Populated writer rows match AW-0117, masked paddingzero.
+Retain composition for integration; q8 K still CPU prepared and no Prism cache
+registration/accumulated compressed model trajectory or endpoint acceptance.

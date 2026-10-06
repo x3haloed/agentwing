@@ -1,0 +1,365 @@
+{
+  "experiment": "AW-0118",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0118",
+  "result": {
+    "experiment": "AW-0118",
+    "exit": 0,
+    "error": null,
+    "passed": true,
+    "records": [
+      {
+        "layer": 3,
+        "bits": 3,
+        "finite": true,
+        "relative_l2": 0.0006829344551789028,
+        "passed": true,
+        "output_sha256": "3f95a0c4ca97cc7cbdcb5fded364e7f29e06d3969402065acaa2dd6e6f37c5f8"
+      },
+      {
+        "layer": 31,
+        "bits": 3,
+        "finite": true,
+        "relative_l2": 0.0012546779503571932,
+        "passed": true,
+        "output_sha256": "97f1cbe26759b8970c9fddafc05d1c88cdb7e7bac07c075f4eeea3b5b91a09b0"
+      },
+      {
+        "layer": 63,
+        "bits": 3,
+        "finite": true,
+        "relative_l2": 0.0006526168883871671,
+        "passed": true,
+        "output_sha256": "5b522eea8528cc072ea46fcbd7b60f69e479aa301846f5e34fcbf8ef067212e1"
+      },
+      {
+        "layer": 3,
+        "bits": 4,
+        "finite": true,
+        "relative_l2": 0.0006802316197418193,
+        "passed": true,
+        "output_sha256": "6f8c9be4320a1f264d893ac1dcda576a27bdd2fbbe5884d862d9390949ca56b3"
+      },
+      {
+        "layer": 31,
+        "bits": 4,
+        "finite": true,
+        "relative_l2": 0.0012983266317699188,
+        "passed": true,
+        "output_sha256": "b9a9812f6988bdda6fe8eb659e4504c2ecb44b8c76b7899381afb6606ba37b63"
+      },
+      {
+        "layer": 63,
+        "bits": 4,
+        "finite": true,
+        "relative_l2": 0.0006889246060413231,
+        "passed": true,
+        "output_sha256": "5278ea6ee722eba9e423e0ae689f23823b8035d0233c483787b65a13c6f2f3bb"
+      }
+    ],
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "plan_sha256": "f24a527940cf3981c7d85739ce4cebdddbbdd6da06ceb5a331f9e69ea8772016",
+    "scope": "Connected native value writer, compressed attention and inverse; CPU-prepared q8 K, real48-key FP16-generated trajectory; no Prism registration/accumulated compressed trajectory or endpoint performance"
+  },
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+  "files": {
+    "plan.json": {
+      "bytes": 7005,
+      "sha256": "f24a527940cf3981c7d85739ce4cebdddbbdd6da06ceb5a331f9e69ea8772016"
+    },
+    "result.json": {
+      "bytes": 1809,
+      "sha256": "7b56c099dd2d0a2ae3d239a3edae6ffd1e45e6035562497501c627b271befd77"
+    },
+    "dispatch": {
+      "bytes": 60984,
+      "sha256": "1b105dba8376dcaedcd02f43a343f590a31f8475de905bf77deeb8cb2fe2eec6"
+    },
+    "turbo-cache-attention-chain.swift": {
+      "bytes": 3914,
+      "sha256": "bf0e62008a70fd3d2b075d7c7ac3be9076c4530ae3838f3c88d0a84e1fe67cfe"
+    },
+    "compile.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "check_turbo_cache_attention_chain.py": {
+      "bytes": 5644,
+      "sha256": "db1e5b869df08f23a8c4f937c5c14aac4fe0bc6a0ee9a3a771cf9cfe032a24d8"
+    },
+    "cache-audit.json": {
+      "bytes": 841,
+      "sha256": "963cf6e820e1d2aac736c362df04fc344b7933fad222b33d890894e3d7ffdb58"
+    },
+    "dispatch.log": {
+      "bytes": 9,
+      "sha256": "45ea654a2b7a947c729510c6fc9af4f0670291969bf7978f671ab6979223e35f"
+    },
+    "63-3/written-cache.bin": {
+      "bytes": 25600,
+      "sha256": "f7f5ac7e31376b8160ef5856ead31dc3936754c5f5f414996bf7c87df099b144"
+    },
+    "63-3/restored.bin": {
+      "bytes": 24576,
+      "sha256": "5b522eea8528cc072ea46fcbd7b60f69e479aa301846f5e34fcbf8ef067212e1"
+    },
+    "63-3/k.bin": {
+      "bytes": 69632,
+      "sha256": "3210d16016689d6aad180356af54171df076f8e16cae304630caee2d07eba013"
+    },
+    "63-3/values.bin": {
+      "bytes": 196608,
+      "sha256": "f18014ece1a4b3e3f03006d6715268efa79ab666ccd23e1b94f59e23177df69a"
+    },
+    "63-3/writer-args.bin": {
+      "bytes": 88,
+      "sha256": "e9562b593ead8582997be1b36aa775fc533be98f6f8d764f576159e6e1057ee6"
+    },
+    "63-3/indices.bin": {
+      "bytes": 1536,
+      "sha256": "98d4ba4521b6b0bd4a61bad3a100298064eabd65eaa1ec0fa0a70b25dbddb00b"
+    },
+    "63-3/v.bin": {
+      "bytes": 25600,
+      "sha256": "f7f5ac7e31376b8160ef5856ead31dc3936754c5f5f414996bf7c87df099b144"
+    },
+    "63-3/mask.bin": {
+      "bytes": 128,
+      "sha256": "3f8fd3d341f23c295770e848b25cd42b11415a501abe883377d62aca73335d5c"
+    },
+    "63-3/args.bin": {
+      "bytes": 192,
+      "sha256": "42232fc29450cc52a37a7a0e23c523f89c2199f44a87a04768382783b762782c"
+    },
+    "63-3/q.bin": {
+      "bytes": 24576,
+      "sha256": "1ac1a8964efaee88aad86fcdd7de6ef675614c334bc20528d28e84b9116cd435"
+    },
+    "63-3/output.bin": {
+      "bytes": 24576,
+      "sha256": "5c0aab3b88e7fdcd4a15e5de1c68cdb133ae740d60ffcf27c1455db911b4fa52"
+    },
+    "63-4/written-cache.bin": {
+      "bytes": 34816,
+      "sha256": "a0c2d8f131b1e1e10a9f19815bd3998b36f257f927f52efa8dba130b888217cb"
+    },
+    "63-4/restored.bin": {
+      "bytes": 24576,
+      "sha256": "5278ea6ee722eba9e423e0ae689f23823b8035d0233c483787b65a13c6f2f3bb"
+    },
+    "63-4/k.bin": {
+      "bytes": 69632,
+      "sha256": "3210d16016689d6aad180356af54171df076f8e16cae304630caee2d07eba013"
+    },
+    "63-4/values.bin": {
+      "bytes": 196608,
+      "sha256": "f18014ece1a4b3e3f03006d6715268efa79ab666ccd23e1b94f59e23177df69a"
+    },
+    "63-4/writer-args.bin": {
+      "bytes": 88,
+      "sha256": "56bf1a50ece538ce62267acd9d01f940f3488a662803b86a31769cd2d6dccc46"
+    },
+    "63-4/indices.bin": {
+      "bytes": 1536,
+      "sha256": "98d4ba4521b6b0bd4a61bad3a100298064eabd65eaa1ec0fa0a70b25dbddb00b"
+    },
+    "63-4/v.bin": {
+      "bytes": 34816,
+      "sha256": "a0c2d8f131b1e1e10a9f19815bd3998b36f257f927f52efa8dba130b888217cb"
+    },
+    "63-4/mask.bin": {
+      "bytes": 128,
+      "sha256": "3f8fd3d341f23c295770e848b25cd42b11415a501abe883377d62aca73335d5c"
+    },
+    "63-4/args.bin": {
+      "bytes": 192,
+      "sha256": "d866003adb67ccd4907894f7c31be6fbc4d47947374b0c9e2628ee04a436aa5b"
+    },
+    "63-4/q.bin": {
+      "bytes": 24576,
+      "sha256": "1ac1a8964efaee88aad86fcdd7de6ef675614c334bc20528d28e84b9116cd435"
+    },
+    "63-4/output.bin": {
+      "bytes": 24576,
+      "sha256": "fe649d28d5a8f7fafcb065728284949b1b3213f60643e44746db1fb9f09e7c1c"
+    },
+    "3-4/written-cache.bin": {
+      "bytes": 34816,
+      "sha256": "5c1a98a1d75df1a51e50f5449f479230f6ed5e9e93a1bca3adfcda128fcd8aed"
+    },
+    "3-4/restored.bin": {
+      "bytes": 24576,
+      "sha256": "6f8c9be4320a1f264d893ac1dcda576a27bdd2fbbe5884d862d9390949ca56b3"
+    },
+    "3-4/k.bin": {
+      "bytes": 69632,
+      "sha256": "67ab6709add78c68aa84e9b1778ed242b0a1f61dfd8661f2405acb50044d494a"
+    },
+    "3-4/values.bin": {
+      "bytes": 196608,
+      "sha256": "ac52542c599c6cc27d21855fce345ebac2d8c8605e117463ad61471ea17da002"
+    },
+    "3-4/writer-args.bin": {
+      "bytes": 88,
+      "sha256": "56bf1a50ece538ce62267acd9d01f940f3488a662803b86a31769cd2d6dccc46"
+    },
+    "3-4/indices.bin": {
+      "bytes": 1536,
+      "sha256": "98d4ba4521b6b0bd4a61bad3a100298064eabd65eaa1ec0fa0a70b25dbddb00b"
+    },
+    "3-4/v.bin": {
+      "bytes": 34816,
+      "sha256": "5c1a98a1d75df1a51e50f5449f479230f6ed5e9e93a1bca3adfcda128fcd8aed"
+    },
+    "3-4/mask.bin": {
+      "bytes": 128,
+      "sha256": "3f8fd3d341f23c295770e848b25cd42b11415a501abe883377d62aca73335d5c"
+    },
+    "3-4/args.bin": {
+      "bytes": 192,
+      "sha256": "d866003adb67ccd4907894f7c31be6fbc4d47947374b0c9e2628ee04a436aa5b"
+    },
+    "3-4/q.bin": {
+      "bytes": 24576,
+      "sha256": "41da8d334bc07259abc98c2b2499d5e8ccf87145d6d8205f0b40cb0f3e4ae512"
+    },
+    "3-4/output.bin": {
+      "bytes": 24576,
+      "sha256": "680b55af31d2223dcd285171b46adebb48f0da103d8527011613be5895cc0c96"
+    },
+    "3-3/written-cache.bin": {
+      "bytes": 25600,
+      "sha256": "4a74e9fb08ed0eeee977bcc0901b8353d07827ca62bd43efb7715e6c206f8a32"
+    },
+    "3-3/restored.bin": {
+      "bytes": 24576,
+      "sha256": "3f95a0c4ca97cc7cbdcb5fded364e7f29e06d3969402065acaa2dd6e6f37c5f8"
+    },
+    "3-3/k.bin": {
+      "bytes": 69632,
+      "sha256": "67ab6709add78c68aa84e9b1778ed242b0a1f61dfd8661f2405acb50044d494a"
+    },
+    "3-3/values.bin": {
+      "bytes": 196608,
+      "sha256": "ac52542c599c6cc27d21855fce345ebac2d8c8605e117463ad61471ea17da002"
+    },
+    "3-3/writer-args.bin": {
+      "bytes": 88,
+      "sha256": "e9562b593ead8582997be1b36aa775fc533be98f6f8d764f576159e6e1057ee6"
+    },
+    "3-3/indices.bin": {
+      "bytes": 1536,
+      "sha256": "98d4ba4521b6b0bd4a61bad3a100298064eabd65eaa1ec0fa0a70b25dbddb00b"
+    },
+    "3-3/v.bin": {
+      "bytes": 25600,
+      "sha256": "4a74e9fb08ed0eeee977bcc0901b8353d07827ca62bd43efb7715e6c206f8a32"
+    },
+    "3-3/mask.bin": {
+      "bytes": 128,
+      "sha256": "3f8fd3d341f23c295770e848b25cd42b11415a501abe883377d62aca73335d5c"
+    },
+    "3-3/args.bin": {
+      "bytes": 192,
+      "sha256": "42232fc29450cc52a37a7a0e23c523f89c2199f44a87a04768382783b762782c"
+    },
+    "3-3/q.bin": {
+      "bytes": 24576,
+      "sha256": "41da8d334bc07259abc98c2b2499d5e8ccf87145d6d8205f0b40cb0f3e4ae512"
+    },
+    "3-3/output.bin": {
+      "bytes": 24576,
+      "sha256": "2a225b799eb439bd9be928a1fb64aab69266173d1ed51d176398e227ee00f05b"
+    },
+    "31-3/written-cache.bin": {
+      "bytes": 25600,
+      "sha256": "ac3a7404881e9c3eb99e4da34e1efddf7f7747aae7738c97d2734d9e20d82a2b"
+    },
+    "31-3/restored.bin": {
+      "bytes": 24576,
+      "sha256": "97f1cbe26759b8970c9fddafc05d1c88cdb7e7bac07c075f4eeea3b5b91a09b0"
+    },
+    "31-3/k.bin": {
+      "bytes": 69632,
+      "sha256": "195625bc5a85efd3c74677494ceadf66bbaeb942c7ae2fd019d5e847ff020b7d"
+    },
+    "31-3/values.bin": {
+      "bytes": 196608,
+      "sha256": "48ebe1b7e6c085016c55784f3a15703615d40d30baaba1f6fa5c67a5d337d69a"
+    },
+    "31-3/writer-args.bin": {
+      "bytes": 88,
+      "sha256": "e9562b593ead8582997be1b36aa775fc533be98f6f8d764f576159e6e1057ee6"
+    },
+    "31-3/indices.bin": {
+      "bytes": 1536,
+      "sha256": "98d4ba4521b6b0bd4a61bad3a100298064eabd65eaa1ec0fa0a70b25dbddb00b"
+    },
+    "31-3/v.bin": {
+      "bytes": 25600,
+      "sha256": "ac3a7404881e9c3eb99e4da34e1efddf7f7747aae7738c97d2734d9e20d82a2b"
+    },
+    "31-3/mask.bin": {
+      "bytes": 128,
+      "sha256": "3f8fd3d341f23c295770e848b25cd42b11415a501abe883377d62aca73335d5c"
+    },
+    "31-3/args.bin": {
+      "bytes": 192,
+      "sha256": "42232fc29450cc52a37a7a0e23c523f89c2199f44a87a04768382783b762782c"
+    },
+    "31-3/q.bin": {
+      "bytes": 24576,
+      "sha256": "d3ab085dcfeb1620d6bab58c0e651764c57c6038a6dea990e86c68f440458f36"
+    },
+    "31-3/output.bin": {
+      "bytes": 24576,
+      "sha256": "c893e74558e88422dc9b97604d3643f25e2858eb97d48e8ca4d73855892b2bd9"
+    },
+    "31-4/written-cache.bin": {
+      "bytes": 34816,
+      "sha256": "b7b443f54bf19fc68f793ca064f6bacbe8e2ddb60a859c05808c2019ed72da1f"
+    },
+    "31-4/restored.bin": {
+      "bytes": 24576,
+      "sha256": "b9a9812f6988bdda6fe8eb659e4504c2ecb44b8c76b7899381afb6606ba37b63"
+    },
+    "31-4/k.bin": {
+      "bytes": 69632,
+      "sha256": "195625bc5a85efd3c74677494ceadf66bbaeb942c7ae2fd019d5e847ff020b7d"
+    },
+    "31-4/values.bin": {
+      "bytes": 196608,
+      "sha256": "48ebe1b7e6c085016c55784f3a15703615d40d30baaba1f6fa5c67a5d337d69a"
+    },
+    "31-4/writer-args.bin": {
+      "bytes": 88,
+      "sha256": "56bf1a50ece538ce62267acd9d01f940f3488a662803b86a31769cd2d6dccc46"
+    },
+    "31-4/indices.bin": {
+      "bytes": 1536,
+      "sha256": "98d4ba4521b6b0bd4a61bad3a100298064eabd65eaa1ec0fa0a70b25dbddb00b"
+    },
+    "31-4/v.bin": {
+      "bytes": 34816,
+      "sha256": "f1477c98d126b2984f773295dc18157870c95f378b983542cadfcb8f51a5eeac"
+    },
+    "31-4/mask.bin": {
+      "bytes": 128,
+      "sha256": "3f8fd3d341f23c295770e848b25cd42b11415a501abe883377d62aca73335d5c"
+    },
+    "31-4/args.bin": {
+      "bytes": 192,
+      "sha256": "d866003adb67ccd4907894f7c31be6fbc4d47947374b0c9e2628ee04a436aa5b"
+    },
+    "31-4/q.bin": {
+      "bytes": 24576,
+      "sha256": "d3ab085dcfeb1620d6bab58c0e651764c57c6038a6dea990e86c68f440458f36"
+    },
+    "31-4/output.bin": {
+      "bytes": 24576,
+      "sha256": "f7ede5c00c532c947dfdd6af6448676945a0d8841cfa5aefe1d597b3ea4fb031"
+    }
+  },
+  "limitations": "Connected native value writer/attention/inverse stages only, q8 K prepared on CPU. Input trajectory FP16. No registered Prism cache graph, compressed accumulated model generation, longer contexts, vision or end-to-end performance acceptance."
+}
