@@ -1,0 +1,66 @@
+{
+  "experiment": "AW-0138",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0138",
+  "result": {
+    "experiment": "AW-0138",
+    "passed": false,
+    "error": null,
+    "healthy": true,
+    "http": [
+      {
+        "endpoint": "health",
+        "status": 200
+      },
+      {
+        "endpoint": "props",
+        "status": 200
+      }
+    ],
+    "allocator_line": "",
+    "wall_seconds_diagnostic": 5.009572458999173,
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "server_exit_after_cleanup": 0,
+    "plan_sha256": "7c1760995fbcb14f4a79db49505245d0e24b51d9909e54bf98ec5b85c091de65",
+    "scope": "Full multimodal configured startup/resource falsifier only"
+  },
+  "files": {
+    "host.tsv": {
+      "bytes": 513,
+      "sha256": "47abf53153945fa8bbb5bbbafba6c76c1f61e22cfb95adfc2dfedace39d0f1f8"
+    },
+    "plan.json": {
+      "bytes": 1775,
+      "sha256": "7c1760995fbcb14f4a79db49505245d0e24b51d9909e54bf98ec5b85c091de65"
+    },
+    "result.json": {
+      "bytes": 537,
+      "sha256": "de5b8d3b83152d46febfec716e9c7a1a6f1551bd4f38d22ac956c118a0c444af"
+    },
+    "probe_bonsai_turbo_startup.py": {
+      "bytes": 3130,
+      "sha256": "0f6a8381cadcc855b3fa655b5b3a6e60182e336e108636cffd789cc18d392e42"
+    },
+    "bonsai_turbo_server.py": {
+      "bytes": 3729,
+      "sha256": "6aa5701ab038341faf2cd90163013dca663f563f717d3e0312feeb942679de99"
+    },
+    "health.json": {
+      "bytes": 15,
+      "sha256": "a29ee2b15c494311c52521766e44af56a3ad2248e7a8ab465e5206463c13d288"
+    },
+    "bonsai-turbo-local.json": {
+      "bytes": 4956,
+      "sha256": "7b90c1047cfc23de542708df626f46eeae40de3c9eb2508b8468b47a3eda702d"
+    },
+    "props.json": {
+      "bytes": 11105,
+      "sha256": "6a560c905b42bc72f0eb08e64dd2685e50419e4bda094a231eef40b951b06dfc"
+    },
+    "server.log": {
+      "bytes": 1877,
+      "sha256": "5e7e42d5bae26db5ae9bdafbcdb8dd48a1c4acec3acc71723be9d36c2271036e"
+    }
+  },
+  "limitations": "Server/full vision configured startup only. No image-answer/tool-agent/general task quality, long-context generation or endpoint performance qualification. Default-log allocation observability failure preserved AW138."
+}

@@ -1,0 +1,168 @@
+{
+  "experiment": "AW-0137",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0137",
+  "result": {
+    "experiment": "AW-0137",
+    "passed": true,
+    "records": [
+      {
+        "phase": 0,
+        "exit": 0,
+        "wall_seconds": 3.593019957999786,
+        "log_sha256": "4ba10513e99534603ba6c40173a99823b3aa4a58896660d74cb1c54609c6c20d"
+      },
+      {
+        "phase": 1,
+        "exit": 0,
+        "wall_seconds": 160.40743483400001,
+        "log_sha256": "99d9a5dee96479405d69906287e0fbdb23560519ccc8f0f64a2c7d976043ea89"
+      }
+    ],
+    "error": null,
+    "libraries": {
+      "tools/ui/ui-src/node_modules/@img/sharp-libvips-darwin-arm64/lib/libvips-cpp.8.18.3.dylib": {
+        "bytes": 17765992,
+        "sha256": "50090a3a7c8f455de3c6cf2b274d231ddcc92901f4b1957c3b3391b6b9877989"
+      },
+      "bin/libllama.0.dylib": {
+        "bytes": 3180576,
+        "sha256": "1f81934f084f3d68365c612f8975156db1fc9d2493eca24999202ede0b44b525"
+      },
+      "bin/libmtmd.0.dylib": {
+        "bytes": 1348560,
+        "sha256": "b441a2617eb44ec2caf558e9b6ca26a46af793bf1170e6aa26211c09ba63b80b"
+      },
+      "bin/libggml.dylib": {
+        "bytes": 59968,
+        "sha256": "219510bcfe7ab47a9ab575f4eb8d0ada492693491cfeed75f62348055ba104eb"
+      },
+      "bin/libggml-base.0.21.0.dylib": {
+        "bytes": 769096,
+        "sha256": "4000c4398b7b0af303369bc7b9ccbf32293706756be9deabcc0d881cb9af72cd"
+      },
+      "bin/libggml.0.dylib": {
+        "bytes": 59968,
+        "sha256": "219510bcfe7ab47a9ab575f4eb8d0ada492693491cfeed75f62348055ba104eb"
+      },
+      "bin/libmtmd.dylib": {
+        "bytes": 1348560,
+        "sha256": "b441a2617eb44ec2caf558e9b6ca26a46af793bf1170e6aa26211c09ba63b80b"
+      },
+      "bin/libllama-server-impl.dylib": {
+        "bytes": 6245784,
+        "sha256": "33e4b229c9bf5657322fbc2419bcd4689847c1eccc41e7f8874ee8fcc072a688"
+      },
+      "bin/libggml-base.dylib": {
+        "bytes": 769096,
+        "sha256": "4000c4398b7b0af303369bc7b9ccbf32293706756be9deabcc0d881cb9af72cd"
+      },
+      "bin/libggml-blas.dylib": {
+        "bytes": 58776,
+        "sha256": "e07a2b42a9c5b954c6b6da61fc296236f09548286ae2c060968fd17d88f12daa"
+      },
+      "bin/libggml-metal.0.dylib": {
+        "bytes": 2294968,
+        "sha256": "d2f8beff000d8ef74ca806c7b4d42e46febea0d29b8cf606a539de52eba45624"
+      },
+      "bin/libllama-common.0.dylib": {
+        "bytes": 5002136,
+        "sha256": "04f239cdbfebb4b941aa48755133cfef5758a0a08563fcb30a62c86c34ad40b2"
+      },
+      "bin/libllama.dylib": {
+        "bytes": 3180576,
+        "sha256": "1f81934f084f3d68365c612f8975156db1fc9d2493eca24999202ede0b44b525"
+      },
+      "bin/libggml-cpu.dylib": {
+        "bytes": 991232,
+        "sha256": "fa7a6e9f8a93f59c7cad4431893c6918cab1fbad574eafd4dc356397a3314305"
+      },
+      "bin/libggml-metal.dylib": {
+        "bytes": 2294968,
+        "sha256": "d2f8beff000d8ef74ca806c7b4d42e46febea0d29b8cf606a539de52eba45624"
+      },
+      "bin/libllama-common.dylib": {
+        "bytes": 5002136,
+        "sha256": "04f239cdbfebb4b941aa48755133cfef5758a0a08563fcb30a62c86c34ad40b2"
+      },
+      "bin/libggml-blas.0.21.0.dylib": {
+        "bytes": 58776,
+        "sha256": "e07a2b42a9c5b954c6b6da61fc296236f09548286ae2c060968fd17d88f12daa"
+      },
+      "bin/libggml.0.21.0.dylib": {
+        "bytes": 59968,
+        "sha256": "219510bcfe7ab47a9ab575f4eb8d0ada492693491cfeed75f62348055ba104eb"
+      },
+      "bin/libmtmd.0.2.0.dylib": {
+        "bytes": 1348560,
+        "sha256": "b441a2617eb44ec2caf558e9b6ca26a46af793bf1170e6aa26211c09ba63b80b"
+      },
+      "bin/libggml-base.0.dylib": {
+        "bytes": 769096,
+        "sha256": "4000c4398b7b0af303369bc7b9ccbf32293706756be9deabcc0d881cb9af72cd"
+      },
+      "bin/libllama.0.2.0.dylib": {
+        "bytes": 3180576,
+        "sha256": "1f81934f084f3d68365c612f8975156db1fc9d2493eca24999202ede0b44b525"
+      },
+      "bin/libllama-common.0.2.0.dylib": {
+        "bytes": 5002136,
+        "sha256": "04f239cdbfebb4b941aa48755133cfef5758a0a08563fcb30a62c86c34ad40b2"
+      },
+      "bin/libggml-blas.0.dylib": {
+        "bytes": 58776,
+        "sha256": "e07a2b42a9c5b954c6b6da61fc296236f09548286ae2c060968fd17d88f12daa"
+      },
+      "bin/libggml-cpu.0.21.0.dylib": {
+        "bytes": 991232,
+        "sha256": "fa7a6e9f8a93f59c7cad4431893c6918cab1fbad574eafd4dc356397a3314305"
+      },
+      "bin/libggml-cpu.0.dylib": {
+        "bytes": 991232,
+        "sha256": "fa7a6e9f8a93f59c7cad4431893c6918cab1fbad574eafd4dc356397a3314305"
+      },
+      "bin/libggml-metal.0.21.0.dylib": {
+        "bytes": 2294968,
+        "sha256": "d2f8beff000d8ef74ca806c7b4d42e46febea0d29b8cf606a539de52eba45624"
+      }
+    },
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "plan_sha256": "041c0d35c5c6920dcf59e46cfafb3c30b115220e0f0bd8ffbe1c9eafa884933a",
+    "scope": "Isolated remapped Turbo types and CPU codec and Server/full mtmd vision build with q8-K/Turbo3/4-V CLI integration; no Metal/runtime cache graph or endpoint claim"
+  },
+  "files": {
+    "host.tsv": {
+      "bytes": 8670,
+      "sha256": "0e54ce4706fe401d906f8668fc8f9f4244f5dc9a77ff71d6d88f2d0c018abd88"
+    },
+    "plan.json": {
+      "bytes": 2334,
+      "sha256": "041c0d35c5c6920dcf59e46cfafb3c30b115220e0f0bd8ffbe1c9eafa884933a"
+    },
+    "result.json": {
+      "bytes": 4661,
+      "sha256": "02cc1b69705e908163e922b7460afd0942f203f36fd8b59906b328654a93db04"
+    },
+    "runtime.patch": {
+      "bytes": 89257,
+      "sha256": "4864e0cb10c475ad193022d5f2e06fc1a9974b93d957ee3c6869a3c3bcfbab5b"
+    },
+    "phase-0.log": {
+      "bytes": 4246,
+      "sha256": "4ba10513e99534603ba6c40173a99823b3aa4a58896660d74cb1c54609c6c20d"
+    },
+    "phase-1.log": {
+      "bytes": 67219,
+      "sha256": "99d9a5dee96479405d69906287e0fbdb23560519ccc8f0f64a2c7d976043ea89"
+    },
+    "server-build-audit.json": {
+      "bytes": 419,
+      "sha256": "606d1ab0b50c5a230233816da557b59947cd913f0025618eab85cd96882de36e"
+    },
+    "build_prism_turbo_server.py": {
+      "bytes": 3852,
+      "sha256": "bc9f5745127d1e281bf0333f094e58f915e35c65840e2119df575c885fb91a21"
+    }
+  },
+  "limitations": "Server/full vision configured startup only. No image-answer/tool-agent/general task quality, long-context generation or endpoint performance qualification. Default-log allocation observability failure preserved AW138."
+}

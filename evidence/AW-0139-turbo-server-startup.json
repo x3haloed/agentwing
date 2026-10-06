@@ -1,0 +1,58 @@
+{
+  "experiment": "AW-0139",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0139",
+  "result": {
+    "experiment": "AW-0139",
+    "passed": true,
+    "error": null,
+    "healthy": true,
+    "http": [
+      {
+        "endpoint": "health",
+        "status": 200
+      },
+      {
+        "endpoint": "props",
+        "status": 200
+      }
+    ],
+    "allocator_line": "0.00.420.182 I llama_kv_cache: size =  408.00 MiB ( 16384 cells,  16 layers,  1/1 seqs), K (q8_0):  272.00 MiB, V (turbo4):  136.00 MiB",
+    "wall_seconds_diagnostic": 4.764076499999646,
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "server_exit_after_cleanup": 0,
+    "plan_sha256": "06a1a334f29e6996858f1133668d5b452452008546164dee92a0ef99680b07a5",
+    "scope": "Full multimodal configured startup/resource falsifier only"
+  },
+  "files": {
+    "host.tsv": {
+      "bytes": 492,
+      "sha256": "3d1d9c55531623cd95a75f2c241ce2ad6c50cb1e5b8daba5bc26d275ffab06e7"
+    },
+    "probe_bonsai_turbo_startup_verbose.py": {
+      "bytes": 3144,
+      "sha256": "e7b3f7a2c83ea827b778f6532b1df887588b41cc43a705919d980fdd0a9e2cc1"
+    },
+    "plan.json": {
+      "bytes": 1792,
+      "sha256": "06a1a334f29e6996858f1133668d5b452452008546164dee92a0ef99680b07a5"
+    },
+    "result.json": {
+      "bytes": 671,
+      "sha256": "4938abf729b44657b1381f496c837869ff675c5801cfbca0534825a51b77177a"
+    },
+    "health.json": {
+      "bytes": 15,
+      "sha256": "a29ee2b15c494311c52521766e44af56a3ad2248e7a8ab465e5206463c13d288"
+    },
+    "props.json": {
+      "bytes": 11105,
+      "sha256": "a8d78ecdb860239a4225ed50d86ac3ac4ac09d2f0b061e71352715628bb88914"
+    },
+    "server.log": {
+      "bytes": 394963,
+      "sha256": "afc742dae0fc3e21fc630a493422db33ce5ce5544f35c80338c9469e5c436403"
+    }
+  },
+  "limitations": "Server/full vision configured startup only. No image-answer/tool-agent/general task quality, long-context generation or endpoint performance qualification. Default-log allocation observability failure preserved AW138."
+}

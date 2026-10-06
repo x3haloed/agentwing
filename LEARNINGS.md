@@ -1734,3 +1734,13 @@ Host1/swapgrowth0. Internal changes substantial despite tokens matching: max
 selected activationL2 .291/logits .0502, diagnostic not quality acceptance.
 Retain native compressed model path for broader context/server/vision/task
 checks; no general capability/endpoint speed qualification or P1 promotion.
+
+## AW-0137–AW-0139 — Full server/vision build and16K compressed startup work
+
+Compiled full server+mtmd with q8-K/Turbo3/4-V CLI/model guards; exact binary/
+libraries/patch pinned in experimental launcher, existing policy/full Q8 vision
+preserved. Default-log healthy startup cannot prove allocation (AW138negative).
+Verbose diagnostic repeat confirmsactual16K KV272+136=408MiB,health/props200,
+pressure1/swapgrowth0,clean shutdown. Retain configured multimodal startup, not
+image-answer/tool-agent/occupied-long-context/endpoint qualification. CLI Khelp
+lists Turbo though Kparser rejects it; help refinement still outstanding.
