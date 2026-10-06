@@ -2167,3 +2167,15 @@ Selected mixed pipelines/raw/host replay valid; wrongKV-head canary fails all12,
 pressure1/growth0. Retain integrity survivor, no speed/whole-model/realprefill
 behavior/tool/vision/endpoint or fullGoogle claim. P1/deployedruntime unchanged.
 ExternalAW180, pins evidence/AW-0180-mixed-attention-canaries.json.
+
+
+### AW-0181 — q8K alone survives; full mixed graph still guarded
+
+Fresh same-runtime FP16 control bitexact prior32logits/bytes. Native q8K/F16V
+late8881token prefix firstL2.001359678/top20overlap1, all32ownIDs identical,
+pressure1/growth0; retain technical survivor, not endpoint speed/quality claim.
+F16K/Turbo4V abort-6 at1.043s on llama-graph.cpp2698 Q8K assertion; fourtharm
+unattempted. Whole experiment incomplete, full-factor analysis gated/unrun.
+Terminal raw/host/numeric/pipeline replay valid. Fix remaining graph admission
+in separate experiment; preserve negatives. P1/default unchanged. External
+AW181, pins evidence/AW-0181-native-mixed-cache-terminal.json.

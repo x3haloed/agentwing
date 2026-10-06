@@ -39,3 +39,18 @@ all original gates before analysis, never change acceptance. Synthetic probabili
 normalization, common-logit-shift invariance and disjoint-support TV1 checks pass.
 Native-bitexact sampling and behavior equivalence not presumed. Plan receipt
 evidence/AW-0181-cache-factor-analysis-plan.json; script analyze_bonsai_cache_factors.py.
+
+## Terminal result and reversal
+
+F16 control315.966s exact oldcontrol logits/bytes. q8K/F16V314.283s clean native
+prefill/vector mixed pipelines, all32 sampled IDs identical, first-rowL2
+.001359678/top20overlap1; both pressure1/no growth. These fixed-order lifetimes
+are diagnostic, not causal speed/task utility. Third F16K/Turbo4V abort-6 at
+1.043s, llama-graph.cpp2698 retains Q8K assertion despite context/kernel support;
+no generation. Runner stops, fourth combined arm unattempted. All3raw/host
+receipts independently replayed; two successful full numeric/capture audits.
+Experiment incomplete, original auditor correctly rejects; supplemental terminal
+auditor accounts failure without waiving gates. Full-factor analysis remains
+unrun/gated. Repair graph guard in a distinct experiment, preserve AW179/AW181
+failures. Component AW180 proof never claimed full graph admission. No promotion.
+Receipt: evidence/AW-0181-native-mixed-cache-terminal.json.
