@@ -1,0 +1,71 @@
+{
+  "experiment": "AW-0134",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0134",
+  "result": {
+    "experiment": "AW-0134",
+    "passed": true,
+    "records": [
+      {
+        "variant": "before",
+        "exit": 1,
+        "command": [
+          "clang++",
+          "-std=c++17",
+          "-fsyntax-only",
+          "/Users/chad/Models/agentwing/evidence/AW-0134/before.cpp"
+        ]
+      },
+      {
+        "variant": "after",
+        "exit": 0,
+        "command": [
+          "clang++",
+          "-std=c++17",
+          "-fsyntax-only",
+          "/Users/chad/Models/agentwing/evidence/AW-0134/after.cpp"
+        ]
+      }
+    ],
+    "patch_sha256": "a270b5ab1d4fd19196ee09223e05eed1828a73a198b62df085fd4bda68c50b0b",
+    "disposition": "Header guard fix retained; compiled AW131/132 binaries preserved. New source revision requires build before model use."
+  },
+  "files": {
+    "plan.json": {
+      "bytes": 522,
+      "sha256": "3fc0dec8bcf35a16203ee78a47b0f06c565605fd26bc280c0a70e265b4e31f62"
+    },
+    "result.json": {
+      "bytes": 724,
+      "sha256": "d0d9130b8c11350e16ae17a6733fa53cdabbe284c23157a570ab471c54311fbd"
+    },
+    "before.h": {
+      "bytes": 26941,
+      "sha256": "a660c1f5c462aaf4ff9ead716394cf43b40816a9a0f2c6743624b5b9185b9fc7"
+    },
+    "after.h": {
+      "bytes": 26942,
+      "sha256": "d81d27908ad6319d51c64f1fc9252e5aa4ed057413353d7c6ec362d65e5e7239"
+    },
+    "runtime.patch": {
+      "bytes": 86757,
+      "sha256": "a270b5ab1d4fd19196ee09223e05eed1828a73a198b62df085fd4bda68c50b0b"
+    },
+    "before.log": {
+      "bytes": 976,
+      "sha256": "77dc948b0fb1549e211ca4ee9fec08e2223b0e0fc59875ee432247e1f5c80bb7"
+    },
+    "before.cpp": {
+      "bytes": 135,
+      "sha256": "26a600994e2895d5d0982ba6715f9957a7b763dff3a5df38729957812e19aa80"
+    },
+    "after.cpp": {
+      "bytes": 133,
+      "sha256": "91a2c2b0c38d656d9865f52ec474d765b1622fd28ce33122df48542ed47a816f"
+    },
+    "after.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "limitations": "Inverse/attention graph stage only; AW134 header guard source fix is separately syntax-checked but not yet rebuilt. Model-cache graph, prefill, compressed generation, vision and endpoint acceptance remain outstanding."
+}

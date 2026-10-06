@@ -1,0 +1,153 @@
+{
+  "experiment": "AW-0132",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0132",
+  "result": {
+    "experiment": "AW-0132",
+    "passed": true,
+    "records": [
+      {
+        "bits": 3,
+        "layer": 3,
+        "exit": 0,
+        "error": null,
+        "relative_l2": 0.0006829344551789028,
+        "passes_cpu_authority_limit": true,
+        "passed": true,
+        "output_sha256": "3f95a0c4ca97cc7cbdcb5fded364e7f29e06d3969402065acaa2dd6e6f37c5f8"
+      },
+      {
+        "bits": 3,
+        "layer": 31,
+        "exit": 0,
+        "error": null,
+        "relative_l2": 0.0012546779503571932,
+        "passes_cpu_authority_limit": true,
+        "passed": true,
+        "output_sha256": "97f1cbe26759b8970c9fddafc05d1c88cdb7e7bac07c075f4eeea3b5b91a09b0"
+      },
+      {
+        "bits": 3,
+        "layer": 63,
+        "exit": 0,
+        "error": null,
+        "relative_l2": 0.0006526168883871671,
+        "passes_cpu_authority_limit": true,
+        "passed": true,
+        "output_sha256": "5b522eea8528cc072ea46fcbd7b60f69e479aa301846f5e34fcbf8ef067212e1"
+      },
+      {
+        "bits": 4,
+        "layer": 3,
+        "exit": 0,
+        "error": null,
+        "relative_l2": 0.0006802316197418193,
+        "passes_cpu_authority_limit": true,
+        "passed": true,
+        "output_sha256": "6f8c9be4320a1f264d893ac1dcda576a27bdd2fbbe5884d862d9390949ca56b3"
+      },
+      {
+        "bits": 4,
+        "layer": 31,
+        "exit": 0,
+        "error": null,
+        "relative_l2": 0.0012983266317699188,
+        "passes_cpu_authority_limit": true,
+        "passed": true,
+        "output_sha256": "b9a9812f6988bdda6fe8eb659e4504c2ecb44b8c76b7899381afb6606ba37b63"
+      },
+      {
+        "bits": 4,
+        "layer": 63,
+        "exit": 0,
+        "error": null,
+        "relative_l2": 0.0006889246060413231,
+        "passes_cpu_authority_limit": true,
+        "passed": true,
+        "output_sha256": "5278ea6ee722eba9e423e0ae689f23823b8035d0233c483787b65a13c6f2f3bb"
+      }
+    ],
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "plan_sha256": "272ef1f14437b2fe653fb6a93f7c9d744b7c436e8fb27d2e1d1b36af7583e8ce",
+    "scope": "Integrated Prism Metal asymmetric attention plus inverse graph; CPU denies unsupported inverse; no model-cache graph or compressed generation/endpoint qualification"
+  },
+  "files": {
+    "3-3.log": {
+      "bytes": 3716,
+      "sha256": "e3d37ab81c9a7e926d8ac47d2d631f1756c04550cd60ce5c6188b8488247f77e"
+    },
+    "63-4.log": {
+      "bytes": 3712,
+      "sha256": "5cb4b6313110be04ae5e05e13659de928a1a6bd4b148cfe4e88a86f0cd24dade"
+    },
+    "host.tsv": {
+      "bytes": 2144,
+      "sha256": "748e438f045cb8c9852597cdefc807275b7bfc0de4860ed3bfc20aece89d8c3d"
+    },
+    "set-rows": {
+      "bytes": 39032,
+      "sha256": "7d79af1b55f42622d79b01163a9079a492ead43b0a89bbc60cce07541d8c910f"
+    },
+    "63-3.log": {
+      "bytes": 3712,
+      "sha256": "dc3f0f0089698abb0623845b9ca8846c6be691d00f922a5fdf19c0d003c6310a"
+    },
+    "plan.json": {
+      "bytes": 3271,
+      "sha256": "272ef1f14437b2fe653fb6a93f7c9d744b7c436e8fb27d2e1d1b36af7583e8ce"
+    },
+    "3-4.log": {
+      "bytes": 3712,
+      "sha256": "e375cd9d8fc1e90b9f8b04f6170e5d5ba749b1e3376a19ebd400e5b448e5c154"
+    },
+    "result.json": {
+      "bytes": 2090,
+      "sha256": "20b9d6f6ba508dd8ef07d5db8d304fc0aada9ec5b55c5839b812aef44cbda0e2"
+    },
+    "prism-turbo-attention-inverse.cpp": {
+      "bytes": 2124,
+      "sha256": "12c1b6b768cd4c9d8a8720a1611e0a17bce9a78906224a024ad98b4bf9dc4eda"
+    },
+    "31-3.bin": {
+      "bytes": 24576,
+      "sha256": "97f1cbe26759b8970c9fddafc05d1c88cdb7e7bac07c075f4eeea3b5b91a09b0"
+    },
+    "31-4.bin": {
+      "bytes": 24576,
+      "sha256": "b9a9812f6988bdda6fe8eb659e4504c2ecb44b8c76b7899381afb6606ba37b63"
+    },
+    "compile.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "63-4.bin": {
+      "bytes": 24576,
+      "sha256": "5278ea6ee722eba9e423e0ae689f23823b8035d0233c483787b65a13c6f2f3bb"
+    },
+    "3-3.bin": {
+      "bytes": 24576,
+      "sha256": "3f95a0c4ca97cc7cbdcb5fded364e7f29e06d3969402065acaa2dd6e6f37c5f8"
+    },
+    "3-4.bin": {
+      "bytes": 24576,
+      "sha256": "6f8c9be4320a1f264d893ac1dcda576a27bdd2fbbe5884d862d9390949ca56b3"
+    },
+    "63-3.bin": {
+      "bytes": 24576,
+      "sha256": "5b522eea8528cc072ea46fcbd7b60f69e479aa301846f5e34fcbf8ef067212e1"
+    },
+    "check_prism_turbo_attention_inverse.py": {
+      "bytes": 4319,
+      "sha256": "b3532790061fcc0819b8e6c8dd8703aaf6af9444bb61a83db5710b99670831c3"
+    },
+    "31-3.log": {
+      "bytes": 3712,
+      "sha256": "489d080f3ea74ecda17deee51bca65e099a3841effbc726a7fe86883a80f46b4"
+    },
+    "31-4.log": {
+      "bytes": 3712,
+      "sha256": "a392da240af4d0a3183a9c598254a7ebab3a261abc65924eee10fe088af47006"
+    }
+  },
+  "limitations": "Inverse/attention graph stage only; AW134 header guard source fix is separately syntax-checked but not yet rebuilt. Model-cache graph, prefill, compressed generation, vision and endpoint acceptance remain outstanding."
+}

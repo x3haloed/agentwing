@@ -1712,3 +1712,14 @@ pressure1/swapgrowth0. Retain decode backend stage. Mixed-format path disables
 invalid same-format dequant shortcut and selects available baseline specialization.
 Inverse/model cache graph, prefill and compressed trajectory remain outstanding;
 no endpoint admission or improvement claim.
+
+## AW-0131–AW-0134 — Integrated inverse graph passes, header guard corrected
+
+Append-only inverse op/count registration builds; CPU backend explicitly denies
+unsupported inverse. Six actual Prism attention→inverse graphs pass independent
+CPU authority (max.001299 under.005), pressure1/swapgrowth0, outputs match full
+standalone chain. Model-cache graph/prefill/trajectory still absent. Header review
+finds argument struct outside guard; first fixture omits size_t prerequisite
+(AW133 preserved), corrected repeated-include test proves old failure/newpass
+and moves unchanged declaration inside guard AW134. Corrected source needs
+rebuild; AW131/132 compiled artifacts preserved, no endpoint qualification.

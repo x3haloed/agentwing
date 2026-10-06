@@ -1,0 +1,46 @@
+{
+  "experiment": "AW-0133",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0133",
+  "result": {
+    "experiment": "AW-0133",
+    "passed": false,
+    "stage": "Standalone repeated-header fixture",
+    "error": "Fixture omitted required size_t definition; both compiles fail before guard comparison",
+    "disposition": "Rejected fixture; runtime/source not changed"
+  },
+  "files": {
+    "plan.json": {
+      "bytes": 521,
+      "sha256": "695bedecac21abd301118f3882e4471b485e4fef97c6d4e18727ea48758bbf4e"
+    },
+    "result.json": {
+      "bytes": 264,
+      "sha256": "d21409b220008007f85689b75540df3f0ef5b989dd80f54111e60904522ad7a3"
+    },
+    "before.h": {
+      "bytes": 26941,
+      "sha256": "a660c1f5c462aaf4ff9ead716394cf43b40816a9a0f2c6743624b5b9185b9fc7"
+    },
+    "after.h": {
+      "bytes": 26942,
+      "sha256": "d81d27908ad6319d51c64f1fc9252e5aa4ed057413353d7c6ec362d65e5e7239"
+    },
+    "before.log": {
+      "bytes": 1599,
+      "sha256": "2fa62a1a1f3e7138971f00f147bb4a38161a9aa8b85270c94e173082088525a1"
+    },
+    "before.cpp": {
+      "bytes": 114,
+      "sha256": "af6896dd0ee28daba0d2bf066da4fa85e161d7fb71ac87cbf5068b9aeae88efb"
+    },
+    "after.cpp": {
+      "bytes": 112,
+      "sha256": "b289a5e0a574987094a9744caa94ca2c22dea7dad0618c9fa36f9559eee197e6"
+    },
+    "after.log": {
+      "bytes": 637,
+      "sha256": "ebd933ace2be6e4a589ab178c44e2168bcd3de4679358c94a95456c69f050e8b"
+    }
+  },
+  "limitations": "Inverse/attention graph stage only; AW134 header guard source fix is separately syntax-checked but not yet rebuilt. Model-cache graph, prefill, compressed generation, vision and endpoint acceptance remain outstanding."
+}
