@@ -1772,3 +1772,15 @@ Unpaired evidence cannot attribute failure to cache quantization; diagnose long
 accumulated generation before another large campaign. Raw evidence:
 /Users/chad/Models/agentwing/evidence/AW-0141/20261006T095302.957259Z; hashes and
 independent audit in evidence/AW-0141-turbo-multifile-terminal.json.
+
+
+### AW-0142 — AW-0141 continued generating, rather than stalling
+
+Hash-verified saved transcript has7695 thinking chunks in its unfinished fourth
+turn, versus three short completed tool turns. Native sampling/output8192 settings
+are confirmed for terminal requests; final progress7690tokens. This rejects a
+silent runtime stall, not cache distortion or effort mismatch. Rendered medium
+semantics remain unverified by this stream. Next compare exact accumulated-prefix
+request rendering/cache behavior, preserving native reasoning/task settings.
+Evidence/script hashes: evidence/AW-0142-generation-diagnosis.json; original
+external raw location and all configuration/host pins remain in AW-0141.

@@ -1,0 +1,145 @@
+{
+  "experiment": "AW-0142",
+  "source_experiment": "AW-0141",
+  "raw_receipt_sha256": "4c4ae530083fe9b34eb1ff5227dab315d5b3af71a7054019446d4f886ecebebf",
+  "raw_hashes_verified": true,
+  "turns": [
+    {
+      "thinking_chunks": 21,
+      "thinking_chars": 105,
+      "text_chunks": 0,
+      "ended": true,
+      "stop_reason": "toolUse",
+      "usage": {
+        "input": 469,
+        "output": 67,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 536,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      "word_count": 18,
+      "maximum_exact_12_word_repeat": 1
+    },
+    {
+      "thinking_chunks": 11,
+      "thinking_chars": 45,
+      "text_chunks": 0,
+      "ended": true,
+      "stop_reason": "toolUse",
+      "usage": {
+        "input": 203,
+        "output": 45,
+        "cacheRead": 535,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 783,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      "word_count": 9,
+      "maximum_exact_12_word_repeat": 0
+    },
+    {
+      "thinking_chunks": 13,
+      "thinking_chars": 44,
+      "text_chunks": 0,
+      "ended": true,
+      "stop_reason": "toolUse",
+      "usage": {
+        "input": 186,
+        "output": 55,
+        "cacheRead": 782,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1023,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      "word_count": 10,
+      "maximum_exact_12_word_repeat": 0
+    },
+    {
+      "thinking_chunks": 7695,
+      "thinking_chars": 29880,
+      "text_chunks": 0,
+      "ended": false,
+      "word_count": 4405,
+      "maximum_exact_12_word_repeat": 4
+    }
+  ],
+  "terminal_generation_settings": [
+    {
+      "temperature": 1.0,
+      "top_p": 0.949999988079071,
+      "top_k": 20,
+      "min_p": 0.05000000074505806,
+      "presence_penalty": 0.0,
+      "frequency_penalty": 0.0,
+      "repeat_penalty": 1.0,
+      "max_tokens": 8192,
+      "seed": 42,
+      "chat_format": "peg-native",
+      "generation_prompt": "<|im_start|>assistant\n<think>\n"
+    },
+    {
+      "temperature": 1.0,
+      "top_p": 0.949999988079071,
+      "top_k": 20,
+      "min_p": 0.05000000074505806,
+      "presence_penalty": 0.0,
+      "frequency_penalty": 0.0,
+      "repeat_penalty": 1.0,
+      "max_tokens": 8192,
+      "seed": 42,
+      "chat_format": "peg-native",
+      "generation_prompt": "<|im_start|>assistant\n<think>\n"
+    },
+    {
+      "temperature": 1.0,
+      "top_p": 0.949999988079071,
+      "top_k": 20,
+      "min_p": 0.05000000074505806,
+      "presence_penalty": 0.0,
+      "frequency_penalty": 0.0,
+      "repeat_penalty": 1.0,
+      "max_tokens": 8192,
+      "seed": 42,
+      "chat_format": "peg-native",
+      "generation_prompt": "<|im_start|>assistant\n<think>\n"
+    }
+  ],
+  "completed_request_timings": [
+    "0.34.718.337 I slot print_timing: id  0 | task 0 | prompt eval time =   17683.66 ms /   469 tokens (   37.71 ms per token,    26.52 tokens per second)",
+    "0.34.718.341 I slot print_timing: id  0 | task 0 |        eval time =   12547.04 ms /    67 tokens (  190.11 ms per token,     5.26 tokens per second)",
+    "0.34.718.347 I slot print_timing: id  0 | task 0 |       total time =   30230.70 ms /   536 tokens",
+    "0.51.553.623 I slot print_timing: id  0 | task 72 | prompt eval time =    8308.81 ms /   203 tokens (   40.93 ms per token,    24.43 tokens per second)",
+    "0.51.553.635 I slot print_timing: id  0 | task 72 |        eval time =    8459.93 ms /    45 tokens (  192.27 ms per token,     5.20 tokens per second)",
+    "0.51.553.637 I slot print_timing: id  0 | task 72 |       total time =   16768.73 ms /   248 tokens",
+    "1.09.495.667 I slot print_timing: id  0 | task 120 | prompt eval time =    7367.60 ms /   186 tokens (   39.61 ms per token,    25.25 tokens per second)",
+    "1.09.495.672 I slot print_timing: id  0 | task 120 |        eval time =   10541.36 ms /    55 tokens (  195.21 ms per token,     5.12 tokens per second)",
+    "1.09.495.675 I slot print_timing: id  0 | task 120 |       total time =   17908.96 ms /   241 tokens"
+  ],
+  "generation_progress_samples": 549,
+  "first_generation_progress": "1.35.382.976 I slot print_timing: id  0 | task 178 | n_gen =    100, tg =   5.08 t/s, tg_3s =   5.13 t/s",
+  "last_generation_progress": "30.03.532.487 I slot print_timing: id  0 | task 178 | n_gen =   7690, tg =   4.45 t/s, tg_3s =   3.94 t/s",
+  "interpretation": "Final turn continued emitting thinking deltas until deadline, not a silent runtime stall. No final-turn terminal usage exists. Exact repetition counts are descriptive, not a quality gate or causal cache comparison. Server/adapter medium intent remains pinned; this trace alone does not prove rendered effort semantics.",
+  "diagnostic_script_sha256": "e7469013429552139b17122c5b8a0d47e5e9867d8c3315e179da84e13d9109f8"
+}
