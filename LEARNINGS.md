@@ -2570,3 +2570,12 @@ control. Own32commonprefix0/matches0; notoutputequivalence orbehaviorquality.
 Receipt `evidence/AW-0209-turbo6-middle-pair-partial.json` pins externalAW209
 raw/audit. Supersedes middlepairedstatus; lateF16control live, complete
 campaignunresolved. No causal timing/vision/tool/endpointclaim, P1unchanged.
+
+### AW-0209 — allthree freshF16controls reproduce prior outputs exactly
+
+LateF16control308.483s exit0,32finiteownrows/384captures andpartialraw/shape/
+host/capacityauditpass, pressure1/swapgrowth0. Full32logits/prompt/generated
+bytes matchAW190latecontrol, completingexactreproducibilityofallthreeF16
+controls. Receipt `evidence/AW-0209-late-control-partial.json` pins external
+AW209raw/partialaudit; fivearmsverified, late6bitcandidate live. Latepaired
+numeric/fullcampaign unresolved; no causal timing/task/vision/toolclaim.

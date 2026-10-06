@@ -2,7 +2,7 @@
 
 ## Status and hypothesis
 
-Running. Early/middlepairs audited; lateF16control live. Technical hypothesis:
+Running. Fivearms audited; late6bitcandidate live. Technical hypothesis:
 Q8keys/6bitvalues limit identical-prefixlogitdisplacement and preservefinite
 own32trajectories at savedearly/mid/late reasoning prefixes. Fullqualification
 requiresallsixarms. This is not vision/tool/task/endpoint acceptance.
@@ -63,3 +63,10 @@ Own32commonprefix0/matches0: divergentinputs prohibit subsequent-logit
 equalprefix comparisons oroutputequivalenceclaim. Lifetimes192.232/184.104s
 diagnostic only. Receipt `evidence/AW-0209-turbo6-middle-pair-partial.json`.
 LateF16control live; allsixarmcampaign unresolved.
+
+LateF16control nowexit0,308.483s diagnostic,32finiteownrows/384captures,
+pressure1/swapgrowth0. Independentpartialauditverifiesfivearms. LateF16
+prompt/full32logits/generatedbytes matchpriorAW190control exactly. Receipt
+`evidence/AW-0209-late-control-partial.json`; late6bitcandidate live.
+AllthreefreshF16controls reproducepriorlogits/generatedbytes, but late
+pair/fullcampaign remainsunresolved.
