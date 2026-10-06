@@ -1843,3 +1843,13 @@ cache caused original incremental-history failure or support endpoint speed rati
 Execution cost plus long generation remain barriers; do not narrow reasoning/task
 gates to hide them. Raw external AW-0149; full hashes/negative result in
 evidence/AW-0149-full-request-terminal.json. No promotion.
+
+
+### AW-0151 — history speculation startup retained, checkpoint cost open
+
+Actual pinned full server enables ngram-simple under lookup4/proposal3, multicol
+environment configured; startup/health/props/clean exit and pressure1/no swap
+growth pass. Recurrent149.62MiB has0rollback slots: snapshot/replay costs remain
+required, no assumption of cheap rolling states. This promotes AW150 only to
+startup survivor, not kernel/fidelity/performance/capability acceptance. Raw
+external AW-0151 and every hash in evidence/AW-0151-history-startup.json.

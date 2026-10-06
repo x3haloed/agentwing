@@ -1,0 +1,42 @@
+{
+  "experiment": "AW-0151",
+  "independent_startup_replay_passed": true,
+  "result": {
+    "experiment": "AW-0151",
+    "passed": true,
+    "error": null,
+    "healthy": true,
+    "http": [
+      {
+        "endpoint": "health",
+        "status": 200
+      },
+      {
+        "endpoint": "props",
+        "status": 200
+      }
+    ],
+    "allocator_line": "0.00.401.489 I llama_kv_cache: size =  408.00 MiB ( 16384 cells,  16 layers,  1/1 seqs), K (q8_0):  272.00 MiB, V (turbo4):  136.00 MiB",
+    "wall_seconds_diagnostic": 3.3809763329991256,
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "server_exit_after_cleanup": 0,
+    "plan_sha256": "671dea86e2506d438dea52863b42b7cf27d32e3be69f544b76d299915673bdc2",
+    "scope": "History speculation+PTQ multicol startup only; no inference fidelity or endpoint performance claim"
+  },
+  "observed_speculation_enabled": true,
+  "recurrent_lines": [
+    "0.00.411.935 I llama_memory_recurrent: size =  149.62 MiB (     1 cells,  64 layers,  1 seqs  0 rs_seq), R (f32):    5.62 MiB, S (f32):  144.00 MiB",
+    "0.02.052.842 I llama_memory_recurrent: size =  149.62 MiB (     1 cells,  64 layers,  1 seqs  0 rs_seq), R (f32):    5.62 MiB, S (f32):  144.00 MiB"
+  ],
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0151",
+  "raw_sha256": {
+    "host.tsv": "e6b8ecf8e46032b7e71b81bf04315bb8a5cd00ab9dab00c97b2195f83ec4af31",
+    "plan.json": "671dea86e2506d438dea52863b42b7cf27d32e3be69f544b76d299915673bdc2",
+    "result.json": "95fae8032bc31679837f7c6e0fc1fd2919371696ad6db7095aa9cac8929a4200",
+    "health.json": "a29ee2b15c494311c52521766e44af56a3ad2248e7a8ab465e5206463c13d288",
+    "props.json": "a5270ae5bd8994466ca20d65618064b840d9ccdb7c3272e05140225f2c6e906d",
+    "server.log": "943817f4aa026c256dc0f2165cdf26ab34cf0a72d563183431a56a72250d4607"
+  },
+  "scope": "Configured resource startup, not exercised speculative acceptance, multicol kernel, recurrent restoration, performance or capability"
+}
