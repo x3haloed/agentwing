@@ -1,0 +1,192 @@
+{
+  "experiment": "AW-0095",
+  "completed": true,
+  "error": null,
+  "records": [
+    {
+      "tensor": "blk.0.ssm_out.weight",
+      "capture_index": 0,
+      "dimensions": [
+        6144,
+        5120
+      ],
+      "columns": 1,
+      "process_wall_seconds": 0.35107499999867287,
+      "warm_medians": {
+        "ptq": {
+          "installation_ms": 0.0,
+          "compute_ms": 0.559688,
+          "readback_cleanup_ms": 0.003583,
+          "graph_total_ms": 0.5632710000000001
+        },
+        "pq": {
+          "installation_ms": 0.0,
+          "compute_ms": 0.4975005,
+          "readback_cleanup_ms": 0.003604,
+          "graph_total_ms": 0.501063
+        }
+      },
+      "graph_total_ptq_over_pq": 1.1241520527358835,
+      "files": {
+        "timings.tsv": "84ebf65291ada85ad095c58efc0f496e03db8a010f9b38560db2e31a8456fd10",
+        "native.log": "a2a40bd1d10d0dd70e288e5b5f96ed0653fede7efbf8fdac09db784d6f8079b0"
+      }
+    },
+    {
+      "tensor": "blk.0.ssm_out.weight",
+      "capture_index": 0,
+      "dimensions": [
+        6144,
+        5120
+      ],
+      "columns": 16,
+      "process_wall_seconds": 0.11821866699756356,
+      "warm_medians": {
+        "ptq": {
+          "installation_ms": 0.0,
+          "compute_ms": 2.08975,
+          "readback_cleanup_ms": 0.050770499999999996,
+          "graph_total_ms": 2.14056
+        },
+        "pq": {
+          "installation_ms": 0.0,
+          "compute_ms": 1.7101899999999999,
+          "readback_cleanup_ms": 0.049479499999999996,
+          "graph_total_ms": 1.759375
+        }
+      },
+      "graph_total_ptq_over_pq": 1.2166593250444049,
+      "files": {
+        "timings.tsv": "52b1f15fcb567905ce0e36e99ad144e03a57f28d7b32b0d6eeb74f529a38765d",
+        "native.log": "172cc5b4babcbf9154e4c0ec3e22a0d13c7076336c388efc097b83a9572425bf"
+      }
+    },
+    {
+      "tensor": "blk.31.attn_output.weight",
+      "capture_index": 2,
+      "dimensions": [
+        6144,
+        5120
+      ],
+      "columns": 1,
+      "process_wall_seconds": 0.1203437500007567,
+      "warm_medians": {
+        "ptq": {
+          "installation_ms": 0.0,
+          "compute_ms": 0.589021,
+          "readback_cleanup_ms": 0.003916,
+          "graph_total_ms": 0.6231665
+        },
+        "pq": {
+          "installation_ms": 0.0,
+          "compute_ms": 0.546854,
+          "readback_cleanup_ms": 0.003479,
+          "graph_total_ms": 0.550333
+        }
+      },
+      "graph_total_ptq_over_pq": 1.1323444169257522,
+      "files": {
+        "timings.tsv": "9abf8e10665230cd865127d25c0dda9bfbd7e137abbd72836f05c0788d8d114e",
+        "native.log": "19c1088482116b45d8d82be190bc38765a4b936fcce411fd4c59c75c7e719365"
+      }
+    },
+    {
+      "tensor": "blk.31.attn_output.weight",
+      "capture_index": 2,
+      "dimensions": [
+        6144,
+        5120
+      ],
+      "columns": 16,
+      "process_wall_seconds": 0.11726324999835924,
+      "warm_medians": {
+        "ptq": {
+          "installation_ms": 0.0,
+          "compute_ms": 2.17102,
+          "readback_cleanup_ms": 0.057417,
+          "graph_total_ms": 2.225105
+        },
+        "pq": {
+          "installation_ms": 0.0,
+          "compute_ms": 1.8655650000000001,
+          "readback_cleanup_ms": 0.0583125,
+          "graph_total_ms": 1.92454
+        }
+      },
+      "graph_total_ptq_over_pq": 1.1561749820736384,
+      "files": {
+        "timings.tsv": "61d2516942504a6bf042c781946975ed525f3a70390386300ecc60a39d2706f5",
+        "native.log": "cea0ee20ded01b3684a9a129f794d6f99f4489c52ac8f801106de0c1d606825f"
+      }
+    },
+    {
+      "tensor": "blk.63.attn_output.weight",
+      "capture_index": 4,
+      "dimensions": [
+        6144,
+        5120
+      ],
+      "columns": 1,
+      "process_wall_seconds": 0.11581908399966778,
+      "warm_medians": {
+        "ptq": {
+          "installation_ms": 0.0,
+          "compute_ms": 0.5564585,
+          "readback_cleanup_ms": 0.00375,
+          "graph_total_ms": 0.5604169999999999
+        },
+        "pq": {
+          "installation_ms": 0.0,
+          "compute_ms": 0.507896,
+          "readback_cleanup_ms": 0.003521,
+          "graph_total_ms": 0.511417
+        }
+      },
+      "graph_total_ptq_over_pq": 1.0958122236843906,
+      "files": {
+        "timings.tsv": "30b6dba08828dea6866fae5f4798b26c8dac3b7145330766e7979dc9bc50fb02",
+        "native.log": "79b503abca58e458d4ad85baa8de9c28d48259da1457e79fadaed15069b94589"
+      }
+    },
+    {
+      "tensor": "blk.63.attn_output.weight",
+      "capture_index": 4,
+      "dimensions": [
+        6144,
+        5120
+      ],
+      "columns": 16,
+      "process_wall_seconds": 0.11522654199870885,
+      "warm_medians": {
+        "ptq": {
+          "installation_ms": 0.0,
+          "compute_ms": 2.15425,
+          "readback_cleanup_ms": 0.0546875,
+          "graph_total_ms": 2.208935
+        },
+        "pq": {
+          "installation_ms": 0.0,
+          "compute_ms": 1.80248,
+          "readback_cleanup_ms": 0.0548335,
+          "graph_total_ms": 1.857315
+        }
+      },
+      "graph_total_ptq_over_pq": 1.1893162979893017,
+      "files": {
+        "timings.tsv": "5db1704ca54ca45925aeff12655e264e7957a38edddd808eb28f9beaf97f6d4e",
+        "native.log": "7f00e608cf509e403220ac446a1d360fd4ab8413a4ab4376b22e479a8c2d19cc"
+      }
+    }
+  ],
+  "plan_sha256": "5101d34edbe6c472a80c3c163a79a10d6548d62621d16e5970f65cdb278dc80b",
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0,
+  "pressure_sha256": "979573746218f47910a330cd3c734cf6ab6263ea3545c6f9a484f91aee56eebd",
+  "thermal_after": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0095",
+  "scope": "Resident attention-output graph cost; both arms coexist, repeated fixed real prompt input, no full working-set or endpoint claim",
+  "screen_retained": true,
+  "recursive_receipt_sha256": "67001c03313124be95ff1086242c6caa126091339201f96e905e25963c587d34",
+  "source_and_raw_integrity": "passed",
+  "raw_result_sha256": "acb7d024640e1c1cac7e7056b8e8c22d71e026c8bd6b09fb2668e852ab73c005"
+}

@@ -1486,3 +1486,12 @@ compute gains4–10% but loses overall with installation. Sixteen-column totals
 gain7–11%. Retain selective/resident screening, not uniform full conversion;
 full working-set/cold durable installation/accumulated behavior remain open.
 Phase-only preparation pressure samples do not establish continuous safety.
+
+## AW-0095/AW-0096 — Attention-only PQ survives resident cheap screens
+
+Resident attention compute PTQ/PQ ratios1.077–1.125 across sampled decode
+shapes satisfy predeclared retention; warm small paired working set limits
+extrapolation. Both paths pass32-row actual-input CPU oracle at early/mid/late
+(max8.04e-6). Plan64 attention-output tensors only (+90MiB payload), preserving
+FFN PTQ and metadata. No artifact exists or promotion follows; full working-set,
+installation/memory and candidate-generated accumulation remain required.

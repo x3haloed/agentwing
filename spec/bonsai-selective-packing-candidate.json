@@ -1,0 +1,24 @@
+{
+  "id": "bonsai-selective-attention-pq",
+  "status": "planned-unqualified-artifact-not-created",
+  "basis": [
+    "AW-0094",
+    "AW-0095",
+    "AW-0096"
+  ],
+  "model_revision": "b072e1d3b35a0a630cece372c2127528e0994386",
+  "base_model_sha256": "53107f530aa52eb00912263ab1ee29bd199261c87cd7b4ad4ca1318c1fe33ee3",
+  "runtime_commit": "adfffbe41b2cabcd51fff326ab045662265062bb",
+  "conversion": "Exact symbolic PTQ1_0 to PQ2_0, preserve raw FP16 scales and every decoded ternary code",
+  "tensor_selector_regex": "blk\\.\\d+\\.(ssm_out|attn_output)\\.weight",
+  "tensor_count": 64,
+  "expected_payload_expansion_bytes": 94371840,
+  "unchanged": "All other tensor payloads, model metadata/tokenizer/Hadamard scales, vision, sampling, reasoning, tasks/verifiers/deadlines/permissions/scoring",
+  "next_gates": [
+    "Full working-set compute/cold and durable installation/residency cost screen",
+    "Complete selected-tensor code and raw-scale equality; all unselected payload hashes preserved",
+    "Candidate-generated accumulated activations and behavior",
+    "Replicated interleaved endpoint comparisons against frozen P1; original acceptance policy remains unresolved"
+  ],
+  "promotion": false
+}
