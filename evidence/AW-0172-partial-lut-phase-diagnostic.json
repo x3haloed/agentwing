@@ -1,0 +1,72 @@
+{
+  "experiment": "AW-0172",
+  "status": "phase-diagnostic-application-dominates",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0172",
+  "plan_sha256": "f52e903a5a92558d6319aea3dbc7f17da934611c50d74b487ae92a71ec232309",
+  "execution_plan_sha256": "ff4c523ed9b71a13a5e46247e282e4b14a00077cb45c566ba2b857c11cbd978b",
+  "result_sha256": "ea7e4bd5245675184a3c27c5603fdd70792407173531a0ac5fe679ad31ac6880",
+  "independent_raw_output_phase_replay": true,
+  "steady_median_build_gpu_seconds": 3.6354e-05,
+  "steady_median_apply_gpu_seconds": 0.0049975,
+  "execution": {
+    "experiment": "AW-0172",
+    "error": null,
+    "exit": 0,
+    "relative_L2": 1.6341809331800999e-06,
+    "phases": [
+      {
+        "iteration": 0.0,
+        "build_wall": 0.001477666,
+        "build_gpu": 5.175e-05,
+        "apply_wall": 0.0081235,
+        "apply_gpu": 0.007590458,
+        "total_wall": 0.009601875
+      },
+      {
+        "iteration": 1.0,
+        "build_wall": 0.000331042,
+        "build_gpu": 5.0875e-05,
+        "apply_wall": 0.0076815,
+        "apply_gpu": 0.00738675,
+        "total_wall": 0.008012708
+      },
+      {
+        "iteration": 2.0,
+        "build_wall": 0.000314208,
+        "build_gpu": 3.9875e-05,
+        "apply_wall": 0.005655583,
+        "apply_gpu": 0.005378583,
+        "total_wall": 0.005969875
+      },
+      {
+        "iteration": 3.0,
+        "build_wall": 0.000313459,
+        "build_gpu": 3.2833e-05,
+        "apply_wall": 0.004920709,
+        "apply_gpu": 0.004616417,
+        "total_wall": 0.005234167
+      },
+      {
+        "iteration": 4.0,
+        "build_wall": 0.000254209,
+        "build_gpu": 2.8917e-05,
+        "apply_wall": 0.004519334,
+        "apply_gpu": 0.004259333,
+        "total_wall": 0.004773667
+      }
+    ],
+    "baseline_swap_mib": 1191.12,
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "fixture_lifetime_s": 0.3806272500005434,
+    "raw_sha256": {
+      "candidate": "fbdbb707a0d14d427426f7e02c82c9035f700fcd9f7e9f394b6a0db61c29d98c",
+      "plan.json": "f52e903a5a92558d6319aea3dbc7f17da934611c50d74b487ae92a71ec232309",
+      "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "native.log": "74c1bd0c0fb07bd10cbea420d2221f17973a4361b388324c859677175c7eaaf0",
+      "execution-plan.json": "ff4c523ed9b71a13a5e46247e282e4b14a00077cb45c566ba2b857c11cbd978b",
+      "output.bin": "6ea894aa309c566304d45d784ffb9ad1828771995b5c0dc6f29ff78a9a123ca3"
+    }
+  },
+  "disposition": "Stop assuming table construction is dominant. Investigate consumer execution/representation before more table variants. Changed two-command scheduling means no AW171 timing decomposition or endpoint speed claim. Numeric and resource gates pass; no runtime integration/promotion."
+}

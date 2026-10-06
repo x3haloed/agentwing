@@ -2074,3 +2074,14 @@ before integration; phase bottleneck unknown, instrument before more redesign.
 No endpoint/cross-variant causal claim; P1/runtime/default intact. Rawexternal
 AW170/AW171, hashes in evidence/AW-0170-partial-lut-arithmetic.json and
  evidence/AW-0171-partial-metal-lut-screen.json. No promotion.
+
+
+### AW-0172 — partial LUT application dominates phase-separated diagnostic
+
+Same real full matrix/input/precision: GPU table build29–52us versus application
+4.26–7.59ms, numericrelativeL2 1.63418e-6, host1/growth0. Separate command buffers /
+wait changes scheduling; not AW171 decomposition or speed comparison. Raw /
+output/phase replay valid. Stop assuming producer cost is dominant; investigate
+consumer/representation, causes unproven. AW171 cost rejection retained. No
+integration/promotion/P1/default change. Raw externalAW172, hashes in
+ evidence/AW-0172-partial-lut-phase-diagnostic.json.
