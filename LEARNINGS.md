@@ -2444,3 +2444,17 @@ this one history/budget; key-only does not. Reject present stationary Turbo4
 V for promotion, retain key-only as unqualified control/fallback, screen
 higher-fidelity V cheaply. No universal accuracy, causal speed or task-score
 claim; P1 frozen and full goal remains unproven.
+
+### AW-0199 — 6-bit rotated values survive cheap actual activation screen
+
+Theory-derived stationary6bit, unchanged128group/signs/WHT/F16norm correction,
+reduces actual V error about74% and attention error74–75% in saved own
+layers3/31/63 against stationary4bit. All predeclared >=50% gates pass;
+4bit packed/decoded baseline byteexactAW185, independent bit unpack and
+math.fsum attention checks pass. Layout100B/group versus68B4bit/256BF16.
+Receipt `evidence/AW-0199-value-precision-screen.json` pins external raw
+`/Users/chad/Models/agentwing/evidence/AW-0199`, including failed missing-rpath
+helper build. Retain numerical survivor for isolated Metal integration/cost
+screen; behavior, vision/tools, full host and endpoint gates remain unproven.
+Shared native inverse is a limitation; CPU timings are not speed evidence.
+Present4bit rejection remains; no fullGooglePolarQuant/QJL claim, P1 frozen.

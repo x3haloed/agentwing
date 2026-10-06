@@ -1,0 +1,324 @@
+{
+  "experiment": "AW-0199",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0199",
+  "plan": {
+    "experiment": "AW-0199",
+    "hypothesis": "Gaussian stationary 6-bit rotated, norm-corrected V reduces both real V and attention relative L2 by at least 50% in each early/middle/late fixture versus stationary4bit",
+    "acceptance": "4bit packed and decoded bytes exactly match AW185; all six relative errors reduced >=50%; packed6bit independently decoded matches encoder; quadrature Gaussian MSE agreement <=1e-5",
+    "scope": "CPU numerical screen, no runtime integration, speed, fresh behavior, vision or endpoint claim; no executed tool calls",
+    "storage": "internalSSD",
+    "model_profile_sha256": "79b74364b4bef4b73aa05eae10526674ca56d71a146cb10a57ce4e418db6f638",
+    "harness_commit": "0c40b7aa4fd2357dad6ada3ed589fc79d83ddd74",
+    "source_sha256": "497e7e87e1fad61e1c0f61c319733fae6aa1976e0b8e46e508d217d8c71c0a6a",
+    "runner_sha256": "5b3bf7c97df87a8a74a131a89b56bedbd0af98b2005c89a96a2b8921a2863df8",
+    "codec_sha256": "e73d0d6ca57e35a798c74d517192636665871f5667d702ec8e783c7b0a2dc1bf",
+    "codebook_authority_sha256": "c682d101f55f9fca984fb882057bad87645851b0d682d2f636c480dce083d654",
+    "fixture_authority_sha256": "9200ae28093650f2dd696884f79b726105b820458a462ca2b5ac81e1159a1f30",
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+    "sampling_context_permissions": "not applicable: saved component fixtures, no generation/server/task execution",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+    "layout": {
+      "group": 128,
+      "header_bytes": 4,
+      "4bit_bytes": 68,
+      "6bit_bytes": 100,
+      "f16_bytes": 256
+    },
+    "host_monitoring": "before/after CPU screen; not continuous inference admission"
+  },
+  "result": {
+    "experiment": "AW-0199",
+    "passed": true,
+    "records": [
+      {
+        "layer": 3,
+        "4": {
+          "V_relative_l2": 0.0967303468763766,
+          "attention_relative_l2": 0.051719627899451295,
+          "cpu_encode_seconds_diagnostic_only": 0.0010876669985009357
+        },
+        "6": {
+          "V_relative_l2": 0.02484046448396125,
+          "attention_relative_l2": 0.013079679375862394,
+          "cpu_encode_seconds_diagnostic_only": 0.0013475830055540428
+        },
+        "passed": true
+      },
+      {
+        "layer": 31,
+        "4": {
+          "V_relative_l2": 0.094940874096032,
+          "attention_relative_l2": 0.07023843549973822,
+          "cpu_encode_seconds_diagnostic_only": 0.0009159159963019192
+        },
+        "6": {
+          "V_relative_l2": 0.024816442200664514,
+          "attention_relative_l2": 0.018540809588393044,
+          "cpu_encode_seconds_diagnostic_only": 0.0013407920050667599
+        },
+        "passed": true
+      },
+      {
+        "layer": 63,
+        "4": {
+          "V_relative_l2": 0.09420864330652431,
+          "attention_relative_l2": 0.055247391140436204,
+          "cpu_encode_seconds_diagnostic_only": 0.0008969589980551973
+        },
+        "6": {
+          "V_relative_l2": 0.02443766494154347,
+          "attention_relative_l2": 0.0138143653100468,
+          "cpu_encode_seconds_diagnostic_only": 0.0013474169973051175
+        },
+        "passed": true
+      }
+    ],
+    "tables": {
+      "4": {
+        "centroids": [
+          -0.24152907697892362,
+          -0.18287701390634276,
+          -0.14301644647608022,
+          -0.11103619979521567,
+          -0.08329191586882129,
+          -0.058049853288335625,
+          -0.03429894799860493,
+          -0.011348624534429901,
+          0.011348624534429815,
+          0.03429894799860491,
+          0.05804985328833559,
+          0.08329191586882119,
+          0.1110361997952156,
+          0.14301644647608025,
+          0.18287701390634284,
+          0.24152907697892598
+        ],
+        "thresholds": [
+          -0.2122030454426332,
+          -0.16294673019121148,
+          -0.12702632313564793,
+          -0.09716405783201848,
+          -0.07067088457857845,
+          -0.04617440064347028,
+          -0.022823786266517418,
+          -4.336808689942018e-17,
+          0.022823786266517362,
+          0.046174400643470254,
+          0.0706708845785784,
+          0.0971640578320184,
+          0.12702632313564793,
+          0.16294673019121153,
+          0.2122030454426344
+        ]
+      },
+      "6": {
+        "centroids": [
+          -0.33093492479201064,
+          -0.28641687698395457,
+          -0.2578647656854066,
+          -0.23619786879928914,
+          -0.21843454763552114,
+          -0.2032031504450593,
+          -0.189753007840759,
+          -0.17762619951193898,
+          -0.1665216353384562,
+          -0.15623010647857236,
+          -0.14659993237801372,
+          -0.13751735121276665,
+          -0.12889463921504027,
+          -0.12066255908818589,
+          -0.11276536663403446,
+          -0.10515739754123331,
+          -0.09780066722194906,
+          -0.09066314105325209,
+          -0.08371746056664885,
+          -0.07693998718323976,
+          -0.07031007173755811,
+          -0.06380948748602373,
+          -0.05742198337648025,
+          -0.05113292700050499,
+          -0.04492901520137036,
+          -0.03879803619702724,
+          -0.03272867119296604,
+          -0.026710326374871623,
+          -0.020732988256824115,
+          -0.01478709686273499,
+          -0.008863432300946342,
+          -0.002953011065260046,
+          0.002953011065260046,
+          0.008863432300946286,
+          0.014787096862735208,
+          0.02073298825682417,
+          0.02671032637487161,
+          0.032728671192966026,
+          0.03879803619702705,
+          0.04492901520136986,
+          0.05113292700050477,
+          0.057421983376480246,
+          0.06380948748602418,
+          0.07031007173755811,
+          0.0769399871832407,
+          0.08371746056664883,
+          0.09066314105325185,
+          0.0978006672219499,
+          0.10515739754123227,
+          0.11276536663403396,
+          0.12066255908818573,
+          0.12889463921503888,
+          0.13751735121276654,
+          0.14659993237801233,
+          0.15623010647857286,
+          0.16652163533845576,
+          0.17762619951193792,
+          0.1897530078407615,
+          0.20320315044506043,
+          0.21843454763552259,
+          0.23619786879928875,
+          0.2578647656854046,
+          0.28641687698393675,
+          0.33093492479205533
+        ],
+        "thresholds": [
+          -0.3086759008879826,
+          -0.2721408213346806,
+          -0.2470313172423479,
+          -0.22731620821740514,
+          -0.21081884904029022,
+          -0.19647807914290916,
+          -0.18368960367634898,
+          -0.1720739174251976,
+          -0.1613758709085143,
+          -0.15141501942829305,
+          -0.14205864179539018,
+          -0.13320599521390347,
+          -0.12477859915161307,
+          -0.11671396286111017,
+          -0.10896138208763388,
+          -0.10147903238159119,
+          -0.09423190413760058,
+          -0.08719030080995047,
+          -0.0803287238749443,
+          -0.07362502946039894,
+          -0.06705977961179092,
+          -0.060615735431251996,
+          -0.05427745518849262,
+          -0.048030971100937674,
+          -0.0418635256991988,
+          -0.03576335369499664,
+          -0.02971949878391883,
+          -0.02372165731584787,
+          -0.017760042559779553,
+          -0.011825264581840666,
+          -0.005908221683103194,
+          0.0,
+          0.005908221683103166,
+          0.011825264581840748,
+          0.017760042559779688,
+          0.02372165731584789,
+          0.029719498783918816,
+          0.03576335369499654,
+          0.041863525699198455,
+          0.04803097110093732,
+          0.05427745518849251,
+          0.06061573543125221,
+          0.06705977961179115,
+          0.07362502946039941,
+          0.08032872387494477,
+          0.08719030080995034,
+          0.09423190413760088,
+          0.10147903238159109,
+          0.10896138208763312,
+          0.11671396286110984,
+          0.1247785991516123,
+          0.1332059952139027,
+          0.14205864179538943,
+          0.1514150194282926,
+          0.1613758709085143,
+          0.17207391742519684,
+          0.1836896036763497,
+          0.19647807914291096,
+          0.21081884904029152,
+          0.22731620821740567,
+          0.24703131724234667,
+          0.27214082133467066,
+          0.308675900887996
+        ]
+      }
+    },
+    "gaussian_6bit_mse": 5.033122385288353e-06,
+    "quadrature_mse": 5.033122430018838e-06,
+    "iterations": 8733,
+    "input_sha256": {
+      "3": "ac52542c599c6cc27d21855fce345ebac2d8c8605e117463ad61471ea17da002",
+      "31": "48ebe1b7e6c085016c55784f3a15703615d40d30baaba1f6fa5c67a5d337d69a",
+      "63": "f18014ece1a4b3e3f03006d6715268efa79ab666ccd23e1b94f59e23177df69a"
+    },
+    "phase_host_samples": [
+      [
+        1,
+        1712.62
+      ],
+      [
+        1,
+        1712.62
+      ]
+    ],
+    "plan_sha256": "2d0a7c226dc246a3e0b36b3117cbc9e6f5050c40fba49a7ef32707cf35cfd898",
+    "raw_sha256": {
+      "31-4-decoded.bin": "82e842ff75f8b152c9e418f06c4dd2a4da96af7331f8dd59e44cc3bc101a9255",
+      "63-6-packed.bin": "b0d8a027b2cddc3bc8f65b2f36098bce93c580783aee2c6a3872da04cff1855f",
+      "31-6-packed.bin": "c39b9ee467108dd9b96ebeb9e8e23d3f7820e8215b675ba20391a87d7fd53d11",
+      "plan.json": "2d0a7c226dc246a3e0b36b3117cbc9e6f5050c40fba49a7ef32707cf35cfd898",
+      "63-6-decoded.bin": "4fd4f807701cbaff3c03f85fabee7a758bf5e1d67b0edfcd27f036e492dfb138",
+      "63-4-packed.bin": "adb4914bb183b8188c34464ffc4119c3e16d8a06002668ef9ed72818df8bdd55",
+      "31-4-packed.bin": "7754be7aba0159340d9ab2f1f746665e9cc1f9517b659595a86a45c16e06774c",
+      "3-4-decoded.bin": "905e727c7bcdf462cb9607f3470737519ed09206374c32a7e771055b3aa908b4",
+      "3-4-packed.bin": "38114c690468c93af42d2d24b50906ef0bcfc2eef772fadce151c3437d636288",
+      "63-4-decoded.bin": "e2d75de569a532318ec3fb97dfc8487470b9beb219e46043812424ba5ef39cc8",
+      "3-6-decoded.bin": "6fcdf133fb0f605ee468cc716c730295996e3ff0ffb941be12659b70ddff3616",
+      "3-6-packed.bin": "9ffc9f188117db318f5cdc975b6eb94d8bd3e3434b8d0c5cf195dec788e33c3f",
+      "codec.dylib": "e73d0d6ca57e35a798c74d517192636665871f5667d702ec8e783c7b0a2dc1bf",
+      "31-6-decoded.bin": "01208a30de693854b37ebf6b0d3a5ddca7f1abcc450cb629cde9bd6aea5f4591"
+    },
+    "scope": "CPU numerical screen, no runtime integration, speed, fresh behavior, vision or endpoint claim; no executed tool calls",
+    "disposition": "numerical survivor only"
+  },
+  "audit": {
+    "experiment": "AW-0199",
+    "passed": true,
+    "result_sha256": "02f0c11618e400731bfe706a85f053814479f03cf0f0a57596031c12d997d0a9",
+    "auditor_sha256": "763385538f7b5fa3fafc83d76dd50077c6dd5b64c50b114b6f21ffce800cf958",
+    "independent_attention": [
+      {
+        "layer": 3,
+        "attention_relative_l2": {
+          "4": 0.05171962789945129,
+          "6": 0.013079679375862397
+        }
+      },
+      {
+        "layer": 31,
+        "attention_relative_l2": {
+          "4": 0.07023843549973818,
+          "6": 0.018540809588393038
+        }
+      },
+      {
+        "layer": 63,
+        "attention_relative_l2": {
+          "4": 0.0552473911404362,
+          "6": 0.013814365310046798
+        }
+      }
+    ],
+    "base_library_sha256": "db63c95beb5536a2e80564c8724801b40fd2ad58183b539f69dc8082ef5f6abe",
+    "preserved_failed_attempt_sha256": {
+      "plan.json": "9d37d33fe7c6f97121cd5cbee0a0331f3fe5fc6507ba800e52ac6d1475983091",
+      "codec.dylib": "b56aa0f851fcbd0781698b7c4b107485e8474a1821eb636dce3283e53ad19f6f"
+    },
+    "limitation": "Independent attention reduction and bit unpacking; inverse WHT shared with native library, no Metal/behavior/endpoint proof"
+  },
+  "audit_sha256": "482a5e6fe343160d8eff8db12bbb1a306af7c73d1bbd95a33d4ba229376b901c",
+  "build_command": "clang++ -std=c++17 -O2 -dynamiclib -I /Users/chad/Models/agentwing/runtime-sources/prism-turbo-codebook/ggml/include -Wl,-rpath,/Users/chad/Models/agentwing/runtime-builds/prism-turbo-codebook/bin experiments/fixtures/bonsai-precision-codec.cpp /Users/chad/Models/agentwing/runtime-builds/prism-turbo-codebook/bin/libggml-base.0.21.0.dylib -o /Users/chad/Models/agentwing/evidence/AW-0199/codec.dylib"
+}
