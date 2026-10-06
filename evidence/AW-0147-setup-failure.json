@@ -1,0 +1,7 @@
+{
+  "experiment": "AW-0147",
+  "status": "rejected-pre-inference-launch-error",
+  "error": "Copied binary lost executable mode (copyfile)",
+  "model_inference_launched": false,
+  "plan_sha256": "0705a080cc40a2e78f3ee887bab47cf35b036dee45624f1ae6b34e2b593cf25c"
+}

@@ -1806,3 +1806,12 @@ AW-0144's rendering gap for the complete saved history; it does not prove cache
 fidelity or task capability. Host gates pass and clean shutdown; no inference or
 endpoint speed claim. Raw bodies/dependency hashes: external AW-0145; receipt
 evidence/AW-0145-full-render.json. Ready to freeze identical-prefix cache screen.
+
+### AW-0146/147 — replay setup errors before inference
+
+AW-0146 expected a model.path but profile stores artifact descriptors; AW-0147
+copyfile dropped executable mode. Both plans/errors preserved, neither launched
+model inference. AW-0148 uses verified checkpoint fallback and checks executable
+permission before freezing; comparison gates unchanged. These are harness errors,
+not cache/model failures. Receipts: evidence/AW-0146-setup-failure.json and
+AW-0147-setup-failure.json; raw external matching AW directories.

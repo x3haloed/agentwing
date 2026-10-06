@@ -1,0 +1,8 @@
+{
+  "experiment": "AW-0146",
+  "status": "rejected-pre-inference-harness-error",
+  "error": "KeyError: model.path; profile stores model.artifacts",
+  "model_inference_launched": false,
+  "plan_sha256": "518695692e503b7f457fe818269867ed7800771c50b4f71701d038b79e3cf346",
+  "scope": "Harness schema failure, no cache fidelity or performance evidence"
+}
