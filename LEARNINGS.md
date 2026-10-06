@@ -2416,3 +2416,15 @@ audit/raw hashes under `/Users/chad/Models/agentwing/evidence/AW-0197`.
 Supersedes unresolved pair status; rejected promotion, retained negative
 evidence. Split K/V precision next on the same history; P1 frozen, no
 reasoning/task/deadline/scoring waiver or endpoint speed claim.
+
+### AW-0198 — Q8 keys with F16 values complete current native request
+
+Q8-key/F16-value fresh arm completed1149.308 s with one valid native bash
+proposal, clean terminal stream/exits, no tool execution/task score. Strict
+hashes/stream, independent host trace and capacity replay passed: pressure1,
+swap growth0, minimum free196,086,878,208 bytes. Receipt
+`evidence/AW-0198-q8-key-f16-value-partial.json` pins external raw/audit
+hashes under `/Users/chad/Models/agentwing/evidence/AW-0198`. Q8 keys alone
+did not reproduce the combined cache timeout for this input. F16-key/Turbo4
+arm remains live; pair unresolved. Retained diagnostic, no causal speed or
+uniform behavior claim, P1 frozen.
