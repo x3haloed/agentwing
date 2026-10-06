@@ -55,3 +55,12 @@ result. Preserve launched runs/failure/timeout under original watchdog; do not
 waive support guards or reinterpret fallback cost as precision-only effect.
 Native mixed-cache support is prerequisite for valid split comparison. Frozen
 plan retained, no restart. Evidence AW0178-cache-factorial-feasibility.json.
+
+## Terminal result
+
+Runner exited0 after q8/F16 child watchdog600.373s, exit-15. This is an
+incomplete experiment, not success: two of four arms executed; F16/Turbo4 and
+q8/Turbo4 unattempted. Both arms pressure1/swapgrowth0, independent raw/hash /
+pressure replay valid. Preserve timeout; no task utility or precision-only
+numeric conclusion assigned. Terminal receipt AW0178-cache-factorial-terminal.
+Reject design on unchanged port; AW179 prepares native mixed support, untested.

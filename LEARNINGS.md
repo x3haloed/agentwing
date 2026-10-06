@@ -2150,3 +2150,9 @@ matched2x2 interpretation rejected while runner remains live under declared
 watchdog; preserve terminal evidence. Native mixed support required before
 precision-only attribution. P1/runtime/profile unchanged. Source pins and
 repeatability in evidence/AW-0178-cache-factorial-feasibility.json.
+
+AW178 terminal: q8K/F16V CPU-fallback arm600.373s watchdog/child-15,
+experiment incomplete2/4; remaining arms unattempted. Raw/host replay valid,
+pressure1/growth0. Runner exit0 does not establish experiment success. No task
+utility/precision-only conclusion. Terminalreceipt
+evidence/AW-0178-cache-factorial-terminal.json; isolated AW179 patch untested.
