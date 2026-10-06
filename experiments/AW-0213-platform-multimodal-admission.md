@@ -2,7 +2,7 @@
 
 ## Status and hypothesis
 
-Running: firstreplicate independentlypassed; oppositeimagereplicate live. AW212Pi-onlyplatform-context survivor motivates
+Completed: bothfreshreplicates independentlypassed fullfunctionaladmission. AW212Pi-onlyplatform-context survivor motivates
 completeunchangedAW211text/vision/nativeLookupassociation/Pifilecopy gates
 on pinned6bitserver. Alltworeplicates mustpass beforefullfunctionaladmission.
 
@@ -42,3 +42,22 @@ host/capacityauditpasses. ThreePi productivevalidcalls plusoneproductive
 Lookup,4attemptedvalidproductive/0redundantmalformeddeniedfailed. Receipt
 `evidence/AW-0213-first-admission-partial.json` pinsraw/audit/review. No causal
 prompt orspeedcomparison; secondreplicate/fulladmission stillunresolved.
+
+## Terminal result
+
+Bothreplicates pass unchangedfulltext/oppositeimages/nativeLookupselection/
+nonceassociation/Pibyteartifact/canonicalprotocol/zero-failed-tool/host/
+capacitygates. Independentrawhash/raster/argument/association/transcript/
+artifact/resource replaypasses. ActualPi calls3+2 plus2Lookupcalls gives
+7attemptedvalidproductive/0redundantmalformeddeniedfailed. Rep1initial
+compoundcall reportslsmissinganswer thenreadssource successfully; warning
+preserved, wholecallreturn0/isErrorfalse. No zero-warningclaim orhiding
+failedtoolcounts; APItoolcallsareclassificationunit, notshellsubcommands.
+
+Lifetimes164.389/177.597s diagnostic, bothpressure1/perarm swapgrowth0.
+No speedcomparison orcausalpromptclaim. Allmodelownerscleanedup. Terminal
+receipt `evidence/AW-0213-platform-admission-terminal.json` pinsfullaudit/
+review/raw underexternalAW213. Supersedespartialadmissionstatus; retain
+functional6bit/platform-harness survivor forlong nativehistory andselected
+realdevelopmentbehavior, thenfixedendpointladder. AW211negative preserved,
+P1/defaults unchanged, no25%utilitypromotion orfullGooglePolarQuant/QJLclaim.

@@ -2685,3 +2685,16 @@ artifact/host/capacityauditpasses;164.389s diagnostic,pressure1/perarm
 swapgrowth0. Receipt `evidence/AW-0213-first-admission-partial.json` pins
 externalAW213raw/review. Oppositeimagereplicate live; fulladmission andlong
 behavior/endpoints pending, no causalprompt/speed/P1promotionclaim.
+
+### AW-0213 — revised fullfunctional admission passes bothreplicates
+
+Bothfresh6bit/fullQ8vision/platform-Pi replicates independentlypass text42/
+oppositeimages/nativeLookupnonceassociation/byteexactPifiles/canonical
+protocol/zero-failed-tool/host/capacitygates. ActualcallsPi3+2/Lookup2,
+7validproductive/0redundantmalformeddeniedfailed. Initialmissinganswer
+lsdiagnostic inside successfulcompoundcall preserved, no zero-warningclaim.
+164.389/177.597s diagnostic, bothpressure1/perarm swapgrowth0. Receipt
+`evidence/AW-0213-platform-admission-terminal.json` pins externalAW213raw/
+audit/review. Supersedespartialstatus; retainfunctionalcandidate forlong
+nativehistory/selecteddev thenfixedendpointladder, AW211negative/P1/defaults
+preserved. No causalprompt/speed/25%utility orfullGooglePolarQuant/QJLclaim.
