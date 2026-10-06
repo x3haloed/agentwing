@@ -23,3 +23,13 @@ model/hardware/OS/storage/cache/thermal hashes at
 Native tokenization declared identically in both arms; no exact server KV-history
 claim. AW-0145 verifies rendered base bytes. No rescoring failed AW-0141, reduced
 agent reasoning budget, altered benchmark, utility comparison or promotion.
+
+## Interim independent replay
+
+First0-chunk pair completed and passes:1186 identical input tokens; first-row
+relative logit L2 .0437951, top20 overlap1.0, own32tokenIDs all32match. Hashes,
+headers/libraries/input pins,384 selected activation files and32whole-logit rows
+finite, host gates replayed. Full four-checkpoint verdict remains pending; the
+ongoing arm is1024-chunk Turbo. These are diagnostic results, not endpoint rates.
+Auditor: scripts/audit_bonsai_accumulated_cache_replay.py --partial; interim raw
+audit outside Git at external AW-0148/partial-audit.json.
