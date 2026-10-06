@@ -1,0 +1,31 @@
+{
+  "experiment": "AW-0178",
+  "status": "Incomplete, runner live; source feasibility gate failed for matched 2x2 design",
+  "source_sha256": {
+    "src/llama-context.cpp": "999153490cc96547ba6326b1770346df1c3f8e6b78d3a3e67738674731dc9f49",
+    "ggml/src/ggml-metal/ggml-metal-device.m": "443ff8fc902f9b9f3ee63bf118eb63208c1dc4c1f6f701735048c52b6fb9d783"
+  },
+  "findings": [
+    {
+      "source": "src/llama-context.cpp",
+      "line": 3875,
+      "finding": "Context initialization explicitly rejects Turbo3/4 V unless K is Q8_0. Planned F16/Turbo4 arm cannot execute."
+    },
+    {
+      "source": "ggml/src/ggml-metal/ggml-metal-device.m",
+      "line": 1640,
+      "finding": "Mixed-type Metal flash support requires Q8_0 K and Turbo3/4 V. Q8/F16 arm has backend-fallback confound."
+    }
+  ],
+  "disposition": "Reject current matched-factorial interpretation; preserve launched arms/errors/watchdog. Requires native mixed support before isolated numerical/performance attribution.",
+  "first_control_repeatability": {
+    "scope": "Same FP16control repeatability diagnostic, not endpoint timing comparison",
+    "old_result_sha256": "c9bc8b5f6183005b00e1eadaa26de8e5652ad9ae79fb5f6dd3729913512dffa0",
+    "new_result_sha256": "598ac7281a5b00d91e46814b6328eeaf518875c8e9d06814401bb9c497f7ddfd",
+    "prompt_tokens_equal": true,
+    "all32_logit_rows_bitidentical": true,
+    "logit_sha256": "1e7bdd116e4abd07c839604bfca81d0964951de6192d13b9b0640974694cc666",
+    "generated_bytes_equal": true
+  },
+  "plan_sha256": "d2089fe30f36dd9de5297f2cb7c907468ec32c5b46bb00411c52a9577d55f78a"
+}
