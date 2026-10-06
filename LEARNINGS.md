@@ -1655,3 +1655,12 @@ Turbo3/4 cases agree with compressed CPU authority within.001299 (gate.005),
 pressure1/swap growth0. Populated writer rows match AW-0117, masked paddingzero.
 Retain composition for integration; q8 K still CPU prepared and no Prism cache
 registration/accumulated compressed model trajectory or endpoint acceptance.
+
+## AW-0119 — Full native K/V-write attention chain passes real captures
+
+GPU q8 K SET_ROWS added to native Turbo V-write/attention/inverse path. Allsix
+real layer3/31/63 cases preserve CPU q8 packed keys exactly; value buffers/final
+outputs byte-identical to AW-0118. CPU final oracle error max.001299 (gate.005),
+pressure1/swap growth0. Retain standalone whole GPU cache/attention path for
+Prism integration; no registered runtime or compressed generated trajectory,
+long-context/vision/endpoint acceptance follows yet.
