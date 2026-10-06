@@ -1,0 +1,99 @@
+{
+  "experiment": "AW-0107",
+  "passed": true,
+  "error": null,
+  "records": [
+    {
+      "layer": 3,
+      "native_vs_cpu_relative_l2": 7.218292437765554e-05,
+      "rotated_kv_head_relative_l2": 1.3871539665173411,
+      "output_values": 98304,
+      "active_key_positions_per_query": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "gqa_query_heads_per_kv_head": 6
+    },
+    {
+      "layer": 31,
+      "native_vs_cpu_relative_l2": 0.0003242711159199408,
+      "rotated_kv_head_relative_l2": 1.349890015567769,
+      "output_values": 98304,
+      "active_key_positions_per_query": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "gqa_query_heads_per_kv_head": 6
+    },
+    {
+      "layer": 63,
+      "native_vs_cpu_relative_l2": 2.8148438847025385e-05,
+      "rotated_kv_head_relative_l2": 1.3709705209540677,
+      "output_values": 98304,
+      "active_key_positions_per_query": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "gqa_query_heads_per_kv_head": 6
+    }
+  ],
+  "plan_sha256": "f707aa8917f02387093e8eedd4a66fe2c72270fe5aa5e7c5d2b8071ca95070bc",
+  "phase_host_samples": [
+    [
+      1,
+      914.06
+    ],
+    [
+      1,
+      914.06
+    ]
+  ],
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0107",
+  "scope": "Independent double dot/softmax/value CPU oracle against native FP16-KV flash attention, one raw16-token prompt; no cache quantization/endpoint acceptance",
+  "source_and_raw_hash_audit": "passed",
+  "recursive_receipt_sha256": "6f0f8145dba76ccca57c582d7280a7ce7f427ff7939fc5cfd5e7ce13ced629b0",
+  "raw_result_sha256": "363d0e53a8ddf3ecbe241cd2407dbe0269c1bdb95d1f88ecd7b7cd4b0f199f42"
+}

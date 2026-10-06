@@ -1571,3 +1571,11 @@ determinism/finite reconstructions. Gaussian L2 T2 .323/T3 .177/T4 .122,
 while one-hot is nearly exact: sparse smoke is not quality authority. Retain
 for real K/V attention tests, not full registration/Metal or Google equivalence.
 No cache quality, performance, current runtime or endpoint promotion change.
+
+## AW-0106/AW-0107 — Actual masked attention authority is validated
+
+Complete real Q/K/V/mask/output bindings at layers3/31/63 retain noncontiguous
+strides;256 cache slots include only16 populated keys. Independent causal/GQA
+CPU oracle agrees over294912 outputs (max3.244e-4), wrong-head corruption is
+caught. Retain for lossy cache screen; never quantize padded/inactive cells as
+real data. No compressed Metal cache, long-context or endpoint acceptance.
