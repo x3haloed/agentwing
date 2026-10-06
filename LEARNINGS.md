@@ -2458,3 +2458,16 @@ helper build. Retain numerical survivor for isolated Metal integration/cost
 screen; behavior, vision/tools, full host and endpoint gates remain unproven.
 Shared native inverse is a limitation; CPU timings are not speed evidence.
 Present4bit rejection remains; no fullGooglePolarQuant/QJL claim, P1 frozen.
+
+### AW-0200 — 6-bit standalone Metal codec is byteexact, with cost concern
+
+All12 actual early/mid/late4/6/6/4 Metal encode+inverse cases reproduce
+AW199 CPU packed/decoded bytes exactly; independent GPU inverse strengthens
+prior shared-CPU-inverse limitation.3840 complete operations; sampledpressure1,
+swaprange0MiB, minfree138,097,053,696B. Prototype6/4 mediancombinedcost ratios
+1.155/1.316/1.183, diagnostics only: binary-search writer/full inverse/readback
+is not native SET_ROWS/flash-attention. Receipt
+`evidence/AW-0200-value-precision-metal-screen.json` pins external raw/audit
+`/Users/chad/Models/agentwing/evidence/AW-0200`. Retain numerical survivor with
+cost concern for isolated native consumer integration; fresh behavior,
+vision/tools and endpoint gates remain unproven. No defaults/P1 change.
