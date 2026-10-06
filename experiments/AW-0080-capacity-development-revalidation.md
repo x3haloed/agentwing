@@ -2,7 +2,7 @@
 
 ## Status and hypothesis
 
-Running; frozen before launch. The retained 16K context / 8192 output medium-thinking
+Terminal: rejected exact profile for complete development capability. The retained 16K context / 8192 output medium-thinking
 profile may resolve AW-0072 capacity failures across all eight development
 tasks while preserving host, protocol, permission and history gates.
 
@@ -91,3 +91,24 @@ sed recovery; zero malformed/denied calls and two failed terminal returns.
 Labels overlap for productive failures; masked baseline/checklist failures
 are separately preserved. Per-attempt IDs and rationale are in the debugging
 replay evidence. Independent score and source traces remain unchanged.
+
+## Terminal result and disposition
+
+Rejected exact 16K/8192 profile for complete development capability. Navigation
+and debugging passed; multi-file stopped at frozen 1800s client deadline
+(1811.063s full task wall), utility 0. Total diagnostic
+wall 4074.397s, utility 2; remaining five tasks unattempted.
+All host gates pass, pressure 1 and swap growth 0 MiB. Independent recursive
+receipt/source pins, grade and protocol replay passed as a failure audit;
+protocol does not pass for interrupted generation. Raw receipt
+`053f690b4cd9fad6a9bf1c608cbf584bffd53c741a339463f732fb5926fa274e`; terminal audit and failure supplement in
+`evidence/AW-0080-terminal-audit.json` and
+`evidence/AW-0080-multi-file-timeout.json`. Fifth response produced 8069 tokens
+before baseline test call and ended toolUse, not length; next generation hit
+task deadline. No source edits, independent artifact grade 0. Five valid
+calls, four productive, one nonproductive unsupported cat -A with shell
+masking; no malformed/denied/redundant or failed terminal returns. No longer
+deadline, reduced reasoning, task change or salvaged success. Retain earlier
+passes and all negatives. Larger capacity alone did not establish broad
+capability; pursue execution/representation alternatives under unchanged
+quality, deadline and host gates. Full successor objective remains open.

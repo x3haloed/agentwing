@@ -1388,3 +1388,13 @@ exhaustive byte-position fixtures, and a positional PQ2 repack preserves all
 65536 raw scale bit patterns. Retain for compiled reference, real tensor and
 accumulated behavior checks. No model artifact, fidelity or speed acceptance
 is inferred; whole installation and memory costs remain open.
+
+## AW-0080 — Capacity alone does not establish broader capability
+
+16K/8192 medium-thinking passed navigation and debugging but multi-file hit
+the unchanged 1800s client deadline with no source edits: utility 0. One
+completed response emitted 8069 tokens before a baseline test call; next
+generation timed out. Host pressure stayed1 and swap growth0 MiB. Reject
+this exact full-development profile, preserve first two passes and five
+unattempted tasks. Goal remains open; neither larger budget nor component
+fidelity establishes utility/hour superiority. See terminal audit/supplement.
