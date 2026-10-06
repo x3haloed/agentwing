@@ -1829,3 +1829,17 @@ AW141 utility0 is unchanged. All pressure1/no swap growth; full provenance and
 external raw hashes in evidence/AW-0148-cache-replay-terminal.json. Next compare
 full identical-prefix request behavior under both cache formats without changing
 native sampling/reasoning/task gates.
+
+
+### AW-0149 — full-request Turbo timeout, FP16 baseline proposal
+
+Identical full native request: FP16 reaches valid baseline-check proposal with
+13779 thinking characters; Turbo reaches request1800s deadline while streaming
+incomplete arguments after25531 thinking characters. Neither executed. Both
+pressure1/no swap growth and raw/allocator/request/protocol replay verified.
+Reject Turbo full-request completion screen; preserve component/functional passes
+and AW141 utility0. Unreplicated fixed-order cold-prefix diagnostic cannot prove
+cache caused original incremental-history failure or support endpoint speed ratio.
+Execution cost plus long generation remain barriers; do not narrow reasoning/task
+gates to hide them. Raw external AW-0149; full hashes/negative result in
+evidence/AW-0149-full-request-terminal.json. No promotion.

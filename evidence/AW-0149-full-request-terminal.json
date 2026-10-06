@@ -1,0 +1,94 @@
+{
+  "experiment": "AW-0149",
+  "complete": true,
+  "rows": [
+    {
+      "arm": "f16",
+      "result_sha256": "61a6779d3cd744179d1f473e06244537d6d18d0d4272fab331b7581405c04013",
+      "error": null,
+      "client_exit": 0,
+      "server_exit_after_cleanup": 0,
+      "host_passed": true,
+      "response": {
+        "events": 3563,
+        "completion_ids": [
+          "chatcmpl-hQ8dVSXOoLW3eKeRXcwk9ACtDliuWtqR"
+        ],
+        "finish_reasons": [
+          "tool_calls"
+        ],
+        "done": true,
+        "thinking_characters": 13779,
+        "answer_characters": 0,
+        "errors": [],
+        "proposals": [
+          {
+            "index": 0,
+            "id": "F65aaRPhVZFKCQFcBNPH4whDzd42WwNy",
+            "name": "bash",
+            "valid_schema": true,
+            "arguments": {
+              "command": "python3 -c \"from ledger.api import list_items; print(list_items([{'id':1,'archived':True},{'id':2}],1))\" ; python3 -m unittest -q 2>&1 | tail -5"
+            },
+            "raw_arguments_sha256": "beaac73f8a5bf90b32aff990815e665eb6b24eb5f28e34938a759ee82b01ce4f",
+            "executed": false,
+            "productive": null
+          }
+        ],
+        "terminal_protocol_passed": true,
+        "tools_executed": 0
+      },
+      "wall_seconds_diagnostic": 715.5421467920023
+    },
+    {
+      "arm": "turbo",
+      "result_sha256": "5f76ce9297c5a974b2fb0e36e187f6ab297c938889903d65a2b636bf27b6d87a",
+      "error": "request-timeout",
+      "client_exit": -15,
+      "server_exit_after_cleanup": 0,
+      "host_passed": true,
+      "response": {
+        "events": 7728,
+        "completion_ids": [
+          "chatcmpl-WgNdOtqywwQiu1g0tGBfONGSwPCjrAjK"
+        ],
+        "finish_reasons": [],
+        "done": false,
+        "thinking_characters": 25531,
+        "answer_characters": 0,
+        "errors": [],
+        "proposals": [
+          {
+            "index": 0,
+            "id": "YJtSRg8KqLL8LghOJLPsUk18ZxZeAjNR",
+            "name": "bash",
+            "valid_schema": false,
+            "arguments": null,
+            "raw_arguments_sha256": "85f976a775ef2a2dda6060fa5bbc19853e88c94eece8c4fe6e5a8b797f65561d",
+            "executed": false,
+            "productive": null
+          }
+        ],
+        "terminal_protocol_passed": false,
+        "tools_executed": 0
+      },
+      "wall_seconds_diagnostic": 1804.4296834589986
+    }
+  ],
+  "plan_sha256": "ab4157f5452667de41b2bef6548d3dd1f082cac9497ef416aaa53c04f53e75aa",
+  "auditor_sha256": "d01f7a7a28c804bfe302d5df5b08bdb2e1c97bc00cb24e3bb3e5c1fc93eb5fa3",
+  "scope": "One full native request per cache arm; no proposal execution, task score, performance ratio or causal qualification",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0149",
+  "final_audit_sha256": "3cf790752c5735d15c5658bd9fb20cf49123c4d1938d7495d090ee1c7d1d113d",
+  "summary_sha256": "0eee013f65d413649e00c6e74888b816075b55347ff2eb21fa41d73fe8d0ac74",
+  "proposal_accounting": {
+    "emitted": 2,
+    "terminal_valid": 1,
+    "interrupted_before_argument_completion": 1,
+    "executed": 0,
+    "productive": null,
+    "scope": "Interrupted partial proposal is not a completed malformed tool execution. No proposals were executed or scored."
+  },
+  "disposition": "Reject Turbo full-request completion screen at fixed deadline; retain prior component/functional passes. No task success, causal attribution, endpoint ratio or promotion.",
+  "next": "Prioritize an execution-cost improvement with unchanged native reasoning/task constraints; keep frozen P1 and failed candidate results intact."
+}
