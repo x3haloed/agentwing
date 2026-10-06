@@ -1,0 +1,124 @@
+{
+  "experiment": "AW-0210",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0210",
+  "plan": {
+    "experiment": "AW-0210",
+    "hypothesis": "Existing native6bit survivor builds complete server/vision executables without source or priorlibrary drift",
+    "acceptance": "buildexit0/nonemptyserverandvisionCLI, priornativecodec/model librariesunchanged, sourcehashesunchanged, pressure<4/swapgrowth<=1024MiB/freeSSD>=8GiB/600sphase",
+    "commands": [
+      [
+        "/Users/chad/Models/agentwing/build-tools/bin/cmake",
+        "--build",
+        "/Users/chad/Models/agentwing/runtime-builds/prism-turbo6",
+        "--target",
+        "llama-server",
+        "llama-mtmd-cli",
+        "-j4"
+      ]
+    ],
+    "parent_receipt_sha256": "e3ce60448d31a83ac79fd23b120070a4fdaa8fb0d566da0c788efb90eff57f13",
+    "source_sha256": {
+      "common/arg.cpp": "a876d5fd249bdd02568cd47539cec6204fdbc63e118c83156ab278eadcdfecb8",
+      "ggml/include/ggml.h": "c660fe68cc062c75c998d6bd196657d9f9d5a3c66c0435aa3f02e5a33ea974e7",
+      "ggml/src/ggml-common.h": "48ce4c2f677503eb0c4573fc166fa1cdb64e121158eb69072534ed9e0fc27b52",
+      "ggml/src/ggml-metal/ggml-metal-device.m": "b81226dc036ed59769dab5af0c3d49ba1258f9ca341c81bb1241224b60676be8",
+      "ggml/src/ggml-metal/ggml-metal-ops.cpp": "4368f5fe486b61fff3c4725be5cbaf8a61ae7044d8c6dbfa69d1fc20de190411",
+      "ggml/src/ggml-metal/kernels/dequantize.h": "7f2151b37d3b4492ff5d22f541b80e02203982e49c42faa14e4e35e02ea77a62",
+      "ggml/src/ggml-metal/kernels/fa.metal": "4a1f1fa35859e53877faa330c6cda24bd9f92b69b9d0a8ea45575959cdec0f90",
+      "ggml/src/ggml-metal/kernels/quantize.metal": "3396267cdab467055f1de1125e6d1e2fb6fdfbae4b83b28a07eb15e67354e2e3",
+      "ggml/src/ggml-quants.h": "73ede2cafc268ffe6d788fff50c8855ee6c57e066c25a7d6138e6467a2f281f7",
+      "ggml/src/ggml-turbo-quant.c": "e2fd3db548ce7f9633e6fa6793a864241b98538b73421b1494b04b1a5a9f52a0",
+      "ggml/src/ggml.c": "6053f5f23c81a707e5deb94ca015bcf9340cf871a745cc658d44246e2fbe6ff0",
+      "src/llama-context.cpp": "7ae9b1654be5ea141c898528f0abf9123ccdc79f2fb923f7185e65b1d82b8b34",
+      "src/llama-graph.cpp": "9fa0d21d5131bc0d2b775e22e9179f8dd363557a732f8b1ee32afc837c69992f"
+    },
+    "prior_libraries_sha256": {
+      "libggml-base.0.21.0.dylib": "f9b79d823cec9a84e33d40324057361eace46e5471391eac27101cdc8c77098f",
+      "libggml-blas.0.21.0.dylib": "f6de5a3f3d1ef3226969a5b4cfc9ca1b4215a9d8025a22337a906cfaaf82612f",
+      "libggml.0.21.0.dylib": "8535281478863289e4baef828c7cd6ac738942962829444acf77f735fd648fe3",
+      "libllama.0.2.0.dylib": "0e7523b90fd3e49048f1b626e0292412d6f4b7d8e1aed90bbf42268a385d5506",
+      "libggml-cpu.0.21.0.dylib": "bba55d98e97873e0d5eadb4817dffe59dedbb5a9b5a9907a0c191d49c5074f60",
+      "libggml-metal.0.21.0.dylib": "e4df1e3aad495c1368cfb6dfd49bc95d7c88b46f3a68d4df2c403676b042a8a3"
+    },
+    "runner_sha256": "1826582617f28f480f15abc1e6341ac42f7050283381ef3a21af93dd5e693dfe",
+    "storage_recovery_sha256": "c9868d2bf7b74ce41fbb324f9e4a8b7f1f28069af5ddd74887e5915a008a38ef",
+    "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+    "storage": "internalSSD",
+    "scope": "Serverandvision build only, no model startup/inference/tool/endpoint qualification"
+  },
+  "result": {
+    "experiment": "AW-0210",
+    "passed": true,
+    "exit": 0,
+    "error": null,
+    "build_wall_seconds": 90.2356297919905,
+    "binaries_sha256": {
+      "llama-server": "add9ce59dfbd81225b5625399aa9de08cde2c7550c089e47df9ede44cb2ad2aa",
+      "llama-mtmd-cli": "8c074a79b81726b0f137508726a17a38325d27524a38eadc7a76d4b443e38a0c"
+    },
+    "libraries_sha256": {
+      "libllama.0.dylib": "0e7523b90fd3e49048f1b626e0292412d6f4b7d8e1aed90bbf42268a385d5506",
+      "libmtmd.0.dylib": "bea1950f0a81d79fdd2a048a616682ae169f6bf3cc7a99c95a3852cd576c2eb0",
+      "libggml.dylib": "8535281478863289e4baef828c7cd6ac738942962829444acf77f735fd648fe3",
+      "libggml-base.0.21.0.dylib": "f9b79d823cec9a84e33d40324057361eace46e5471391eac27101cdc8c77098f",
+      "libggml.0.dylib": "8535281478863289e4baef828c7cd6ac738942962829444acf77f735fd648fe3",
+      "libmtmd.dylib": "bea1950f0a81d79fdd2a048a616682ae169f6bf3cc7a99c95a3852cd576c2eb0",
+      "libllama-server-impl.dylib": "06e8df896d6b669e02c6104c2d6604e303066283a8145e47f7635cb85d323d01",
+      "libggml-base.dylib": "f9b79d823cec9a84e33d40324057361eace46e5471391eac27101cdc8c77098f",
+      "libggml-blas.dylib": "f6de5a3f3d1ef3226969a5b4cfc9ca1b4215a9d8025a22337a906cfaaf82612f",
+      "libggml-metal.0.dylib": "e4df1e3aad495c1368cfb6dfd49bc95d7c88b46f3a68d4df2c403676b042a8a3",
+      "libllama-common.0.dylib": "32418ec7d08ef7b8a6a4edba120b0c98a18428718a05e24064076a61ca2cdec4",
+      "libllama.dylib": "0e7523b90fd3e49048f1b626e0292412d6f4b7d8e1aed90bbf42268a385d5506",
+      "libggml-cpu.dylib": "bba55d98e97873e0d5eadb4817dffe59dedbb5a9b5a9907a0c191d49c5074f60",
+      "libggml-metal.dylib": "e4df1e3aad495c1368cfb6dfd49bc95d7c88b46f3a68d4df2c403676b042a8a3",
+      "libllama-common.dylib": "32418ec7d08ef7b8a6a4edba120b0c98a18428718a05e24064076a61ca2cdec4",
+      "libggml-blas.0.21.0.dylib": "f6de5a3f3d1ef3226969a5b4cfc9ca1b4215a9d8025a22337a906cfaaf82612f",
+      "libggml.0.21.0.dylib": "8535281478863289e4baef828c7cd6ac738942962829444acf77f735fd648fe3",
+      "libmtmd.0.2.0.dylib": "bea1950f0a81d79fdd2a048a616682ae169f6bf3cc7a99c95a3852cd576c2eb0",
+      "libggml-base.0.dylib": "f9b79d823cec9a84e33d40324057361eace46e5471391eac27101cdc8c77098f",
+      "libllama.0.2.0.dylib": "0e7523b90fd3e49048f1b626e0292412d6f4b7d8e1aed90bbf42268a385d5506",
+      "libllama-common.0.2.0.dylib": "32418ec7d08ef7b8a6a4edba120b0c98a18428718a05e24064076a61ca2cdec4",
+      "libggml-blas.0.dylib": "f6de5a3f3d1ef3226969a5b4cfc9ca1b4215a9d8025a22337a906cfaaf82612f",
+      "libggml-cpu.0.21.0.dylib": "bba55d98e97873e0d5eadb4817dffe59dedbb5a9b5a9907a0c191d49c5074f60",
+      "libggml-cpu.0.dylib": "bba55d98e97873e0d5eadb4817dffe59dedbb5a9b5a9907a0c191d49c5074f60",
+      "libggml-metal.0.21.0.dylib": "e4df1e3aad495c1368cfb6dfd49bc95d7c88b46f3a68d4df2c403676b042a8a3"
+    },
+    "prior_libraries_unchanged": true,
+    "changed_sources_unchanged": true,
+    "version_output": "version: 0.2.0-dev (build 0, commit unknown)\nbuilt with AppleClang 21.0.0.21000334 for Darwin arm64\n",
+    "plan_sha256": "c58c39c3e014fe46bd0596f185e6815ea3287a846097edce117e8306a3ca72de",
+    "raw_sha256": {
+      "plan.json": "c58c39c3e014fe46bd0596f185e6815ea3287a846097edce117e8306a3ca72de",
+      "host.jsonl": "086a2366fc5fbd6de577d274ce75c9696475c70f4e58d09b2c3d76f5219ca6a0",
+      "storage-recovery.json": "c9868d2bf7b74ce41fbb324f9e4a8b7f1f28069af5ddd74887e5915a008a38ef",
+      "build.log": "0ccf8d04b847449522a56afcb13c3fe4a1fc41ea3205b9e137f7ed9927fead93"
+    },
+    "scope": "Serverandvision build only, no model startup/inference/tool/endpoint qualification"
+  },
+  "storage_recovery": {
+    "experiment": "AW-0210",
+    "action": "Repeat user-authorized truncation of the same NoMachine session log outside benchmark",
+    "path": "/Users/chad/.nx/node/C-chads.mac.mini.lan-1002-EEC0483088A569A40B90F799F3E3D6D0/session",
+    "before": {
+      "logical_bytes": 494080602978,
+      "allocated_bytes": 206040997888,
+      "free_bytes": 77512372224,
+      "time": 1791319125.7796109
+    },
+    "after": {
+      "logical_bytes": 494080607253,
+      "allocated_bytes": 16781312,
+      "free_bytes": 283537833984,
+      "time": 1791319128.8460228
+    },
+    "scope": "Sessionlogonly, no weights/source/evidence/objectfiles removed; writer may retain old fd offset and continue sparse growth"
+  },
+  "independent_build_raw_host_library_replay_passed": true,
+  "pressure_peak": 1,
+  "sampled_swap_range_mib": 0.0,
+  "minimum_free_bytes": 280431935488,
+  "scope": "Serverandvision build only, no model startup/inference/tool/endpoint qualification"
+}

@@ -2592,3 +2592,17 @@ Allarmspressure1/swapgrowth0; cleanupnomodelowner. Receipt
 checks/externalAW209raw. Supersedespartialstatus; retainedtechnicalsurvivor
 forfullserver/vision/tool/behavior admission, not endpoint/P1promotion.
 Full25%verifiedutilitygoal remainsunproven; nofullGooglePolarQuant/QJLclaim.
+
+### AW-0210 — pinned6bitserver/vision binaries and isolatedlauncher ready
+
+Fullserver+visionCLI120steps buildexit0; priornativecodec/model libraries and
+changedsourcehashes unchanged. Independentraw/library/host/capacityreplay
+passes. New6bitprofile/launcher artifactandallcommandflags verified, weights
+streamhashed; exactunknowncommitbannerpreserved. Receipts
+`evidence/AW-0210-turbo6-fullserver-build.json` and
+`evidence/AW-0210-turbo6-launcher-verification.json` pinexternalAW210raw.
+RepeatedauthorizedsameNoMachinesessionlogtruncation outsidebenchmarks
+reclaimedabout192GiBallocated; source/weights/evidence unchanged. Profile
+isbuilt-startup-unqualified: no modelstartup/image/tool/endpointclaim.
+Retainusableexperimental launchpath forfullfunctionaladmission, P1/defaults
+unchanged andfullgoal remainsunproven.
