@@ -2552,3 +2552,11 @@ independentlyreconstructedexactly. Receipt
 Retainpartialtechnicalresult; middlecandidate live/fullcampaignunresolved.
 Own32commonprefix4 isnot tool/task/qualityacceptance, no speedcomparison.
 Vision/tools/launch/endpoint remainunqualified, P1/defaults unchanged.
+
+### AW-0209 — middle6bit owntrajectory terminal, paired control stilllive
+
+Middlecandidate192.232s exit0,32finiteownsampledlogitrows/384captures;
+partialhash/shape/host/capacityaudit verifies3terminalarms total. Pressure1,
+swapgrowth0. Receipt `evidence/AW-0209-turbo6-middle-candidate-partial.json`
+pins externalAW209raw/partialaudit. MatchingmiddleF16control live; middle
+numericpair/fullcampaign unresolved, no causal timing orendpointclaim.

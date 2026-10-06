@@ -2,7 +2,7 @@
 
 ## Status and hypothesis
 
-Running. Earlypair audited; middlecandidate live. Technical hypothesis:
+Running. Earlypair and middlecandidate audited; matchingmiddleF16control live. Technical hypothesis:
 Q8keys/6bitvalues limit identical-prefixlogitdisplacement and preservefinite
 own32trajectories at savedearly/mid/late reasoning prefixes. Fullqualification
 requiresallsixarms. This is not vision/tool/task/endpoint acceptance.
@@ -50,3 +50,8 @@ Diagnosticlifetimes49.362/47.771s not a speedcomparison. Partialreceipt
 Retainpartialtechnicalevidence; fullcampaignunresolved. Native fullmodel6bit
 runs, but modelvision/tools/serverlaunch andaccumulatedbehavior endpoints
 stillunqualified. NoP1/defaultchange or25%utilityclaim. Goal remainsactive.
+
+Middle6bitarm nowterminalexit0:192.232s diagnostic, pressure1/swapgrowth0;
+32finiteownlogitrows/384captures pass independentraw/shape/resourceaudit.
+Partialreceipt `evidence/AW-0209-turbo6-middle-candidate-partial.json`.
+MatchingmiddleF16control live; middlepair/fullcampaign stillunresolved.
