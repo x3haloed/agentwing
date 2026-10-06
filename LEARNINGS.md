@@ -2401,3 +2401,18 @@ AW-0196 F16 for this input; scoped reproducibility, not causal speed.
 Receipt `evidence/AW-0197-capacity-f16-partial.json` pins external full
 audit/raw hashes in `/Users/chad/Models/agentwing/evidence/AW-0197`.
 Stationary arm still live; pair unresolved, retained diagnostic, P1 frozen.
+
+### AW-0197 — capacity guarded same-history compressed cache still times out
+
+F16 completed724.036 s/13,503 thinking characters with one valid proposal;
+Q8 K/stationary Turbo4 V timed out1804.545 s/29,902 thinking characters/7769
+SSE events with no terminal response or executable proposal. Same request
+bytes, native sampling and runtime; both K/V types differ, so V alone is
+not isolated. Host pressure1/swap growth0 both; stationary minimum free
+226,900,209,664 bytes. Disk exhaustion does not explain this failure.
+Strict hashes/stream and independent host/capacity replay preserved in
+`evidence/AW-0197-capacity-current-history-terminal.json`, external full
+audit/raw hashes under `/Users/chad/Models/agentwing/evidence/AW-0197`.
+Supersedes unresolved pair status; rejected promotion, retained negative
+evidence. Split K/V precision next on the same history; P1 frozen, no
+reasoning/task/deadline/scoring waiver or endpoint speed claim.
