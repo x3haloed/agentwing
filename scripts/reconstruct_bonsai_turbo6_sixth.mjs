@@ -1,0 +1,22 @@
+// Offline AW-0217 request reconstruction with the installed Pi adapter.
+import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {convertMessages} from '../node_modules/@earendil-works/pi-coding-agent/dist/bundle/chunks/openai-completions-ERMU2SS7.js';
+const root='/Users/chad/Models/agentwing/evidence/AW-0217';
+mkdirSync(root,{recursive:true});
+const run='/Users/chad/Models/agentwing/evidence/AW-0215/20261006T214746.364246Z/dev-multi-file';
+const hash=x=>createHash('sha256').update(x).digest('hex');
+const save=(name,x)=>writeFileSync(`${root}/${name}`,JSON.stringify(x,null,2)+'\n');
+const events=readFileSync(`${run}/pi.jsonl`,'utf8').trim().split('\n').map(JSON.parse);
+const messages=events.filter(x=>x.type==='message_end').map(x=>x.message);
+if(messages.length!==11 || messages.map(x=>x.role).join(',')!=='user,assistant,toolResult,assistant,toolResult,assistant,toolResult,assistant,toolResult,assistant,toolResult')throw Error('Unexpected completed history');
+const provider=JSON.parse(readFileSync(new URL('../config/pi-bonsai-turbo-models.json',import.meta.url))).providers['agentwing-bonsai'];
+const model={...provider.models[0],provider:'agentwing-bonsai',api:provider.api};
+const command=JSON.parse(readFileSync(`${run}/client-command.json`));
+const cwd=command[command.indexOf('--workspace')+1];
+const context={messages,systemPrompt:readFileSync(`${run}/system-prompt.txt`,'utf8').replace(/\n$/,'')+'\nCurrent working directory: '+cwd};
+const previous=JSON.parse(readFileSync('/Users/chad/Models/agentwing/evidence/AW-0145/fourth-request.json'));
+const current={messages:convertMessages(model,context,provider.compat),tools:previous.tools,reasoning_effort:'medium',add_generation_prompt:true};
+save('sixth-context.json',context);save('sixth-request.json',current);
+const receipt={experiment:'AW-0217',scope:'Offline sixth-request reconstruction using installed Pi adapter; not an exact HTTP wire capture or model evaluation',external_evidence:root,completed_messages:messages.length,converted_messages:current.messages.length,tool_schema_source:'AW145 frozen native bash schema; installed Pi CLI identity pinned by AW215',raw_sha256:Object.fromEntries(['sixth-context.json','sixth-request.json'].map(n=>[n,hash(readFileSync(`${root}/${n}`))])),input_sha256:{transcript:hash(readFileSync(`${run}/pi.jsonl`)),system_prompt:hash(readFileSync(`${run}/system-prompt.txt`)),client_command:hash(readFileSync(`${run}/client-command.json`)),native_tool_schema_request:hash(readFileSync('/Users/chad/Models/agentwing/evidence/AW-0145/fourth-request.json')),adapter:hash(readFileSync(new URL('../node_modules/@earendil-works/pi-coding-agent/dist/bundle/chunks/openai-completions-ERMU2SS7.js',import.meta.url))),script:hash(readFileSync(new URL(import.meta.url)))},disposition:'Retain full accumulated body for fresh F16 versus six-bit screen; no shortened history/reasoning/tool schema or task utility claim'};
+save('reconstruction.json',receipt);console.log(JSON.stringify(receipt,null,2));

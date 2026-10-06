@@ -1,0 +1,29 @@
+{
+  "experiment": "AW-0217",
+  "scope": "Offline sixth-request reconstruction using installed Pi adapter; not an exact HTTP wire capture or model evaluation",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0217",
+  "completed_messages": 11,
+  "converted_messages": 12,
+  "tool_schema_source": "AW145 frozen native bash schema; installed Pi CLI identity pinned by AW215",
+  "raw_sha256": {
+    "sixth-context.json": "9198dfe9651cbd8c7cb64223e498ac0d9228935a94bb0454f0a754cbb831b937",
+    "sixth-request.json": "c15f92dfb120320cb9b510a6c1fdc37a812440dcda819173ca870cd929365e0a"
+  },
+  "input_sha256": {
+    "transcript": "545ee8cac98c03d50110cfafa00a7514b1b8cdbb4768fd73d2dde01e25ae0ab7",
+    "system_prompt": "3e0afb4c385339f702868f5f5c1c6bff3ee27c4435195536c585b5b04d538518",
+    "client_command": "34eec9db0a83f7691abefcd175f73d055e51273a88c800d4cb2befa9d42c6d03",
+    "native_tool_schema_request": "16638e0160e6dcd8840e9c75b2ec3a006576e7a42de0522312d2cfef76fe9ec1",
+    "adapter": "3ef9e2c266064fea04c076ae8b9e0a8317ebc68f0b543efb4b01da32b394b628",
+    "script": "d59676c860b1e758c337a2764330908a08f5d6bc188d8d48dc34d7fd0c077f3a"
+  },
+  "disposition": "Retain full accumulated body for fresh F16 versus six-bit screen; no shortened history/reasoning/tool schema or task utility claim",
+  "independent_checks": {
+    "aw215_source_pins": true,
+    "all_completed_history_exact": true,
+    "system_prompt_and_cwd_exact": true,
+    "five_paired_tool_calls": true,
+    "native_schema_unchanged": true
+  },
+  "reconstruction_receipt_sha256": "05bea6b5ae13419cb44534647f92b13c11a00fd786df48717f7f685890f61cfa"
+}

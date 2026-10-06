@@ -2741,3 +2741,12 @@ nonterminal through1804.540805s,6832generated/1360remainingtokens.
 Receipt `evidence/AW-0216-trajectory-localization.json` pins raw. Retain
 diagnosis for exact-history reconstruction; no causal speed/cache claim
 or task/reasoning/deadline/scoring narrowing. P1 unchanged.
+
+### AW-0217 — full sixth-request history reconstructed offline
+
+Eleven completed AW215 messages plus full platform system/CWD become twelve
+API messages with five paired calls/results, preserving cat-A failure and
+sed recovery. Installed adapter/source pins/history/prompt/native schema
+checks pass. Receipt `evidence/AW-0217-sixth-request-reconstruction.json`
+hashes external raw body. Retain for declared fresh-cache screen; offline
+reconstruction is not wire capture or task utility evidence.
