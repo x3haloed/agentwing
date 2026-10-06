@@ -2707,3 +2707,14 @@ swap growth 33.69 MiB. One valid proposal, zero executed calls; productivity
 unknown. Receipt `evidence/AW-0214-control-terminal.json` pins raw external
 evidence and audit. Six-bit arm now running; retain unresolved campaign,
 with no utility, comparative speed or P1 promotion claim.
+
+### AW-0214 — six-bit long-history behavior screen survives
+
+Supersedes pending status: both fresh arms independently pass identical
+saved-request terminal proposal, strict SSE and host/capacity gates. Six-bit
+arm completes in 1170.775 seconds diagnostic with 17323 thinking characters,
+one valid unexecuted bash proposal; pressure peak 2, swap growth 5.68 MiB.
+F16 completes in 723.922 seconds. No causal speed, executed-call utility or
+P1 promotion claim. Receipt `evidence/AW-0214-long-history-terminal.json`
+pins external raw/audit hashes. Retain six-bit for fixed development task,
+then full frozen capability and interleaved endpoint qualification.

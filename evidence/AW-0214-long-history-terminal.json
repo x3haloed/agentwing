@@ -1,0 +1,138 @@
+{
+  "experiment": "AW-0214",
+  "status": "terminal-behavior-screen-pass",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0214",
+  "terminal_audit": {
+    "experiment": "AW-0214",
+    "complete": true,
+    "behavior_screen_passed": true,
+    "rows": [
+      {
+        "behavior_gate_passed": true,
+        "arm": "f16",
+        "result_sha256": "16244d0e82977989f9b30649cacfb987766f109dfb37db18159f2ab8de75b784",
+        "error": null,
+        "client_exit": 0,
+        "server_exit_after_cleanup": 0,
+        "host_passed": true,
+        "response": {
+          "events": 3566,
+          "completion_ids": [
+            "chatcmpl-jQhsvtBC57756QpU5nAagPWTuWTZVhOE"
+          ],
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "done": true,
+          "done_count": 1,
+          "thinking_characters": 13503,
+          "answer_characters": 0,
+          "errors": [],
+          "proposals": [
+            {
+              "index": 0,
+              "id": "l9zeDvvGfZNRvHHkiMP9yCMJrallV2lB",
+              "name": "bash",
+              "valid_schema": true,
+              "classification": "valid-proposal",
+              "raw_arguments_sha256": "4766e5abcd61e3ee2df60078e87e2ebd18e617f87587ca88cbda3a304daa4d9b",
+              "executed": false,
+              "productive": null
+            }
+          ],
+          "terminal_protocol_passed": true,
+          "tools_executed": 0
+        },
+        "wall_seconds_diagnostic": 723.9222283330018
+      },
+      {
+        "behavior_gate_passed": true,
+        "arm": "turbo",
+        "result_sha256": "58f99cca355d3a890e4f7d91ce18b0adeb868392ff79f539891eb66e9cc7f44d",
+        "error": null,
+        "client_exit": 0,
+        "server_exit_after_cleanup": 0,
+        "host_passed": true,
+        "response": {
+          "events": 4972,
+          "completion_ids": [
+            "chatcmpl-kI0uYCLrSMCP7rhtukDwHhKeGTm1fm1T"
+          ],
+          "finish_reasons": [
+            "tool_calls"
+          ],
+          "done": true,
+          "done_count": 1,
+          "thinking_characters": 17323,
+          "answer_characters": 0,
+          "errors": [],
+          "proposals": [
+            {
+              "index": 0,
+              "id": "bLEoYuIpXcxknoO6VNdQq04RTBR2V5h9",
+              "name": "bash",
+              "valid_schema": true,
+              "classification": "valid-proposal",
+              "raw_arguments_sha256": "26bd0f9dea620fa35c3cdfbbb39f115db8ca6d9f9a09cc76787dc395222faf5f",
+              "executed": false,
+              "productive": null
+            }
+          ],
+          "terminal_protocol_passed": true,
+          "tools_executed": 0
+        },
+        "wall_seconds_diagnostic": 1170.7751982089976
+      }
+    ],
+    "plan_sha256": "39eba43711275a1cf6d67893f4adca2c0306d2b83fde5e2cd090a94a2919fdf7",
+    "auditor_sha256": "f2bc882cd121f49317db71db38da716c1b0171e5deb959f016e0ecc14c6a9cbc",
+    "scope": "One full native request per cache arm; no proposal execution, task score, performance ratio or causal qualification"
+  },
+  "results": {
+    "f16": {
+      "arm": "f16",
+      "error": null,
+      "client_exit": 0,
+      "server_exit_after_cleanup": 0,
+      "wall_seconds_diagnostic": 723.9222283330018,
+      "minimum_sampled_free_bytes": 217149898752,
+      "baseline_swap_mib": 1946.25,
+      "pressure_peak": 2,
+      "swap_growth_peak_mib": 33.690000000000055,
+      "raw_sha256": {
+        "request.json": "ff70c4de0d10396dc5d48731c3e4bd007daa20aeaa3136ac14c8603eabce27f5",
+        "response-summary.json": "8b98a1482316aeac2c10736d797b843f7117e98c25c2ba331269b2fba5f76b57",
+        "response.sse": "5df801a6d30a24337fbb1c3481b7e5183c6ed85172491a00c6c1fe85d84b16c4",
+        "pressure.tsv": "be521a0e50f87f994bb1e2a263d9aec2e6cce00fc4962ea9427af7137a7fa5be",
+        "client.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "capacity.jsonl": "3d8ca54cbee70f9b6c4c12763b5b3f7a28b0702ccddb4cc4b8392122416e1860",
+        "server-command.json": "10362f2eb20474b477fdf55527436d239e98d0122f267ba679d72f54bbb16ded",
+        "server.log": "031ed41fa7407720d31a161aac08d872870648cc4eefcd26074dbcecb31b1344"
+      }
+    },
+    "turbo": {
+      "arm": "turbo",
+      "error": null,
+      "client_exit": 0,
+      "server_exit_after_cleanup": 0,
+      "wall_seconds_diagnostic": 1170.7751982089976,
+      "minimum_sampled_free_bytes": 190472462336,
+      "baseline_swap_mib": 1979.94,
+      "pressure_peak": 2,
+      "swap_growth_peak_mib": 5.679999999999836,
+      "raw_sha256": {
+        "request.json": "ff70c4de0d10396dc5d48731c3e4bd007daa20aeaa3136ac14c8603eabce27f5",
+        "response-summary.json": "7468061cc451fb90553c7ef28de61605544048a01f04ee19e1486bbf32e6e972",
+        "response.sse": "f3dc3e362ce185632929b54e9db124530a1439955443f47f87f17d61a3d8d44c",
+        "pressure.tsv": "bd04d7097c3fdac4ab37456362a91e2131ca051b4012911ff9572598af45b9c0",
+        "client.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "capacity.jsonl": "cad8416c535ff0dc3b03724270245736706e03fc65b08071dd482c3f83a5e45d",
+        "server-command.json": "2df9ea403b60f8a1c325c5ff716ce9ccf97668acdf4dd831a3455239a60b8664",
+        "server.log": "5a11422ebf1d16ef94004be1db9e193514b49c0068ce84f074931a5535e8b361"
+      }
+    }
+  },
+  "terminal_audit_sha256": "3043307f7ed7b1b213541926b22818f22cd468961aff32e64e7f7f351815ddb3",
+  "summary_sha256": "86ade42f9707d9662ee3d5c84abc01b2b84def054ff38030cfe38b50312237f6",
+  "disposition": "Retained for fixed development task; no executed proposals, task utility, causal speed or P1 promotion claim."
+}

@@ -2,7 +2,7 @@
 
 ## Status and hypothesis
 
-F16 control terminal; six-bit candidate running. Functional6bit/platform-PiadmissionAW213passed; nowtest
+Both arms terminal; independent behavior screen passed. Functional6bit/platform-PiadmissionAW213passed; nowtest
 historicalAW195fourthrequest withbothcacheconfigs. Hypothesis:6bit complete
 nativebashproposal withinunchanged8192output/1800srequestbudget. Botharms
 must producecleanterminaltool_calls/DONEwithvalidproposal forbehavior
@@ -44,7 +44,7 @@ productivity/permissionexecution cannotbeclaimed. Rawexternal
 
 ## Disposition
 
-Running/unresolved. F16controlisnotthefrozenP1. Completevalidproposalwould
+Retained as a behavior-screen survivor; endpoint qualification unresolved. F16controlisnotthefrozenP1. Completevalidproposalwould
 onlyretainlongrequestbehaviorsurvivor forselectedrealdevelopment task, then
 fixedoriginal/expandedendpointladder. No utility/P1promotion, defaults
 unchanged andfull25%goal remainsunproven.
@@ -58,3 +58,17 @@ Peak pressure 2, swap growth 33.69 MiB, minimum sampled free disk
 217149898752 bytes; client and cleaned-up server exit zero. Raw hashes and
 partial audit are pinned in `evidence/AW-0214-control-terminal.json`.
 Six-bit candidate is running on the identical saved request; pair unresolved.
+
+## Complete pair terminal
+
+Both arms pass the independent strict stream, request identity, raw hash,
+cleanup, capacity and behavior gates. Six-bit candidate: 4972 events, 17323
+thinking characters, one clean terminal tool_calls/DONE and one valid native
+bash proposal. Wall time 1170.775 seconds is diagnostic; pressure peak 2,
+swap growth 5.68 MiB, minimum sampled free disk 190472462336 bytes.
+Each arm proposed one valid call; neither executed it, and productivity is
+unknown. No malformed proposals or stream errors. This does not prove
+permission enforcement during execution, task success or comparative speed.
+Receipt `evidence/AW-0214-long-history-terminal.json` pins terminal audit and
+raw hashes. Retain six-bit configuration for the fixed exposed development
+task; frozen P1 and full capability/25% endpoint gates remain unchanged.
