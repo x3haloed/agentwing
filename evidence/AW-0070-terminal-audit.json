@@ -1,0 +1,656 @@
+{
+  "audit_passed": true,
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0070/20261006T033702.268337Z",
+  "raw_receipt_sha256": "2f0b5e50d59afaeacac838e37832912a0b6e2235bbb84a759fc016c5e7255713",
+  "plan_sha256": "145cf3ce6594f0baa1e77dc0df29a009dbf82d55eb902ba6de970d2f145cce14",
+  "complete_selection": true,
+  "all_selected_tasks_passed": true,
+  "screen_passed": true,
+  "utility": 8,
+  "wall_seconds": 1617.560662165999,
+  "diagnostic_utility_per_hour": 17.8045872860405,
+  "unattempted": [],
+  "error": null,
+  "tasks": [
+    {
+      "original_test_file_integrity": {},
+      "task_id": "01-navigation",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 118.40413783300028,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 4,
+        "valid": 4,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "ls -la /Users/chad/Models/agentwing/active/workspace",
+        "find /Users/chad/Models/agentwing/active/workspace -type f | head -50; echo \"---\"; cat /Users/chad/Models/agentwing/active/workspace/README.md",
+        "cat /Users/chad/Models/agentwing/active/workspace/config/defaults.json; echo \"===DEPLOY===\"; cat /Users/chad/Models/agentwing/active/workspace/deploy/production.env",
+        "printf '2750' > /Users/chad/Models/agentwing/active/workspace/ANSWER.txt && cat /Users/chad/Models/agentwing/active/workspace/ANSWER.txt"
+      ],
+      "supplemental_tool_review": [
+        {
+          "index": 0,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 1,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 2,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 3,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        }
+      ]
+    },
+    {
+      "original_test_file_integrity": {
+        "test_math_utils.py": true
+      },
+      "task_id": "02-single-file-fix",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 340.20529808299943,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 5,
+        "valid": 5,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 1
+      },
+      "commands": [
+        "find . -type f -not -path '*/node_modules/*' -not -path '*/.git/*' | head -100 && echo --- && ls -la",
+        "echo \"===== math_utils.py =====\"; cat math_utils.py; echo; echo \"===== test_math_utils.py =====\"; cat test_math_utils.py",
+        "sed -i 's/return min(lower, max(value, upper))/return max(lower, min(value, upper))/' math_utils.py && cat math_utils.py",
+        "cat > math_utils.py << 'EOF'\ndef clamp(value: int, lower: int, upper: int) -> int:\n    \"\"\"Clamp value to the inclusive interval [lower, upper].\"\"\"\n    return max(lower, min(value, upper))\nEOF\ncat math_utils.py",
+        "python3 -m unittest -v 2>&1"
+      ],
+      "supplemental_tool_review": [
+        {
+          "index": 0,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 1,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 2,
+          "valid": true,
+          "failed": true,
+          "productive": false,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Unsupported sed/cat option or erroneous assertion; no useful requested change"
+        },
+        {
+          "index": 3,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 4,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        }
+      ]
+    },
+    {
+      "original_test_file_integrity": {
+        "test_slug.py": true
+      },
+      "task_id": "03-multi-file-fix",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 283.1966629159997,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 6,
+        "valid": 6,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 1
+      },
+      "commands": [
+        "ls -la /Users/chad/Models/agentwing/active/workspace && cat README.md",
+        "cat config.py slug.py test_slug.py",
+        "python3 -m unittest test_slug -v 2>&1 | tail -5",
+        "cat > slug.py <<'EOF'\nfrom config import NAMESPACE\n\n\ndef display_slug(text: str) -> str:\n    words = [w for w in text.lower().split() if w]\n    return NAMESPACE + \"/\" + \"-\".join(words)\nEOF\npython3 -m unittest test_slug -v 2>&1 | tail -3",
+        "python3 -c \"\nfrom slug import display_slug\nassert display_slug('Fast  Local Agent') == 'docs/fast-local-agent'\nassert display_slug('  A-B_C  ') == 'docs/a-b-c' if False else None\nprint(display_slug('Fast  Local Agent'))\nprint(display_slug('  Foo  BAR  baz  '))\n\"",
+        "python3 -c \"\nfrom slug import display_slug\nprint(repr(display_slug('Fast  Local Agent')))\nprint(repr(display_slug('  Foo  BAR  baz  ')))\nprint(repr(display_slug('')))\n\""
+      ],
+      "supplemental_tool_review": [
+        {
+          "index": 0,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 1,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 2,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 3,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 4,
+          "valid": true,
+          "failed": true,
+          "productive": false,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Unsupported sed/cat option or erroneous assertion; no useful requested change"
+        },
+        {
+          "index": 5,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        }
+      ]
+    },
+    {
+      "original_test_file_integrity": {
+        "test_totals.py": true
+      },
+      "task_id": "04-refactor",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 206.3744158749996,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 4,
+        "valid": 4,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "find /Users/chad/Models/agentwing/active/workspace -type f | head -50 && echo --- && grep -rn \"legacy_total\" /Users/chad/Models/agentwing/active/workspace | head -50",
+        "cat /Users/chad/Models/agentwing/active/workspace/alpha.py /Users/chad/Models/agentwing/active/workspace/beta.py /Users/chad/Models/agentwing/active/workspace/test_totals.py",
+        "cat > /Users/chad/Models/agentwing/active/workspace/totals.py << 'EOF'\ndef nonnegative_total(values):\n    return sum(value for value in values if value >= 0)\nEOF\ncat > /Users/chad/Models/agentwing/active/workspace/alpha.py << 'EOF'\nfrom totals import nonnegative_total\n\n\ndef alpha_total(values):\n    return nonnegative_total(values)\nEOF\ncat > /Users/chad/Models/agentwing/active/workspace/beta.py << 'EOF'\nfrom totals import nonnegative_total\n\n\ndef beta_total(values):\n    return nonnegative_total(values)\nEOF",
+        "grep -rn \"legacy_total\" /Users/chad/Models/agentwing/active/workspace; echo \"grep exit: $?\" && python3 /Users/chad/Models/agentwing/active/workspace/test_totals.py"
+      ],
+      "supplemental_tool_review": [
+        {
+          "index": 0,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 1,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 2,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 3,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        }
+      ]
+    },
+    {
+      "original_test_file_integrity": {},
+      "task_id": "05-data-transform",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 108.40570050000042,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 2,
+        "valid": 2,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "ls -la; head -20 events.csv",
+        "printf '{\"total_events\": 6, \"successful_events\": 4, \"latency_ms_by_service\": {\"api\": 63, \"db\": 60, \"worker\": 27}}' > summary.json && cat summary.json"
+      ],
+      "supplemental_tool_review": [
+        {
+          "index": 0,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 1,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        }
+      ]
+    },
+    {
+      "original_test_file_integrity": {},
+      "task_id": "06-failure-recovery",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 238.08654983400083,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 6,
+        "valid": 6,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 1
+      },
+      "commands": [
+        "cat README.md",
+        "ls -la; cat scripts/validate.sh 2>/dev/null; ls scripts/ 2>/dev/null",
+        "cat -A app.py",
+        "printf '%s\\n' > /dev/null; od -c app.py | head -30",
+        "printf 'def normalize(name: str) -> str:\\n    return \"-\".join(name.strip().lower().split())\\n' > app.py\nod -c app.py; sh scripts/validate.sh; echo \"exit=$?\"",
+        "python3 -c 'from app import normalize; print(repr(normalize(\"  Agent Wing  \"))); print(repr(normalize(\"  Agent   Wing  \")))'"
+      ],
+      "supplemental_tool_review": [
+        {
+          "index": 0,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 1,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 2,
+          "valid": true,
+          "failed": true,
+          "productive": false,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Unsupported sed/cat option or erroneous assertion; no useful requested change"
+        },
+        {
+          "index": 3,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 4,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 5,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        }
+      ]
+    },
+    {
+      "original_test_file_integrity": {},
+      "task_id": "07-bounded-read",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 162.21085387499988,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 4,
+        "valid": 4,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 1
+      },
+      "commands": [
+        "ls -la; find . -maxdepth 2 -name 'service.log' -o -maxdepth 2 -name 'ANSWER.txt' | head",
+        "cat service.log",
+        "grep -c ' ERROR ' service.log; grep -n 'ERROR' service.log; printf 'req-0173\\n' > ANSWER.txt; cat -A ANSWER.txt",
+        "od -c ANSWER.txt"
+      ],
+      "supplemental_tool_review": [
+        {
+          "index": 0,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 1,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 2,
+          "valid": true,
+          "failed": true,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Answer artifact correctly written before unsupported cat -A readback fails; next call verifies bytes"
+        },
+        {
+          "index": 3,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        }
+      ]
+    },
+    {
+      "original_test_file_integrity": {
+        "test_config.py": true
+      },
+      "task_id": "08-config-sync",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 155.2314594590007,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 4,
+        "valid": 4,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "ls -la /Users/chad/Models/agentwing/active/workspace",
+        "cat /Users/chad/Models/agentwing/active/workspace/POLICY.md /Users/chad/Models/agentwing/active/workspace/config.json /Users/chad/Models/agentwing/active/workspace/test_config.py",
+        "printf '{\"bind\":\"127.0.0.1\",\"max_tool_result_chars\":4096,\"experiment\":\"stage-a\"}\\n' > /Users/chad/Models/agentwing/active/workspace/config.json",
+        "cd /Users/chad/Models/agentwing/active/workspace && cat config.json && python3 test_config.py -v"
+      ],
+      "supplemental_tool_review": [
+        {
+          "index": 0,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 1,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 2,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        },
+        {
+          "index": 3,
+          "valid": true,
+          "failed": false,
+          "productive": true,
+          "redundant": false,
+          "malformed": false,
+          "denied": false,
+          "note": "Inspection, diagnostic, edit or verification advances task"
+        }
+      ]
+    }
+  ],
+  "supplemental_original_tests_unchanged": true,
+  "scope": "Complete original capability diagnostic; publisher thinking sampler, full 8K context and medium reasoning, prompt archive disabled, recurrent checkpoint count bounded to two. No comparative speed or promotion claim",
+  "accounting_limit": "Summary timing excludes final recursive receipt creation; not promotion accounting.",
+  "supplemental_tool_totals": {
+    "attempted": 35,
+    "valid": 35,
+    "productive": 32,
+    "redundant": 0,
+    "malformed": 0,
+    "denied": 0,
+    "failed": 4,
+    "classification_note": "Validity, usefulness and failed return are separate axes; one productive partial write has a failed readback return. Manual transcript/artifact review, not a universal productivity oracle."
+  },
+  "supplemental_history_review": [
+    {
+      "task_id": "01-navigation",
+      "compaction_events": 0,
+      "context_shift_events": 0
+    },
+    {
+      "task_id": "02-single-file-fix",
+      "compaction_events": 0,
+      "context_shift_events": 0
+    },
+    {
+      "task_id": "03-multi-file-fix",
+      "compaction_events": 0,
+      "context_shift_events": 0
+    },
+    {
+      "task_id": "04-refactor",
+      "compaction_events": 0,
+      "context_shift_events": 0
+    },
+    {
+      "task_id": "05-data-transform",
+      "compaction_events": 0,
+      "context_shift_events": 0
+    },
+    {
+      "task_id": "06-failure-recovery",
+      "compaction_events": 0,
+      "context_shift_events": 0
+    },
+    {
+      "task_id": "07-bounded-read",
+      "compaction_events": 0,
+      "context_shift_events": 0
+    },
+    {
+      "task_id": "08-config-sync",
+      "compaction_events": 0,
+      "context_shift_events": 0
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # AW-0072 — Complete frozen expanded development screen
 
-Frozen, not running, 2026-10-05. Candidate remains unqualified.
+Running, 2026-10-05. Candidate remains unqualified.
 
 Select all eight development tasks from immutable P2 corpus in manifest order,
 never its sixteen held-out tasks. Full supported thinking recipe, medium effort,
@@ -28,3 +28,8 @@ Even a completed passing development screen is not qualification: original
 preservation, matched-arm policy, all-overhead accounting and two full interleaved
 pairs with held-out preservation and >=25% gain remain unproven. Do not tune on
 held-out outcomes or silently relax the frozen comparison invariants.
+
+AW70 all8 original successes independently audited before launch. Ownership and
+full frozen-input check-only preflight subsequently passes with no model owner.
+Raw run: `/Users/chad/Models/agentwing/evidence/AW-0072/20261006T040507.320499Z`.
+No held-out task passed to model. Terminal result and independent audit pending.

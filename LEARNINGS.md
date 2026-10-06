@@ -1278,3 +1278,15 @@ This evidence makes generation the main observed component, not proof that
 checkpoint eviction caused full re-prefill. Preserve full reasoning and count
 all recovery/output wall; do not optimize by silently reducing budgets or tasks.
 The incomplete screen still cannot qualify the successor.
+
+## 2026-10-05 — Supported bounded-state Bonsai clears all original tasks
+
+AW70 all8 original tasks independently pass unchanged grade/protocol/raw receipt
+and original test checks. Every task pressure1, swap growth0, no history shifts
+or compaction.35 valid attempted calls,32 productive,0 redundant/malformed/denied,
+4 failed returns (one overlaps a productive artifact write). Diagnostic1617.561s
+excludes final receipt creation; no matched rate or promotion claim. Retain the
+complete bounded-state medium-thinking configuration for AW72 expanded8-category
+development. Native AW64 wrong-count and AW66 pressure negatives remain intact.
+Manual literal data output and small original fixtures limit capability inference;
+held-out panel, all-overhead interleaved pairs and comparison policy remain open.

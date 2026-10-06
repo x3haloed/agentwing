@@ -62,5 +62,13 @@ attachment also passed with zero swap growth (pressure peak 1). See
 The native operational profile failed the AW-0064 original-task preservation
 screen on a wrong data statistic (four of five attempted tasks passed; three
 remained unattempted). Local multimodal admission does not qualify it as a P1
-capability-preserving successor. AW-0065 separately investigates temperature zero
-without changing reasoning, tools, output budget or scoring.
+capability-preserving successor. AW-0065/0066 preserved temperature-zero diagnostics; that unsupported recipe
+is not promoted, and AW-0066 stopped at critical pressure.
+
+The separate supported-thinking bounded-state profile (`spec/bonsai-bounded-cache.json`)
+passes all eight original tasks in AW-0070 with pressure 1 and zero swap growth.
+It disables the optional prompt archive and caps saved recurrent checkpoints
+at two while retaining full 8K active context, medium reasoning, output budget
+and vision. This is original-suite admission for that profile, not comparative
+performance promotion. AW-0072 evaluates all eight frozen expanded development
+categories; the sixteen held-out tasks remain unexposed.
