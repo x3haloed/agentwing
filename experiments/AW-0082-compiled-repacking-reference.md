@@ -14,7 +14,7 @@ Extracted exact bodies of both CPU dequantize functions from hashed
 conversion uses native __fp16 via memcpy; this wrapper is not full runtime
 linkage. No model weights read or candidate runtime launched. Exclusive
 model-owner lock and post-run preflight passed; AW-0080 was already terminal.
-Compiler is Apple clang 17.0.0; actual full version and OS are in evidence.
+Compiler is Apple clang 21.0.0; actual full version and OS are in evidence.
 No speed or unified-memory measurement made. No sampling, prompt, task,
 verifier, cache or thermal claim applies to this codec correctness check.
 
