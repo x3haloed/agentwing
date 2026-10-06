@@ -1939,3 +1939,14 @@ evidence/AW-0158-ngram-rollback-build.json; externalAW158. Archive has no Git
 metadata; displayed version is not source authority. Retain for actual guarded
 allocation/forced-rejection fidelity, then complete cost/endpoint. No inference,
 memory admission, performance claim or promotion.
+
+
+### AW-0159 — bounded rollback startup fit measured
+
+Isolated full AW158 server with ngram2/3 allocates3slots and598.50MiB recurrent
+state, compressedKV408MiB at16K, full vision loaded. Health/props200, cleanexit0,
+pressure1/no swap growth baseline1172.12MiB. Independent hashes/KV/host replay
+passes. Retain allocation-admitted experimental candidate, not generation /
+forced-rejection fidelity or endpoint promotion. P1/default unchanged. Raw and
+whole configuration pins in externalAW159 and
+evidence/AW-0159-ngram-rollback-startup.json. Next forced-rejection fidelity.
