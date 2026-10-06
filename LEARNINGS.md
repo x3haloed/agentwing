@@ -544,7 +544,7 @@ or any measured execution input; AW-0027 plan v2 records the amendment.
 ## 2026-09-05 — First interleaved pair passes
 
 AW-0027 A1 passed8/8 in4559 seconds,6.317175 utility/hour,3.67098 times
-paired C1. Both evidence audits and all first-pair gates pass; pressure1 and
+paired C1. Both evidence audits and all first-pair gates pass; pressure 1 and
 zero swap growth. Retain unchanged for the required second interleaved pair.
 No promotion from this single pair. See AW-0027-pair-1.json.
 
@@ -553,12 +553,12 @@ No promotion from this single pair. See AW-0027-pair-1.json.
 AW-0027 C2 again passed01/06/07,3/8 overall, in5582 seconds (1.934790/hour).
 Its data-transform failure exited earlier than C1's timeout; the same frozen
 scoring retains that failure and all overhead. Four timeout drains and the
-full evidence audit pass. Pressure1, swap growth0.31MiB. Advance unchanged A2.
+full evidence audit pass. Pressure1, swap growth 0.31MiB. Advance unchanged A2.
 
 ## 2026-09-05 — Both interleaved candidate replications pass
 
 AW-0027 A2 passed8/8 in4534 seconds,6.352007 utility/hour,3.28305 times
-paired C2. Its full audit passes, with pressure1 and zero swap growth.
+paired C2. Its full audit passes, with pressure 1 and zero swap growth.
 Together with A1's8/8 and3.67098 times C1, this satisfies both numerical
 replication gates. Complete the final requirement audit and exact usable
 configuration/reproduction documentation before marking the goal complete.
@@ -566,7 +566,7 @@ configuration/reproduction documentation before marking the goal complete.
 ## 2026-09-05 — P1 promoted and task handoff verified
 
 Both interleaved full-suite candidates passed8/8 at3.67x and3.28x their
-controls, pressure1 with zero swap growth. Protocol, reconstruction and clean
+controls, pressure 1 with zero swap growth. Protocol, reconstruction and clean
 build evidence pass. The final task launcher additionally passes19 Python
 tests, real Pi protocol and an independently verified model smoke; Darwin
 cleanup races and a TIME_WAIT preflight issue were fixed and preserved in AW-0028.
@@ -1246,7 +1246,7 @@ KV estimate in docs/KV_MEMORY.md remains historical, not this runtime's account.
 
 ## 2026-10-05 — Supported full refactor passes; recurrent checkpoints are material
 
-AW69 refactor passes independent grade/protocol/hash checks at pressure1 and
+AW69 refactor passes independent grade/protocol/hash checks at pressure 1 and
 zero swap growth, with publisher thinking sampling and optional prompt archive
 disabled. Four productive calls, no failed/malformed/denied/redundant calls.
 Verbose logs reveal three saved149.626MiB recurrent states. Default limit32
@@ -1272,7 +1272,7 @@ a diagnostic integrity gap; it proves no model capability or speed improvement.
 ## 2026-10-05 — AW70 single-file wall is primarily generation
 
 The first two bounded-state tasks independently pass grade/protocol replay at
-pressure1, zero swap growth. Single-file fix340.205s includes294.022s decode for
+pressure 1, zero swap growth. Single-file fix340.205s includes294.022s decode for
 1595 tokens versus41.200s prompt processing. One BSD sed failure is recovered.
 This evidence makes generation the main observed component, not proof that
 checkpoint eviction caused full re-prefill. Preserve full reasoning and count
@@ -1282,7 +1282,7 @@ The incomplete screen still cannot qualify the successor.
 ## 2026-10-05 — Supported bounded-state Bonsai clears all original tasks
 
 AW70 all8 original tasks independently pass unchanged grade/protocol/raw receipt
-and original test checks. Every task pressure1, swap growth0, no history shifts
+and original test checks. Every task pressure 1, swap growth 0, no history shifts
 or compaction.35 valid attempted calls,32 productive,0 redundant/malformed/denied,
 4 failed returns (one overlaps a productive artifact write). Diagnostic1617.561s
 excludes final receipt creation; no matched rate or promotion claim. Retain the
@@ -1296,7 +1296,7 @@ held-out panel, all-overhead interleaved pairs and comparison policy remain open
 Native supported-thinking profile passes all original tasks but fails expanded
 debugging: two productive source reads, then2048 output tokens exhausted during
 thinking before any edit. Independent grader confirms unchanged iterator bug;
-protocol valid, pressure1 and swap growth0. This is a complete-configuration
+protocol valid, pressure 1 and swap growth 0. This is a complete-configuration
 failure and440.693s charged zero-utility work, not model-only capability evidence.
 The original profile's output cap is not proven adequate for expanded tasks.
 Preserve current frozen run and all remaining outcomes; a larger response/history
@@ -1315,7 +1315,7 @@ obtain speed and no held-out tuning; all larger-budget work must be charged.
 ## 2026-10-05 — A second expanded category exhausts the same response cap
 
 AW72 multi-file fails499.148s with no implementation edit after2048-token thinking
-exhaustion. Independent grade/protocol replay matches; pressure1 and swap growth0.
+exhaustion. Independent grade/protocol replay matches; pressure 1 and swap growth 0.
 Three productive valid calls plus one unsupported cat -A read masked by a pipe's
 successful exit. Preserve semantic command failure separately from raw isError
 counts. This strengthens the configuration-capacity falsifier across categories;
@@ -1333,7 +1333,7 @@ Reject exact8K/2048 expanded profile. AW75 rejects empty/null/nonstring args
 without exceptions and preserves prior valid checks. AW74 superseded before
 execution; repaired AW76 frozen separately.
 
-AW73 full16K startup passes pressure1/swap growth0, peakRSS7,858,544KiB; KV1GiB.
+AW73 full16K startup passes pressure 1/swap growth 0, peakRSS7,858,544KiB; KV1GiB.
 This proves startup admission only. AW76 begins exposed debugging with8192
 response allowance after ownership release; broader history/utility/pressure and
 interleaved qualification remain unproven. No held-out task exposed.
@@ -1341,7 +1341,7 @@ interleaved qualification remain unproven. No held-out task exposed.
 ## 2026-10-05 — Adequate capacity permits exposed debugging, at substantial wall cost
 
 AW76 solves the unchanged exposed debugging task with16K context/8192 output,
-valid protocol, no truncated responses and pressure1/swap growth0. Independent
+valid protocol, no truncated responses and pressure 1/swap growth 0. Independent
 full receipt/grade replay passes. Original public assertions preserved by AST,
 extended to15 tests; frozen independent authority unchanged. Five productive
 valid calls. Task1181.605s, diagnostic total1185.620s: capacity enables useful
@@ -1355,7 +1355,7 @@ matched/interleaved/model-only gain claim. All capability/performance gates rema
 AW77 independent raw/source/protocol/grade replay confirms zero utility in620.859s.
 Five productive valid source/test calls, then sixth generated tool payload rejected
 as incomplete after prose/code, Pi error; unchanged iterator behavior fails grader.
-Pressure1/swap growth0. No normalizer salvage succeeded; preserve rejected output
+Pressure1/swap growth 0. No normalizer salvage succeeded; preserve rejected output
 and frozen control, not a model-only or infinite-ratio promotion claim. AW76's
 valid larger-capacity success warrants AW78 full original revalidation, not
 qualification. All later capability,held-out,matched policy and endpoint gates open.
@@ -1372,3 +1372,11 @@ AW-0079 supplement: exposed AW-0076 prompt evaluation totals 42.574s of
 1185.620s diagnostic wall. Eliminating it entirely with other work fixed
 bounds rate gain to about 1.037x. Prefill-only optimization cannot supply
 25% on this task; retain PQ2 only for unmeasured decode/whole-system effects.
+
+## AW-0078 — Larger capacity preserves original screen capability
+
+The 16K/8192 medium-thinking candidate passed all eight original tasks under
+independent grading, protocol and host audit: 1332.764s diagnostic wall,
+peak pressure 1, swap growth 0 MiB. Retained for AW-0080 full development
+revalidation; this unpaired result does not establish a P1 rate improvement.
+Historical narrower-capacity negatives remain valid and preserved.

@@ -22,3 +22,14 @@ Passing advances to full expanded development and then sealed interleaved policy
 validation. Every original and expanded/held-out/control-success/category guard,
 all-overhead charge and>=25% replicated endpoint gate remains unproven. P1 stays
 frozen; do not mutate old acceptance or corpus to call this diagnostic promotion.
+
+## Terminal independent audit
+
+All eight original tasks pass independent grading, protocol and host gates.
+Total diagnostic wall 1332.764s; utility 8. Peak pressure 1 and
+swap growth 0 MiB for every task. No promotion claim: one unpaired diagnostic
+with native candidate settings, excluding final recursive receipt creation.
+Raw run `/Users/chad/Models/agentwing/evidence/AW-0078/20261006T051604.992127Z`, recursive receipt SHA-256
+`9c600fe4fb6aa1591d458b3862ec582772f301da5ce5cd0e0936d79b83b4d71a`. Independent replay summary in
+`evidence/AW-0078-terminal-audit.json`. Retain candidate for broader frozen
+development validation; held-out and replicated endpoint gates remain open.

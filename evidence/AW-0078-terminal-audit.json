@@ -1,0 +1,234 @@
+{
+  "audit_passed": true,
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0078/20261006T051604.992127Z",
+  "raw_receipt_sha256": "9c600fe4fb6aa1591d458b3862ec582772f301da5ce5cd0e0936d79b83b4d71a",
+  "plan_sha256": "b01a554f4b81510820fd62b3259d2b36faf49cb4948822845dce57b90911a9b2",
+  "complete_selection": true,
+  "all_selected_tasks_passed": true,
+  "screen_passed": true,
+  "utility": 8,
+  "wall_seconds": 1332.763850458001,
+  "diagnostic_utility_per_hour": 21.60922956463964,
+  "unattempted": [],
+  "error": null,
+  "tasks": [
+    {
+      "original_test_file_integrity": {},
+      "task_id": "01-navigation",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 119.09723691599902,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 4,
+        "valid": 4,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "ls -la /Users/chad/Models/agentwing/active/workspace",
+        "find /Users/chad/Models/agentwing/active/workspace -type f | head -50; echo \"---\"; cat /Users/chad/Models/agentwing/active/workspace/README.md",
+        "cat /Users/chad/Models/agentwing/active/workspace/config/defaults.json; echo \"===DEPLOY===\"; cat /Users/chad/Models/agentwing/active/workspace/deploy/production.env",
+        "printf '2750' > /Users/chad/Models/agentwing/active/workspace/ANSWER.txt && cat /Users/chad/Models/agentwing/active/workspace/ANSWER.txt"
+      ]
+    },
+    {
+      "original_test_file_integrity": {
+        "test_math_utils.py": true
+      },
+      "task_id": "02-single-file-fix",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 141.56185941699914,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 3,
+        "valid": 3,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "find . -type f -not -path '*/node_modules/*' -not -path '*/.git/*' | head -100 && echo --- && ls -la",
+        "cat math_utils.py; echo ===; cat test_math_utils.py",
+        "sed -i '' 's/min(lower, max(value, upper))/max(lower, min(value, upper))/' math_utils.py && cat math_utils.py && python3 -m pytest test_math_utils.py -q 2>/dev/null || python3 -m unittest -v"
+      ]
+    },
+    {
+      "original_test_file_integrity": {
+        "test_slug.py": true
+      },
+      "task_id": "03-multi-file-fix",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 283.45292312499987,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 6,
+        "valid": 6,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 1
+      },
+      "commands": [
+        "ls -la /Users/chad/Models/agentwing/active/workspace && cat README.md",
+        "cat config.py slug.py test_slug.py",
+        "python3 -m unittest test_slug -v 2>&1 | tail -5",
+        "cat > slug.py <<'EOF'\nfrom config import NAMESPACE\n\n\ndef display_slug(text: str) -> str:\n    words = [w for w in text.lower().split() if w]\n    return NAMESPACE + \"/\" + \"-\".join(words)\nEOF\npython3 -m unittest test_slug -v 2>&1 | tail -3",
+        "python3 -c \"\nfrom slug import display_slug\nassert display_slug('Fast  Local Agent') == 'docs/fast-local-agent'\nassert display_slug('  A-B_C  ') == 'docs/a-b-c' if False else None\nprint(display_slug('Fast  Local Agent'))\nprint(display_slug('  Foo  BAR  baz  '))\n\"",
+        "python3 -c \"\nfrom slug import display_slug\nprint(repr(display_slug('Fast  Local Agent')))\nprint(repr(display_slug('  Foo  BAR  baz  ')))\nprint(repr(display_slug('')))\n\""
+      ]
+    },
+    {
+      "original_test_file_integrity": {
+        "test_totals.py": true
+      },
+      "task_id": "04-refactor",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 206.67524541600142,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 4,
+        "valid": 4,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "find /Users/chad/Models/agentwing/active/workspace -type f | head -50 && echo --- && grep -rn \"legacy_total\" /Users/chad/Models/agentwing/active/workspace | head -50",
+        "cat /Users/chad/Models/agentwing/active/workspace/alpha.py /Users/chad/Models/agentwing/active/workspace/beta.py /Users/chad/Models/agentwing/active/workspace/test_totals.py",
+        "cat > /Users/chad/Models/agentwing/active/workspace/totals.py << 'EOF'\ndef nonnegative_total(values):\n    return sum(value for value in values if value >= 0)\nEOF\ncat > /Users/chad/Models/agentwing/active/workspace/alpha.py << 'EOF'\nfrom totals import nonnegative_total\n\n\ndef alpha_total(values):\n    return nonnegative_total(values)\nEOF\ncat > /Users/chad/Models/agentwing/active/workspace/beta.py << 'EOF'\nfrom totals import nonnegative_total\n\n\ndef beta_total(values):\n    return nonnegative_total(values)\nEOF",
+        "grep -rn \"legacy_total\" /Users/chad/Models/agentwing/active/workspace; echo \"grep exit: $?\" && python3 /Users/chad/Models/agentwing/active/workspace/test_totals.py"
+      ]
+    },
+    {
+      "original_test_file_integrity": {},
+      "task_id": "05-data-transform",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 108.31861108399971,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 2,
+        "valid": 2,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "ls -la; head -20 events.csv",
+        "printf '{\"total_events\": 6, \"successful_events\": 4, \"latency_ms_by_service\": {\"api\": 63, \"db\": 60, \"worker\": 27}}' > summary.json && cat summary.json"
+      ]
+    },
+    {
+      "original_test_file_integrity": {},
+      "task_id": "06-failure-recovery",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 142.0883654169993,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 4,
+        "valid": 4,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "cat README.md",
+        "ls -la; cat scripts/validate.sh 2>/dev/null; ls scripts/ 2>/dev/null",
+        "cat app.py",
+        "cat > app.py <<'EOF'\ndef normalize(name: str) -> str:\n    return name.strip().lower().replace(\" \", \"-\")\nEOF\nsh scripts/validate.sh && echo \"VALIDATION PASSED\""
+      ]
+    },
+    {
+      "original_test_file_integrity": {},
+      "task_id": "07-bounded-read",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 167.1574443339996,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 4,
+        "valid": 4,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 1
+      },
+      "commands": [
+        "ls -la; find . -maxdepth 2 -name 'service.log' -o -maxdepth 2 -name 'ANSWER.txt' | head",
+        "cat service.log",
+        "grep -c ' ERROR ' service.log; grep -n 'ERROR' service.log; printf 'req-0173\\n' > ANSWER.txt; cat -A ANSWER.txt",
+        "od -c ANSWER.txt"
+      ]
+    },
+    {
+      "original_test_file_integrity": {
+        "test_config.py": true
+      },
+      "task_id": "08-config-sync",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 154.3176964159993,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 4,
+        "valid": 4,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "ls -la /Users/chad/Models/agentwing/active/workspace",
+        "cat /Users/chad/Models/agentwing/active/workspace/POLICY.md /Users/chad/Models/agentwing/active/workspace/config.json /Users/chad/Models/agentwing/active/workspace/test_config.py",
+        "printf '{\"bind\":\"127.0.0.1\",\"max_tool_result_chars\":4096,\"experiment\":\"stage-a\"}\\n' > /Users/chad/Models/agentwing/active/workspace/config.json",
+        "cd /Users/chad/Models/agentwing/active/workspace && cat config.json && python3 test_config.py -v"
+      ]
+    }
+  ],
+  "supplemental_original_tests_unchanged": true,
+  "scope": "Complete original capability revalidation for16K/8192 medium-thinking candidate; no held-out or matched/interleaved promotion claim",
+  "accounting_limit": "Summary timing excludes final recursive receipt creation; not promotion accounting."
+}
