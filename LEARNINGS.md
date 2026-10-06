@@ -2287,3 +2287,14 @@ speed causality. Own32prefix4/0/11 (matches4/2/12), not uniform identitygain
 or general agentquality. KV408MiB only, host1/growth0. Retain modelnumeric
 survivor for fullserver/vision/tools, no endpoint promotion/P1/default change.
 ExternalAW190, pins evidence/AW-0190-stationary-cache-terminal.json.
+
+
+### AW-0191 — stationary fullvision server builds with pinned guarded launch
+
+120additional nativebuildsteps fullserver+mtmdCLI exit0; priorlibraryhashes
+unchanged, newserver/vision artifacts/banner pinned. Separate experimental
+fullQ8vision16K/q8K/Turbo4V/nativeT1medium/CP2/cache0/noshift launcher
+--verify-only passes fullweights/libraries/patch/build/banner checks. No startup /
+vision/tool/longresponse or endpoint qualification from build; requests keep
+8192cap atcaller. P1/default unchanged, no promotion/fullGoogle claim. External
+AW191; build+launcher receipts under evidence/AW-0191*.json.

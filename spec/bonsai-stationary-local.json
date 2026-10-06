@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "model": {
+    "repository": "prism-ml/Ternary-Bonsai-2-27B-gguf",
+    "revision": "b072e1d3b35a0a630cece372c2127528e0994386",
+    "license": "Apache-2.0",
+    "artifacts": [
+      {
+        "filename": "Ternary-Bonsai-2-27B-attention-PQ2_0.gguf",
+        "bytes": 6041020768,
+        "sha256": "cc11a9c76ee8e94a735e14789e17b952b33c9b84e7fe587b40dfe6cd6b96566c"
+      },
+      {
+        "filename": "Ternary-Bonsai-2-27B-mmproj-Q8_0.gguf",
+        "bytes": 629246976,
+        "sha256": "6807ede61d570bb86ba34b756a0fa109edc33668604de867c6ea6d8f1d631903"
+      }
+    ],
+    "derivative": "Local exact selective attention PQ, other language tensors and Q8 vision unchanged"
+  },
+  "runtime": {
+    "repository": "https://github.com/PrismML-Eng/llama.cpp",
+    "revision": "adfffbe41b2cabcd51fff326ab045662265062bb",
+    "release": "experimental-local-AW-0191",
+    "backend": "Metal",
+    "server_path": "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-codebook/bin/llama-server",
+    "server_sha256": "0cd553b130fb60625f34cb607d01041ba99038545f7d78bf2d59668f89b66354",
+    "libraries": {
+      "libllama.0.dylib": "8159085966524cad5d4f4505f7fadb2c2bae56b9da1a16c55ff101958d99a546",
+      "libmtmd.0.dylib": "e2999c05d81fbf7fb57e333eada0bf21f6cd5e00e21075f2aa872a49dcf3ee7e",
+      "libggml.dylib": "ebafae7ed2bf807e9231343660764627934aca83e75b7cf55948f54998c82798",
+      "libggml-base.0.21.0.dylib": "db63c95beb5536a2e80564c8724801b40fd2ad58183b539f69dc8082ef5f6abe",
+      "libggml.0.dylib": "ebafae7ed2bf807e9231343660764627934aca83e75b7cf55948f54998c82798",
+      "libmtmd.dylib": "e2999c05d81fbf7fb57e333eada0bf21f6cd5e00e21075f2aa872a49dcf3ee7e",
+      "libllama-server-impl.dylib": "65fe16b6dcbf814e0e90e15d0d33418d0832ed28722461a2fca59c0698979516",
+      "libggml-base.dylib": "db63c95beb5536a2e80564c8724801b40fd2ad58183b539f69dc8082ef5f6abe",
+      "libggml-blas.dylib": "4170bb7048c7575c018dc485ecb4523330dee9bba7542da5f483b8d711f6e1b5",
+      "libggml-metal.0.dylib": "eef053905ca767558832adcbee14af33e86d83c8a1b00f151f66721a51551af5",
+      "libllama-common.0.dylib": "f3ba248527401e155ff2dae6b66cccb0d1ad4c862d7ab809bf31a214e988588d",
+      "libllama.dylib": "8159085966524cad5d4f4505f7fadb2c2bae56b9da1a16c55ff101958d99a546",
+      "libggml-cpu.dylib": "a3f7a2706a6de4d1d71d9d75f6ca925fa481c689724a20a5d7b25e79b7d47d94",
+      "libggml-metal.dylib": "eef053905ca767558832adcbee14af33e86d83c8a1b00f151f66721a51551af5",
+      "libllama-common.dylib": "f3ba248527401e155ff2dae6b66cccb0d1ad4c862d7ab809bf31a214e988588d",
+      "libggml-blas.0.21.0.dylib": "4170bb7048c7575c018dc485ecb4523330dee9bba7542da5f483b8d711f6e1b5",
+      "libggml.0.21.0.dylib": "ebafae7ed2bf807e9231343660764627934aca83e75b7cf55948f54998c82798",
+      "libmtmd.0.2.0.dylib": "e2999c05d81fbf7fb57e333eada0bf21f6cd5e00e21075f2aa872a49dcf3ee7e",
+      "libggml-base.0.dylib": "db63c95beb5536a2e80564c8724801b40fd2ad58183b539f69dc8082ef5f6abe",
+      "libllama.0.2.0.dylib": "8159085966524cad5d4f4505f7fadb2c2bae56b9da1a16c55ff101958d99a546",
+      "libllama-common.0.2.0.dylib": "f3ba248527401e155ff2dae6b66cccb0d1ad4c862d7ab809bf31a214e988588d",
+      "libggml-blas.0.dylib": "4170bb7048c7575c018dc485ecb4523330dee9bba7542da5f483b8d711f6e1b5",
+      "libggml-cpu.0.21.0.dylib": "a3f7a2706a6de4d1d71d9d75f6ca925fa481c689724a20a5d7b25e79b7d47d94",
+      "libggml-cpu.0.dylib": "a3f7a2706a6de4d1d71d9d75f6ca925fa481c689724a20a5d7b25e79b7d47d94",
+      "libggml-metal.0.21.0.dylib": "eef053905ca767558832adcbee14af33e86d83c8a1b00f151f66721a51551af5"
+    },
+    "build_evidence": "evidence/AW-0191-stationary-fullserver-build.json",
+    "tls": "disabled; loopback HTTP API",
+    "version_output": "version: 0.2.0-dev (build 0, commit unknown)\nbuilt with AppleClang 21.0.0.21000334 for Darwin arm64\n",
+    "patch_series": {
+      "experiments/runtime-patches/AW-0137-turbo-server.patch": "4864e0cb10c475ad193022d5f2e06fc1a9974b93d957ee3c6869a3c3bcfbab5b",
+      "experiments/runtime-patches/AW-0179-mixed-cache.patch": "d6c885e681f0871d9a37cf3f36b38cf631f8de2db0b87d5e800f24580a146b82",
+      "experiments/runtime-patches/AW-0182-mixed-cache-graph.patch": "38a2bb985d89127c444723ca107c0bef96a53c35a82b6b2ccec5feec12109c5b",
+      "experiments/runtime-patches/AW-0186-stationary-codebook.patch": "a0bd2d81a3f6248f1e76bc6cf7f66bc019cc0b1b4bff9d2608ddfe100fd30ae5"
+    },
+    "build_evidence_sha256": "320f88b53130d57777e64735b4698c55f18bc4f8d194e637dc513da36214f711"
+  },
+  "context_tokens": 16384,
+  "parallel": 1,
+  "image_max_tokens": 1024,
+  "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.05,
+    "presence_penalty": 0.0,
+    "repeat_penalty": 1.0,
+    "seed": 42
+  },
+  "reasoning_effort": "medium",
+  "host_gates": {
+    "critical_pressure_level": 4,
+    "max_swap_growth_mib": 1024
+  },
+  "status": "experimental-stationary-codebook-built-startup-unqualified",
+  "harness": {
+    "package": "@earendil-works/pi-coding-agent",
+    "version": "0.84.4"
+  },
+  "experiment": "AW-0191",
+  "admission_evidence": [
+    "evidence/AW-0189-codebook-metal-attention.json",
+    "evidence/AW-0190-stationary-cache-terminal.json"
+  ],
+  "limits": "Local full vision targets built; revised same-bit WHT/Lloyd-Max V codec passes numerical/resource screens. Startup/tool/vision/endpoint behavior and25%utility superiority unqualified; request output cap8192 preserved.",
+  "prompt_cache_ram_mib": 0,
+  "context_shift": false,
+  "context_checkpoints": 2,
+  "max_output_tokens": 8192,
+  "kv_cache": {
+    "k": "q8_0",
+    "v": "turbo4",
+    "flash_attention": "enabled",
+    "implementation": "AW186 stationary scalar Gaussian4bit table, unchanged128WHT/68byte layout/normcorrection; full Google PolarQuant/QJL equivalence not claimed"
+  },
+  "qualification": "Experimental isolated fullvision launcher; preserve frozenP1 and operationaldefaults. No promotion."
+}

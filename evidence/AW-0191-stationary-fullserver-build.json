@@ -1,0 +1,90 @@
+{
+  "experiment": "AW-0191",
+  "status": "Fullserver/vision native build passed; startup/tool/vision behavior pending",
+  "plan": {
+    "experiment": "AW-0191",
+    "hypothesis": "Full loopback server and local vision targets build from AW186 numeric survivor without source changes",
+    "source": "/Users/chad/Models/agentwing/runtime-sources/prism-turbo-codebook",
+    "build": "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-codebook",
+    "targets": [
+      "llama-server",
+      "llama-mtmd-cli"
+    ],
+    "model_gate_sha256": "68d738d5484686661992e0815d1baedbcf99e687554333edc51f2292461304f8",
+    "native_build_receipt_sha256": "971645ac49c41825d00ac271161eb9f54b10e553f433ea20902f49c635b701e2",
+    "source_changed": false,
+    "status": "Build pending; startup/tool/vision/endpoint unqualified",
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n"
+  },
+  "source_authority": {
+    "experiment": "AW-0186",
+    "hypothesis": "AW185 same-layout real-vector survivor can be implemented with only coordinated CPU/Metal codebook literal changes; native build intact",
+    "source": "/Users/chad/Models/agentwing/runtime-sources/prism-turbo-codebook",
+    "build": "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-codebook",
+    "parent_commit": "adfffbe41b2cabcd51fff326ab045662265062bb",
+    "patch_series_sha256": {
+      "experiments/runtime-patches/AW-0137-turbo-server.patch": "4864e0cb10c475ad193022d5f2e06fc1a9974b93d957ee3c6869a3c3bcfbab5b",
+      "experiments/runtime-patches/AW-0179-mixed-cache.patch": "d6c885e681f0871d9a37cf3f36b38cf631f8de2db0b87d5e800f24580a146b82",
+      "experiments/runtime-patches/AW-0182-mixed-cache-graph.patch": "38a2bb985d89127c444723ca107c0bef96a53c35a82b6b2ccec5feec12109c5b",
+      "experiments/runtime-patches/AW-0186-stationary-codebook.patch": "a0bd2d81a3f6248f1e76bc6cf7f66bc019cc0b1b4bff9d2608ddfe100fd30ae5"
+    },
+    "changed_sources_sha256": {
+      "ggml/src/ggml-turbo-quant.c": "bc1123404676562d30667068094fdecf58070eaad8b5842dfb0135cf449f67dc",
+      "ggml/src/ggml-metal/kernels/dequantize.h": "b5cbfd6763190091e79e75f9d9856b5821382a3fcb587e912562d5c0dd25c5c6"
+    },
+    "real_vector_gate_sha256": "67ba4ec894277263f7ce30633dcb2059b33f823f971ff00609b8ff5a6bf77023",
+    "table_rounding": "Roundtrip float32 literals; exact zero midpoint retained. Half table compiler rounds same entries to half.",
+    "status": "Prepared, native build pending; no profile/deployed runtime change",
+    "required_gates": [
+      "Native build/source identity",
+      "Metal writer/decode parity and bit count",
+      "Actual block/vector attention numerics and complete cost",
+      "Own accumulated model behavior",
+      "Full vision/tools and replicated endpoint utility"
+    ]
+  },
+  "source_changed": false,
+  "targets": [
+    "llama-server",
+    "llama-mtmd-cli"
+  ],
+  "steps": 120,
+  "parallel_jobs": 4,
+  "build_type": "Release",
+  "metal_embedded": true,
+  "openssl": false,
+  "server_sha256": "0cd553b130fb60625f34cb607d01041ba99038545f7d78bf2d59668f89b66354",
+  "multimodal_cli_sha256": "79f568558430fe049bc30cb5212afbe661f9938b361ea10e33f1aa4a0b98777c",
+  "libraries_sha256": {
+    "libllama.0.dylib": "8159085966524cad5d4f4505f7fadb2c2bae56b9da1a16c55ff101958d99a546",
+    "libmtmd.0.dylib": "e2999c05d81fbf7fb57e333eada0bf21f6cd5e00e21075f2aa872a49dcf3ee7e",
+    "libggml.dylib": "ebafae7ed2bf807e9231343660764627934aca83e75b7cf55948f54998c82798",
+    "libggml-base.0.21.0.dylib": "db63c95beb5536a2e80564c8724801b40fd2ad58183b539f69dc8082ef5f6abe",
+    "libggml.0.dylib": "ebafae7ed2bf807e9231343660764627934aca83e75b7cf55948f54998c82798",
+    "libmtmd.dylib": "e2999c05d81fbf7fb57e333eada0bf21f6cd5e00e21075f2aa872a49dcf3ee7e",
+    "libllama-server-impl.dylib": "65fe16b6dcbf814e0e90e15d0d33418d0832ed28722461a2fca59c0698979516",
+    "libggml-base.dylib": "db63c95beb5536a2e80564c8724801b40fd2ad58183b539f69dc8082ef5f6abe",
+    "libggml-blas.dylib": "4170bb7048c7575c018dc485ecb4523330dee9bba7542da5f483b8d711f6e1b5",
+    "libggml-metal.0.dylib": "eef053905ca767558832adcbee14af33e86d83c8a1b00f151f66721a51551af5",
+    "libllama-common.0.dylib": "f3ba248527401e155ff2dae6b66cccb0d1ad4c862d7ab809bf31a214e988588d",
+    "libllama.dylib": "8159085966524cad5d4f4505f7fadb2c2bae56b9da1a16c55ff101958d99a546",
+    "libggml-cpu.dylib": "a3f7a2706a6de4d1d71d9d75f6ca925fa481c689724a20a5d7b25e79b7d47d94",
+    "libggml-metal.dylib": "eef053905ca767558832adcbee14af33e86d83c8a1b00f151f66721a51551af5",
+    "libllama-common.dylib": "f3ba248527401e155ff2dae6b66cccb0d1ad4c862d7ab809bf31a214e988588d",
+    "libggml-blas.0.21.0.dylib": "4170bb7048c7575c018dc485ecb4523330dee9bba7542da5f483b8d711f6e1b5",
+    "libggml.0.21.0.dylib": "ebafae7ed2bf807e9231343660764627934aca83e75b7cf55948f54998c82798",
+    "libmtmd.0.2.0.dylib": "e2999c05d81fbf7fb57e333eada0bf21f6cd5e00e21075f2aa872a49dcf3ee7e",
+    "libggml-base.0.dylib": "db63c95beb5536a2e80564c8724801b40fd2ad58183b539f69dc8082ef5f6abe",
+    "libllama.0.2.0.dylib": "8159085966524cad5d4f4505f7fadb2c2bae56b9da1a16c55ff101958d99a546",
+    "libllama-common.0.2.0.dylib": "f3ba248527401e155ff2dae6b66cccb0d1ad4c862d7ab809bf31a214e988588d",
+    "libggml-blas.0.dylib": "4170bb7048c7575c018dc485ecb4523330dee9bba7542da5f483b8d711f6e1b5",
+    "libggml-cpu.0.21.0.dylib": "a3f7a2706a6de4d1d71d9d75f6ca925fa481c689724a20a5d7b25e79b7d47d94",
+    "libggml-cpu.0.dylib": "a3f7a2706a6de4d1d71d9d75f6ca925fa481c689724a20a5d7b25e79b7d47d94",
+    "libggml-metal.0.21.0.dylib": "eef053905ca767558832adcbee14af33e86d83c8a1b00f151f66721a51551af5"
+  },
+  "version_output": "version: 0.2.0-dev (build 0, commit unknown)\nbuilt with AppleClang 21.0.0.21000334 for Darwin arm64\n",
+  "build_log_sha256": "8b0554c688d4a5d73eff4bb61664def14fb481affcf24eafca5503480b81fa05",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "scope": "Full local server+vision target build only; no startup/vision/tool/end-to-end acceptance"
+}
