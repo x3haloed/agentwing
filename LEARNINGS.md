@@ -2216,3 +2216,16 @@ not actual norm-corrected vector/model-quality/performance evidence. Existing
 pervector normcorrection changes objective, so screen actual V/attention next.
 No runtime/model/P1/default changes. RawexternalAW184; pins/tables in
 evidence/AW-0184-turbo4-codebook-screen.json.
+
+
+### AW-0185 — stationary table improves actual norm-corrected V/attention
+
+Native packedencoder byteparity passes actual own32 layer3/31/63 inputs; same
+128rotation/68byte4bit/normcorrection. Candidate V errors.09673/.09494/.09421
+vsnative.13584/.12995/.12783, attention errors.05172/.07024/.05525 vs
+.07851/.08886/.09264, all3lower (attention21–40%). Independent scalarattention /
+numeric/hash replay valid, host1/no growth. First privateFWHT link/dlopen failure
+preserved; unchanged transform copied into test helper. Retain CPU survivor,
+not nativeGPU speed/modelbehavior/vision/tool/endpoint or Googlefull claim.
+P1/runtime/default unchanged. ExternalAW185, pins
+evidence/AW-0185-actual-codebook-screen.json.

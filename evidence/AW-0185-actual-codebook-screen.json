@@ -1,0 +1,202 @@
+{
+  "experiment": "AW-0185",
+  "plan": {
+    "experiment": "AW-0185",
+    "hypothesis": "AW184 stationary Gaussian table lowers actual norm-corrected V and attention error at unchanged128group/68byte4bit layout",
+    "acceptance": "Baseline packed encoder bitexact native; finite full decoded vectors; candidate V and attention relativeL2 lower in each layer3/31/63. Reject any layer regression before GPU integration. CPU cost not performance evidence.",
+    "source_sha256": "83d7486e418b4de327576023a7131e2b397a4dc43e24bc9b81eb187a4b32f741",
+    "runner_sha256": "e232e2ef039909e8a77570269ed67a4c02d8308be54971381f2d3af07eed3f30",
+    "codec_sha256": "9045b51fadc419a7979117f61038af297057352f7617a367a7b4135ebe8dc38d",
+    "base_sha256": "6d7cfc48ae6f19b59589f3d4ae6a600c842c269676c483bfd885a844d9a72429",
+    "codebook_authority_sha256": "c682d101f55f9fca984fb882057bad87645851b0d682d2f636c480dce083d654",
+    "capture_authority_sha256": "e4dd9f885b6a500be00359e1883540f8d7cae1a80863f8af02e784015397dde1",
+    "oracle_source_sha256": "6bdf82bde40e948b3957f4830ddfa8cb49cdd88a97b194563124c1cc13eb21f9",
+    "tables": {
+      "native": [
+        [
+          -0.173926,
+          -0.117195,
+          -0.089527,
+          -0.068756,
+          -0.051262,
+          -0.035597,
+          -0.020989,
+          -0.006938,
+          0.006938,
+          0.020989,
+          0.035597,
+          0.051262,
+          0.068756,
+          0.089527,
+          0.117195,
+          0.173926
+        ],
+        [
+          -0.14556,
+          -0.103361,
+          -0.079142,
+          -0.060009,
+          -0.04343,
+          -0.028293,
+          -0.013963,
+          0.0,
+          0.013963,
+          0.028293,
+          0.04343,
+          0.060009,
+          0.079142,
+          0.103361,
+          0.14556
+        ]
+      ],
+      "candidate": [
+        [
+          -0.24152907697892362,
+          -0.18287701390634276,
+          -0.14301644647608022,
+          -0.11103619979521567,
+          -0.08329191586882129,
+          -0.058049853288335625,
+          -0.03429894799860493,
+          -0.011348624534429901,
+          0.011348624534429815,
+          0.03429894799860491,
+          0.05804985328833559,
+          0.08329191586882119,
+          0.1110361997952156,
+          0.14301644647608025,
+          0.18287701390634284,
+          0.24152907697892598
+        ],
+        [
+          -0.2122030454426332,
+          -0.16294673019121148,
+          -0.12702632313564793,
+          -0.09716405783201848,
+          -0.07067088457857845,
+          -0.04617440064347028,
+          -0.022823786266517418,
+          -4.336808689942018e-17,
+          0.022823786266517362,
+          0.046174400643470254,
+          0.0706708845785784,
+          0.0971640578320184,
+          0.12702632313564793,
+          0.16294673019121153,
+          0.2122030454426344
+        ]
+      ]
+    },
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+    "storage": "internalSSD",
+    "scope": "CPU actual own32 captured V/attention; table derived without task data. No fresh candidate trajectory, kernel speed, vision/tool/endpoint qualification"
+  },
+  "result": {
+    "experiment": "AW-0185",
+    "passed": true,
+    "records": [
+      {
+        "layer": 3,
+        "native": {
+          "V_relative_l2": 0.13584058450498757,
+          "attention_relative_l2": 0.07850806882278007
+        },
+        "candidate": {
+          "V_relative_l2": 0.0967303468763766,
+          "attention_relative_l2": 0.051719627899451295
+        },
+        "passed": true
+      },
+      {
+        "layer": 31,
+        "native": {
+          "V_relative_l2": 0.12994641912113317,
+          "attention_relative_l2": 0.08885740693168384
+        },
+        "candidate": {
+          "V_relative_l2": 0.094940874096032,
+          "attention_relative_l2": 0.07023843549973822
+        },
+        "passed": true
+      },
+      {
+        "layer": 63,
+        "native": {
+          "V_relative_l2": 0.1278271507946569,
+          "attention_relative_l2": 0.09264089616193749
+        },
+        "candidate": {
+          "V_relative_l2": 0.09420864330652431,
+          "attention_relative_l2": 0.055247391140436204
+        },
+        "passed": true
+      }
+    ],
+    "phase_host_samples": [
+      [
+        1,
+        1039.12
+      ],
+      [
+        1,
+        1039.12
+      ]
+    ],
+    "plan_sha256": "65ae5aeb385940cd026d94f71cd89136711303e8957bf3a33f2890db84d5b940",
+    "raw_sha256": {
+      "63-native-attention.bin": "50c09b3a0642235adf3ca783019bf2d9f3d58147f032041a25d20a3f54c44e69",
+      "31-native-decoded.bin": "cbc35aecaf2295143acec713ce6c1da5aa07de92cd155f02e177e85d50e3a41e",
+      "3-native-packed.bin": "b8ac7c975a4c2570c9cce3c9911763db532cfae5580f6da795412523a9c952c0",
+      "31-reference.bin": "1e66a70978163111914f6cf544821ca02713d14b4d953f6d25dd2fb569b2c3b1",
+      "63-candidate-packed.bin": "adb4914bb183b8188c34464ffc4119c3e16d8a06002668ef9ed72818df8bdd55",
+      "31-input.bin": "48ebe1b7e6c085016c55784f3a15703615d40d30baaba1f6fa5c67a5d337d69a",
+      "plan.json": "65ae5aeb385940cd026d94f71cd89136711303e8957bf3a33f2890db84d5b940",
+      "failed-codec-v1.cpp": "b7d7af15f43ebf9fe583f034427f23db894d7b57593df771b3306a426679a36d",
+      "31-candidate-packed.bin": "7754be7aba0159340d9ab2f1f746665e9cc1f9517b659595a86a45c16e06774c",
+      "31-native-attention.bin": "ae4f93f335f9840659402a4ec74869dce84bea0fee09a69232671c713c54a238",
+      "3-candidate-decoded.bin": "905e727c7bcdf462cb9607f3470737519ed09206374c32a7e771055b3aa908b4",
+      "31-native-packed.bin": "313b76da70aa5903f215b3fd9f01a0c126e54460d3ddaa4879a77589adae2b26",
+      "31-candidate-attention.bin": "7525eaf7b70fe480b73aa4203d708e8a9a12e1a6d576ac47d4a10b8d9a2cd02f",
+      "3-reference.bin": "289b66656c0e58a497d74fc004378031c4d4de68bec0d2164819c8d4b7f4466e",
+      "3-input.bin": "ac52542c599c6cc27d21855fce345ebac2d8c8605e117463ad61471ea17da002",
+      "63-native-packed.bin": "a24eb3afd14f812c3c2e26b1743696fe343a09429cc766a1709e8a99736a1660",
+      "compile-v1-error.txt": "10218d380e53f88a26cbe84b4ba29d2bba05aad413c35463ab33cf4cee621012",
+      "63-input.bin": "f18014ece1a4b3e3f03006d6715268efa79ab666ccd23e1b94f59e23177df69a",
+      "63-reference.bin": "b89c6ac40913a2c8f2bbcb4c5b4a5d43bf9fd2caf2ea0f35bebb265c8f68e382",
+      "31-candidate-decoded.bin": "82e842ff75f8b152c9e418f06c4dd2a4da96af7331f8dd59e44cc3bc101a9255",
+      "63-candidate-decoded.bin": "e2d75de569a532318ec3fb97dfc8487470b9beb219e46043812424ba5ef39cc8",
+      "3-native-attention.bin": "7ef4b2645783c40594e629a1d221fb1148ad2993e87d2e508233fb19dd8ff520",
+      "codec.dylib": "9045b51fadc419a7979117f61038af297057352f7617a367a7b4135ebe8dc38d",
+      "63-candidate-attention.bin": "95872111a9aab3b9275934f2fc2aebb43b3e5620b92f9c27376d0170e68fdb86",
+      "3-candidate-packed.bin": "38114c690468c93af42d2d24b50906ef0bcfc2eef772fadce151c3437d636288",
+      "3-native-decoded.bin": "a32d9caecacf873c757e9f1d0c45a9af57a252509a8c8e362c013b0295721a34",
+      "3-candidate-attention.bin": "153a87420bd80697d775a9e87c95305aaff8cc6676a98cadd878ffb7e8c05724",
+      "63-native-decoded.bin": "d0b93feebbb9a3499f9cb73a024586f1b3b0d0b5dba99c50ccb1d51de507e3bf"
+    },
+    "scope": "CPU actual own32 captured V/attention; table derived without task data. No fresh candidate trajectory, kernel speed, vision/tool/endpoint qualification"
+  },
+  "independent_scalar_attention_and_numeric_hash_replay_valid": true,
+  "reductions": [
+    {
+      "layer": 3,
+      "attention_error_reduction": 0.3412189514405146,
+      "V_error_reduction": 0.2879127601749607
+    },
+    {
+      "layer": 31,
+      "attention_error_reduction": 0.20953764097865724,
+      "V_error_reduction": 0.2693844529295554
+    },
+    {
+      "layer": 63,
+      "attention_error_reduction": 0.4036392842761036,
+      "V_error_reduction": 0.2629997405022174
+    }
+  ],
+  "initial_failure_sha256": {
+    "failed-codec-v1.cpp": "b7d7af15f43ebf9fe583f034427f23db894d7b57593df771b3306a426679a36d",
+    "compile-v1-error.txt": "10218d380e53f88a26cbe84b4ba29d2bba05aad413c35463ab33cf4cee621012"
+  },
+  "disposition": "Retain same-bit CPU actual-vector/attention survivor; Metal cost/numeric and candidate own-model/tool/vision/endpoints unqualified"
+}
