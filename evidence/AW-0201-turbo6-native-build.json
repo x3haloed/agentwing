@@ -1,0 +1,149 @@
+{
+  "experiment": "AW-0201",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0201",
+  "plan": {
+    "experiment": "AW-0201",
+    "hypothesis": "Additive native6bit100B cache type builds and supports existing256dim Q8/F16key Metal attention paths without altering4bit control",
+    "acceptance": "Source reconstruction/diff identities and native library build; correctness/cost/model admission deferred to subsequent screens",
+    "parent_sha256": "a085c38376a69f9759f2fa62f5a80f78a8941c41a9445306b5c68f65e2228b6c",
+    "runner_sha256": "d4110d6cecbde4db5134bf4ba3884dc48b9eb39eb1d2ad3af13c3b6e3693e52f",
+    "source_base": "/Users/chad/Models/agentwing/runtime-sources/prism-turbo-codebook",
+    "candidate": "/Users/chad/Models/agentwing/runtime-sources/prism-turbo6",
+    "scope": "Source/build only, not runtime correctness, speed, host/model or endpoint admission"
+  },
+  "source_changes": [
+    {
+      "path": "common/arg.cpp",
+      "before": "750436391f6dec66a66b7c4a26d8746e79aad1f1978b4753e09d66cfeda9a0a2",
+      "after": "a876d5fd249bdd02568cd47539cec6204fdbc63e118c83156ab278eadcdfecb8"
+    },
+    {
+      "path": "ggml/include/ggml.h",
+      "before": "7dde09657af5cd03044ae872c30c9dc483a2fe2264a26deddd5e8480a1fce17d",
+      "after": "c660fe68cc062c75c998d6bd196657d9f9d5a3c66c0435aa3f02e5a33ea974e7"
+    },
+    {
+      "path": "ggml/src/ggml.c",
+      "before": "52bb74ec65da0df359b4a6e81d52bd47c4786bf61362b1df377e3bc1a50760bb",
+      "after": "6053f5f23c81a707e5deb94ca015bcf9340cf871a745cc658d44246e2fbe6ff0"
+    },
+    {
+      "path": "ggml/src/ggml-common.h",
+      "before": "f8925bb603f1a97d921ff1b2cdd7e7dd7673ef014ca97aa84f9cc16936716924",
+      "after": "48ce4c2f677503eb0c4573fc166fa1cdb64e121158eb69072534ed9e0fc27b52"
+    },
+    {
+      "path": "ggml/src/ggml-quants.h",
+      "before": "f051a0f912bf120f7b3aa0784cd67710ab2d443f914ef4dab9c7d20455b0c5c8",
+      "after": "73ede2cafc268ffe6d788fff50c8855ee6c57e066c25a7d6138e6467a2f281f7"
+    },
+    {
+      "path": "ggml/src/ggml-turbo-quant.c",
+      "before": "bc1123404676562d30667068094fdecf58070eaad8b5842dfb0135cf449f67dc",
+      "after": "e2fd3db548ce7f9633e6fa6793a864241b98538b73421b1494b04b1a5a9f52a0"
+    },
+    {
+      "path": "ggml/src/ggml-metal/ggml-metal-device.m",
+      "before": "1d60a21b0b23e4ccf98c55c195af6ce07ff62ceb88b7a6861f6ae76790799c62",
+      "after": "fc0a0a1b268b5e06172ec59115a51d8a135fcf6cd376b1e8075c0106e6781d60"
+    },
+    {
+      "path": "ggml/src/ggml-metal/ggml-metal-ops.cpp",
+      "before": "3edad28d18ba990be54b29fabce75d3d5b7892e595aaae69ae5e5c39b67b9b22",
+      "after": "4368f5fe486b61fff3c4725be5cbaf8a61ae7044d8c6dbfa69d1fc20de190411"
+    },
+    {
+      "path": "ggml/src/ggml-metal/kernels/dequantize.h",
+      "before": "b5cbfd6763190091e79e75f9d9856b5821382a3fcb587e912562d5c0dd25c5c6",
+      "after": "7f2151b37d3b4492ff5d22f541b80e02203982e49c42faa14e4e35e02ea77a62"
+    },
+    {
+      "path": "ggml/src/ggml-metal/kernels/fa.metal",
+      "before": "63c5789f374e7596d8818c13511fb351a8cf5d64c6f96a4a3f41f115f28509fc",
+      "after": "4c5f8c4c55ed696e7e240bb5e7c5c6920fb51b7b311573e3fa10fa0042315290"
+    },
+    {
+      "path": "ggml/src/ggml-metal/kernels/quantize.metal",
+      "before": "90f33483e39c59ef4010cd949ff2450fe1137298f637e9787958f62b1f5a5b13",
+      "after": "6905285a80f65a9c7bb2681a14ed363ea88990df994d74d154d66cdae49219be"
+    },
+    {
+      "path": "src/llama-graph.cpp",
+      "before": "ea5195198281fc784b453a1312ce80717cfba7f8d7184c1f6751d9a8c3be60e4",
+      "after": "9fa0d21d5131bc0d2b775e22e9179f8dd363557a732f8b1ee32afc837c69992f"
+    },
+    {
+      "path": "src/llama-context.cpp",
+      "before": "9c859b7a330fcbb48e29ce792cf0d96dae4eafe369ed77c913d9b952e1361f2a",
+      "after": "7ae9b1654be5ea141c898528f0abf9123ccdc79f2fb923f7185e65b1d82b8b34"
+    }
+  ],
+  "patch_sha256": "2722d002462f3c2da226e0e490c8536a5587d63a94f9a4229373bbea9c76fe21",
+  "patch_reconstruction_passed": true,
+  "cpu_parity": {
+    "experiment": "AW-0201",
+    "cpu_parity_passed": true,
+    "records": [
+      {
+        "bits": 4,
+        "layer": 3,
+        "packed_and_decoded_bitexact": true
+      },
+      {
+        "bits": 4,
+        "layer": 31,
+        "packed_and_decoded_bitexact": true
+      },
+      {
+        "bits": 4,
+        "layer": 63,
+        "packed_and_decoded_bitexact": true
+      },
+      {
+        "bits": 6,
+        "layer": 3,
+        "packed_and_decoded_bitexact": true
+      },
+      {
+        "bits": 6,
+        "layer": 31,
+        "packed_and_decoded_bitexact": true
+      },
+      {
+        "bits": 6,
+        "layer": 63,
+        "packed_and_decoded_bitexact": true
+      }
+    ],
+    "base_library_sha256": "f9b79d823cec9a84e33d40324057361eace46e5471391eac27101cdc8c77098f",
+    "scope": "CPU codec and4bit regression parity only, no GPU or model admission"
+  },
+  "final_library_sha256": {
+    "libggml-base.0.21.0.dylib": "f9b79d823cec9a84e33d40324057361eace46e5471391eac27101cdc8c77098f",
+    "libggml-blas.0.21.0.dylib": "f6de5a3f3d1ef3226969a5b4cfc9ca1b4215a9d8025a22337a906cfaaf82612f",
+    "libggml.0.21.0.dylib": "8535281478863289e4baef828c7cd6ac738942962829444acf77f735fd648fe3",
+    "libllama.0.2.0.dylib": "0e7523b90fd3e49048f1b626e0292412d6f4b7d8e1aed90bbf42268a385d5506",
+    "libggml-cpu.0.21.0.dylib": "bba55d98e97873e0d5eadb4817dffe59dedbb5a9b5a9907a0c191d49c5074f60",
+    "libggml-metal.0.21.0.dylib": "60e2b4ade0f214c20b3ecafb669837719c81bfb90ec40d868d7b34863967184f"
+  },
+  "raw_sha256": {
+    "plan.json": "2a6f093f87fcc9af1e49105477a303d8942b499b8f0448c73cd2c762e24448a7",
+    "configure.log": "d5fc6e75cf4e975cd12ca96b2e65b31b4031153c3e9695694a492631007652b8",
+    "attempt-0-source.patch": "137d64b7e619243503fbc79fb877ac827521c04fb26d3c84a98d858b82330aa1",
+    "attempt-1-cpu-check-failure.json": "51396f6872a970e0ec5a472256755a83c3b704bc095b3b818eb80906dddd2ae7",
+    "attempt-0-build.log": "a28075d53012349c9de8e60f97ddd91fec758cb2d9cb233479ff15b162fc2fbf",
+    "source-changes-final.json": "0aaacfe46e578db2e0f884fd1b8ac26ca2a77436aac36d341025084ab667d405",
+    "attempt-1-build.log": "7b23821942382e29b6ec9d40a2bc72163a745c6a1318f23747e179b407337adc",
+    "cpu-parity.json": "f196b3e76a35dcbef8d48f0de83aaa034bcf83349ab3b4db9d1dcdc941be5585",
+    "source-changes.json": "b227861f8d954b56c71c3c295e7479016747ab1fa33ccb97147ddc0d828cc166",
+    "build.log": "1d81062ec97034b6ddf47882f1fc28354121772d2f487e7b8b51ba12658bb9e7"
+  },
+  "configure_exit_code": 0,
+  "final_build_exit_code": 0,
+  "configure_command": "cmake -S prism-turbo6 -B prism-turbo6 -G Ninja -DCMAKE_MAKE_PROGRAM=/Users/chad/Models/agentwing/build-tools/bin/ninja -DCMAKE_BUILD_TYPE=Release -DGGML_METAL=ON -DGGML_METAL_EMBED_LIBRARY=ON -DLLAMA_OPENSSL=OFF",
+  "build_command": "/Users/chad/Models/agentwing/build-tools/bin/cmake --build /Users/chad/Models/agentwing/runtime-builds/prism-turbo6 --target llama -j4",
+  "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "storage": "internalSSD",
+  "scope": "Native libraries built, CPU4/6codec byteexact after inverse. Embedded Metal source not yet runtime compiled or executed; server/vision/client not built/admitted. No inference, performance, capability or endpoint qualification."
+}

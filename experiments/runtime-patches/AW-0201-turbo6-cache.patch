@@ -1,0 +1,256 @@
+--- a/common/arg.cpp
++++ b/common/arg.cpp
+@@ -313,6 +313,7 @@
+     GGML_TYPE_Q5_1,
+     GGML_TYPE_TURBO3_0,
+     GGML_TYPE_TURBO4_0,
++    GGML_TYPE_TURBO6_0,
+ };
+ 
+ static ggml_type kv_cache_type_from_str(const std::string & s) {
+@@ -2435,7 +2436,7 @@
+         ),
+         [](common_params & params, const std::string & value) {
+             params.cache_type_k = kv_cache_type_from_str(value);
+-            if (params.cache_type_k == GGML_TYPE_TURBO3_0 || params.cache_type_k == GGML_TYPE_TURBO4_0) {
++            if (params.cache_type_k == GGML_TYPE_TURBO3_0 || (params.cache_type_k == GGML_TYPE_TURBO4_0 || params.cache_type_k == GGML_TYPE_TURBO6_0)) {
+                 throw std::invalid_argument("Turbo cache port requires q8_0 keys; use --cache-type-v turbo3 or turbo4");
+             }
+         }
+--- a/ggml/include/ggml.h
++++ b/ggml/include/ggml.h
+@@ -437,7 +437,8 @@
+         GGML_TYPE_TURBO2_0 = 144,
+         GGML_TYPE_TURBO3_0 = 145,
+         GGML_TYPE_TURBO4_0 = 146,
+-        GGML_TYPE_COUNT   = 147,
++        GGML_TYPE_TURBO6_0 = 147,
++        GGML_TYPE_COUNT   = 148,
+     };
+ 
+     // precision
+--- a/ggml/src/ggml.c
++++ b/ggml/src/ggml.c
+@@ -720,6 +720,14 @@
+         .is_quantized = true,
+         .to_float = (ggml_to_float_t) dequantize_row_turbo4_0,
+         .from_float_ref = (ggml_from_float_t) quantize_row_turbo4_0_ref,
++    },
++    [GGML_TYPE_TURBO6_0] = {
++        .type_name = "turbo6",
++        .blck_size = QK_TURBO6,
++        .type_size = sizeof(block_turbo6_0),
++        .is_quantized = true,
++        .to_float = (ggml_to_float_t) dequantize_row_turbo6_0,
++        .from_float_ref = (ggml_from_float_t) quantize_row_turbo6_0_ref,
+     },
+     [GGML_TYPE_PTQ1_0] = {
+         .type_name                = "ptq1_0",
+--- a/ggml/src/ggml-common.h
++++ b/ggml/src/ggml-common.h
+@@ -243,6 +243,10 @@
+ #ifndef TURBO4_USE_4BIT
+ #  define TURBO4_USE_4BIT 1
+ #endif
++
++#define QK_TURBO6 128
++typedef struct { ggml_half norm; ggml_half rnorm; uint8_t qs[96]; } block_turbo6_0;
++static_assert(sizeof(block_turbo6_0)==100,"wrong turbo6 block size");
+ 
+ #define QK_TURBO4 128
+ 
+--- a/ggml/src/ggml-quants.h
++++ b/ggml/src/ggml-quants.h
+@@ -128,3 +128,14 @@
+ #ifdef __cplusplus
+ }
+ #endif
++
++#ifdef __cplusplus
++extern "C" {
++#endif
++GGML_API void quantize_row_turbo6_0_ref(const float * GGML_RESTRICT x, block_turbo6_0 * GGML_RESTRICT y, int64_t k);
++GGML_API void dequantize_row_turbo6_0(const block_turbo6_0 * GGML_RESTRICT x, float * GGML_RESTRICT y, int64_t k);
++GGML_API size_t quantize_turbo6_0(const float * GGML_RESTRICT src, void * GGML_RESTRICT dst, int64_t nrows, int64_t n_per_row, const float * imatrix);
++
++#ifdef __cplusplus
++}
++#endif
+--- a/ggml/src/ggml-turbo-quant.c
++++ b/ggml/src/ggml-turbo-quant.c
+@@ -660,3 +660,11 @@
+     return nrows * row_size;
+ }
+ 
++
++static const float centers6[64]={-0.330934925f,-0.286416877f,-0.257864766f,-0.236197869f,-0.218434548f,-0.20320315f,-0.189753008f,-0.1776262f,-0.166521635f,-0.156230106f,-0.146599932f,-0.137517351f,-0.128894639f,-0.120662559f,-0.112765367f,-0.105157398f,-0.0978006672f,-0.0906631411f,-0.0837174606f,-0.0769399872f,-0.0703100717f,-0.0638094875f,-0.0574219834f,-0.051132927f,-0.0449290152f,-0.0387980362f,-0.0327286712f,-0.0267103264f,-0.0207329883f,-0.0147870969f,-0.0088634323f,-0.00295301107f,0.00295301107f,0.0088634323f,0.0147870969f,0.0207329883f,0.0267103264f,0.0327286712f,0.0387980362f,0.0449290152f,0.051132927f,0.0574219834f,0.0638094875f,0.0703100717f,0.0769399872f,0.0837174606f,0.0906631411f,0.0978006672f,0.105157398f,0.112765367f,0.120662559f,0.128894639f,0.137517351f,0.146599932f,0.156230106f,0.166521635f,0.1776262f,0.189753008f,0.20320315f,0.218434548f,0.236197869f,0.257864766f,0.286416877f,0.330934925f};
++static const float cuts6[63]={-0.308675901f,-0.272140821f,-0.247031317f,-0.227316208f,-0.210818849f,-0.196478079f,-0.183689604f,-0.172073917f,-0.161375871f,-0.151415019f,-0.142058642f,-0.133205995f,-0.124778599f,-0.116713963f,-0.108961382f,-0.101479032f,-0.0942319041f,-0.0871903008f,-0.0803287239f,-0.0736250295f,-0.0670597796f,-0.0606157354f,-0.0542774552f,-0.0480309711f,-0.0418635257f,-0.0357633537f,-0.0297194988f,-0.0237216573f,-0.0177600426f,-0.0118252646f,-0.00590822168f,0.0f,0.00590822168f,0.0118252646f,0.0177600426f,0.0237216573f,0.0297194988f,0.0357633537f,0.0418635257f,0.0480309711f,0.0542774552f,0.0606157354f,0.0670597796f,0.0736250295f,0.0803287239f,0.0871903008f,0.0942319041f,0.101479032f,0.108961382f,0.116713963f,0.124778599f,0.133205995f,0.142058642f,0.151415019f,0.161375871f,0.172073917f,0.183689604f,0.196478079f,0.210818849f,0.227316208f,0.247031317f,0.272140821f,0.308675901f};
++
++void quantize_row_turbo6_0_ref(const float * GGML_RESTRICT x, block_turbo6_0 * GGML_RESTRICT y, int64_t count){
++ assert(count%128==0);for(int b=0;b<count/128;b++){float n=0,z[128];for(int i=0;i<128;i++)n+=x[b*128+i]*x[b*128+i];n=sqrtf(n);float inv=n>1e-10f?1.f/n:0;for(int i=0;i<128;i++)z[i]=x[b*128+i]*inv;turbo_cpu_fwht(z,128);memset(y+b,0,sizeof(*y));float rn=0;for(int i=0;i<128;i++){int lo=0,hi=63;while(lo<hi){int m=(lo+hi)/2;if(z[i]>=cuts6[m])lo=m+1;else hi=m;}int bit=i*6;for(int k=0;k<6;k++)y[b].qs[(bit+k)/8]|=((lo>>k)&1)<<((bit+k)%8);rn+=centers6[lo]*centers6[lo];}rn=sqrtf(rn);y[b].norm=GGML_FP32_TO_FP16(rn>1e-10f?n/rn:n);}}
++void dequantize_row_turbo6_0(const block_turbo6_0 * GGML_RESTRICT x,float * GGML_RESTRICT y,int64_t count){assert(count%128==0);for(int b=0;b<count/128;b++){float scale=GGML_FP16_TO_FP32(x[b].norm);for(int i=0;i<128;i++){int bit=i*6,byte=bit/8,shift=bit%8;unsigned v=x[b].qs[byte];if(shift+6>8)v|=(unsigned)x[b].qs[byte+1]<<8;y[b*128+i]=centers6[(v>>shift)&63]*scale;}}}
++size_t quantize_turbo6_0(const float * GGML_RESTRICT src,void * GGML_RESTRICT dst,int64_t nrows,int64_t n_per_row,const float *imatrix){(void)imatrix;quantize_row_turbo6_0_ref(src,dst,nrows*n_per_row);return nrows*n_per_row/128*sizeof(block_turbo6_0);}
+--- a/ggml/src/ggml-metal/ggml-metal-device.m
++++ b/ggml/src/ggml-metal/ggml-metal-device.m
+@@ -1636,8 +1636,8 @@
+             if (op->src[1]->type != op->src[2]->type) {
+                 return has_simdgroup_mm &&
+                     ((op->src[1]->type == GGML_TYPE_Q8_0 && op->src[2]->type == GGML_TYPE_F16) ||
+-                     ((op->src[1]->type == GGML_TYPE_Q8_0 || (op->src[1]->type == GGML_TYPE_F16 && op->src[2]->type == GGML_TYPE_TURBO4_0)) &&
+-                      (op->src[2]->type == GGML_TYPE_TURBO3_0 || op->src[2]->type == GGML_TYPE_TURBO4_0))) &&
++                     ((op->src[1]->type == GGML_TYPE_Q8_0 || (op->src[1]->type == GGML_TYPE_F16 && (op->src[2]->type == GGML_TYPE_TURBO4_0 || op->src[2]->type == GGML_TYPE_TURBO6_0))) &&
++                      (op->src[2]->type == GGML_TYPE_TURBO3_0 || (op->src[2]->type == GGML_TYPE_TURBO4_0 || op->src[2]->type == GGML_TYPE_TURBO6_0)))) &&
+                     op->src[1]->ne[0] == 256 && op->src[2]->ne[0] == 256;
+             }
+             switch (op->src[1]->type) {
+@@ -1828,6 +1828,7 @@
+                     case GGML_TYPE_TURBO2_0:
+                     case GGML_TYPE_TURBO3_0:
+                     case GGML_TYPE_TURBO4_0:
++                    case GGML_TYPE_TURBO6_0:
+                     case GGML_TYPE_Q8_0:
+                     case GGML_TYPE_Q4_0:
+                     case GGML_TYPE_Q4_1:
+--- a/ggml/src/ggml-metal/ggml-metal-ops.cpp
++++ b/ggml/src/ggml-metal/ggml-metal-ops.cpp
+@@ -3281,7 +3281,7 @@
+ static bool ggml_metal_op_flash_attn_ext_use_kv_f16(const ggml_tensor * op) {
+     assert(op->op == GGML_OP_FLASH_ATTN_EXT);
+     if (op->src[1]->type != op->src[2]->type) return false; // mixed formats require independent dequantizers
+-    if (op->src[2]->type == GGML_TYPE_TURBO3_0 || op->src[2]->type == GGML_TYPE_TURBO4_0) return false;
++    if (op->src[2]->type == GGML_TYPE_TURBO3_0 || (op->src[2]->type == GGML_TYPE_TURBO4_0 || op->src[2]->type == GGML_TYPE_TURBO6_0)) return false;
+ 
+     // depending on compute/bandwidth ratio, dequant to f16 kv is not always beneficial
+     // ref: https://github.com/ggml-org/llama.cpp/pull/27390#issuecomment-5355152767
+@@ -3496,8 +3496,8 @@
+     GGML_ASSERT(op->src[0]->type == GGML_TYPE_F32);
+     GGML_ASSERT(op->src[1]->type == op->src[2]->type ||
+         ((op->src[1]->type == GGML_TYPE_Q8_0 && op->src[2]->type == GGML_TYPE_F16) ||
+-         ((op->src[1]->type == GGML_TYPE_Q8_0 || (op->src[1]->type == GGML_TYPE_F16 && op->src[2]->type == GGML_TYPE_TURBO4_0)) &&
+-          (op->src[2]->type == GGML_TYPE_TURBO3_0 || op->src[2]->type == GGML_TYPE_TURBO4_0))));
++         ((op->src[1]->type == GGML_TYPE_Q8_0 || (op->src[1]->type == GGML_TYPE_F16 && (op->src[2]->type == GGML_TYPE_TURBO4_0 || op->src[2]->type == GGML_TYPE_TURBO6_0))) &&
++          (op->src[2]->type == GGML_TYPE_TURBO3_0 || (op->src[2]->type == GGML_TYPE_TURBO4_0 || op->src[2]->type == GGML_TYPE_TURBO6_0)))));
+ 
+     //GGML_ASSERT(ggml_are_same_shape (src1, src2));
+     GGML_ASSERT(ne11 == ne21);
+@@ -3832,7 +3832,7 @@
+                 (int) op->src[1]->type,
+                 (int) ne00, (int) ne20,   // dk, dv (ne00 == dk for FA)
+                 ne11, ne01);
+-        if (op->src[2]->type == GGML_TYPE_TURBO3_0 || op->src[2]->type == GGML_TYPE_TURBO4_0) cfg = ggml_metal_tuning::fa_vec_baseline_cfg((int) ne00, (int) ne20);
++        if (op->src[2]->type == GGML_TYPE_TURBO3_0 || (op->src[2]->type == GGML_TYPE_TURBO4_0 || op->src[2]->type == GGML_TYPE_TURBO6_0)) cfg = ggml_metal_tuning::fa_vec_baseline_cfg((int) ne00, (int) ne20);
+         int nqptg = cfg.Q;                             // queries per threadgroup
+         const int ncpsg = OP_FLASH_ATTN_EXT_VEC_NCPSG; // cache values per simdgroup !! sync with kernel template arguments !!
+         const int nhptg = 1;                           // heads per threadgroup
+--- a/ggml/src/ggml-metal/kernels/dequantize.h
++++ b/ggml/src/ggml-metal/kernels/dequantize.h
+@@ -1404,3 +1404,10 @@
+     ));
+ }
+ 
++
++constant float turbo_centroids_6bit[64]={-0.330934925f,-0.286416877f,-0.257864766f,-0.236197869f,-0.218434548f,-0.20320315f,-0.189753008f,-0.1776262f,-0.166521635f,-0.156230106f,-0.146599932f,-0.137517351f,-0.128894639f,-0.120662559f,-0.112765367f,-0.105157398f,-0.0978006672f,-0.0906631411f,-0.0837174606f,-0.0769399872f,-0.0703100717f,-0.0638094875f,-0.0574219834f,-0.051132927f,-0.0449290152f,-0.0387980362f,-0.0327286712f,-0.0267103264f,-0.0207329883f,-0.0147870969f,-0.0088634323f,-0.00295301107f,0.00295301107f,0.0088634323f,0.0147870969f,0.0207329883f,0.0267103264f,0.0327286712f,0.0387980362f,0.0449290152f,0.051132927f,0.0574219834f,0.0638094875f,0.0703100717f,0.0769399872f,0.0837174606f,0.0906631411f,0.0978006672f,0.105157398f,0.112765367f,0.120662559f,0.128894639f,0.137517351f,0.146599932f,0.156230106f,0.166521635f,0.1776262f,0.189753008f,0.20320315f,0.218434548f,0.236197869f,0.257864766f,0.286416877f,0.330934925f};
++constant float turbo_mid_6bit[63]={-0.308675901f,-0.272140821f,-0.247031317f,-0.227316208f,-0.210818849f,-0.196478079f,-0.183689604f,-0.172073917f,-0.161375871f,-0.151415019f,-0.142058642f,-0.133205995f,-0.124778599f,-0.116713963f,-0.108961382f,-0.101479032f,-0.0942319041f,-0.0871903008f,-0.0803287239f,-0.0736250295f,-0.0670597796f,-0.0606157354f,-0.0542774552f,-0.0480309711f,-0.0418635257f,-0.0357633537f,-0.0297194988f,-0.0237216573f,-0.0177600426f,-0.0118252646f,-0.00590822168f,0.0f,0.00590822168f,0.0118252646f,0.0177600426f,0.0237216573f,0.0297194988f,0.0357633537f,0.0418635257f,0.0480309711f,0.0542774552f,0.0606157354f,0.0670597796f,0.0736250295f,0.0803287239f,0.0871903008f,0.0942319041f,0.101479032f,0.108961382f,0.116713963f,0.124778599f,0.133205995f,0.142058642f,0.151415019f,0.161375871f,0.172073917f,0.183689604f,0.196478079f,0.210818849f,0.227316208f,0.247031317f,0.272140821f,0.308675901f};
++
++static uint turbo6_index(device const block_turbo6_0 *xb,uint j){uint bit=j*6,byte=bit/8,shift=bit%8;uint v=xb->qs[byte];if(shift+6>8)v|=uint(xb->qs[byte+1])<<8;return (v>>shift)&63;}
++template<typename type4x4> void dequantize_turbo6_0(device const block_turbo6_0 *xb,short il,thread type4x4 &reg){float4x4 a;float norm=float(xb->norm);for(int g=0;g<4;g++)for(int k=0;k<4;k++)a[g][k]=turbo_centroids_6bit[turbo6_index(xb,il*16+g*4+k)]*norm;reg=(type4x4)a;}
++template<typename type4> void dequantize_turbo6_0_t4(device const block_turbo6_0 *xb,short il,thread type4 &reg){float4 a;float norm=float(xb->norm);for(int k=0;k<4;k++)a[k]=float(half(turbo_centroids_6bit[turbo6_index(xb,il*4+k)]))*norm;reg=type4(a);}
+--- a/ggml/src/ggml-metal/kernels/fa.metal
++++ b/ggml/src/ggml-metal/kernels/fa.metal
+@@ -2258,3 +2258,8 @@
+ template [[host_name("kernel_lightning_indexer_q5_0")]] kernel kernel_lightning_indexer_t kernel_lightning_indexer<block_q5_0, 2, dequantize_q5_0>;
+ template [[host_name("kernel_lightning_indexer_q5_1")]] kernel kernel_lightning_indexer_t kernel_lightning_indexer<block_q5_1, 2, dequantize_q5_1>;
+ template [[host_name("kernel_lightning_indexer_q8_0")]] kernel kernel_lightning_indexer_t kernel_lightning_indexer<block_q8_0, 2, dequantize_q8_0>;
++
++template [[host_name("kernel_flash_attn_ext_kq8_0_vturbo6_dk256_dv256")]] kernel flash_attn_ext_t kernel_flash_attn_ext<FA_TYPES, block_q8_0, 2, dequantize_q8_0, block_turbo6_0, 8, dequantize_turbo6_0, 256, 256>;
++template [[host_name("kernel_flash_attn_ext_kf16_vturbo6_dk256_dv256")]] kernel flash_attn_ext_t kernel_flash_attn_ext<FA_TYPES, half4x4, 1, dequantize_f16, block_turbo6_0, 8, dequantize_turbo6_0, 256, 256>;
++template [[host_name("kernel_flash_attn_ext_vec_kq8_0_vturbo6_dk256_dv256")]] kernel flash_attn_ext_vec_t kernel_flash_attn_ext_vec<FA_TYPES, block_q8_0, 8, dequantize_q8_0_t4, block_turbo6_0, 32, dequantize_turbo6_0_t4, 256, 256, 1>;
++template [[host_name("kernel_flash_attn_ext_vec_kf16_vturbo6_dk256_dv256")]] kernel flash_attn_ext_vec_t kernel_flash_attn_ext_vec<FA_TYPES, half4, 1, dequantize_f16_t4, block_turbo6_0, 32, dequantize_turbo6_0_t4, 256, 256, 1>;
+--- a/ggml/src/ggml-metal/kernels/quantize.metal
++++ b/ggml/src/ggml-metal/kernels/quantize.metal
+@@ -804,3 +804,60 @@
+     }
+ }
+ 
++
++template<typename TI>
++kernel void kernel_set_rows_turbo6(
++        constant ggml_metal_kargs_set_rows & args,
++        device const  void * src0,
++        device const  void * src1,
++        device       float * dst,
++        uint3                tgpig[[threadgroup_position_in_grid]],
++        uint                 tiitg[[thread_index_in_threadgroup]],
++        uint3                tptg [[threads_per_threadgroup]]) {
++    const int32_t i03 = tgpig.z;
++    const int32_t i02 = tgpig.y;
++    const int32_t i12 = i03%args.ne12;
++    const int32_t i11 = i02%args.ne11;
++    const int32_t i01 = tgpig.x*tptg.y + tiitg/tptg.x;
++    if (i01 >= args.ne01) return;
++
++    const int32_t i10 = i01;
++    const TI      i1  = ((const device TI *) ((const device char *) src1 + i10*args.nb10 + i11*args.nb11 + i12*args.nb12))[0];
++
++          device block_turbo6_0 * dst_row = (      device block_turbo6_0 *) ((      device char *) dst  +  i1*args.nb1  + i02*args.nb2  + i03*args.nb3);
++    const device float           * src_row = (const device float         *) ((const device char *) src0 + i01*args.nb01 + i02*args.nb02 + i03*args.nb03);
++
++    // Each block is one 128-element group (nk0 = ne0 / QK_TURBO6)
++    const int n_blocks = args.nk0;
++
++    for (int blk_idx = tiitg%tptg.x; blk_idx < n_blocks; blk_idx += tptg.x) {
++        const device float * blk_src = src_row + QK_TURBO6 * blk_idx;
++        device block_turbo6_0 & blk = dst_row[blk_idx];
++
++        // Step 1: Compute norm + normalize
++        float norm_sq = 0.0f;
++        for (int j = 0; j < QK_TURBO6; j++) norm_sq += blk_src[j] * blk_src[j];
++        float grp_norm = sqrt(norm_sq);
++        float inv_norm = grp_norm > 1e-10f ? 1.0f / grp_norm : 0.0f;
++
++        float x[128];
++        float normalized[128];
++        for (int j = 0; j < 128; j++) {
++            normalized[j] = blk_src[j] * inv_norm;
++            x[j] = normalized[j];
++        }
++
++        // Step 2: WHT rotate in-place
++        turbo_rotate_forward(x, turbo_wht_signs1, turbo_wht_signs2);
++
++
++        for(int j=0;j<96;j++)blk.qs[j]=0;
++        float rn=0;uint ids[128];for(int j=0;j<128;j++){uint lo=0,hi=63;while(lo<hi){uint m=(lo+hi)/2;if(x[j]>=turbo_mid_6bit[m])lo=m+1;else hi=m;}ids[j]=lo;float c=turbo_centroids_6bit[lo];rn+=c*c;}
++        for(int j=0;j<32;j++){uint v=ids[4*j]|(ids[4*j+1]<<6)|(ids[4*j+2]<<12)|(ids[4*j+3]<<18);blk.qs[3*j]=uchar(v);blk.qs[3*j+1]=uchar(v>>8);blk.qs[3*j+2]=uchar(v>>16);}
++        blk.rnorm=half(0);rn=sqrt(rn);blk.norm=half(rn>1e-10f?grp_norm/rn:grp_norm);
++    }
++}
++
++typedef decltype(kernel_set_rows_turbo6<int64_t>) set_rows_turbo6_t;
++template [[host_name("kernel_set_rows_f32_i64_turbo6")]] kernel set_rows_turbo6_t kernel_set_rows_turbo6<int64_t>;
++template [[host_name("kernel_set_rows_f32_i32_turbo6")]] kernel set_rows_turbo6_t kernel_set_rows_turbo6<int32_t>;
+--- a/src/llama-graph.cpp
++++ b/src/llama-graph.cpp
+@@ -2694,9 +2694,9 @@
+         ggml_flash_attn_ext_add_sinks(cur, sinks);
+         ggml_flash_attn_ext_set_prec (cur, GGML_PREC_F32);
+ 
+-        if (v->type == GGML_TYPE_TURBO3_0 || v->type == GGML_TYPE_TURBO4_0) {
++        if (v->type == GGML_TYPE_TURBO3_0 || (v->type == GGML_TYPE_TURBO4_0 || v->type == GGML_TYPE_TURBO6_0)) {
+             GGML_ASSERT(k->type == GGML_TYPE_Q8_0 ||
+-                (k->type == GGML_TYPE_F16 && v->type == GGML_TYPE_TURBO4_0 && k->ne[0] == 256 && v->ne[0] == 256));
++                (k->type == GGML_TYPE_F16 && (v->type == GGML_TYPE_TURBO4_0 || v->type == GGML_TYPE_TURBO6_0) && k->ne[0] == 256 && v->ne[0] == 256));
+             if (!ggml_is_contiguous(cur)) cur = ggml_cont(ctx0, cur);
+             cur = ggml_turbo_inverse(ctx0, cur);
+             cb(cur, "turbo_inverse", il);
+--- a/src/llama-context.cpp
++++ b/src/llama-context.cpp
+@@ -3872,7 +3872,7 @@
+         }
+     }
+ 
+-    if ((params.type_v == GGML_TYPE_TURBO3_0 || params.type_v == GGML_TYPE_TURBO4_0) && params.type_k != GGML_TYPE_Q8_0 && !(params.type_k == GGML_TYPE_F16 && params.type_v == GGML_TYPE_TURBO4_0)) {
++    if ((params.type_v == GGML_TYPE_TURBO3_0 || (params.type_v == GGML_TYPE_TURBO4_0 || params.type_v == GGML_TYPE_TURBO6_0)) && params.type_k != GGML_TYPE_Q8_0 && !(params.type_k == GGML_TYPE_F16 && (params.type_v == GGML_TYPE_TURBO4_0 || params.type_v == GGML_TYPE_TURBO6_0))) {
+         LLAMA_LOG_ERROR("%s: Turbo V cache requires q8_0 K, or f16 K with Turbo4 V in this port\n", __func__);
+         return nullptr;
+     }

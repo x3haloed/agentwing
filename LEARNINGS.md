@@ -2471,3 +2471,16 @@ is not native SET_ROWS/flash-attention. Receipt
 `/Users/chad/Models/agentwing/evidence/AW-0200`. Retain numerical survivor with
 cost concern for isolated native consumer integration; fresh behavior,
 vision/tools and endpoint gates remain unproven. No defaults/P1 change.
+
+### AW-0201 — native6bit source/libraries build and CPU parity pass
+
+Additive type147/100B128group native source on stationary base changes13files;
+archivedAW0201patch independently reconstructs allchangedbytes. Native
+llama/ggml libraries build;4bit/6bitCPU packed and inverse-adjusted decoded
+fixtures match layers3/31/63 exactly. Preserved invalid0f build and initial
+CPUcontractcheck failure: native dequant staysrotated, graphinvertsafterFA;
+new6bit corrected to samecontract. Receipt
+`evidence/AW-0201-turbo6-native-build.json` pins externalraw/source/libraries.
+Retain experimentalbuild; embedded Metal has not been runtimecompiled or
+executed, server/vision notbuilt, nativewriter/consumer cost and correctness
+stillrequired. No inference/endpoint acceptance, defaults/P1 unchanged.
