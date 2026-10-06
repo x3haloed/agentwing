@@ -1,0 +1,211 @@
+{
+  "experiment": "AW-0117",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0117",
+  "result": {
+    "experiment": "AW-0117",
+    "exit": 0,
+    "error": null,
+    "passed": true,
+    "records": [
+      {
+        "layer": 3,
+        "bits": 3,
+        "relative_l2": 0.0,
+        "byte_identical_cpu_reverse_encoding": true,
+        "canaries": true,
+        "finite": true,
+        "passed": true,
+        "output_sha256": "4f7e0a024b7fa365d81813f78d3798d237846887c5b9abc62d6d8e9b187d7de6"
+      },
+      {
+        "layer": 31,
+        "bits": 3,
+        "relative_l2": 0.0,
+        "byte_identical_cpu_reverse_encoding": true,
+        "canaries": true,
+        "finite": true,
+        "passed": true,
+        "output_sha256": "4b96bf8a4436987353db6fd46946012373522c9bea2fc12763b60ebd9a87dc59"
+      },
+      {
+        "layer": 63,
+        "bits": 3,
+        "relative_l2": 0.0,
+        "byte_identical_cpu_reverse_encoding": true,
+        "canaries": true,
+        "finite": true,
+        "passed": true,
+        "output_sha256": "b6a58797c512dcb52485ca691f2a21655c236f8c431843e77f0b42530caa4acf"
+      },
+      {
+        "layer": 3,
+        "bits": 4,
+        "relative_l2": 0.0,
+        "byte_identical_cpu_reverse_encoding": true,
+        "canaries": true,
+        "finite": true,
+        "passed": true,
+        "output_sha256": "41bcf2efedfe6f1f1e9f68db639b31f4bb1c0f0d4cb27da7918ae94e005bc21c"
+      },
+      {
+        "layer": 31,
+        "bits": 4,
+        "relative_l2": 3.1494633363368805e-05,
+        "byte_identical_cpu_reverse_encoding": false,
+        "canaries": true,
+        "finite": true,
+        "passed": true,
+        "output_sha256": "d0d30c3285fc6b613d84edac7575b8d1f0fdfb6b967a8df6e1f925c2c9639a50"
+      },
+      {
+        "layer": 63,
+        "bits": 4,
+        "relative_l2": 0.0,
+        "byte_identical_cpu_reverse_encoding": true,
+        "canaries": true,
+        "finite": true,
+        "passed": true,
+        "output_sha256": "4c34f5386522c405ba47dfaa115643a4f893b7b0f08c524fd761ed74c23eb332"
+      }
+    ],
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "plan_sha256": "d0197cfdef87e3886e4211adc02ee41f142e5fac7ff0f90117c8f13c83605cdd",
+    "scope": "GPU Turbo3/4 cache writer real populated V rows only; no cache graph registration or model generation integration"
+  },
+  "cpu_codec_sha256": "b358aae552a91c6d8eaf14b36e773703937e98e94207ff48693f08a3a8f87a0b",
+  "cpu_codec_matches_frozen_AW105": true,
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+  "files": {
+    "turbo-cache-writer.swift": {
+      "bytes": 1741,
+      "sha256": "8849f966ab357087e8a5acaf506f82edc6bbea7078047f02a906555d4b4aa247"
+    },
+    "plan.json": {
+      "bytes": 3286,
+      "sha256": "d0197cfdef87e3886e4211adc02ee41f142e5fac7ff0f90117c8f13c83605cdd"
+    },
+    "result.json": {
+      "bytes": 2083,
+      "sha256": "65889983d4dd32adbab73890c58a39f9d5b18d4926d7d18199de6b9df3228ebf"
+    },
+    "check_turbo_cache_writer.py": {
+      "bytes": 5146,
+      "sha256": "0aa84482c58022f7da45b446bb9bbe503806d6456f22026cb8665f97dbc5f58b"
+    },
+    "difference-audit.json": {
+      "bytes": 238,
+      "sha256": "0592ed8de09f3e191c14cbfb69f150b423136e9825fad99644be7edbe55d489e"
+    },
+    "compile.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "writer": {
+      "bytes": 57208,
+      "sha256": "a0dc71858b80fcdb018d56e3c8d1786d4c72824e428bd0764f9ec4d016e12b6b"
+    },
+    "writer.log": {
+      "bytes": 9,
+      "sha256": "45ea654a2b7a947c729510c6fc9af4f0670291969bf7978f671ab6979223e35f"
+    },
+    "63-3/input.bin": {
+      "bytes": 196608,
+      "sha256": "f18014ece1a4b3e3f03006d6715268efa79ab666ccd23e1b94f59e23177df69a"
+    },
+    "63-3/indices.bin": {
+      "bytes": 1536,
+      "sha256": "8751f29e40bb03a77c5124c3a83842934afd76eebc04afdb71fc72761b0a6a53"
+    },
+    "63-3/args.bin": {
+      "bytes": 88,
+      "sha256": "e9562b593ead8582997be1b36aa775fc533be98f6f8d764f576159e6e1057ee6"
+    },
+    "63-3/output.bin": {
+      "bytes": 19712,
+      "sha256": "b6a58797c512dcb52485ca691f2a21655c236f8c431843e77f0b42530caa4acf"
+    },
+    "63-4/input.bin": {
+      "bytes": 196608,
+      "sha256": "f18014ece1a4b3e3f03006d6715268efa79ab666ccd23e1b94f59e23177df69a"
+    },
+    "63-4/indices.bin": {
+      "bytes": 1536,
+      "sha256": "8751f29e40bb03a77c5124c3a83842934afd76eebc04afdb71fc72761b0a6a53"
+    },
+    "63-4/args.bin": {
+      "bytes": 88,
+      "sha256": "56bf1a50ece538ce62267acd9d01f940f3488a662803b86a31769cd2d6dccc46"
+    },
+    "63-4/output.bin": {
+      "bytes": 26624,
+      "sha256": "4c34f5386522c405ba47dfaa115643a4f893b7b0f08c524fd761ed74c23eb332"
+    },
+    "3-4/input.bin": {
+      "bytes": 196608,
+      "sha256": "ac52542c599c6cc27d21855fce345ebac2d8c8605e117463ad61471ea17da002"
+    },
+    "3-4/indices.bin": {
+      "bytes": 1536,
+      "sha256": "8751f29e40bb03a77c5124c3a83842934afd76eebc04afdb71fc72761b0a6a53"
+    },
+    "3-4/args.bin": {
+      "bytes": 88,
+      "sha256": "56bf1a50ece538ce62267acd9d01f940f3488a662803b86a31769cd2d6dccc46"
+    },
+    "3-4/output.bin": {
+      "bytes": 26624,
+      "sha256": "41bcf2efedfe6f1f1e9f68db639b31f4bb1c0f0d4cb27da7918ae94e005bc21c"
+    },
+    "3-3/input.bin": {
+      "bytes": 196608,
+      "sha256": "ac52542c599c6cc27d21855fce345ebac2d8c8605e117463ad61471ea17da002"
+    },
+    "3-3/indices.bin": {
+      "bytes": 1536,
+      "sha256": "8751f29e40bb03a77c5124c3a83842934afd76eebc04afdb71fc72761b0a6a53"
+    },
+    "3-3/args.bin": {
+      "bytes": 88,
+      "sha256": "e9562b593ead8582997be1b36aa775fc533be98f6f8d764f576159e6e1057ee6"
+    },
+    "3-3/output.bin": {
+      "bytes": 19712,
+      "sha256": "4f7e0a024b7fa365d81813f78d3798d237846887c5b9abc62d6d8e9b187d7de6"
+    },
+    "31-3/input.bin": {
+      "bytes": 196608,
+      "sha256": "48ebe1b7e6c085016c55784f3a15703615d40d30baaba1f6fa5c67a5d337d69a"
+    },
+    "31-3/indices.bin": {
+      "bytes": 1536,
+      "sha256": "8751f29e40bb03a77c5124c3a83842934afd76eebc04afdb71fc72761b0a6a53"
+    },
+    "31-3/args.bin": {
+      "bytes": 88,
+      "sha256": "e9562b593ead8582997be1b36aa775fc533be98f6f8d764f576159e6e1057ee6"
+    },
+    "31-3/output.bin": {
+      "bytes": 19712,
+      "sha256": "4b96bf8a4436987353db6fd46946012373522c9bea2fc12763b60ebd9a87dc59"
+    },
+    "31-4/input.bin": {
+      "bytes": 196608,
+      "sha256": "48ebe1b7e6c085016c55784f3a15703615d40d30baaba1f6fa5c67a5d337d69a"
+    },
+    "31-4/indices.bin": {
+      "bytes": 1536,
+      "sha256": "8751f29e40bb03a77c5124c3a83842934afd76eebc04afdb71fc72761b0a6a53"
+    },
+    "31-4/args.bin": {
+      "bytes": 88,
+      "sha256": "56bf1a50ece538ce62267acd9d01f940f3488a662803b86a31769cd2d6dccc46"
+    },
+    "31-4/output.bin": {
+      "bytes": 26624,
+      "sha256": "d0d30c3285fc6b613d84edac7575b8d1f0fdfb6b967a8df6e1f925c2c9639a50"
+    }
+  },
+  "limitations": "Native Turbo value writer only. No full cache update/attention/inverse graph, q8 K writer, Prism registration/allocations, accumulated compressed model generation or endpoint acceptance. Continuous phase host checks; no performance claim."
+}

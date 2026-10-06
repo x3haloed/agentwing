@@ -1637,3 +1637,12 @@ under predeclared.005, pressure1/swap growth0. Independent prepared-buffer audit
 matches frozen packed authority. Retain actual GPU attention for integration;
 compressed cache writer/Prism registration and generated compressed trajectory
 remain absent, so no model quality or endpoint qualification follows.
+
+## AW-0117 — Native Turbo value writer passes real cache ABI/index checks
+
+Unchanged GPU Turbo3/4 SET_ROWS on192 populated real V rows per layer3/31/63
+honors reversed i64 destinations and boundary canaries. Five cases exactlymatch
+CPU encoding; sixth differs one half-scale byte, packed centroid codes identical,
+reconstruction3.15e-5 under predeclared.005. Host pressure1/swap growth0. Retain
+writer for integration; q8 K writer and whole cache-update/attention/inverse graph,
+Prism registration and accumulated compressed model generation remain unverified.
