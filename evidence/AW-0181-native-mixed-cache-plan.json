@@ -1,0 +1,255 @@
+{
+  "experiment": "AW-0181",
+  "status": "Running, numeric/terminal gates pending",
+  "external": "/Users/chad/Models/agentwing/evidence/AW-0181",
+  "plan_sha256": "3c391bb97f4ff743580698ae071c3d7b58acfb2d8e6b3e9c9f9fe3638aad3453",
+  "plan": {
+    "experiment": "AW-0181",
+    "scope": "Late identical-prefix 2x2 K/V precision isolation; fixed order noncausal diagnostic, not benchmark score or promotion",
+    "hypothesis": "Separating q8K from Turbo4V identifies which cache change contributes first-row late-prefix logit displacement; independent trajectories descriptive only",
+    "source_sha256": "29e3eb2d3ba098fbf540ee5172188f32240b11f1d244f99d7f03f00c257caf91",
+    "harness_sha256": "0ccedb1bbe512e80bd8e6c1380770e5e1807cef26029df283446804a9d4662eb",
+    "binary_sha256": "09c57ba6d1fe6a59bc6ceabf3833cf6b5d975ace246b703646eb11c6294327d4",
+    "runtime_spec_sha256": "7b90c1047cfc23de542708df626f46eeae40de3c9eb2508b8468b47a3eda702d",
+    "runtime": {
+      "schema_version": 1,
+      "model": {
+        "repository": "prism-ml/Ternary-Bonsai-2-27B-gguf",
+        "revision": "b072e1d3b35a0a630cece372c2127528e0994386",
+        "license": "Apache-2.0",
+        "artifacts": [
+          {
+            "filename": "Ternary-Bonsai-2-27B-attention-PQ2_0.gguf",
+            "bytes": 6041020768,
+            "sha256": "cc11a9c76ee8e94a735e14789e17b952b33c9b84e7fe587b40dfe6cd6b96566c"
+          },
+          {
+            "filename": "Ternary-Bonsai-2-27B-mmproj-Q8_0.gguf",
+            "bytes": 629246976,
+            "sha256": "6807ede61d570bb86ba34b756a0fa109edc33668604de867c6ea6d8f1d631903"
+          }
+        ],
+        "derivative": "Local exact selective attention PQ, other language tensors and Q8 vision unchanged"
+      },
+      "runtime": {
+        "repository": "https://github.com/PrismML-Eng/llama.cpp",
+        "revision": "adfffbe41b2cabcd51fff326ab045662265062bb",
+        "release": "experimental-local-AW-0137",
+        "backend": "Metal",
+        "server_path": "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-server/bin/llama-server",
+        "server_sha256": "74a6d070a73099716d66d5fa695bfb7a6658f67c6282860e06d3945f99fb87dd",
+        "patch_path": "experiments/runtime-patches/AW-0137-turbo-server.patch",
+        "patch_sha256": "4864e0cb10c475ad193022d5f2e06fc1a9974b93d957ee3c6869a3c3bcfbab5b",
+        "libraries": {
+          "libllama.0.dylib": "1f81934f084f3d68365c612f8975156db1fc9d2493eca24999202ede0b44b525",
+          "libmtmd.0.dylib": "b441a2617eb44ec2caf558e9b6ca26a46af793bf1170e6aa26211c09ba63b80b",
+          "libggml.dylib": "219510bcfe7ab47a9ab575f4eb8d0ada492693491cfeed75f62348055ba104eb",
+          "libggml-base.0.21.0.dylib": "4000c4398b7b0af303369bc7b9ccbf32293706756be9deabcc0d881cb9af72cd",
+          "libggml.0.dylib": "219510bcfe7ab47a9ab575f4eb8d0ada492693491cfeed75f62348055ba104eb",
+          "libmtmd.dylib": "b441a2617eb44ec2caf558e9b6ca26a46af793bf1170e6aa26211c09ba63b80b",
+          "libllama-server-impl.dylib": "33e4b229c9bf5657322fbc2419bcd4689847c1eccc41e7f8874ee8fcc072a688",
+          "libggml-base.dylib": "4000c4398b7b0af303369bc7b9ccbf32293706756be9deabcc0d881cb9af72cd",
+          "libggml-blas.dylib": "e07a2b42a9c5b954c6b6da61fc296236f09548286ae2c060968fd17d88f12daa",
+          "libggml-metal.0.dylib": "d2f8beff000d8ef74ca806c7b4d42e46febea0d29b8cf606a539de52eba45624",
+          "libllama-common.0.dylib": "04f239cdbfebb4b941aa48755133cfef5758a0a08563fcb30a62c86c34ad40b2",
+          "libllama.dylib": "1f81934f084f3d68365c612f8975156db1fc9d2493eca24999202ede0b44b525",
+          "libggml-cpu.dylib": "fa7a6e9f8a93f59c7cad4431893c6918cab1fbad574eafd4dc356397a3314305",
+          "libggml-metal.dylib": "d2f8beff000d8ef74ca806c7b4d42e46febea0d29b8cf606a539de52eba45624",
+          "libllama-common.dylib": "04f239cdbfebb4b941aa48755133cfef5758a0a08563fcb30a62c86c34ad40b2",
+          "libggml-blas.0.21.0.dylib": "e07a2b42a9c5b954c6b6da61fc296236f09548286ae2c060968fd17d88f12daa",
+          "libggml.0.21.0.dylib": "219510bcfe7ab47a9ab575f4eb8d0ada492693491cfeed75f62348055ba104eb",
+          "libmtmd.0.2.0.dylib": "b441a2617eb44ec2caf558e9b6ca26a46af793bf1170e6aa26211c09ba63b80b",
+          "libggml-base.0.dylib": "4000c4398b7b0af303369bc7b9ccbf32293706756be9deabcc0d881cb9af72cd",
+          "libllama.0.2.0.dylib": "1f81934f084f3d68365c612f8975156db1fc9d2493eca24999202ede0b44b525",
+          "libllama-common.0.2.0.dylib": "04f239cdbfebb4b941aa48755133cfef5758a0a08563fcb30a62c86c34ad40b2",
+          "libggml-blas.0.dylib": "e07a2b42a9c5b954c6b6da61fc296236f09548286ae2c060968fd17d88f12daa",
+          "libggml-cpu.0.21.0.dylib": "fa7a6e9f8a93f59c7cad4431893c6918cab1fbad574eafd4dc356397a3314305",
+          "libggml-cpu.0.dylib": "fa7a6e9f8a93f59c7cad4431893c6918cab1fbad574eafd4dc356397a3314305",
+          "libggml-metal.0.21.0.dylib": "d2f8beff000d8ef74ca806c7b4d42e46febea0d29b8cf606a539de52eba45624"
+        },
+        "build_evidence": "evidence/AW-0137-turbo-server-build.json",
+        "tls": "disabled; loopback HTTP API"
+      },
+      "context_tokens": 16384,
+      "parallel": 1,
+      "image_max_tokens": 1024,
+      "sampling": {
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "top_k": 20,
+        "min_p": 0.05,
+        "presence_penalty": 0.0,
+        "repeat_penalty": 1.0,
+        "seed": 42
+      },
+      "reasoning_effort": "medium",
+      "host_gates": {
+        "critical_pressure_level": 4,
+        "max_swap_growth_mib": 1024
+      },
+      "status": "experimental-unqualified",
+      "harness": {
+        "package": "@earendil-works/pi-coding-agent",
+        "version": "0.84.4"
+      },
+      "experiment": "AW-0138",
+      "admission_evidence": [
+        "evidence/AW-0136-turbo-model.json"
+      ],
+      "limits": "Experimental compressed server/full vision build; native32-token functional proof only. Server/vision/tool/long-context admission and endpoint superiority unverified.",
+      "prompt_cache_ram_mib": 0,
+      "context_shift": false,
+      "context_checkpoints": 2,
+      "max_output_tokens": 8192,
+      "kv_cache": {
+        "k": "q8_0",
+        "v": "turbo4",
+        "flash_attention": "enabled",
+        "implementation": "Prism port of preserved Atomic WHT/Lloyd-Max4bit routines; full Google algorithm equivalence not claimed"
+      }
+    },
+    "headers": {
+      "include/llama.h": "50d9375b080df279b9a5d93df9e489f18785b0b9fa98a51045a7c637433e0d9c",
+      "ggml/include/ggml.h": "7dde09657af5cd03044ae872c30c9dc483a2fe2264a26deddd5e8480a1fce17d",
+      "ggml/include/ggml-backend.h": "46d84cb998105f871240864fd0f55446939a2fe86c5c281afa63a010fb1f65a2"
+    },
+    "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+    "storage": "internal SSD",
+    "cache": "Fresh process per arm; uncontrolled OS page cache; fixed four-arm order; no speed comparison",
+    "inputs": {
+      "prefix-0-chunks.txt": {
+        "sha256": "9f0d9a9f8c6fddc2e29efcfcdd7dc72b87853e11ff65d4bddf17fa4c2270c415",
+        "bytes": 4734,
+        "thinking_chunks": 0
+      },
+      "prefix-1024-chunks.txt": {
+        "sha256": "794ea2284211ded83ffa90aae644a5da97be3b3fb65ebcf676c36f89553e72c2",
+        "bytes": 8887,
+        "thinking_chunks": 1024
+      },
+      "prefix-4096-chunks.txt": {
+        "sha256": "9fb0bc9a7adbd4d7389832c7624b69c696cc11cf0dd0d9be5348075863b2128b",
+        "bytes": 21083,
+        "thinking_chunks": 4096
+      },
+      "prefix-7695-chunks.txt": {
+        "sha256": "a14bd2744b7046a07ab2e1380eafe5ba624e31906a8e3a8043b258074d617c65",
+        "bytes": 34856,
+        "thinking_chunks": 7695
+      }
+    },
+    "context": 16384,
+    "batch": 128,
+    "generated_tokens": 32,
+    "sampling": {
+      "temperature": 1,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.05,
+      "presence_penalty": 0,
+      "repeat_penalty": 1,
+      "seed": 42
+    },
+    "acceptance": "All arms exit0,32 own sampled tokens/full finite logits; identical prompt-token bytes each pair; first-row identical-prefix full-logit relative L2<=0.10 and top20 overlap>=0.50. Subsequent own-trajectory disagreement descriptive, not equal-prefix numeric comparison. Provisional technical falsifier, not broad quality acceptance. Host pressure<4 and swap growth<=1024MiB; stop on execution failure.",
+    "timeout_per_arm_seconds": 600,
+    "order": [
+      [
+        7695,
+        "f16"
+      ],
+      [
+        7695,
+        "q8-f16"
+      ],
+      [
+        7695,
+        "f16-turbo"
+      ],
+      [
+        7695,
+        "turbo"
+      ]
+    ],
+    "candidate_build": {
+      "experiment": "AW-0179",
+      "status": "Native C++ build passed; runtime Metal compilation/numeric gates pending",
+      "plan": {
+        "experiment": "AW-0179",
+        "status": "Prepared, unbuilt and untested",
+        "source": "/Users/chad/Models/agentwing/runtime-sources/prism-turbo-mixed",
+        "parent_runtime_commit": "adfffbe41b2cabcd51fff326ab045662265062bb",
+        "parent_patch_sha256": "4864e0cb10c475ad193022d5f2e06fc1a9974b93d957ee3c6869a3c3bcfbab5b",
+        "candidate_patch_sha256": "d6c885e681f0871d9a37cf3f36b38cf631f8de2db0b87d5e800f24580a146b82",
+        "changed_sources_sha256": {
+          "src/llama-context.cpp": "9c859b7a330fcbb48e29ce792cf0d96dae4eafe369ed77c913d9b952e1361f2a",
+          "ggml/src/ggml-metal/ggml-metal-device.m": "1d60a21b0b23e4ccf98c55c195af6ce07ff62ceb88b7a6861f6ae76790799c62",
+          "ggml/src/ggml-metal/ggml-metal-ops.cpp": "3edad28d18ba990be54b29fabce75d3d5b7892e595aaae69ae5e5c39b67b9b22",
+          "ggml/src/ggml-metal/kernels/fa.metal": "63c5789f374e7596d8818c13511fb351a8cf5d64c6f96a4a3f41f115f28509fc"
+        },
+        "hypothesis": "Independent existing dequantizers permit Metal q8K/F16V and F16K/Turbo4V at256-head dimensions, avoiding same-type scratch misuse.",
+        "required_gates": [
+          "Native build",
+          "Prefill/decode shape and finite numeric oracle for both combinations",
+          "Backend/pipeline authority",
+          "Full16K host gates",
+          "Identical-prefix own32 replay",
+          "Native tool/vision and full endpoint gates"
+        ],
+        "disposition": "Unresolved; no admitted profile/runtime changes"
+      },
+      "source_files_compared": 3531,
+      "source_differences": [
+        "ggml/src/ggml-metal/ggml-metal-device.m",
+        "ggml/src/ggml-metal/ggml-metal-ops.cpp",
+        "ggml/src/ggml-metal/kernels/fa.metal",
+        "src/llama-context.cpp"
+      ],
+      "build_directory": "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-mixed",
+      "targets": [
+        "llama",
+        "ggml-metal"
+      ],
+      "parallel_jobs": 4,
+      "generator": "Ninja",
+      "build_type": "Release",
+      "metal_embedded": true,
+      "openssl": false,
+      "build_log_sha256": "e514b38958441e45fc6e0979a9030e2abf3c3ece92b362a2dbb0f5962b9fbb6a",
+      "configure_log_sha256": "b8046afde7afcb52930b8f418007f223c45ea83076d685aff74952384b79c360",
+      "cmake_cache_sha256": "769984c9ba85e323172c701915aef2a4e90f14d57cb0a1eda8be8cf509958fd8",
+      "libraries_sha256": {
+        "libllama.0.dylib": "36f5a437dff62fabcdefc7a82da1e10c965c5c48466c78dc74e9d9cc12964cb0",
+        "libggml.dylib": "50ee965e4782a84e0eaa0ba28be6fe98f8ad2ce4735a7c94d32319cb66333bb5",
+        "libggml-base.0.21.0.dylib": "06f068ceba365f4d744e6ccbbfa83191da0e11e5b48567c38ce69c1e91160539",
+        "libggml.0.dylib": "50ee965e4782a84e0eaa0ba28be6fe98f8ad2ce4735a7c94d32319cb66333bb5",
+        "libggml-base.dylib": "06f068ceba365f4d744e6ccbbfa83191da0e11e5b48567c38ce69c1e91160539",
+        "libggml-blas.dylib": "384f909e5c5cbe873570e8ce49036d39fff698694d7172915b4ffe818c76aaef",
+        "libggml-metal.0.dylib": "6a56a5357eaabebaf346701bf5cfec872d68659eb8b94f5b5c9218186a280689",
+        "libllama.dylib": "36f5a437dff62fabcdefc7a82da1e10c965c5c48466c78dc74e9d9cc12964cb0",
+        "libggml-cpu.dylib": "244a242760f18c72007f7d93f1070964ccfef538681156fc18ecf1a5b7e985c6",
+        "libggml-metal.dylib": "6a56a5357eaabebaf346701bf5cfec872d68659eb8b94f5b5c9218186a280689",
+        "libggml-blas.0.21.0.dylib": "384f909e5c5cbe873570e8ce49036d39fff698694d7172915b4ffe818c76aaef",
+        "libggml.0.21.0.dylib": "50ee965e4782a84e0eaa0ba28be6fe98f8ad2ce4735a7c94d32319cb66333bb5",
+        "libggml-base.0.dylib": "06f068ceba365f4d744e6ccbbfa83191da0e11e5b48567c38ce69c1e91160539",
+        "libllama.0.2.0.dylib": "36f5a437dff62fabcdefc7a82da1e10c965c5c48466c78dc74e9d9cc12964cb0",
+        "libggml-blas.0.dylib": "384f909e5c5cbe873570e8ce49036d39fff698694d7172915b4ffe818c76aaef",
+        "libggml-cpu.0.21.0.dylib": "244a242760f18c72007f7d93f1070964ccfef538681156fc18ecf1a5b7e985c6",
+        "libggml-cpu.0.dylib": "244a242760f18c72007f7d93f1070964ccfef538681156fc18ecf1a5b7e985c6",
+        "libggml-metal.0.21.0.dylib": "6a56a5357eaabebaf346701bf5cfec872d68659eb8b94f5b5c9218186a280689"
+      },
+      "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+      "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+      "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+      "scope": "Isolated build/source identity only; no shader runtime compilation, model/tool/vision or performance qualification",
+      "disposition": "Unresolved; original runtime/default/P1 unchanged"
+    },
+    "candidate_canary_sha256": "c0e26ffc2138c2d78af8ddb3ae429655f931d0926e4fbcefddeeca8a14d419da",
+    "candidate_build_receipt_sha256": "a6ef5f2b8c9afa85f62455a94b29060c81884e1b543fdee398ca9259194cec7d",
+    "auditor_sha256": "c39b9c3c07e74f762abebf1ece4f88231d3ad899db69666f629d5f199790ede1"
+  },
+  "live_runner_session": 62455,
+  "scope": "Full model 16K late identical-prefix K/V precision diagnostic, not endpoint performance or quality qualification"
+}
