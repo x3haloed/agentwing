@@ -1,0 +1,51 @@
+{
+  "experiment": "AW-0103",
+  "static_route_checks_passed": true,
+  "checks": {
+    "cli_sets_template_kwarg": true,
+    "server_uses_cli_kwargs": true,
+    "oai_body_overrides_kwarg": true,
+    "jinja_extra_context_receives_kwargs": true,
+    "pi_generic_effort_forwarding": true,
+    "template_reads_effort": true,
+    "template_accepts_medium": true,
+    "profile_medium": true
+  },
+  "sources": [
+    {
+      "path": "common/chat.cpp",
+      "url": "https://raw.githubusercontent.com/PrismML-Eng/llama.cpp/adfffbe41b2cabcd51fff326ab045662265062bb/common/chat.cpp",
+      "bytes": 174373,
+      "sha256": "aff2acfff3ac8ca8a931c25626cf7461e07f8ace6fb112c94a30d4d8751199d6"
+    },
+    {
+      "path": "tools/server/server-common.cpp",
+      "url": "https://raw.githubusercontent.com/PrismML-Eng/llama.cpp/adfffbe41b2cabcd51fff326ab045662265062bb/tools/server/server-common.cpp",
+      "bytes": 65109,
+      "sha256": "8ac51e75cd9d4a7fa18410394a615c7ac32213eb790a42d6ade659f1b5db9983"
+    },
+    {
+      "path": "tools/server/server-context.cpp",
+      "url": "https://raw.githubusercontent.com/PrismML-Eng/llama.cpp/adfffbe41b2cabcd51fff326ab045662265062bb/tools/server/server-context.cpp",
+      "bytes": 220940,
+      "sha256": "6076fec9aec5948ec16e3c585fd2d0feb885bd5bfa5fca09eb0c7427e88ac104"
+    },
+    {
+      "path": "common/arg.cpp",
+      "url": "https://raw.githubusercontent.com/PrismML-Eng/llama.cpp/adfffbe41b2cabcd51fff326ab045662265062bb/common/arg.cpp",
+      "bytes": 217713,
+      "sha256": "8ad9d71866c3cc82bee06cd646351d26bb8c07e6c93184100d69433994e67b15"
+    }
+  ],
+  "provider_path": "node_modules/@earendil-works/pi-coding-agent/dist/bundle/chunks/openai-completions-ERMU2SS7.js",
+  "provider_sha256": "3ef9e2c266064fea04c076ae8b9e0a8317ebc68f0b543efb4b01da32b394b628",
+  "template_sha256": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041",
+  "template_bytes": 8952,
+  "models_config_sha256": "128d258efdddee57983ee4a0b916d706c2caf856671f138c0fd2e2782d3f6d8e",
+  "script_sha256": "1abeb954969b2f48832cb05d922e086ae66d8e80b5b6996790a03394551564ce",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0103",
+  "interpretation": "Pinned source routes CLI/default and OAI medium into template context; no source evidence supporting a missing-medium patch",
+  "limitations": "Static conditional source-path screen, not capture of an actual rendered request or proof of token reduction. Template accepting low is syntactic and does not override publisher warning that low does not reduce thinking. No profile/effort/budget change.",
+  "external_receipt_sha256": "898733300c000577d0698d00da807b948729ffc05f9c5068e23d1422a6e7114b",
+  "raw_result_sha256": "1d0971863265a057e7ea40dde4ecca43debfc6e16f2939580cd343b2aad45d40"
+}

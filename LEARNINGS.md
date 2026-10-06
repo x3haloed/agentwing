@@ -1535,3 +1535,11 @@ matched-configuration invariant is not met. Record unresolved applicability
 before a full native campaign; no acceptance gate or profile changed. Whole
 system diagnostics cannot silently promote under an incompatible contract.
 Continue development tests while preserving frozen P1 and native Bonsai policy.
+
+## AW-0103 — No source evidence for a dropped medium-effort setting
+
+Pinned CLI/server/Jinja and installed Pi compatibility source route medium into
+model template context; template supports medium. Retain expected route without
+runtime change. Conditional static source evidence is not actual rendered-request
+capture or a guarantee of reduced tokens; do not lower effort or budget based
+on a long-running thought alone. Current fixed multi-file task remains intact.
