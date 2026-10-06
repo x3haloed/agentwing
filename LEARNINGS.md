@@ -2606,3 +2606,15 @@ reclaimedabout192GiBallocated; source/weights/evidence unchanged. Profile
 isbuilt-startup-unqualified: no modelstartup/image/tool/endpointclaim.
 Retainusableexperimental launchpath forfullfunctionaladmission, P1/defaults
 unchanged andfullgoal remainsunproven.
+
+### AW-0211 — first6bit fullvision/native-tool/Pi replicate passes
+
+Freshfull16K+Q8vision6bitserver rep0passes text42/redleftblueright/orchard
+Lookupselection+nonceassociation andbyteexactPifilecopy/canonicalprotocol.
+Independentrawhash/raster/toolnonce/host/capacityauditpasses;203.145s
+functionaldiagnostic,pressure1/swapgrowth0. Actualreview4Pi calls3productive/
+1redundant plus1productiveLookup:5attemptedvalid/4productive/1redundant,
+0malformeddeniedfailed. Receipt
+`evidence/AW-0211-turbo6-first-admission-partial.json` pins externalAW211raw
+andreview. Oppositeimagerep1 live; completeadmission/longbehavior/endpoints
+pending. No utility/speed/P1promotion claim, defaultsunchanged.
