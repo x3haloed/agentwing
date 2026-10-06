@@ -1609,3 +1609,12 @@ candidate-generated capture. Six cases agree with CPU inverse within6.47e-4
 (predeclared.005), despite half butterflies. Retain for q8-K/Turbo-V value-output
 bookend. Actual rotated attention aggregates, quantized dispatch and compressed
 accumulated generation remain unverified; no runtime/endpoint promotion.
+
+## AW-0113 — Inverse bookend survives actual weighted compressed output
+
+For q8 K/Turbo3/4 V on candidate-generated48-key captures at layers3/31/63,
+CPU aggregate-then-inverse reproduces per-row reconstructed attention within
+1.10e-7; unchanged Metal inverse within6.65e-4. Missing inverse corrupts output
+by1.41–1.43 relative L2 and is detected. Retain bookend with stronger weighted
+aggregate evidence. Attention itself remains CPU; no compressed GPU/cache
+integration, compressed trajectory or endpoint qualification yet.

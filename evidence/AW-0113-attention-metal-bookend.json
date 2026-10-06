@@ -1,0 +1,158 @@
+{
+  "experiment": "AW-0113",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0113",
+  "result": {
+    "experiment": "AW-0113",
+    "passed": true,
+    "records": [
+      {
+        "layer": 3,
+        "value_bits": 3,
+        "values": 6144,
+        "cpu_aggregate_inverse_relative_l2": 8.96181243929844e-08,
+        "metal_aggregate_inverse_relative_l2": 0.0006436162920435167,
+        "missing_inverse_relative_l2": 1.4332592279440117,
+        "passed": true,
+        "key_sha256": "197371267b6b3e596058c38ff5f2a8ec421c4a8b6841e6fcd81038a742fd7384",
+        "value_sha256": "5e6db74f6b9957ab66e45812f648fc35b53ea72ebe1b66269bdab6f353438230",
+        "output_sha256": "4f91db07da3811770151ae11df34c742203696ac3000982d4d289d534b414b60"
+      },
+      {
+        "layer": 3,
+        "value_bits": 4,
+        "values": 6144,
+        "cpu_aggregate_inverse_relative_l2": 8.928759026188094e-08,
+        "metal_aggregate_inverse_relative_l2": 0.0006278892196887488,
+        "missing_inverse_relative_l2": 1.4335211539875,
+        "passed": true,
+        "key_sha256": "197371267b6b3e596058c38ff5f2a8ec421c4a8b6841e6fcd81038a742fd7384",
+        "value_sha256": "b8ac7c975a4c2570c9cce3c9911763db532cfae5580f6da795412523a9c952c0",
+        "output_sha256": "f22e1525e14dd47f229c82df2dba90065097395d7588d8317e59860d49c818d3"
+      },
+      {
+        "layer": 31,
+        "value_bits": 3,
+        "values": 6144,
+        "cpu_aggregate_inverse_relative_l2": 1.0299561092046853e-07,
+        "metal_aggregate_inverse_relative_l2": 0.0006153704925871019,
+        "missing_inverse_relative_l2": 1.4254394656442972,
+        "passed": true,
+        "key_sha256": "5c5aace185f3b34c087855f810d2152a16f234ed8b738eaef8f58be362c47f80",
+        "value_sha256": "d1f36e323f829a82c547550e4a1c8abb00dae065d2be22161fdaaad6f5eb3a60",
+        "output_sha256": "ffe35edd936a8a16e630a319aa313cb59cb2c884fefeb82f23c30d23e57765bd"
+      },
+      {
+        "layer": 31,
+        "value_bits": 4,
+        "values": 6144,
+        "cpu_aggregate_inverse_relative_l2": 1.0990914231066551e-07,
+        "metal_aggregate_inverse_relative_l2": 0.0006642449581586766,
+        "missing_inverse_relative_l2": 1.420141883355998,
+        "passed": true,
+        "key_sha256": "5c5aace185f3b34c087855f810d2152a16f234ed8b738eaef8f58be362c47f80",
+        "value_sha256": "313b76da70aa5903f215b3fd9f01a0c126e54460d3ddaa4879a77589adae2b26",
+        "output_sha256": "22bbce8b87922624fbd94a7710ce4b9372434dc8748d1b94a4c9e32e55e5aa83"
+      },
+      {
+        "layer": 63,
+        "value_bits": 3,
+        "values": 6144,
+        "cpu_aggregate_inverse_relative_l2": 9.024970792775327e-08,
+        "metal_aggregate_inverse_relative_l2": 0.0006420817807114845,
+        "missing_inverse_relative_l2": 1.41270306720606,
+        "passed": true,
+        "key_sha256": "d7d7b8f1780f0ad2353448b915f25cdf872bf076f118cd08c4e44f768a8dda51",
+        "value_sha256": "5b9e2defd31f813386651ac837f8d43aa48502d092bfbfce172e39663d83adf7",
+        "output_sha256": "48fc1621cecbfc7be7486bc2225d05057e33f5e50ab507b23f61013bd7a8cb20"
+      },
+      {
+        "layer": 63,
+        "value_bits": 4,
+        "values": 6144,
+        "cpu_aggregate_inverse_relative_l2": 9.090699002396995e-08,
+        "metal_aggregate_inverse_relative_l2": 0.0006425483122776645,
+        "missing_inverse_relative_l2": 1.4126213836165233,
+        "passed": true,
+        "key_sha256": "d7d7b8f1780f0ad2353448b915f25cdf872bf076f118cd08c4e44f768a8dda51",
+        "value_sha256": "a24eb3afd14f812c3c2e26b1743696fe343a09429cc766a1709e8a99736a1660",
+        "output_sha256": "3bb287514cf6d8d787cf44986c68d34920f49b502091152b281e9fb5153ba330"
+      }
+    ],
+    "plan_sha256": "942b20c4b5be3bd1aea170845905dc44af69c01291fb6ac6139a2e30dad52b1a",
+    "phase_host_samples": [
+      [
+        1,
+        898.06
+      ],
+      [
+        1,
+        898.06
+      ]
+    ],
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "scope": "CPU compressed q8 K/Turbo3/4 V attention aggregate, actual48-token candidate-generated FP16 trajectory; only inverse bookend on Metal, not GPU attention or compressed trajectory"
+  },
+  "files": {
+    "31-turbo4-metal.bin": {
+      "bytes": 24576,
+      "sha256": "22bbce8b87922624fbd94a7710ce4b9372434dc8748d1b94a4c9e32e55e5aa83"
+    },
+    "plan.json": {
+      "bytes": 1157,
+      "sha256": "942b20c4b5be3bd1aea170845905dc44af69c01291fb6ac6139a2e30dad52b1a"
+    },
+    "result.json": {
+      "bytes": 3872,
+      "sha256": "70a96c23ede1894116dbbc76878629b0024eca4250c602db122653cf1e854a88"
+    },
+    "31-turbo3-metal.bin": {
+      "bytes": 24576,
+      "sha256": "ffe35edd936a8a16e630a319aa313cb59cb2c884fefeb82f23c30d23e57765bd"
+    },
+    "3-turbo3-aggregate.bin": {
+      "bytes": 24576,
+      "sha256": "440c16b77588d935ddc7871b32174d03d11577af34406cdd2f6454c62bda0f88"
+    },
+    "3-turbo4-aggregate.bin": {
+      "bytes": 24576,
+      "sha256": "2169743587ed00411666d17f853f8edae3c1b4d1d2dad229b89d414982e8eff1"
+    },
+    "63-turbo3-aggregate.bin": {
+      "bytes": 24576,
+      "sha256": "dc2ac75d3cfc975a85bc8e56674c2fe10ebb7fd549e64a7127405d6aac90b8d7"
+    },
+    "63-turbo4-aggregate.bin": {
+      "bytes": 24576,
+      "sha256": "565c9842e146007b02eb6ff1064c90be623149308d289c1f47072a64f989a6a0"
+    },
+    "63-turbo4-metal.bin": {
+      "bytes": 24576,
+      "sha256": "3bb287514cf6d8d787cf44986c68d34920f49b502091152b281e9fb5153ba330"
+    },
+    "3-turbo3-metal.bin": {
+      "bytes": 24576,
+      "sha256": "4f91db07da3811770151ae11df34c742203696ac3000982d4d289d534b414b60"
+    },
+    "3-turbo4-metal.bin": {
+      "bytes": 24576,
+      "sha256": "f22e1525e14dd47f229c82df2dba90065097395d7588d8317e59860d49c818d3"
+    },
+    "63-turbo3-metal.bin": {
+      "bytes": 24576,
+      "sha256": "48fc1621cecbfc7be7486bc2225d05057e33f5e50ab507b23f61013bd7a8cb20"
+    },
+    "31-turbo4-aggregate.bin": {
+      "bytes": 24576,
+      "sha256": "bd0a587d2f0a7caa04ce8a5cc14731cf308138ff9fb6674d4f2a277f8df1c1df"
+    },
+    "31-turbo3-aggregate.bin": {
+      "bytes": 24576,
+      "sha256": "de9280b276da640c11f84d785a72042fd18d53d8a41823a373f2ecc4da285a22"
+    },
+    "executed-check.py": {
+      "bytes": 5090,
+      "sha256": "d03f108f187fb02401807f555c3fcde4d137f3cd0669e093585eda8a6bbb8746"
+    }
+  },
+  "limitations": "CPU attention with unchanged Metal inverse only. Actual compressed GPU attention, installed-cache types/allocations, compressed trajectory, long context, vision and endpoint acceptance remain unverified. Phase pressure samples only; no performance claim."
+}
