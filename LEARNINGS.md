@@ -1853,3 +1853,14 @@ growth pass. Recurrent149.62MiB has0rollback slots: snapshot/replay costs remain
 required, no assumption of cheap rolling states. This promotes AW150 only to
 startup survivor, not kernel/fidelity/performance/capability acceptance. Raw
 external AW-0151 and every hash in evidence/AW-0151-history-startup.json.
+
+
+### AW-0152 — startup-enabled4/3 history speculation cannot draft
+
+Supersedes AW150/151 chosen4/3 acceleration hypothesis: exact proposer returns
+empty for copy_max<lookup length, while copy_max<=proposal length. Lookup4 with
+proposal3 is therefore universally ineligible. Unchanged-source compiled canary
+confirms empty4/3 and expected nonempty3/3,4/4 positive controls. No inference.
+Retain negative;3/3 is eligible and fits total4 PTQ columns, still requires
+complete-cost/real-trace/fidelity/end-to-end screens. Receipt source/raw hashes
+in evidence/AW-0152-ngram-eligibility.json, external AW-0152. No promotion.

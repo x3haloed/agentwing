@@ -1,0 +1,27 @@
+{
+  "experiment": "AW-0152",
+  "status": "rejected-lookup4-proposal3-cannot-draft",
+  "source_sha256": "e216b3a607204e75d1c9a2e9c61473b5d3abdc95c794d55c6e62ced7f7f1aed7",
+  "extracted_function_sha256": "92fca668cd670c51d952cd20f57f9d1e7a3ec009880e31f27ca9b7d797382db6",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0152",
+  "raw_sha256": {
+    "result.txt": "acb1610c08243ed1c11cc74c3b92b8d2bb95b7a8b6adb39e53252755179795a1",
+    "canary": "31475ca985e182745ed791a6415b4be2dbf60c5b91de2a3fa5a69bc3604bc3b6",
+    "canary.cpp": "8ef908a12dddc9d2e95679b4cfaaa2553acc5761561dfa5c0e379ef665be9645",
+    "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "compile_command": [
+    "clang++",
+    "-std=c++17",
+    "-O2",
+    "/Users/chad/Models/agentwing/evidence/AW-0152/canary.cpp",
+    "-o",
+    "/Users/chad/Models/agentwing/evidence/AW-0152/canary"
+  ],
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "canary_output": "lookup4/proposal3=0; lookup3/proposal3=3; lookup4/proposal4=4",
+  "proof": "copy_max<=size_mgram=3 and return-empty if copy_max<size_ngram=4; applies to every history, not just fixture",
+  "negative_control": "Same exact source function emits3 tokens for lookup3/proposal3 and4 for lookup4/proposal4 on history containing a known prior match",
+  "disposition": "Reject AW150/151 chosen4/3 flags as acceleration configuration. Startup-enabled does not establish drafting. Candidate3/3 can draft and fits total4 PTQ columns, but unproven costs/fidelity/performance.",
+  "scope": "CPU exact-source canary, no model inference/weights/draft acquisition or endpoint speed claim"
+}
