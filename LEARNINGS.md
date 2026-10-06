@@ -2038,3 +2038,15 @@ Retain actual full-matrix control for interleaved complete LUT construction /
 application/readback cost and GPU numeric gates before integration. P1/default /
 runtime unchanged. Raw externalAW167, all hashes in
  evidence/AW-0167-ptq-matrix-control.json.
+
+
+### AW-0168 — real Metal LUT arithmetic passes, initial layout cost rejected
+
+Full actual17408x5120 matrix/captured input, ABBA both candidate outputs finite /
+relativeL2 1.63420e-6. Complete build+multiply+readback7.394/7.404ms versus native
+control1.115/1.118ms; candidate about6.6x cost in both component pairs, process /
+compile/allocation/first warmup retained. Raw/numeric/timing replay valid, host
+1/growth0. Reject whole-block-per-lane/one-row prototype before integration;
+not a universal LUT rejection or endpoint claim. P1/runtime/default unchanged.
+Raw externalAW168 and all source/config/artifact/output/timing hashes in
+ evidence/AW-0168-metal-lut-matrix-screen.json. No promotion.
