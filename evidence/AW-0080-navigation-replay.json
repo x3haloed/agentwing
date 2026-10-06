@@ -1,0 +1,38 @@
+{
+  "scope": "Completed navigation row replay within ongoing AW80; no terminal run receipt or broader success implied",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0080/20261006T053829.945708Z",
+  "task_id": "dev-navigation",
+  "scored_result_sha256": "8d11ff1c53a813debdc994ba2dcd5a0e50b72c56c23e4dff95ac8daabe9ad571",
+  "grade_replay_matches": true,
+  "protocol_replay_matches": true,
+  "utility": 1,
+  "full_wall_seconds": 781.3915150829998,
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0.0,
+  "tool_accounting": {
+    "attempted": 6,
+    "valid": 6,
+    "productive": null,
+    "redundant": null,
+    "malformed": 0,
+    "denied": null,
+    "failed": 1
+  },
+  "raw_logs": {
+    "pi.jsonl": "3715613622f2d170959cac70341b622b845a856a97a9f70d9021ced7d9f8986b",
+    "server.log": "6e9af450599910205ed803e8c1041519b1fa0587b57fcdadecd1e6c7d7c3be58",
+    "pressure.tsv": "6bf811113f7c58401078f46e1e1d56496f80c18b474cd8b3e684ad65bae77962"
+  },
+  "manual_tool_classification": {
+    "attempted": 6,
+    "valid": 6,
+    "productive": 5,
+    "nonproductive": 1,
+    "redundant": 0,
+    "malformed": 0,
+    "denied": 0,
+    "failed_return": 1,
+    "failed_call_id": "aktGJCgkGxslvztoTp9BeXZqt3Bcfj2F",
+    "reason": "Direct module launch omitted required RELAY_PROFILE; subsequent explicitly configured invocation and deploy launcher verified environment resolution. Failure preserved and charged."
+  }
+}

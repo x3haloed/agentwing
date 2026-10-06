@@ -58,3 +58,14 @@ No concurrent model owner or model download started.
 Confounder retained: AW-0081 source-derived integer layout check ran for
 approximately 2.1s during navigation. Its CPU work remains inside task wall;
 AW-0080 is an unpaired diagnostic, not a clean comparative rate measurement.
+
+## First completed development task
+
+Navigation passed independent grade/protocol replay at 781.392s, pressure 1,
+swap growth 0 MiB. Six valid calls: five productive, one nonproductive direct
+module launch without required RELAY_PROFILE; subsequent environment-aware
+launch recovered. One failed terminal return, no malformed/denied/redundant
+calls. Row/raw-log hashes and replay are in
+`evidence/AW-0080-navigation-replay.json`. Debugging remains live; no full
+selection or comparative-rate claim. Early narrow-capacity navigation success
+remains preserved; this result alone does not attribute timing to capacity.
