@@ -1,0 +1,54 @@
+{
+  "experiment": "AW-0087",
+  "runtime_commit": "adfffbe41b2cabcd51fff326ab045662265062bb",
+  "sources": [
+    {
+      "path": "examples/eval-callback/README.md",
+      "url": "https://raw.githubusercontent.com/PrismML-Eng/llama.cpp/adfffbe41b2cabcd51fff326ab045662265062bb/examples/eval-callback/README.md",
+      "sha256": "e0ac6218732078815d39cb668bed5c4fe9de077e24dd8b6650ea98b6cda0a1db",
+      "bytes": 4724,
+      "external_file": "/Users/chad/Models/agentwing/evidence/AW-0087/README.md"
+    },
+    {
+      "path": "examples/eval-callback/eval-callback.cpp",
+      "url": "https://raw.githubusercontent.com/PrismML-Eng/llama.cpp/adfffbe41b2cabcd51fff326ab045662265062bb/examples/eval-callback/eval-callback.cpp",
+      "sha256": "4522b2970513ab3bd4dfcbcf201a21ba0709a60c0a06afb9e2d200b1a8c68652",
+      "bytes": 2144,
+      "external_file": "/Users/chad/Models/agentwing/evidence/AW-0087/eval-callback.cpp"
+    },
+    {
+      "path": "common/debug.cpp",
+      "url": "https://raw.githubusercontent.com/PrismML-Eng/llama.cpp/adfffbe41b2cabcd51fff326ab045662265062bb/common/debug.cpp",
+      "sha256": "95c3d817b30793a12cfb10ab7821a80357b7f69674156710d29fb28e417e4a6f",
+      "bytes": 6538,
+      "external_file": "/Users/chad/Models/agentwing/evidence/AW-0087/debug.cpp"
+    },
+    {
+      "path": "common/debug.h",
+      "url": "https://raw.githubusercontent.com/PrismML-Eng/llama.cpp/adfffbe41b2cabcd51fff326ab045662265062bb/common/debug.h",
+      "sha256": "2346ae58df3cfa982afc8bcef4baf979131c768f7197956d36412bfe32215719",
+      "bytes": 1275,
+      "external_file": "/Users/chad/Models/agentwing/evidence/AW-0087/debug.h"
+    },
+    {
+      "path": "include/llama.h",
+      "url": "https://raw.githubusercontent.com/PrismML-Eng/llama.cpp/adfffbe41b2cabcd51fff326ab045662265062bb/include/llama.h",
+      "sha256": "50d9375b080df279b9a5d93df9e489f18785b0b9fa98a51045a7c637433e0d9c",
+      "bytes": 85506,
+      "external_file": "/Users/chad/Models/agentwing/evidence/AW-0087/llama.h"
+    }
+  ],
+  "binary_sha256": "1bdf444538de75311b910dbba8e8483f465918a679ea21488100bdc5e86b5195",
+  "help_exit": 0,
+  "help_sha256": "f1b193fd73a273136912251f6fcba19a6d96bd7502d695e99a8e03c00ce361d5",
+  "findings": {
+    "example_prompt_decode_only": true,
+    "default_callback_asks_every_node": true,
+    "device_copy_occurs_even_for_unmatched_filter": true,
+    "printed_values_are_truncated": true,
+    "context_params_expose_custom_callback": true
+  },
+  "disposition": "Reject bundled callback example as bounded full-activation collector; retain custom callback API path",
+  "scope": "Source/help screen, no inference executed or activation fidelity claim",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0087"
+}

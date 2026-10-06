@@ -1440,3 +1440,11 @@ inputs. Pressure peak1, swap growth0 MiB. Retain for actual activation and
 other-operation/accumulated behavior checks; full shape is not full model
 fidelity or speed evidence. Native repacker matches all2010 sampled blocks.
 No task/sampler/timeout changed, no model artifact overwritten.
+
+## AW-0087 — Bundled callback is unsuitable for bounded activation collection
+
+Pinned example evaluates prompt only; debug callback requests every node and
+copies device tensors even when filters exclude their printing. Printed values
+are truncated. Reject this collector for complete bounded activation evidence;
+retain direct context callback API for a custom selective collector. No model
+inference or activation fidelity claim is made by this source screen.
