@@ -1,0 +1,11 @@
+--- a/ggml/src/ggml-metal/ggml-metal-device.m
++++ b/ggml/src/ggml-metal/ggml-metal-device.m
+@@ -324,6 +324,8 @@
+             @autoreleasepool {
+                 MTLCompileOptions * options = [MTLCompileOptions new];
+                 options.preprocessorMacros = prep;
++                // AW205: reproducible quantization decisions near six-bit cuts.
++                if (kind == GGML_METAL_LIB_QUANTIZE) options.fastMathEnabled = NO;
+                 ggml_metal_compile_options_set_lang(options, ggml_metal_device_get_props(res->dev)->has_tensor);
+ 
+                 lib = [device newLibraryWithSource:src options:options error:&error];

@@ -1,0 +1,124 @@
+{
+  "experiment": "AW-0204",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0204",
+  "plan": {
+    "experiment": "AW-0204",
+    "hypothesis": "Explicit fast versus precise Metal compilation reproduces or removes AW203 single-bin mismatch on unchanged early-layer fixture",
+    "acceptance": "Both modes exit0/finite outputs/hostgates; diagnostic comparisons disclose whether entire native payload is reproduced; causal attribution to native compiler remains conditional because standalone scheduling/source differs",
+    "order": [
+      [
+        4,
+        0
+      ],
+      [
+        6,
+        1
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        4,
+        1
+      ]
+    ],
+    "scope": "Standalone mode-toggle diagnostic with rotated coordinate capture; not native writer repair or admission, no performance claim",
+    "source_sha256": "580eb4f65587fa67f84ec31d7061df41928c0e1b54b12bf7e257b0e79e895b06",
+    "host_source_sha256": "e89a7e6dd96635484ae3711847f3c618f3ddedd8dc3632a562adeeb1a934c23d",
+    "binary_sha256": "de59edb74e2ca76842bd4b88c7f72359f73b293439bccc66d89102729259bea5",
+    "runner_sha256": "58e70fba1555564e856d223fe5dade29f1433b760061a087362a648c6802a718",
+    "native_receipt_sha256": "df8bfd4ba885e0b81742f4f3005e734e50bde8750fd485bb32d7884af58238f8",
+    "input_sha256": "ac52542c599c6cc27d21855fce345ebac2d8c8605e117463ad61471ea17da002",
+    "native_packed_sha256": "1a484d829ddadc10cab4c6c6daa5c2b3192dc6926ad1e1ceefcd05b9170b0b0b",
+    "parent_result_sha256": "02f0c11618e400731bfe706a85f053814479f03cf0f0a57596031c12d997d0a9",
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+    "storage": "internalSSD",
+    "sampling_context_tools": "not applicable, no inference/tools"
+  },
+  "result": {
+    "experiment": "AW-0204",
+    "records": [
+      {
+        "bits": 4,
+        "fast_math": 0,
+        "cpu_mismatched_codes": 0,
+        "cpu_packed_byteexact": true,
+        "captured_rotated_coordinate_148_29": 0.16137585043907166,
+        "exit": 0
+      },
+      {
+        "bits": 6,
+        "fast_math": 1,
+        "cpu_mismatched_codes": 1,
+        "cpu_packed_byteexact": false,
+        "captured_rotated_coordinate_148_29": 0.16137586534023285,
+        "exit": 0,
+        "native_mismatched_codes": 0,
+        "native_packed_byteexact": true
+      },
+      {
+        "bits": 6,
+        "fast_math": 0,
+        "cpu_mismatched_codes": 0,
+        "cpu_packed_byteexact": true,
+        "captured_rotated_coordinate_148_29": 0.16137585043907166,
+        "exit": 0,
+        "native_mismatched_codes": 1,
+        "native_packed_byteexact": false
+      },
+      {
+        "bits": 4,
+        "fast_math": 1,
+        "cpu_mismatched_codes": 0,
+        "cpu_packed_byteexact": true,
+        "captured_rotated_coordinate_148_29": 0.16137586534023285,
+        "exit": 0
+      }
+    ],
+    "plan_sha256": "818fdedec96586bfd803d37ef9d01aceaa1ba9f1525d577fb6d3eb4227eae0ef",
+    "raw_sha256": {
+      "plan.json": "818fdedec96586bfd803d37ef9d01aceaa1ba9f1525d577fb6d3eb4227eae0ef",
+      "mode-probe": "de59edb74e2ca76842bd4b88c7f72359f73b293439bccc66d89102729259bea5",
+      "6-0/decoded.bin": "6fcdf133fb0f605ee468cc716c730295996e3ff0ffb941be12659b70ddff3616",
+      "6-0/host.json": "987e82c977fffbaead2db354addd487167c882a051d3ccaf8dd1911269299c28",
+      "6-0/rotated.bin": "3df76bf4d8aa92939372ee7b7ef0cc90b7fe502e26d0139a3b1c03c96788ccba",
+      "6-0/log.txt": "111428a5b6723b9001571e4a1023aa3a9fafe0014bee63d28739b6572bb5e82e",
+      "6-0/command.json": "16fab432f7bdb644c18fb62605ac9c740a828e9af3333164830077215f72e957",
+      "6-0/packed.bin": "9ffc9f188117db318f5cdc975b6eb94d8bd3e3434b8d0c5cf195dec788e33c3f",
+      "6-1/decoded.bin": "8814dc19b3ef94d69b14c4ba3a33026e46cd3551ee027449f555f9b55c75e5a6",
+      "6-1/host.json": "0ff2f74807d639bef9e2c4f6b0780947164c9d391127509909c9ad06c47bf7aa",
+      "6-1/rotated.bin": "6e9758ded40d2d349e87b6b87c1ecc2b5f637cde89b59205fa70460734b73ccf",
+      "6-1/log.txt": "20868dc666f5ce99577968e8f67c9da238d7f514b72f36be1fe06da77dbf42ec",
+      "6-1/command.json": "c3520d0ea728f349a704cf4eb83a151c00ca791a6f02ee71b05027f32a3e2f35",
+      "6-1/packed.bin": "54c127b7d41d763cc25c519add9af097ba194a55d457380c7afdeecf9f4de91e",
+      "4-0/decoded.bin": "905e727c7bcdf462cb9607f3470737519ed09206374c32a7e771055b3aa908b4",
+      "4-0/host.json": "d226f188c0500a71ee98f02c5473ea9a01fdf8ab0ff31f435a9e04ecb5a39cb3",
+      "4-0/rotated.bin": "3df76bf4d8aa92939372ee7b7ef0cc90b7fe502e26d0139a3b1c03c96788ccba",
+      "4-0/log.txt": "ebee5f1e11e288e3254497d6fcd6dd9b44274229b4c3e1dece13a1d5c0cf4edb",
+      "4-0/command.json": "aaa3c460b87a6ca166a2bf40feae574b467e5eb4b5d571146d3ad8845b55b1fb",
+      "4-0/packed.bin": "38114c690468c93af42d2d24b50906ef0bcfc2eef772fadce151c3437d636288",
+      "4-1/decoded.bin": "905e727c7bcdf462cb9607f3470737519ed09206374c32a7e771055b3aa908b4",
+      "4-1/host.json": "ebe093ff42071aa6feaefea756f6d40a48a158e1345af77a5f0cf34964607667",
+      "4-1/rotated.bin": "6e9758ded40d2d349e87b6b87c1ecc2b5f637cde89b59205fa70460734b73ccf",
+      "4-1/log.txt": "80f9848711b11e05c70f9937229909a143d424dcc8f3486d8f1aada7d0b9fa28",
+      "4-1/command.json": "2370a6a8f279a04a07afa1865e25b56b655c3e3bc5c97cb0aec9cd6333c7fcb5",
+      "4-1/packed.bin": "38114c690468c93af42d2d24b50906ef0bcfc2eef772fadce151c3437d636288"
+    },
+    "scope": "Standalone mode-toggle diagnostic with rotated coordinate capture; not native writer repair or admission, no performance claim"
+  },
+  "audit": {
+    "experiment": "AW-0204",
+    "passed": true,
+    "result_sha256": "24cf8cec0b30aeb583a34729afd5e853ffe0513307a13996046940d97d94cbde",
+    "auditor_sha256": "55af740bcab6a7b11459d41707b88b1d19a7680b7910971248aafc1e8b08421c",
+    "fast_mode_reproduces_entire_native_packed_fixture": true,
+    "precise_mode_reproduces_entire_cpu_packed_fixture": true,
+    "sampled_pressure_peak": 1,
+    "sampled_swap_range_mib": 0.0,
+    "scope": "Standalone mode intervention reproduces native fixture, not direct capture from native SET_ROWS. No writer admission or cost/agent inference."
+  },
+  "audit_sha256": "cba894c8dfea211b3a14b77498219145e67a5930c66154eabd9986bef092f571"
+}

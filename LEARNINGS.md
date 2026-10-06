@@ -2498,3 +2498,17 @@ receipts `evidence/AW-0202-turbo6-native-writer-terminal.json` and
 `evidence/AW-0203-turbo6-native-writer-terminal.json`. Currentwriter rejected
 screen, formatunresolved; instrument nativeprecision before freshunchanged
 screen. No attention/model/vision/endpointacceptance, defaults/P1 unchanged.
+
+### AW-0204/AW-0205 — precision fixes native6bit parity, cost still fails
+
+Explicitfastmathstandaloneprobe reproducesentireAW203nativepackedfixture;
+precisemodeCPUexact. CapturedcoordinateoneF32stepmovesontocut54 whenfast,
+explainingonebinchange for thisfixture. AW205quantize-onlyprecisenativepatch
+restoresall12reversed-rowactualearly/mid/latepackedfixturesbyteexactCPU.
+3840completeops, pressure1/noswapgrowth. Independentauditpassesnumeric/host,
+but sixwriterpairedcostratios1.366–1.453 allfail unchanged1.35 gate.
+Receipts `evidence/AW-0204-turbo6-math-mode.json` and
+`evidence/AW-0205-turbo6-precise-writer.json` pinexternalAW204/AW205raw.
+Rejectcurrentwritercostscreen, retainparityrepair; trycheapeststreampacking
+implementation beforeattention/modelintegration. No gatewaiver orspeed/
+agentclaim, defaults/P1unchanged. Fullgoalremainsprequalification.
