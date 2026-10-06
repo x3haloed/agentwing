@@ -1,0 +1,71 @@
+{
+  "experiment": "AW-0141",
+  "disposition": "Rejected for end-to-end multi-file diagnostic; retain functional/component evidence, no promotion",
+  "independent_audit": {
+    "audit_passed": true,
+    "run": "/Users/chad/Models/agentwing/evidence/AW-0141/20261006T095302.957259Z",
+    "raw_receipt_sha256": "4c4ae530083fe9b34eb1ff5227dab315d5b3af71a7054019446d4f886ecebebf",
+    "plan_sha256": "e01873ffca0511db1410bc87b2c41f37daf9a168dc6afc2943d939e304e80761",
+    "complete_selection": false,
+    "all_selected_tasks_passed": false,
+    "screen_passed": false,
+    "utility": 0,
+    "wall_seconds": 1813.0265172079999,
+    "diagnostic_utility_per_hour": 0.0,
+    "unattempted": [],
+    "error": "stopped-timeout",
+    "tasks": [
+      {
+        "original_test_file_integrity": {
+          "test_ledger.py": true
+        },
+        "task_id": "dev-multi-file",
+        "utility": 0,
+        "grade_replay_matches": true,
+        "protocol_passed": false,
+        "host_passed": true,
+        "full_wall_seconds": 1805.8858948749985,
+        "pressure_peak": 1,
+        "swap_growth_peak_mib": 0.0,
+        "tool_accounting": {
+          "attempted": 3,
+          "valid": 3,
+          "productive": null,
+          "redundant": null,
+          "malformed": 0,
+          "denied": null,
+          "failed": 0
+        },
+        "commands": [
+          "ls -la && find . -maxdepth 2 -type f | head -50",
+          "cat README.md test_ledger.py",
+          "cat ledger/__init__.py ledger/api.py ledger/cli.py ledger/store.py"
+        ]
+      }
+    ],
+    "supplemental_original_tests_unchanged": true,
+    "scope": "Previously exposed fixed dev-multi-file falsifier with q8-K/Turbo4-V compressed cache at16K/8192 medium; unchanged task/verifier/deadline/tool permissions/scoring, no heldout/interleaved P1 claim",
+    "accounting_limit": "Summary timing excludes final recursive receipt creation; not promotion accounting."
+  },
+  "summary_sha256": "15742b5ff887559eb7469fd8aea7b0cc0acc2b4050fe9dfae083edf3afd6fb0b",
+  "all_input_files_unchanged": {
+    "README.md": true,
+    "test_ledger.py": true,
+    "ledger/store.py": true,
+    "ledger/__init__.py": true,
+    "ledger/api.py": true,
+    "ledger/cli.py": true
+  },
+  "tool_accounting": {
+    "attempted": 3,
+    "valid": 3,
+    "productive": 3,
+    "redundant": 0,
+    "malformed": 0,
+    "denied": 0,
+    "failed": 0
+  },
+  "classification_basis": "Distinct repository inventory, requirements/tests read, implementation read; all successful and permitted. Timeout interrupted generation, not a failed tool call.",
+  "cause_limit": "No causal attribution to cache quantization from this unpaired run. Investigate long generation with preserved native settings and fixed task.",
+  "authority": "Raw hashes and frozen pins independently replayed; task deadline1800s unchanged; no retroactive waiver."
+}

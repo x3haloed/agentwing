@@ -1757,3 +1757,18 @@ are unpaired functional observations, not endpoint performance claims. Retain
 experimental launch path; P1/default unchanged and utility qualification remains
 unproven. Evidence: evidence/AW-0140-turbo-multimodal-admission.json; raw external
 /Users/chad/Models/agentwing/evidence/AW-0140, hashes recorded in receipt/manifests.
+
+
+### AW-0141 — compressed-cache multi-file timeout
+
+AW-0140 functional admission does not establish general task capability. The
+unchanged exposed dev-multi-file attempt hit1800s without edits: three valid
+productive reads, then generation until watchdog interruption; grader utility0.
+Independent replay verifies every raw hash, protocol all-terminal failure only,
+all input files unchanged, pressure1 and zero swap growth. Diagnostic wall1813.027s
+excludes receipt sealing and is not a promotion timing. Reject this end-to-end
+screen, retain component/functional evidence, no held-out campaign or promotion.
+Unpaired evidence cannot attribute failure to cache quantization; diagnose long
+accumulated generation before another large campaign. Raw evidence:
+/Users/chad/Models/agentwing/evidence/AW-0141/20261006T095302.957259Z; hashes and
+independent audit in evidence/AW-0141-turbo-multifile-terminal.json.
