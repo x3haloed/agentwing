@@ -1926,3 +1926,16 @@ ngram and mixed-method selection canaries; runtime unchanged. Retain lookup2 /
 proposal3 for isolated build, actual pressure and forced rejection fidelity
 before cost/endpoint tests. No inference or promotion. Source/profile/patch /
 canary hashes in evidence/AW-0157-ngram-rollback-preparation.json, externalAW157.
+
+
+### AW-0158 — isolated bounded rollback server builds
+
+Fresh pinned Prism archive +AW137Turbo+AW157ngram allocation patches builds
+full server/vision libraries exit0.3531 tracked files match current port except
+intended common.h; candidate header exactAW157. Preserve failed absolute-path
+patch attempt before corrected cwd application. Existing source/binaries/specs
+and P1 unchanged. Exact base/patch/reconstruction and all binaries hashed in
+evidence/AW-0158-ngram-rollback-build.json; externalAW158. Archive has no Git
+metadata; displayed version is not source authority. Retain for actual guarded
+allocation/forced-rejection fidelity, then complete cost/endpoint. No inference,
+memory admission, performance claim or promotion.

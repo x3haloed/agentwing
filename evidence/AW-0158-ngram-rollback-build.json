@@ -1,0 +1,111 @@
+{
+  "experiment": "AW-0158",
+  "hypothesis": "Pinned upstream plus archived Turbo patch and isolated ngram rollback patch builds a complete multimodal server without replacing the current runtime.",
+  "primary_metric": "Source reconstruction, build exit and binary/library provenance; no inference or performance claim.",
+  "revision": "adfffbe41b2cabcd51fff326ab045662265062bb",
+  "patches": {
+    "experiments/runtime-patches/AW-0137-turbo-server.patch": "4864e0cb10c475ad193022d5f2e06fc1a9974b93d957ee3c6869a3c3bcfbab5b",
+    "experiments/runtime-patches/AW-0157-ngram-rollback.patch": "ca43c4cfb350776e8eb24859add6b5ad0ec05dbe31509f574a4333f812fc4710"
+  },
+  "source": "/Users/chad/Models/agentwing/runtime-sources/prism-turbo-rollback",
+  "build": "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-rollback",
+  "compiler": "Apple clang21 / Xcode27",
+  "flags": [
+    "Release",
+    "GGML_METAL_EMBED_LIBRARY=ON",
+    "LLAMA_OPENSSL=OFF",
+    "LLAMA_BUILD_SERVER=ON",
+    "LLAMA_BUILD_TESTS=OFF",
+    "LLAMA_BUILD_EXAMPLES=OFF"
+  ],
+  "parent_profile_sha256": "7b90c1047cfc23de542708df626f46eeae40de3c9eb2508b8468b47a3eda702d",
+  "scope": "New isolated source/build; model weights and existing binaries/spec/default/P1 untouched. No inference. Real host pressure and rollback fidelity remain next gates.",
+  "status": "build-passed-inference-unvalidated",
+  "configure": {
+    "exit": 0,
+    "command": [
+      "/Users/chad/Models/agentwing/build-tools/bin/cmake",
+      "-S",
+      "/Users/chad/Models/agentwing/runtime-sources/prism-turbo-rollback",
+      "-B",
+      "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-rollback",
+      "-G",
+      "Ninja",
+      "-DCMAKE_MAKE_PROGRAM=/Users/chad/Models/agentwing/build-tools/bin/ninja",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DGGML_METAL_EMBED_LIBRARY=ON",
+      "-DLLAMA_OPENSSL=OFF",
+      "-DLLAMA_BUILD_SERVER=ON",
+      "-DLLAMA_BUILD_TESTS=OFF",
+      "-DLLAMA_BUILD_EXAMPLES=OFF"
+    ]
+  },
+  "build_result": {
+    "exit": 0,
+    "elapsed_s": 105.3892982006073
+  },
+  "build_command": [
+    "/Users/chad/Models/agentwing/build-tools/bin/cmake",
+    "--build",
+    "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-rollback",
+    "--target",
+    "llama-server",
+    "-j",
+    "4"
+  ],
+  "source_reconstruction": {
+    "tracked_files": 3531,
+    "missing": [],
+    "different_from_original_port": [
+      "common/common.h"
+    ],
+    "candidate_common_h_sha256": "8637bdd75198415b62f03d656ed32fa6151531db45f74f5fb4ad10737bb5703c",
+    "candidate_matches_prepared_header": true
+  },
+  "artifacts_sha256": {
+    "libllama.0.dylib": "d5fcebbced01460d4da332c441c24abfbb6152357507e78f93c3c239a2a5b47b",
+    "libmtmd.0.dylib": "c36e00ea9d43ba5de9fdbad1b82f49e3169c8294ed8b74cf6bc8c15b9fef3b2b",
+    "libggml.dylib": "7d5b4e00f51fa3d30c290178bf1c1c2a68c358f9977af653dd5fe10907a5a7e8",
+    "libggml-base.0.21.0.dylib": "ad7c2bb8afed53eb2c77ec4ee82d055c429f1c802134d0717e3cc1732fd1387b",
+    "libggml.0.dylib": "7d5b4e00f51fa3d30c290178bf1c1c2a68c358f9977af653dd5fe10907a5a7e8",
+    "libmtmd.dylib": "c36e00ea9d43ba5de9fdbad1b82f49e3169c8294ed8b74cf6bc8c15b9fef3b2b",
+    "libllama-server-impl.dylib": "72195b13542ffe710d03f07f8613df2ef99b4257c6d618e8d1a86166215dbbd5",
+    "libggml-base.dylib": "ad7c2bb8afed53eb2c77ec4ee82d055c429f1c802134d0717e3cc1732fd1387b",
+    "libggml-blas.dylib": "b101eda09909e878b997957c3e835c87d7dd9769b7504373f7a91cb81c8fa7f7",
+    "libggml-metal.0.dylib": "d87f21f73dc7144f0aa8e61413f90cc7ed32c311bc79dcc8cda78e901c378c65",
+    "libllama-common.0.dylib": "4a29ffa75e9dc7ce33b0589a7e9d45c8f68cd300628ef7e3fa37fcc062ebf806",
+    "libllama.dylib": "d5fcebbced01460d4da332c441c24abfbb6152357507e78f93c3c239a2a5b47b",
+    "libggml-cpu.dylib": "b53a3850ee42380bdac384d1d6a5ce44fd503b376e796c1585a0b9f666dd4b31",
+    "libggml-metal.dylib": "d87f21f73dc7144f0aa8e61413f90cc7ed32c311bc79dcc8cda78e901c378c65",
+    "llama-server": "44c17e99f488c5b0e953f3f9fc0f675eb298301de49edf444ec3e3eb4d0aa921",
+    "libllama-common.dylib": "4a29ffa75e9dc7ce33b0589a7e9d45c8f68cd300628ef7e3fa37fcc062ebf806",
+    "libggml-blas.0.21.0.dylib": "b101eda09909e878b997957c3e835c87d7dd9769b7504373f7a91cb81c8fa7f7",
+    "libggml.0.21.0.dylib": "7d5b4e00f51fa3d30c290178bf1c1c2a68c358f9977af653dd5fe10907a5a7e8",
+    "libmtmd.0.2.0.dylib": "c36e00ea9d43ba5de9fdbad1b82f49e3169c8294ed8b74cf6bc8c15b9fef3b2b",
+    "libggml-base.0.dylib": "ad7c2bb8afed53eb2c77ec4ee82d055c429f1c802134d0717e3cc1732fd1387b",
+    "libllama.0.2.0.dylib": "d5fcebbced01460d4da332c441c24abfbb6152357507e78f93c3c239a2a5b47b",
+    "libllama-common.0.2.0.dylib": "4a29ffa75e9dc7ce33b0589a7e9d45c8f68cd300628ef7e3fa37fcc062ebf806",
+    "libggml-blas.0.dylib": "b101eda09909e878b997957c3e835c87d7dd9769b7504373f7a91cb81c8fa7f7",
+    "libggml-cpu.0.21.0.dylib": "b53a3850ee42380bdac384d1d6a5ce44fd503b376e796c1585a0b9f666dd4b31",
+    "libggml-cpu.0.dylib": "b53a3850ee42380bdac384d1d6a5ce44fd503b376e796c1585a0b9f666dd4b31",
+    "libggml-metal.0.21.0.dylib": "d87f21f73dc7144f0aa8e61413f90cc7ed32c311bc79dcc8cda78e901c378c65"
+  },
+  "runtime_version_output": "version: 0.2.0-dev (build 0, commit unknown)\nbuilt with AppleClang 21.0.0.21000334 for Darwin arm64\n",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+  "thermal_after_build": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0158",
+  "raw_sha256": {
+    "plan.json": "dcfd752acccb4f2e9e5574949cbe0721e50878ed39e407fbb9af6d2e1f58cc02",
+    "AW-0157-ngram-rollback-apply.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "configure.log": "c57b13175026d6dbfeaf1be6cf16975d75fa01c284490d8ed8c98e21252b1407",
+    "source-reconstruction-check.json": "ca247e01ce29d4b15bffded8d8e3d5313d4a595aad30e5527540d833cddeeabc",
+    "configure-exit.json": "fa9240f24fdfc317add291506e0c9371079ad66b22e45a1f4cdcb41b6078aacd",
+    "attempt-1-failure.json": "9cd62c992587d7738c237b3484ffa9f56794485a1da30c1c8e7b84e680174a4f",
+    "build-exit.json": "3961431e08bbb8ec1acdfa5394fe30b8323250ca54d83e9bef32f17ff6064938",
+    "AW-0137-turbo-server-apply.log": "9ab06433dba88b3036172600fc254d6ebbda45b5924c3c786e800a9f632130ea",
+    "version.txt": "67e5f5715dbc8dd66ab519076f505a72ce3bcedcd553f031ddde05a24babb673",
+    "build.log": "16d425a36356f86cda171e29e8aa06adb432ea9a8eeeb45a1af7ce60b51c351e"
+  },
+  "disposition": "Retain isolated build for guarded allocation and forced-rejection fidelity; no runtime promotion, no model inference or memory/speed claim. Source archive lacks git metadata; exact source identity is pinned by base commit and patch reconstruction, not displayed version."
+}
