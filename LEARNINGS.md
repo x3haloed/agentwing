@@ -2351,3 +2351,17 @@ hashes under `/Users/chad/Models/agentwing/evidence/AW-0194`. Rejected for
 promotion, retained negative control; P1 frozen. This supersedes any inference
 that AW-0193's isolated valid proposal implied task completion. Preserve
 that narrower functional result; no timeout, reasoning or scoring waiver.
+
+### AW-0195 — historical replay and current failed request are different histories
+
+Offline installed-Pi reconstruction of AW-0194's fourth request matches
+AW-0145's system/task prompt after including Pi's cwd suffix, but differs
+in nine assistant-reasoning, tool-command and tool-result fields after
+normalizing random call IDs. Thus AW-0193 completion versus AW-0194 timeout
+does not isolate cache reuse/state. This refines the prior endpoint-failure
+interpretation without reversing the failed score. Receipt
+`evidence/AW-0195-stationary-request-comparison.json` pins external raw
+reconstructions and preserved initial missing-cwd attempt under
+`/Users/chad/Models/agentwing/evidence/AW-0195`. Retained diagnostic, P1
+frozen. Use current accumulated history for the next cheap same-history
+screen; no reasoning, task, timeout or scoring waiver.

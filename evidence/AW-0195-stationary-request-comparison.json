@@ -1,0 +1,89 @@
+{
+  "experiment": "AW-0195",
+  "scope": "Offline installed-adapter reconstruction; not wire capture or runtime replay",
+  "tools_source": "AW-0145 frozen native tool schema; installed Pi unchanged under AW-0194 pins",
+  "completed_messages": 7,
+  "normalized_requests_equal": false,
+  "differences": [
+    {
+      "path": "/messages/2/reasoning_content",
+      "previous_sha256": "9009441910c75b22317a10ce5f30478657424650f2334b4ffb31fefa9fed0f28",
+      "current_sha256": "a7477635a0a0f4e90276496515a555351b1d9f8942a93ce49643a5a7498f10e4",
+      "previous_characters": 105,
+      "current_characters": 83
+    },
+    {
+      "path": "/messages/2/tool_calls/0/function/arguments",
+      "previous_sha256": "a42495fe1f127552e03d8e402cba10ded5af1b4c23aea1f162696e87a5ea145e",
+      "current_sha256": "e054e8a070dadfa80b87b4a56cf4d1cbadd1c8dab9fc245077fa9742a3e1f96a",
+      "previous_characters": 61,
+      "current_characters": 129
+    },
+    {
+      "path": "/messages/3/content",
+      "previous_sha256": "f872697636efebca44013f22e805d4e3ccb5a9649051d75d30729050397b7f1b",
+      "current_sha256": "496a62af54332fc5ddc5b5b8e03b6d94778ec680ec69e3c62f4783006a4e9389",
+      "previous_characters": 366,
+      "current_characters": 757
+    },
+    {
+      "path": "/messages/4/reasoning_content",
+      "previous_sha256": "98736d943c011a9646679c9faf7057257e1f56a99708c3366a20a19c67e0b9e0",
+      "current_sha256": "ef285e8ff7e813d129704caa3c9286517b9abc638ef4506912eadcb98e33f0ab",
+      "previous_characters": 45,
+      "current_characters": 32
+    },
+    {
+      "path": "/messages/4/tool_calls/0/function/arguments",
+      "previous_sha256": "2acd3a729d2fc2def771b5a8eac77d5b7316877d86391dabf1f4d747ced66e2b",
+      "current_sha256": "ec06148fff9019a70d2d84325e2ef8f7f8d1d8916bcd8ba9dc1d9e817240f44b",
+      "previous_characters": 42,
+      "current_characters": 170
+    },
+    {
+      "path": "/messages/5/content",
+      "previous_sha256": "e6085fe6492db88ee45d376c555223bf473ac7ec977e7fffe4e87d94bcf7a144",
+      "current_sha256": "06ed26c633f8d843db77fa8d431eba78c2ad1422f6b546168c3dad41648b1631",
+      "previous_characters": 693,
+      "current_characters": 453
+    },
+    {
+      "path": "/messages/6/reasoning_content",
+      "previous_sha256": "4c672f74d69496d6085b540194c0cebed3c83d3656fbf7ec71fa262c09c64765",
+      "current_sha256": "09a86da1e9036c88ca8d40574b6a4bb096995388e8178ec8c0053f8adfa2b3e1",
+      "previous_characters": 44,
+      "current_characters": 66
+    },
+    {
+      "path": "/messages/6/tool_calls/0/function/arguments",
+      "previous_sha256": "68511da4d6f186d907afb5dcfa0f494b8114ba66a3838ce9176f4536dd0abb96",
+      "current_sha256": "9c21bd69bc869de4561f871ca754b934e7468f6173d6af27351b3aabf2cfb3c5",
+      "previous_characters": 80,
+      "current_characters": 130
+    },
+    {
+      "path": "/messages/7/content",
+      "previous_sha256": "8ed7938ae95f8cfd61367b68ccb5005cee7b0508a4577247073b605e69a6fb89",
+      "current_sha256": "5200e44e850bddc0bc36d30f7f0fd13ca7d655ab592dfdf1271926b8abf35bae",
+      "previous_characters": 549,
+      "current_characters": 636
+    }
+  ],
+  "raw_sha256": {
+    "fourth-context.json": "1d064353b41af24c2421ff2bd225b07cdda6c8d035261c6227a89b33673236a9",
+    "fourth-request.json": "93e4f192f715deda151a979e1afc95770ba151e9d005f2f2273b1f13830d5779"
+  },
+  "input_sha256": {
+    "transcript": "22865b494c2908313c8f6ef0e14e1792c2c9f9979177a44e387e9b6a0df3880f",
+    "system_prompt": "2a10a1d915626f007b56c88a9f5ab9d1a9b6926e962587495475eced47c4b976",
+    "previous_request": "16638e0160e6dcd8840e9c75b2ec3a006576e7a42de0522312d2cfef76fe9ec1",
+    "prompt_builder": "08cbc4d2d6d3cafe995cf3c3a1a6fded7b07f07009101b6fee7cdce5daf8062d",
+    "adapter": "3ef9e2c266064fea04c076ae8b9e0a8317ebc68f0b543efb4b01da32b394b628",
+    "script": "74d5739da2798f8e8d2d47f3b7af98550636d7d8b58a03129833c8e87b042e57"
+  },
+  "preserved_initial_attempt_sha256": {
+    "fourth-request.json": "1cc1100879fb71bd0869c05f40e93fe9f655360831304ab3977ba3bf5cc65e57",
+    "comparison.json": "9155c3e92a9126e88269e68b765e38b4d6400a9d22ea9fc6feada4721491ef80",
+    "fourth-context.json": "c3b749f5faa6838863aba164644d994f789e417a7d885f50fb5d39f2159d54f4"
+  }
+}
