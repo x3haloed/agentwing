@@ -1,0 +1,31 @@
+{
+  "experiment": "AW-0167",
+  "status": "native-full-matrix-control-prepared",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0167",
+  "plan_sha256": "df1fa73a970cd004c308fe6a24cb5b581f77bd4746aa486071a59a9a432478ff",
+  "execution_plan_sha256": "11a1c6d6e223f453d46a8653731df24af68351dc584c8ded987b58690c4edc76",
+  "result_sha256": "e174bc225c84b8bf1ba05cedae448089b253bebedc1b4e63e11d7d800a016331",
+  "fixture_source_sha256": "d44d8744b9cff15efc9803f4dbceef31baec8d24234e7a987f15b8acd51a31d3",
+  "control_output_sha256": "9eaff890915c03606ed9c3415da8dadf6eceb937c4c3ee92247ac453f27cb6ec",
+  "captured_output_sha256": "9eaff890915c03606ed9c3415da8dadf6eceb937c4c3ee92247ac453f27cb6ec",
+  "all5120_output_values_bit_identical": true,
+  "execution": {
+    "error": null,
+    "exit": 0,
+    "baseline_swap_mib": 1199.12,
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "wall_seconds_diagnostic": 0.5467384169969591,
+    "raw_sha256": {
+      "plan.json": "df1fa73a970cd004c308fe6a24cb5b581f77bd4746aa486071a59a9a432478ff",
+      "weights.bin": "5ab2137de1ad609a0535bd984232c6c0f3ffe47b1fd53e9133976b3f45f65989",
+      "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "input.bin": "b76289a09636c822c35bf5d2c29fdd95b19ec73f80ad8b22ba919fc6d1e835c9",
+      "native.log": "8d5f26d6fdd02aa469ea186eabcc91be52672f8f55b79300a59bcd7c5452aa26",
+      "execution-plan.json": "11a1c6d6e223f453d46a8653731df24af68351dc584c8ded987b58690c4edc76",
+      "control-output.bin": "9eaff890915c03606ed9c3415da8dadf6eceb937c4c3ee92247ac453f27cb6ec",
+      "control": "224c16f4f00c4b4fc3f08e41a7cdf3aae41ac6113570b1f84b22c76b5d6c691a"
+    }
+  },
+  "disposition": "Retain full real matrix reference for actual Metal LUT construction+application+readback/interleaved cost. No candidate benchmark, model inference or endpoint promotion."
+}

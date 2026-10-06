@@ -2026,3 +2026,15 @@ CPU/single-vector screen, not Metal FMA/real full matrices/cache/build/liveness 
 end-to-end cost. Retain for complete Metal matrix cost before integration; no
 runtime change/promotion. P1/default intact. RawexternalAW166, hashes in
  evidence/AW-0166-activation-lut-screen.json.
+
+
+### AW-0167 — real full PTQ projection native control is bit-identical
+
+Original GGUF blk0ffn_down17408x5120(19.497MBpacked), AW148captured post-transform
+input, native AW137Metal primitive yield all5120F32 outputs bit-identical to
+actual captured model projection. Raw/model/library/input/source/binary/host pins
+verified; exit0,pressure1/growth0. No candidate or endpoint performance result.
+Retain actual full-matrix control for interleaved complete LUT construction /
+application/readback cost and GPU numeric gates before integration. P1/default /
+runtime unchanged. Raw externalAW167, all hashes in
+ evidence/AW-0167-ptq-matrix-control.json.
