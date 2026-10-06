@@ -1415,3 +1415,11 @@ confirm the 1,259,520,000-byte full packing expansion. Retain for full tensor
 and Metal/runtime fidelity; serialized weight checks do not establish real
 activation or accumulated behavior fidelity, memory safety or endpoint gain.
 Raw samples and large per-block manifest stay outside Git.
+
+## AW-0084 — Pinned native Metal supports both packing paths
+
+Tiny native operations on paired serialized samples complete for both formats
+(relative L2 1.7417e-6). Retain for independent CPU matmul oracle and real
+projection/activation checks; no component speed or accumulated fidelity
+claim. Matrix is rearranged sampled blocks with synthetic inputs, not full
+agent inference. Runtime/header/library/fixture hashes preserved.

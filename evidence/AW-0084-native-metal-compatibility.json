@@ -1,0 +1,63 @@
+{
+  "experiment": "AW-0084",
+  "passed": true,
+  "scope": "Tiny native Metal compatibility; no speed or accumulated activation/agent claim",
+  "metric": {
+    "relative_l2": 1.7417e-06,
+    "maximum_absolute_difference": 8.19564e-07,
+    "output_values": 256,
+    "scope": "Tiny native Metal codec compatibility only; rearranged sampled real blocks with synthetic inputs, no performance or activation claim"
+  },
+  "threshold_relative_l2": 0.0001,
+  "threshold_scope": "Cheap F32 component falsifier only; not capability/numeric acceptance authority",
+  "fixture": "First64 sampled PTQ blocks from AW83 rearranged as64x128 matrix; four synthetic input patterns",
+  "runtime_commit": "adfffbe41b2cabcd51fff326ab045662265062bb",
+  "source_headers": [
+    {
+      "path": "ggml/include/ggml.h",
+      "sha256": "9a865c28b0fea8d0adaa3218ac3514bfcef3eb2f35f8e7c67bc7fac90586f5e6",
+      "bytes": 114514
+    },
+    {
+      "path": "ggml/include/ggml-backend.h",
+      "sha256": "46d84cb998105f871240864fd0f55446939a2fe86c5c281afa63a010fb1f65a2",
+      "bytes": 25374
+    },
+    {
+      "path": "ggml/include/ggml-metal.h",
+      "sha256": "322f36cd30f3e9e7aad7b5b9bc63078012fd0b7706ac4e24f5721b604f3d8980",
+      "bytes": 2141
+    },
+    {
+      "path": "ggml/include/ggml-alloc.h",
+      "sha256": "94e4cd069b9313b2ceb35dacec901981e0bb478d8bb31035b7126be091998c23",
+      "bytes": 3753
+    }
+  ],
+  "source_sha256": "389d17687f333a0f02bf2474bf76a2a46784ec4a90b4092cf07ef881b9cbc96a",
+  "executable_sha256": "7cdf58dccdcf71778b41c9210b85d85a9950ca113b87f9518fc7c80089df29df",
+  "dynamic_libraries": {
+    "libggml.0.21.0.dylib": "aa84e1ce5256bf9bce26151455f25265ed50144db501e9c805bf0ce827d54319",
+    "libggml-base.0.21.0.dylib": "2caf83add3286b26095638976ad36fe94bb07c6e6572b41cd972c51fa77bb978",
+    "libggml-metal.0.21.0.dylib": "76f261b375c7bc11cc1307b7588122b489d698b1df27351f4d220cc85b035007"
+  },
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0084",
+  "external_files": {
+    "ptq-fixture.bin": "2ede56401fcd231866907619cf507636b25b0f0a084aa55cc1512548b5824562",
+    "pq-fixture.bin": "36ad33ddf1ac48ada430d2e91a88ed8bdb69e9971d0a383f976f1268a0aedcb8",
+    "native-metal.log": "750c490f45fbe374193109c2f1a4499f6a2bd8403d13d0b208715e8028d6c3cc",
+    "native-metal-result.json": "e2444af628b83bbf394cdeea35ed308a45cc7041468ee86e011a2ea60b34ad6b"
+  },
+  "model_provenance": "AW83 pinned source artifact and fixture receipt; no full model loaded here",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "host": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+  "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+  "permissions": "Exclusive model-owner lock, local process; no model tool permissions exercised",
+  "limitations": [
+    "No independent CPU matmul oracle for Metal outputs yet.",
+    "Tiny rearranged matrix is not a full real projection or candidate accumulated activation.",
+    "No sampled host gate or timing claim; subprocess timeout60s and exclusive owner used."
+  ],
+  "disposition": "Retained for independent CPU output oracle, real shape runtime checks and complete physical cost screen"
+}
