@@ -26,7 +26,10 @@ def audit(run):
     check_protocol=protocol
     if expanded:
         if plan['suite_kind']=='p2-development-falsifier':
-            from run_bonsai_budget_debugging import protocol as check_protocol
+            if plan.get('protocol_version')=='bounded-bash-v2':
+                from run_bonsai_budget_debugging_v2 import protocol as check_protocol
+            else:
+                from run_bonsai_budget_debugging import protocol as check_protocol
         else:
             from run_bonsai_development import protocol as check_protocol
     tasks=json.loads((SUITE/'manifest.json').read_text())['tasks']

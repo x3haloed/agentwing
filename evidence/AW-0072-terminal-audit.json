@@ -1,0 +1,156 @@
+{
+  "audit_passed": true,
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0072/20261006T040507.320499Z",
+  "raw_receipt_sha256": "985b8265d2420cecaf8f8d3938a93522819e850e28da19b20258692f0f196197",
+  "plan_sha256": "8b165109beba47b9e08be4029416046478ca90d7e533654eeef5a8acd4bd56f5",
+  "complete_selection": false,
+  "all_selected_tasks_passed": false,
+  "screen_passed": false,
+  "utility": 1,
+  "wall_seconds": 1852.5871304169996,
+  "diagnostic_utility_per_hour": 1.943228440321549,
+  "unattempted": [
+    "dev-refactoring",
+    "dev-recovery",
+    "dev-data",
+    "dev-migration",
+    "dev-investigation"
+  ],
+  "error": "'command'",
+  "tasks": [
+    {
+      "original_test_file_integrity": {},
+      "task_id": "dev-navigation",
+      "utility": 1,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 330.7074562910002,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 4,
+        "valid": 4,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "find /Users/chad/Models/agentwing/active/workspace -maxdepth 4 -type f -name \"*.sh\" | head -50 && echo \"---\" && ls -la /Users/chad/Models/agentwing/active/workspace",
+        "cat deploy/launch.sh && echo \"=== TREE ===\" && find . -type f | sort",
+        "echo \"=== active.env ===\"; cat deploy/active.env\necho \"=== config/defaults.json ===\"; cat config/defaults.json\necho \"=== config/edge.json ===\"; cat config/edge.json\necho \"=== config/production.json ===\"; cat config/production.json\necho \"=== relay/config.py ===\"; cat relay/config.py\necho \"=== relay/main.py ===\"; cat relay/main.py",
+        "cat > ANSWER.json <<'EOF'\n{\n  \"retry_ms\": 1250,\n  \"attempts\": 8,\n  \"profile\": \"edge\",\n  \"evidence\": [\n    \"deploy/launch.sh\",\n    \"deploy/active.env\",\n    \"relay/config.py\"\n  ]\n}\nEOF\ncat ANSWER.json"
+      ]
+    },
+    {
+      "original_test_file_integrity": {
+        "test_windows.py": true
+      },
+      "task_id": "dev-debugging",
+      "utility": 0,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 440.69330658299987,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 2,
+        "valid": 2,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "find . -maxdepth 2 -type f | head -50; echo ---; ls -la",
+        "cat README.md; echo ====; cat windows.py; echo ====; cat test_windows.py"
+      ]
+    },
+    {
+      "original_test_file_integrity": {
+        "test_ledger.py": true
+      },
+      "task_id": "dev-multi-file",
+      "utility": 0,
+      "grade_replay_matches": true,
+      "protocol_passed": true,
+      "host_passed": true,
+      "full_wall_seconds": 499.1478093750011,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "tool_accounting": {
+        "attempted": 4,
+        "valid": 4,
+        "productive": null,
+        "redundant": null,
+        "malformed": 0,
+        "denied": null,
+        "failed": 0
+      },
+      "commands": [
+        "ls -la /Users/chad/Models/agentwing/active/workspace && cat /Users/chad/Models/agentwing/active/workspace/README.md",
+        "find /Users/chad/Models/agentwing/active/workspace/ledger -type f | head -50 && echo --- && cat /Users/chad/Models/agentwing/active/workspace/test_ledger.py",
+        "cd /Users/chad/Models/agentwing/active/workspace && for f in ledger/__init__.py ledger/api.py ledger/cli.py ledger/store.py; do echo \"===$f==\"; cat -A \"$f\" | head -100; done",
+        "cd /Users/chad/Models/agentwing/active/workspace && for f in ledger/__init__.py ledger/api.py ledger/cli.py ledger/store.py; do echo \"===$f==\"; cat \"$f\"; done"
+      ]
+    }
+  ],
+  "supplemental_original_tests_unchanged": true,
+  "scope": "Complete frozen P2 development diagnostic only; full reasoning/output retained, no held-out exposure or matched-P1 promotion claim",
+  "accounting_limit": "Summary timing excludes final recursive receipt creation; not promotion accounting.",
+  "unscored_inference_attempt": {
+    "task_id": "dev-refactoring",
+    "independent_artifact_grade": {
+      "task_id": "dev-refactoring",
+      "utility": 1,
+      "exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "protocol_gate_passed": false,
+    "qualified_utility": 0,
+    "execution": {
+      "status": "client-completed",
+      "error": null,
+      "pi_exit": 0,
+      "wall_seconds": 577.1313212910009,
+      "verified_utility": null,
+      "scope": "User task, not scored benchmark. Inspect artifacts and independently validate.",
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0.0,
+      "server_pid": 54836,
+      "client_pid": 54874
+    },
+    "calls": {
+      "attempted": 6,
+      "valid": 5,
+      "productive": 5,
+      "redundant": 0,
+      "malformed": 1,
+      "denied": 1,
+      "failed_returns": 1
+    },
+    "denial_reason": "Pi blocks token-limit-truncated bash call with empty arguments; model later reissues valid calls. No silent repair allowed for qualification.",
+    "terminal_response_budget": 1,
+    "terminal_stop_reason": "length",
+    "scorer_error": "KeyError('command') from unsafe command extraction after invalid schema detection",
+    "evidence_sha256": {
+      "pi.jsonl": "41e99a04fc744b248494d40209fb70755cb20452e9bff90467ba4702b23dd93d",
+      "result.json": "1e8c7308360eb634e695bc07a3f161b1088ad131a34ea1ae2ed4d5249b5ff106",
+      "pressure.tsv": "0ff9211af6d334054a667ae0c2d40534d44f2c86f5457d982604079da17ef3f0",
+      "server.log": "be97d7a5dff7abcf50eb5815dcbf0a60e10704942f84f96b78e3a7058069f363"
+    }
+  },
+  "actually_unattempted": [
+    "dev-recovery",
+    "dev-data",
+    "dev-migration",
+    "dev-investigation"
+  ],
+  "raw_summary_unattempted_includes_unscored_attempt": true,
+  "scope_limit": "Only three scored rows replayed by original audit; supplementary refactoring attempt replayed independently. Its artifact grade does not override protocol failure or increase run utility."
+}

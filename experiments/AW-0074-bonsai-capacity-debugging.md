@@ -1,6 +1,6 @@
 # AW-0074 — Larger-capacity exposed debugging falsifier
 
-Frozen, not running, 2026-10-05. Runtime admission prerequisite AW73 pending.
+Superseded before execution, 2026-10-05. Frozen plan preserved.
 
 One unchanged previously exposed development debugging task, no held-out content.
 Full pinned language/vision and same medium thinking recipe as AW72; context16K,
@@ -19,3 +19,8 @@ development ID, never broad-suite scoring or held-out use.
 A pass advances only to full original/development revalidation of new profile.
 It cannot erase AW72, establish broad capability or promote without full matched
 comparison policy, held-out preservation and interleaved all-overhead>=25% pairs.
+
+AW72 exposes inherited scorer KeyError for truncated empty tool arguments.
+AW75 falsifies repaired accounting; AW76 copies the same capacity test with
+that repair and newly frozen source identity. AW74 was never executed and must
+not be used as a success/failure realization. Its original plan/source stay intact.

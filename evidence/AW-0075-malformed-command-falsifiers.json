@@ -1,0 +1,54 @@
+{
+  "scope": "No-model temporary trace mutations; original raw evidence unchanged",
+  "passed": true,
+  "source_sha256": "5c8f841caffeb8b94dd2e3c09705c3086a6f146712a46361d851edaf37332647",
+  "cases": [
+    {
+      "case": "valid-regression-trace",
+      "passed": true,
+      "decision": "unchanged valid protocol result"
+    },
+    {
+      "case": "actual-empty-args",
+      "passed": true,
+      "decision": "rejected without exception",
+      "accounting": {
+        "attempted": 6,
+        "valid": 5,
+        "productive": null,
+        "redundant": null,
+        "malformed": 1,
+        "denied": null,
+        "failed": 1
+      }
+    },
+    {
+      "case": "null-args",
+      "passed": true,
+      "decision": "rejected without exception",
+      "accounting": {
+        "attempted": 6,
+        "valid": 5,
+        "productive": null,
+        "redundant": null,
+        "malformed": 1,
+        "denied": null,
+        "failed": 1
+      }
+    },
+    {
+      "case": "nonstring-command",
+      "passed": true,
+      "decision": "rejected without exception",
+      "accounting": {
+        "attempted": 6,
+        "valid": 5,
+        "productive": null,
+        "redundant": null,
+        "malformed": 1,
+        "denied": null,
+        "failed": 1
+      }
+    }
+  ]
+}

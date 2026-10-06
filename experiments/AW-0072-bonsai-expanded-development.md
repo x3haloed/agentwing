@@ -1,6 +1,6 @@
 # AW-0072 — Complete frozen expanded development screen
 
-Running, 2026-10-05. Candidate remains unqualified.
+Rejected at malformed protocol and scorer exception, 2026-10-05. Candidate remains unqualified.
 
 Select all eight development tasks from immutable P2 corpus in manifest order,
 never its sixteen held-out tasks. Full supported thinking recipe, medium effort,
@@ -55,3 +55,27 @@ Exact child hashes/replay: `evidence/AW-0072-multi-file-budget-failure.json`.
 Second distinct category shows the response cap is insufficient for this profile,
 not evidence that simply raising it will succeed. AW73/74 remain separate pending
 capacity experiments. Full current development screen continues to refactoring.
+
+## Terminal rejection / Complete attempt accounting
+
+Run ends1852.587s after four inference attempts and three scored rows. Qualified
+utility1; partial diagnostic rate1.943/hour is not full-panel accounting or
+promotion. Refactoring's independent artifact grade1 cannot override its malformed
+protocol: one output-limit-truncated bash call has empty arguments, Pi blocks it,
+then subsequent valid calls implement the requested change. The original scorer
+raises KeyError(command) during command extraction and never writes a fourth
+scored row. Six refactor calls: five valid/productive, one malformed/denied, one
+failed return. Final response allowance falls to1 token in the retained trace.
+All four attempted tasks remain pressure1 with zero swap growth.
+
+The raw summary lists refactoring as unattempted because it lacks a scored row;
+independent audit distinguishes this unscored inference attempt. Actually not
+attempted: recovery, data, migration, investigation. All16 tool attempts remain
+retained (15 valid,1 malformed/denied), including failed and masked command errors.
+`evidence/AW-0072-terminal-audit.json` checks exact raw receipt and independent
+artifact/protocol outcomes, preserving original run and metric without repair.
+
+Reject this exact8K/2048 expanded profile. AW73 separately tests16K admission;
+AW75 rejects malformed fields without throwing, and AW76 supersedes the unrun
+AW74 scorer with corrected accounting. Keep original frozen plans/source records
+and all capacity failures. No held-out exposure, verifier change or goal completion.

@@ -1320,3 +1320,20 @@ Three productive valid calls plus one unsupported cat -A read masked by a pipe's
 successful exit. Preserve semantic command failure separately from raw isError
 counts. This strengthens the configuration-capacity falsifier across categories;
 raising capacity is still an unproven candidate, not a discarded/repaired run.
+
+## 2026-10-05 — Expanded profile rejected; unsafe scorer extraction repaired separately
+
+AW72 ends at malformed truncated bash args: Pi denies empty call, model later
+produces independently passing refactor artifact, but protocol gate is violated
+and scorer raises KeyError(command). Qualified utility stays1 from three scored
+rows,1852.587s; four inference attempts, sixteen tool attempts. Refactor is an
+unscored attempted task; four later categories truly unattempted. Preserve raw
+summary and supplementary audit rather than rewriting its failure into success.
+Reject exact8K/2048 expanded profile. AW75 rejects empty/null/nonstring args
+without exceptions and preserves prior valid checks. AW74 superseded before
+execution; repaired AW76 frozen separately.
+
+AW73 full16K startup passes pressure1/swap growth0, peakRSS7,858,544KiB; KV1GiB.
+This proves startup admission only. AW76 begins exposed debugging with8192
+response allowance after ownership release; broader history/utility/pressure and
+interleaved qualification remain unproven. No held-out task exposed.

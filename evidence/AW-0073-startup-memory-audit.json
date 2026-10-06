@@ -1,0 +1,20 @@
+{
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0073/20261006T043811.711064Z",
+  "receipt_verified": true,
+  "receipt_sha256": "effac0820ec806d8c26d107d71ecffe89a2728d5ac03a0838f86eb42c5d35a01",
+  "result": {
+    "ready": true,
+    "error": null,
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0.0,
+    "rss_peak_kib": 7858544,
+    "wall_seconds": 7.039369750000333
+  },
+  "allocation_lines": [
+    "0.00.400.718 I llama_kv_cache:       MTL0 KV buffer size =     0.00 MiB",
+    "0.00.400.719 I llama_kv_cache: size = 1024.00 MiB ( 16384 cells,  16 layers,  1/1 seqs), K (f16):  512.00 MiB, V (f16):  512.00 MiB",
+    "0.01.182.493 I llama_kv_cache:       MTL0 KV buffer size =  1024.00 MiB",
+    "0.01.230.132 I llama_kv_cache: size = 1024.00 MiB ( 16384 cells,  16 layers,  1/1 seqs), K (f16):  512.00 MiB, V (f16):  512.00 MiB"
+  ],
+  "limits": "Full model/vision startup only; no inference peak, retained history behavior or work-rate qualification"
+}

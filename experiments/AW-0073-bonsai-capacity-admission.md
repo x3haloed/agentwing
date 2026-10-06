@@ -1,6 +1,6 @@
 # AW-0073 — Larger history/response capacity, cheap memory admission first
 
-Pre-inference harness check passes; runtime probe pending, 2026-10-05.
+Harness and startup admission pass, 2026-10-05; full inference remains unproven.
 
 AW72 debugging exhausts2048 output tokens before edits. Increasing output alone
 at8K would be clamped by pinned Pi. Invoke actual exported clamp function on the
@@ -23,3 +23,10 @@ larger capacities. Do not alter current AW72 or retry it. All task/tool/prompt,
 reasoning-effort/sampler/verifier/deadline and host gates remain unchanged; only
 capacity increases. KV compression remains a user-requested candidate if this
 larger full capacity cannot fit safely; do not label stock q4 as TurboQuant.
+
+Full16K startup reaches health, pressure1, swap growth0, peakRSS7,858,544KiB.
+KV buffer1024MiB as expected. Raw evidence:
+`/Users/chad/Models/agentwing/evidence/AW-0073/20261006T043811.711064Z`.
+Receipt independently verified in `evidence/AW-0073-startup-memory-audit.json`.
+Only startup is admitted; AW76 tests exposed debugging with safe malformed-call
+accounting before full-profile capability/performance revalidation.
