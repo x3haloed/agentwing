@@ -1495,3 +1495,13 @@ extrapolation. Both paths pass32-row actual-input CPU oracle at early/mid/late
 (max8.04e-6). Plan64 attention-output tensors only (+90MiB payload), preserving
 FFN PTQ and metadata. No artifact exists or promotion follows; full working-set,
 installation/memory and candidate-generated accumulation remain required.
+
+## AW-0097 — Exact selective artifact passes whole serialized integrity
+
+64 attention-output tensors converted, all15,728,640 code/scale blocks checked
+against independent Metal LUT before and after disk write;787 other payloads
+and metadata/tokenizer/header preserved. Mixed6.041GB artifact adds90MiB;
+warm build/audit23.286s, sampled pressure1/swap growth0. Retain for full working
+set and candidate accumulation; artifact integrity does not demonstrate runtime
+cost, vision behavior, broad capability or endpoint superiority. Original
+weights/configuration and frozen P1 preserved; derivative remains unqualified.

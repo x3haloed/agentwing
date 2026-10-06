@@ -1,0 +1,19 @@
+{
+  "id": "bonsai-selective-attention-pq-artifact",
+  "status": "integrity-passed-runtime-unqualified",
+  "base_proposal": "spec/bonsai-selective-packing-candidate.json",
+  "base_proposal_sha256": "d2d3fcefed8568522783382781441c9ce739ce6dba7c2c455196ee346d3e3a94",
+  "model_revision": "b072e1d3b35a0a630cece372c2127528e0994386",
+  "derivative": "Local exact selective packing, not a publisher PQ artifact",
+  "license": "Apache-2.0",
+  "path": "/Users/chad/Models/agentwing/checkpoints/bonsai2-27b/Ternary-Bonsai-2-27B-attention-PQ2_0.gguf",
+  "sha256": "cc11a9c76ee8e94a735e14789e17b952b33c9b84e7fe587b40dfe6cd6b96566c",
+  "bytes": 6041020768,
+  "changed_tensors": 64,
+  "unchanged_tensors": 787,
+  "expansion_bytes": 94371840,
+  "runtime_commit": "adfffbe41b2cabcd51fff326ab045662265062bb",
+  "integrity_evidence": "evidence/AW-0097-selective-artifact-integrity.json",
+  "metadata_policy": "All original metadata preserved including general.file_type; mixed packing identity is this manifest and actual tensor types",
+  "promoted": false
+}

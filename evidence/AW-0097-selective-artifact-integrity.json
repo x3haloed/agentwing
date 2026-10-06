@@ -1,0 +1,50 @@
+{
+  "experiment": "AW-0097",
+  "passed": true,
+  "error": null,
+  "output": "/Users/chad/Models/agentwing/checkpoints/bonsai2-27b/Ternary-Bonsai-2-27B-attention-PQ2_0.gguf",
+  "output_sha256": "cc11a9c76ee8e94a735e14789e17b952b33c9b84e7fe587b40dfe6cd6b96566c",
+  "output_bytes": 6041020768,
+  "selected_tensors": 64,
+  "unchanged_tensors": 787,
+  "timings": {
+    "source_hash_seconds": 3.2964507500000764,
+    "fsync_seconds": 0.0004467920007300563,
+    "write_conversion_fsync_seconds": 12.028819791001297,
+    "disk_reverification_seconds": 3.41821283399986,
+    "full_build_audit_seconds": 23.286143541001366
+  },
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0,
+  "plan_sha256": "ec06cbcae5e412fff5f98924e1daed9f1c1e5d3d777a9f81d4dfc2faf42dea11",
+  "tensor_integrity_sha256": "13673b2f22e51217ed0042c737fa5a64d6877da7967ffe22dbbf178b075fd5af",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0097",
+  "scope": "Serialized artifact/code/scale integrity and warm build cost, not runtime loading/activation/behavior or endpoint improvement",
+  "recursive_receipt_sha256": "c7d89a5a62cf0460b03e5606c714fcddb3a165ffc9500e796a85d02e628d60e5",
+  "raw_result_sha256": "99081346f5ee23ccf111c50af2d179ba202427aa105368544a7255af9ba0f322",
+  "independent_layout_audit": {
+    "experiment": "AW-0097",
+    "passed": true,
+    "only_header_changes": "Selected dtype143->142 and relocated offsets; all remaining header bytes including tokenizer/metadata/alignment unchanged",
+    "all_tensor_padding_bytes_compared": 0,
+    "tensors": 851,
+    "extra_bytes": 94371840,
+    "script_sha256": "7654cc41a6c199f0528781a0327afa0064a0eb160a004a2baea681d9ae708aa8",
+    "raw_result_sha256": "99081346f5ee23ccf111c50af2d179ba202427aa105368544a7255af9ba0f322"
+  },
+  "compiler": {
+    "command": [
+      "clang++",
+      "-std=c++17",
+      "-O2",
+      "-dynamiclib",
+      "experiments/fixtures/bonsai-repack-lut-verifier.cpp",
+      "-o",
+      "/Users/chad/Models/agentwing/evidence/AW-0097/lut-verifier.dylib"
+    ],
+    "version": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+    "exit": 0,
+    "note": "Build exit observed in tool output; compiler stdout/stderr were empty and not saved as a separate file"
+  },
+  "source_integrity": "passed"
+}
