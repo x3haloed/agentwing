@@ -1,0 +1,40 @@
+{
+  "experiment": "AW-0162",
+  "status": "running-full-request-screen",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0162",
+  "plan_sha256": "c9377d945ee6e20a7f3abd2e358f908be7cd3ebcb10723d7a2ec277e3b31468f",
+  "harness_sha256": "d2c67c29dac343b5f8d43a91b7248b6bb0d0cdbea179ea3199abb3bbe060bc2d",
+  "runtime_spec_sha256": "f4846fc8651617f5c22b419f6711b4207f0a36758b9f1f8e338deba93d522c06",
+  "prior_request_plan_sha256": "ab4157f5452667de41b2bef6548d3dd1f082cac9497ef416aaa53c04f53e75aa",
+  "request_structurally_identical_to_AW149": true,
+  "watchdogs_s": {
+    "startup": 60,
+    "request": 1800
+  },
+  "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.05,
+    "presence_penalty": 0,
+    "repeat_penalty": 1,
+    "frequency_penalty": 0,
+    "seed": 42,
+    "max_tokens": 8192,
+    "reasoning_effort": "medium"
+  },
+  "context": 16384,
+  "environment_overrides": {
+    "GGML_METAL_PTQ1_MULTICOL": "1"
+  },
+  "scope": "Unreplicated full accumulated request with bounded ngram2/3 rollback and native sampler; no tools executed or task score/performance claim",
+  "tool_execution": 0,
+  "process_handle": {
+    "exec_session_id": 56967,
+    "runner_pid": 20125,
+    "server_pid": 20177,
+    "worker_pid": 20199,
+    "qualification": "Observed live now; later continuations must revalidate rather than treating receipt as liveness."
+  },
+  "disposition": "Running, not admitted/promoted. Preserve all terminal outcomes; no speed ratio/task utility inference from this unpaired request."
+}
