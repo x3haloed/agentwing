@@ -1,0 +1,41 @@
+{
+  "experiment": "AW-0150",
+  "status": "static-survivor-runtime-cost-and-fidelity-unproven",
+  "source_revision": "adfffbe41b2cabcd51fff326ab045662265062bb plus preserved AW137 patch",
+  "sources": {
+    "common/speculative.cpp": "53f94ac47bb64e6fb6871ca7d003743acab5dcb5686df2605f3e1cdded846a69",
+    "common/sampling.cpp": "f23f8d663932bfd73abac1bd5e99055fc6efb07e21ef27dd7e25af2f2da40bff",
+    "common/common.cpp": "7f58e40159fba2afd18f72e8678ba031b1a68f16e307a2287ef6c5570f8bdf4f",
+    "common/common.h": "1296275b07e78f54240d0ae94a051c1d38388a9de979ff9f578422c2fade0b5f",
+    "common/arg.cpp": "750436391f6dec66a66b7c4a26d8746e79aad1f1978b4753e09d66cfeda9a0a2",
+    "tools/server/server-context.cpp": "6076fec9aec5948ec16e3c585fd2d0feb885bd5bfa5fca09eb0c7427e88ac104",
+    "ggml/src/ggml-metal/ggml-metal-device.cpp": "bf235127cd4eff8d1b113ec470a897b20b53765826a49a3bea87878ff413dc27"
+  },
+  "runtime_spec_sha256": "7b90c1047cfc23de542708df626f46eeae40de3c9eb2508b8468b47a3eda702d",
+  "server_help_sha256": "7adbf35f833ded5e4ef03bd03daa0ebc35404fb2fc78dcc193eadceaa1b7c6eb",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0150",
+  "candidate_flags": [
+    "--spec-type",
+    "ngram-simple",
+    "--spec-ngram-simple-size-n",
+    "4",
+    "--spec-ngram-simple-size-m",
+    "3"
+  ],
+  "candidate_environment": {
+    "GGML_METAL_PTQ1_MULTICOL": "1"
+  },
+  "evidence": [
+    "ngram-simple constructs a history lookup implementation without a draft-model load in its case",
+    "sample_and_accept_n samples/accepts each target token and compares to proposed token, stopping at mismatch; full matched draft gets one more target sample",
+    "PTQ1_MULTICOL opt-in limits activation columns to2..4; three proposed tokens plus target token fits4",
+    "common context initialization requests recurrent rollback state and falls back to checkpoint path if microbatch window cannot fit"
+  ],
+  "required_next_gates": [
+    "Frozen one-owner startup memory/swap screen before generation",
+    "Target-sampler/grammar fidelity, rejected-draft recurrent state restoration and complete accumulated behavior against unchanged control",
+    "Charge lookup, extra recurrent state, batch computation, rejection replay and startup; component timing cannot promote",
+    "Same native thinking sampler/medium/context/output/vision/task/tools/verifier/deadlines, then original+expanded interleaved campaign if survivor"
+  ],
+  "scope": "Read-only exact local source and CLI-capability screen. No speed estimate, inference, profile activation, model acquisition or promotion."
+}
