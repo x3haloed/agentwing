@@ -1380,3 +1380,11 @@ independent grading, protocol and host audit: 1332.764s diagnostic wall,
 peak pressure 1, swap growth 0 MiB. Retained for AW-0080 full development
 revalidation; this unpaired result does not establish a P1 rate improvement.
 Historical narrower-capacity negatives remain valid and preserved.
+
+## AW-0081 — Exact layout repacking survives tiny falsifier
+
+Source-derived CPU staging and Metal lookup agree on 6784 heterogeneous and
+exhaustive byte-position fixtures, and a positional PQ2 repack preserves all
+65536 raw scale bit patterns. Retain for compiled reference, real tensor and
+accumulated behavior checks. No model artifact, fidelity or speed acceptance
+is inferred; whole installation and memory costs remain open.

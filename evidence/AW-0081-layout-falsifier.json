@@ -1,0 +1,45 @@
+{
+  "experiment": "AW-0081",
+  "passed": true,
+  "runtime_commit": "adfffbe41b2cabcd51fff326ab045662265062bb",
+  "source_files": [
+    {
+      "path": "ggml/src/ggml-metal/kernels/dequantize.h",
+      "bytes": 34619,
+      "sha256": "7e5fea58ff0d994aadc1903a0fddcf54d9521aa3388e7d5f72c67b0b02dcf74b"
+    },
+    {
+      "path": "ggml/src/ggml-metal/kernels/mul_mv.metal",
+      "bytes": 159553,
+      "sha256": "0c022d8b5b573fcf19fdbcb8694949ec71323ec7547589585edfb210eecca8da"
+    },
+    {
+      "path": "ggml/src/ggml-metal/kernels/mul_mm.metal",
+      "bytes": 54009,
+      "sha256": "bcb19e28417b2e7f362213e437ea2386ed831b319a10ed816b30075a50dfbbed"
+    },
+    {
+      "path": "ggml/src/ggml-metal/ggml-metal-ops.cpp",
+      "bytes": 209742,
+      "sha256": "4fc444e4ee1f97f327db3b76c71f933c21e48111258bc292db1e1d696f34c8f5"
+    },
+    {
+      "path": "ggml/src/ggml-common.h",
+      "bytes": 136535,
+      "sha256": "96539c9bd8e4544692bf242951180edaa2fd5775864fbc3e833f44111b96b934"
+    },
+    {
+      "path": "ggml/src/ggml-quants.c",
+      "bytes": 234514,
+      "sha256": "46dd353f30e7f1c42c7d82d88d91fad64dbe5d6e680b234de25355d9fb482d13"
+    }
+  ],
+  "external_source": "/Users/chad/Models/agentwing/evidence/AW-0079/source-screen",
+  "payload_fixtures": 6784,
+  "all_byte_values_at_each_payload_position": true,
+  "scale_bit_patterns_preserved": 65536,
+  "reversed_order_mutation_detectable": true,
+  "scope": "Source-derived integer layout oracle only; no compiled CPU/Metal execution, model artifact, real activations or speed claim",
+  "disposition": "Retained for compiled reference and real tensor checks before full conversion",
+  "script_sha256": "9a53c88e4030b39c2e47903efe8c0fb6e45519a962e78281400bad95a418fe63"
+}

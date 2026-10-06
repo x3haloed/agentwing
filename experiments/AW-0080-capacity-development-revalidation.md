@@ -54,3 +54,7 @@ run `/Users/chad/Models/agentwing/evidence/AW-0080/20261006T053829.945708Z`; all
 the frozen plan. Manifest hash and actual host/OS/cache/thermal/storage state
 are preserved in `evidence/AW-0080-launch-check.json`. Results pending.
 No concurrent model owner or model download started.
+
+Confounder retained: AW-0081 source-derived integer layout check ran for
+approximately 2.1s during navigation. Its CPU work remains inside task wall;
+AW-0080 is an unpaired diagnostic, not a clean comparative rate measurement.
