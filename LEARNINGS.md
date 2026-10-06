@@ -2643,3 +2643,14 @@ replaypasses, pressure1/swapgrowth0. Receipt
 `evidence/AW-0212-first-control-partial.json` pins externalAW212raw/review.
 First6bitcandidate live; fullcampaignunresolved, no causalprompt/speed or
 fullmultimodal/endpointclaim. P1/defaults unchanged.
+
+### AW-0212 — first sharedplatformcontext6bit/F16 Pi pair passes
+
+First6bitcandidate126.565s exit0, sameexactartifact/sharedprompt/canonical
+protocol/rawhash/host/capacityauditpasses. Two validproductivecalls, no
+redundant/malformed/denied/failedcalls, pressure1/perarm swapgrowth0. First
+pair4productivevalidcalls/zeroexecutionerrors; differentinitialswaplevels
+betweenarms precludewholecampaign-zero-growth claim. Receipt
+`evidence/AW-0212-first-pair-partial.json` pinsexternalAW212raw/review.
+Second6bitarm live, fullcampaignunresolved; no causalprompt/speed orfull
+multimodal/endpointclaim, P1/defaults unchanged.

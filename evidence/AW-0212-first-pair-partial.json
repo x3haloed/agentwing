@@ -1,0 +1,156 @@
+{
+  "experiment": "AW-0212",
+  "status": "firstF16/6bitpair independentlypassed; second6bitarm live, fullcampaignunresolved",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0212",
+  "partial_audit": {
+    "experiment": "AW-0212",
+    "complete": false,
+    "passed": false,
+    "records": [
+      {
+        "index": 0,
+        "arm": "f16",
+        "result_sha256": "1352ff703a2bd50fef617bfb63ba1a0ba9d65bd5dbde2abc17dea64daf5255ce",
+        "protocol": {
+          "passed": true,
+          "checks": {
+            "events_nonempty": true,
+            "paired_unique_calls": true,
+            "bash_schema_valid": true,
+            "no_model_errors": true,
+            "fresh_model_load": true,
+            "serialized_unique_requests": true,
+            "all_requests_terminal": true,
+            "server_cleanup": true,
+            "no_context_shift": true,
+            "no_compaction": true,
+            "no_explicit_authority_access": true
+          },
+          "tool_accounting": {
+            "attempted": 2,
+            "valid": 2,
+            "productive": null,
+            "redundant": null,
+            "malformed": 0,
+            "denied": null,
+            "failed": 0
+          },
+          "commands": [
+            "ls -la && cat source.txt",
+            "cp source.txt answer.txt && diff source.txt answer.txt && cmp -s source.txt answer.txt && echo \"FILES MATCH\" && shasum -a 256 source.txt answer.txt"
+          ],
+          "request_count": 3,
+          "classification": "Productivity, redundancy and denial need separate transcript review; raw events retained."
+        },
+        "reviewed_tool_accounting": {
+          "attempted": 2,
+          "valid": 2,
+          "productive": 2,
+          "redundant": 0,
+          "malformed": 0,
+          "denied": 0,
+          "failed": 0,
+          "basis": "First call reads required content; second writes and verifies exactartifact. Extra listing/comparisons occur inside productive calls."
+        },
+        "pressure_peak": 2,
+        "swap_growth_peak_mib": 265.6300000000001,
+        "minimum_free_bytes": 256924647424,
+        "wall_seconds_diagnostic": 145.9398261669994
+      },
+      {
+        "index": 1,
+        "arm": "turbo6",
+        "result_sha256": "b81d226d1b0d6d8fc2758c2a3e4397f6aa2ad78b645dd87cda18c7c20ca377c7",
+        "protocol": {
+          "passed": true,
+          "checks": {
+            "events_nonempty": true,
+            "paired_unique_calls": true,
+            "bash_schema_valid": true,
+            "no_model_errors": true,
+            "fresh_model_load": true,
+            "serialized_unique_requests": true,
+            "all_requests_terminal": true,
+            "server_cleanup": true,
+            "no_context_shift": true,
+            "no_compaction": true,
+            "no_explicit_authority_access": true
+          },
+          "tool_accounting": {
+            "attempted": 2,
+            "valid": 2,
+            "productive": null,
+            "redundant": null,
+            "malformed": 0,
+            "denied": null,
+            "failed": 0
+          },
+          "commands": [
+            "ls -la && cat source.txt",
+            "xxd source.txt && cp source.txt answer.txt && cmp source.txt answer.txt && echo \"FILES MATCH\" && shasum -a 256 source.txt answer.txt"
+          ],
+          "request_count": 3,
+          "classification": "Productivity, redundancy and denial need separate transcript review; raw events retained."
+        },
+        "reviewed_tool_accounting": {
+          "attempted": 2,
+          "valid": 2,
+          "productive": 2,
+          "redundant": 0,
+          "malformed": 0,
+          "denied": 0,
+          "failed": 0,
+          "basis": "Firstcall reads requiredcontent; secondinspectsbytes thenwrites/verifies exactartifact. Repeatedcomparisons occurinsideproductivecall."
+        },
+        "pressure_peak": 1,
+        "swap_growth_peak_mib": 0,
+        "minimum_free_bytes": 253933903872,
+        "wall_seconds_diagnostic": 126.5653682090051
+      }
+    ],
+    "plan_sha256": "2bb2d01cab96442e2a42c2c9e4befcd7d767cea4d88b9eaf689b0e86c9b2eb67",
+    "review_sha256": "2f8a7aaa8c0fd3678b2f48b58af0c269b931c38818553bde5a4c9efe6c3bf560",
+    "auditor_sha256": "9ff4905cbf18416b5de52b57cc246b47cc969553ec05952baf73225d36bda093",
+    "scope": "Pi-only functional/cache screen, not complete multimodal/endpoint/causalprompt qualification"
+  },
+  "partial_audit_sha256": "06877aa46bcdcab8e7d370fd58ce1f7c8362b5d99c8809787514eb472214fed1",
+  "review_snapshot": {
+    "0": {
+      "commands": [
+        "ls -la && cat source.txt",
+        "cp source.txt answer.txt && diff source.txt answer.txt && cmp -s source.txt answer.txt && echo \"FILES MATCH\" && shasum -a 256 source.txt answer.txt"
+      ],
+      "pi_jsonl_sha256": "075b466434016c432dcb8689347d39e013cac2daf54a8c58b2fb68ab952fda8d",
+      "accounting": {
+        "attempted": 2,
+        "valid": 2,
+        "productive": 2,
+        "redundant": 0,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0,
+        "basis": "First call reads required content; second writes and verifies exactartifact. Extra listing/comparisons occur inside productive calls."
+      }
+    },
+    "1": {
+      "commands": [
+        "ls -la && cat source.txt",
+        "xxd source.txt && cp source.txt answer.txt && cmp source.txt answer.txt && echo \"FILES MATCH\" && shasum -a 256 source.txt answer.txt"
+      ],
+      "pi_jsonl_sha256": "1cd7aa786c5af8e1f2f0c8abead4def070a9d386b9578cb0e17a24a404227957",
+      "accounting": {
+        "attempted": 2,
+        "valid": 2,
+        "productive": 2,
+        "redundant": 0,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0,
+        "basis": "Firstcall reads requiredcontent; secondinspectsbytes thenwrites/verifies exactartifact. Repeatedcomparisons occurinsideproductivecall."
+      }
+    }
+  },
+  "review_snapshot_sha256": "2f8a7aaa8c0fd3678b2f48b58af0c269b931c38818553bde5a4c9efe6c3bf560",
+  "live_runner_session": 35003,
+  "scope": "Pi-onlysharedplatformcontext functionalpair; no causalprompt/speed, fullmultimodal orendpointqualification"
+}

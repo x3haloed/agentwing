@@ -2,7 +2,7 @@
 
 ## Status and hypothesis
 
-Running: firstF16control independentlypassed; first6bitcandidate live. Hypothesis: explicitplatformcontext in sharedPi
+Running: firstF16/6bitpair independentlypassed; second6bitarm live. Hypothesis: explicitplatformcontext in sharedPi
 systemprompt yields fourclean exact-file-copy runs acrossF16 and6bit caches.
 CheapPi-onlyscreen before repeatingfullmultimodaladmission; not endpointscore.
 
@@ -43,3 +43,11 @@ sharedprompt/host/capacityreplaypassed: pressure1/swapgrowth0. Two valid
 productivecalls read thenwrite+verify, no redundant/malformed/denied/failed
 calls. Receipt `evidence/AW-0212-first-control-partial.json`. Thisdoesnot
 proveplatformpromptcaused improvement; candidate/fullcampaignpending.
+
+First6bitcandidate126.565s exit0, samebyteartifact/sharedprompt/canonical
+protocol/raw/host/capacityauditpasses. Two productivevalidcalls, zero
+redundant/malformed/denied/failedcalls; pressure1/perarm swapgrowth0.
+Combinedfirstpair4validproductivecalls/no failures; rawbaseline swapped
+bytes differbetweenfresharms, no wholecampaign-zero-swap assertion. Receipt
+`evidence/AW-0212-first-pair-partial.json`; second6bitarm live, allfourarms
+required, no causalprompt/speed orfullmultimodal/endpointqualification.
