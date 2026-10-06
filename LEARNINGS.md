@@ -1901,3 +1901,16 @@ Reject presumed cheap unchanged-path acceleration; rolling-state allocation
 requires a new runtime/memory/fidelity candidate. AW154 initial counts preserved,
 AW141 utility0 and P1 unchanged. Static source/parent/raw hashes in
 evidence/AW-0155-history-checkpoint-cost.json; external AW-0155. No inference.
+
+
+### AW-0156 — history configuration sweep preserves checkpoint rejection
+
+Exact AW141 native history, unchanged compiled proposer and independent Python
+replay agree across26 eligible lookup1–4/proposal<=8 settings plus4/3 negative
+control. Best conditional checkpoint equal-pass ratio1.109765 (4/8); all below
+1.25 before copy/lookup/batched cost. Hypothetical no-checkpoint1/8 ratio1.456921
+falls to.789533 with rejection replay, emphasizing required rollback validation.
+Not actual speed or a universal kernel bound. Reject presumed strong unchanged
+path acceleration; new bounded rollback runtime remains unresolved. No inference,
+no promotion, P1 unchanged. Full counts/source/input/raw hashes in
+evidence/AW-0156-history-config-screen.json; external AW-0156.

@@ -1,0 +1,512 @@
+{
+  "experiment": "AW-0156",
+  "hypothesis": "An eligible history setting offers sufficient oracle opportunity to justify live complete-cost testing.",
+  "primary_metric": "Oracle verification/rejection pass counts; no measured speed.",
+  "configs": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      3
+    ]
+  ],
+  "ids_sha256": "1a421a8e305956a99b130c7905f0bbed9ab2ecbf44f29613e4c8816c3745d0e7",
+  "initial_ids_sha256": "8c3d7018bdb0fdc04fc246682da432e2fceae1eaf2703522ebf24e245386aee3",
+  "fixture_sha256": "f1bb7bc37ab7eaf39858014f229305aef4ef108a5cc139ee82525a9430362adb",
+  "parent_receipts_sha256": {
+    "AW-0154-native-history-screen.json": "6537c414d66787a9163f5be9e4068f98ac428d6081af3155095bad3b13b8cc0b",
+    "AW-0155-history-checkpoint-cost.json": "99ca05fa0ef29b1a3b1cbf002e10819932e2d82abd8b9b4a7d45af6dc53a602d"
+  },
+  "acceptance": "Retain an opportunity survivor only if equal-cost pass ratio excluding copies exceeds1.25 with current checkpoint path or with a separately validated future rollback path. No promotion; full task/native sampler unchanged.",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0156",
+  "results": [
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 6262,
+      "draft_calls": 5510,
+      "proposed": 5510,
+      "oracle_accepted": 1432,
+      "rejection_batches": 4078,
+      "ideal_equal_pass_ratio": 1.228681,
+      "lookup": 1,
+      "proposal": 1,
+      "checkpoint_equal_pass_ratio": 0.7441005802707931,
+      "fits_existing_ptq_multicol": true
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 5842,
+      "draft_calls": 5090,
+      "proposed": 10159,
+      "oracle_accepted": 1853,
+      "rejection_batches": 4479,
+      "ideal_equal_pass_ratio": 1.317015,
+      "lookup": 1,
+      "proposal": 2,
+      "checkpoint_equal_pass_ratio": 0.7454704001550237,
+      "fits_existing_ptq_multicol": true
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 5612,
+      "draft_calls": 4860,
+      "proposed": 14497,
+      "oracle_accepted": 2083,
+      "rejection_batches": 4488,
+      "ideal_equal_pass_ratio": 1.370991,
+      "lookup": 1,
+      "proposal": 3,
+      "checkpoint_equal_pass_ratio": 0.7617821782178218,
+      "fits_existing_ptq_multicol": true
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 5480,
+      "draft_calls": 4728,
+      "proposed": 18732,
+      "oracle_accepted": 2215,
+      "rejection_batches": 4492,
+      "ideal_equal_pass_ratio": 1.404015,
+      "lookup": 1,
+      "proposal": 4,
+      "checkpoint_equal_pass_ratio": 0.7715603690332932,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 5398,
+      "draft_calls": 4646,
+      "proposed": 22897,
+      "oracle_accepted": 2297,
+      "rejection_batches": 4480,
+      "ideal_equal_pass_ratio": 1.425343,
+      "lookup": 1,
+      "proposal": 5,
+      "checkpoint_equal_pass_ratio": 0.77890261186475,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 5342,
+      "draft_calls": 4590,
+      "proposed": 26997,
+      "oracle_accepted": 2353,
+      "rejection_batches": 4476,
+      "ideal_equal_pass_ratio": 1.440285,
+      "lookup": 1,
+      "proposal": 6,
+      "checkpoint_equal_pass_ratio": 0.7836626604196374,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 5306,
+      "draft_calls": 4554,
+      "proposed": 31076,
+      "oracle_accepted": 2389,
+      "rejection_batches": 4471,
+      "ideal_equal_pass_ratio": 1.450057,
+      "lookup": 1,
+      "proposal": 7,
+      "checkpoint_equal_pass_ratio": 0.786948961849238,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 5281,
+      "draft_calls": 4529,
+      "proposed": 35113,
+      "oracle_accepted": 2414,
+      "rejection_batches": 4464,
+      "ideal_equal_pass_ratio": 1.456921,
+      "lookup": 1,
+      "proposal": 8,
+      "checkpoint_equal_pass_ratio": 0.7895330938943048,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 5921,
+      "draft_calls": 2728,
+      "proposed": 5456,
+      "oracle_accepted": 1774,
+      "rejection_batches": 2057,
+      "ideal_equal_pass_ratio": 1.299443,
+      "lookup": 2,
+      "proposal": 2,
+      "checkpoint_equal_pass_ratio": 0.964402105790925,
+      "fits_existing_ptq_multicol": true
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 5727,
+      "draft_calls": 2534,
+      "proposed": 7586,
+      "oracle_accepted": 1968,
+      "rejection_batches": 2130,
+      "ideal_equal_pass_ratio": 1.343461,
+      "lookup": 2,
+      "proposal": 3,
+      "checkpoint_equal_pass_ratio": 0.9792541682576047,
+      "fits_existing_ptq_multicol": true
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 5617,
+      "draft_calls": 2424,
+      "proposed": 9659,
+      "oracle_accepted": 2078,
+      "rejection_batches": 2166,
+      "ideal_equal_pass_ratio": 1.36977,
+      "lookup": 2,
+      "proposal": 4,
+      "checkpoint_equal_pass_ratio": 0.9885648207632018,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 5532,
+      "draft_calls": 2339,
+      "proposed": 11634,
+      "oracle_accepted": 2163,
+      "rejection_batches": 2146,
+      "ideal_equal_pass_ratio": 1.390817,
+      "lookup": 2,
+      "proposal": 5,
+      "checkpoint_equal_pass_ratio": 1.0020838760093775,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 5503,
+      "draft_calls": 2310,
+      "proposed": 13766,
+      "oracle_accepted": 2192,
+      "rejection_batches": 2181,
+      "ideal_equal_pass_ratio": 1.398146,
+      "lookup": 2,
+      "proposal": 6,
+      "checkpoint_equal_pass_ratio": 1.0013014055179594,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 5471,
+      "draft_calls": 2278,
+      "proposed": 15810,
+      "oracle_accepted": 2224,
+      "rejection_batches": 2178,
+      "ideal_equal_pass_ratio": 1.406324,
+      "lookup": 2,
+      "proposal": 7,
+      "checkpoint_equal_pass_ratio": 1.005883121976729,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 5437,
+      "draft_calls": 2244,
+      "proposed": 17762,
+      "oracle_accepted": 2258,
+      "rejection_batches": 2168,
+      "ideal_equal_pass_ratio": 1.415119,
+      "lookup": 2,
+      "proposal": 8,
+      "checkpoint_equal_pass_ratio": 1.0117028270874424,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 6168,
+      "draft_calls": 1381,
+      "proposed": 4143,
+      "oracle_accepted": 1527,
+      "rejection_batches": 1029,
+      "ideal_equal_pass_ratio": 1.247406,
+      "lookup": 3,
+      "proposal": 3,
+      "checkpoint_equal_pass_ratio": 1.0690565513408365,
+      "fits_existing_ptq_multicol": true
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 6058,
+      "draft_calls": 1271,
+      "proposed": 5082,
+      "oracle_accepted": 1637,
+      "rejection_batches": 1035,
+      "ideal_equal_pass_ratio": 1.270056,
+      "lookup": 3,
+      "proposal": 4,
+      "checkpoint_equal_pass_ratio": 1.0847314253489355,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 6003,
+      "draft_calls": 1216,
+      "proposed": 6076,
+      "oracle_accepted": 1692,
+      "rejection_batches": 1053,
+      "ideal_equal_pass_ratio": 1.281692,
+      "lookup": 3,
+      "proposal": 5,
+      "checkpoint_equal_pass_ratio": 1.090419501133787,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 5974,
+      "draft_calls": 1187,
+      "proposed": 7112,
+      "oracle_accepted": 1721,
+      "rejection_batches": 1067,
+      "ideal_equal_pass_ratio": 1.287914,
+      "lookup": 3,
+      "proposal": 6,
+      "checkpoint_equal_pass_ratio": 1.0927425081664537,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 5950,
+      "draft_calls": 1163,
+      "proposed": 8126,
+      "oracle_accepted": 1745,
+      "rejection_batches": 1072,
+      "ideal_equal_pass_ratio": 1.293109,
+      "lookup": 3,
+      "proposal": 7,
+      "checkpoint_equal_pass_ratio": 1.0956992309883224,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 5927,
+      "draft_calls": 1140,
+      "proposed": 9091,
+      "oracle_accepted": 1768,
+      "rejection_batches": 1069,
+      "ideal_equal_pass_ratio": 1.298127,
+      "lookup": 3,
+      "proposal": 8,
+      "checkpoint_equal_pass_ratio": 1.0997712978845053,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 6402,
+      "draft_calls": 816,
+      "proposed": 3264,
+      "oracle_accepted": 1292,
+      "rejection_batches": 622,
+      "ideal_equal_pass_ratio": 1.201812,
+      "lookup": 4,
+      "proposal": 4,
+      "checkpoint_equal_pass_ratio": 1.095387243735763,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 6350,
+      "draft_calls": 764,
+      "proposed": 3820,
+      "oracle_accepted": 1344,
+      "rejection_batches": 621,
+      "ideal_equal_pass_ratio": 1.211654,
+      "lookup": 4,
+      "proposal": 5,
+      "checkpoint_equal_pass_ratio": 1.103715392339693,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 6332,
+      "draft_calls": 746,
+      "proposed": 4475,
+      "oracle_accepted": 1362,
+      "rejection_batches": 644,
+      "ideal_equal_pass_ratio": 1.215098,
+      "lookup": 4,
+      "proposal": 6,
+      "checkpoint_equal_pass_ratio": 1.1029243119266054,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 6308,
+      "draft_calls": 722,
+      "proposed": 5051,
+      "oracle_accepted": 1386,
+      "rejection_batches": 640,
+      "ideal_equal_pass_ratio": 1.219721,
+      "lookup": 4,
+      "proposal": 7,
+      "checkpoint_equal_pass_ratio": 1.1073690270581462,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 6291,
+      "draft_calls": 705,
+      "proposed": 5629,
+      "oracle_accepted": 1403,
+      "rejection_batches": 642,
+      "ideal_equal_pass_ratio": 1.223017,
+      "lookup": 4,
+      "proposal": 8,
+      "checkpoint_equal_pass_ratio": 1.1097648925429107,
+      "fits_existing_ptq_multicol": false
+    },
+    {
+      "baseline_steps": 7694,
+      "verification_passes": 7694,
+      "draft_calls": 0,
+      "proposed": 0,
+      "oracle_accepted": 0,
+      "rejection_batches": 0,
+      "ideal_equal_pass_ratio": 1.0,
+      "lookup": 4,
+      "proposal": 3,
+      "checkpoint_equal_pass_ratio": 1.0,
+      "fits_existing_ptq_multicol": true
+    }
+  ],
+  "raw_sha256": {
+    "2-8.txt": "009ae0c9aa90c148fcd77b96867ba13ab991f8ade0c4509d75812a83b4f6b50f",
+    "4-8.txt": "9f41199dfccd34a1d754cf552bf93f833458f903d07b9d012eee60d94bd31406",
+    "plan.json": "3a27de0f7327736b3154adde4ca144f646508b42fa23931e164604e44d672621",
+    "1-8.txt": "2eed1ad81e26936e27928f7561ec50f9c2a51a925735a0aed68118cddc175f02",
+    "3-8.txt": "ea5dbfc0398fa361da7b838006b2375eb529d4347033de9e35c9347670826524",
+    "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "1-1.txt": "34285b87e26f94e6223f0c28c50ccae73ea36030b88ea9105835e8369b01f4ca",
+    "3-3.txt": "ce97aa4fa22c1c9419c8d294b8a7d1c67e7c08643c291d74a7280a4eab9bb231",
+    "1-3.txt": "5845ca5e26d8a1cfb3658312448b607bc0a94cc27c39f60f8497527de45dc8b7",
+    "1-2.txt": "3479840f1534b9639c06b35d8ecbf275f6af468de8dae452b6f477cfeedb3bb6",
+    "3-4.txt": "30d282a704df500b93eba086082fcc96321ece9df77792558e38450ec8291d13",
+    "1-6.txt": "7c40e4123d408d86195ee3d80cd674cd1db107514309c1a63c0176db7d1b6071",
+    "screen": "d2442006eed8cc54c37d5d7bf2e17e9fdb132d899def6433f5132653a3bb50be",
+    "1-7.txt": "2a9a8af676b2426cea520be6e7aa674ae6228d4f71bbb6858a0b4e9a6f5d9805",
+    "3-5.txt": "a2227b2785ea1b41e2603291c56f3e59c54ebca89983d43154815df79f668de5",
+    "3-7.txt": "87df93cf59834491c6204c5a8766838201bf93f3873a9c5e9724aaa162deb10d",
+    "1-5.txt": "8b8443c2190cf00662b950ceaa174eb409fb572c714adcae6064184db1472bb8",
+    "1-4.txt": "f9d959b7c908d35c0266772bc47056b874b688f51c32bd1208bbf55bb40c3fb1",
+    "3-6.txt": "8a8cda94de5d85eb8a832d3787e628700d8dac51cf9d981808fc45e06ce4e73d",
+    "4-7.txt": "b53ce256c461aa76be9dae7df5b93c8e51e66580a495e2da0be2483d27cb32b9",
+    "4-6.txt": "a7c8c9eb953c3d52e0a27942fcbac82efed6e46601642d998145fbddb6d45d5c",
+    "2-2.txt": "1e97200b9ec95162cb3d86559eb12172206c31917fcfd58dea5778795780059e",
+    "4-4.txt": "fc66ac39e0b22f59e80afb65d1cf163800cd11ba7287fcfd28634cd828ae443d",
+    "4-5.txt": "62ea677a99501f8db19cf434df94ed4dcf1b3960cabe56410ac9e9c9047d4480",
+    "2-3.txt": "cf70517637898064b73a324c9e75ebda9be47600cd7a7b36f2ee1afdd8ae62a3",
+    "2-7.txt": "f28e28694c8c44ff9ba6eed00d5cdb5584c7720d3bcdde6931b0acd9f2850e37",
+    "2-6.txt": "13c3119326a6394e628d767c856600eb4e8176e3914dcfa8d4505c53926c5d3c",
+    "2-4.txt": "9a9362b4c18a4e017eb2c9ff741162f0f15feafec19a6a1e849550bdd2ef9373",
+    "4-3.txt": "5fc8c3a4e631ad7c290a7e400bf9a5f8961e6c58df821c4ff99ebee27400bd80",
+    "2-5.txt": "42da1b4377837aef0e5ee15c16e67571e64304b9900e4ed75219d78b4486a840"
+  },
+  "scope": "Exact historical generated IDs and unchanged native proposer only. Oracle trajectory is not a future sampler guarantee. Copies/lookup/batched compute/rollback fidelity and autonomous utility remain unmeasured. No inference.",
+  "independent_python_replay_all_configs": true,
+  "disposition": "Reject unchanged checkpoint path as a strong acceleration candidate on this trace; all eligible settings below1.25 conditional equal-pass ratio even before copies. Future rolling-state path unresolved."
+}
