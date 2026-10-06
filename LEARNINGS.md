@@ -1692,3 +1692,12 @@ Full isolated build passes with pressure1/swap growth0. Integratedbase identity
 and nine real populated-cache encoding checks pass byte-exactly; Prism42/142/143
 preserved. Retain stage, not full CPU/Metal cache backend or model generation
 admission. Turbo2 remains quality-screen rejected despite ABI coverage.
+
+## AW-0125/AW-0126 — Prism Metal backend writes Turbo cache correctly
+
+Split Prism quantize library now embeds unchanged Atomic Turbo writer helpers/
+kernels, backend supports SET_ROWS types144–146. Isolated build passes; six
+actual ggml_set_rows graphs for Turbo3/4 real layers3/31/63 reproduce standalone
+GPU writer bytes exactly with reverse destination indices. Pressure1/swapgrowth0.
+Retain backend writer stage. Compressed attention/inverse op/cache graph and
+model allocation/generated trajectory remain absent; no endpoint promotion.
