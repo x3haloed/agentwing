@@ -2698,3 +2698,12 @@ lsdiagnostic inside successfulcompoundcall preserved, no zero-warningclaim.
 audit/review. Supersedespartialstatus; retainfunctionalcandidate forlong
 nativehistory/selecteddev thenfixedendpointladder, AW211negative/P1/defaults
 preserved. No causalprompt/speed/25%utility orfullGooglePolarQuant/QJLclaim.
+
+### AW-0214 — long-history F16 control passes; candidate pending
+
+Independent strict audit of the fresh F16 control passes terminal native bash
+proposal behavior and resource gates: 723.922 seconds diagnostic, pressure 2,
+swap growth 33.69 MiB. One valid proposal, zero executed calls; productivity
+unknown. Receipt `evidence/AW-0214-control-terminal.json` pins raw external
+evidence and audit. Six-bit arm now running; retain unresolved campaign,
+with no utility, comparative speed or P1 promotion claim.

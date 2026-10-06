@@ -2,7 +2,7 @@
 
 ## Status and hypothesis
 
-RunningF16control. Functional6bit/platform-PiadmissionAW213passed; nowtest
+F16 control terminal; six-bit candidate running. Functional6bit/platform-PiadmissionAW213passed; nowtest
 historicalAW195fourthrequest withbothcacheconfigs. Hypothesis:6bit complete
 nativebashproposal withinunchanged8192output/1800srequestbudget. Botharms
 must producecleanterminaltool_calls/DONEwithvalidproposal forbehavior
@@ -48,3 +48,13 @@ Running/unresolved. F16controlisnotthefrozenP1. Completevalidproposalwould
 onlyretainlongrequestbehaviorsurvivor forselectedrealdevelopment task, then
 fixedoriginal/expandedendpointladder. No utility/P1promotion, defaults
 unchanged andfull25%goal remainsunproven.
+
+## F16 control terminal
+
+Independent partial audit passes: 3566 events, one terminal tool_calls and
+one DONE, one valid native bash proposal, no stream errors. Proposal remains
+unexecuted and productivity unknown. Wall time 723.922 seconds is diagnostic.
+Peak pressure 2, swap growth 33.69 MiB, minimum sampled free disk
+217149898752 bytes; client and cleaned-up server exit zero. Raw hashes and
+partial audit are pinned in `evidence/AW-0214-control-terminal.json`.
+Six-bit candidate is running on the identical saved request; pair unresolved.
