@@ -33,3 +33,16 @@ AW70 all8 original successes independently audited before launch. Ownership and
 full frozen-input check-only preflight subsequently passes with no model owner.
 Raw run: `/Users/chad/Models/agentwing/evidence/AW-0072/20261006T040507.320499Z`.
 No held-out task passed to model. Terminal result and independent audit pending.
+
+## Interim development falsifier
+
+Navigation passes330.707s. Debugging fails440.693s with valid protocol, pressure1
+and zero swap growth. Independent grade replay confirms original iterator bug
+remains. Two valid productive source-discovery/read calls, no edits. The final
+response exhausts2048 output tokens while still thinking (`stopReason=length`);
+Pi settles without applying the discussed fix. Preserve as configuration-level
+output-budget failure, not unsupported claim that model cannot solve the task.
+Small exact-hash/replay record: `evidence/AW-0072-debugging-budget-failure.json`.
+Continue remaining development tasks as frozen; do not retry or raise budgets
+inside this run. Future profile must account for adequate generation/history
+capacity and charge the extra reasoning wall; no speed by clipping reasoning.

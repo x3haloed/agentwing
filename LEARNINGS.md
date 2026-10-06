@@ -1290,3 +1290,14 @@ complete bounded-state medium-thinking configuration for AW72 expanded8-category
 development. Native AW64 wrong-count and AW66 pressure negatives remain intact.
 Manual literal data output and small original fixtures limit capability inference;
 held-out panel, all-overhead interleaved pairs and comparison policy remain open.
+
+## 2026-10-05 — AW72 expanded debugging exposes output-budget exhaustion
+
+Native supported-thinking profile passes all original tasks but fails expanded
+debugging: two productive source reads, then2048 output tokens exhausted during
+thinking before any edit. Independent grader confirms unchanged iterator bug;
+protocol valid, pressure1 and swap growth0. This is a complete-configuration
+failure and440.693s charged zero-utility work, not model-only capability evidence.
+The original profile's output cap is not proven adequate for expanded tasks.
+Preserve current frozen run and all remaining outcomes; a larger response/history
+budget requires a new declared candidate, with its full reasoning cost charged.
