@@ -1,0 +1,71 @@
+{
+  "experiment": "AW-0093",
+  "exit": 0,
+  "error": null,
+  "passed": true,
+  "finite": true,
+  "capture_files": {
+    "1-0.bin": {
+      "bytes": 1114112,
+      "sha256": "d436856a74c8ae6e96b66da5362dc422c635be6c8888b440e91b668cf6dfa5fe"
+    },
+    "1-1.bin": {
+      "bytes": 327680,
+      "sha256": "417a82946aaa13ea16aa906a9cf3ea3f47d2164ef942199cdd48e7b4393e3ebf"
+    },
+    "3-1.bin": {
+      "bytes": 327680,
+      "sha256": "5f5779f5c405134160b4079e1ef8168a9638dd535dc77151abafc0446914cf41"
+    },
+    "3-0.bin": {
+      "bytes": 1114112,
+      "sha256": "9cd6b2039e10100e2f8654cbab662185e558a19ca20586400c325b9ff2418341"
+    },
+    "5-1.bin": {
+      "bytes": 327680,
+      "sha256": "375ad0ccfccd3c9050b5fa1688d7835ca6b9b28603723024e58ce5e16e1655e9"
+    },
+    "5-0.bin": {
+      "bytes": 1114112,
+      "sha256": "29e15292c770a16c09fc67a6750afa6e61020cda361002d65ab46626c84f367c"
+    },
+    "2-1.bin": {
+      "bytes": 327680,
+      "sha256": "9c89267c3bdbb717e328b8ff57e25d08af7292ab630fca9960bdad7b33fa1d3e"
+    },
+    "2-0.bin": {
+      "bytes": 393216,
+      "sha256": "4f7b74a4455caaf25cd12c74aef081e0a3fec0022073038f055679ce70f3f9f7"
+    },
+    "0-0.bin": {
+      "bytes": 393216,
+      "sha256": "d904adfde8461653e93b01a8ea2043fd68032806851c02f2026f7c4184142ed8"
+    },
+    "0-1.bin": {
+      "bytes": 327680,
+      "sha256": "91d9bfe0a9b1bddd7cf2800cc011de5569cf19b7b49286e0e31ad995dc07162e"
+    },
+    "4-1.bin": {
+      "bytes": 327680,
+      "sha256": "79fb4a5c3dba98b4409b5eb393d8c4da394d04fc6e2e1bced71d1c7279b577b3"
+    },
+    "4-0.bin": {
+      "bytes": 393216,
+      "sha256": "34573eb1b8e559a4cf473e50ed259974e3f6ebed75b1b49168e5b154557c2498"
+    }
+  },
+  "plan_sha256": "daaa10004a2d61f8f81c053b2bf0914a89dc015fc2a4b22254383b1cbacfbe2a",
+  "capture_index_sha256": "85d6cabcbf2cd59b6b274d3ead3a3906e9cc294826c9797d0e2d2f73097d0dbc",
+  "native_log_sha256": "3bed528718d1f76d18d4cef5432333598280bcb57f3a5e100017fbcdbd6fa20b",
+  "pressure_sha256": "a2007e65d4f7ae2b5fe1ae1a0d76717b8f9dc5d20e0da59d04362c2775ca3855",
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0,
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+  "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0093",
+  "scope": "Prompt-only real activations, no generation, accumulated candidate or endpoint claim",
+  "recursive_receipt_sha256": "012a93ed16bf44b9d8235ebcfc066317797f424930db8613e76089a64b0e9a30",
+  "source_runtime_audit": "passed",
+  "raw_result_sha256": "1593ad40038f0bfc5cce32ea8daba80936f6b92e018041c605ec69192583c000"
+}

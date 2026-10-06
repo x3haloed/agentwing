@@ -1476,3 +1476,13 @@ cost screen shows PQ slower for single-column graph totals and compute, but
 Retain for other families/resident-weight costs under predeclared rule; this
 screen does not justify full conversion or establish an endpoint improvement.
 Generated-token and accumulated candidate behavior remain unvalidated.
+
+## AW-0093/AW-0094 — Wider cost screen disfavors uniform PQ decode
+
+Real early attention is ssm_out, unlike middle/late attn_output; complete
+attention-output/FFN-down inputs were captured. Interleaved single-column PQ
+FFN-down compute is slower at all sampled layers, while attention-output
+compute gains4–10% but loses overall with installation. Sixteen-column totals
+gain7–11%. Retain selective/resident screening, not uniform full conversion;
+full working-set/cold durable installation/accumulated behavior remain open.
+Phase-only preparation pressure samples do not establish continuous safety.
