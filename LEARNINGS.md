@@ -2275,3 +2275,15 @@ pipeline/host replay valid, host1/growth0. Retain primitive survivor; no fresh
 modelowntrajectory/vision/tools/endpoints yet. P1/default/runtime unchanged,
 AW187failure retained. ExternalAW189, pins
 evidence/AW-0189-codebook-metal-attention.json.
+
+
+### AW-0190 — stationary cache survives own accumulated model, behavior unresolved
+
+All6fresh same-runtime arms technical/resource/capture gates pass. FirstL2
+early/mid/late .025394/.015687/.026672, top20overlap1; historicaloldcodec
+.043795/.024844/.052939 (roughly42/37/50%lower). Prompts match, freshFP16
+32logits/bytes bitexact prior. Different frozenruntime diagnostics, no task /
+speed causality. Own32prefix4/0/11 (matches4/2/12), not uniform identitygain
+or general agentquality. KV408MiB only, host1/growth0. Retain modelnumeric
+survivor for fullserver/vision/tools, no endpoint promotion/P1/default change.
+ExternalAW190, pins evidence/AW-0190-stationary-cache-terminal.json.

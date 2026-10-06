@@ -36,3 +36,20 @@ python3 scripts/audit_bonsai_stationary_cache_replay.py (partial neveracceptance
 Raw: /Users/chad/Models/agentwing/evidence/AW-0190.
 Manifest: evidence/AW-0190-stationary-cache-plan.json.
 Disposition unresolved until all terminal gates and model behavior inspected.
+
+## Terminal result
+
+All6exit0/full32finite logits/captures, raw/source/input/library/numeric/host
+replay passes. FirstL2 early/mid/late .025394289/.015686517/.026672352 with
+top20overlap1 allthree. Historicaloldcodec .043795/.024844/.052939; reductions
+approximately42%/37%/50%. Same savedprompt bytes, allfreshFP16 controls32logits /
+generatedbytes bitexact prior controls, different frozen runtime configurations
+so no task/performance causal claim. Own32commonprefix4/0/11, matches4/2/12;
+identity does not uniformly improve and is not taskquality. Earlier identity
+claim rejected, outputs allowed to differ by TARGET. KV408MiB vsFP161024MiB
+allocation only, pressure1/no growth allarms. Full startup/lifetime traces retained.
+
+Retain fullmodel numeric/resource survivor, no promotion. Next fullserver /
+localvision build, then real tool-response and multimodal/agent loops before
+replicated fixedcorpus endpoint utility. P1/default/deployed runtime unchanged.
+Receipt: evidence/AW-0190-stationary-cache-terminal.json.
