@@ -1359,3 +1359,11 @@ Pressure1/swap growth0. No normalizer salvage succeeded; preserve rejected outpu
 and frozen control, not a model-only or infinite-ratio promotion claim. AW76's
 valid larger-capacity success warrants AW78 full original revalidation, not
 qualification. All later capability,held-out,matched policy and endpoint gates open.
+
+## AW-0079 — Packing storage is a tradeoff, not an endpoint result
+
+Pinned PQ2_0 metadata adds 1,259,520,000 bytes (1.173 GiB; 21.18%) over
+installed PTQ1_0. Retain it for isolated runtime cost and fidelity admission;
+no download or runtime substitution during AW-0078. Vision, KV, recurrent
+state and compute costs remain separate. Publisher guidance does not establish
+M1 utility/hour or decoded-tensor equivalence. See AW-0079; no promotion.

@@ -1,0 +1,65 @@
+{
+  "scope": "Published pinned artifact metadata only; no weights downloaded or read during inference",
+  "url": "https://huggingface.co/api/models/prism-ml/Ternary-Bonsai-2-27B-gguf/revision/b072e1d3b35a0a630cece372c2127528e0994386?blobs=true",
+  "response_sha256": "5ed96e3da6bda1eb56f606b1d9253680a889b13b65b7fc254d15aa850b24fcf5",
+  "model_revision": "b072e1d3b35a0a630cece372c2127528e0994386",
+  "artifacts": [
+    {
+      "rfilename": "Ternary-Bonsai-2-27B-F16.gguf",
+      "blobId": "6ed901f6df9dcae2058958b3aec54f3620a10b5d",
+      "size": 53808408928,
+      "lfs": {
+        "sha256": "f6f3b2c9b41956c34b379ec7c301dc936bc38d79b3c24c83388dd7d76000c180",
+        "size": 53808408928,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "Ternary-Bonsai-2-27B-PQ2_0.gguf",
+      "blobId": "8d0823f96b78839696c57d6ee544160444f956f7",
+      "size": 7206168928,
+      "lfs": {
+        "sha256": "3907dc1658db1f78a9826bf8d5bcb8dc65db0d466388937af57f2294fae62ec1",
+        "size": 7206168928,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "Ternary-Bonsai-2-27B-PTQ1_0.gguf",
+      "blobId": "8c9da0522bd62bdda9347ed1855ea024d7e11765",
+      "size": 5946648928,
+      "lfs": {
+        "sha256": "53107f530aa52eb00912263ab1ee29bd199261c87cd7b4ad4ca1318c1fe33ee3",
+        "size": 5946648928,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "Ternary-Bonsai-2-27B-mmproj-BF16.gguf",
+      "blobId": "fe3f1d0119708de49e8d3166013238229535fa97",
+      "size": 931145856,
+      "lfs": {
+        "sha256": "e287342d92332fa3577ed1d42e921dac9370c08da58ba9337fa450f6cc76cfd7",
+        "size": 931145856,
+        "pointerSize": 134
+      }
+    },
+    {
+      "rfilename": "Ternary-Bonsai-2-27B-mmproj-Q8_0.gguf",
+      "blobId": "19ca9905c6e3ddcd06960506f4d1bf19613ce169",
+      "size": 629246976,
+      "lfs": {
+        "sha256": "6807ede61d570bb86ba34b756a0fa109edc33668604de867c6ea6d8f1d631903",
+        "size": 629246976,
+        "pointerSize": 134
+      }
+    }
+  ],
+  "cost_screen": {
+    "additional_disk_bytes": 1259520000,
+    "additional_disk_gib": 1.1730194091796875,
+    "language_artifact_size_ratio": 1.2118033223837221,
+    "scope": "Disk cost exact from published metadata; runtime residency, fidelity and speed unmeasured. KV and vision costs unchanged by language packing alone.",
+    "disposition": "retained for later isolated admission; no download during AW-0078"
+  }
+}
