@@ -2484,3 +2484,17 @@ new6bit corrected to samecontract. Receipt
 Retain experimentalbuild; embedded Metal has not been runtimecompiled or
 executed, server/vision notbuilt, nativewriter/consumer cost and correctness
 stillrequired. No inference/endpoint acceptance, defaults/P1 unchanged.
+
+### AW-0202/AW-0203 — native6bit writer has a boundary mismatch
+
+AW202first nativeMetal startup failed shadercompilation: appended6bitFA
+instantiations followed FA_TYPESundef. AW203onefile scopepatch/rebuild
+repairs initialization. Freshsamegates screen4bitlayer3 exactpass,6bitlayer3
+onecodeof49152 differs onebin; scaleerror.000938passes, exactcodegateFAILS,
+remaining10cases stopped. Bothpressure1/noswapgrowth. CPUoffending rotated
+coordinate liesoneF32ULP below cut; nativevalue notcaptured, causeunproven.
+Preservefailedscreens and setup/copymode failures in externalAW202/AW203,
+receipts `evidence/AW-0202-turbo6-native-writer-terminal.json` and
+`evidence/AW-0203-turbo6-native-writer-terminal.json`. Currentwriter rejected
+screen, formatunresolved; instrument nativeprecision before freshunchanged
+screen. No attention/model/vision/endpointacceptance, defaults/P1 unchanged.

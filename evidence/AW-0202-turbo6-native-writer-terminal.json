@@ -1,0 +1,172 @@
+{
+  "experiment": "AW-0202",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0202",
+  "plan": {
+    "experiment": "AW-0202",
+    "hypothesis": "Native Turbo6 SET_ROWS preserves CPU indices/scales with reverse-row placement and avoids >35% writer construction cost regression",
+    "acceptance": "All payload bytes match CPU after reversed192rows, reserved zero, finite FP16normrelative<=.0015;12cases exit0/host/disk gates; all6paired steady median ratios<=1.35. Cost screen allowance reflects AW200 worst32% combined prototype overhead; not performance promotion.",
+    "repeats_per_window": 64,
+    "source_sha256": "574a326b2b1bd7398e64155550ac18e8b79f3bafc0cc8a48d85836c5bf0f9b4c",
+    "runner_sha256": "839f963f535bd1a28a4b855be3983dd4677857d8581796e444d7882b1dab3d50",
+    "binary_sha256": "2d9bdafee4009389e1b7f9dac9547e16f36197e4caf133959bff75808c2e65f9",
+    "build_receipt_sha256": "345ceb87fbd0760f62ee5bc566b6c21436d82f4d7f0090f07247c629e458a377",
+    "input_authority_sha256": "5f7ffe4499c426fe37a61bf23f955e6fb5b08bd7a5676af141799b0b6edc184e",
+    "inputs_sha256": {
+      "31-4-decoded.bin": "82e842ff75f8b152c9e418f06c4dd2a4da96af7331f8dd59e44cc3bc101a9255",
+      "63-6-packed.bin": "b0d8a027b2cddc3bc8f65b2f36098bce93c580783aee2c6a3872da04cff1855f",
+      "31-6-packed.bin": "c39b9ee467108dd9b96ebeb9e8e23d3f7820e8215b675ba20391a87d7fd53d11",
+      "63-6-decoded.bin": "4fd4f807701cbaff3c03f85fabee7a758bf5e1d67b0edfcd27f036e492dfb138",
+      "63-4-packed.bin": "adb4914bb183b8188c34464ffc4119c3e16d8a06002668ef9ed72818df8bdd55",
+      "31-4-packed.bin": "7754be7aba0159340d9ab2f1f746665e9cc1f9517b659595a86a45c16e06774c",
+      "3-4-decoded.bin": "905e727c7bcdf462cb9607f3470737519ed09206374c32a7e771055b3aa908b4",
+      "3-4-packed.bin": "38114c690468c93af42d2d24b50906ef0bcfc2eef772fadce151c3437d636288",
+      "63-4-decoded.bin": "e2d75de569a532318ec3fb97dfc8487470b9beb219e46043812424ba5ef39cc8",
+      "3-6-decoded.bin": "6fcdf133fb0f605ee468cc716c730295996e3ff0ffb941be12659b70ddff3616",
+      "3-6-packed.bin": "9ffc9f188117db318f5cdc975b6eb94d8bd3e3434b8d0c5cf195dec788e33c3f",
+      "31-6-decoded.bin": "01208a30de693854b37ebf6b0d3a5ddca7f1abcc450cb629cde9bd6aea5f4591"
+    },
+    "order": [
+      [
+        3,
+        "control"
+      ],
+      [
+        3,
+        "candidate"
+      ],
+      [
+        3,
+        "candidate"
+      ],
+      [
+        3,
+        "control"
+      ],
+      [
+        31,
+        "control"
+      ],
+      [
+        31,
+        "candidate"
+      ],
+      [
+        31,
+        "candidate"
+      ],
+      [
+        31,
+        "control"
+      ],
+      [
+        63,
+        "control"
+      ],
+      [
+        63,
+        "candidate"
+      ],
+      [
+        63,
+        "candidate"
+      ],
+      [
+        63,
+        "control"
+      ]
+    ],
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+    "storage": "internalSSD",
+    "cache": "Fresh processes, OS cache uncontrolled, ABBA per layer, warmup retained",
+    "scope": "Native192row SET_ROWS writer; no native attention/full-model/vision/agent endpoint claim",
+    "sampling_context_tools": "Not applicable, saved components, no inference/tools"
+  },
+  "result": {
+    "experiment": "AW-0202",
+    "complete": false,
+    "numeric_passed": false,
+    "cost_gate_passed": false,
+    "rows": [
+      {
+        "index": 0,
+        "layer": 3,
+        "arm": "control",
+        "exit": 3,
+        "error": null,
+        "packed_index_scale_gate_passed": false,
+        "max_norm_relative_error": null,
+        "all_iteration_seconds": [],
+        "steady_median_seconds": null,
+        "pressure_peak": 1,
+        "baseline_swap_mib": 1712.62,
+        "swap_growth_peak_mib": 0,
+        "lifetime_seconds": 6.641000666000764,
+        "output_sha256": null,
+        "log_sha256": "9d1b6df3bc2b4c013a0739f0ad488de54b7eb7e56343eb9fcb57a59f3b3c33e4"
+      }
+    ],
+    "pairs": [],
+    "unattempted": [
+      [
+        3,
+        "candidate"
+      ],
+      [
+        3,
+        "candidate"
+      ],
+      [
+        3,
+        "control"
+      ],
+      [
+        31,
+        "control"
+      ],
+      [
+        31,
+        "candidate"
+      ],
+      [
+        31,
+        "candidate"
+      ],
+      [
+        31,
+        "control"
+      ],
+      [
+        63,
+        "control"
+      ],
+      [
+        63,
+        "candidate"
+      ],
+      [
+        63,
+        "candidate"
+      ],
+      [
+        63,
+        "control"
+      ]
+    ],
+    "plan_sha256": "e1187119fe17f900c540e871539c02d6880cc92123f27c58b22afd920c4713db",
+    "scope": "Native192row SET_ROWS writer; no native attention/full-model/vision/agent endpoint claim"
+  },
+  "raw_sha256": {
+    "0-control.log": "9d1b6df3bc2b4c013a0739f0ad488de54b7eb7e56343eb9fcb57a59f3b3c33e4",
+    "0-pressure.tsv": "f2cc285b9ca84d93ffaeb5e9c6a28e768cde458ae34647a032a37b83cd50d2c3",
+    "plan.json": "e1187119fe17f900c540e871539c02d6880cc92123f27c58b22afd920c4713db",
+    "result.json": "3c0a0f0fbe7612b6030e907a40a7caa26482e122e08d95759bd74c5dc1a19708",
+    "attempt-0-stale-plan-runner.py": "e9a68d1d7bba0b0d5ef9385125a42900bc0eacde9281ad675151d34e5340e3a0",
+    "writer": "2d9bdafee4009389e1b7f9dac9547e16f36197e4caf133959bff75808c2e65f9",
+    "0-result.json": "27a24f694e8e2b2101e3ef341639b388c6ddb42cfb968557243b34cddb6f2bcd"
+  },
+  "hash_replay_passed": true,
+  "disposition": "rejected implementation screen; preserved negative, not whole-format or endpoint rejection",
+  "scope": "Native192row SET_ROWS writer; no native attention/full-model/vision/agent endpoint claim"
+}

@@ -45,7 +45,7 @@ template<typename type4> void dequantize_turbo6_0_t4(device const block_turbo6_0
     }
 }
 ''';p.write_text(x+'\n'+writer+'\ntypedef decltype(kernel_set_rows_turbo6<int64_t>) set_rows_turbo6_t;\ntemplate [[host_name("kernel_set_rows_f32_i64_turbo6")]] kernel set_rows_turbo6_t kernel_set_rows_turbo6<int64_t>;\ntemplate [[host_name("kernel_set_rows_f32_i32_turbo6")]] kernel set_rows_turbo6_t kernel_set_rows_turbo6<int32_t>;\n')
- edit('ggml/src/ggml-metal/kernels/fa.metal',lambda x:x+'\n'+'\n'.join(l.replace('turbo4','turbo6') for l in x.splitlines() if 'template [[host_name(' in l and 'turbo4' in l)+'\n')
+ edit('ggml/src/ggml-metal/kernels/fa.metal',lambda x:''.join(l+(l.replace('turbo4','turbo6') if 'template [[host_name(' in l and 'turbo4' in l else '') for l in x.splitlines(True)))
  for name in ['ggml/src/ggml-metal/ggml-metal-device.m','ggml/src/ggml-metal/ggml-metal-ops.cpp','src/llama-context.cpp','src/llama-graph.cpp','common/arg.cpp']:
   def guards(x):
    x=re.sub(r'([\w>\.\[\]-]+) == GGML_TYPE_TURBO4_0',r'(\1 == GGML_TYPE_TURBO4_0 || \1 == GGML_TYPE_TURBO6_0)',x)

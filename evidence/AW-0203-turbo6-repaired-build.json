@@ -1,0 +1,16 @@
+{
+  "experiment": "AW-0203",
+  "parent_build_receipt_sha256": "345ceb87fbd0760f62ee5bc566b6c21436d82f4d7f0090f07247c629e458a377",
+  "repair_patch_sha256": "47c65196046979de501dc0eb8be2eb9eab9ad254fedb39a089ba2025258b265c",
+  "final_library_sha256": {
+    "libggml-base.0.21.0.dylib": "f9b79d823cec9a84e33d40324057361eace46e5471391eac27101cdc8c77098f",
+    "libggml-blas.0.21.0.dylib": "f6de5a3f3d1ef3226969a5b4cfc9ca1b4215a9d8025a22337a906cfaaf82612f",
+    "libggml.0.21.0.dylib": "8535281478863289e4baef828c7cd6ac738942962829444acf77f735fd648fe3",
+    "libllama.0.2.0.dylib": "0e7523b90fd3e49048f1b626e0292412d6f4b7d8e1aed90bbf42268a385d5506",
+    "libggml-cpu.0.21.0.dylib": "bba55d98e97873e0d5eadb4817dffe59dedbb5a9b5a9907a0c191d49c5074f60",
+    "libggml-metal.0.21.0.dylib": "b514d6fad735ac78fe15118d98861cea981312c8ab1ef7ec3da3b4a3defd36d2"
+  },
+  "build_exit_code": 0,
+  "build_log_sha256": "6269a3b2e6936e35b8b7e74870a96b3b953c7de91debe6d0bfc094f21e607900",
+  "shader_sha256": "4a1f1fa35859e53877faa330c6cda24bd9f92b69b9d0a8ea45575959cdec0f90"
+}

@@ -1,0 +1,236 @@
+{
+  "experiment": "AW-0203",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0203",
+  "plan": {
+    "experiment": "AW-0203",
+    "hypothesis": "Native Turbo6 SET_ROWS preserves CPU indices/scales with reverse-row placement and avoids >35% writer construction cost regression",
+    "acceptance": "All payload bytes match CPU after reversed192rows, reserved zero, finite FP16normrelative<=.0015;12cases exit0/host/disk gates; all6paired steady median ratios<=1.35. Cost screen allowance reflects AW200 worst32% combined prototype overhead; not performance promotion.",
+    "repeats_per_window": 64,
+    "source_sha256": "574a326b2b1bd7398e64155550ac18e8b79f3bafc0cc8a48d85836c5bf0f9b4c",
+    "runner_sha256": "79958b1d232e98a1119e8a925f6c35e2d54872ab69801c48b53b32c107dd6df7",
+    "binary_sha256": "2d9bdafee4009389e1b7f9dac9547e16f36197e4caf133959bff75808c2e65f9",
+    "build_receipt_sha256": "15fe08a04fff054d7151d115e4ed1bc3fdc21c08408e3fa7033901d8c758c2a7",
+    "input_authority_sha256": "5f7ffe4499c426fe37a61bf23f955e6fb5b08bd7a5676af141799b0b6edc184e",
+    "inputs_sha256": {
+      "31-4-decoded.bin": "82e842ff75f8b152c9e418f06c4dd2a4da96af7331f8dd59e44cc3bc101a9255",
+      "63-6-packed.bin": "b0d8a027b2cddc3bc8f65b2f36098bce93c580783aee2c6a3872da04cff1855f",
+      "31-6-packed.bin": "c39b9ee467108dd9b96ebeb9e8e23d3f7820e8215b675ba20391a87d7fd53d11",
+      "63-6-decoded.bin": "4fd4f807701cbaff3c03f85fabee7a758bf5e1d67b0edfcd27f036e492dfb138",
+      "63-4-packed.bin": "adb4914bb183b8188c34464ffc4119c3e16d8a06002668ef9ed72818df8bdd55",
+      "31-4-packed.bin": "7754be7aba0159340d9ab2f1f746665e9cc1f9517b659595a86a45c16e06774c",
+      "3-4-decoded.bin": "905e727c7bcdf462cb9607f3470737519ed09206374c32a7e771055b3aa908b4",
+      "3-4-packed.bin": "38114c690468c93af42d2d24b50906ef0bcfc2eef772fadce151c3437d636288",
+      "63-4-decoded.bin": "e2d75de569a532318ec3fb97dfc8487470b9beb219e46043812424ba5ef39cc8",
+      "3-6-decoded.bin": "6fcdf133fb0f605ee468cc716c730295996e3ff0ffb941be12659b70ddff3616",
+      "3-6-packed.bin": "9ffc9f188117db318f5cdc975b6eb94d8bd3e3434b8d0c5cf195dec788e33c3f",
+      "31-6-decoded.bin": "01208a30de693854b37ebf6b0d3a5ddca7f1abcc450cb629cde9bd6aea5f4591"
+    },
+    "order": [
+      [
+        3,
+        "control"
+      ],
+      [
+        3,
+        "candidate"
+      ],
+      [
+        3,
+        "candidate"
+      ],
+      [
+        3,
+        "control"
+      ],
+      [
+        31,
+        "control"
+      ],
+      [
+        31,
+        "candidate"
+      ],
+      [
+        31,
+        "candidate"
+      ],
+      [
+        31,
+        "control"
+      ],
+      [
+        63,
+        "control"
+      ],
+      [
+        63,
+        "candidate"
+      ],
+      [
+        63,
+        "candidate"
+      ],
+      [
+        63,
+        "control"
+      ]
+    ],
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+    "storage": "internalSSD",
+    "cache": "Fresh processes, OS cache uncontrolled, ABBA per layer, warmup retained",
+    "scope": "Native192row SET_ROWS writer; no native attention/full-model/vision/agent endpoint claim",
+    "sampling_context_tools": "Not applicable, saved components, no inference/tools"
+  },
+  "result": {
+    "experiment": "AW-0203",
+    "complete": false,
+    "numeric_passed": false,
+    "cost_gate_passed": false,
+    "rows": [
+      {
+        "index": 0,
+        "layer": 3,
+        "arm": "control",
+        "exit": 0,
+        "error": null,
+        "packed_index_scale_gate_passed": true,
+        "max_norm_relative_error": 0.0,
+        "all_iteration_seconds": [
+          0.028967625,
+          0.02732525,
+          0.027312208,
+          0.0296795,
+          0.029684458
+        ],
+        "steady_median_seconds": 0.028502375,
+        "pressure_peak": 1,
+        "baseline_swap_mib": 1712.62,
+        "swap_growth_peak_mib": 0,
+        "lifetime_seconds": 19.942730374998064,
+        "output_sha256": "030e24355d1386d728df17a54ae2a616d93b6bacdacb8dc7eaf9893aa8ea7927",
+        "log_sha256": "b5e25d0e0e5b47d3e42abb5fb8dbff9045ecc25862857b523e2be3f513c99dbb"
+      },
+      {
+        "index": 1,
+        "layer": 3,
+        "arm": "candidate",
+        "exit": 0,
+        "error": null,
+        "packed_index_scale_gate_passed": false,
+        "max_norm_relative_error": 0.0009380863039399625,
+        "all_iteration_seconds": [
+          0.127660667,
+          0.037091,
+          0.038673667,
+          0.038015167,
+          0.03710425
+        ],
+        "steady_median_seconds": 0.0375597085,
+        "pressure_peak": 1,
+        "baseline_swap_mib": 1712.62,
+        "swap_growth_peak_mib": 0,
+        "lifetime_seconds": 0.5460327089967905,
+        "output_sha256": "1a484d829ddadc10cab4c6c6daa5c2b3192dc6926ad1e1ceefcd05b9170b0b0b",
+        "log_sha256": "e71a71dab924f717e722aa52c97e65d1677afdd8b1fa998b113c788a3a306049"
+      }
+    ],
+    "pairs": [],
+    "unattempted": [
+      [
+        3,
+        "candidate"
+      ],
+      [
+        3,
+        "control"
+      ],
+      [
+        31,
+        "control"
+      ],
+      [
+        31,
+        "candidate"
+      ],
+      [
+        31,
+        "candidate"
+      ],
+      [
+        31,
+        "control"
+      ],
+      [
+        63,
+        "control"
+      ],
+      [
+        63,
+        "candidate"
+      ],
+      [
+        63,
+        "candidate"
+      ],
+      [
+        63,
+        "control"
+      ]
+    ],
+    "plan_sha256": "6b63e43ff0cf8d335248ea3d20c97ad9c0da297643a4473596e36818213e9c84",
+    "scope": "Native192row SET_ROWS writer; no native attention/full-model/vision/agent endpoint claim"
+  },
+  "raw_sha256": {
+    "threshold-proximity.json": "084c780bb50295a6442a45c3c85ea105c2b3ed18decd88a0711e442caaf3a0d1",
+    "repair-plan.json": "fd9eec6ef4351e08c1bb419a8854acdaa96f6ada77ba8cfd09bd3739d451b6de",
+    "index-mismatch-diagnostic.json": "3cbf3db4ef53a5335e7fe9f276b5e9fc25eaca3a68269cb60a9b4ffc41699bcf",
+    "build.log": "6269a3b2e6936e35b8b7e74870a96b3b953c7de91debe6d0bfc094f21e607900",
+    "attempt-1/0-control.log": "b5e25d0e0e5b47d3e42abb5fb8dbff9045ecc25862857b523e2be3f513c99dbb",
+    "attempt-1/0-pressure.tsv": "067fda51f9ac34a1b665dc5d68b9b7de7a83693fd48d5753cca3c5083319bef1",
+    "attempt-1/1-result.json": "438079507f4e0c64dddfcfef8462e601d694b963d3b315baad2770ee675087d6",
+    "attempt-1/1-pressure.tsv": "4ba3cf9656f5c049b87455d7c3669efbcd449700c28c464a5c4417fe0b9817a6",
+    "attempt-1/plan.json": "6b63e43ff0cf8d335248ea3d20c97ad9c0da297643a4473596e36818213e9c84",
+    "attempt-1/result.json": "65b16ddb4269a4508e99e39130e82fda064884b9f2a298fa6979f514b65061d4",
+    "attempt-1/1-candidate.bin": "1a484d829ddadc10cab4c6c6daa5c2b3192dc6926ad1e1ceefcd05b9170b0b0b",
+    "attempt-1/0-control.bin": "030e24355d1386d728df17a54ae2a616d93b6bacdacb8dc7eaf9893aa8ea7927",
+    "attempt-1/writer": "2d9bdafee4009389e1b7f9dac9547e16f36197e4caf133959bff75808c2e65f9",
+    "attempt-1/0-result.json": "2e99d74ed7feec35f4dec020ec45587b440fd9b3f1c8b2017de53d944a25ef7a",
+    "attempt-1/1-candidate.log": "e71a71dab924f717e722aa52c97e65d1677afdd8b1fa998b113c788a3a306049",
+    "attempt-0-copy-mode/0-control.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "attempt-0-copy-mode/plan.json": "bfe8fe45fa0a7e3ee9e05c6c60872c820866e052a70ad40f716ea7f672f2cfd9",
+    "attempt-0-copy-mode/result.json": "f22aefb0e98892eb1cc6ef444d808e08dd9ae6ad234e0577b99ae7ff1d7b4abd",
+    "attempt-0-copy-mode/writer": "2d9bdafee4009389e1b7f9dac9547e16f36197e4caf133959bff75808c2e65f9",
+    "attempt-0-copy-mode/0-result.json": "54e46166215898acf403da5b07da9db6de9de93619c72bea819b1fc2cd043f28"
+  },
+  "hash_replay_passed": true,
+  "disposition": "rejected implementation screen; preserved negative, not whole-format or endpoint rejection",
+  "scope": "Native192row SET_ROWS writer; no native attention/full-model/vision/agent endpoint claim",
+  "repair_build_receipt_sha256": "15fe08a04fff054d7151d115e4ed1bc3fdc21c08408e3fa7033901d8c758c2a7",
+  "index_diagnostic": {
+    "layer": 3,
+    "mismatched_codes": 1,
+    "total_codes": 49152,
+    "max_code_delta": 1,
+    "first_block_coordinate_pairs": [
+      [
+        148,
+        29
+      ]
+    ],
+    "reserved_nonzero": false,
+    "scope": "Diagnostic after failed exactcode gate; no gate relaxed, no attribution to fast math proven"
+  },
+  "threshold_proximity": {
+    "experiment": "AW-0203",
+    "block": 148,
+    "coordinate": 29,
+    "cpu_rotated_value": 0.16137585043907166,
+    "nearest_cut_index": 54,
+    "nearest_cut": 0.16137586534023285,
+    "cpu_signed_margin": -1.4901161193847656e-08,
+    "margin_float32_ulps": -1.0,
+    "scope": "CPU proximity diagnostic only; native Metal rotated value not captured, cause not proven; exact-index gate remains failed"
+  }
+}

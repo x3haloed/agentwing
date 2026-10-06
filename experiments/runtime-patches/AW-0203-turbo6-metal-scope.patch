@@ -1,0 +1,30 @@
+--- a/ggml/src/ggml-metal/kernels/fa.metal
++++ b/ggml/src/ggml-metal/kernels/fa.metal
+@@ -1055,7 +1055,9 @@
+ 
+ template [[host_name("kernel_flash_attn_ext_kq8_0_vturbo3_dk256_dv256")]] kernel flash_attn_ext_t kernel_flash_attn_ext<FA_TYPES, block_q8_0, 2, dequantize_q8_0, block_turbo3_0, NL_TURBO3, dequantize_turbo3_0, 256, 256>;
+ template [[host_name("kernel_flash_attn_ext_kq8_0_vturbo4_dk256_dv256")]] kernel flash_attn_ext_t kernel_flash_attn_ext<FA_TYPES, block_q8_0, 2, dequantize_q8_0, block_turbo4_0, 8, dequantize_turbo4_0, 256, 256>;
++template [[host_name("kernel_flash_attn_ext_kq8_0_vturbo6_dk256_dv256")]] kernel flash_attn_ext_t kernel_flash_attn_ext<FA_TYPES, block_q8_0, 2, dequantize_q8_0, block_turbo6_0, 8, dequantize_turbo6_0, 256, 256>;
+ template [[host_name("kernel_flash_attn_ext_kf16_vturbo4_dk256_dv256")]] kernel flash_attn_ext_t kernel_flash_attn_ext<FA_TYPES, half4x4, 1, dequantize_f16, block_turbo4_0, 8, dequantize_turbo4_0, 256, 256>;
++template [[host_name("kernel_flash_attn_ext_kf16_vturbo6_dk256_dv256")]] kernel flash_attn_ext_t kernel_flash_attn_ext<FA_TYPES, half4x4, 1, dequantize_f16, block_turbo6_0, 8, dequantize_turbo6_0, 256, 256>;
+ template [[host_name("kernel_flash_attn_ext_kq8_0_vf16_dk256_dv256")]] kernel flash_attn_ext_t kernel_flash_attn_ext<FA_TYPES, block_q8_0, 2, dequantize_q8_0, half4x4, 1, dequantize_f16, 256, 256>;
+ #undef FA_TYPES
+ #undef FA_TYPES_BF
+@@ -2060,7 +2062,9 @@
+ 
+ template [[host_name("kernel_flash_attn_ext_vec_kq8_0_vturbo3_dk256_dv256")]] kernel flash_attn_ext_vec_t kernel_flash_attn_ext_vec<FA_TYPES, block_q8_0, 8, dequantize_q8_0_t4, block_turbo3_0, NL_TURBO3_VEC, dequantize_turbo3_0_t4, 256, 256, 1>;
+ template [[host_name("kernel_flash_attn_ext_vec_kq8_0_vturbo4_dk256_dv256")]] kernel flash_attn_ext_vec_t kernel_flash_attn_ext_vec<FA_TYPES, block_q8_0, 8, dequantize_q8_0_t4, block_turbo4_0, 32, dequantize_turbo4_0_t4, 256, 256, 1>;
++template [[host_name("kernel_flash_attn_ext_vec_kq8_0_vturbo6_dk256_dv256")]] kernel flash_attn_ext_vec_t kernel_flash_attn_ext_vec<FA_TYPES, block_q8_0, 8, dequantize_q8_0_t4, block_turbo6_0, 32, dequantize_turbo6_0_t4, 256, 256, 1>;
+ template [[host_name("kernel_flash_attn_ext_vec_kf16_vturbo4_dk256_dv256")]] kernel flash_attn_ext_vec_t kernel_flash_attn_ext_vec<FA_TYPES, half4, 1, dequantize_f16_t4, block_turbo4_0, 32, dequantize_turbo4_0_t4, 256, 256, 1>;
++template [[host_name("kernel_flash_attn_ext_vec_kf16_vturbo6_dk256_dv256")]] kernel flash_attn_ext_vec_t kernel_flash_attn_ext_vec<FA_TYPES, half4, 1, dequantize_f16_t4, block_turbo6_0, 32, dequantize_turbo6_0_t4, 256, 256, 1>;
+ template [[host_name("kernel_flash_attn_ext_vec_kq8_0_vf16_dk256_dv256")]] kernel flash_attn_ext_vec_t kernel_flash_attn_ext_vec<FA_TYPES, block_q8_0, 8, dequantize_q8_0_t4, half4, 1, dequantize_f16_t4, 256, 256, 1>;
+ #undef FA_TYPES
+ #undef FA_TYPES_F32
+@@ -2259,7 +2263,3 @@
+ template [[host_name("kernel_lightning_indexer_q5_1")]] kernel kernel_lightning_indexer_t kernel_lightning_indexer<block_q5_1, 2, dequantize_q5_1>;
+ template [[host_name("kernel_lightning_indexer_q8_0")]] kernel kernel_lightning_indexer_t kernel_lightning_indexer<block_q8_0, 2, dequantize_q8_0>;
+ 
+-template [[host_name("kernel_flash_attn_ext_kq8_0_vturbo6_dk256_dv256")]] kernel flash_attn_ext_t kernel_flash_attn_ext<FA_TYPES, block_q8_0, 2, dequantize_q8_0, block_turbo6_0, 8, dequantize_turbo6_0, 256, 256>;
+-template [[host_name("kernel_flash_attn_ext_kf16_vturbo6_dk256_dv256")]] kernel flash_attn_ext_t kernel_flash_attn_ext<FA_TYPES, half4x4, 1, dequantize_f16, block_turbo6_0, 8, dequantize_turbo6_0, 256, 256>;
+-template [[host_name("kernel_flash_attn_ext_vec_kq8_0_vturbo6_dk256_dv256")]] kernel flash_attn_ext_vec_t kernel_flash_attn_ext_vec<FA_TYPES, block_q8_0, 8, dequantize_q8_0_t4, block_turbo6_0, 32, dequantize_turbo6_0_t4, 256, 256, 1>;
+-template [[host_name("kernel_flash_attn_ext_vec_kf16_vturbo6_dk256_dv256")]] kernel flash_attn_ext_vec_t kernel_flash_attn_ext_vec<FA_TYPES, half4, 1, dequantize_f16_t4, block_turbo6_0, 32, dequantize_turbo6_0_t4, 256, 256, 1>;
