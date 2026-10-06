@@ -1,0 +1,43 @@
+{
+  "experiment": "AW-0155",
+  "hypothesis": "Ngram3/3 can use bounded recurrent rollback in the current pinned server without checkpoint replay.",
+  "primary_metric": "Source-path eligibility and required checkpoint/replay operations, not timing.",
+  "runtime_files_sha256": {
+    "common/common.h": "1296275b07e78f54240d0ae94a051c1d38388a9de979ff9f578422c2fade0b5f",
+    "common/common.cpp": "7f58e40159fba2afd18f72e8678ba031b1a68f16e307a2287ef6c5570f8bdf4f",
+    "tools/server/server-context.cpp": "6076fec9aec5948ec16e3c585fd2d0feb885bd5bfa5fca09eb0c7427e88ac104"
+  },
+  "parent_receipt_sha256": "6537c414d66787a9163f5be9e4068f98ac428d6081af3155095bad3b13b8cc0b",
+  "scope": "Read-only static falsifier; no inference or configuration change. AW141/AW148/AW151 retain full model/runtime/harness/host provenance.",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0155",
+  "checks": {
+    "ngram_excluded_from_rollback_allocator": true,
+    "checkpoint_before_nonempty_draft": true,
+    "rejected_draft_restores_checkpoint_and_sampler": true,
+    "replay_scheduled_after_restore": true
+  },
+  "oracle_counts": {
+    "verification_passes": 6168,
+    "draft_calls": 1381,
+    "proposed": 4143,
+    "accepted": 1527,
+    "rejection_batches": 1029,
+    "matches_compiled_proposer": true
+  },
+  "conditional_cost_screen": {
+    "baseline_steps": 7694,
+    "initial_verification_passes": 6168,
+    "rejection_replay_passes": 1029,
+    "minimum_total_passes": 7197,
+    "equal_cost_pass_ratio": 1.0690565513408365,
+    "checkpoint_creations": 1381,
+    "checkpoint_restores": 1029,
+    "qualification": "Conditional on same oracle trajectory and successful one-pass replay, ignoring copies/lookup/batch cost and possible further replay. Static count only, not measured speed or universal bound."
+  },
+  "result": "Reject zero-cost rollback hypothesis for unchanged ngram3/3 server. Any bounded recurrent-state allocation change is a new runtime candidate requiring memory and rejection fidelity tests.",
+  "disposition": "Current checkpoint execution path rejected as presumed cheap acceleration; alternative rolling-state path unresolved.",
+  "raw_sha256": {
+    "source-excerpts.json": "61770d4c9a2bf592b7757e590beee50edc451019942a11933b695156a6926139",
+    "plan.json": "565dbb2df2fd9823152404c5a38e9d0a990a4f7fbbf5221ac9e75b87e55d74e5"
+  }
+}

@@ -1888,3 +1888,16 @@ not endpoint speed or a universal kernel bound. Retain only for full batching /
 checkpoint cost and fidelity screen; no promotion, AW141 utility0 unchanged.
 Raw hashes/provenance in evidence/AW-0154-native-history-screen.json, external
 AW-0154; logged span only, no inferred final token, no inference.
+
+
+### AW-0155 — ngram rollback costs qualify AW154 oracle opportunity
+
+Pinned need_n_rs_seq excludes ngram methods, matching AW151 measured0rs_seq.
+Every nonempty draft checkpoints; rejection restores state/sampler and schedules
+replay. Conditional AW154 history therefore needs at least7197 passes including
+1029 rejection replays versus7694 baseline (equal-cost ratio1.069057), plus1381
+checkpoint creations and1029 restores. No measured timing or universal bound.
+Reject presumed cheap unchanged-path acceleration; rolling-state allocation
+requires a new runtime/memory/fidelity candidate. AW154 initial counts preserved,
+AW141 utility0 and P1 unchanged. Static source/parent/raw hashes in
+evidence/AW-0155-history-checkpoint-cost.json; external AW-0155. No inference.
