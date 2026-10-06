@@ -1,6 +1,6 @@
 # AW-0149 — identical full accumulated request behavior
 
-Running, F16 arm first. Use hash-verified AW-0145 fourth tool-conversation request
+Running; F16 arm complete, Turbo pending. Use hash-verified AW-0145 fourth tool-conversation request
 and actual renderer, with unchanged native T1/top_p.95/top_k20/min_p.05/presence0/
 repeat1/seed42/medium, output8192, context16K, full Q8 vision configured/resident,
 no-shift/cacheRAM0/checkpoints2. Same pinned server/artifact/libraries in both arms;
@@ -19,3 +19,13 @@ Command python3 scripts/replay_bonsai_full_request.py. AW-0141 failed score rema
 unchanged. No restricted reasoning, task/deadline/scoring waiver or P1 promotion.
 Next independently replay all response events, classify terminal proposal syntax
 and investigate long-generation recurrence before further capability work.
+
+## Interim FP16 result
+
+Complete SSE/[DONE], one valid bash proposal, clean client/server exits, pressure1
+and zero swap growth. Diagnostic wall715.542s;13779 reasoning characters before
+a baseline-reproduction/test proposal. Proposed command does not edit; it was not
+executed. Independent raw-hash/identical-request/allocator/protocol checks pass.
+Receipt evidence/AW-0149-f16-interim.json. This shows substantial generation also
+with FP16, not a cache-causal conclusion, task success, or endpoint timing ratio.
+Turbo arm remains pending.
