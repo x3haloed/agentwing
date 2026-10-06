@@ -1723,3 +1723,14 @@ finds argument struct outside guard; first fixture omits size_t prerequisite
 (AW133 preserved), corrected repeated-include test proves old failure/newpass
 and moves unchanged declaration inside guard AW134. Corrected source needs
 rebuild; AW131/132 compiled artifacts preserved, no endpoint qualification.
+
+## AW-0135/AW-0136 — Actual compressed-cache model generation works at2K
+
+Rebuilt guarded inverse and wired it after q8-K/Turbo3/4-V model attention.
+Actual q8 K/Turbo4 V generates32 own tokens, identical to FP16 probe, with
+396 full finite activation files and32 full finite vocab-logit rows audited.
+Allocator confirms34+17=51MiB KV vs prior128MiB at2048 cells (60.15625% KV only).
+Host1/swapgrowth0. Internal changes substantial despite tokens matching: max
+selected activationL2 .291/logits .0502, diagnostic not quality acceptance.
+Retain native compressed model path for broader context/server/vision/task
+checks; no general capability/endpoint speed qualification or P1 promotion.
