@@ -2526,3 +2526,17 @@ capacityauditpasses, pressure1/swapgrowth0. Receipts
 RetainAW207nativewriter survivor for nativeattentionconsumer screen, not
 model/vision/tool/endpoint qualification. No causalold/newoptimizationratio
 or agent-speedclaim, defaults/P1 unchanged, fullgoalremainsprequalification.
+
+### AW-0208 — native6bit attention consumer survives actual component screen
+
+48freshABBA realMetal-writtenV cases atlayers3/31/63, F16/Q8keys, vector1/
+replicatedmatrix128query shapes allpass numericalrelativeL2<=.005. All24
+candidatequalityerrors lower72.24–74.96% vsstationary4bit; pairedconsumer
+costratios1.0236–1.0757 passdeclared<=1.10. Independentfloat64packeddecode/
+WHTinverse/fsumattention, selectednativepipelines, hashes, qualityoutputs,
+timing/pressure/capacityreplay allpass: pressure1/swapgrowth0,
+minfree114,198,638,592B. Receipt
+`evidence/AW-0208-turbo6-attention-screen.json` pins externalAW208raw.
+Retainwriter/consumer survivor forfullmodel ownaccumulated trajectories and
+nativebehavior next; replicated128query isnotcausalprefill. No endpoint/
+agent-speedqualification orfullGooglePolarQuant/QJLclaim, P1unchanged.
