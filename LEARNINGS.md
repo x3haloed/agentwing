@@ -1627,3 +1627,13 @@ with embedded unchanged headers compiles via runtime Metal3.0 on Apple M1,
 976functions including both256/256 q8-K/Turbo3/4-V vec attention kernels and WHT.
 Retain available compilation path for dispatch/oracle tests. Presence does not
 prove specialized dispatch, correctness, runtime cache integration or performance.
+
+## AW-0116 — Actual compressed GPU attention agrees with CPU authority
+
+Unchanged complete Atomic Metal library dispatches real256/256 q8-K/Turbo3/4-V
+attention on layers3/31/63, four KV/24 Q heads,48 populated positions with
+explicit masked padding. Six full outputs finite, relative CPU error max.001130
+under predeclared.005, pressure1/swap growth0. Independent prepared-buffer audit
+matches frozen packed authority. Retain actual GPU attention for integration;
+compressed cache writer/Prism registration and generated compressed trajectory
+remain absent, so no model quality or endpoint qualification follows.

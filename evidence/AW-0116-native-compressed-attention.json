@@ -1,0 +1,245 @@
+{
+  "experiment": "AW-0116",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0116",
+  "result": {
+    "experiment": "AW-0116",
+    "exit": 0,
+    "error": null,
+    "passed": true,
+    "records": [
+      {
+        "layer": 3,
+        "bits": 3,
+        "finite": true,
+        "relative_l2": 0.00029879859353757106,
+        "passed": true,
+        "output_sha256": "2a225b799eb439bd9be928a1fb64aab69266173d1ed51d176398e227ee00f05b"
+      },
+      {
+        "layer": 31,
+        "bits": 3,
+        "finite": true,
+        "relative_l2": 0.0010119269597422002,
+        "passed": true,
+        "output_sha256": "c893e74558e88422dc9b97604d3643f25e2858eb97d48e8ca4d73855892b2bd9"
+      },
+      {
+        "layer": 63,
+        "bits": 3,
+        "finite": true,
+        "relative_l2": 0.00020251728676368494,
+        "passed": true,
+        "output_sha256": "5c0aab3b88e7fdcd4a15e5de1c68cdb133ae740d60ffcf27c1455db911b4fa52"
+      },
+      {
+        "layer": 3,
+        "bits": 4,
+        "finite": true,
+        "relative_l2": 0.0002553139278695191,
+        "passed": true,
+        "output_sha256": "680b55af31d2223dcd285171b46adebb48f0da103d8527011613be5895cc0c96"
+      },
+      {
+        "layer": 31,
+        "bits": 4,
+        "finite": true,
+        "relative_l2": 0.001129430314091008,
+        "passed": true,
+        "output_sha256": "3f0bdee6c37c4b64d9394ad57e62b79c7a1c94f96ba157dff9dccbbbffbde12d"
+      },
+      {
+        "layer": 63,
+        "bits": 4,
+        "finite": true,
+        "relative_l2": 0.00017833435583755304,
+        "passed": true,
+        "output_sha256": "fe649d28d5a8f7fafcb065728284949b1b3213f60643e44746db1fb9f09e7c1c"
+      }
+    ],
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "plan_sha256": "7b246ac93f3396a10dabcd610213025220df8d16df796f6174c078c72d80f65c",
+    "scope": "Actual compressed GPU attention dispatch, real48-key FP16-generated trajectory; no model cache registration/accumulated compressed trajectory or endpoint performance"
+  },
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+  "files": {
+    "plan.json": {
+      "bytes": 5302,
+      "sha256": "7b246ac93f3396a10dabcd610213025220df8d16df796f6174c078c72d80f65c"
+    },
+    "result.json": {
+      "bytes": 1775,
+      "sha256": "f1c497efc7b6507d7b97eb2aeaf1b415630bd11c9f0b403084f77962db3474f8"
+    },
+    "dispatch": {
+      "bytes": 58792,
+      "sha256": "86481b753e78dbd6f5b6968420f2c94b09d91a37c057245baa43ac965288acef"
+    },
+    "check_turbo_attention_dispatch.py": {
+      "bytes": 5117,
+      "sha256": "a533a4527412abf026a3c473dc6af4ce14aa5aa3f8857ff497f683d2d7c87f34"
+    },
+    "compile.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "dispatch.log": {
+      "bytes": 9,
+      "sha256": "45ea654a2b7a947c729510c6fc9af4f0670291969bf7978f671ab6979223e35f"
+    },
+    "input-audit.json": {
+      "bytes": 511,
+      "sha256": "1ae0397f65867b420e19a64ea11bc1f7651fd84b7cc44804af70ecebe6969253"
+    },
+    "turbo-attention-dispatch.swift": {
+      "bytes": 2172,
+      "sha256": "7cb98670ae66036dd2f91f337ee70cd87e6b65fdf797316ed62c59187198dc4d"
+    },
+    "63-3/k.bin": {
+      "bytes": 69632,
+      "sha256": "3210d16016689d6aad180356af54171df076f8e16cae304630caee2d07eba013"
+    },
+    "63-3/v.bin": {
+      "bytes": 25600,
+      "sha256": "f7f5ac7e31376b8160ef5856ead31dc3936754c5f5f414996bf7c87df099b144"
+    },
+    "63-3/mask.bin": {
+      "bytes": 128,
+      "sha256": "3f8fd3d341f23c295770e848b25cd42b11415a501abe883377d62aca73335d5c"
+    },
+    "63-3/args.bin": {
+      "bytes": 192,
+      "sha256": "42232fc29450cc52a37a7a0e23c523f89c2199f44a87a04768382783b762782c"
+    },
+    "63-3/q.bin": {
+      "bytes": 24576,
+      "sha256": "1ac1a8964efaee88aad86fcdd7de6ef675614c334bc20528d28e84b9116cd435"
+    },
+    "63-3/output.bin": {
+      "bytes": 24576,
+      "sha256": "5c0aab3b88e7fdcd4a15e5de1c68cdb133ae740d60ffcf27c1455db911b4fa52"
+    },
+    "63-4/k.bin": {
+      "bytes": 69632,
+      "sha256": "3210d16016689d6aad180356af54171df076f8e16cae304630caee2d07eba013"
+    },
+    "63-4/v.bin": {
+      "bytes": 34816,
+      "sha256": "a0c2d8f131b1e1e10a9f19815bd3998b36f257f927f52efa8dba130b888217cb"
+    },
+    "63-4/mask.bin": {
+      "bytes": 128,
+      "sha256": "3f8fd3d341f23c295770e848b25cd42b11415a501abe883377d62aca73335d5c"
+    },
+    "63-4/args.bin": {
+      "bytes": 192,
+      "sha256": "d866003adb67ccd4907894f7c31be6fbc4d47947374b0c9e2628ee04a436aa5b"
+    },
+    "63-4/q.bin": {
+      "bytes": 24576,
+      "sha256": "1ac1a8964efaee88aad86fcdd7de6ef675614c334bc20528d28e84b9116cd435"
+    },
+    "63-4/output.bin": {
+      "bytes": 24576,
+      "sha256": "fe649d28d5a8f7fafcb065728284949b1b3213f60643e44746db1fb9f09e7c1c"
+    },
+    "3-4/k.bin": {
+      "bytes": 69632,
+      "sha256": "67ab6709add78c68aa84e9b1778ed242b0a1f61dfd8661f2405acb50044d494a"
+    },
+    "3-4/v.bin": {
+      "bytes": 34816,
+      "sha256": "5c1a98a1d75df1a51e50f5449f479230f6ed5e9e93a1bca3adfcda128fcd8aed"
+    },
+    "3-4/mask.bin": {
+      "bytes": 128,
+      "sha256": "3f8fd3d341f23c295770e848b25cd42b11415a501abe883377d62aca73335d5c"
+    },
+    "3-4/args.bin": {
+      "bytes": 192,
+      "sha256": "d866003adb67ccd4907894f7c31be6fbc4d47947374b0c9e2628ee04a436aa5b"
+    },
+    "3-4/q.bin": {
+      "bytes": 24576,
+      "sha256": "41da8d334bc07259abc98c2b2499d5e8ccf87145d6d8205f0b40cb0f3e4ae512"
+    },
+    "3-4/output.bin": {
+      "bytes": 24576,
+      "sha256": "680b55af31d2223dcd285171b46adebb48f0da103d8527011613be5895cc0c96"
+    },
+    "3-3/k.bin": {
+      "bytes": 69632,
+      "sha256": "67ab6709add78c68aa84e9b1778ed242b0a1f61dfd8661f2405acb50044d494a"
+    },
+    "3-3/v.bin": {
+      "bytes": 25600,
+      "sha256": "4a74e9fb08ed0eeee977bcc0901b8353d07827ca62bd43efb7715e6c206f8a32"
+    },
+    "3-3/mask.bin": {
+      "bytes": 128,
+      "sha256": "3f8fd3d341f23c295770e848b25cd42b11415a501abe883377d62aca73335d5c"
+    },
+    "3-3/args.bin": {
+      "bytes": 192,
+      "sha256": "42232fc29450cc52a37a7a0e23c523f89c2199f44a87a04768382783b762782c"
+    },
+    "3-3/q.bin": {
+      "bytes": 24576,
+      "sha256": "41da8d334bc07259abc98c2b2499d5e8ccf87145d6d8205f0b40cb0f3e4ae512"
+    },
+    "3-3/output.bin": {
+      "bytes": 24576,
+      "sha256": "2a225b799eb439bd9be928a1fb64aab69266173d1ed51d176398e227ee00f05b"
+    },
+    "31-3/k.bin": {
+      "bytes": 69632,
+      "sha256": "195625bc5a85efd3c74677494ceadf66bbaeb942c7ae2fd019d5e847ff020b7d"
+    },
+    "31-3/v.bin": {
+      "bytes": 25600,
+      "sha256": "ac3a7404881e9c3eb99e4da34e1efddf7f7747aae7738c97d2734d9e20d82a2b"
+    },
+    "31-3/mask.bin": {
+      "bytes": 128,
+      "sha256": "3f8fd3d341f23c295770e848b25cd42b11415a501abe883377d62aca73335d5c"
+    },
+    "31-3/args.bin": {
+      "bytes": 192,
+      "sha256": "42232fc29450cc52a37a7a0e23c523f89c2199f44a87a04768382783b762782c"
+    },
+    "31-3/q.bin": {
+      "bytes": 24576,
+      "sha256": "d3ab085dcfeb1620d6bab58c0e651764c57c6038a6dea990e86c68f440458f36"
+    },
+    "31-3/output.bin": {
+      "bytes": 24576,
+      "sha256": "c893e74558e88422dc9b97604d3643f25e2858eb97d48e8ca4d73855892b2bd9"
+    },
+    "31-4/k.bin": {
+      "bytes": 69632,
+      "sha256": "195625bc5a85efd3c74677494ceadf66bbaeb942c7ae2fd019d5e847ff020b7d"
+    },
+    "31-4/v.bin": {
+      "bytes": 34816,
+      "sha256": "f1477c98d126b2984f773295dc18157870c95f378b983542cadfcb8f51a5eeac"
+    },
+    "31-4/mask.bin": {
+      "bytes": 128,
+      "sha256": "3f8fd3d341f23c295770e848b25cd42b11415a501abe883377d62aca73335d5c"
+    },
+    "31-4/args.bin": {
+      "bytes": 192,
+      "sha256": "d866003adb67ccd4907894f7c31be6fbc4d47947374b0c9e2628ee04a436aa5b"
+    },
+    "31-4/q.bin": {
+      "bytes": 24576,
+      "sha256": "d3ab085dcfeb1620d6bab58c0e651764c57c6038a6dea990e86c68f440458f36"
+    },
+    "31-4/output.bin": {
+      "bytes": 24576,
+      "sha256": "3f0bdee6c37c4b64d9394ad57e62b79c7a1c94f96ba157dff9dccbbbffbde12d"
+    }
+  },
+  "limitations": "Standalone actual GPU compressed attention; decoded48-key trajectory generated under FP16. No compressed-cache writer, Prism type registration, model accumulated compressed generation, longer-context/vision/quality/speed/endpoint acceptance. Continuous pressure sampled, maxima recorded; no performance claim."
+}
