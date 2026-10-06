@@ -1457,3 +1457,12 @@ reproduce all835584 captured prompt projection outputs exactly; deliberate
 token misalignment is detected. Pressure1/swap0 in both runs. Retain for
 single-token generation, candidate accumulation and complete cost screening;
 no vision, behavioral or performance acceptance follows from prompt replay.
+
+## AW-0090 — Prompt matmul output is insufficient as a decode oracle
+
+Single-column unchanged PTQ replay differs from captured prompt output by
+1.7738e-4 L2, failing the declared1e-4 gate. Retain this negative result.
+Exploratory32-row CPU oracle shows PTQ3.82e-6/PQ4.30e-6, mutualall-row6.89e-6;
+this does not reverse the rejection but motivates a predeclared independent
+CPU decode oracle rather than post-hoc relaxed cross-kernel tolerances.
+Middle/late single-column checks and generated-token capture remain open.

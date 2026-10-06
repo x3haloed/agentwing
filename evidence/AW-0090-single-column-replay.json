@@ -1,0 +1,68 @@
+{
+  "experiment": "AW-0090",
+  "passed": false,
+  "error": "blk.0.ffn_up.weight:ptq:0.00017738241164909764",
+  "records": [],
+  "plan_sha256": "cb32abeff15cd3ae6a9986173249059f765edb0c09b163b0a4ce1459deadaeb1",
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0,
+  "pressure_sha256": "b817c07f206167f0af75ac250d22bda70803cdf139681009ef3c1181c64bbbbb",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0090",
+  "scope": "Single-column native matvec on real prompt-token input; no generated-token capture, candidate accumulation, vision, timing or endpoint claim",
+  "post_failure_cpu_diagnostic": {
+    "experiment": "AW-0090",
+    "scope": "Post-failure diagnostic, not replacement predeclared acceptance",
+    "cpu_library_sha256": "b91d5d4992b66d4657001d242dd7058104b1dec2db0690ee91aea58222222c26",
+    "raw_outputs_sha256": "dcf6483db16d0cb1623afc5028d813b6087cdb96802b595e7a81599265692036",
+    "input_sha256": "52c56b4147e54a09c2174e057b500c511fbf3972a0e0bd3bb6506787599227c7",
+    "sampled_rows": [
+      0,
+      561,
+      1123,
+      1684,
+      2246,
+      2807,
+      3369,
+      3930,
+      4492,
+      5053,
+      5615,
+      6176,
+      6738,
+      7299,
+      7861,
+      8422,
+      8984,
+      9545,
+      10107,
+      10668,
+      11230,
+      11791,
+      12353,
+      12914,
+      13476,
+      14037,
+      14599,
+      15160,
+      15722,
+      16283,
+      16845,
+      17407
+    ],
+    "cpu_oracle_metrics": {
+      "ptq": {
+        "relative_l2": 3.824719423968901e-06,
+        "maximum_absolute": 1.3013110873316691e-06
+      },
+      "pq": {
+        "relative_l2": 4.302649219495857e-06,
+        "maximum_absolute": 1.395408517623764e-06
+      }
+    },
+    "all_rows_pq_vs_ptq_relative_l2": 6.886469286983451e-06,
+    "native_log_sha256": "b3a270e518b1816fd63bf33538b96b70cb46a2050a886c1c5d7f73dd522809b3",
+    "raw_result_sha256": "1d8865904a0134ba875b446ff89f1851cf790fb344f065f00922d441f3042f04"
+  },
+  "recursive_receipt_sha256": "2d7ed98f2c1b694ba3519a351925cc5edbefd9f4089babe0186c4f6937b4c5e4",
+  "frozen_source_audit": "passed"
+}
