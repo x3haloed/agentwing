@@ -1,0 +1,17 @@
+{
+  "experiment": "AW-0220",
+  "scope": "Pre-benchmark storage recovery under prior user authorization to wipe NoMachine session logs",
+  "path": "/Users/chad/.nx/node/F-C-chads.mac.mini.lan-1002-EEC0483088A569A40B90F799F3E3D6D0/session",
+  "before": {
+    "logical_bytes": 722773698981,
+    "allocated_bytes": 228707024896,
+    "free_bytes": 54022459392
+  },
+  "after": {
+    "logical_bytes": 0,
+    "allocated_bytes": 0,
+    "free_bytes": 282711150592
+  },
+  "operation": "truncate only the renamed same-session log; no model/source/evidence removed",
+  "benchmark_running": false
+}
