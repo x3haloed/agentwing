@@ -2,8 +2,8 @@
 
 ## Status and hypothesis
 
-Running. Firstfunctionalreplicate independentlypasses; oppositeimagereplicate
-live. Hypothesis: pinned6bitfullvisionserver supportsunchangedAW192functional
+Completed. Firstreplicate passes; secondreplicate fails the unchanged
+zero-execution-error admission audit. Hypothesis: pinned6bitfullvisionserver supportsunchangedAW192functional
 text/image/nativeLookupassociation/Pifilecopy withoutprotocol/resourcefailure.
 Fulladmissionrequiresbothfreshreplicates; no endpoint/P1utilityclaim.
 
@@ -48,3 +48,29 @@ audit/rawandreview snapshot. Rep1oppositeimage live, completeadmissionpending.
 Retainpartialfunctional evidence; longnativehistory/toolbehavior, selecteddev
 andfrozenoriginal/expandedendpoints stillrequired. Defaults/P1unchanged;
 full25%utilitygoal remainsunproven, nofullGooglePolarQuant/QJLclaim.
+
+## Terminal result — rejected admission screen
+
+Bothfreshreplicates finishwithcorrecttext/oppositeimages/nativeLookupnonce
+association/Pibyteexactartifacts andvalidcanonicalprotocol. Pressure1/swap
+ growth0both; lifetimes203.145/205.167s diagnostic. Howeverrep1finalredundant
+command `md5sum source.txt answer.txt && cat -A answer.txt` executesMD5 then
+failsunsupportedmacOScatflag (exit1/tool_execution_end.isErrortrue). Pi exits0
+andartifactiscorrect. Collectorsuccessflag onlytestsartifact/process/protocol
+shape, omittingfailedtoolcount; it isinsufficientforstrictadmission. Original
+helperandrawpassedflags preserved, no posthocgatewaiver.
+
+Completeindependentauditor rejects actualreviewfailed1 (exit1), preserved
+outputandrawhashes. Structurednegativeauditsummary recomputestoolends,
+protocol/raw/host/capacity/artifactandreviewidentity. Acrossbothreplicates:
+10attempted/10valid/8productive/2redundant/0malformed/0denied/1failed.
+Failedisexecutiondimension, overlappingvalid/redundant; not malformedwire.
+Remainingstrictzero-error admission notestablished, no modelowneraftercleanup.
+
+Receipt `evidence/AW-0211-turbo6-admission-terminal.json` pinsnegativeaudit
+andexternalreview/raw. Supersedesrunningpartialstatus. Retaincorrectfunctional
+artifacts andnegativeexecution evidence, rejectcurrentscreenforpromotion;
+notwholecacheformat rejection orendpointtaskscore. Nextcheapexperiment may
+explicitlyaddplatformcontext tosharedcontrol/candidateharness, preserving
+tasks/tools/reasoning/timeouts/scoring andrerunningunchangedgates; do notshim
+or silentlyrepairunsupportedcommands. P1/defaults unchanged, goalactive.

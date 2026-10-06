@@ -2618,3 +2618,18 @@ functionaldiagnostic,pressure1/swapgrowth0. Actualreview4Pi calls3productive/
 `evidence/AW-0211-turbo6-first-admission-partial.json` pins externalAW211raw
 andreview. Oppositeimagerep1 live; completeadmission/longbehavior/endpoints
 pending. No utility/speed/P1promotion claim, defaultsunchanged.
+
+### AW-0211 — fulladmission rejected after redundant macOS command failure
+
+Bothreplicates correcttext/oppositeimages/nativeLookupassociation/byteexact
+Piartifacts andcanonicalprotocol; pressure1/swapgrowth0. Rep1redundantfinal
+md5sum+cat-A commandfailsmacOSunsupportedflag; toolisErrortrue/exit1, yet
+collectorpassedflagtrue becausehelperomitsfailedcountfrompassedcondition.
+Independentunchangedzero-error admissionauditor rejects. Fullreviewedtotals
+10attemptedvalid/8productive/2redundant/0malformeddenied/1failed (execution
+failureoverlapsvalid/redundant). Receipt
+`evidence/AW-0211-turbo6-admission-terminal.json` pinsexternalAW211negative
+raw/audit/review; supersedesrunningstatus. No malformedprotocol/resource
+failure, but strictadmissionunproven; rejectcurrentscreen, retainformat as
+unqualified. Nextcheapsharedplatform-context harnessfalsifier canpreserve
+alltasks/tools/reasoning/gates; no commandshim orposthocwaiver. P1unchanged.

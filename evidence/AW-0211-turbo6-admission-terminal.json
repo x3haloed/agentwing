@@ -1,0 +1,161 @@
+{
+  "experiment": "AW-0211",
+  "complete": true,
+  "admission_passed": false,
+  "records": [
+    {
+      "replicate": 0,
+      "run": "/Users/chad/Models/agentwing/evidence/AW-0211/20261006T204401Z-rep0",
+      "collector_result": {
+        "passed": true,
+        "error": null,
+        "wall_seconds": 203.14512708300026,
+        "pressure_peak": 1,
+        "swap_growth_peak_mib": 0.0,
+        "cache_state": "cold server per replicate; OS page cache uncontrolled",
+        "scope": "Functional bring-up, not autonomous work-rate comparison"
+      },
+      "collector_sha256": "6947afdf0dbb638daa2ccba4c10eafe3e1300c093a8967b41c4d3214378d0f27",
+      "protocol": {
+        "passed": true,
+        "checks": {
+          "events_nonempty": true,
+          "paired_unique_calls": true,
+          "bash_schema_valid": true,
+          "no_model_errors": true,
+          "fresh_model_load": true,
+          "serialized_unique_requests": true,
+          "all_requests_terminal": true,
+          "server_cleanup": true,
+          "no_context_shift": true,
+          "no_compaction": true,
+          "no_explicit_authority_access": true
+        },
+        "tool_accounting": {
+          "attempted": 4,
+          "valid": 4,
+          "productive": null,
+          "redundant": null,
+          "malformed": 0,
+          "denied": null,
+          "failed": 0
+        },
+        "commands": [
+          "cat source.txt",
+          "xxd source.txt; ls -la source.txt",
+          "cp source.txt answer.txt && cmp -s source.txt answer.txt && echo \"MATCH: files are byte-for-byte identical\" && ls -la answer.txt",
+          "cat answer.txt"
+        ],
+        "request_count": 9,
+        "classification": "Productivity, redundancy and denial need separate transcript review; raw events retained."
+      },
+      "native_tool_accounting": {
+        "attempted": 1,
+        "valid": 1,
+        "productive": 1,
+        "redundant": 0,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0
+      },
+      "reviewed_pi_tool_accounting": {
+        "attempted": 4,
+        "valid": 4,
+        "productive": 3,
+        "redundant": 1,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0,
+        "basis": "Read identifies content; hex view establishes trailing newline; copy+cmp writes and verifies exactartifact; final cat repeats alreadyestablished content/equality."
+      },
+      "artifact_correct": true,
+      "zero_execution_error_gate_passed": true,
+      "raw_manifest_sha256": "5d44ff5edc5679e499c8dff203653ce652f1f179f527e23d6d32c839cb5b4e9c"
+    },
+    {
+      "replicate": 1,
+      "run": "/Users/chad/Models/agentwing/evidence/AW-0211/20261006T204724Z-rep1",
+      "collector_result": {
+        "passed": true,
+        "error": null,
+        "wall_seconds": 205.1668467499985,
+        "pressure_peak": 1,
+        "swap_growth_peak_mib": 0.0,
+        "cache_state": "cold server per replicate; OS page cache uncontrolled",
+        "scope": "Functional bring-up, not autonomous work-rate comparison"
+      },
+      "collector_sha256": "9f6b189814d8ba955948aac810c629b27a985e91626419f26e5d46dbe45a92ab",
+      "protocol": {
+        "passed": true,
+        "checks": {
+          "events_nonempty": true,
+          "paired_unique_calls": true,
+          "bash_schema_valid": true,
+          "no_model_errors": true,
+          "fresh_model_load": true,
+          "serialized_unique_requests": true,
+          "all_requests_terminal": true,
+          "server_cleanup": true,
+          "no_context_shift": true,
+          "no_compaction": true,
+          "no_explicit_authority_access": true
+        },
+        "tool_accounting": {
+          "attempted": 4,
+          "valid": 4,
+          "productive": null,
+          "redundant": null,
+          "malformed": 0,
+          "denied": null,
+          "failed": 1
+        },
+        "commands": [
+          "cat source.txt",
+          "xxd source.txt && wc -c source.txt",
+          "cp source.txt answer.txt && cmp source.txt answer.txt && echo \"MATCH: files are identical\"",
+          "md5sum source.txt answer.txt && cat -A answer.txt"
+        ],
+        "request_count": 9,
+        "classification": "Productivity, redundancy and denial need separate transcript review; raw events retained."
+      },
+      "native_tool_accounting": {
+        "attempted": 1,
+        "valid": 1,
+        "productive": 1,
+        "redundant": 0,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0
+      },
+      "reviewed_pi_tool_accounting": {
+        "attempted": 4,
+        "valid": 4,
+        "productive": 3,
+        "redundant": 1,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 1,
+        "basis": "Read identifies content; hex+wc establishes newline/size; cp+cmp writes+verifies; redundant md5/cat-A check fails due unsupported macOS flag. Valid/prod/redundant and failed execution are overlapping dimensions."
+      },
+      "artifact_correct": true,
+      "zero_execution_error_gate_passed": false,
+      "raw_manifest_sha256": "44418e0b4eab78a2e97595c81d8f8bcb2d3bd477ec541ba8ccd11f323a2af71a"
+    }
+  ],
+  "total_tool_accounting": {
+    "attempted": 10,
+    "valid": 10,
+    "productive": 8,
+    "redundant": 2,
+    "malformed": 0,
+    "denied": 0,
+    "failed": 1
+  },
+  "plan_sha256": "d81da500125702e11db4c35618e418ddabaeb70d0e7b6b72b57f8ebb7090ea3a",
+  "review_sha256": "a0aad3c5de21e0868557e0eee221d79cef0223642228bfbd15aaedb6c97d72b9",
+  "strict_admission_audit_exit_code": 1,
+  "strict_audit_output_sha256": "9d98b598ff0a9b6b88e78679f1fb6fae063ab7d7eb2852b6be98f8aa7c82fee3",
+  "summarizer_sha256": "d28c42e8c683578c19c4cf65eb8736081ed69b9f53b1853b467c264a982b8a35",
+  "disposition": "Reject current zero-execution-error admission screen; retain rawnegative and functional artifact/vision evidence, no wholeformat rejection",
+  "scope": "Protocol/permissions/resource gates pass and both artifacts correct; one redundant valid bash call fails macOS cat-A. Collector passed flag is insufficient. No endpoint utility claim."
+}
