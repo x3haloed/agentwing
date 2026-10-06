@@ -1505,3 +1505,14 @@ warm build/audit23.286s, sampled pressure1/swap growth0. Retain for full working
 set and candidate accumulation; artifact integrity does not demonstrate runtime
 cost, vision behavior, broad capability or endpoint superiority. Original
 weights/configuration and frozen P1 preserved; derivative remains unqualified.
+
+## AW-0098 — Selective artifact survives bounded candidate-generated accumulation
+
+Interleaved ABBA full language-model probes independently generate identical32
+IDs under explicit T1 sampling. Both pairs pass predeclared1e-3 accumulated
+activation/logit gate (maxactivation3.503e-4, logits1.348e-5); complete finite
+trace audit and host pressure1/swap growth0. Native PQ kernel loaded. Retain
+for callback-free full working-set/native-chat/vision/capability checks. Raw
+prompt without effort/template and32-token evidence bound do not establish
+agentic quality, long-sequence behavior or endpoint performance; all four
+callback-heavy wall times retained without speed attribution. P1 unchanged.
