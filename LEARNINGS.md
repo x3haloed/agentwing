@@ -1784,3 +1784,15 @@ semantics remain unverified by this stream. Next compare exact accumulated-prefi
 request rendering/cache behavior, preserving native reasoning/task settings.
 Evidence/script hashes: evidence/AW-0142-generation-diagnosis.json; original
 external raw location and all configuration/host pins remain in AW-0141.
+
+
+### AW-0143 — actual default medium rendering works
+
+Live pinned full-server /apply-template renders omitted effort exactly like
+explicit medium; xhigh differs with its published instruction. Medium thinking
+prefix retained. Independent raw-body replay passes; pressure1/no swap growth/
+clean shutdown. This supersedes the source-only uncertainty for this controlled
+minimal request, not the exact failed Pi accumulated request or cache fidelity.
+No missing-default-medium fix warranted; retain native settings. Raw evidence
+/Users/chad/Models/agentwing/evidence/AW-0143; all hashes in
+evidence/AW-0143-reasoning-render.json. No endpoint performance claim/promotion.

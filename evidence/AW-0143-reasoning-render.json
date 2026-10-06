@@ -1,0 +1,62 @@
+{
+  "experiment": "AW-0143",
+  "passed": true,
+  "independent_render_checks": true,
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0143",
+  "result": {
+    "experiment": "AW-0143",
+    "passed": true,
+    "rendering_checked": true,
+    "error": null,
+    "healthy": true,
+    "http": [
+      {
+        "endpoint": "health",
+        "status": 200
+      },
+      {
+        "endpoint": "props",
+        "status": 200
+      },
+      {
+        "endpoint": "apply-template",
+        "mode": "default",
+        "status": 200
+      },
+      {
+        "endpoint": "apply-template",
+        "mode": "medium",
+        "status": 200
+      },
+      {
+        "endpoint": "apply-template",
+        "mode": "xhigh",
+        "status": 200
+      }
+    ],
+    "allocator_line": "0.00.408.306 I llama_kv_cache: size =  408.00 MiB ( 16384 cells,  16 layers,  1/1 seqs), K (q8_0):  272.00 MiB, V (turbo4):  136.00 MiB",
+    "wall_seconds_diagnostic": 4.159666166000534,
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "server_exit_after_cleanup": 0,
+    "plan_sha256": "f965d34cdf899343feeea85264ae3105fd7d2478e7fe4697d27c212316af147d",
+    "scope": "Actual prompt rendering only; no generation, agent utility or speed claim"
+  },
+  "raw_sha256": {
+    "default-request.json": "ecd1f69ef153128d315cd4b4f45af29fc712ca7efa71841938be08fb9fbe395f",
+    "host.tsv": "18bca42b14a8a4258b806ddcc5f119e0de23ba8b7a80b9ea0c330faf0a5f6386",
+    "plan.json": "f965d34cdf899343feeea85264ae3105fd7d2478e7fe4697d27c212316af147d",
+    "result.json": "7eb784e61f84d71e424fd9eb02780fe9fbfb156cb3743071fea47e0ba977f891",
+    "medium-render.json": "46d38fd55b24ce679033c4d028ae1ce885e46d35414ac1270195beca3f89a15d",
+    "health.json": "a29ee2b15c494311c52521766e44af56a3ad2248e7a8ab465e5206463c13d288",
+    "xhigh-render.json": "288658ac0d5dc612e4328df897fae8d397aa453a4c4a3c6a098721ddeedd9a59",
+    "xhigh-request.json": "7f951ced6d19b85473dde2b872633019a5e00dd56e35cac1467e0dfd243d1d16",
+    "medium-request.json": "2e63c145f654845a97567748b39a1db7574fdb184339098a6952266366e08079",
+    "props.json": "b4ca7bc1521b27a23302581896b80e5364271577ba7f72e2a3c93f4560f7840b",
+    "server.log": "b2a785b96cec57bc90994bc6eb172413d6cf80346ed071efd2ec6e6d7de777e0",
+    "default-render.json": "46d38fd55b24ce679033c4d028ae1ce885e46d35414ac1270195beca3f89a15d"
+  },
+  "harness_sha256": "b34c57322210f482d5948da9172a6dad636bb02969efca7a06be3a91fc53f967",
+  "configuration_sha256": "7b90c1047cfc23de542708df626f46eeae40de3c9eb2508b8468b47a3eda702d",
+  "scope": "Live controlled minimal prompt rendering, not exact failed Pi request or accumulated-cache quality. Default equals explicit medium; xhigh instruction differs. No generation or endpoint speed claim."
+}
