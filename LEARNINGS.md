@@ -2540,3 +2540,15 @@ minfree114,198,638,592B. Receipt
 Retainwriter/consumer survivor forfullmodel ownaccumulated trajectories and
 nativebehavior next; replicated128query isnotcausalprefill. No endpoint/
 agent-speedqualification orfullGooglePolarQuant/QJLclaim, P1unchanged.
+
+### AW-0209 — first full-model6bit earlyprefix pair passes technical gate
+
+Early1186tokenF16/6bitfreshpair bothclean32ownsampledrows/384projection
+captures; relativefirstlogitL2.0088705/top20overlap.95. Partialhash/shape/
+finite/host/capacityauditpasses, bothpressure1/swapgrowth0. FreshF16full32
+logits/prompt/generatedbytes identicalAW190control.3531sourceaudit13changes
+independentlyreconstructedexactly. Receipt
+`evidence/AW-0209-turbo6-early-pair-partial.json` pins externalAW209raw.
+Retainpartialtechnicalresult; middlecandidate live/fullcampaignunresolved.
+Own32commonprefix4 isnot tool/task/qualityacceptance, no speedcomparison.
+Vision/tools/launch/endpoint remainunqualified, P1/defaults unchanged.
