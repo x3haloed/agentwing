@@ -1,0 +1,142 @@
+{
+  "experiment": "AW-0184",
+  "plan": {
+    "experiment": "AW-0184",
+    "hypothesis": "Published native16centroid table satisfies Lloyd centroid fixed-point condition for Gaussian variance1/128 at nearest-cell boundaries",
+    "primary_metric": "Analytic conditional-mean residual and Gaussian scalar MSE, independently quadrature checked; no vector norm-correction/model-quality inference",
+    "acceptance": "Fixed-point maxcentroid residual<=1e-6 allows six-decimal rounding; quadrature relative agreement<=1e-5. Alternative stationary table only a mathematical survivor, not production acceptance",
+    "sigma": 0.08838834764831843,
+    "old_centroids": [
+      -0.173926,
+      -0.117195,
+      -0.089527,
+      -0.068756,
+      -0.051262,
+      -0.035597,
+      -0.020989,
+      -0.006938,
+      0.006938,
+      0.020989,
+      0.035597,
+      0.051262,
+      0.068756,
+      0.089527,
+      0.117195,
+      0.173926
+    ],
+    "old_thresholds": [
+      -0.14556,
+      -0.103361,
+      -0.079142,
+      -0.060009,
+      -0.04343,
+      -0.028293,
+      -0.013963,
+      0.0,
+      0.013963,
+      0.028293,
+      0.04343,
+      0.060009,
+      0.079142,
+      0.103361,
+      0.14556
+    ],
+    "source_sha256": "fa9eab4396526a0b0ca599e99384693e5712d17dbb89f4542a3b3be3baed9c70",
+    "runner_sha256": "3f899371622723abf992a821a6ae586038c57af4a243ef8b24543d65164cc98e",
+    "parent_receipt_sha256": "151c79472091c5d2f91df584cae78206e2e9c3b51e0c58ea4a81df4017ec5339",
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+    "scope": "Analytical Gaussian proxy without raw model data, inference, tool calls, or speed claims"
+  },
+  "result": {
+    "experiment": "AW-0184",
+    "native_fixed_point_passed": false,
+    "native_max_centroid_residual": 0.008543855512955001,
+    "native_conditional_means": [
+      -0.18246985551295483,
+      -0.12213156106744641,
+      -0.09068275440043702,
+      -0.06930437892593933,
+      -0.05156807300152069,
+      -0.035773945739404296,
+      -0.02108176316664095,
+      -0.00696699317055736,
+      0.006966993170557366,
+      0.02108176316664093,
+      0.035773945739404296,
+      0.05156807300152069,
+      0.0693043789259393,
+      0.09068275440043702,
+      0.12213156106744637,
+      0.182469855512955
+    ],
+    "native_gaussian_mse": 0.00015838662243107074,
+    "candidate_gaussian_mse": 7.422662506400018e-05,
+    "candidate_centroids": [
+      -0.24152907697892362,
+      -0.18287701390634276,
+      -0.14301644647608022,
+      -0.11103619979521567,
+      -0.08329191586882129,
+      -0.058049853288335625,
+      -0.03429894799860493,
+      -0.011348624534429901,
+      0.011348624534429815,
+      0.03429894799860491,
+      0.05804985328833559,
+      0.08329191586882119,
+      0.1110361997952156,
+      0.14301644647608025,
+      0.18287701390634284,
+      0.24152907697892598
+    ],
+    "candidate_thresholds": [
+      -0.2122030454426332,
+      -0.16294673019121148,
+      -0.12702632313564793,
+      -0.09716405783201848,
+      -0.07067088457857845,
+      -0.04617440064347028,
+      -0.022823786266517418,
+      -4.336808689942018e-17,
+      0.022823786266517362,
+      0.046174400643470254,
+      0.0706708845785784,
+      0.0971640578320184,
+      0.12702632313564793,
+      0.16294673019121153,
+      0.2122030454426344
+    ],
+    "candidate_fixed_point_max_residual": 9.428569036629142e-14,
+    "convergence_iterations": 673,
+    "relative_mse_reduction": 0.5313579901844088,
+    "quadrature_mse": {
+      "native": 0.00015838662228217885,
+      "candidate": 7.422662510949495e-05
+    },
+    "phase_host_samples": [
+      [
+        1,
+        1039.12
+      ],
+      [
+        1,
+        1039.12
+      ]
+    ],
+    "plan_sha256": "6db1d8b03e5c6e5b1cd1d703a6d51c9ba9d32d9dfecdd56ef4f40e26bcd1e2e0",
+    "disposition": "Retain analytical alternative only; actual norm-corrected vector/nativeGPU/own-model/vision/tools/endpoints remain required",
+    "scope": "Analytical Gaussian proxy without raw model data, inference, tool calls, or speed claims"
+  },
+  "cpu_source_sha256": "85127e7a386a4e6a69cfd7498e5ea9dec58bc36072d09c0d81bf67bed151978a",
+  "cpu_and_metal_float_tables_equal": true,
+  "independent_second_quadrature_mse": {
+    "native": 0.00015838662241424848,
+    "candidate": 7.422662505489954e-05
+  },
+  "raw_sha256": {
+    "plan.json": "6db1d8b03e5c6e5b1cd1d703a6d51c9ba9d32d9dfecdd56ef4f40e26bcd1e2e0",
+    "result.json": "0977419ae1d43fe6e49d6f64dd2e4010a9daa1d6a5eba94e9126476cfd69da4a"
+  },
+  "disposition": "Reject claimed scalar Gaussian optimality of current table; retain theoretical alternative for actual norm-corrected vector screen. No runtime change or quality/performance promotion."
+}

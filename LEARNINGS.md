@@ -2204,3 +2204,15 @@ growth0. Retain diagnostic: not task-quality or causal speed evidence. Check
 claimed 16-entry LloydMax codebook mathematics next; current codec not full
 Google PolarQuant/QJL. P1/default unchanged, endpoint≥25%unproven. External
 AW183 and evidence/AW-0183-graph-mixed-cache-terminal.json.
+
+
+### AW-0184 — current Turbo4 table is not Gaussian scalar Lloyd–Max stationary
+
+CPU/Metal float16-level tables equal. Gaussianvariance1/128 conditionalmean
+residualmax.008543856 rejects six-decimalstationarity1e-6. Derivedstationary
+16level table673iterations/residual9.43e-14 reduces scalarMSE53.1358%, both
+independentquadratures agree. Retain theoreticalalternative at samebitcount;
+not actual norm-corrected vector/model-quality/performance evidence. Existing
+pervector normcorrection changes objective, so screen actual V/attention next.
+No runtime/model/P1/default changes. RawexternalAW184; pins/tables in
+evidence/AW-0184-turbo4-codebook-screen.json.
