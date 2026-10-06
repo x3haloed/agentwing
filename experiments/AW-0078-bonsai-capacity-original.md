@@ -33,3 +33,15 @@ Raw run `/Users/chad/Models/agentwing/evidence/AW-0078/20261006T051604.992127Z`,
 `9c600fe4fb6aa1591d458b3862ec582772f301da5ce5cd0e0936d79b83b4d71a`. Independent replay summary in
 `evidence/AW-0078-terminal-audit.json`. Retain candidate for broader frozen
 development validation; held-out and replicated endpoint gates remain open.
+
+## Tool classification supplement
+
+Transcript review: 31 valid attempted calls, 30 productive, one nonproductive
+invalid ad hoc assertion, zero redundant/malformed/denied calls and two failed
+terminal returns. One productive call writes the correct bounded-read answer
+before unsupported BSD `cat -A` fails; a later `od` confirms it. A baseline
+unittest failure is masked by `tail` and recorded separately, not counted as a
+passing test. Data output is correct literal JSON, not evidence of computation
+robustness. Recovery finds the replacement command in README and avoids the
+obsolete command in this trial. Exact call IDs/classifications and receipt
+are in `evidence/AW-0078-tool-accounting.json`. Independent grades unchanged.
