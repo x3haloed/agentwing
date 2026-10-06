@@ -1,0 +1,139 @@
+{
+  "experiment": "AW-0173",
+  "status": "numeric-passed-cost-rejected",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0173",
+  "plan_sha256": "46a065979e2898a438671339622198518d0e68138709a95b7aa4ca3d58521945",
+  "execution_plan_sha256": "9323548492e1a522adfb78ad7682a4c2ef08c146d1722b80f5830a95a2e08838",
+  "summary_sha256": "eed082d828e79ebb41e273c25ee8658cb6b33fefda26219d42fcfc3b09f5e848",
+  "independent_raw_output_timing_replay": true,
+  "candidate_cost_over_control_pairs": [
+    4.077849147304567,
+    4.060388971424399
+  ],
+  "rows": [
+    {
+      "arm": "control",
+      "index": 0,
+      "command": [
+        "/Users/chad/Models/agentwing/evidence/AW-0167/control",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/weights.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/input.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0173/0-control.bin",
+        "17408",
+        "5120"
+      ],
+      "error": null,
+      "exit": 0,
+      "numeric_passed": true,
+      "relative_L2": 0.0,
+      "all_iteration_seconds": [
+        0.001985458,
+        0.001113167,
+        0.00108075,
+        0.001091625,
+        0.001092625
+      ],
+      "steady_median_seconds": 0.001092125,
+      "fixture_lifetime_seconds": 0.13465825000457698,
+      "pressure_peak": 1,
+      "baseline_swap_mib": 1135.12,
+      "swap_growth_peak_mib": 0,
+      "output_sha256": "9eaff890915c03606ed9c3415da8dadf6eceb937c4c3ee92247ac453f27cb6ec",
+      "log_sha256": "82ae71e5948d6a95d94b902af3bf0c9fb47740ecc9df5ccf858776e15da84201"
+    },
+    {
+      "arm": "candidate",
+      "index": 1,
+      "command": [
+        "/Users/chad/Models/agentwing/evidence/AW-0173/candidate",
+        "/Users/chad/Repos/agentwing/experiments/fixtures/bonsai-partial-lut-scalar.metal",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/weights.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/input.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0173/1-candidate.bin",
+        "17408",
+        "5120"
+      ],
+      "error": null,
+      "exit": 0,
+      "numeric_passed": true,
+      "relative_L2": 1.6341809331800999e-06,
+      "all_iteration_seconds": [
+        0.008413541,
+        0.006339167,
+        0.004740042,
+        0.004165875,
+        0.004167
+      ],
+      "steady_median_seconds": 0.004453521,
+      "fixture_lifetime_seconds": 0.6117173749953508,
+      "pressure_peak": 1,
+      "baseline_swap_mib": 1135.12,
+      "swap_growth_peak_mib": 0,
+      "output_sha256": "6ea894aa309c566304d45d784ffb9ad1828771995b5c0dc6f29ff78a9a123ca3",
+      "log_sha256": "f598ac7cd6814ae2ea0c46c7662347ea560b45956bc483baa8de866c8041b5c8"
+    },
+    {
+      "arm": "candidate",
+      "index": 2,
+      "command": [
+        "/Users/chad/Models/agentwing/evidence/AW-0173/candidate",
+        "/Users/chad/Repos/agentwing/experiments/fixtures/bonsai-partial-lut-scalar.metal",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/weights.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/input.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0173/2-candidate.bin",
+        "17408",
+        "5120"
+      ],
+      "error": null,
+      "exit": 0,
+      "numeric_passed": true,
+      "relative_L2": 1.6341809331800999e-06,
+      "all_iteration_seconds": [
+        0.008453167,
+        0.005727917,
+        0.004765917,
+        0.00429975,
+        0.004176042
+      ],
+      "steady_median_seconds": 0.0045328335,
+      "fixture_lifetime_seconds": 0.13029200000164565,
+      "pressure_peak": 1,
+      "baseline_swap_mib": 1135.12,
+      "swap_growth_peak_mib": 0,
+      "output_sha256": "6ea894aa309c566304d45d784ffb9ad1828771995b5c0dc6f29ff78a9a123ca3",
+      "log_sha256": "a9305994c0ef595fa605470c95073b099b7e46ff989b2f7f06d661a245136176"
+    },
+    {
+      "arm": "control",
+      "index": 3,
+      "command": [
+        "/Users/chad/Models/agentwing/evidence/AW-0167/control",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/weights.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/input.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0173/3-control.bin",
+        "17408",
+        "5120"
+      ],
+      "error": null,
+      "exit": 0,
+      "numeric_passed": true,
+      "relative_L2": 0.0,
+      "all_iteration_seconds": [
+        0.001531542,
+        0.001097042,
+        0.001120666,
+        0.001112459,
+        0.00112025
+      ],
+      "steady_median_seconds": 0.0011163545000000001,
+      "fixture_lifetime_seconds": 0.1330185420010821,
+      "pressure_peak": 1,
+      "baseline_swap_mib": 1135.12,
+      "swap_growth_peak_mib": 0,
+      "output_sha256": "9eaff890915c03606ed9c3415da8dadf6eceb937c4c3ee92247ac453f27cb6ec",
+      "log_sha256": "4f1ccaa3be4b3b954e57c8c1d94722ff071cc1d61bf251819fd9233acb1d3501"
+    }
+  ],
+  "scope": "Tiny single-matrix complete candidate arithmetic path only; real middle/late/multiple-matrix/candidate behavior and endpoint remain required.",
+  "disposition": "Reject explicit-scalar partial LUT path and deprioritize this activation-table family. No causal register-spill conclusion. Prior AW91\u201394 uniform PQ FFN negative results retained; do not repeat without new evidence. P1/runtime/default unchanged."
+}

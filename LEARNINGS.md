@@ -2085,3 +2085,14 @@ output/phase replay valid. Stop assuming producer cost is dominant; investigate
 consumer/representation, causes unproven. AW171 cost rejection retained. No
 integration/promotion/P1/default change. Raw externalAW172, hashes in
  evidence/AW-0172-partial-lut-phase-diagnostic.json.
+
+
+### AW-0173 — explicit-scalar partial LUT remains cost-rejected
+
+Same full matrix/captured input/new ABBA: explicit four scalar consumer numeric
+relativeL2 1.63418e-6, complete4.454/4.533ms versus native1.092/1.116ms (~4.1x).
+Raw/output/timing replay valid, host1/growth0. Reject/deprioritize activation-table
+forms; no causal register-spill or endpoint conclusion. Prior AW91–94 uniformPQ
+single-column FFN negatives remain relevant, do not repeat without new evidence.
+P1/runtime/default unchanged. RawexternalAW173 and all pins/timings in
+ evidence/AW-0173-scalar-lut-screen.json. No promotion.
