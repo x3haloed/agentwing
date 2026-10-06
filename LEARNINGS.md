@@ -2240,3 +2240,15 @@ Coordinated CPU/Metal16centroid/cut/half/magnitude literals only, same68byte
 compilation/cost/own-model/vision/tools/endpoints. Oldcache semantics stay with
 oldruntime, no deployed/profile/P1 change. Next native GPU screens; external
 AW186, pins evidence/AW-0186-stationary-codebook-build.json.
+
+
+### AW-0187 — Metal codebook writer passes integrity, short cost screen fails
+
+All12real early/mid/late reverseindex writer cases pass exactcodes/reservedzero /
+halfscale tolerance. Candidate packedbytes exact CPU; control31 halfrounding
+relative.00059595. Independent packed/timing/ratio replay valid; runnerreported
+host1/growth0, no persample hosttrace. Candidate coldcompile19.997s retained.
+One short steady ratio1.15553 exceeds predeclared1.10gate; preserve cost failure,
+not waive it. Numeric retained, cost unresolved; use longer interleaved repeated
+windows before integration. No P1/profile/deployedruntime/endpoint change.
+ExternalAW187, pins evidence/AW-0187-codebook-metal-writer.json.
