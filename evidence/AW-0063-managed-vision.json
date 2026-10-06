@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "run": "/Users/chad/Models/agentwing/tasks/20261006T021113.931288Z-bonsai",
+  "result": {
+    "status": "client-completed",
+    "error": null,
+    "pi_exit": 0,
+    "wall_seconds": 53.67500029199982,
+    "verified_utility": null,
+    "scope": "User task, not scored benchmark. Inspect artifacts and independently validate.",
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0.0,
+    "server_pid": 13024,
+    "client_pid": 13045
+  },
+  "observed": "blue,red",
+  "expected": "blue,red",
+  "hash_manifest_sha256": "547adeddf4be4008f6e83a15851a86b9148cdda3c60cbc06007ed2255571b96e",
+  "tool_accounting": {
+    "attempted": 1,
+    "valid": 1,
+    "productive": 1,
+    "redundant": 0,
+    "malformed": 0,
+    "denied": 0,
+    "failed": 0
+  }
+}

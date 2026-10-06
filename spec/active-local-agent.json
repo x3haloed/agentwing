@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "id": "bonsai2-local",
+  "status": "operational-default",
+  "configuration": "spec/bonsai-local.json",
+  "launcher": "scripts/run_bonsai_agent.py",
+  "server": "scripts/bonsai_server.py",
+  "pi_configuration": "config/pi-bonsai-models.json",
+  "usage": "docs/BONSAI_LOCAL.md",
+  "historical_control": "spec/validated-local-agent.json",
+  "scope": "Local text, vision and Pi tool-loop admission on 16 GB M1; work-rate comparison unresolved"
+}

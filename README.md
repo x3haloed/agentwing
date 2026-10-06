@@ -1,8 +1,10 @@
 # Agentwing
 
 Agentwing maximizes verified autonomous coding work per wall-clock hour on a
-16GB M1 Mac mini. **P1 is the first promoted local configuration:** Qwen3.6
-35B-A3B 8-bit qpack, patched Swiftlet and Pi, with a 0.5 GB expert cache.
+16GB M1 Mac mini. **The operational default is Bonsai 2 27B with PrismML
+llama.cpp Metal, local vision, and Pi.** Text, vision and real tool loops passed
+local admission. Historical P1 (Qwen3.6 8-bit + Swiftlet + Pi) remains a control;
+the work-rate results below describe P1, not Bonsai.
 
 | Interleaved pair | Control | Candidate | Verified work-rate gain |
 | --- | --- | --- | --- |
@@ -15,7 +17,15 @@ transformation, recovery, bounded reads and configuration synchronization.
 Failures and endpoint overhead count. These are local Stage A results, not
 held-out or external benchmark performance.
 
-## Use the local agent
+## Bonsai 2 migration
+
+The active strategy is now **Bonsai 2 27B + Prism llama.cpp Metal + local vision**.
+The initial admission failure is preserved in [AW-0062](experiments/AW-0062-bonsai-local-multimodal.md); corrected admission is recorded in [AW-0063](experiments/AW-0063-bonsai-pi-context-admission.md).
+See [Bonsai local inference](docs/BONSAI_LOCAL.md) for the guarded chat/image server,
+Pi configuration, artifact pins and managed workspace-copy launcher. Historical
+P1 measurements below remain measurements of Qwen/Swiftlet/Pi.
+
+## Use the historical P1 local agent
 
 From this repository:
 
@@ -43,7 +53,7 @@ settings do not inherit the combined speedup claim.
 The model/runtime/harness identities, prompt, recovery policy and permissions
 are pinned in [the P1 profile](spec/validated-local-agent.json). The historical
 B0/C0/K0 definitions in `spec/configurations.json` remain unchanged to preserve
-the frozen execution plan; P1 is the current default task-launch profile.
+the frozen execution plan; P1 is the historical promoted task-launch profile; the Bonsai profile has separate admission and usage documentation.
 
 The final launcher smoke passed independent artifact verification. Validation
 includes 180 Swift tests across 29 suites, 19 Python tests, real Pi protocol

@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "model": {
+    "repository": "prism-ml/Ternary-Bonsai-2-27B-gguf",
+    "revision": "b072e1d3b35a0a630cece372c2127528e0994386",
+    "license": "Apache-2.0",
+    "artifacts": [
+      {
+        "filename": "Ternary-Bonsai-2-27B-PTQ1_0.gguf",
+        "bytes": 5946648928,
+        "sha256": "53107f530aa52eb00912263ab1ee29bd199261c87cd7b4ad4ca1318c1fe33ee3"
+      },
+      {
+        "filename": "Ternary-Bonsai-2-27B-mmproj-Q8_0.gguf",
+        "bytes": 629246976,
+        "sha256": "6807ede61d570bb86ba34b756a0fa109edc33668604de867c6ea6d8f1d631903"
+      }
+    ]
+  },
+  "runtime": {
+    "repository": "https://github.com/PrismML-Eng/llama.cpp",
+    "release": "prism-b10743-adfffbe",
+    "backend": "Metal",
+    "demo_revision": "74fab33d81d81a535525bd98c7a676b22d4dca46",
+    "asset": {
+      "name": "llama-prism-b10743-adfffbe-bin-macos-arm64.tar.gz",
+      "size": 11517506,
+      "digest": "sha256:596d257973080ca5011a4be50477c5f93ed1d231fcccfc2afb44bb573bb9629a",
+      "browser_download_url": "https://github.com/PrismML-Eng/llama.cpp/releases/download/prism-b10743-adfffbe/llama-prism-b10743-adfffbe-bin-macos-arm64.tar.gz"
+    },
+    "server_sha256": "446c46ffc82ace68d83d15c77c27d301a45e99ac5988ca919c4fc32e26082fba",
+    "revision": "adfffbe41b2cabcd51fff326ab045662265062bb"
+  },
+  "context_tokens": 8192,
+  "parallel": 1,
+  "image_max_tokens": 1024,
+  "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.05,
+    "presence_penalty": 0.0,
+    "repeat_penalty": 1.0,
+    "seed": 42
+  },
+  "reasoning_effort": "medium",
+  "host_gates": {
+    "critical_pressure_level": 4,
+    "max_swap_growth_mib": 1024
+  },
+  "status": "admitted-local-text-vision-pi",
+  "harness": {
+    "package": "@earendil-works/pi-coding-agent",
+    "version": "0.84.4"
+  },
+  "experiment": "AW-0063",
+  "admission_evidence": [
+    "evidence/AW-0063-admission-audit.json",
+    "evidence/AW-0063-managed-vision.json"
+  ],
+  "limits": "Functional local admission; no autonomous work-rate superiority established."
+}

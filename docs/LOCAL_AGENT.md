@@ -1,4 +1,8 @@
-# Local agent P1
+# Historical local agent P1
+
+The active strategy has moved to [Bonsai 2 local inference](BONSAI_LOCAL.md).
+This guide preserves the measured Qwen/Swiftlet/Pi control configuration.
+
 
 P1 is the promoted Qwen3.6 + patched Swiftlet + Pi configuration for this
 16GB M1 Mac mini. Both interleaved Stage A comparisons passed. The final task-launcher

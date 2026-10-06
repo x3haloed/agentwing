@@ -1,0 +1,21 @@
+{
+  "endpoint": "http://127.0.0.1:8080",
+  "healthy": true,
+  "model": "bonsai2-27b",
+  "capabilities": [
+    "completion",
+    "multimodal"
+  ],
+  "context_tokens": 8192,
+  "runtime_revision": "adfffbe41b2cabcd51fff326ab045662265062bb",
+  "source_sha256": {
+    "scripts/bonsai_server.py": "057ae88fab62760caf0c5e792b144c1b2bdbea504838719c372ae1b40a3afe63",
+    "scripts/run_bonsai_agent.py": "d53ebdc32f5b018e3a3a2e906a66536738e18fb36140ef8b7ba59c0dd24594a4",
+    "scripts/setup_bonsai.py": "dc4318c93529a6c10d665b5e0cfc8dad4786249d0869eebb631ef48ea054a294",
+    "scripts/probe_bonsai_local.py": "babba935e639e08b394c794ec23d1d107f6bc502b89bcd07f55e60712172c70f",
+    "scripts/probe_bonsai_pi.py": "b58da05042cd1b35f2dc5f8c9c65af105b8d1bae2e1c6d870cc327002f727862",
+    "scripts/audit_bonsai_admission.py": "7779963875d24f302b02f61eb23a1968f9de4e579efb97b5602c9b8551362f3a",
+    "spec/bonsai-local.json": "f346a9bd654623043dd3c35a6b707aaecd3033c87a4d3bf4c49d4f4f59155ea0",
+    "config/pi-bonsai-models.json": "080e2abebb0f4daf422dbbf6b849d488a09d0143edb957407a90a288d7254947"
+  }
+}

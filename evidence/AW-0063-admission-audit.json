@@ -1,0 +1,71 @@
+[
+  {
+    "run": "/Users/chad/Models/agentwing/evidence/AW-0062/20261006T020418Z-rep0",
+    "passed": true,
+    "raw_hash_manifest_sha256": "86823cdfa92bcab24a5131b16ee6c8735834bd139f5a0b13aaa44614b3dd39d3",
+    "wall_seconds": 188.6590121249999,
+    "pressure_peak": 2,
+    "swap_growth_peak_mib": 0.0,
+    "tool_accounting": {
+      "api": {
+        "attempted": 1,
+        "valid": 1,
+        "productive": 1,
+        "redundant": 0,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0
+      },
+      "pi": {
+        "attempted": 4,
+        "valid": 4,
+        "failed": 0,
+        "malformed": 0,
+        "denied": 0,
+        "commands": [
+          "cat source.txt",
+          "xxd source.txt && wc -c source.txt",
+          "cp source.txt answer.txt && cmp source.txt answer.txt && echo \"MATCH: files are identical\"",
+          "md5sum source.txt answer.txt && cat answer.txt"
+        ],
+        "productive": 2,
+        "redundant": 2,
+        "classification_note": "Manual transcript review: initial content read and copy plus first comparison are productive; byte-count/hex inspection and repeated checks after a successful comparison are redundant."
+      }
+    }
+  },
+  {
+    "run": "/Users/chad/Models/agentwing/evidence/AW-0062/20261006T020727Z-rep1",
+    "passed": true,
+    "raw_hash_manifest_sha256": "3322669ff5349876deb106b07b90ccfa4bea7c60cf4cfcf3eb14a1dc8fa324b2",
+    "wall_seconds": 173.25338716700003,
+    "pressure_peak": 2,
+    "swap_growth_peak_mib": 0.0,
+    "tool_accounting": {
+      "api": {
+        "attempted": 1,
+        "valid": 1,
+        "productive": 1,
+        "redundant": 0,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0
+      },
+      "pi": {
+        "attempted": 3,
+        "valid": 3,
+        "failed": 0,
+        "malformed": 0,
+        "denied": 0,
+        "commands": [
+          "cat source.txt",
+          "cp source.txt answer.txt && diff source.txt answer.txt && echo \"FILES MATCH\"",
+          "md5sum source.txt answer.txt && wc -c source.txt answer.txt"
+        ],
+        "productive": 2,
+        "redundant": 1,
+        "classification_note": "Manual transcript review: initial content read and copy plus first comparison are productive; byte-count/hex inspection and repeated checks after a successful comparison are redundant."
+      }
+    }
+  }
+]

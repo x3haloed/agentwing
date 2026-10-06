@@ -21,6 +21,16 @@ and task outcomes checked by independent verifiers.
 An external SSD is a different physical configuration and must not be mixed
 with internal-SSD results.
 
+## Active strategy — Bonsai 2 local multimodal
+
+User-directed migration on 2026-10-05: Ternary Bonsai 2 27B via PrismML's
+Hadamard-aware llama.cpp fork on Metal, including its local vision encoder and
+projector. Exact pins and host gates live in `spec/bonsai-local.json`; admission
+and functional evidence are recorded in AW-0062/AW-0063. Initial operating limits are
+8192 context tokens, one rollout, FP16 KV and a 1024-token image cap. This admitted strategy
+supersedes Swiftlet as the operational default; historical B0/C0/P1 configurations remain controls. No autonomous
+work-rate superiority is presumed from publisher scores or functional checks.
+
 ## Baseline B0
 
 - Qwen3.6-35B-A3B 8-bit qpack
