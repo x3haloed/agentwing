@@ -1,0 +1,196 @@
+{
+  "experiment": "AW-0121",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0121",
+  "result": {
+    "experiment": "AW-0121",
+    "exit": 0,
+    "error": null,
+    "passed": true,
+    "finite": null,
+    "capture_files": {
+      "31-3.bin": {
+        "bytes": 512,
+        "sha256": "286276372ea5fbe771c447bca46daf99478e99b0c4ab52dca5e09da34f5db04e"
+      },
+      "31-2.bin": {
+        "bytes": 524288,
+        "sha256": "6a82cb150124281ac1713697228e0d563601abeb06f20f860ee36bb10b31b17d"
+      },
+      "31-0.bin": {
+        "bytes": 24576,
+        "sha256": "d3ab085dcfeb1620d6bab58c0e651764c57c6038a6dea990e86c68f440458f36"
+      },
+      "31-1.bin": {
+        "bytes": 524288,
+        "sha256": "66e8840d526a5a807404f0b501b8e1ebba474167af3cc9c19d70f69e8d03db59"
+      },
+      "31-4.bin": {
+        "bytes": 24576,
+        "sha256": "4c8ac2a5683ef7f4f8ad1ccd2137bf5bc2c49a59fd364c895331190c06c3e52c"
+      },
+      "63-4.bin": {
+        "bytes": 24576,
+        "sha256": "363a918fd845a498106f1d84138d0cac181ff93f721e4d6972bae0784cb3191e"
+      },
+      "3-2.bin": {
+        "bytes": 524288,
+        "sha256": "d4bd04c67c5b0d9adbd462589b894c32039c3d7d903f9ad702416031ed3a17f6"
+      },
+      "3-3.bin": {
+        "bytes": 512,
+        "sha256": "286276372ea5fbe771c447bca46daf99478e99b0c4ab52dca5e09da34f5db04e"
+      },
+      "3-1.bin": {
+        "bytes": 524288,
+        "sha256": "3aec7eceb141c10dac86f0814051d1d4e42093187095549c2a8152891b9b7bbe"
+      },
+      "3-0.bin": {
+        "bytes": 24576,
+        "sha256": "41da8d334bc07259abc98c2b2499d5e8ccf87145d6d8205f0b40cb0f3e4ae512"
+      },
+      "63-2.bin": {
+        "bytes": 524288,
+        "sha256": "813127ebd03f2cc54069d6022d188c2828dbdb90a395fb03e02346d47e34e3ee"
+      },
+      "3-4.bin": {
+        "bytes": 24576,
+        "sha256": "611944aa6f1a21da4d66c446cf2d468ead2e4f1bf91c3764fb1c5f0b8e18aa7e"
+      },
+      "63-3.bin": {
+        "bytes": 512,
+        "sha256": "286276372ea5fbe771c447bca46daf99478e99b0c4ab52dca5e09da34f5db04e"
+      },
+      "63-1.bin": {
+        "bytes": 524288,
+        "sha256": "c85becff8075c157bdecd3ed6fc7846881bd25142616db1505fa2a90b9fa9157"
+      },
+      "63-0.bin": {
+        "bytes": 24576,
+        "sha256": "1ac1a8964efaee88aad86fcdd7de6ef675614c334bc20528d28e84b9116cd435"
+      }
+    },
+    "plan_sha256": "e74573f55ecf2d37df16fd0206f7fcc691f36c32c0d99fd70d505135852cd02d",
+    "capture_index_sha256": "859ec2a02101ce4007e821975e922e367093fa5d3e6d6df32412b60dd59d2481",
+    "native_log_sha256": "627b1be3db3e93a6ab2aee18b8803d3666e7957e583e9f6415deee39c169169a",
+    "pressure_sha256": "53525cccc0b00a34654c4c8732ea0cc01faac7d575933aa2c95ed0c215a61a2e",
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+    "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+    "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0121",
+    "scope": "Final decode attention after32 candidate-generated tokens; no compressed cache or endpoint claim"
+  },
+  "audit": {
+    "all15_capture_files_byte_identical_to_AW109": true,
+    "index_byte_identical": true,
+    "all32_generated_tokens_and_state_identical": true,
+    "compiled_source_headers_match_recorded_pins": true,
+    "source_build_result_sha256": "e07c7da7ea7cf63e49d1a7b0b2e46d5abd9055161ea5998bd49ab59a28ea2914",
+    "otool": "/Users/chad/Models/agentwing/evidence/AW-0121/selective-activation:\n\t@rpath/libllama.0.dylib (compatibility version 0.0.0, current version 0.0.0)\n\t@rpath/libggml.0.dylib (compatibility version 0.0.0, current version 0.21.0)\n\t@rpath/libggml-base.0.dylib (compatibility version 0.0.0, current version 0.21.0)\n\t/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 2200.27.0)\n\t/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1359.0.0)\n",
+    "explicit_backend_directory": "/Users/chad/Models/agentwing/runtime-builds/prism-baseline/bin"
+  },
+  "files": {
+    "selective-activation": {
+      "bytes": 37768,
+      "sha256": "f7277dfab591c4cc4089370affa69c9c17e5e675ef2ed89e7d5d42a04e084635"
+    },
+    "plan.json": {
+      "bytes": 3916,
+      "sha256": "e74573f55ecf2d37df16fd0206f7fcc691f36c32c0d99fd70d505135852cd02d"
+    },
+    "result.json": {
+      "bytes": 2977,
+      "sha256": "a493dd28f1e58a2be37a07afa5bc709fd6d95a0cc43c40fd28551f26495926a6"
+    },
+    "pressure.tsv": {
+      "bytes": 1061,
+      "sha256": "53525cccc0b00a34654c4c8732ea0cc01faac7d575933aa2c95ed0c215a61a2e"
+    },
+    "release-comparison-audit.json": {
+      "bytes": 896,
+      "sha256": "c5e9f22195e71c7ad00fcfbfd849c965400c717078f34faed42578d30992fd88"
+    },
+    "header-receipt.json": {
+      "bytes": 896,
+      "sha256": "406471650fdd605aaae41d0144cccc831dff2d9616e8ea9e32fbbf0e54a63195"
+    },
+    "31-3.bin": {
+      "bytes": 512,
+      "sha256": "286276372ea5fbe771c447bca46daf99478e99b0c4ab52dca5e09da34f5db04e"
+    },
+    "31-2.bin": {
+      "bytes": 524288,
+      "sha256": "6a82cb150124281ac1713697228e0d563601abeb06f20f860ee36bb10b31b17d"
+    },
+    "31-0.bin": {
+      "bytes": 24576,
+      "sha256": "d3ab085dcfeb1620d6bab58c0e651764c57c6038a6dea990e86c68f440458f36"
+    },
+    "31-1.bin": {
+      "bytes": 524288,
+      "sha256": "66e8840d526a5a807404f0b501b8e1ebba474167af3cc9c19d70f69e8d03db59"
+    },
+    "31-4.bin": {
+      "bytes": 24576,
+      "sha256": "4c8ac2a5683ef7f4f8ad1ccd2137bf5bc2c49a59fd364c895331190c06c3e52c"
+    },
+    "bonsai-source-built-attention.cpp": {
+      "bytes": 3465,
+      "sha256": "1bbd807e10844461aaf44302e35fd0714f4a032d6c239524a857001c132fe49b"
+    },
+    "63-4.bin": {
+      "bytes": 24576,
+      "sha256": "363a918fd845a498106f1d84138d0cac181ff93f721e4d6972bae0784cb3191e"
+    },
+    "3-2.bin": {
+      "bytes": 524288,
+      "sha256": "d4bd04c67c5b0d9adbd462589b894c32039c3d7d903f9ad702416031ed3a17f6"
+    },
+    "3-3.bin": {
+      "bytes": 512,
+      "sha256": "286276372ea5fbe771c447bca46daf99478e99b0c4ab52dca5e09da34f5db04e"
+    },
+    "3-1.bin": {
+      "bytes": 524288,
+      "sha256": "3aec7eceb141c10dac86f0814051d1d4e42093187095549c2a8152891b9b7bbe"
+    },
+    "3-0.bin": {
+      "bytes": 24576,
+      "sha256": "41da8d334bc07259abc98c2b2499d5e8ccf87145d6d8205f0b40cb0f3e4ae512"
+    },
+    "native.log": {
+      "bytes": 137918,
+      "sha256": "627b1be3db3e93a6ab2aee18b8803d3666e7957e583e9f6415deee39c169169a"
+    },
+    "capture_bonsai_source_built_attention.py": {
+      "bytes": 3416,
+      "sha256": "47ef094b9dce60bc070a55b9d98a5b81b5becdea550f4fdd4c530537cc8a3574"
+    },
+    "63-2.bin": {
+      "bytes": 524288,
+      "sha256": "813127ebd03f2cc54069d6022d188c2828dbdb90a395fb03e02346d47e34e3ee"
+    },
+    "3-4.bin": {
+      "bytes": 24576,
+      "sha256": "611944aa6f1a21da4d66c446cf2d468ead2e4f1bf91c3764fb1c5f0b8e18aa7e"
+    },
+    "63-3.bin": {
+      "bytes": 512,
+      "sha256": "286276372ea5fbe771c447bca46daf99478e99b0c4ab52dca5e09da34f5db04e"
+    },
+    "63-1.bin": {
+      "bytes": 524288,
+      "sha256": "c85becff8075c157bdecd3ed6fc7846881bd25142616db1505fa2a90b9fa9157"
+    },
+    "63-0.bin": {
+      "bytes": 24576,
+      "sha256": "1ac1a8964efaee88aad86fcdd7de6ef675614c334bc20528d28e84b9116cd435"
+    },
+    "capture.tsv": {
+      "bytes": 1089,
+      "sha256": "859ec2a02101ce4007e821975e922e367093fa5d3e6d6df32412b60dd59d2481"
+    }
+  },
+  "limitations": "One raw32-token FP16-cache native probe. No full source-built server/vision/harness admission or endpoint performance. Exact capture identity is limited to this prompt/seed/configuration."
+}

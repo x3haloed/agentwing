@@ -1673,3 +1673,12 @@ pressure1/swap growth0; exact source clean and dylibs hashed. Retain baseline
 for integration, avoiding missing offline Metal toolchain. Newly built hashes
 are different from release and not yet model-admitted; no compressed-runtime
 or endpoint performance claim.
+
+## AW-0121 — Source-built Prism reproduces native generated probe exactly
+
+Isolated unmodified source build loads selective Bonsai and executes native
+Metal32-token probe, pressure1/swap growth0. Generated IDs/state, all15 complete
+final attention files and index are byte-identical to release AW-0109; header
+pins verified. Retain stronger native baseline before Turbo port. Equality is
+this raw prompt/seed/FP16-cache probe only; no server/vision/harness admission
+or endpoint-quality/performance conclusion.
