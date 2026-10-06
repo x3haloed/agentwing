@@ -1744,3 +1744,16 @@ Verbose diagnostic repeat confirmsactual16K KV272+136=408MiB,health/props200,
 pressure1/swapgrowth0,clean shutdown. Retain configured multimodal startup, not
 image-answer/tool-agent/occupied-long-context/endpoint qualification. CLI Khelp
 lists Turbo though Kparser rejects it; help refinement still outstanding.
+
+
+### AW-0140 — compressed-cache full multimodal functional admission
+
+Two fresh 16K q8-K/Turbo4-V server runs pass text, reversed image-color ordering,
+native tool selection/result association and Pi exact file-copy gates. Independent
+hash/protocol replay passes all 16 serialized terminal requests; eight attempted
+tools are valid and productive, with no redundant/malformed/denied/failed calls.
+Pressure1 and zero swap growth in both (baseline1196.12MiB). Walls156.744/181.104s
+are unpaired functional observations, not endpoint performance claims. Retain
+experimental launch path; P1/default unchanged and utility qualification remains
+unproven. Evidence: evidence/AW-0140-turbo-multimodal-admission.json; raw external
+/Users/chad/Models/agentwing/evidence/AW-0140, hashes recorded in receipt/manifests.
