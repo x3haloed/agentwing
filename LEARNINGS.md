@@ -2310,3 +2310,18 @@ productive, one redundant; no failed, malformed or denied calls. Receipt
 `/Users/chad/Models/agentwing/evidence/AW-0192`. Retained experimental; P1
 unchanged. Functional admission does not establish endpoint utility or
 capability; AW-0193 long accumulated native request remains necessary.
+
+### AW-0193 — stationary-cache accumulated request reaches a valid tool proposal
+
+Unlike AW-0149's older Turbo4 cache timeout, the AW-0191 stationary-cache
+server completed the exact AW-0145 saved request under the same native
+medium/8192 request budget: 1707.336 s, one schema-valid bash proposal,
+one terminal tool_calls and DONE, no tool execution. Strict raw-stream/hash
+audit plus independent host trace replay passed (pressure peak 2, zero
+swap growth). Candidate receipt: `evidence/AW-0193-stationary-candidate-partial.json`;
+full generated arguments/raw hashes remain external in
+`/Users/chad/Models/agentwing/evidence/AW-0193`. This supersedes the prior
+incomplete-response observation only for this complete configuration and
+request. It does not establish task success, uniform behavioral improvement
+or a causal speed gain. Retained experimental; F16 arm still live and the
+AW-0194 complete-pair prerequisite remains closed. P1 remains frozen.
