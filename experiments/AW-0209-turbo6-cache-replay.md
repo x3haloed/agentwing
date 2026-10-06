@@ -2,7 +2,7 @@
 
 ## Status and hypothesis
 
-Running. Fivearms audited; late6bitcandidate live. Technical hypothesis:
+Completed. Allsixarms independentlyaudited; technicalscreenpassed. Technical hypothesis:
 Q8keys/6bitvalues limit identical-prefixlogitdisplacement and preservefinite
 own32trajectories at savedearly/mid/late reasoning prefixes. Fullqualification
 requiresallsixarms. This is not vision/tool/task/endpoint acceptance.
@@ -70,3 +70,24 @@ prompt/full32logits/generatedbytes matchpriorAW190control exactly. Receipt
 `evidence/AW-0209-late-control-partial.json`; late6bitcandidate live.
 AllthreefreshF16controls reproducepriorlogits/generatedbytes, but late
 pair/fullcampaign remainsunresolved.
+
+## Terminal campaign result
+
+Allsixarms exit0 andcomplete32ownsampledtokens/fullfinitelogitrows/384finite
+projectioncaptures perarm. Originalauditorwithoutpartial passes, independent
+math.fsumfirstrowL2agrees within1e-12; patch/source/library/model/harness/
+fixture/resource/capacityidentitieschecked. No live modelowner aftercleanup.
+FirstrowL2 early/mid/late .0088705/.00385631/.00888471; top20overlap.95/.95/1.
+Commonown32tokenprefix4/0/22, overallmatches4/0/22. Notoutputequivalence.
+AllthreefreshF16controls full32logits/prompt/generatedbytes bitexactAW190.
+Comparedoldstationary4bit numericaldisplacementreduction65.07/75.42/66.69%
+(rounded), not taskquality orspeed. Allarmspeakpressure1/swapgrowth0.
+Late6bit327.857s diagnostic; 16KallocatedQ8K272MiB/V6bit200MiB=472MiB,
+versusF16/F16 1024MiB. Allocation isnotRSS/speed/agentutility.
+
+Supersedespartialcampaignstatus. Receipt
+`evidence/AW-0209-turbo6-cache-terminal.json` pinsfullplan/summary/audit/
+independentnumericchecks andexternalarmrawhashes. Retaintechnicalsurvivor
+for fullserver/vision/native-tool/ownbehavior admission, thenselecteddev
+andfrozenoriginal/expandedendpoints asrequired. No default/P1promotion;
+25%utilitygoal remainsunproven. No fullGooglePolarQuant/QJLclaim.

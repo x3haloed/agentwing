@@ -2579,3 +2579,16 @@ bytes matchAW190latecontrol, completingexactreproducibilityofallthreeF16
 controls. Receipt `evidence/AW-0209-late-control-partial.json` pins external
 AW209raw/partialaudit; fivearmsverified, late6bitcandidate live. Latepaired
 numeric/fullcampaign unresolved; no causal timing/task/vision/toolclaim.
+
+### AW-0209 — six-arm fullmodel6bit accumulated-prefix screen passes
+
+Allsixfullmodelarms complete32ownsampledtokens/fullfinitelogits/384finite
+projectioncaptures each. Terminalhash/shape/numeric/resource/capacityaudit
+passes, independentmath.fsumfirstrowcheck agrees. Firstrowearly/mid/late
+L2.0088705/.00385631/.00888471,top20overlap.95/.95/1. Own32commonprefix4/0/22,
+notoutputequivalence. AllthreeF16full32controls bitexactAW190prioroutputs.
+Allarmspressure1/swapgrowth0; cleanupnomodelowner. Receipt
+`evidence/AW-0209-turbo6-cache-terminal.json` pinsfullplan/audit/independent
+checks/externalAW209raw. Supersedespartialstatus; retainedtechnicalsurvivor
+forfullserver/vision/tool/behavior admission, not endpoint/P1promotion.
+Full25%verifiedutilitygoal remainsunproven; nofullGooglePolarQuant/QJLclaim.
