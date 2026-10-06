@@ -1,6 +1,6 @@
 # AW-0193: Stationary cache full accumulated request replay
 
-Status: running after independent AW-0192 admission; terminal behavior unresolved.
+Status: complete; both arms passed terminal stream/hash/host audit. Retained experimental; no endpoint promotion.
 
 Replay the exact AW-0145 saved native Pi fourth request, with the existing
 AW-0149 explicit 8192-token cap, native thinking sampling and medium effort.
@@ -34,3 +34,18 @@ Full audit including generated arguments remains external at
 F16 is still running; AW-0194's complete-pair gate remains closed.
 This reverses the old cache's incomplete-response result for this one
 request only; it does not prove task utility or a causal performance gain.
+
+## Complete pair
+
+F16 completed in 745.972 seconds with 13,779 thinking characters and one
+valid bash proposal; stationary Turbo4 completed in 1707.336 seconds with
+26,341 thinking characters and one valid bash proposal. Neither executed
+a tool. Both had one terminal tool_calls/DONE, clean client/server exits,
+independently replayed host traces and zero swap growth; pressure peaks
+were 2 (stationary) and 1 (F16). Different generated proposals and fixed
+arm order preclude causal speed attribution. No task success is claimed.
+
+Receipt: `evidence/AW-0193-stationary-full-request-terminal.json`; external
+full audit and raw hashes: `/Users/chad/Models/agentwing/evidence/AW-0193`.
+The AW-0194 complete-pair gate is satisfied, and its frozen-input/corpus
+integrity check passed. Prior partial receipt remains preserved.

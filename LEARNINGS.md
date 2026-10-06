@@ -2325,3 +2325,15 @@ incomplete-response observation only for this complete configuration and
 request. It does not establish task success, uniform behavioral improvement
 or a causal speed gain. Retained experimental; F16 arm still live and the
 AW-0194 complete-pair prerequisite remains closed. P1 remains frozen.
+
+### AW-0193 — complete stationary/F16 native-request pair
+
+Both fresh-server arms completed with one valid native bash proposal and
+passed strict stream/hash/host replay. Stationary:1707.336 s/26,341 thinking
+characters/pressure2; F16:745.972 s/13,779/pressure1; swap growth0 both.
+These are fixed-order diagnostic durations with different generated
+proposals, not a causal speed ratio or autonomous task score. Terminal
+receipt `evidence/AW-0193-stationary-full-request-terminal.json` pins
+external raw/audit hashes under `/Users/chad/Models/agentwing/evidence/AW-0193`.
+This supersedes the partial pair status; retained experimental, P1 frozen.
+AW-0194's full-request prerequisite is now satisfied.
