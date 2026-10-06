@@ -1,6 +1,6 @@
 # AW-0192: Stationary cache multimodal functional admission
 
-Status: running; unresolved. No endpoint promotion.
+Status: both replicas passed independent functional admission; retained as experimental candidate. No endpoint promotion.
 
 Test AW-0191's pinned full server, AW-0186 stationary Turbo4 V codebook,
 Q8 K, selective attention PQ weights, and full Q8 vision projector in two
@@ -24,3 +24,21 @@ Audit after both replicas finish:
 
 First replica launched 2026-10-06T16:13:36Z. Terminal receipts and raw
 hashes remain pending; no functional acceptance claim is made yet.
+
+## Terminal results
+
+Replicas completed in 225.374 and 201.834 seconds. Both passed arithmetic,
+opposite-color image ordering, native lookup selection/result association,
+and Pi byte-exact file copy with canonical protocol/cleanup checks.
+Peak pressure was 2 for both; swap growth was 760.69 and 0 MiB respectively.
+The first swap increase remains charged; no claim of zero resource growth.
+Nine tools were attempted, all valid and successful: eight productive, one
+redundant second-replica MD5 check, none malformed, denied or failed.
+
+Receipt: `evidence/AW-0192-stationary-admission.json` records plan, auditor,
+canonical protocol, result and artifact hashes. Each external replica's
+`sha256.json` records raw top-level evidence hashes. Fresh server launches
+do not imply cold OS page cache or reset swap between replicas.
+
+This establishes local text/vision/tool functionality, not long-context
+behavior, capability equivalence or utility/hour. Next: gated AW-0193.

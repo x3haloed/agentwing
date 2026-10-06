@@ -15,7 +15,7 @@ def worker(directory):
    raw.write(line);raw.flush()
    if not line.startswith(b'data: '):continue
    value=line[6:].strip()
-   if value==b'[DONE]':done=True;break
+   if value==b'[DONE]':done=True;continue
    x=json.loads(value);events+=1
    if 'error' in x:raise RuntimeError(str(x['error']))
    for choice in x.get('choices',[]):
@@ -32,7 +32,7 @@ def main():
  receipt=json.loads((ROOT/'evidence/AW-0145-full-render.json').read_text());assert digest(source)==receipt['raw_sha256']['fourth-request.json']
  body={'model':'bonsai2-27b','max_tokens':8192,'stream':True,'temperature':1.0,'top_p':.95,'top_k':20,'min_p':.05,'presence_penalty':0,'repeat_penalty':1,'frequency_penalty':0,'seed':42,**json.loads(source.read_text())}
  body.pop('add_generation_prompt',None)
- plan={'experiment':'AW-0193','scope':'Unreplicated full accumulated request behavior, no tools executed or task score/performance claim','source_request_sha256':digest(source),'harness_sha256':digest(Path(__file__)),'runtime_spec_sha256':digest(SPEC),'runtime':json.loads(SPEC.read_text()),'version':version,'request':body,'functional_admission_sha256':digest(admission),'order':['turbo','f16'],'startup_timeout_seconds':60,'request_timeout_seconds':1800,'context_tokens':16384,'acceptance':'Fresh clean server; identical request bytes, complete SSE terminal/[DONE] or preserved watchdog failure; all generated tool calls retained but not executed. Host pressure<4/swap growth<=1024MiB. No task success or promotion acceptance.','os':subprocess.check_output(['sw_vers'],text=True),'hardware':subprocess.check_output(['sysctl','hw.model','hw.memsize'],text=True),'thermal':subprocess.check_output(['pmset','-g','therm'],text=True),'storage':'internal SSD','cache':'Fresh server per arm; uncontrolled OS page cache; single fixed Turbo/F16 diagnostic pair, no comparative speed attribution'}
+ plan={'experiment':'AW-0193','scope':'Unreplicated full accumulated request behavior, no tools executed or task score/performance claim','source_request_sha256':digest(source),'harness_sha256':digest(Path(__file__)),'runtime_spec_sha256':digest(SPEC),'runtime':json.loads(SPEC.read_text()),'version':version,'request':body,'strict_stream_auditor_sha256':digest(ROOT/'scripts/audit_bonsai_rollback_full_request.py'),'functional_admission_sha256':digest(admission),'order':['turbo','f16'],'startup_timeout_seconds':60,'request_timeout_seconds':1800,'context_tokens':16384,'acceptance':'Fresh clean server; identical request bytes, complete SSE terminal/[DONE] or preserved watchdog failure; all generated tool calls retained but not executed. Host pressure<4/swap growth<=1024MiB. No task success or promotion acceptance.','os':subprocess.check_output(['sw_vers'],text=True),'hardware':subprocess.check_output(['sysctl','hw.model','hw.memsize'],text=True),'thermal':subprocess.check_output(['pmset','-g','therm'],text=True),'storage':'internal SSD','cache':'Fresh server per arm; uncontrolled OS page cache; single fixed Turbo/F16 diagnostic pair, no comparative speed attribution'}
  assert not (R/'plan.json').exists();(R/'plan.json').write_text(json.dumps(plan,indent=2)+'\n')
  rows=[]
  with (ROOT/'var/model-owner.lock').open('a') as lock:

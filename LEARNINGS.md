@@ -2298,3 +2298,15 @@ fullQ8vision16K/q8K/Turbo4V/nativeT1medium/CP2/cache0/noshift launcher
 vision/tool/longresponse or endpoint qualification from build; requests keep
 8192cap atcaller. P1/default unchanged, no promotion/fullGoogle claim. External
 AW191; build+launcher receipts under evidence/AW-0191*.json.
+
+### AW-0192 — stationary cache full multimodal functional admission
+
+The AW-0191 full server with AW-0186 stationary Turbo4 V/Q8 K passed two
+fresh-server text, opposite-color vision, native lookup/association and Pi
+file-copy replicas, independently audited. Durations 225.374/201.834 s,
+pressure peaks 2/2, swap growth 760.69/0 MiB. Nine valid tools: eight
+productive, one redundant; no failed, malformed or denied calls. Receipt
+`evidence/AW-0192-stationary-admission.json`; raw/hashes outside Git under
+`/Users/chad/Models/agentwing/evidence/AW-0192`. Retained experimental; P1
+unchanged. Functional admission does not establish endpoint utility or
+capability; AW-0193 long accumulated native request remains necessary.

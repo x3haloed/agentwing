@@ -1,0 +1,150 @@
+{
+  "experiment": "AW-0192",
+  "passed": true,
+  "plan_sha256": "02f1a3297dfb221a9907a416e75bd976d24fe764260b90ae6b9ab804a7eaecab",
+  "records": [
+    {
+      "reviewed_pi_tool_accounting": {
+        "attempted": 3,
+        "valid": 3,
+        "productive": 3,
+        "redundant": 0,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0,
+        "basis": "Read identifies content; byte inspection identifies trailing newline; copy plus comparison completes and verifies artifact; additional MD5 repeats established equality."
+      },
+      "replicate": 0,
+      "run": "/Users/chad/Models/agentwing/evidence/AW-0192/20261006T161336Z-rep0",
+      "result_sha256": "8dd893d99619117cb804c6ace3a9118fd43957555e03f7e1095e4724f32e6ab6",
+      "wall_seconds": 225.373970790999,
+      "pressure_peak": 2,
+      "swap_growth_peak_mib": 760.69,
+      "vision_colors": [
+        "red",
+        "blue"
+      ],
+      "native_tool_accounting": {
+        "attempted": 1,
+        "valid": 1,
+        "productive": 1,
+        "redundant": 0,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0
+      },
+      "pi_protocol": {
+        "passed": true,
+        "checks": {
+          "events_nonempty": true,
+          "paired_unique_calls": true,
+          "bash_schema_valid": true,
+          "no_model_errors": true,
+          "fresh_model_load": true,
+          "serialized_unique_requests": true,
+          "all_requests_terminal": true,
+          "server_cleanup": true,
+          "no_context_shift": true,
+          "no_compaction": true,
+          "no_explicit_authority_access": true
+        },
+        "tool_accounting": {
+          "attempted": 3,
+          "valid": 3,
+          "productive": null,
+          "redundant": null,
+          "malformed": 0,
+          "denied": null,
+          "failed": 0
+        },
+        "commands": [
+          "cat source.txt",
+          "xxd source.txt | cat",
+          "cp source.txt answer.txt && sha256sum source.txt answer.txt && cmp source.txt answer.txt && echo MATCH"
+        ],
+        "request_count": 8,
+        "classification": "Productivity, redundancy and denial need separate transcript review; raw events retained."
+      },
+      "pi_commands": [
+        "cat source.txt",
+        "xxd source.txt | cat",
+        "cp source.txt answer.txt && sha256sum source.txt answer.txt && cmp source.txt answer.txt && echo MATCH"
+      ],
+      "artifact_sha256": "a2414439245317cf01fb6c40c30bbc3f5d5bd1623dc3974b899f75273a41b718"
+    },
+    {
+      "reviewed_pi_tool_accounting": {
+        "attempted": 4,
+        "valid": 4,
+        "productive": 3,
+        "redundant": 1,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0,
+        "basis": "Read identifies content; byte inspection identifies trailing newline; copy plus comparison completes and verifies artifact; additional MD5 repeats established equality."
+      },
+      "replicate": 1,
+      "run": "/Users/chad/Models/agentwing/evidence/AW-0192/20261006T161721Z-rep1",
+      "result_sha256": "f0e14685ae9c638815f5e7634f2e7fbc241279e99ea6a8acdbb25cb30e9dd2c9",
+      "wall_seconds": 201.83380862500053,
+      "pressure_peak": 2,
+      "swap_growth_peak_mib": 0.0,
+      "vision_colors": [
+        "blue",
+        "red"
+      ],
+      "native_tool_accounting": {
+        "attempted": 1,
+        "valid": 1,
+        "productive": 1,
+        "redundant": 0,
+        "malformed": 0,
+        "denied": 0,
+        "failed": 0
+      },
+      "pi_protocol": {
+        "passed": true,
+        "checks": {
+          "events_nonempty": true,
+          "paired_unique_calls": true,
+          "bash_schema_valid": true,
+          "no_model_errors": true,
+          "fresh_model_load": true,
+          "serialized_unique_requests": true,
+          "all_requests_terminal": true,
+          "server_cleanup": true,
+          "no_context_shift": true,
+          "no_compaction": true,
+          "no_explicit_authority_access": true
+        },
+        "tool_accounting": {
+          "attempted": 4,
+          "valid": 4,
+          "productive": null,
+          "redundant": null,
+          "malformed": 0,
+          "denied": null,
+          "failed": 0
+        },
+        "commands": [
+          "cat source.txt",
+          "od -c source.txt | tail -2 && wc -c source.txt",
+          "cp source.txt answer.txt && od -c answer.txt | tail -2 && wc -c answer.txt && diff -q source.txt answer.txt && cmp -s source.txt answer.txt && echo \"MATCH\"",
+          "md5sum source.txt answer.txt"
+        ],
+        "request_count": 9,
+        "classification": "Productivity, redundancy and denial need separate transcript review; raw events retained."
+      },
+      "pi_commands": [
+        "cat source.txt",
+        "od -c source.txt | tail -2 && wc -c source.txt",
+        "cp source.txt answer.txt && od -c answer.txt | tail -2 && wc -c answer.txt && diff -q source.txt answer.txt && cmp -s source.txt answer.txt && echo \"MATCH\"",
+        "md5sum source.txt answer.txt"
+      ],
+      "artifact_sha256": "c8fefb5cbb6832082e9f856d2c92f0cdf7039d7e4cd1e00d46ecd018f13b9049"
+    }
+  ],
+  "auditor_sha256": "627ee8b09907a1ba85b7289c9a586c0e21e08debe1aa0357ae3cdd376ffeab2a",
+  "canonical_protocol_sha256": "5c8f841caffeb8b94dd2e3c09705c3086a6f146712a46361d851edaf37332647",
+  "scope": "Two independent full multimodal functional replicas; no endpoint or heldout comparison"
+}

@@ -9,6 +9,8 @@ from audit_bonsai_rollback_full_request import stream
 
 def audit(partial=False):
  plan=json.loads((R/'plan.json').read_text());assert digest(ROOT/'scripts/replay_bonsai_stationary_full_request.py')==plan['harness_sha256'];assert digest(ROOT/'spec/bonsai-stationary-local.json')==plan['runtime_spec_sha256']
+ assert digest(ROOT/'scripts/audit_bonsai_rollback_full_request.py')==plan['strict_stream_auditor_sha256']
+ assert digest(ROOT/'evidence/AW-0192-stationary-admission.json')==plan['functional_admission_sha256']
  rows=[];request_hashes=set()
  for arm in plan['order']:
   d=R/arm
