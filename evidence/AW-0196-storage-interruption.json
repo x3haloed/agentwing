@@ -1,0 +1,35 @@
+{
+  "experiment": "AW-0196",
+  "status": "interrupted-disk-full; normal stationary result and pair summary missing",
+  "passed": false,
+  "cause_evidence": "Worker client.log and runner traceback both report errno28; runner cleanup executed before failed result.json write; no live model owner found afterward",
+  "partial_raw_sha256": {
+    "request.json": "ff70c4de0d10396dc5d48731c3e4bd007daa20aeaa3136ac14c8603eabce27f5",
+    "response.sse": "f01bd6a8b9451452f17c992ac2d78a528dab13984a0dbb029b51fa8470b269b3",
+    "pressure.tsv": "1db02ea1df0b3c5582f39ee61da7fa7066e2f580752a94e3bc07b8ea9541c7cb",
+    "client.log": "c972dcd77141688e735742387b3a9b6624debd3e226d4db4da49176728add1b6",
+    "server-command.json": "5ced706a6db56a75361122c7a1189f786f7f5cf26c4ea7a51ae1f8d358cf69cc",
+    "server.log": "e57955d88aa8a41ef73ae1ee3acc2d4e79a22e30e4208b055412322878c0264f"
+  },
+  "partial_trace_only": {
+    "first_unix_seconds": 1791309036.462893,
+    "last_unix_seconds": 1791310427.45496,
+    "sampled_pressure_peak": 2,
+    "maximum_swap_growth_since_first_sample_mib": 0,
+    "limitation": "Lost in-memory baseline/startup samples/monotonic lifetime/exit codes are not reconstructed; no complete-arm host admission claimed"
+  },
+  "space_recovery": {
+    "authorized_session_log": "/Users/chad/.nx/node/C-chads.mac.mini.lan-1002-EEC0483088A569A40B90F799F3E3D6D0/session",
+    "logical_bytes_before": 288043810773,
+    "truncated": true,
+    "logical_bytes_after_writer_resumed": 289569475338,
+    "allocated_bytes_after_writer_resumed": 1526734848,
+    "free_bytes_after": 286713364480,
+    "reproducible_object_removed": "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-rollback/tools/ui/CMakeFiles/llama-ui.dir/ui.cpp.o",
+    "object_bytes": 3113232,
+    "object_recovery_command": "/Users/chad/Models/agentwing/build-tools/bin/cmake --build /Users/chad/Models/agentwing/runtime-builds/prism-turbo-rollback --target llama-ui -j4",
+    "logger_continues_growing": true
+  },
+  "scope": "Evidence preservation and authorized log reclamation; not a model timeout, task score or promotion claim",
+  "external_recovery_sha256": "1492e310dfaca6a26d5b34e94ed9e9feb05d753c45ef342fd83240cabd0d5d68"
+}

@@ -2377,3 +2377,16 @@ hashes in `/Users/chad/Models/agentwing/evidence/AW-0196`. This supersedes
 the unresolved F16 arm only; stationary arm still live, complete pair
 unresolved. Retained diagnostic, not promotion or cache-reuse attribution;
 P1 frozen.
+
+### AW-0196 — regenerated session-log leak interrupts evidence writes
+
+Stationary arm's raw flush and terminal receipt failed with errno28; pair
+incomplete, not admitted. F16 result remains valid narrower evidence.
+The previously authorized NoMachine session log regenerated to288GB, filling
+the internal disk. Reclaimed it after deleting one reproducible3MiB UI
+object; restored about268GiB free. Logger continues growing at its old
+offset (sparse logical size), so capacity must gate future runs. Receipt
+`evidence/AW-0196-storage-interruption.json` pins retained raw hashes,
+external recovery and object rebuild command. No normal terminal result,
+exact elapsed or complete host baseline is fabricated. P1 frozen; retained
+storage failure, not model timeout or promotion.

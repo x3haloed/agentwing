@@ -1,6 +1,6 @@
 # AW-0196: Current failed trajectory, fixed-request cache replay
 
-Status: F16 terminal and audited; stationary arm running, pair unresolved.
+Status: F16 valid; stationary arm interrupted by disk-full evidence writes. Pair incomplete, not admitted.
 
 Use AW-0195's reconstructed AW-0194 fourth-request history, not AW-0145's
 historical history. Retain native medium reasoning, T1/P.95/k20/minP.05,
@@ -37,3 +37,22 @@ swap growth201.13 MiB. Partial receipt
 and raw/result hashes under `/Users/chad/Models/agentwing/evidence/AW-0196`.
 The stationary arm remains live. Current-history F16 completion alone does
 not isolate checkpoint/cache-reuse effects or qualify a successor.
+
+## Storage interruption
+
+Stationary client stream flush and parent terminal receipt writes failed
+with errno28 before the declared timeout. The regenerated authorized
+NoMachine session log occupied288,043,810,773 logical bytes. Remove one
+reproducible3,113,232-byte rollback UI build object to enable APFS metadata
+writes, then truncate the session log: approximately268 GiB free restored.
+No weights, source, frozen executable/library or evidence was removed.
+Object path/rebuild command and raw/recovery hashes are recorded in
+`evidence/AW-0196-storage-interruption.json`. The logger continued writing
+at its old offset; distinguish sparse logical size from allocated bytes.
+
+No stationary result or complete-pair summary survived. Preserve raw stream,
+logs and host samples with external recovery receipt under AW-0196. Do not
+fabricate lost startup baseline, exact lifetime or exit codes, waive this
+failure, or restart an arm in the frozen directory. No live model owner was
+found after cleanup. F16 partial valid proposal remains narrower evidence.
+Any retry requires a new frozen experiment and disk-capacity gates.
