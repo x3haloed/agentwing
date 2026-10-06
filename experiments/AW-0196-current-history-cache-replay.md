@@ -1,6 +1,6 @@
 # AW-0196: Current failed trajectory, fixed-request cache replay
 
-Status: prepared; terminal outcome unresolved.
+Status: F16 terminal and audited; stationary arm running, pair unresolved.
 
 Use AW-0195's reconstructed AW-0194 fourth-request history, not AW-0145's
 historical history. Retain native medium reasoning, T1/P.95/k20/minP.05,
@@ -26,3 +26,14 @@ Audit: `python3 scripts/audit_bonsai_current_history.py`.
 This diagnostic does not reopen AW-0194 promotion or complete the goal. P1
 stays frozen, and any successor still requires the full fixed capability
 and replicated interleaved endpoint gates.
+
+## F16 terminal, pair unresolved
+
+F16 completed in754.519 s with one valid native bash proposal and one
+terminal tool_calls/DONE. No tool executed or task score inferred. Strict
+stream/hash audit and independent host trace replay passed: pressure peak2,
+swap growth201.13 MiB. Partial receipt
+`evidence/AW-0196-current-history-f16-partial.json` pins external full audit
+and raw/result hashes under `/Users/chad/Models/agentwing/evidence/AW-0196`.
+The stationary arm remains live. Current-history F16 completion alone does
+not isolate checkpoint/cache-reuse effects or qualify a successor.

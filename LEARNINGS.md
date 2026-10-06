@@ -2365,3 +2365,15 @@ reconstructions and preserved initial missing-cwd attempt under
 `/Users/chad/Models/agentwing/evidence/AW-0195`. Retained diagnostic, P1
 frozen. Use current accumulated history for the next cheap same-history
 screen; no reasoning, task, timeout or scoring waiver.
+
+### AW-0196 — current accumulated history F16 reaches a valid proposal
+
+Fresh F16 on AW-0195's reconstructed AW-0194 history completed in754.519 s,
+with one valid native bash proposal, terminal tool_calls/DONE, no executed
+tool and no task score. Strict stream/hash and independent host trace
+passed: pressure2/swap growth201.13 MiB. Partial receipt
+`evidence/AW-0196-current-history-f16-partial.json` pins external raw/audit
+hashes in `/Users/chad/Models/agentwing/evidence/AW-0196`. This supersedes
+the unresolved F16 arm only; stationary arm still live, complete pair
+unresolved. Retained diagnostic, not promotion or cache-reuse attribution;
+P1 frozen.
