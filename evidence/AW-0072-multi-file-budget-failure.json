@@ -1,0 +1,32 @@
+{
+  "scope": "Terminal multi-file development task only; full development screen still running",
+  "run": "/Users/chad/Models/agentwing/evidence/AW-0072/20261006T040507.320499Z",
+  "task_id": "dev-multi-file",
+  "grade_protocol_replay": true,
+  "utility": 0,
+  "wall_seconds": 499.1478093750011,
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0.0,
+  "protocol_passed": true,
+  "tool_accounting": {
+    "attempted": 4,
+    "valid": 4,
+    "productive": 3,
+    "redundant": 0,
+    "malformed": 0,
+    "denied": 0,
+    "failed_command_effect": 1,
+    "failed_returns": 0,
+    "note": "Unsupported cat -A source read fails semantically; pipe to head masks nonzero return. Subsequent regular cat recovers source reading."
+  },
+  "terminal_stop_reason": "length",
+  "terminal_output_tokens": 2048,
+  "classification": "Output cap exhausted during thinking before any implementation edit; independent behavior check fails",
+  "artifact_hashes": {
+    "scored-result.json": "627d475b1edbd01f19accad5c0813df2fc07967c53aac390df1892ebb0be500e",
+    "pi.jsonl": "8c7ea228614303cc15a8979d9dbc2eef6cc91125708e479bef1f3e19f7c58c55",
+    "server.log": "f03c262fb83169b2e8c4487db99e4043ac2fcc1e79251d3cbb0b03a131f718f7",
+    "pressure.tsv": "26cb0ed5a88c16ef5fb5d248be9e83e14f3f00a8ebb531e1f3f75fc8ba4484c2"
+  },
+  "limits": "Not model-only incapability; no retries, changed deadlines or held-out exposure. Preserve all zero-utility wall."
+}

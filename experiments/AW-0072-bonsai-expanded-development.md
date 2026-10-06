@@ -46,3 +46,12 @@ Small exact-hash/replay record: `evidence/AW-0072-debugging-budget-failure.json`
 Continue remaining development tasks as frozen; do not retry or raise budgets
 inside this run. Future profile must account for adequate generation/history
 capacity and charge the extra reasoning wall; no speed by clipping reasoning.
+
+Multi-file fails499.148s: four valid calls, three productive and one ineffective
+unsupported cat -A read (pipeline masks failed return), then recovery to plain
+cat. No edit; final2048-token thinking response ends length. Independent verifier
+fails original list_items behavior, protocol valid, pressure1, swap growth0.
+Exact child hashes/replay: `evidence/AW-0072-multi-file-budget-failure.json`.
+Second distinct category shows the response cap is insufficient for this profile,
+not evidence that simply raising it will succeed. AW73/74 remain separate pending
+capacity experiments. Full current development screen continues to refactoring.

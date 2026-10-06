@@ -1311,3 +1311,12 @@ separate full-vision16K/8192 capacity candidate, retaining all sampler/reasoning
 task/tool/verifier/deadline/gates. Startup memory probe must precede AW74 exposed
 debugging retry. AW72 remains frozen and running. No reduction of reasoning to
 obtain speed and no held-out tuning; all larger-budget work must be charged.
+
+## 2026-10-05 — A second expanded category exhausts the same response cap
+
+AW72 multi-file fails499.148s with no implementation edit after2048-token thinking
+exhaustion. Independent grade/protocol replay matches; pressure1 and swap growth0.
+Three productive valid calls plus one unsupported cat -A read masked by a pipe's
+successful exit. Preserve semantic command failure separately from raw isError
+counts. This strengthens the configuration-capacity falsifier across categories;
+raising capacity is still an unproven candidate, not a discarded/repaired run.
