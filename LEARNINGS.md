@@ -1599,3 +1599,13 @@ Turbo4 .078–.093 survives unchanged provisional.25 limit; Turbo2 .270 middle
 layer fails. Preserve rejection2 and retain3/4 for faithful compressed execution.
 This is accumulation of FP16-generated values, not trajectory under compressed
 cache; no general quality, long-context, runtime integration or endpoint claim.
+
+## AW-0111/AW-0112 — Metal inverse bookend passes real rows
+
+First forward/inverse harness failed before GPU dispatch because CPU forward
+WHT is static/unexported; preserve AW-0111. Separate inverse-only AW-0112 runs
+unchanged Atomic Metal kernel on complete real populated Q/V collections from
+candidate-generated capture. Six cases agree with CPU inverse within6.47e-4
+(predeclared.005), despite half butterflies. Retain for q8-K/Turbo-V value-output
+bookend. Actual rotated attention aggregates, quantized dispatch and compressed
+accumulated generation remain unverified; no runtime/endpoint promotion.

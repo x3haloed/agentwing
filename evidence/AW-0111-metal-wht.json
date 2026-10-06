@@ -1,0 +1,50 @@
+{
+  "experiment": "AW-0111",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0111",
+  "result": {
+    "experiment": "AW-0111",
+    "exit": 1,
+    "stage": "CPU reference lookup before first Metal dispatch",
+    "error": "turbo_cpu_fwht_forward is static and not exported; inverse is exported",
+    "disposition": "rejected harness; preserved frozen plan"
+  },
+  "files": {
+    "plan.json": {
+      "bytes": 1272,
+      "sha256": "ba89afcb929c947663592909f00595143695b06205b12dc498d05258a5b6e8cd"
+    },
+    "check_turbo_metal_wht.py": {
+      "bytes": 4225,
+      "sha256": "27f579bfcaed4975825336e3bef1537fd88dbd2d8906fae86b5344008b1cee71"
+    },
+    "3-0-input.bin": {
+      "bytes": 24576,
+      "sha256": "41da8d334bc07259abc98c2b2499d5e8ccf87145d6d8205f0b40cb0f3e4ae512"
+    },
+    "extracted.metal": {
+      "bytes": 4753,
+      "sha256": "c7a006c778a7226ba4ef69bcaf36bdcaef541cde040872f60cefee6502d73f26"
+    },
+    "compile.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "turbo-wht-metal.swift": {
+      "bytes": 1503,
+      "sha256": "59f7d7fa97d4e106b894bce531a0e2670f39d9148c9fde803830cbff3909a37c"
+    },
+    "failure.json": {
+      "bytes": 251,
+      "sha256": "d8bf3b95c3feb136bf8a53bbba46a626c8d4587165392f05ad0583b017e2f5d9"
+    },
+    "wht-metal": {
+      "bytes": 60616,
+      "sha256": "21ce5ebf91f3fbc4f6ff85036f84a5f10739f374eb41a069f34515055910fbe1"
+    },
+    "executed-check.py": {
+      "bytes": 4225,
+      "sha256": "27f579bfcaed4975825336e3bef1537fd88dbd2d8906fae86b5344008b1cee71"
+    }
+  },
+  "limitations": "Unchanged extracted Metal inverse transform on captured Q/V inputs only. No actual rotated attention aggregate, codec/flash-attention dispatch or runtime integration. Phase host sampling, no performance claim. Upstream source hashes in frozen plan; model/capture provenance AW109."
+}

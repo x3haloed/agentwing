@@ -1,0 +1,162 @@
+{
+  "experiment": "AW-0112",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0112",
+  "result": {
+    "experiment": "AW-0112",
+    "passed": true,
+    "records": [
+      {
+        "layer": 3,
+        "role": 0,
+        "direction": "inverse",
+        "values": 6144,
+        "relative_l2": 0.0006419856914902521,
+        "passed": true,
+        "device": "Apple M1",
+        "output_sha256": "c6c65a4dbc4d813d84320915cc8ed8c0c2b26e43804529479767ba86e4a18869"
+      },
+      {
+        "layer": 3,
+        "role": 2,
+        "direction": "inverse",
+        "values": 49152,
+        "relative_l2": 0.0005994441627659062,
+        "passed": true,
+        "device": "Apple M1",
+        "output_sha256": "2371184520604c57c202251a14af01d5d71299a182dccf511625de5b4805ddb1"
+      },
+      {
+        "layer": 31,
+        "role": 0,
+        "direction": "inverse",
+        "values": 6144,
+        "relative_l2": 0.0006395968262632622,
+        "passed": true,
+        "device": "Apple M1",
+        "output_sha256": "1fd9a96bf6c4268fe851ea3c82d06ba039a83121a1fa04c5eb3d530f05a56152"
+      },
+      {
+        "layer": 31,
+        "role": 2,
+        "direction": "inverse",
+        "values": 49152,
+        "relative_l2": 0.0006016780593241796,
+        "passed": true,
+        "device": "Apple M1",
+        "output_sha256": "8f04a4e351fb05e6dcce9473aa818a3706142367ddeca9d12940f905aa02b39a"
+      },
+      {
+        "layer": 63,
+        "role": 0,
+        "direction": "inverse",
+        "values": 6144,
+        "relative_l2": 0.0006462060166760751,
+        "passed": true,
+        "device": "Apple M1",
+        "output_sha256": "6907be758a1c8badd67534d13c4ce74e4bc53c31b93db28bb1f786daddffadd0"
+      },
+      {
+        "layer": 63,
+        "role": 2,
+        "direction": "inverse",
+        "values": 49152,
+        "relative_l2": 0.0005993346755613134,
+        "passed": true,
+        "device": "Apple M1",
+        "output_sha256": "241b0b95ffce98c70eba9392ee52c7aade9c765492c6ea1ab4a61652014726a9"
+      }
+    ],
+    "plan_sha256": "0297158d721476bdb84f301e897c79a903235889134d0c14ec568f42cc725c77",
+    "phase_host_samples": [
+      [
+        1,
+        898.06
+      ],
+      [
+        1,
+        898.06
+      ]
+    ],
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "scope": "Metal transform only; no compressed attention dispatch, model-cache integration, speed or endpoint claim"
+  },
+  "files": {
+    "63-0-inverse.bin": {
+      "bytes": 24576,
+      "sha256": "6907be758a1c8badd67534d13c4ce74e4bc53c31b93db28bb1f786daddffadd0"
+    },
+    "plan.json": {
+      "bytes": 1264,
+      "sha256": "0297158d721476bdb84f301e897c79a903235889134d0c14ec568f42cc725c77"
+    },
+    "result.json": {
+      "bytes": 2169,
+      "sha256": "b19efe3643ee08be9d8bf2acc7ed1f1d2ef052f2f7b8ab1d422fc59d819a85ce"
+    },
+    "3-2-inverse.bin": {
+      "bytes": 196608,
+      "sha256": "2371184520604c57c202251a14af01d5d71299a182dccf511625de5b4805ddb1"
+    },
+    "3-0-input.bin": {
+      "bytes": 24576,
+      "sha256": "41da8d334bc07259abc98c2b2499d5e8ccf87145d6d8205f0b40cb0f3e4ae512"
+    },
+    "63-2-input.bin": {
+      "bytes": 196608,
+      "sha256": "f18014ece1a4b3e3f03006d6715268efa79ab666ccd23e1b94f59e23177df69a"
+    },
+    "31-2-inverse.bin": {
+      "bytes": 196608,
+      "sha256": "8f04a4e351fb05e6dcce9473aa818a3706142367ddeca9d12940f905aa02b39a"
+    },
+    "extracted.metal": {
+      "bytes": 4753,
+      "sha256": "c7a006c778a7226ba4ef69bcaf36bdcaef541cde040872f60cefee6502d73f26"
+    },
+    "31-2-input.bin": {
+      "bytes": 196608,
+      "sha256": "48ebe1b7e6c085016c55784f3a15703615d40d30baaba1f6fa5c67a5d337d69a"
+    },
+    "compile.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "31-0-inverse.bin": {
+      "bytes": 24576,
+      "sha256": "1fd9a96bf6c4268fe851ea3c82d06ba039a83121a1fa04c5eb3d530f05a56152"
+    },
+    "check_turbo_metal_inverse_wht.py": {
+      "bytes": 4202,
+      "sha256": "a5d30fcb3d124d785aaa30578c059ce92ca2b79209771f338251fa80e6d2bc00"
+    },
+    "63-0-input.bin": {
+      "bytes": 24576,
+      "sha256": "1ac1a8964efaee88aad86fcdd7de6ef675614c334bc20528d28e84b9116cd435"
+    },
+    "turbo-wht-metal.swift": {
+      "bytes": 1503,
+      "sha256": "59f7d7fa97d4e106b894bce531a0e2670f39d9148c9fde803830cbff3909a37c"
+    },
+    "3-2-input.bin": {
+      "bytes": 196608,
+      "sha256": "ac52542c599c6cc27d21855fce345ebac2d8c8605e117463ad61471ea17da002"
+    },
+    "wht-metal": {
+      "bytes": 60616,
+      "sha256": "21ce5ebf91f3fbc4f6ff85036f84a5f10739f374eb41a069f34515055910fbe1"
+    },
+    "31-0-input.bin": {
+      "bytes": 24576,
+      "sha256": "d3ab085dcfeb1620d6bab58c0e651764c57c6038a6dea990e86c68f440458f36"
+    },
+    "63-2-inverse.bin": {
+      "bytes": 196608,
+      "sha256": "241b0b95ffce98c70eba9392ee52c7aade9c765492c6ea1ab4a61652014726a9"
+    },
+    "3-0-inverse.bin": {
+      "bytes": 24576,
+      "sha256": "c6c65a4dbc4d813d84320915cc8ed8c0c2b26e43804529479767ba86e4a18869"
+    }
+  },
+  "limitations": "Unchanged extracted Metal inverse transform on captured Q/V inputs only. No actual rotated attention aggregate, codec/flash-attention dispatch or runtime integration. Phase host sampling, no performance claim. Upstream source hashes in frozen plan; model/capture provenance AW109."
+}
