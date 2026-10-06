@@ -1,0 +1,74 @@
+{
+  "experiment": "AW-0148",
+  "complete": true,
+  "passed": true,
+  "verified_arms": 8,
+  "pairs": [
+    {
+      "own32_common_token_prefix": 32,
+      "position_chunks": 0,
+      "prompt_tokens": 1186,
+      "first_row_relative_l2": 0.0437950564013991,
+      "first_row_top20_overlap": 1.0,
+      "numeric_gate_passed": true,
+      "own32_token_matches": 32,
+      "own_trajectory_scope": "Descriptive only; later logits have potentially different inputs",
+      "arm_result_sha256": {
+        "f16": "b6d3d8e5e0b898acba2d55d6973b5050e6ac5acfa78ac95d9e89f2c8ff20448b",
+        "turbo": "ff5f615982cb84baa3cdc7e7075ebc199ff93855537419139327783977610aba"
+      }
+    },
+    {
+      "own32_common_token_prefix": 22,
+      "position_chunks": 1024,
+      "prompt_tokens": 2210,
+      "first_row_relative_l2": 0.04163444643732632,
+      "first_row_top20_overlap": 0.95,
+      "numeric_gate_passed": true,
+      "own32_token_matches": 25,
+      "own_trajectory_scope": "Descriptive only; later logits have potentially different inputs",
+      "arm_result_sha256": {
+        "f16": "34339af5e7447465f913dde9cc30b603bf126e42c395ac1af41001282968ba9c",
+        "turbo": "2039a076ac0ed5d8bbe6187e277ab684589c9adff06b1c205c40cc23141476fb"
+      }
+    },
+    {
+      "own32_common_token_prefix": 12,
+      "position_chunks": 4096,
+      "prompt_tokens": 5282,
+      "first_row_relative_l2": 0.024844003013785927,
+      "first_row_top20_overlap": 1.0,
+      "numeric_gate_passed": true,
+      "own32_token_matches": 12,
+      "own_trajectory_scope": "Descriptive only; later logits have potentially different inputs",
+      "arm_result_sha256": {
+        "f16": "2c6880af5cb48cfe1c7b4152055cd129a498b521e6919528dfafe1847abdf298",
+        "turbo": "750ff803ef5601e7debf4e6251327bfa68e9d4d5c56eb51bab8fa5ff71feabf4"
+      }
+    },
+    {
+      "own32_common_token_prefix": 9,
+      "position_chunks": 7695,
+      "prompt_tokens": 8881,
+      "first_row_relative_l2": 0.0529388355551674,
+      "first_row_top20_overlap": 1.0,
+      "numeric_gate_passed": true,
+      "own32_token_matches": 9,
+      "own_trajectory_scope": "Descriptive only; later logits have potentially different inputs",
+      "arm_result_sha256": {
+        "f16": "c9bc8b5f6183005b00e1eadaa26de8e5652ad9ae79fb5f6dd3729913512dffa0",
+        "turbo": "deb4feea0fc3a612dba6064455f55c9746210d4850865a0424668748c03c319a"
+      }
+    }
+  ],
+  "plan_sha256": "b5a6ed23f7567fe8e487a3747a5ec75a2314c16d781088c37f9b5ad0f79da7f0",
+  "auditor_sha256": "139ac64ae5e14c71ede4ab3cc79e5d4988742bf30cd4500ac90078d947c3ba45",
+  "scope": "Provisional identical-prefix numeric falsifier, not endpoint/general-quality qualification",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0148",
+  "final_audit_sha256": "c49e4de6ddc883a842220ab8c20c9f939ba3a232b859fd8091f02adec78f298f",
+  "execution_summary_sha256": "e8b078dc8608148d45f51a8596b742804adf295c0f80d15e17073ae7f4a97660",
+  "all_arm_host_pressure_peak": 1,
+  "all_arm_swap_growth_peak_mib": 0,
+  "disposition": "Retain technical numeric survivor; no task success/general capability/utility promotion. AW141 failure preserved.",
+  "next": "Investigate endpoint long-generation behavior with an identical accumulated-prefix full request under both cache configurations; native settings and task gates unchanged."
+}

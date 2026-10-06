@@ -1815,3 +1815,17 @@ model inference. AW-0148 uses verified checkpoint fallback and checks executable
 permission before freezing; comparison gates unchanged. These are harness errors,
 not cache/model failures. Receipts: evidence/AW-0146-setup-failure.json and
 AW-0147-setup-failure.json; raw external matching AW directories.
+
+
+### AW-0148 — accumulated-prefix numeric pass, sampled trajectories diverge
+
+All eight FP16/Turbo arms pass fixed technical gates through8881inputtokens:
+first-row full-logit relative L2 .024844–.052939, top20 overlap .95–1, exact
+input IDs/finite captures/raw/source/header/library replay and host gates. Own32
+common sampled prefixes32/22/12/9 across1186/2210/5282/8881tokens supersede any
+extrapolation of short32-token identity to longer behavior. Retain technical
+survivor; no endpoint/capability acceptance or cache-causal timeout conclusion.
+AW141 utility0 is unchanged. All pressure1/no swap growth; full provenance and
+external raw hashes in evidence/AW-0148-cache-replay-terminal.json. Next compare
+full identical-prefix request behavior under both cache formats without changing
+native sampling/reasoning/task gates.

@@ -1,6 +1,6 @@
 # AW-0148 — accumulated-prefix cache fidelity replay
 
-Running; numeric audit pending. AW-0146 schema and AW-0147 executable-mode
+Completed; independent numeric audit passes. AW-0146 schema and AW-0147 executable-mode
 setup failures preserved. Same compiled fixture uses pinned full-server language
 libraries, selective artifact,16K context/batch128/flashON, identical saved prompt
 bytes and native sampler/seed42. FP16 K/V versus q8-K/Turbo4-V only. Fresh process
@@ -40,3 +40,18 @@ match at25 positions; common prefix reported by updated auditor to distinguish
 shared history from later coincidental matches. Longer4096/7695 pairs pending.
 This weakens any extrapolation of short-prompt token identity to general behavior;
 no endpoint/general-quality acceptance or causal timeout attribution.
+
+## Final disposition
+
+Eight arms exit0; all raw hashes/shapes/finite logits/activations, exact input-token
+bytes, allocator formats, pinned headers/libs/inputs and execution-summary replay
+pass. Four prefixes have1186/2210/5282/8881tokens. First-row logit relative L2
+.043795/.041634/.024844/.052939; top20 overlap1/.95/1/1. Own32 common sampled
+prefix lengths32/22/12/9, total matching positions32/25/12/9. Pressure1 and zero
+swap growth throughout. Gate passes, but sampled behavior is not invariant.
+
+Seal evidence/AW-0148-cache-replay-terminal.json; raw final-audit.json and
+execution-summary.json hashes recorded. Retain numeric survivor only. No general
+capability or25% utility proof, no causal attribution of AW141 failure to cache,
+no promotion. Next exact accumulated-prefix full request comparison can determine
+whether long generation persists under both formats; frozen task failure remains.

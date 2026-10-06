@@ -25,6 +25,10 @@ def audit(partial=False):
   actual={p.name:digest(p) for p in directory.iterdir() if p.is_file() and p.name!='result.json'}
   assert actual==row['raw_sha256']
   assert row['exit']==0 and row['error'] is None
+  native=(directory/'native.log').read_text()
+  allocation=next(l for l in native.splitlines() if 'K (' in l and 'V (' in l)
+  assert '16384 cells' in allocation
+  assert ('K (f16):' in allocation and 'V (f16):' in allocation) if arm=='f16' else ('K (q8_0):' in allocation and 'V (turbo4):' in allocation)
   samples=[l.split('\t') for l in (directory/'pressure.tsv').read_text().splitlines()]
   assert max(int(s[1]) for s in samples)==row['pressure_peak']<4
   assert row['swap_growth_peak_mib']<=1024
@@ -50,6 +54,10 @@ def audit(partial=False):
   common_prefix=next((i for i,(u,v) in enumerate(zip(a['tokens'],b['tokens'])) if u!=v),32)
   pairs.append({'own32_common_token_prefix':common_prefix,'position_chunks':position,'prompt_tokens':a['prompt_tokens'],'first_row_relative_l2':relative,'first_row_top20_overlap':overlap,'numeric_gate_passed':relative<=.10 and overlap>=.50,'own32_token_matches':sum(x==y for x,y in zip(a['tokens'],b['tokens'])),'own_trajectory_scope':'Descriptive only; later logits have potentially different inputs','arm_result_sha256':{arm:digest(verified[(position,arm)]['directory']/'result.json') for arm in ['f16','turbo']}})
  complete=len(verified)==8
+ if complete:
+  summary=json.loads((R/'execution-summary.json').read_text());assert summary['complete']
+  assert [(r['position_chunks'],r['arm']) for r in summary['rows']]==[tuple(v) for v in plan['order']]
+  assert all(r==verified[(r['position_chunks'],r['arm'])]['row'] for r in summary['rows'])
  return {'experiment':'AW-0148','complete':complete,'passed':complete and len(pairs)==4 and all(p['numeric_gate_passed'] for p in pairs),'verified_arms':len(verified),'pairs':pairs,'plan_sha256':digest(R/'plan.json'),'auditor_sha256':digest(Path(__file__)),'scope':'Provisional identical-prefix numeric falsifier, not endpoint/general-quality qualification'}
 
 if __name__=='__main__':
