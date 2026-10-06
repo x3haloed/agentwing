@@ -36,5 +36,148 @@
     "BSD sed without backup suffix did not apply intended edits; later rewrite and sed -i.bak recovered.",
     "A later checklist passed an invalid tuple argument, raising TypeError before an iterator check; shell continuation masked that Python failure. A subsequent corrected checklist explicitly exercised iterator input.",
     "Final independent authority grade passes; original public test methods are preserved and tests expanded to17. Supplementary generated tests alone are not acceptance authority."
-  ]
+  ],
+  "manual_tool_classification": {
+    "attempted": 10,
+    "valid": 10,
+    "productive": 8,
+    "redundant": 1,
+    "nonproductive": 1,
+    "malformed": 0,
+    "denied": 0,
+    "failed_return": 2,
+    "masked_failures": [
+      {
+        "attempt_index": 3,
+        "kind": "baseline unittest diagnosis"
+      },
+      {
+        "attempt_index": 8,
+        "kind": "invalid generated checklist tuple argument"
+      }
+    ],
+    "classification_rule": "Productivity and failed returns overlap; productive includes partial useful diagnosis or artifact changes. Repeated verification without source/test changes is redundant.",
+    "calls": [
+      {
+        "attempt_index": 1,
+        "tool_call_id": "wB1QHrAWLMA4NjD7PfUSKNM2iY4Jlbbr",
+        "valid": true,
+        "productive": true,
+        "redundant": false,
+        "nonproductive": false,
+        "malformed": false,
+        "denied": false,
+        "failed_return": false,
+        "reason": "Task-relevant inspection, fix, regression test or recovered validation."
+      },
+      {
+        "attempt_index": 2,
+        "tool_call_id": "L8ZwMWjBlWLbY6pk3kIiCBSvNuIRa0f9",
+        "valid": true,
+        "productive": true,
+        "redundant": false,
+        "nonproductive": false,
+        "malformed": false,
+        "denied": false,
+        "failed_return": false,
+        "reason": "Task-relevant inspection, fix, regression test or recovered validation."
+      },
+      {
+        "attempt_index": 3,
+        "tool_call_id": "ziVI0bUDdUPtGvmhSJVBRnTkgRNklksp",
+        "valid": true,
+        "productive": true,
+        "redundant": false,
+        "nonproductive": false,
+        "malformed": false,
+        "denied": false,
+        "failed_return": false,
+        "reason": "Baseline failing unittest diagnosis; tail masks test exit status, not a passing test."
+      },
+      {
+        "attempt_index": 4,
+        "tool_call_id": "Ij2DEQ0CbTSoHdbUmho0wRVuAIhq7CCw",
+        "valid": true,
+        "productive": true,
+        "redundant": false,
+        "nonproductive": false,
+        "malformed": false,
+        "denied": false,
+        "failed_return": false,
+        "reason": "Task-relevant inspection, fix, regression test or recovered validation."
+      },
+      {
+        "attempt_index": 5,
+        "tool_call_id": "zzFwOFIRVRHXd3RSid0Zbnn4a3Lh9qpN",
+        "valid": true,
+        "productive": true,
+        "redundant": false,
+        "nonproductive": false,
+        "malformed": false,
+        "denied": false,
+        "failed_return": true,
+        "reason": "Regression-test addition exposes implementation tuple-format bug and generated snapshot assertion bug; failed return preserved."
+      },
+      {
+        "attempt_index": 6,
+        "tool_call_id": "hKsYPMV5eipw1poB5Nha5P4coUBj63Cb",
+        "valid": true,
+        "productive": false,
+        "redundant": false,
+        "nonproductive": true,
+        "malformed": false,
+        "denied": false,
+        "failed_return": true,
+        "reason": "BSD sed attempt does not apply intended edits, repeats same failing tests and leaves stray file; nonproductive attempted recovery."
+      },
+      {
+        "attempt_index": 7,
+        "tool_call_id": "lv0vQ2Xyt8uBwKcp91he6vMYMAGs2Qdh",
+        "valid": true,
+        "productive": true,
+        "redundant": false,
+        "nonproductive": false,
+        "malformed": false,
+        "denied": false,
+        "failed_return": false,
+        "reason": "Task-relevant inspection, fix, regression test or recovered validation."
+      },
+      {
+        "attempt_index": 8,
+        "tool_call_id": "feJ4eqsehHIxrf0IY873JJApZvROMzLQ",
+        "valid": true,
+        "productive": true,
+        "redundant": false,
+        "nonproductive": false,
+        "malformed": false,
+        "denied": false,
+        "failed_return": false,
+        "reason": "Some contract assertions complete, then invalid tuple call raises TypeError and skips later iterator assertions; shell continuation masks Python failure."
+      },
+      {
+        "attempt_index": 9,
+        "tool_call_id": "2amooam3nlyvWLRxZjZBvK20i7zRQugy",
+        "valid": true,
+        "productive": true,
+        "redundant": false,
+        "nonproductive": false,
+        "malformed": false,
+        "denied": false,
+        "failed_return": false,
+        "reason": "Removes stray file and executes corrected contract checklist, including real iterator input."
+      },
+      {
+        "attempt_index": 10,
+        "tool_call_id": "fkFsx65ZpOm5hSUHKpmL2ziKu7E9wGSu",
+        "valid": true,
+        "productive": false,
+        "redundant": true,
+        "nonproductive": false,
+        "malformed": false,
+        "denied": false,
+        "failed_return": false,
+        "reason": "Repeats already passing unittest suite without intervening source or test changes; cleanup listing included, core verification redundant."
+      }
+    ]
+  }
 }

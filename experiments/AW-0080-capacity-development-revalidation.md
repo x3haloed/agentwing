@@ -84,3 +84,10 @@ authority unchanged and passing. Row/raw hashes and limitations are retained
 in `evidence/AW-0080-debugging-replay.json`. The first replay helper command
 had a generator-parenthesization syntax error, corrected before any verifier
 ran. Multi-file task now live. No full capability or comparative claim.
+
+Debugging call classification completed: ten valid attempted calls, eight
+productive, one redundant final unittest rerun, one nonproductive failed BSD
+sed recovery; zero malformed/denied calls and two failed terminal returns.
+Labels overlap for productive failures; masked baseline/checklist failures
+are separately preserved. Per-attempt IDs and rationale are in the debugging
+replay evidence. Independent score and source traces remain unchanged.
