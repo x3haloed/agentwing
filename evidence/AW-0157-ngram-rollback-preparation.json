@@ -1,0 +1,46 @@
+{
+  "experiment": "AW-0157",
+  "hypothesis": "Three bounded rollback slots are a plausible memory candidate and allocation can be enabled only for ngram-simple without changing existing no-speculation behavior.",
+  "primary_metric": "Source-derived tensor scaling and compiled allocation-function canaries; no inference or wall-time claim.",
+  "parent_source_sha256": "1296275b07e78f54240d0ae94a051c1d38388a9de979ff9f578422c2fade0b5f",
+  "patch_sha256": "ca43c4cfb350776e8eb24859add6b5ad0ec05dbe31509f574a4333f812fc4710",
+  "parent_runtime_spec_sha256": "7b90c1047cfc23de542708df626f46eeae40de3c9eb2508b8468b47a3eda702d",
+  "proposed_config": {
+    "lookup": 2,
+    "proposal": 3,
+    "n_rs_seq": 3,
+    "minimum_effective_microbatch": 5,
+    "context": 16384,
+    "K": "q8_0",
+    "V": "turbo4",
+    "sampling": "unchanged Bonsai native thinking/medium"
+  },
+  "scope": "Patch prepared against current port, not applied. Frozen binary/spec/source unchanged. Actual memory, rollback logits/sampler fidelity and end-to-end work remain unproven.",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0157",
+  "canary_exit": 0,
+  "compiled_cases": [
+    "no speculation remains0",
+    "ngram3 gets3",
+    "existing draft7 remains7",
+    "mixed types max7",
+    "mixed types max9"
+  ],
+  "memory_estimate_MiB": {
+    "baseline_recurrent_rounded": 149.62,
+    "three_slot_recurrent_rounded": 598.48,
+    "added_recurrent_rounded": 448.86,
+    "compressed_KV": 408,
+    "FP16_KV": 1024,
+    "compressed_KV_plus_candidate_RS": 1006.48,
+    "FP16_KV_plus_original_RS": 1173.62,
+    "qualification": "Tensor scaling from source and rounded prior logs; excludes graph/model/vision/allocator/host memory, actual allocation unmeasured."
+  },
+  "disposition": "Retain isolated patch for new build and guarded allocation/rollback fidelity tests. No default/promotion.",
+  "raw_sha256": {
+    "plan.json": "f171ca2ae5f68a2262dc82c41ebcb7215f275b8682cf662237c1c9c2d02f427e",
+    "canary": "5f7ea5de9a2b5bea86837d8167ce2212e0f83337b7042494593de7bdc9972a4b",
+    "canary.cpp": "b60b78aa8ddd42a2a47dab675a973e79bfb972b17e23f4f0af35a5a86f8475c5",
+    "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "common.h": "8637bdd75198415b62f03d656ed32fa6151531db45f74f5fb4ad10737bb5703c"
+  }
+}

@@ -1,0 +1,15 @@
+--- a/common/common.h
++++ b/common/common.h
+@@ -389,7 +389,11 @@
+             return t == COMMON_SPECULATIVE_TYPE_DRAFT_SIMPLE || t == COMMON_SPECULATIVE_TYPE_DRAFT_MTP || t == COMMON_SPECULATIVE_TYPE_DRAFT_EAGLE3 || t == COMMON_SPECULATIVE_TYPE_DRAFT_DFLASH || t == COMMON_SPECULATIVE_TYPE_DRAFT_DSPARK;
+         });
+ 
+-        return needs_rs_seq ? draft.n_max : 0u;
++        uint32_t result = needs_rs_seq ? draft.n_max : 0u;
++        if (std::find(types.begin(), types.end(), COMMON_SPECULATIVE_TYPE_NGRAM_SIMPLE) != types.end()) {
++            result = std::max(result, uint32_t(ngram_simple.size_m));
++        }
++        return result;
+     }
+ };
+ 

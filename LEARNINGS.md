@@ -1914,3 +1914,15 @@ Not actual speed or a universal kernel bound. Reject presumed strong unchanged
 path acceleration; new bounded rollback runtime remains unresolved. No inference,
 no promotion, P1 unchanged. Full counts/source/input/raw hashes in
 evidence/AW-0156-history-config-screen.json; external AW-0156.
+
+
+### AW-0157 — three-slot rollback retained as memory hypothesis
+
+Recurrent tensor rows scale1+n_rs_seq: three slots estimate598.48MiB from
+AW151 rounded149.62MiB. Combined compressedKV+RS estimate1006.48MiB versus
+F16KV+originalRS1173.62MiB excludes graphs/weights/vision/host and proves no
+actual safety. Isolated unapplied allocation patch passes compiled no-spec,
+ngram and mixed-method selection canaries; runtime unchanged. Retain lookup2 /
+proposal3 for isolated build, actual pressure and forced rejection fidelity
+before cost/endpoint tests. No inference or promotion. Source/profile/patch /
+canary hashes in evidence/AW-0157-ngram-rollback-preparation.json, externalAW157.
