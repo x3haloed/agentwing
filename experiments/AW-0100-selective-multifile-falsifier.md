@@ -2,7 +2,7 @@
 
 ## Status
 
-Frozen and integrity-checked; execution pending.
+Terminal timeout; fixed-deadline agent result rejected. Independent receipt/protocol/grade audit passed.
 
 ## Hypothesis and primary metric
 
@@ -46,5 +46,29 @@ Git under /Users/chad/Models/agentwing/evidence/AW-0100. No weights committed.
 
 ## Results and disposition
 
-Pending. Original/P1 controls and other results unchanged. Single task cannot
-establish general capability, 25% improvement or replicated interleaved gates.
+Agent times out under unchanged1800s client gate. Full task wall1805.182s,
+full diagnostic1809.151s; verified agent utility0. Independent artifact grader
+passes (utility1), with original test unchanged, but final request was interrupted
+and no agent completion before deadline. Do not rescue utility using good code.
+
+Eight valid paired tool calls, seven productive, one nonproductive unsupported
+BSD cat -A failure, no redundant/malformed/denied completed calls. Two expected
+baseline unittest failures masked by tail return0; second output reveals a new
+assertion discrepancy. Eight assistant outputs75/79/69/171/106/5481/85/711
+followed by interrupted post-edit generation. Three implementation files edited;
+all frozen source snapshots/raw hashes and independent artifact grade replay match.
+Pressure1/swap growth0, no compaction or context discard. All owners/port cleared.
+
+Raw /Users/chad/Models/agentwing/evidence/AW-0100/20261006T074337.428982Z.
+Terminal auditor and reviewed accounting sidecars are outside that immutable
+raw receipt; evidence/AW-0100-selective-multifile-terminal.json pins hashes.
+Incidental source/metadata/contract/documentation work ran concurrently and is
+charged in task wall; this is not a clean comparative campaign. Receipt creation
+and final independent sidecar audit are outside summary timing, not promotion
+accounting. AW80 failed original representation remains historical/unpaired.
+
+Reject this fixed-deadline agent profile result; retain correct artifacts and
+functional representation as diagnostic evidence. Original/P1 controls and other
+results unchanged. Single task cannot establish general capability,25% gain or
+replicated interleaved gates. No reasoning/budget/deadline/verifier relaxation.
+Further engine/configuration work remains; goal stays active.

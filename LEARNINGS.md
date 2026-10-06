@@ -1543,3 +1543,13 @@ model template context; template supports medium. Retain expected route without
 runtime change. Conditional static source evidence is not actual rendered-request
 capture or a guarantee of reduced tokens; do not lower effort or budget based
 on a long-running thought alone. Current fixed multi-file task remains intact.
+
+## AW-0100 — Selective representation still misses fixed multi-file deadline
+
+Three edited implementation files pass independent authority tests, but agent
+hits unchanged1800s deadline with final request interrupted: verified utility0,
+full diagnostic1809.151s. Eight valid calls (seven productive, one unsupported
+cat-A failure), two masked baseline test failures; long response5481tokens before
+baseline test. Host1/swap growth0, no compaction/discard. Reject deadline/profile
+result without shortening reasoning or waiving completion; correct code alone
+cannot promote. Preserve original/P1 and frozen task/verifier/permissions/score.

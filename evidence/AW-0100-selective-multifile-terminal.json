@@ -1,0 +1,124 @@
+{
+  "independent_audit": {
+    "audit_passed": true,
+    "run": "/Users/chad/Models/agentwing/evidence/AW-0100/20261006T074337.428982Z",
+    "raw_receipt_sha256": "42b29451e41d808bae17912185f244a0926c164b0ea3b36bbac83dc44331fab9",
+    "plan_sha256": "7759c527f498dc60691e72200925f17d039e63add7b4bd10c726be7e3efaab8a",
+    "complete_selection": false,
+    "all_selected_tasks_passed": false,
+    "screen_passed": false,
+    "utility": 0,
+    "wall_seconds": 1809.1505935000023,
+    "diagnostic_utility_per_hour": 0.0,
+    "unattempted": [],
+    "error": "stopped-timeout",
+    "tasks": [
+      {
+        "original_test_file_integrity": {
+          "test_ledger.py": true
+        },
+        "task_id": "dev-multi-file",
+        "utility": 0,
+        "grade_replay_matches": true,
+        "protocol_passed": false,
+        "host_passed": true,
+        "full_wall_seconds": 1805.181500499999,
+        "pressure_peak": 1,
+        "swap_growth_peak_mib": 0.0,
+        "tool_accounting": {
+          "attempted": 8,
+          "valid": 8,
+          "productive": null,
+          "redundant": null,
+          "malformed": 0,
+          "denied": null,
+          "failed": 1
+        },
+        "commands": [
+          "ls -la /Users/chad/Models/agentwing/active/workspace && cat /Users/chad/Models/agentwing/active/workspace/README.md",
+          "find /Users/chad/Models/agentwing/active/workspace/ledger -type f | head -50 && echo --- && cat /Users/chad/Models/agentwing/active/workspace/test_ledger.py",
+          "cat -A /Users/chad/Models/agentwing/active/workspace/test_ledger.py",
+          "od -c /Users/chad/Models/agentwing/active/workspace/test_ledger.py | head -20",
+          "for f in ledger/__init__.py ledger/api.py ledger/cli.py ledger/store.py; do echo \"=== $f ===\"; cat \"$f\"; echo; done",
+          "cd /Users/chad/Models/agentwing/active/workspace && python3 --version && python3 -m unittest -q 2>&1 | tail -5",
+          "cd /Users/chad/Models/agentwing/active/workspace && python3 -m unittest -v test_ledger 2>&1 | tail -8",
+          "cd /Users/chad/Models/agentwing/active/workspace && cat > ledger/store.py <<'EOF'\ndef _require_limit(limit):\n    \"\"\"Validate that limit is a positive integer.\"\"\"\n    if isinstance(limit, bool) or not isinstance(limit, int):\n        raise ValueError('limit must be a positive integer')\n    if limit <= 0:\n        raise ValueError('limit must be a positive integer')\n\n\ndef select(records, limit):\n    \"\"\"Return up to `limit` rows sorted ascending by numeric id.\n\n    The input list and its rows are left unmodified.\n    \"\"\"\n    _require_limit(limit)\n    return sorted(records, key=lambda row: row['id'])[:limit]\nEOF\ncat > ledger/api.py <<'EOF'\nfrom .store import select\n\n\ndef list_items(records, limit=10, include_archived=False):\n    \"\"\"Return up to `limit` items sorted ascending by numeric id.\n\n    Archived items are excluded unless `include_archived` is True.\n    The status filter is applied before pagination. `records` is not\n    modified. Raises ValueError if `limit` is not a positive integer.\n    \"\"\"\n    if not include_archived:\n        records = [row for row in records if not row.get('archived', False)]\n    return select(records, limit)\nEOF\ncat > ledger/cli.py <<'EOF'\nimport argparse\nimport json\nimport sys\n\nfrom .api import list_items\n\n\ndef main():\n    parser = argparse.ArgumentParser(\n        description='Export ledger items as a JSON list.')\n    parser.add_argument('--input', required=True,\n                        help='Path to a JSON file containing the record list')\n    parser.add_argument('--limit', type=int, default=10,\n                        help='Maximum number of items to emit (default 10)')\n    parser.add_argument('--include-archived', action='store_true',\n                        help='Include archived items in the results')\n    args = parser.parse_args()\n    try:\n        with open(args.input) as f:\n            records = json.load(f)\n        selected = list_items(\n            records, args.limit, include_archived=args.include_archived)\n    except (OSError, ValueError) as exc:\n        print(f'error: {exc}', file=sys.stderr)\n        return 2\n    print(json.dumps(selected))\n    return 0\n\n\nif __name__ == '__main__':\n    sys.exit(main())\nEOF\necho done"
+        ]
+      }
+    ],
+    "supplemental_original_tests_unchanged": true,
+    "scope": "Previously exposed fixed dev-multi-file falsifier with selective representation at16K/8192 medium; unchanged task/verifier/deadline/tool permissions/scoring, no heldout/interleaved P1 claim",
+    "accounting_limit": "Summary timing excludes final recursive receipt creation; not promotion accounting."
+  },
+  "review": {
+    "experiment": "AW-0100",
+    "run": "/Users/chad/Models/agentwing/evidence/AW-0100/20261006T074337.428982Z",
+    "outcome": "Rejected fixed-deadline agent result; useful artifacts retained",
+    "verified_utility": 0,
+    "artifact_verifier_utility": 1,
+    "agent_error": "stopped-timeout",
+    "protocol_failure": "Interrupted final request after deadline; no malformed completed calls",
+    "wall_seconds": 1809.1505935000023,
+    "task_full_wall_seconds": 1805.181500499999,
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0.0,
+    "tool_accounting": {
+      "attempted": 8,
+      "valid": 8,
+      "productive": 7,
+      "nonproductive": 1,
+      "redundant": 0,
+      "malformed": 0,
+      "denied": 0,
+      "failed_terminal_returns": 1,
+      "masked_expected_baseline_test_failures": 2
+    },
+    "classification_notes": [
+      "cat -A unsupported BSD option is failed nonproductive call3; call4 recovers via od",
+      "Calls6/7 both baseline unittest failures are masked by tail exit0; call7 reveals actual assertion difference absent from call6 and is productive additional diagnosis",
+      "Call8 edits three implementation files and completes; original test file unchanged",
+      "Final post-edit request interrupted; artifact verifier pass does not waive timeout/completion gate"
+    ],
+    "assistant_completed_outputs": [
+      {
+        "stop_reason": "toolUse",
+        "tokens": 75
+      },
+      {
+        "stop_reason": "toolUse",
+        "tokens": 79
+      },
+      {
+        "stop_reason": "toolUse",
+        "tokens": 69
+      },
+      {
+        "stop_reason": "toolUse",
+        "tokens": 171
+      },
+      {
+        "stop_reason": "toolUse",
+        "tokens": 106
+      },
+      {
+        "stop_reason": "toolUse",
+        "tokens": 5481
+      },
+      {
+        "stop_reason": "toolUse",
+        "tokens": 85
+      },
+      {
+        "stop_reason": "toolUse",
+        "tokens": 711
+      }
+    ],
+    "source_and_recursive_grade_audit_sha256": "195003d3a58dfb2e8e461baab294c771b81d8b7addf750d610ef2c747109aada",
+    "raw_receipt_sha256": "42b29451e41d808bae17912185f244a0926c164b0ea3b36bbac83dc44331fab9",
+    "plan_sha256": "7759c527f498dc60691e72200925f17d039e63add7b4bd10c726be7e3efaab8a",
+    "comparison_limit": "AW80 original representation historical/unpaired; no rate comparison or causal gain claim",
+    "concurrent_activity": "Controller static metadata/source/contract checks and small documentation writes were incidental while run executed; all task wall charged, not clean comparative measurement",
+    "scope": "Previously exposed development falsifier, not heldout/full qualification",
+    "raw_tool_review_sha256": "711ecc35641a3ec3a1f4a80af3e8b4b675d82251e5fcbe189d8c6f3372f9ab43"
+  }
+}
