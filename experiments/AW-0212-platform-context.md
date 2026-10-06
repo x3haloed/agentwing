@@ -39,7 +39,7 @@ harnesssurvivor requiringcompletefunctional/longbehavior/endpoint ladder.
 F16cachecontrol here isnotfrozenP1; P1/defaults remainunchanged. Goalactive.
 
 FirstF16control145.940s/exit0, exactartifact/canonicalprotocol/rawhash/
-sharedprompt/host/capacityreplaypassed: pressure1/swapgrowth0. Two valid
+sharedprompt/host/capacityreplaypassed: pressure2/swapgrowth265.63MiB. Two valid
 productivecalls read thenwrite+verify, no redundant/malformed/denied/failed
 calls. Receipt `evidence/AW-0212-first-control-partial.json`. Thisdoesnot
 proveplatformpromptcaused improvement; candidate/fullcampaignpending.
@@ -51,3 +51,8 @@ Combinedfirstpair4validproductivecalls/no failures; rawbaseline swapped
 bytes differbetweenfresharms, no wholecampaign-zero-swap assertion. Receipt
 `evidence/AW-0212-first-pair-partial.json`; second6bitarm live, allfourarms
 required, no causalprompt/speed orfullmultimodal/endpointqualification.
+
+Resourceprosecorrection: firstcontrol complete trace peakpressure2 and
+265.63MiBswapgrowth, not previouslystated1/0. Authoritativefirstcontrol
+raw/audit/receipts alreadycontaincorrectvalues; resourcegatesstillpass.
+Candidatefirstarm pressure1/perarm swapgrowth0.

@@ -2654,3 +2654,10 @@ betweenarms precludewholecampaign-zero-growth claim. Receipt
 `evidence/AW-0212-first-pair-partial.json` pinsexternalAW212raw/review.
 Second6bitarm live, fullcampaignunresolved; no causalprompt/speed orfull
 multimodal/endpointclaim, P1/defaults unchanged.
+
+### AW-0212 — correct firstcontrol resource prose from complete trace
+
+The earlierfirstcontrolprose incorrectlystatedpressure1/swapgrowth0.
+Completeindependentaudit andoriginalfirstcontrolreceipt recordpressure2/
+265.63MiBswapgrowth. Supersedes thatproseonly; rawreceiptcorrect, both gates
+stillpass. First6bitarmpressure1/perarm swapgrowth0. No causal memoryclaim.
