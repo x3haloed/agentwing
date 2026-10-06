@@ -2000,3 +2000,16 @@ claim. Reject completion survivor; do not waive AW164 prerequisite, task unrun.
 Technical numeric/startup passes preserved, no causal cache/rollback ratio or
 promotion. P1/default unchanged. ExternalAW162, final raw hashes/audit in
  evidence/AW-0162-rollback-full-request-terminal.json.
+
+
+### AW-0165 — accepted history drafts do not amortize observed iteration windows
+
+Hash/position/accepted-record replay yields4604 closed AW162 windows/6399 output
+steps. Posthoc early/middle/late single-vs-spec seconds per output step .184/.290,
+.199/.348,.220/.319. These include decode/sample/stream/lookup/queue and different
+histories/selection; no causal ratio or kernel/endpoint claim. Native counts
+match position transitions; pipeline compilation not invocation evidence.
+Deprioritize unchanged ngram2/3 presumed acceleration, preserve all prior passes /
+failures; screen actual single-token PTQ execution cost next. P1/default intact.
+Raw externalAW165, report/log/parent/script hashes in
+ evidence/AW-0165-speculation-cost-diagnostic.json. No promotion.

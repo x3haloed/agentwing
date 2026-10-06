@@ -1,0 +1,75 @@
+{
+  "experiment": "AW-0165",
+  "status": "retrospective-within-run-diagnostic",
+  "source_log_sha256": "db823e39fe2d92792e3966a4c5f4957bf62d36319004d48f0e1537ed072e7c61",
+  "parent_terminal_sha256": "fff372a834338645efdafed7c0964f69e0d03eb51e1cca81b157a94376855784",
+  "parent_execution_plan_sha256": "c9377d945ee6e20a7f3abd2e358f908be7cd3ebcb10723d7a2ec277e3b31468f",
+  "script_sha256": "950bd3e04a7b3e6ae9acd59db0730ac12009a2aea9429f9a48a6ad38ace70694",
+  "groups": [
+    {
+      "phase": "early",
+      "kind": "single",
+      "windows": 638,
+      "output_steps": 638,
+      "seconds": 117.1518819999997,
+      "median_iteration_seconds": 0.18258399999999142,
+      "seconds_per_output_step": 0.18362363949843213
+    },
+    {
+      "phase": "early",
+      "kind": "speculative",
+      "windows": 260,
+      "output_steps": 482,
+      "seconds": 139.96681600000028,
+      "median_iteration_seconds": 0.5377214999999893,
+      "seconds_per_output_step": 0.2903875850622412
+    },
+    {
+      "phase": "middle",
+      "kind": "single",
+      "windows": 1284,
+      "output_steps": 1284,
+      "seconds": 256.0269880000005,
+      "median_iteration_seconds": 0.1989309999999591,
+      "seconds_per_output_step": 0.1993979657320876
+    },
+    {
+      "phase": "middle",
+      "kind": "speculative",
+      "windows": 823,
+      "output_steps": 1410,
+      "seconds": 491.3289549999996,
+      "median_iteration_seconds": 0.5952809999998863,
+      "seconds_per_output_step": 0.34846025177304935
+    },
+    {
+      "phase": "late",
+      "kind": "single",
+      "windows": 715,
+      "output_steps": 715,
+      "seconds": 157.47840800000176,
+      "median_iteration_seconds": 0.22025400000006812,
+      "seconds_per_output_step": 0.22024952167832415
+    },
+    {
+      "phase": "late",
+      "kind": "speculative",
+      "windows": 884,
+      "output_steps": 1870,
+      "seconds": 597.2225479999981,
+      "median_iteration_seconds": 0.6780114999999114,
+      "seconds_per_output_step": 0.31937034652406315
+    }
+  ],
+  "covered_output_steps": 6399,
+  "excluded_final_open_iteration": {
+    "t": 1803.267574,
+    "position": 7585,
+    "draft": 3
+  },
+  "raw_windows_sha256": "7b8342a873fe1a434f9b42c18ebcb6ba54ab16890070f12939fe77b1448c8439",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0165",
+  "limitations": "Marker-to-next-marker windows include decode/sampling/streaming/lookup/queue work. Different histories and selection, no matched control, no kernel timing or causal speed ratio. Posthoc phase bins and analysis; full timeout and all cost preserved. Pipeline compilation alone does not establish invocation count.",
+  "report_sha256": "a44a76e80dc7d93d19557b4d4ed54bdf284b15552a9cd7a54fcc5dd465b60631",
+  "disposition": "Deprioritize unchanged ngram2/3 path: higher observed time per output step in each retrospective phase, and full-request completion already failed. No causal comparison or promotion. Screen single-token execution work next."
+}
