@@ -1406,3 +1406,12 @@ all 63488 finite scale patterns; corrupted packed code is detected. Retain
 exact layout conversion for real-tensor and runtime tests. This is not full
 runtime/Metal linkage, GGUF integrity, activation fidelity or performance
 acceptance. Source and wrapper provenance preserved in AW-0082.
+
+## AW-0083 — Exact repacking survives bounded real serialized weights
+
+All 402 PTQ tensors sampled at five positions (2010 blocks; 56,280 bytes)
+retain bit-identical compiled CPU decoder outputs. Installed tensor shapes
+confirm the 1,259,520,000-byte full packing expansion. Retain for full tensor
+and Metal/runtime fidelity; serialized weight checks do not establish real
+activation or accumulated behavior fidelity, memory safety or endpoint gain.
+Raw samples and large per-block manifest stay outside Git.
