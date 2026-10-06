@@ -1,0 +1,15 @@
+{
+  "scope": "Component timing and conditional Amdahl bound on already exposed AW76 task; not a PQ2 or comparative endpoint measurement",
+  "source_run": "/Users/chad/Models/agentwing/evidence/AW-0076/20261006T043958.805777Z",
+  "source_log_sha256": "2e78b1029d46b85bcb84e910514a330a6ebedf83f02fadf189d7087823606743",
+  "source_receipt_sha256": "09d54a2cf9747ab92116a6907b1005b23ad984978b71fc3c2c5a1769088e2c6c",
+  "configuration_source": "AW-0076 frozen plan and manifest; same pinned PTQ1 runtime with16K/8192 medium full vision",
+  "prompt_eval_seconds": 42.57441000000001,
+  "decode_seconds": 1133.2462600000001,
+  "reported_requests": 6,
+  "diagnostic_wall_seconds": 1185.620168042,
+  "prompt_fraction": 0.03590897923937123,
+  "maximum_rate_multiplier_if_prompt_time_zero_everything_else_identical": 1.0372464616577806,
+  "required_multiplier": 1.25,
+  "conclusion": "Prefill-only improvement cannot reach25% on this diagnostic. PQ2 decode effects, behavior and full endpoint effects remain unmeasured."
+}

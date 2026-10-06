@@ -49,3 +49,16 @@ No hardware or performance claim is inferred from this metadata screen.
 
 Retained for isolated cost/fidelity admission after the active model owner
 stops. No active profile, frozen task, verifier, timeout or P1 control changed.
+
+## Conditional prefill-only screen
+
+Six requests in the already exposed AW-0076 diagnostic report 42.574s
+prompt evaluation and 1133.246s decode, against 1185.620s diagnostic
+wall. Even eliminating all reported prompt time with every other cost and
+behavior fixed bounds rate improvement to 1.0372x, below 1.25x.
+This rejects a prefill-only explanation on this task, not PQ2: its decode
+effect and accumulated behavior are unmeasured. Exact source log and receipt
+hashes are in `evidence/AW-0079-prefill-only-bound.json`; full hardware,
+OS, model, runtime, harness, prompt, cache, sampling and thermal provenance
+remain in the referenced AW-0076 frozen plan and run manifest. Timing excludes
+final receipt creation and is not a qualification endpoint.

@@ -1367,3 +1367,8 @@ installed PTQ1_0. Retain it for isolated runtime cost and fidelity admission;
 no download or runtime substitution during AW-0078. Vision, KV, recurrent
 state and compute costs remain separate. Publisher guidance does not establish
 M1 utility/hour or decoded-tensor equivalence. See AW-0079; no promotion.
+
+AW-0079 supplement: exposed AW-0076 prompt evaluation totals 42.574s of
+1185.620s diagnostic wall. Eliminating it entirely with other work fixed
+bounds rate gain to about 1.037x. Prefill-only optimization cannot supply
+25% on this task; retain PQ2 only for unmeasured decode/whole-system effects.
