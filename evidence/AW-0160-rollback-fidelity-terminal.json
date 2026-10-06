@@ -1,0 +1,67 @@
+{
+  "experiment": "AW-0160",
+  "status": "watchdog-incomplete-fidelity",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0160",
+  "execution": {
+    "experiment": "AW-0160",
+    "error": "watchdog",
+    "exit": -15,
+    "baseline_swap_mib": 1198.56,
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "wall_seconds_diagnostic": 180.1308361249976,
+    "raw_sha256": {
+      "0-rollback.bin": "17cf8807f592977f8db6a8e2c2fe745573851f3bfb4a308894cd01ef2be9a4b6",
+      "1-rollback.bin": "3734aa1cd116b4ea63b008358bda4927607f2aa225ba4effc847eefb7b937378",
+      "plan.json": "fc7f0fe237567a11839cd50393a66ecf8357a1e7786e55e79f73e4a7933ea092",
+      "1-control.bin": "76ceb4a5203569c4b2ce1e294538145227062334a66001be0a3acf218f85d9d0",
+      "fixture": "0e7239011466fb71c960a30f917203ad1c3020f70358a253337eee03213b9693",
+      "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "0-control.bin": "ead74834530799599b95e47dc32ed313f6cbad01c70d437078657190fbe14417",
+      "native.log": "c2b74a961c3f5582f3cabcd5e6b374ecb0a75332d3f75c2556476a204423396c",
+      "execution-plan.json": "de6bb2012fb1ae807f08111f9eef08ed1fd55982cb1cfb94165d65627bffbde6",
+      "pressure.jsonl": "b8d92e2edb3686321dfd66f6394181f4e6046e14c8b3609edc5ac190cb01c7d9"
+    },
+    "scope": "Raw API numeric diagnostic on early real request prefix; no generation/task narrowing, no sampler or full server fidelity acceptance."
+  },
+  "independent_audit": {
+    "experiment": "AW-0160",
+    "raw_hashes_valid": true,
+    "results": [
+      {
+        "accepted_drafts": 0,
+        "rejected_drafts": 3,
+        "relative_L2": 0.000280040715659498,
+        "max_absolute": 0.005016803741455078,
+        "top20_overlap_count": 20,
+        "top1_equal": true,
+        "passed": true
+      },
+      {
+        "accepted_drafts": 1,
+        "rejected_drafts": 2,
+        "relative_L2": 0.0001552936306544595,
+        "max_absolute": 0.0027017593383789062,
+        "top20_overlap_count": 20,
+        "top1_equal": true,
+        "passed": true
+      },
+      {
+        "accepted_drafts": 2,
+        "passed": false,
+        "status": "missing-complete-pair"
+      }
+    ],
+    "execution_passed": false,
+    "host_passed": true,
+    "passed": false,
+    "auditor_sha256": "c4b8a65839fa2b0b0816f9d4b5c7d41d6fd461bdf2700be3e5ddc0de52ecf5aa",
+    "result_sha256": "f4c85d299cba16d733793f2982ee19a667d83c15955349b5932e655ab3a2b954",
+    "execution_plan_sha256": "de6bb2012fb1ae807f08111f9eef08ed1fd55982cb1cfb94165d65627bffbde6",
+    "scope": "Early-prefix raw API rollback numeric gate only; partial pairs are diagnostic only, sampler/server protocol/late-context/end-to-end remain unproven."
+  },
+  "audit_sha256": "cf7873536b05fa980a45a89dcbe3f9aa6e0381d425896760ad3c923f180f0cde",
+  "fixture_sha256": "06e2c38b47f785d59897645c52ed47b4970f99e7e06ed6ae89e5c72076ac2b38",
+  "runner_sha256": "5e6f8eb6d01a8995275ecbd819511a507c573def0e0c84ec4996d35e8e31e881",
+  "disposition": "Preserve watchdog and two numeric-pass pairs. Overall gate fails incomplete; finish remaining rejection-depth case in a separately frozen experiment before fidelity admission. No promotion."
+}

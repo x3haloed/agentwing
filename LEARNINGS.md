@@ -1950,3 +1950,15 @@ passes. Retain allocation-admitted experimental candidate, not generation /
 forced-rejection fidelity or endpoint promotion. P1/default unchanged. Raw and
 whole configuration pins in externalAW159 and
 evidence/AW-0159-ngram-rollback-startup.json. Next forced-rejection fidelity.
+
+
+### AW-0160 — forced rollback two depths pass, full screen incomplete
+
+Actual compressed-cache3slot runtime forced rejection3/2 preserves full-logit
+relativeL2.000280041/.000155294 and identical top1/top20 against clean histories.
+Independent raw/finite-array audit passes completed pairs. Fixed180s watchdog
+interrupts repeated-context fixture before rejection1 pair; overall gate fails
+incomplete, never promoted or deadline extended. Pressure1/growth0 at baseline
+1198.56MiB. Preserve partial passes and charged timeout; remaining numeric case,
+late history and sampler/server fidelity open. ExternalAW160 and all raw hashes
+in evidence/AW-0160-rollback-fidelity-terminal.json. No endpoint claim/P1 change.
