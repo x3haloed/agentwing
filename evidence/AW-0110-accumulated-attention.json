@@ -1,0 +1,188 @@
+{
+  "experiment": "AW-0110",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0110",
+  "files": {
+    "plan.json": {
+      "bytes": 962,
+      "sha256": "01c4883199a32a33f6a59736e86d336226bba944b97f1e400d1184126177a914"
+    },
+    "result.json": {
+      "bytes": 3632,
+      "sha256": "273bb44c266fe7d7de9187f61a935c35958f6048ebb4565851fd0817e7ee4a94"
+    },
+    "31-turbo3-v.bin": {
+      "bytes": 19200,
+      "sha256": "d1f36e323f829a82c547550e4a1c8abb00dae065d2be22161fdaaad6f5eb3a60"
+    },
+    "63-turbo3-v.bin": {
+      "bytes": 19200,
+      "sha256": "5b9e2defd31f813386651ac837f8d43aa48502d092bfbfce172e39663d83adf7"
+    },
+    "31-turbo4-v.bin": {
+      "bytes": 26112,
+      "sha256": "313b76da70aa5903f215b3fd9f01a0c126e54460d3ddaa4879a77589adae2b26"
+    },
+    "63-turbo4-v.bin": {
+      "bytes": 26112,
+      "sha256": "a24eb3afd14f812c3c2e26b1743696fe343a09429cc766a1709e8a99736a1660"
+    },
+    "check_bonsai_accumulated_turbo_attention.py": {
+      "bytes": 5580,
+      "sha256": "69b84ffda982c3524b82b2da38cb1ae1db9b41cc554b42eb60495e9eabdb84a5"
+    },
+    "3-q8-k.bin": {
+      "bytes": 52224,
+      "sha256": "197371267b6b3e596058c38ff5f2a8ec421c4a8b6841e6fcd81038a742fd7384"
+    },
+    "check_bonsai_attention_oracle.py": {
+      "bytes": 4079,
+      "sha256": "6bdf82bde40e948b3957f4830ddfa8cb49cdd88a97b194563124c1cc13eb21f9"
+    },
+    "63-turbo2-v.bin": {
+      "bytes": 13056,
+      "sha256": "7b5c0a16a5f2a7af964fd8d1097fe6aaaca82dc990349a23f51563d5cd27a1bd"
+    },
+    "31-turbo2-v.bin": {
+      "bytes": 13056,
+      "sha256": "07830ab02cb8bf353716ef691a2fbd65086abf5be6404b4e73fdd1b1b9905863"
+    },
+    "3-turbo2-v.bin": {
+      "bytes": 13056,
+      "sha256": "f0eb02242a7e89413f588499d4496a2dc0148f4359a81cffadb66d6d6b762292"
+    },
+    "63-q8-k.bin": {
+      "bytes": 52224,
+      "sha256": "d7d7b8f1780f0ad2353448b915f25cdf872bf076f118cd08c4e44f768a8dda51"
+    },
+    "3-turbo4-v.bin": {
+      "bytes": 26112,
+      "sha256": "b8ac7c975a4c2570c9cce3c9911763db532cfae5580f6da795412523a9c952c0"
+    },
+    "31-q8-k.bin": {
+      "bytes": 52224,
+      "sha256": "5c5aace185f3b34c087855f810d2152a16f234ed8b738eaef8f58be362c47f80"
+    },
+    "3-turbo3-v.bin": {
+      "bytes": 19200,
+      "sha256": "5e6db74f6b9957ab66e45812f648fc35b53ea72ebe1b66269bdab6f353438230"
+    }
+  },
+  "result": {
+    "experiment": "AW-0110",
+    "records": [
+      {
+        "layer": 3,
+        "key_format": "q8_0",
+        "value_format": "turbo2",
+        "output_values": 6144,
+        "relative_l2": 0.20231642879318648,
+        "survives_provisional_screen": true,
+        "packed_value_sha256": "f0eb02242a7e89413f588499d4496a2dc0148f4359a81cffadb66d6d6b762292"
+      },
+      {
+        "layer": 3,
+        "key_format": "q8_0",
+        "value_format": "turbo3",
+        "output_values": 6144,
+        "relative_l2": 0.09913765718116582,
+        "survives_provisional_screen": true,
+        "packed_value_sha256": "5e6db74f6b9957ab66e45812f648fc35b53ea72ebe1b66269bdab6f353438230"
+      },
+      {
+        "layer": 3,
+        "key_format": "q8_0",
+        "value_format": "turbo4",
+        "output_values": 6144,
+        "relative_l2": 0.07847000174053465,
+        "survives_provisional_screen": true,
+        "packed_value_sha256": "b8ac7c975a4c2570c9cce3c9911763db532cfae5580f6da795412523a9c952c0"
+      },
+      {
+        "layer": 31,
+        "key_format": "q8_0",
+        "value_format": "turbo2",
+        "output_values": 6144,
+        "relative_l2": 0.2699357374784017,
+        "survives_provisional_screen": false,
+        "packed_value_sha256": "07830ab02cb8bf353716ef691a2fbd65086abf5be6404b4e73fdd1b1b9905863"
+      },
+      {
+        "layer": 31,
+        "key_format": "q8_0",
+        "value_format": "turbo3",
+        "output_values": 6144,
+        "relative_l2": 0.13683956861272728,
+        "survives_provisional_screen": true,
+        "packed_value_sha256": "d1f36e323f829a82c547550e4a1c8abb00dae065d2be22161fdaaad6f5eb3a60"
+      },
+      {
+        "layer": 31,
+        "key_format": "q8_0",
+        "value_format": "turbo4",
+        "output_values": 6144,
+        "relative_l2": 0.08891866795056573,
+        "survives_provisional_screen": true,
+        "packed_value_sha256": "313b76da70aa5903f215b3fd9f01a0c126e54460d3ddaa4879a77589adae2b26"
+      },
+      {
+        "layer": 63,
+        "key_format": "q8_0",
+        "value_format": "turbo2",
+        "output_values": 6144,
+        "relative_l2": 0.23552567223282717,
+        "survives_provisional_screen": true,
+        "packed_value_sha256": "7b5c0a16a5f2a7af964fd8d1097fe6aaaca82dc990349a23f51563d5cd27a1bd"
+      },
+      {
+        "layer": 63,
+        "key_format": "q8_0",
+        "value_format": "turbo3",
+        "output_values": 6144,
+        "relative_l2": 0.11073883566009037,
+        "survives_provisional_screen": true,
+        "packed_value_sha256": "5b9e2defd31f813386651ac837f8d43aa48502d092bfbfce172e39663d83adf7"
+      },
+      {
+        "layer": 63,
+        "key_format": "q8_0",
+        "value_format": "turbo4",
+        "output_values": 6144,
+        "relative_l2": 0.09266115496562732,
+        "survives_provisional_screen": true,
+        "packed_value_sha256": "a24eb3afd14f812c3c2e26b1743696fe343a09429cc766a1709e8a99736a1660"
+      }
+    ],
+    "baseline_records": [
+      {
+        "layer": 3,
+        "native_vs_cpu_relative_l2": 8.968779338805343e-05,
+        "active_keys": 48
+      },
+      {
+        "layer": 31,
+        "native_vs_cpu_relative_l2": 0.0005089563466135907,
+        "active_keys": 48
+      },
+      {
+        "layer": 63,
+        "native_vs_cpu_relative_l2": 2.3427491086406286e-05,
+        "active_keys": 48
+      }
+    ],
+    "plan_sha256": "01c4883199a32a33f6a59736e86d336226bba944b97f1e400d1184126177a914",
+    "host_phase_samples": [
+      [
+        1,
+        898.06
+      ],
+      [
+        1,
+        898.06
+      ]
+    ],
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "scope": "Actual final decode after32 candidate-generated tokens; q8 K and Turbo2/3/4 V, two128 WHT groups per256 head; CPU only, no Metal/cache integration",
+    "disposition": "Component screen only; no endpoint promotion"
+  },
+  "limitations": "Candidate-generated trajectory uses FP16 cache. Quantization is posthoc CPU screen, not accumulated compressed-cache generation. Raw prompt, no chat effort/vision/tools/task-quality claim. All provenance frozen in external plan. No runtime promotion or performance claim."
+}

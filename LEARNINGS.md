@@ -1589,3 +1589,13 @@ and Turbo4 .095–.113 survive this cheap component screen. Retain3/4 for broade
 context/accumulated-cache falsifiers; reject2 under this screen without changing
 its threshold. Survival is not model-quality acceptance, full Google equivalence,
 Metal integration or endpoint improvement. Runtime remains FP16 KV.
+
+## AW-0109/AW-0110 — Generated-cache screen retains Turbo3/4, not2
+
+Selective candidate produces32 raw sampled tokens with FP16 KV; complete final
+attention at layers3/31/63 covers48 real cache positions. Native/independent CPU
+baseline agrees (max5.09e-4). Posthoc q8 K/Turbo3 V attention error .099–.137,
+Turbo4 .078–.093 survives unchanged provisional.25 limit; Turbo2 .270 middle
+layer fails. Preserve rejection2 and retain3/4 for faithful compressed execution.
+This is accumulation of FP16-generated values, not trajectory under compressed
+cache; no general quality, long-context, runtime integration or endpoint claim.

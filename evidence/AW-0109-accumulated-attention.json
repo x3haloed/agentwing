@@ -1,0 +1,185 @@
+{
+  "experiment": "AW-0109",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0109",
+  "files": {
+    "selective-activation": {
+      "bytes": 37752,
+      "sha256": "c80bd10885a19dd03412a0962b948b3d323ce7952a674087fdc3941f1c3eeb95"
+    },
+    "plan.json": {
+      "bytes": 5611,
+      "sha256": "1ad8931dee0178726d527ba7888e3b382a88dec3c835d0abde5e4960451dc817"
+    },
+    "result.json": {
+      "bytes": 2977,
+      "sha256": "e4dd9f885b6a500be00359e1883540f8d7cae1a80863f8af02e784015397dde1"
+    },
+    "pressure.tsv": {
+      "bytes": 986,
+      "sha256": "d1da9b7e0397c37058dec7a90a1c2438dfd6411c9bfd7fd357a65ece515357ff"
+    },
+    "header-receipt.json": {
+      "bytes": 896,
+      "sha256": "406471650fdd605aaae41d0144cccc831dff2d9616e8ea9e32fbbf0e54a63195"
+    },
+    "31-3.bin": {
+      "bytes": 512,
+      "sha256": "286276372ea5fbe771c447bca46daf99478e99b0c4ab52dca5e09da34f5db04e"
+    },
+    "31-2.bin": {
+      "bytes": 524288,
+      "sha256": "6a82cb150124281ac1713697228e0d563601abeb06f20f860ee36bb10b31b17d"
+    },
+    "31-0.bin": {
+      "bytes": 24576,
+      "sha256": "d3ab085dcfeb1620d6bab58c0e651764c57c6038a6dea990e86c68f440458f36"
+    },
+    "31-1.bin": {
+      "bytes": 524288,
+      "sha256": "66e8840d526a5a807404f0b501b8e1ebba474167af3cc9c19d70f69e8d03db59"
+    },
+    "31-4.bin": {
+      "bytes": 24576,
+      "sha256": "4c8ac2a5683ef7f4f8ad1ccd2137bf5bc2c49a59fd364c895331190c06c3e52c"
+    },
+    "capture_bonsai_accumulated_attention.py": {
+      "bytes": 3377,
+      "sha256": "4633b91651fc4b3c9d129ab4ef9d9eaaa956c2925a2ed61487f8fc51dadf0e65"
+    },
+    "63-4.bin": {
+      "bytes": 24576,
+      "sha256": "363a918fd845a498106f1d84138d0cac181ff93f721e4d6972bae0784cb3191e"
+    },
+    "3-2.bin": {
+      "bytes": 524288,
+      "sha256": "d4bd04c67c5b0d9adbd462589b894c32039c3d7d903f9ad702416031ed3a17f6"
+    },
+    "3-3.bin": {
+      "bytes": 512,
+      "sha256": "286276372ea5fbe771c447bca46daf99478e99b0c4ab52dca5e09da34f5db04e"
+    },
+    "3-1.bin": {
+      "bytes": 524288,
+      "sha256": "3aec7eceb141c10dac86f0814051d1d4e42093187095549c2a8152891b9b7bbe"
+    },
+    "3-0.bin": {
+      "bytes": 24576,
+      "sha256": "41da8d334bc07259abc98c2b2499d5e8ccf87145d6d8205f0b40cb0f3e4ae512"
+    },
+    "native.log": {
+      "bytes": 137918,
+      "sha256": "a0ee4c05356d7af2de207303129711b0fe4191e0616f0fc7ea663315322611b1"
+    },
+    "63-2.bin": {
+      "bytes": 524288,
+      "sha256": "813127ebd03f2cc54069d6022d188c2828dbdb90a395fb03e02346d47e34e3ee"
+    },
+    "3-4.bin": {
+      "bytes": 24576,
+      "sha256": "611944aa6f1a21da4d66c446cf2d468ead2e4f1bf91c3764fb1c5f0b8e18aa7e"
+    },
+    "63-3.bin": {
+      "bytes": 512,
+      "sha256": "286276372ea5fbe771c447bca46daf99478e99b0c4ab52dca5e09da34f5db04e"
+    },
+    "63-1.bin": {
+      "bytes": 524288,
+      "sha256": "c85becff8075c157bdecd3ed6fc7846881bd25142616db1505fa2a90b9fa9157"
+    },
+    "63-0.bin": {
+      "bytes": 24576,
+      "sha256": "1ac1a8964efaee88aad86fcdd7de6ef675614c334bc20528d28e84b9116cd435"
+    },
+    "bonsai-accumulated-attention.cpp": {
+      "bytes": 3391,
+      "sha256": "ab352583764a4fcc5d1e4451fb279af1c9fab36b448356bbb40d0ce3d52e463d"
+    },
+    "capture.tsv": {
+      "bytes": 1089,
+      "sha256": "859ec2a02101ce4007e821975e922e367093fa5d3e6d6df32412b60dd59d2481"
+    }
+  },
+  "result": {
+    "experiment": "AW-0109",
+    "exit": 0,
+    "error": null,
+    "passed": true,
+    "finite": null,
+    "capture_files": {
+      "31-3.bin": {
+        "bytes": 512,
+        "sha256": "286276372ea5fbe771c447bca46daf99478e99b0c4ab52dca5e09da34f5db04e"
+      },
+      "31-2.bin": {
+        "bytes": 524288,
+        "sha256": "6a82cb150124281ac1713697228e0d563601abeb06f20f860ee36bb10b31b17d"
+      },
+      "31-0.bin": {
+        "bytes": 24576,
+        "sha256": "d3ab085dcfeb1620d6bab58c0e651764c57c6038a6dea990e86c68f440458f36"
+      },
+      "31-1.bin": {
+        "bytes": 524288,
+        "sha256": "66e8840d526a5a807404f0b501b8e1ebba474167af3cc9c19d70f69e8d03db59"
+      },
+      "31-4.bin": {
+        "bytes": 24576,
+        "sha256": "4c8ac2a5683ef7f4f8ad1ccd2137bf5bc2c49a59fd364c895331190c06c3e52c"
+      },
+      "63-4.bin": {
+        "bytes": 24576,
+        "sha256": "363a918fd845a498106f1d84138d0cac181ff93f721e4d6972bae0784cb3191e"
+      },
+      "3-2.bin": {
+        "bytes": 524288,
+        "sha256": "d4bd04c67c5b0d9adbd462589b894c32039c3d7d903f9ad702416031ed3a17f6"
+      },
+      "3-3.bin": {
+        "bytes": 512,
+        "sha256": "286276372ea5fbe771c447bca46daf99478e99b0c4ab52dca5e09da34f5db04e"
+      },
+      "3-1.bin": {
+        "bytes": 524288,
+        "sha256": "3aec7eceb141c10dac86f0814051d1d4e42093187095549c2a8152891b9b7bbe"
+      },
+      "3-0.bin": {
+        "bytes": 24576,
+        "sha256": "41da8d334bc07259abc98c2b2499d5e8ccf87145d6d8205f0b40cb0f3e4ae512"
+      },
+      "63-2.bin": {
+        "bytes": 524288,
+        "sha256": "813127ebd03f2cc54069d6022d188c2828dbdb90a395fb03e02346d47e34e3ee"
+      },
+      "3-4.bin": {
+        "bytes": 24576,
+        "sha256": "611944aa6f1a21da4d66c446cf2d468ead2e4f1bf91c3764fb1c5f0b8e18aa7e"
+      },
+      "63-3.bin": {
+        "bytes": 512,
+        "sha256": "286276372ea5fbe771c447bca46daf99478e99b0c4ab52dca5e09da34f5db04e"
+      },
+      "63-1.bin": {
+        "bytes": 524288,
+        "sha256": "c85becff8075c157bdecd3ed6fc7846881bd25142616db1505fa2a90b9fa9157"
+      },
+      "63-0.bin": {
+        "bytes": 24576,
+        "sha256": "1ac1a8964efaee88aad86fcdd7de6ef675614c334bc20528d28e84b9116cd435"
+      }
+    },
+    "plan_sha256": "1ad8931dee0178726d527ba7888e3b382a88dec3c835d0abde5e4960451dc817",
+    "capture_index_sha256": "859ec2a02101ce4007e821975e922e367093fa5d3e6d6df32412b60dd59d2481",
+    "native_log_sha256": "a0ee4c05356d7af2de207303129711b0fe4191e0616f0fc7ea663315322611b1",
+    "pressure_sha256": "d1da9b7e0397c37058dec7a90a1c2438dfd6411c9bfd7fd357a65ece515357ff",
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+    "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+    "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0109",
+    "scope": "Final decode attention after32 candidate-generated tokens; no compressed cache or endpoint claim",
+    "generated_token_count_audited": 32,
+    "final_cache_active_positions_expected": 48
+  },
+  "limitations": "Candidate-generated trajectory uses FP16 cache. Quantization is posthoc CPU screen, not accumulated compressed-cache generation. Raw prompt, no chat effort/vision/tools/task-quality claim. All provenance frozen in external plan. No runtime promotion or performance claim."
+}
