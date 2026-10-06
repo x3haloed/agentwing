@@ -1431,3 +1431,12 @@ AW-0084 tiny sampled-block matrix; relative L2 about 1.02e-6 PTQ and 1.48e-6
 PQ. Rotated-reference corruption is detected. Retain for real projection and
 actual activation checks; no speed, accumulation or full inference claim.
 This strengthens rather than replaces AW-0084 mutual-output evidence.
+
+## AW-0086 — Full real FFN-up shapes survive native Metal fidelity
+
+Early/middle/late 5120x17408 real FFN-up tensors pass mutual native Metal
+output checks and 32-row independent CPU dot oracles under four synthetic
+inputs. Pressure peak1, swap growth0 MiB. Retain for actual activation and
+other-operation/accumulated behavior checks; full shape is not full model
+fidelity or speed evidence. Native repacker matches all2010 sampled blocks.
+No task/sampler/timeout changed, no model artifact overwritten.

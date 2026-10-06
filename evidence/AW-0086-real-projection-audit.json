@@ -1,0 +1,233 @@
+{
+  "experiment": "AW-0086",
+  "passed": true,
+  "error": null,
+  "plan_sha256": "b6565ff929de85ec1db2cfb407dd88dc71f97120ab05b921d80fb009de0f8869",
+  "model_sha256": "53107f530aa52eb00912263ab1ee29bd199261c87cd7b4ad4ca1318c1fe33ee3",
+  "runtime_commit": "adfffbe41b2cabcd51fff326ab045662265062bb",
+  "scope": "Full real serialized projection shapes with synthetic inputs; no captured activations, Hadamard application, accumulated model behavior or speed claim",
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0,
+  "records": [
+    {
+      "tensor": "blk.0.ffn_up.weight",
+      "dimensions": [
+        5120,
+        17408
+      ],
+      "ptq_bytes": 19496960,
+      "pq_bytes": 23674880,
+      "mutual": {
+        "relative_l2": 2.19317e-06,
+        "maximum_absolute_difference": 8.70228e-06,
+        "output_values": 69632,
+        "scope": "Real serialized projection shape with synthetic inputs; no performance or actual activation claim"
+      },
+      "cpu_oracle_rows": [
+        0,
+        561,
+        1123,
+        1684,
+        2246,
+        2807,
+        3369,
+        3930,
+        4492,
+        5053,
+        5615,
+        6176,
+        6738,
+        7299,
+        7861,
+        8422,
+        8984,
+        9545,
+        10107,
+        10668,
+        11230,
+        11791,
+        12353,
+        12914,
+        13476,
+        14037,
+        14599,
+        15160,
+        15722,
+        16283,
+        16845,
+        17407
+      ],
+      "cpu_metrics": {
+        "ptq": {
+          "relative_l2": 1.3013925162813296e-06,
+          "maximum_absolute_difference": 3.155403543453339e-06
+        },
+        "pq": {
+          "relative_l2": 1.908272422448215e-06,
+          "maximum_absolute_difference": 4.4042963296409e-06
+        }
+      },
+      "files": {
+        "outputs.bin": "8472d75d6544b5279d11da157f2964ac5dfcec35bf76fac732c3bf42aa572a8c",
+        "ptq.bin": "432b7fc466faa1e4441ed0c841aa983ec73104252fb8af6e32e54833de17058d",
+        "stdout.log": "4cbdeacf10a43054892cb5a4462190d280e36b28c1b44b96783d7c5f27dc6b83",
+        "native.log": "376c0b644f6f63c694479a229974d6b9b3abdee37cca0a3b3d320add3fe822a7",
+        "pq.bin": "70c6e0b94c7219c9b7159d523326935460fefbe8dcd6c698adcbfa26d58d5074"
+      }
+    },
+    {
+      "tensor": "blk.31.ffn_up.weight",
+      "dimensions": [
+        5120,
+        17408
+      ],
+      "ptq_bytes": 19496960,
+      "pq_bytes": 23674880,
+      "mutual": {
+        "relative_l2": 2.26904e-06,
+        "maximum_absolute_difference": 1.10269e-05,
+        "output_values": 69632,
+        "scope": "Real serialized projection shape with synthetic inputs; no performance or actual activation claim"
+      },
+      "cpu_oracle_rows": [
+        0,
+        561,
+        1123,
+        1684,
+        2246,
+        2807,
+        3369,
+        3930,
+        4492,
+        5053,
+        5615,
+        6176,
+        6738,
+        7299,
+        7861,
+        8422,
+        8984,
+        9545,
+        10107,
+        10668,
+        11230,
+        11791,
+        12353,
+        12914,
+        13476,
+        14037,
+        14599,
+        15160,
+        15722,
+        16283,
+        16845,
+        17407
+      ],
+      "cpu_metrics": {
+        "ptq": {
+          "relative_l2": 1.1625922171359434e-06,
+          "maximum_absolute_difference": 3.8440399174888285e-06
+        },
+        "pq": {
+          "relative_l2": 1.6017920586735873e-06,
+          "maximum_absolute_difference": 5.029328040695447e-06
+        }
+      },
+      "files": {
+        "outputs.bin": "6c51173f24c7f3c0e8820c24d0656be963cdacde103db7fdc27169d397588702",
+        "ptq.bin": "52352bb1ec592b7ecd5e9ad216c66cd8c1eb50fe87e8b6d4a7501d44f6dd547c",
+        "stdout.log": "de3d04057ba32261616f2489c5d019870f27fc124ee9b286aa22a923a1c4f8e7",
+        "native.log": "186cd12788a01df58cb27105a7f3b008b48c873e58552f41c4872ac71a7c30ed",
+        "pq.bin": "19a884616ea0011735909552e803fbd07a4f6646cf891b84eae0387aac4afcd4"
+      }
+    },
+    {
+      "tensor": "blk.63.ffn_up.weight",
+      "dimensions": [
+        5120,
+        17408
+      ],
+      "ptq_bytes": 19496960,
+      "pq_bytes": 23674880,
+      "mutual": {
+        "relative_l2": 2.22785e-06,
+        "maximum_absolute_difference": 1.5378e-05,
+        "output_values": 69632,
+        "scope": "Real serialized projection shape with synthetic inputs; no performance or actual activation claim"
+      },
+      "cpu_oracle_rows": [
+        0,
+        561,
+        1123,
+        1684,
+        2246,
+        2807,
+        3369,
+        3930,
+        4492,
+        5053,
+        5615,
+        6176,
+        6738,
+        7299,
+        7861,
+        8422,
+        8984,
+        9545,
+        10107,
+        10668,
+        11230,
+        11791,
+        12353,
+        12914,
+        13476,
+        14037,
+        14599,
+        15160,
+        15722,
+        16283,
+        16845,
+        17407
+      ],
+      "cpu_metrics": {
+        "ptq": {
+          "relative_l2": 1.5189674150505304e-06,
+          "maximum_absolute_difference": 5.35158162295879e-06
+        },
+        "pq": {
+          "relative_l2": 1.6252606632205594e-06,
+          "maximum_absolute_difference": 6.152114818691601e-06
+        }
+      },
+      "files": {
+        "outputs.bin": "39029bb601b8c4a9be09fd5eed1827954fe6adf8e641ecf6f5b86c66ec364566",
+        "ptq.bin": "4b888e12e74d36e1c7043e5cefc77ee3b5bd3b1a445e374216bb49f204013150",
+        "stdout.log": "c0450f6815b3488cffb4dd26282661fc517af9cc8c189014a2a7bf8402d68861",
+        "native.log": "1dbc39842c66e1030b30652ef55765540842c160549e4ec8c7c7ac6888f4bd5b",
+        "pq.bin": "a941afc78751919899e003bd337de1ee9b369631ba92a3b1b00bcd8bb4371898"
+      }
+    }
+  ],
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "host": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+  "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0086",
+  "native_repacker_check": {
+    "real_blocks": 2010,
+    "native_matches_python_exactly": true,
+    "invalid_length_rejected": true,
+    "invalid_capacity_rejected": true,
+    "source_sha256": "a5eb28f9602c50e8550b6fc6d1cc25eaa86376838fc7124173e9718fb8b65d2f",
+    "library_sha256": "c1a0409f59334d35bfd08ad5362bee4f56bad24f065b3fbd42f0b9cb2ca54784",
+    "fixture_sha256": "0bc69afc242e54a050020233464c2f28168289cf922c6a2dbf178c45c5f4ea2d"
+  },
+  "disposition": "Retained for captured activation fidelity and complete cost screening",
+  "raw_receipt_sha256": "0ee263387988e0b4974a9b3f8ef666062786e6fbad42c5ab917de4f7c2b66b03",
+  "frozen_source_hashes": {
+    "experiments/fixtures/bonsai-exact-repack.cpp": "a5eb28f9602c50e8550b6fc6d1cc25eaa86376838fc7124173e9718fb8b65d2f",
+    "experiments/fixtures/bonsai-real-projection-metal.cpp": "b7051b7b7e583da611182570c3ec36c7f57f088ec4266b242ae40142e796660c",
+    "scripts/check_bonsai_real_projection_metal.py": "38ead2b6d6f2a6c776263368d69f8e0f6c1ae2b93258cf396a3c7e7e1014a61e",
+    "scripts/read_bonsai_tensor_directory.py": "23c66c9de28a2f7268b6146b9b7fe5245e4cb7fb2f09870bee78f8887eece4ea"
+  },
+  "source_and_raw_hash_audit_passed": true
+}
