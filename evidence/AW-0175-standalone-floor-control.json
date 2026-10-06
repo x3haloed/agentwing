@@ -1,0 +1,293 @@
+{
+  "experiment": "AW-0175",
+  "complete": true,
+  "rows": [
+    {
+      "arm": "control",
+      "index": 0,
+      "command": [
+        "/Users/chad/Models/agentwing/evidence/AW-0167/control",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/weights.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/input.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0175/0-control.bin",
+        "17408",
+        "5120"
+      ],
+      "error": null,
+      "exit": 0,
+      "numeric_passed": true,
+      "relative_L2": 0.0,
+      "all_iteration_seconds": [
+        0.001894625,
+        0.001134084,
+        0.001099917,
+        0.001069042,
+        0.001094833
+      ],
+      "steady_median_seconds": 0.0010973749999999998,
+      "fixture_lifetime_seconds": 0.13475412499974482,
+      "pressure_peak": 1,
+      "baseline_swap_mib": 1135.12,
+      "swap_growth_peak_mib": 0,
+      "output_sha256": "9eaff890915c03606ed9c3415da8dadf6eceb937c4c3ee92247ac453f27cb6ec",
+      "log_sha256": "ac0058526a251815d8bc96f6b47a46ae75e174badaa976be6f693eb523aca8aa"
+    },
+    {
+      "arm": "candidate",
+      "index": 1,
+      "command": [
+        "/Users/chad/Models/agentwing/evidence/AW-0175/candidate",
+        "/Users/chad/Repos/agentwing/experiments/fixtures/bonsai-standalone-floor.metal",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/weights.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/input.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0175/1-candidate.bin",
+        "17408",
+        "5120"
+      ],
+      "error": null,
+      "exit": 0,
+      "numeric_passed": true,
+      "relative_L2": 3.8654088113426397e-07,
+      "all_iteration_seconds": [
+        0.001886833,
+        0.001275875,
+        0.001239542,
+        0.001188833,
+        0.001246958
+      ],
+      "steady_median_seconds": 0.00124325,
+      "fixture_lifetime_seconds": 0.49454687500110595,
+      "pressure_peak": 1,
+      "baseline_swap_mib": 1135.12,
+      "swap_growth_peak_mib": 0,
+      "output_sha256": "92d597e9f2a6c6c8c65197d4443b494396440ebfd8314a5a45bd4d488d79870d",
+      "log_sha256": "0b96b8c3b9e83798f183fe506c29d4345267912489200998aca99147a4d3c480"
+    },
+    {
+      "arm": "candidate",
+      "index": 2,
+      "command": [
+        "/Users/chad/Models/agentwing/evidence/AW-0175/candidate",
+        "/Users/chad/Repos/agentwing/experiments/fixtures/bonsai-standalone-floor.metal",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/weights.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/input.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0175/2-candidate.bin",
+        "17408",
+        "5120"
+      ],
+      "error": null,
+      "exit": 0,
+      "numeric_passed": true,
+      "relative_L2": 3.8654088113426397e-07,
+      "all_iteration_seconds": [
+        0.002046584,
+        0.001276584,
+        0.001273041,
+        0.001337875,
+        0.001197375
+      ],
+      "steady_median_seconds": 0.0012748125,
+      "fixture_lifetime_seconds": 0.13987275000545196,
+      "pressure_peak": 1,
+      "baseline_swap_mib": 1135.12,
+      "swap_growth_peak_mib": 0,
+      "output_sha256": "92d597e9f2a6c6c8c65197d4443b494396440ebfd8314a5a45bd4d488d79870d",
+      "log_sha256": "43260647706b3501c513b1745dde282c690fe71333e798449e999e69e1fc1664"
+    },
+    {
+      "arm": "control",
+      "index": 3,
+      "command": [
+        "/Users/chad/Models/agentwing/evidence/AW-0167/control",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/weights.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0167/input.bin",
+        "/Users/chad/Models/agentwing/evidence/AW-0175/3-control.bin",
+        "17408",
+        "5120"
+      ],
+      "error": null,
+      "exit": 0,
+      "numeric_passed": true,
+      "relative_L2": 0.0,
+      "all_iteration_seconds": [
+        0.001536167,
+        0.001124166,
+        0.001094834,
+        0.001115833,
+        0.001121334
+      ],
+      "steady_median_seconds": 0.0011185835,
+      "fixture_lifetime_seconds": 0.1372298749993206,
+      "pressure_peak": 1,
+      "baseline_swap_mib": 1135.12,
+      "swap_growth_peak_mib": 0,
+      "output_sha256": "9eaff890915c03606ed9c3415da8dadf6eceb937c4c3ee92247ac453f27cb6ec",
+      "log_sha256": "d33017dcf79bd86a386d5ead9e55380abf225812e7bcee5e875a0e6f2a63d617"
+    }
+  ],
+  "scope": "Tiny single-matrix complete candidate arithmetic path only; real middle/late/multiple-matrix/candidate behavior and endpoint remain required.",
+  "unattempted": [],
+  "raw_sha256": {
+    "0-control.log": "ac0058526a251815d8bc96f6b47a46ae75e174badaa976be6f693eb523aca8aa",
+    "candidate": "ccd92b46b404c89a0ede1fdf61f922e004485c1a9dea8f696a46496daad890bd",
+    "1-result.json": "663e242f79aec7d358f743433f17074e7e74742b56b3039c9c54883e37ce059d",
+    "plan.json": "754de7b764a8147f730fc6540caf4c86ed9f48a835ac979345d345db87a22870",
+    "1-candidate.bin": "92d597e9f2a6c6c8c65197d4443b494396440ebfd8314a5a45bd4d488d79870d",
+    "2-result.json": "17dddeefef19ac3cb4e8cc749ec74b19c11015adcc4a1c35c1cd46c0d0da2c82",
+    "2-candidate.bin": "92d597e9f2a6c6c8c65197d4443b494396440ebfd8314a5a45bd4d488d79870d",
+    "3-control.log": "d33017dcf79bd86a386d5ead9e55380abf225812e7bcee5e875a0e6f2a63d617",
+    "0-control.bin": "9eaff890915c03606ed9c3415da8dadf6eceb937c4c3ee92247ac453f27cb6ec",
+    "execution-plan.json": "68b6e375bcf1c1d7b6db4b85fe55cb41bc11621cb1faa1838034f823b49a07b5",
+    "0-result.json": "2152372acd539809e6df18f6c27ab0cc744fff73d39b4dea9c15025620f26c04",
+    "1-candidate.log": "0b96b8c3b9e83798f183fe506c29d4345267912489200998aca99147a4d3c480",
+    "3-result.json": "b702daecb7b3dc3782fab9d8262bd48a9358423809b5a4ed4efcf52ec4f37d58",
+    "3-control.bin": "9eaff890915c03606ed9c3415da8dadf6eceb937c4c3ee92247ac453f27cb6ec",
+    "2-candidate.log": "43260647706b3501c513b1745dde282c690fe71333e798449e999e69e1fc1664"
+  },
+  "independent_replay_valid": true,
+  "summary_sha256": "ce7d0719f5516bee968da766e93bbfd158c35f60f58deaa31c9db26425186912",
+  "plan": {
+    "experiment": "AW-0175",
+    "hypothesis": "Standalone floor arithmetic matches native component cost closely enough to interpret standalone decoder changes.",
+    "primary_metric": "Numeric gate then four-run ABBA component windows; startup/compile/allocation and first warmup retained separately. Not endpoint utility.",
+    "order": [
+      "control",
+      "candidate",
+      "candidate",
+      "control"
+    ],
+    "sources_sha256": {
+      "experiments/fixtures/bonsai-standalone-floor.metal": "857ca5d311c24f66cafd4de216d323dff84ed6b26de262a24353b43f3ee11d60",
+      "experiments/fixtures/bonsai-standalone-floor.swift": "918902887de909a6eb2505911670cf356a6c3511e2e642b1772da44c05d78568",
+      "scripts/run_bonsai_standalone_floor.py": "8f339a98e2b3e88efeaf57eb2d2b8f9f110b5dfed5f6b7122cef81815860b953",
+      "experiments/fixtures/bonsai-ptq-matrix-control.cpp": "d44d8744b9cff15efc9803f4dbceef31baec8d24234e7a987f15b8acd51a31d3"
+    },
+    "parent_receipt_sha256": "fd3373155fe28c5e61234db9ce783af39d94ca9bc42ea22c46e115b18ebb30ec",
+    "fixture_sha256": {
+      "weights.bin": "5ab2137de1ad609a0535bd984232c6c0f3ffe47b1fd53e9133976b3f45f65989",
+      "input.bin": "b76289a09636c822c35bf5d2c29fdd95b19ec73f80ad8b22ba919fc6d1e835c9",
+      "control-output.bin": "9eaff890915c03606ed9c3415da8dadf6eceb937c4c3ee92247ac453f27cb6ec",
+      "control": "224c16f4f00c4b4fc3f08e41a7cdf3aae41ac6113570b1f84b22c76b5d6c691a"
+    },
+    "shape": [
+      17408,
+      5120
+    ],
+    "context": "Captured early token0 layer0 FFN-down input. No other model processes or model/task changes.",
+    "acceptance": "Finite5120F32 and relativeL2<=.0001; report ABBA standalone/native ratios, without promotion or decoder causal inference.",
+    "scope": "Tiny single-matrix complete candidate arithmetic path only; real middle/late/multiple-matrix/candidate behavior and endpoint remain required.",
+    "parent_rejected_sha256": "a1e3032e408acba61eb9ad8f6a4cf92b0879d7f31481b8132ac8264daeec0d54",
+    "arithmetic_plan_sha256": "ddf5d626450ecdef7c6fabaf3f79f9db3c9a68bb20b3339b75175a5fd0c98f9d",
+    "scratch_bytes": 0,
+    "phase_diagnostic_sha256": "bc0ec0ec77c7b542dbcf0b3bf97bb67cb8e8c4a601b41d071aa0f671bef38287",
+    "constant_decoder_bytes": 0
+  },
+  "execution_plan": {
+    "plan_sha256": "754de7b764a8147f730fc6540caf4c86ed9f48a835ac979345d345db87a22870",
+    "runner_sha256": "8f339a98e2b3e88efeaf57eb2d2b8f9f110b5dfed5f6b7122cef81815860b953",
+    "candidate_binary_sha256": "ccd92b46b404c89a0ede1fdf61f922e004485c1a9dea8f696a46496daad890bd",
+    "parent_runtime_profile": {
+      "schema_version": 1,
+      "model": {
+        "repository": "prism-ml/Ternary-Bonsai-2-27B-gguf",
+        "revision": "b072e1d3b35a0a630cece372c2127528e0994386",
+        "license": "Apache-2.0",
+        "artifacts": [
+          {
+            "filename": "Ternary-Bonsai-2-27B-attention-PQ2_0.gguf",
+            "bytes": 6041020768,
+            "sha256": "cc11a9c76ee8e94a735e14789e17b952b33c9b84e7fe587b40dfe6cd6b96566c"
+          },
+          {
+            "filename": "Ternary-Bonsai-2-27B-mmproj-Q8_0.gguf",
+            "bytes": 629246976,
+            "sha256": "6807ede61d570bb86ba34b756a0fa109edc33668604de867c6ea6d8f1d631903"
+          }
+        ],
+        "derivative": "Local exact selective attention PQ, other language tensors and Q8 vision unchanged"
+      },
+      "runtime": {
+        "repository": "https://github.com/PrismML-Eng/llama.cpp",
+        "revision": "adfffbe41b2cabcd51fff326ab045662265062bb",
+        "release": "experimental-local-AW-0137",
+        "backend": "Metal",
+        "server_path": "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-server/bin/llama-server",
+        "server_sha256": "74a6d070a73099716d66d5fa695bfb7a6658f67c6282860e06d3945f99fb87dd",
+        "patch_path": "experiments/runtime-patches/AW-0137-turbo-server.patch",
+        "patch_sha256": "4864e0cb10c475ad193022d5f2e06fc1a9974b93d957ee3c6869a3c3bcfbab5b",
+        "libraries": {
+          "libllama.0.dylib": "1f81934f084f3d68365c612f8975156db1fc9d2493eca24999202ede0b44b525",
+          "libmtmd.0.dylib": "b441a2617eb44ec2caf558e9b6ca26a46af793bf1170e6aa26211c09ba63b80b",
+          "libggml.dylib": "219510bcfe7ab47a9ab575f4eb8d0ada492693491cfeed75f62348055ba104eb",
+          "libggml-base.0.21.0.dylib": "4000c4398b7b0af303369bc7b9ccbf32293706756be9deabcc0d881cb9af72cd",
+          "libggml.0.dylib": "219510bcfe7ab47a9ab575f4eb8d0ada492693491cfeed75f62348055ba104eb",
+          "libmtmd.dylib": "b441a2617eb44ec2caf558e9b6ca26a46af793bf1170e6aa26211c09ba63b80b",
+          "libllama-server-impl.dylib": "33e4b229c9bf5657322fbc2419bcd4689847c1eccc41e7f8874ee8fcc072a688",
+          "libggml-base.dylib": "4000c4398b7b0af303369bc7b9ccbf32293706756be9deabcc0d881cb9af72cd",
+          "libggml-blas.dylib": "e07a2b42a9c5b954c6b6da61fc296236f09548286ae2c060968fd17d88f12daa",
+          "libggml-metal.0.dylib": "d2f8beff000d8ef74ca806c7b4d42e46febea0d29b8cf606a539de52eba45624",
+          "libllama-common.0.dylib": "04f239cdbfebb4b941aa48755133cfef5758a0a08563fcb30a62c86c34ad40b2",
+          "libllama.dylib": "1f81934f084f3d68365c612f8975156db1fc9d2493eca24999202ede0b44b525",
+          "libggml-cpu.dylib": "fa7a6e9f8a93f59c7cad4431893c6918cab1fbad574eafd4dc356397a3314305",
+          "libggml-metal.dylib": "d2f8beff000d8ef74ca806c7b4d42e46febea0d29b8cf606a539de52eba45624",
+          "libllama-common.dylib": "04f239cdbfebb4b941aa48755133cfef5758a0a08563fcb30a62c86c34ad40b2",
+          "libggml-blas.0.21.0.dylib": "e07a2b42a9c5b954c6b6da61fc296236f09548286ae2c060968fd17d88f12daa",
+          "libggml.0.21.0.dylib": "219510bcfe7ab47a9ab575f4eb8d0ada492693491cfeed75f62348055ba104eb",
+          "libmtmd.0.2.0.dylib": "b441a2617eb44ec2caf558e9b6ca26a46af793bf1170e6aa26211c09ba63b80b",
+          "libggml-base.0.dylib": "4000c4398b7b0af303369bc7b9ccbf32293706756be9deabcc0d881cb9af72cd",
+          "libllama.0.2.0.dylib": "1f81934f084f3d68365c612f8975156db1fc9d2493eca24999202ede0b44b525",
+          "libllama-common.0.2.0.dylib": "04f239cdbfebb4b941aa48755133cfef5758a0a08563fcb30a62c86c34ad40b2",
+          "libggml-blas.0.dylib": "e07a2b42a9c5b954c6b6da61fc296236f09548286ae2c060968fd17d88f12daa",
+          "libggml-cpu.0.21.0.dylib": "fa7a6e9f8a93f59c7cad4431893c6918cab1fbad574eafd4dc356397a3314305",
+          "libggml-cpu.0.dylib": "fa7a6e9f8a93f59c7cad4431893c6918cab1fbad574eafd4dc356397a3314305",
+          "libggml-metal.0.21.0.dylib": "d2f8beff000d8ef74ca806c7b4d42e46febea0d29b8cf606a539de52eba45624"
+        },
+        "build_evidence": "evidence/AW-0137-turbo-server-build.json",
+        "tls": "disabled; loopback HTTP API"
+      },
+      "context_tokens": 16384,
+      "parallel": 1,
+      "image_max_tokens": 1024,
+      "sampling": {
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "top_k": 20,
+        "min_p": 0.05,
+        "presence_penalty": 0.0,
+        "repeat_penalty": 1.0,
+        "seed": 42
+      },
+      "reasoning_effort": "medium",
+      "host_gates": {
+        "critical_pressure_level": 4,
+        "max_swap_growth_mib": 1024
+      },
+      "status": "experimental-unqualified",
+      "harness": {
+        "package": "@earendil-works/pi-coding-agent",
+        "version": "0.84.4"
+      },
+      "experiment": "AW-0138",
+      "admission_evidence": [
+        "evidence/AW-0136-turbo-model.json"
+      ],
+      "limits": "Experimental compressed server/full vision build; native32-token functional proof only. Server/vision/tool/long-context admission and endpoint superiority unverified.",
+      "prompt_cache_ram_mib": 0,
+      "context_shift": false,
+      "context_checkpoints": 2,
+      "max_output_tokens": 8192,
+      "kv_cache": {
+        "k": "q8_0",
+        "v": "turbo4",
+        "flash_attention": "enabled",
+        "implementation": "Prism port of preserved Atomic WHT/Lloyd-Max4bit routines; full Google algorithm equivalence not claimed"
+      }
+    },
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+    "storage": "Internal SSD",
+    "cache": "Warm uncontrolled OS cache; fresh process per arm, first iteration retained warmup. ABBA; not endpoint comparison."
+  },
+  "disposition": "Retained diagnostic; standalone floor13-14% slower than native, fixed-table rejection retained. No endpoint promotion."
+}

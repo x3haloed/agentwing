@@ -2107,3 +2107,14 @@ standalone implementation; not a causal table/dispatcher bottleneck conclusion.
 Validate comparable unchanged-arithmetic standalone control before more redesign.
 P1/runtime/default unchanged. RawexternalAW174, allpins/timings in
  evidence/AW-0174-weight-decoder-table-screen.json. No promotion.
+
+
+### AW-0175 — standalone floor control limits decoder attribution
+
+Same real matrix/input ABBA: original floor arithmetic standalone1.243/1.275ms
+versus native1.097/1.119ms (13–14% overhead), numericL2 3.86541e-7 and same
+output hash as AW174. Raw/output/timing replay valid, host1/growth0. Retain
+diagnostic: overhead much smaller than fixed table2.3x, without causal cross-run
+claim. AW174 rejection stands; further decoder screens should preserve native
+execution layout. P1/default/runtime unchanged, no endpoint promotion. External
+AW175, pins in evidence/AW-0175-standalone-floor-control.json.
