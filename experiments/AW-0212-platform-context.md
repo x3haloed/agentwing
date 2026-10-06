@@ -2,7 +2,7 @@
 
 ## Status and hypothesis
 
-Running: firstF16control live. Hypothesis: explicitplatformcontext in sharedPi
+Running: firstF16control independentlypassed; first6bitcandidate live. Hypothesis: explicitplatformcontext in sharedPi
 systemprompt yields fourclean exact-file-copy runs acrossF16 and6bit caches.
 CheapPi-onlyscreen before repeatingfullmultimodaladmission; not endpointscore.
 
@@ -37,3 +37,9 @@ Do notstartadditionalmodelownerwhilecampaignlive. Fullvisionloaded but
 images/nativeLookupnotrerun here; evenpasswouldonlyretainplatform-context
 harnesssurvivor requiringcompletefunctional/longbehavior/endpoint ladder.
 F16cachecontrol here isnotfrozenP1; P1/defaults remainunchanged. Goalactive.
+
+FirstF16control145.940s/exit0, exactartifact/canonicalprotocol/rawhash/
+sharedprompt/host/capacityreplaypassed: pressure1/swapgrowth0. Two valid
+productivecalls read thenwrite+verify, no redundant/malformed/denied/failed
+calls. Receipt `evidence/AW-0212-first-control-partial.json`. Thisdoesnot
+proveplatformpromptcaused improvement; candidate/fullcampaignpending.

@@ -2633,3 +2633,13 @@ raw/audit/review; supersedesrunningstatus. No malformedprotocol/resource
 failure, but strictadmissionunproven; rejectcurrentscreen, retainformat as
 unqualified. Nextcheapsharedplatform-context harnessfalsifier canpreserve
 alltasks/tools/reasoning/gates; no commandshim orposthocwaiver. P1unchanged.
+
+### AW-0212 — first sharedplatformcontext F16control passes Pi-only screen
+
+FirstfreshF16control145.940s exit0, two validproductivecalls read thenwrite/
+verify exactsamefixture; zero redundant/malformed/denied/failedcalls.
+Independentrawhash/artifact/canonicalprotocol/sharedprompt/host/capacity
+replaypasses, pressure1/swapgrowth0. Receipt
+`evidence/AW-0212-first-control-partial.json` pins externalAW212raw/review.
+First6bitcandidate live; fullcampaignunresolved, no causalprompt/speed or
+fullmultimodal/endpointclaim. P1/defaults unchanged.
