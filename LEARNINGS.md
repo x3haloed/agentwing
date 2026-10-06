@@ -1398,3 +1398,11 @@ generation timed out. Host pressure stayed1 and swap growth0 MiB. Reject
 this exact full-development profile, preserve first two passes and five
 unattempted tasks. Goal remains open; neither larger budget nor component
 fidelity establishes utility/hour superiority. See terminal audit/supplement.
+
+## AW-0082 — Tiny repacking survives compiled CPU reference
+
+Exact pinned CPU decoder bodies agree bitwise on 6784 payload fixtures and
+all 63488 finite scale patterns; corrupted packed code is detected. Retain
+exact layout conversion for real-tensor and runtime tests. This is not full
+runtime/Metal linkage, GGUF integrity, activation fidelity or performance
+acceptance. Source and wrapper provenance preserved in AW-0082.

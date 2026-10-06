@@ -1,0 +1,39 @@
+{
+  "experiment": "AW-0082",
+  "passed": true,
+  "payload_fixtures": 6784,
+  "finite_scale_patterns": 63488,
+  "comparison": "bitwise FP32 outputs from pinned CPU decoder functions",
+  "corrupted_code_mutation_rejected": true,
+  "runtime_commit": "adfffbe41b2cabcd51fff326ab045662265062bb",
+  "source_receipt": [
+    {
+      "path": "ggml/src/ggml-common.h",
+      "bytes": 136535,
+      "sha256": "96539c9bd8e4544692bf242951180edaa2fd5775864fbc3e833f44111b96b934"
+    },
+    {
+      "path": "ggml/src/ggml-quants.c",
+      "bytes": 234514,
+      "sha256": "46dd353f30e7f1c42c7d82d88d91fad64dbe5d6e680b234de25355d9fb482d13"
+    }
+  ],
+  "script_sha256": "9b0d3996a135ac27e39e403432ec7677331342773cf84f9a1cf85158a039ea8c",
+  "generated_source_sha256": "5f2e34211b71046e4659d4d1cf2af0c8ffa53175ee93777cc1372858c4818739",
+  "library_sha256": "b91d5d4992b66d4657001d242dd7058104b1dec2db0690ee91aea58222222c26",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0082/compiled-reference",
+  "compiler_command": [
+    "/usr/bin/clang",
+    "-std=c11",
+    "-O2",
+    "-fno-fast-math",
+    "-dynamiclib",
+    "/Users/chad/Models/agentwing/evidence/AW-0082/compiled-reference/reference.c",
+    "-o",
+    "/Users/chad/Models/agentwing/evidence/AW-0082/compiled-reference/reference.dylib"
+  ],
+  "compiler_version": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "scope": "Extracted exact CPU decoder bodies with standalone layout/half wrapper; not full runtime linkage, Metal execution, real tensors, GGUF, activations or endpoint performance",
+  "disposition": "Retained for real tensor and runtime fidelity checks before full conversion"
+}
