@@ -1,0 +1,24 @@
+{
+  "id": "bonsai-selective-local-functional-admission",
+  "status": "functional-passed-endpoint-unqualified",
+  "configuration": "spec/bonsai-selective-local.json",
+  "configuration_sha256": "ffeb192ebc16c3851f6c9136a376fcca371b7b50e063fdc9941c11a002fcd010",
+  "models_configuration": "config/pi-bonsai-selective-models.json",
+  "models_sha256": "128d258efdddee57983ee4a0b916d706c2caf856671f138c0fd2e2782d3f6d8e",
+  "launch": [
+    "python3",
+    "scripts/bonsai_selective_server.py"
+  ],
+  "verify_only": [
+    "python3",
+    "scripts/bonsai_selective_server.py",
+    "--verify-only"
+  ],
+  "admission_evidence": "evidence/AW-0099-selective-multimodal-admission.json",
+  "context_tokens": 16384,
+  "max_output_tokens": 8192,
+  "reasoning_effort": "medium",
+  "vision": "Pinned local Q8 projector, cap1024 image tokens",
+  "control": "Frozen P1 and original Bonsai unchanged",
+  "promoted": false
+}

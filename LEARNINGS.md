@@ -1516,3 +1516,13 @@ for callback-free full working-set/native-chat/vision/capability checks. Raw
 prompt without effort/template and32-token evidence bound do not establish
 agentic quality, long-sequence behavior or endpoint performance; all four
 callback-heavy wall times retained without speed attribution. P1 unchanged.
+
+## AW-0099 — Selective derivative supports full local vision/native tools/Pi
+
+Two16K/8192 medium full-server replicas pass text, reversed color fixtures,
+native lookup association and Pi file copy. Independent expected bytes and
+canonical protocol pass;9 reviewed productive calls,0 malformed/denied/failed.
+Pressure1/swap growth0. Functional experimental launcher/config now usable;
+no endpoint promotion, broad vision/general capability or utility/hour claim.
+Original default/P1 preserved. FP16 KV remains; TurboQuant/PolarQuant is not
+implemented by these selective weight-format changes.
