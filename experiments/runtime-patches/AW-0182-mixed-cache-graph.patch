@@ -1,0 +1,12 @@
+--- a/src/llama-graph.cpp
++++ b/src/llama-graph.cpp
+@@ -2695,7 +2695,8 @@
+         ggml_flash_attn_ext_set_prec (cur, GGML_PREC_F32);
+ 
+         if (v->type == GGML_TYPE_TURBO3_0 || v->type == GGML_TYPE_TURBO4_0) {
+-            GGML_ASSERT(k->type == GGML_TYPE_Q8_0);
++            GGML_ASSERT(k->type == GGML_TYPE_Q8_0 ||
++                (k->type == GGML_TYPE_F16 && v->type == GGML_TYPE_TURBO4_0 && k->ne[0] == 256 && v->ne[0] == 256));
+             if (!ggml_is_contiguous(cur)) cur = ggml_cont(ctx0, cur);
+             cur = ggml_turbo_inverse(ctx0, cur);
+             cb(cur, "turbo_inverse", il);

@@ -2179,3 +2179,15 @@ unattempted. Whole experiment incomplete, full-factor analysis gated/unrun.
 Terminal raw/host/numeric/pipeline replay valid. Fix remaining graph admission
 in separate experiment; preserve negatives. P1/default unchanged. External
 AW181, pins evidence/AW-0181-native-mixed-cache-terminal.json.
+
+
+### AW-0182 — narrow graph admission clears F16K/Turbo4V init failure
+
+Isolated llama-graph guard admits only F16K/Turbo4V256heads besides existing
+q8 path. Native269-step build/source identity passes; full16K context init
+exit0 in5.101s, KV648MiB=K512+V136, host1/growth0. Independent raw/source /
+binary/host replay valid. Retain graph/allocator survivor only, no tokens
+decoded or numericgeneration/vision/tool/endpoint/performance qualification.
+Repeat complete same-runtime cache screen next; AW181 failure preserved. P1 /
+default/runtime unchanged. ExternalAW182, pins
+evidence/AW-0182-mixed-cache-graph-init.json.

@@ -1,0 +1,196 @@
+{
+  "experiment": "AW-0182",
+  "status": "Native build and guarded full16K context initialization passed; generation unqualified",
+  "build": {
+    "experiment": "AW-0182",
+    "status": "Native build passed; context test pending",
+    "plan": {
+      "experiment": "AW-0182",
+      "hypothesis": "Narrow model-graph admission for validated F16K/Turbo4V256-head kernels permits cache isolation without changing original q8/Turbo behavior.",
+      "source": "/Users/chad/Models/agentwing/runtime-sources/prism-turbo-mixed-graph",
+      "build": "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-mixed-graph",
+      "parent_commit": "adfffbe41b2cabcd51fff326ab045662265062bb",
+      "patch_series_sha256": {
+        "experiments/runtime-patches/AW-0137-turbo-server.patch": "4864e0cb10c475ad193022d5f2e06fc1a9974b93d957ee3c6869a3c3bcfbab5b",
+        "experiments/runtime-patches/AW-0179-mixed-cache.patch": "d6c885e681f0871d9a37cf3f36b38cf631f8de2db0b87d5e800f24580a146b82",
+        "experiments/runtime-patches/AW-0182-mixed-cache-graph.patch": "38a2bb985d89127c444723ca107c0bef96a53c35a82b6b2ccec5feec12109c5b"
+      },
+      "parent_build_receipt_sha256": "a6ef5f2b8c9afa85f62455a94b29060c81884e1b543fdee398ca9259194cec7d",
+      "component_gate_receipt_sha256": "c0e26ffc2138c2d78af8ddb3ae429655f931d0926e4fbcefddeeca8a14d419da",
+      "new_graph_source_sha256": "ea5195198281fc784b453a1312ce80717cfba7f8d7184c1f6751d9a8c3be60e4",
+      "required_gates": [
+        "Native build/source identity",
+        "F16K/Turbo4V full context init without assertion",
+        "Full16K late identical-prefix four-arm gates",
+        "Tool/vision and replicated endpoints"
+      ],
+      "status": "Prepared, unbuilt/unqualified"
+    },
+    "build_directory": "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-mixed-graph",
+    "libraries_sha256": {
+      "libllama.0.dylib": "a235f787e7447aa5905b8548b8419a387cb7035aec9bfbc15eaa5a93d9108498",
+      "libggml.dylib": "eedcf2bc4c6c3bc22d6b411ef1000e7aa5d91b45ba704d3cd65feecc7bb95cba",
+      "libggml-base.0.21.0.dylib": "6d7cfc48ae6f19b59589f3d4ae6a600c842c269676c483bfd885a844d9a72429",
+      "libggml.0.dylib": "eedcf2bc4c6c3bc22d6b411ef1000e7aa5d91b45ba704d3cd65feecc7bb95cba",
+      "libggml-base.dylib": "6d7cfc48ae6f19b59589f3d4ae6a600c842c269676c483bfd885a844d9a72429",
+      "libggml-blas.dylib": "0679a64ec72aec354fd9f4929ec6effe04da43093969081b958893dbde3e5e36",
+      "libggml-metal.0.dylib": "47b872d48f15b2bc47b933da9d26e069757a8746954e985358720be3d00ea4b8",
+      "libllama.dylib": "a235f787e7447aa5905b8548b8419a387cb7035aec9bfbc15eaa5a93d9108498",
+      "libggml-cpu.dylib": "7f9245eb66bc14bddb8d78b55aa98c48de11d04f72cda64229d3bc8355bc7d8c",
+      "libggml-metal.dylib": "47b872d48f15b2bc47b933da9d26e069757a8746954e985358720be3d00ea4b8",
+      "libggml-blas.0.21.0.dylib": "0679a64ec72aec354fd9f4929ec6effe04da43093969081b958893dbde3e5e36",
+      "libggml.0.21.0.dylib": "eedcf2bc4c6c3bc22d6b411ef1000e7aa5d91b45ba704d3cd65feecc7bb95cba",
+      "libggml-base.0.dylib": "6d7cfc48ae6f19b59589f3d4ae6a600c842c269676c483bfd885a844d9a72429",
+      "libllama.0.2.0.dylib": "a235f787e7447aa5905b8548b8419a387cb7035aec9bfbc15eaa5a93d9108498",
+      "libggml-blas.0.dylib": "0679a64ec72aec354fd9f4929ec6effe04da43093969081b958893dbde3e5e36",
+      "libggml-cpu.0.21.0.dylib": "7f9245eb66bc14bddb8d78b55aa98c48de11d04f72cda64229d3bc8355bc7d8c",
+      "libggml-cpu.0.dylib": "7f9245eb66bc14bddb8d78b55aa98c48de11d04f72cda64229d3bc8355bc7d8c",
+      "libggml-metal.0.21.0.dylib": "47b872d48f15b2bc47b933da9d26e069757a8746954e985358720be3d00ea4b8"
+    },
+    "source_files_compared": 3531,
+    "source_differences": [
+      "src/llama-graph.cpp"
+    ],
+    "build_log_sha256": "81a768302ca0786f3a1d855d9e1d8137cccab53830a569fc949bb0cd87cbf4e3",
+    "configure_log_sha256": "2439923dfb0136318d0390fd0e646d77010623e152f10a95ac7af681368880d2",
+    "cmake_cache_sha256": "e5bb25c40e572e3db867cb8ed58d6bd6dae77cef6e10b7c84eae4953a3516cd9",
+    "scope": "Build and source identity only"
+  },
+  "init_plan": {
+    "experiment": "AW-0182",
+    "scope": "Context initialization/graph reservation/allocator admission only; no tokens decoded, sampling, tools or vision encoded",
+    "source_sha256": "21337f62a6a2e5698d31d478bdcd20d49e4f36bd8d91868e86bbc6b2a16fcb92",
+    "runner_sha256": "27c69df1da3a4cc1edc7b198c57a91f42a99b8ac9127d5995c463da91271052e",
+    "binary_sha256": "9ba5fda1dd8b3e506b5b6acc10171cce086a2d7c758f04915150a809b566cf15",
+    "build_result_sha256": "f0d9b4e0246c9fd5385d19f7b090ac0adbce6211606e6308b9de0b95640e48f5",
+    "model_profile": {
+      "schema_version": 1,
+      "model": {
+        "repository": "prism-ml/Ternary-Bonsai-2-27B-gguf",
+        "revision": "b072e1d3b35a0a630cece372c2127528e0994386",
+        "license": "Apache-2.0",
+        "artifacts": [
+          {
+            "filename": "Ternary-Bonsai-2-27B-attention-PQ2_0.gguf",
+            "bytes": 6041020768,
+            "sha256": "cc11a9c76ee8e94a735e14789e17b952b33c9b84e7fe587b40dfe6cd6b96566c"
+          },
+          {
+            "filename": "Ternary-Bonsai-2-27B-mmproj-Q8_0.gguf",
+            "bytes": 629246976,
+            "sha256": "6807ede61d570bb86ba34b756a0fa109edc33668604de867c6ea6d8f1d631903"
+          }
+        ],
+        "derivative": "Local exact selective attention PQ, other language tensors and Q8 vision unchanged"
+      },
+      "runtime": {
+        "repository": "https://github.com/PrismML-Eng/llama.cpp",
+        "revision": "adfffbe41b2cabcd51fff326ab045662265062bb",
+        "release": "experimental-local-AW-0137",
+        "backend": "Metal",
+        "server_path": "/Users/chad/Models/agentwing/runtime-builds/prism-turbo-server/bin/llama-server",
+        "server_sha256": "74a6d070a73099716d66d5fa695bfb7a6658f67c6282860e06d3945f99fb87dd",
+        "patch_path": "experiments/runtime-patches/AW-0137-turbo-server.patch",
+        "patch_sha256": "4864e0cb10c475ad193022d5f2e06fc1a9974b93d957ee3c6869a3c3bcfbab5b",
+        "libraries": {
+          "libllama.0.dylib": "1f81934f084f3d68365c612f8975156db1fc9d2493eca24999202ede0b44b525",
+          "libmtmd.0.dylib": "b441a2617eb44ec2caf558e9b6ca26a46af793bf1170e6aa26211c09ba63b80b",
+          "libggml.dylib": "219510bcfe7ab47a9ab575f4eb8d0ada492693491cfeed75f62348055ba104eb",
+          "libggml-base.0.21.0.dylib": "4000c4398b7b0af303369bc7b9ccbf32293706756be9deabcc0d881cb9af72cd",
+          "libggml.0.dylib": "219510bcfe7ab47a9ab575f4eb8d0ada492693491cfeed75f62348055ba104eb",
+          "libmtmd.dylib": "b441a2617eb44ec2caf558e9b6ca26a46af793bf1170e6aa26211c09ba63b80b",
+          "libllama-server-impl.dylib": "33e4b229c9bf5657322fbc2419bcd4689847c1eccc41e7f8874ee8fcc072a688",
+          "libggml-base.dylib": "4000c4398b7b0af303369bc7b9ccbf32293706756be9deabcc0d881cb9af72cd",
+          "libggml-blas.dylib": "e07a2b42a9c5b954c6b6da61fc296236f09548286ae2c060968fd17d88f12daa",
+          "libggml-metal.0.dylib": "d2f8beff000d8ef74ca806c7b4d42e46febea0d29b8cf606a539de52eba45624",
+          "libllama-common.0.dylib": "04f239cdbfebb4b941aa48755133cfef5758a0a08563fcb30a62c86c34ad40b2",
+          "libllama.dylib": "1f81934f084f3d68365c612f8975156db1fc9d2493eca24999202ede0b44b525",
+          "libggml-cpu.dylib": "fa7a6e9f8a93f59c7cad4431893c6918cab1fbad574eafd4dc356397a3314305",
+          "libggml-metal.dylib": "d2f8beff000d8ef74ca806c7b4d42e46febea0d29b8cf606a539de52eba45624",
+          "libllama-common.dylib": "04f239cdbfebb4b941aa48755133cfef5758a0a08563fcb30a62c86c34ad40b2",
+          "libggml-blas.0.21.0.dylib": "e07a2b42a9c5b954c6b6da61fc296236f09548286ae2c060968fd17d88f12daa",
+          "libggml.0.21.0.dylib": "219510bcfe7ab47a9ab575f4eb8d0ada492693491cfeed75f62348055ba104eb",
+          "libmtmd.0.2.0.dylib": "b441a2617eb44ec2caf558e9b6ca26a46af793bf1170e6aa26211c09ba63b80b",
+          "libggml-base.0.dylib": "4000c4398b7b0af303369bc7b9ccbf32293706756be9deabcc0d881cb9af72cd",
+          "libllama.0.2.0.dylib": "1f81934f084f3d68365c612f8975156db1fc9d2493eca24999202ede0b44b525",
+          "libllama-common.0.2.0.dylib": "04f239cdbfebb4b941aa48755133cfef5758a0a08563fcb30a62c86c34ad40b2",
+          "libggml-blas.0.dylib": "e07a2b42a9c5b954c6b6da61fc296236f09548286ae2c060968fd17d88f12daa",
+          "libggml-cpu.0.21.0.dylib": "fa7a6e9f8a93f59c7cad4431893c6918cab1fbad574eafd4dc356397a3314305",
+          "libggml-cpu.0.dylib": "fa7a6e9f8a93f59c7cad4431893c6918cab1fbad574eafd4dc356397a3314305",
+          "libggml-metal.0.21.0.dylib": "d2f8beff000d8ef74ca806c7b4d42e46febea0d29b8cf606a539de52eba45624"
+        },
+        "build_evidence": "evidence/AW-0137-turbo-server-build.json",
+        "tls": "disabled; loopback HTTP API"
+      },
+      "context_tokens": 16384,
+      "parallel": 1,
+      "image_max_tokens": 1024,
+      "sampling": {
+        "temperature": 1.0,
+        "top_p": 0.95,
+        "top_k": 20,
+        "min_p": 0.05,
+        "presence_penalty": 0.0,
+        "repeat_penalty": 1.0,
+        "seed": 42
+      },
+      "reasoning_effort": "medium",
+      "host_gates": {
+        "critical_pressure_level": 4,
+        "max_swap_growth_mib": 1024
+      },
+      "status": "experimental-unqualified",
+      "harness": {
+        "package": "@earendil-works/pi-coding-agent",
+        "version": "0.84.4"
+      },
+      "experiment": "AW-0138",
+      "admission_evidence": [
+        "evidence/AW-0136-turbo-model.json"
+      ],
+      "limits": "Experimental compressed server/full vision build; native32-token functional proof only. Server/vision/tool/long-context admission and endpoint superiority unverified.",
+      "prompt_cache_ram_mib": 0,
+      "context_shift": false,
+      "context_checkpoints": 2,
+      "max_output_tokens": 8192,
+      "kv_cache": {
+        "k": "q8_0",
+        "v": "turbo4",
+        "flash_attention": "enabled",
+        "implementation": "Prism port of preserved Atomic WHT/Lloyd-Max4bit routines; full Google algorithm equivalence not claimed"
+      }
+    },
+    "command": [
+      "/Users/chad/Models/agentwing/evidence/AW-0182/context-init",
+      "/Users/chad/Models/agentwing/checkpoints/bonsai2-27b/Ternary-Bonsai-2-27B-attention-PQ2_0.gguf",
+      "/Users/chad/Models/agentwing/evidence/AW-0182",
+      "/Users/chad/Models/agentwing/evidence/AW-0144/prefix-7695-chunks.txt",
+      "f16-turbo"
+    ],
+    "acceptance": "Exit0 and CONTEXT_INIT_OK; native16K allocator Kf16/Vturbo4; pressure<4/swapgrowth<=1024MiB;90s watchdog",
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+    "storage": "internalSSD",
+    "cache": "Fresh process; warmed uncontrolled OS page cache"
+  },
+  "init_result": {
+    "experiment": "AW-0182",
+    "passed": true,
+    "exit": 0,
+    "error": null,
+    "allocator": "llama_kv_cache: size =  648.00 MiB ( 16384 cells,  16 layers,  1/1 seqs), K (f16):  512.00 MiB, V (turbo4):  136.00 MiB",
+    "wall_seconds_diagnostic": 5.101262458003475,
+    "pressure_peak": 1,
+    "baseline_swap_mib": 1071.12,
+    "swap_growth_peak_mib": 0,
+    "plan_sha256": "681f60e4f320dab56831f2485e6bc5dca04b5cc1cd664dc0bc96804b9f0160ea",
+    "raw_sha256": {
+      "init.log": "68eef7564ba575a299a7713b548c0a18877718e71c7ee2263f12c7213137c58f",
+      "init-pressure.tsv": "19404dcdda6b61c6fdf64c50557918d2077493d008855617f62fbebb1ca89509"
+    },
+    "scope": "Context initialization/graph reservation/allocator admission only; no tokens decoded, sampling, tools or vision encoded"
+  },
+  "independent_raw_source_binary_host_replay_valid": true,
+  "disposition": "Retain graph-admission survivor; whole generation/cache/vision/tools/endpoints pending"
+}
