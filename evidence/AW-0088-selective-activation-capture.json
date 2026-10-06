@@ -1,0 +1,73 @@
+{
+  "experiment": "AW-0088",
+  "exit": 0,
+  "error": null,
+  "passed": true,
+  "finite": true,
+  "capture_files": {
+    "1-0.bin": {
+      "bytes": 327680,
+      "sha256": "c9830b8dbe399b9af1c11315299cb93dedc0e6763a92b4d268fd1f1f52c20609"
+    },
+    "1-1.bin": {
+      "bytes": 1114112,
+      "sha256": "5ad702baf5893e2489e851b5cf0fcef1f8bc57ec782a7b7639ac06bad5ae8600"
+    },
+    "2-1.bin": {
+      "bytes": 1114112,
+      "sha256": "1c59351f393bbb7a30a40779110e494e18b5f38d9a5bed7933ffb8a0d5fef811"
+    },
+    "2-0.bin": {
+      "bytes": 327680,
+      "sha256": "05c4a5b840eb901e2eb1a1296eea7aa9f03345cc497499262e1967c6554f1e51"
+    },
+    "0-0.bin": {
+      "bytes": 327680,
+      "sha256": "59ca5adf0e5755cbc89fa7513917de7ffcb8a406ede0cdfcee40a3e9d27fa819"
+    },
+    "0-1.bin": {
+      "bytes": 1114112,
+      "sha256": "e4dbd7cef7ad1691551b034a1b4607277958c6c5e778e54a9b6f14967a8f1160"
+    }
+  },
+  "plan_sha256": "52cb88f5e9b6ef5321f40ed6de1d9a63e6102846a8333ff1a40cf0f0d329e9a5",
+  "capture_index_sha256": "7e3043df3c4dd8102710a8cdc4365c63ede59fc8ebb1042c5776afd0656d4348",
+  "native_log_sha256": "50666553b0354c70024792371f1d8470c9da80649a5196197d5de741fc85392a",
+  "pressure_sha256": "ea2cc50453e76ada210f0aa8206cd480650cb1100e4e1ba60e0e96716cc41fc6",
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0,
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+  "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0088",
+  "scope": "Prompt-only real activations, no generation, accumulated candidate or endpoint claim",
+  "post_run_integrity_audit": "Passed frozen source and runtime library hashes",
+  "capture_statistics": {
+    "1-0.bin": {
+      "nonzero_values": 81920,
+      "l2": 191.46789949792895
+    },
+    "1-1.bin": {
+      "nonzero_values": 278528,
+      "l2": 274.7718832549397
+    },
+    "2-1.bin": {
+      "nonzero_values": 278528,
+      "l2": 1254.2951047198585
+    },
+    "2-0.bin": {
+      "nonzero_values": 81920,
+      "l2": 327.3357176301308
+    },
+    "0-0.bin": {
+      "nonzero_values": 81920,
+      "l2": 43.13380829907458
+    },
+    "0-1.bin": {
+      "nonzero_values": 278528,
+      "l2": 60.04747806981021
+    }
+  },
+  "raw_result_sha256": "73facab5280167ba101c309af62877606caf47d01102ee2f7e7f4dd1bc5c1344",
+  "recursive_receipt_sha256": "8cef6dd8c5732e2ef2fc163eeecf62420760fffefa0c7fa7649b89fd7be200ca"
+}

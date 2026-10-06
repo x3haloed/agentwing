@@ -1,0 +1,74 @@
+{
+  "experiment": "AW-0089",
+  "passed": true,
+  "error": null,
+  "records": [
+    {
+      "tensor": "blk.0.ffn_up.weight",
+      "metrics": {
+        "ptq": {
+          "relative_l2": 0.0,
+          "max_absolute": 0.0
+        },
+        "pq": {
+          "relative_l2": 0.0,
+          "max_absolute": 0.0
+        }
+      },
+      "output_values_per_arm": 278528,
+      "rotated_token_reference_relative_l2": 1.319705978182848,
+      "files": {
+        "outputs.bin": "c0bef73e41132f2f345c049e541a54c68af498ec0f3803364f7527c813d5e8ce",
+        "native.log": "74e50ab631fdb9a8be9211fcea6724a4c80a61737f8a146c7cfb0923aa0c6737"
+      }
+    },
+    {
+      "tensor": "blk.31.ffn_up.weight",
+      "metrics": {
+        "ptq": {
+          "relative_l2": 0.0,
+          "max_absolute": 0.0
+        },
+        "pq": {
+          "relative_l2": 0.0,
+          "max_absolute": 0.0
+        }
+      },
+      "output_values_per_arm": 278528,
+      "rotated_token_reference_relative_l2": 1.0837076492280078,
+      "files": {
+        "outputs.bin": "60e4bde18ea78f8cc11dcea9fc7aa2e6d62a82bbbabea2117cafbf61f2cb0524",
+        "native.log": "c6b48a2ee2327d164933a463e263f6d9ac768a49a02a439b70d292d30dc365e3"
+      }
+    },
+    {
+      "tensor": "blk.63.ffn_up.weight",
+      "metrics": {
+        "ptq": {
+          "relative_l2": 0.0,
+          "max_absolute": 0.0
+        },
+        "pq": {
+          "relative_l2": 0.0,
+          "max_absolute": 0.0
+        }
+      },
+      "output_values_per_arm": 278528,
+      "rotated_token_reference_relative_l2": 0.49189981506844704,
+      "files": {
+        "outputs.bin": "d026f0ae6128dbd7162c4f9e8b9b08417376284155d6a8f50c6643e005a0dbaf",
+        "native.log": "e63006aa8c1179c43ef0d637d0839b3b5ebdd97602d3cf9e84dc8e035662687e"
+      }
+    }
+  ],
+  "plan_sha256": "0f769a4e84c13a76e36bcc516d45e106025c430f889588a7e70321a16816556c",
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0,
+  "pressure_sha256": "731a92775ced636a48a233db2ffd97abf80ced67761c99126d322b48bbbe5066",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0089",
+  "scope": "Real prompt activations in dense model; no candidate-generated accumulation, vision, timing or endpoint claim",
+  "post_run_integrity_audit": "Passed frozen source and runtime library hashes",
+  "capture_statistics": {},
+  "raw_result_sha256": "0d2f8f9f1c874d831cf30dcab889c2220487713383361f2a65255ed4e720d075",
+  "recursive_receipt_sha256": "2077db528f95bf9c4c0eb945376b800c35694b4749c43dc3fa82342773c3592e"
+}

@@ -1448,3 +1448,12 @@ copies device tensors even when filters exclude their printing. Printed values
 are truncated. Reject this collector for complete bounded activation evidence;
 retain direct context callback API for a custom selective collector. No model
 inference or activation fidelity claim is made by this source screen.
+
+## AW-0088/AW-0089 — Real prompt inputs survive exact packing replay
+
+Selective callback captures complete early/middle/late actual FFN-up inputs
+and outputs without collecting unrelated nodes. Both native packing paths
+reproduce all835584 captured prompt projection outputs exactly; deliberate
+token misalignment is detected. Pressure1/swap0 in both runs. Retain for
+single-token generation, candidate accumulation and complete cost screening;
+no vision, behavioral or performance acceptance follows from prompt replay.
