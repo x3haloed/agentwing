@@ -20,3 +20,17 @@ Run: `python3 scripts/replay_bonsai_stationary_full_request.py`.
 Audit: `python3 scripts/audit_bonsai_stationary_full_request.py`.
 Complete valid tool proposals are a prerequisite for another expensive
 expanded multi-file task; this diagnostic alone cannot promote a successor.
+
+## Candidate terminal, pair still running
+
+The stationary Turbo4/Q8 arm completed in 1707.336 seconds with one
+schema-valid bash proposal and clean terminal `tool_calls`/one DONE. No
+tool executed and no task score is inferred. Strict stream/hash audit and
+independent host-trace replay passed: peak pressure 2, swap growth 0 MiB.
+The 26,341 thinking characters and all startup/decode overhead remain
+charged. Partial receipt: `evidence/AW-0193-stationary-candidate-partial.json`.
+Full audit including generated arguments remains external at
+`/Users/chad/Models/agentwing/evidence/AW-0193/partial-candidate-audit.json`.
+F16 is still running; AW-0194's complete-pair gate remains closed.
+This reverses the old cache's incomplete-response result for this one
+request only; it does not prove task utility or a causal performance gain.

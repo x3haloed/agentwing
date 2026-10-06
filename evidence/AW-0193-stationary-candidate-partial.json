@@ -1,0 +1,54 @@
+{
+  "experiment": "AW-0193",
+  "complete": false,
+  "rows": [
+    {
+      "arm": "turbo",
+      "result_sha256": "e9317457f2d16e52f1b6c61a6cf2ae75e6101ac1b4078644d28c39a73470df81",
+      "error": null,
+      "client_exit": 0,
+      "server_exit_after_cleanup": 0,
+      "host_passed": true,
+      "response": {
+        "events": 7089,
+        "completion_ids": [
+          "chatcmpl-HiyGDOHeh5D19ra9W6Qxaws1aImGMnWU"
+        ],
+        "finish_reasons": [
+          "tool_calls"
+        ],
+        "done": true,
+        "done_count": 1,
+        "thinking_characters": 26341,
+        "answer_characters": 0,
+        "errors": [],
+        "proposals": [
+          {
+            "index": 0,
+            "id": "EEtkkpsYxyxqaP0abyivMZbz5Zxq9CDF",
+            "name": "bash",
+            "valid_schema": true,
+            "classification": "valid-proposal",
+            "raw_arguments_sha256": "0f36a503caa6221a679695fb791e1a008238275dc40f6f4df5d3b5cdcd77d856",
+            "executed": false,
+            "productive": null
+          }
+        ],
+        "terminal_protocol_passed": true,
+        "tools_executed": 0
+      },
+      "wall_seconds_diagnostic": 1707.335644208004
+    }
+  ],
+  "plan_sha256": "e0144b69ea4299d6b208937a9691f16a357afafa5a2cd765e9c0d8456bbdddff",
+  "auditor_sha256": "5246e17095e18b66d12d7810215c8dd1c8169d423ee0fb3f791f6c9679db2706",
+  "scope": "One full native request per cache arm; no proposal execution, task score, performance ratio or causal qualification",
+  "host_trace_replay": {
+    "passed": true,
+    "pressure_peak": 2,
+    "swap_growth_mib": 0,
+    "pressure_trace_sha256": "0f9c7dbc07d4ebe6786834b1a89d6e4d85bd787927fb382bf89448a4dcec3468"
+  },
+  "external_full_audit_sha256": "5b87ef4f18215b81549dfe473a3f8e3685834b9c9a5be9d0fd5e59cdd4986f91",
+  "status": "candidate-terminal-valid; F16 arm still live; pair unresolved"
+}
