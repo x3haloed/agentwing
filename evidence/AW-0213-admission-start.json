@@ -1,0 +1,9 @@
+{
+  "experiment": "AW-0213",
+  "status": "firstfullfunctionalreplicate live, no terminal result",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0213",
+  "plan_sha256": "56007e50f07efd89c1d7f898709ce07afbbab7e7bc053c8cc2efb57d1a60151d",
+  "platform_context_parent_sha256": "d5c12d58bf8b4b88323e7e6c6a697567ccf0b455a7c56d6f41db20465fc04dc6",
+  "live_runner_session": 1943,
+  "scope": "Completefunctionaladmission rerun, no endpoint/P1qualification"
+}
