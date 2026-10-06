@@ -2118,3 +2118,14 @@ diagnostic: overhead much smaller than fixed table2.3x, without causal cross-run
 claim. AW174 rejection stands; further decoder screens should preserve native
 execution layout. P1/default/runtime unchanged, no endpoint promotion. External
 AW175, pins in evidence/AW-0175-standalone-floor-control.json.
+
+
+### AW-0176 — native row8 sharing yields no actionable matrix gain
+
+Isolated native decoder rows4→8, identical full real FFN matrix/input/output:
+ABBA steady native1.087/1.136ms versus candidate1.085/1.123ms (0.17%/1.18%
+lower), insufficient amid uncontrolled variability. Initial missing-Ninja build
+failure preserved, explicit-path retry succeeded. Candidate initial compile
+18.949s retained. Allraw/output/timing replay passes, host1/growth0. Reject
+meaningful-survivor claim; no endpoint promotion/P1/default/runtime changes.
+RawexternalAW176, pins in evidence/AW-0176-native-row8-screen.json.
