@@ -25,5 +25,5 @@ def main():
   commands=audit['commands'];events=[json.loads(l) for l in (run/'pi.jsonl').read_text().splitlines() if l.strip()];ends=[e for e in events if e.get('type')=='tool_execution_end'];assert not any(e.get('isError') for e in ends)
   records.append({'replicate':rep,'run':str(run),'result_sha256':digest(run/'result.json'),'wall_seconds':result['wall_seconds'],'pressure_peak':result['pressure_peak'],'swap_growth_peak_mib':result['swap_growth_peak_mib'],'vision_colors':observed,'native_tool_accounting':native['tool_accounting'],'pi_protocol':audit,'pi_commands':commands,'artifact_sha256':digest(run/'pi-workspace/answer.txt')})
  receipt={'experiment':'AW-0192','passed':True,'plan_sha256':digest(PLAN),'records':records,'auditor_sha256':digest(Path(__file__)),'canonical_protocol_sha256':digest(ROOT/'scripts/run_bonsai_budget_debugging_v2.py'),'scope':'Two independent full multimodal functional replicas; no endpoint or heldout comparison'}
- (R/'independent-admission-audit.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
+ (R/'independent-admission-audit.json').write_text(json.dumps(receipt,indent=2)+'\n');(ROOT/'evidence/AW-0192-stationary-admission.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
 if __name__=='__main__':main()
