@@ -2050,3 +2050,14 @@ compile/allocation/first warmup retained. Raw/numeric/timing replay valid, host
 not a universal LUT rejection or endpoint claim. P1/runtime/default unchanged.
 Raw externalAW168 and all source/config/artifact/output/timing hashes in
  evidence/AW-0168-metal-lut-matrix-screen.json. No promotion.
+
+
+### AW-0169 — row4 layout still rejects full256-entry table cost
+
+Same full real matrix/captured input/new frozen ABBA: row4/eight-lane LUT numeric
+relativeL2 1.63411e-6 passes but complete build/apply/readback6.307/6.520ms versus
+native1.107/1.131ms (~5.7x component cost). Raw/output/timing replay valid, host1 /
+growth0. Reject full256-entry table form before integration; bottleneck not
+proven. Screen smaller partial-code tables at identical precision/gates first.
+P1/runtime/default unchanged. RawexternalAW169, hashes in
+ evidence/AW-0169-row4-lut-screen.json. No endpoint claim/promotion.
