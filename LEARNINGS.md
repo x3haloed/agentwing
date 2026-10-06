@@ -1701,3 +1701,14 @@ actual ggml_set_rows graphs for Turbo3/4 real layers3/31/63 reproduce standalone
 GPU writer bytes exactly with reverse destination indices. Pressure1/swapgrowth0.
 Retain backend writer stage. Compressed attention/inverse op/cache graph and
 model allocation/generated trajectory remain absent; no endpoint promotion.
+
+## AW-0127–AW-0130 — Integrated compressed attention passes after runtime falsifier
+
+First C++ build passes but runtime Metal initialization fails: vector Turbo
+specializations were after undefined FA_TYPES. Preserve AW127/128. Separate
+corrected macro placement AW129 builds, actual Prism attention graphs AW130
+pass six real layer3/31/63 q8-K/Turbo3/4-V cases, maxCPU error.001130 (gate.005),
+pressure1/swapgrowth0. Retain decode backend stage. Mixed-format path disables
+invalid same-format dequant shortcut and selects available baseline specialization.
+Inverse/model cache graph, prefill and compressed trajectory remain outstanding;
+no endpoint admission or improvement claim.

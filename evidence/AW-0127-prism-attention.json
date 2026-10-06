@@ -1,0 +1,132 @@
+{
+  "experiment": "AW-0127",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0127",
+  "result": {
+    "experiment": "AW-0127",
+    "passed": true,
+    "records": [
+      {
+        "phase": 0,
+        "exit": 0,
+        "wall_seconds": 3.0846036249968165,
+        "log_sha256": "f1575c04832060807ec3805266a66ba6b558d0d71e1cb93373580d4ac89ad2a1"
+      },
+      {
+        "phase": 1,
+        "exit": 0,
+        "wall_seconds": 71.02909341600025,
+        "log_sha256": "35f03b2ce3cf8a7fbd9a8c7db16bc341f56f64a4d1dc82cda90977c3b0a85710"
+      }
+    ],
+    "error": null,
+    "libraries": {
+      "bin/libllama.0.dylib": {
+        "bytes": 3180480,
+        "sha256": "8574d0fcaaba57aed97f8d6355bd718d6e1f8b6bde5c2d146b2b7cfc89630c38"
+      },
+      "bin/libggml.dylib": {
+        "bytes": 59968,
+        "sha256": "5dd45d7b9f66e13789a416c88693d2bb9d7441257085804abe5f4c8db05c0dcb"
+      },
+      "bin/libggml-base.0.21.0.dylib": {
+        "bytes": 769000,
+        "sha256": "e3777efe9e57dee2954557d8588bc7905d9d16772961573f455e8198b5ab3a8f"
+      },
+      "bin/libggml.0.dylib": {
+        "bytes": 59968,
+        "sha256": "5dd45d7b9f66e13789a416c88693d2bb9d7441257085804abe5f4c8db05c0dcb"
+      },
+      "bin/libggml-base.dylib": {
+        "bytes": 769000,
+        "sha256": "e3777efe9e57dee2954557d8588bc7905d9d16772961573f455e8198b5ab3a8f"
+      },
+      "bin/libggml-blas.dylib": {
+        "bytes": 58776,
+        "sha256": "aabd7d6c462793a5d0dfb88b7e73ea099b89528615c332787ab0125d7408e784"
+      },
+      "bin/libggml-metal.0.dylib": {
+        "bytes": 2278376,
+        "sha256": "cc53f78c89d6834410af64f8e0047be33c76fe0dd1a3fd0c0b7045152d9dc5c0"
+      },
+      "bin/libllama.dylib": {
+        "bytes": 3180480,
+        "sha256": "8574d0fcaaba57aed97f8d6355bd718d6e1f8b6bde5c2d146b2b7cfc89630c38"
+      },
+      "bin/libggml-cpu.dylib": {
+        "bytes": 991232,
+        "sha256": "a5f13e0881d332b29d10d35c66743c74c4445046db54b4c6803a05a486ab863b"
+      },
+      "bin/libggml-metal.dylib": {
+        "bytes": 2278376,
+        "sha256": "cc53f78c89d6834410af64f8e0047be33c76fe0dd1a3fd0c0b7045152d9dc5c0"
+      },
+      "bin/libggml-blas.0.21.0.dylib": {
+        "bytes": 58776,
+        "sha256": "aabd7d6c462793a5d0dfb88b7e73ea099b89528615c332787ab0125d7408e784"
+      },
+      "bin/libggml.0.21.0.dylib": {
+        "bytes": 59968,
+        "sha256": "5dd45d7b9f66e13789a416c88693d2bb9d7441257085804abe5f4c8db05c0dcb"
+      },
+      "bin/libggml-base.0.dylib": {
+        "bytes": 769000,
+        "sha256": "e3777efe9e57dee2954557d8588bc7905d9d16772961573f455e8198b5ab3a8f"
+      },
+      "bin/libllama.0.2.0.dylib": {
+        "bytes": 3180480,
+        "sha256": "8574d0fcaaba57aed97f8d6355bd718d6e1f8b6bde5c2d146b2b7cfc89630c38"
+      },
+      "bin/libggml-blas.0.dylib": {
+        "bytes": 58776,
+        "sha256": "aabd7d6c462793a5d0dfb88b7e73ea099b89528615c332787ab0125d7408e784"
+      },
+      "bin/libggml-cpu.0.21.0.dylib": {
+        "bytes": 991232,
+        "sha256": "a5f13e0881d332b29d10d35c66743c74c4445046db54b4c6803a05a486ab863b"
+      },
+      "bin/libggml-cpu.0.dylib": {
+        "bytes": 991232,
+        "sha256": "a5f13e0881d332b29d10d35c66743c74c4445046db54b4c6803a05a486ab863b"
+      },
+      "bin/libggml-metal.0.21.0.dylib": {
+        "bytes": 2278376,
+        "sha256": "cc53f78c89d6834410af64f8e0047be33c76fe0dd1a3fd0c0b7045152d9dc5c0"
+      }
+    },
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "plan_sha256": "1f1b14938e88f853b63900fb7a8e7aae825cdfaf14b8090b51dfca1b92e4fe3d",
+    "scope": "Isolated remapped Turbo types and CPU codec and Metal writer/asymmetric attention registration build; no Metal/runtime cache graph or endpoint claim"
+  },
+  "files": {
+    "host.tsv": {
+      "bytes": 3920,
+      "sha256": "121ed4ed95fdb8d6de5c0c9020cbe5755c81f2b6dac561e7fb3c5658967e0167"
+    },
+    "plan.json": {
+      "bytes": 2296,
+      "sha256": "1f1b14938e88f853b63900fb7a8e7aae825cdfaf14b8090b51dfca1b92e4fe3d"
+    },
+    "result.json": {
+      "bytes": 3393,
+      "sha256": "05889f961d7fae1801c791a7b35a34954bfafca28198c2f3c14b874e7ac24aca"
+    },
+    "runtime.patch": {
+      "bytes": 79107,
+      "sha256": "d412d3bb45912aa3eb5f741d37a7f78e994f51effe885d44b51b202e4d6ffeec"
+    },
+    "build_prism_turbo_attention.py": {
+      "bytes": 3815,
+      "sha256": "bba072311fb357d514315e85fe9457014d28ae599a5844a1345a22d307cfb923"
+    },
+    "phase-0.log": {
+      "bytes": 4249,
+      "sha256": "f1575c04832060807ec3805266a66ba6b558d0d71e1cb93373580d4ac89ad2a1"
+    },
+    "phase-1.log": {
+      "bytes": 26303,
+      "sha256": "35f03b2ce3cf8a7fbd9a8c7db16bc341f56f64a4d1dc82cda90977c3b0a85710"
+    }
+  },
+  "limitations": "Integrated writer/asymmetric compressed attention stage only. Runtime macro failure preserved AW128. Inverse/model cache graph, prefill/runtime allocations, compressed generated trajectory, vision and endpoint performance remain unverified."
+}

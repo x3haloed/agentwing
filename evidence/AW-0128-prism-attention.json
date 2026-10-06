@@ -1,0 +1,59 @@
+{
+  "experiment": "AW-0128",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0128",
+  "result": {
+    "experiment": "AW-0128",
+    "passed": false,
+    "records": [
+      {
+        "bits": 3,
+        "layer": 3,
+        "exit": 3,
+        "error": null,
+        "relative_l2": null,
+        "passes_cpu_authority_limit": false,
+        "passed": false,
+        "output_sha256": null
+      }
+    ],
+    "pressure_peak": 1,
+    "swap_growth_peak_mib": 0,
+    "plan_sha256": "710f3f698640917528a95414d3437d89084445e4cad5ff3d883fd7470acec514",
+    "scope": "Integrated Prism Metal asymmetric compressed attention graph only; no inverse/cache model graph, compressed generation or endpoint qualification"
+  },
+  "files": {
+    "3-3.log": {
+      "bytes": 5238,
+      "sha256": "164c7b5bbe6463933afe05081ad3e3acbfbf12e4901ac40ba3e81896f39d70ee"
+    },
+    "host.tsv": {
+      "bytes": 684,
+      "sha256": "3478f3ba0e8f75cf9ff6353717260570d5627b6c3546d1afd4f9d1dd4aa1cd64"
+    },
+    "set-rows": {
+      "bytes": 38904,
+      "sha256": "02d0fa9f045e457ed7113e1ff542f7859e5ce1c9c950c8f63f1da2d18cb5c2bf"
+    },
+    "plan.json": {
+      "bytes": 3177,
+      "sha256": "710f3f698640917528a95414d3437d89084445e4cad5ff3d883fd7470acec514"
+    },
+    "result.json": {
+      "bytes": 570,
+      "sha256": "1c7d1b17571858427b3c1af9231e61d2b318feb132ab0e217f5232885bcca6f2"
+    },
+    "check_prism_turbo_attention.py": {
+      "bytes": 3818,
+      "sha256": "68ae79c5c6baf364751dfe6409b962c0b8934ac149e315e46cbe63673342bd1a"
+    },
+    "prism-turbo-attention.cpp": {
+      "bytes": 1907,
+      "sha256": "ef3a91273701b5797447faea51a14186fbc23b903723a99f908395240c0dc737"
+    },
+    "compile.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "limitations": "Integrated writer/asymmetric compressed attention stage only. Runtime macro failure preserved AW128. Inverse/model cache graph, prefill/runtime allocations, compressed generated trajectory, vision and endpoint performance remain unverified."
+}
