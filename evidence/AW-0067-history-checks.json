@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "scope": "No-model temporary copies of real saved native traces; no corpus/authority edits",
+  "cases": [
+    {
+      "case": "disabled-shift-not-corruption",
+      "expected_pass": true,
+      "observed_pass": true
+    },
+    {
+      "case": "actual-shift-rejected",
+      "expected_pass": false,
+      "observed_pass": false
+    },
+    {
+      "case": "compaction-rejected",
+      "expected_pass": false,
+      "observed_pass": false
+    }
+  ]
+}

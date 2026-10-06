@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "scope": "No-model revalidation against newly frozen AW72 runner; original evidence preserved",
+  "protocol_source": "scripts/run_bonsai_development.py",
+  "protocol_source_sha256": "ab36934e2935c2d6a6c5a545d7b6d208222dc1e0c8db16d6fedb05914ff5ae81",
+  "raw_fixture": "/Users/chad/Models/agentwing/evidence/AW-0064/20261006T024451.079850Z/01-navigation",
+  "fixture_sha256": {
+    "pi.jsonl": "28dfb8aa4377fd53b704ca5963247877c0caf3c495c6248708e62bf9767c4d3e",
+    "server.log": "dbc1a8245601c2d4ada5c908962c8a8de45016dab4ffea8d469a65934571e9c3"
+  },
+  "cases": [
+    {
+      "case": "disabled-shift-not-corruption",
+      "expected_pass": true,
+      "observed_pass": true,
+      "checks": {
+        "events_nonempty": true,
+        "paired_unique_calls": true,
+        "bash_schema_valid": true,
+        "no_model_errors": true,
+        "fresh_model_load": true,
+        "serialized_unique_requests": true,
+        "all_requests_terminal": true,
+        "server_cleanup": true,
+        "no_context_shift": true,
+        "no_compaction": true,
+        "no_explicit_authority_access": true
+      }
+    },
+    {
+      "case": "actual-shift-rejected",
+      "expected_pass": false,
+      "observed_pass": false,
+      "checks": {
+        "events_nonempty": true,
+        "paired_unique_calls": true,
+        "bash_schema_valid": true,
+        "no_model_errors": true,
+        "fresh_model_load": true,
+        "serialized_unique_requests": true,
+        "all_requests_terminal": true,
+        "server_cleanup": true,
+        "no_context_shift": false,
+        "no_compaction": true,
+        "no_explicit_authority_access": true
+      }
+    },
+    {
+      "case": "compaction-rejected",
+      "expected_pass": false,
+      "observed_pass": false,
+      "checks": {
+        "events_nonempty": true,
+        "paired_unique_calls": true,
+        "bash_schema_valid": true,
+        "no_model_errors": true,
+        "fresh_model_load": true,
+        "serialized_unique_requests": true,
+        "all_requests_terminal": true,
+        "server_cleanup": true,
+        "no_context_shift": true,
+        "no_compaction": false,
+        "no_explicit_authority_access": true
+      }
+    }
+  ]
+}

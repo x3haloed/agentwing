@@ -1259,3 +1259,12 @@ Turbo4 logical KV payload136MiB implies376MiB potential payload saving at8K,
 before extra costs. Prismwing's synthetic fidelity and scheduling negatives
 remain applicable cautions. Retain a port candidate; source presence cannot
 prove Prism PTQ compatibility, accelerated quality, or endpoint improvement.
+
+## 2026-10-05 — Expanded diagnostic must reject history loss
+
+AW67 no-model falsifiers distinguish a disabled-shift status line from actual
+context shifting and compaction events. All three revalidate on the frozen AW72
+runner. AW72 selects all eight frozen development categories, continues semantic
+failures and aborts host/protocol/history failures. No held-out content exposed.
+Ownership preflight correctly refuses a concurrent run during AW70. This closes
+a diagnostic integrity gap; it proves no model capability or speed improvement.

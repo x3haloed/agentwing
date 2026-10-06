@@ -5,7 +5,8 @@ import json
 from pathlib import Path
 from run_local_agent import ROOT, digest
 from run_bonsai_capability import protocol
-from verify_original_copy import SUITE, verify
+from verify_original_copy import SUITE as ORIGINAL_SUITE, verify as verify_original
+from verify_p2_task import SUITE as EXPANDED_SUITE, verify as verify_expanded
 
 
 def audit(run):
@@ -19,8 +20,15 @@ def audit(run):
         assert digest(ROOT/name)==sha, f'Frozen source/input changed: {name}'
         snapshot=run/'source-snapshot'/name
         if snapshot.exists():assert digest(snapshot)==sha, f'Source snapshot changed: {name}'
+    expanded=plan.get('suite_kind')=='p2-development'
+    SUITE=EXPANDED_SUITE if expanded else ORIGINAL_SUITE
+    verify=verify_expanded if expanded else verify_original
     check_protocol=protocol
+    if expanded:
+        from run_bonsai_development import protocol as check_protocol
     tasks=json.loads((SUITE/'manifest.json').read_text())['tasks']
+    if expanded:
+        assert plan['selection']==[t['id'] for t in tasks if t['split']=='development']
     assert len(set(plan['selection']))==len(plan['selection'])
     assert plan['selection']==[t['id'] for t in tasks if t['id'] in plan['selection']]
     assert plan['successes_required']==len(plan['selection'])
