@@ -2129,3 +2129,13 @@ failure preserved, explicit-path retry succeeded. Candidate initial compile
 18.949s retained. Allraw/output/timing replay passes, host1/growth0. Reject
 meaningful-survivor claim; no endpoint promotion/P1/default/runtime changes.
 RawexternalAW176, pins in evidence/AW-0176-native-row8-screen.json.
+
+
+### AW-0177 — row8 measured intended native decoder
+
+Symmetric3531-file source comparison differs only N_R0_PTQ1_0 macro4→8;
+selected native single-column template and host layout both consume it. Both
+candidate logs compiled limit576 threads versus control832, SIMD width32.
+Retain authority audit; no occupancy/spill/cost causal assertion. AW176 negative
+remains; no additional inference or endpoint promotion. Source/log pins external
+AW177 and evidence/AW-0177-native-row8-authority.json.

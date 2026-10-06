@@ -1,0 +1,57 @@
+{
+  "experiment": "AW-0177",
+  "scope": "Read-only native source/pipeline authority audit, no model inference or performance trial.",
+  "hypothesis": "AW176 actually selects the changed eight-row native decoder, rather than a fallback kernel.",
+  "files_compared": 3531,
+  "source_differences": [
+    "ggml/src/ggml-metal/ggml-metal-impl.h"
+  ],
+  "parent_source": "/Users/chad/Models/agentwing/runtime-sources/prism-turbo-port",
+  "candidate_source": "/Users/chad/Models/agentwing/runtime-sources/prism-turbo-row8",
+  "pipeline_observations": [
+    {
+      "index": 0,
+      "arm": "control",
+      "selected_pipeline": "kernel_mul_mv_ptq1_0_f32_nsg=1_ne12=1_r2=1_r3=1",
+      "max_threads_per_threadgroup": 832,
+      "thread_execution_width": 32,
+      "log_sha256": "c4c6760665a466a5e825bacef8928e248561f658ab894ee580bbc6ab2cab87b1",
+      "line": "ggml_metal_library_compile_pipeline: loaded kernel_mul_mv_ptq1_0_f32_nsg=1_ne12=1_r2=1_r3=1      0x1014e4c20 | th_max =  832 | th_width =   32"
+    },
+    {
+      "index": 1,
+      "arm": "candidate",
+      "selected_pipeline": "kernel_mul_mv_ptq1_0_f32_nsg=1_ne12=1_r2=1_r3=1",
+      "max_threads_per_threadgroup": 576,
+      "thread_execution_width": 32,
+      "log_sha256": "bda210f0f4f6716d58e6c9e8144cec0da2f1c66dd8b9e1bd80a88e945cf86eb8",
+      "line": "ggml_metal_library_compile_pipeline: loaded kernel_mul_mv_ptq1_0_f32_nsg=1_ne12=1_r2=1_r3=1      0x1054dbbe0 | th_max =  576 | th_width =   32"
+    },
+    {
+      "index": 2,
+      "arm": "candidate",
+      "selected_pipeline": "kernel_mul_mv_ptq1_0_f32_nsg=1_ne12=1_r2=1_r3=1",
+      "max_threads_per_threadgroup": 576,
+      "thread_execution_width": 32,
+      "log_sha256": "e679d5839de75908d57a303e02cc7844163526f443155153f470367ad04eaa7c",
+      "line": "ggml_metal_library_compile_pipeline: loaded kernel_mul_mv_ptq1_0_f32_nsg=1_ne12=1_r2=1_r3=1      0x1059d7020 | th_max =  576 | th_width =   32"
+    },
+    {
+      "index": 3,
+      "arm": "control",
+      "selected_pipeline": "kernel_mul_mv_ptq1_0_f32_nsg=1_ne12=1_r2=1_r3=1",
+      "max_threads_per_threadgroup": 832,
+      "thread_execution_width": 32,
+      "log_sha256": "278ee567fc98d536dabb2047282b5ed2bef43accdb56eb18cfb101f3cace80e1",
+      "line": "ggml_metal_library_compile_pipeline: loaded kernel_mul_mv_ptq1_0_f32_nsg=1_ne12=1_r2=1_r3=1      0x1037c3770 | th_max =  832 | th_width =   32"
+    }
+  ],
+  "parent_receipt_sha256": "580ebde0aa54d09f0d126808062c067ad269bf57ddf2a52976df08693d93377b",
+  "source_authority": {
+    "header_sha256": "c5fa7b673bb49232eea63ba46671f3523260b2a8ce5081023efd04c19e64c7ef",
+    "kernel_sha256": "0c022d8b5b573fcf19fdbcb8694949ec71323ec7547589585edfb210eecca8da",
+    "dispatcher_sha256": "bf235127cd4eff8d1b113ec470a897b20b53765826a49a3bea87878ff413dc27"
+  },
+  "conclusion": "Selected single-column native template uses N_R0_PTQ1_0 on host and shader; only macro changes4to8. Candidate pipeline limit576 vs control832 demonstrates differing compilation. No claim of actual register occupancy, invocation timing causality or endpoint utility.",
+  "symmetric_source_inventory_verified": true
+}
