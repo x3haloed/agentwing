@@ -2,7 +2,7 @@
 
 ## Status and hypothesis
 
-Running: firstF16/6bitpair independentlypassed; second6bitarm live. Hypothesis: explicitplatformcontext in sharedPi
+Completed: allfourarms independentlypassed; Pi-onlyfunctional survivor. Hypothesis: explicitplatformcontext in sharedPi
 systemprompt yields fourclean exact-file-copy runs acrossF16 and6bit caches.
 CheapPi-onlyscreen before repeatingfullmultimodaladmission; not endpointscore.
 
@@ -56,3 +56,22 @@ Resourceprosecorrection: firstcontrol complete trace peakpressure2 and
 265.63MiBswapgrowth, not previouslystated1/0. Authoritativefirstcontrol
 raw/audit/receipts alreadycontaincorrectvalues; resourcegatesstillpass.
 Candidatefirstarm pressure1/perarm swapgrowth0.
+
+## Terminal result
+
+AllfourfreshABBAarms exit0 and independentlypass artifact/sharedprompt/
+rawidentity/canonicalprotocol/permissions/zeroexecutionerror/host/capacity
+checks. Actualreviewedtoolcounts2/2/3/3,10validproductivecalls total,zero
+redundant/malformed/denied/failedcalls. Repeatedcomparisons mayoccurinside
+productivecalls; no claimallsubcommandsneeded. Both6bitarmsclean, alloutputs
+same19bytefixture. Lifetimes145.940/126.565/135.766/140.865s diagnostic,
+not speedcomparison. FirstF16pressure2/265.63MiBswapgrowth, remainingarms
+pressure1/perarmgrowth0. Allgatespass; campaignobservations inreceipt.
+
+Supersedespartialstatus. Receipt
+`evidence/AW-0212-platform-context-terminal.json` pinsfullplan/summary/
+audit/review/rawhashes underexternalAW212. No live modelowner aftercleanup.
+Retainsharedplatformcontextharnesssurvivor forcompletefunctional andlong
+behavior admission, thenfixedendpointcomparisons. AW211negative retained;
+thisdoesnot provepromptcausedimprovement becauseworkspace paths differed.
+No fullmultimodalqualification borrowed fromPi-onlytest, no P1/defaultchange.

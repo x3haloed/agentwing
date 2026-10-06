@@ -2661,3 +2661,16 @@ The earlierfirstcontrolprose incorrectlystatedpressure1/swapgrowth0.
 Completeindependentaudit andoriginalfirstcontrolreceipt recordpressure2/
 265.63MiBswapgrowth. Supersedes thatproseonly; rawreceiptcorrect, both gates
 stillpass. First6bitarmpressure1/perarm swapgrowth0. No causal memoryclaim.
+
+### AW-0212 — sharedplatformcontext four-arm Pi-only screen passes
+
+AllfourfreshF16/6bit/6bit/F16 arms independentlypass samebyteartifact/
+sharedprompt/rawidentity/canonicalprotocol/permissions/zeroexecutionerrors/
+host/capacity checks. Actualreview10validproductivecalls(2/2/3/3),no
+redundant/malformed/denied/failedcalls. Pressurepeak2/largestperarm swap
+ growth265.63MiB, remainingarms1/0. Receipt
+`evidence/AW-0212-platform-context-terminal.json` pins externalAW212full
+plan/audit/review/raw. Supersedespartialstatus; retainplatformcontextharness
+survivor forcompletefunctional/longbehavior thenendpointladder. Pi-only/full
+visionloaded isnot image/nativeLookup orfullmultimodalrerun, no causalprompt/
+speed claim, AW211negative/P1/defaults preserved andgoal remainsunproven.
