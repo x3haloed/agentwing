@@ -1,0 +1,39 @@
+{
+  "scope": "CPU source layout screen; exact repacking is a proposal, not an implemented model artifact",
+  "runtime_commit": "adfffbe41b2cabcd51fff326ab045662265062bb",
+  "external_location": "/Users/chad/Models/agentwing/evidence/AW-0079/source-screen",
+  "files": [
+    {
+      "path": "ggml/src/ggml-common.h",
+      "bytes": 136535,
+      "sha256": "96539c9bd8e4544692bf242951180edaa2fd5775864fbc3e833f44111b96b934"
+    },
+    {
+      "path": "ggml/src/ggml-quants.c",
+      "bytes": 234514,
+      "sha256": "46dd353f30e7f1c42c7d82d88d91fad64dbe5d6e680b234de25355d9fb482d13"
+    }
+  ],
+  "ptq1_block": {
+    "elements": 128,
+    "bytes": 28,
+    "scale_bytes": 2,
+    "scale_position": "last",
+    "payload": "24 bytes of five trits plus2 bytes of four trits"
+  },
+  "pq2_block": {
+    "elements": 128,
+    "bytes": 34,
+    "scale_bytes": 2,
+    "scale_position": "first",
+    "payload": "32 bytes of four positional two-bit codes"
+  },
+  "inference": "An exact symbolic transcode can preserve decoded ternary codes and raw FP16 scale while changing layout; CPU decoder and Metal decoder equivalence must be verified. General dequantize/requantize is not assumed equivalent.",
+  "gates_before_full_conversion": [
+    "Exhaustive valid-code tiny block checks against pinned CPU/Metal mapping",
+    "Bounded streaming memory and installation byte accounting",
+    "Immutable model tensor metadata and Hadamard-transform metadata preservation",
+    "Representative real tensor/activation and candidate accumulated behavior checks"
+  ],
+  "disposition": "Retained as a cheap falsifier proposal; no weights read or converted during active inference"
+}

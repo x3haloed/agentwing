@@ -75,3 +75,16 @@ speed result is inferred. Exact source paths/hashes and external location
 are in `evidence/AW-0079-metal-source-screen.json`. The initial attempt at
 the obsolete monolithic Metal source path returned 404; pinned tree lookup
 located the split kernel sources. Retain candidate conditionally.
+
+## CPU layout screen
+
+Pinned definitions use 128-element groups with one FP16 scale: PTQ1_0 is
+28 bytes per group (scale last), PQ2_0 is 34 bytes (scale first). A symbolic
+layout transcode preserving decoded ternary codes and raw scale appears
+possible without dequantize/requantize, but is unimplemented and unverified.
+This offers a tiny exhaustive valid-code falsifier before downloading or
+rewriting a full artifact. Exact source receipts and required next gates
+are in `evidence/AW-0079-cpu-layout-screen.json`. No model tensor,
+Hadamard metadata, active profile or run changed. The proposed full rewrite
+would still incur read/install/storage costs and needs accumulated behavior
+validation; source feasibility is not endpoint improvement.
