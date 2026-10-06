@@ -1,0 +1,15 @@
+{
+  "experiment": "AW-0102",
+  "draft_only": true,
+  "core_contract_preserved": true,
+  "original_sha256": "c6fd235eadf41d67eff1cffea23963178e880b1186210625e22c6bd6e4f12203",
+  "proposal_sha256": "d4e8f8d29a51f01d2deffefa484ec1bac5d872414efd619547cd42bc668d5426",
+  "checks": [
+    "Promotion numeric/replication/capability rules identical",
+    "Complete fixed corpus/heldout/verifier requirements identical",
+    "All resource/protocol/control preservation invariants identical",
+    "Original contract file unchanged",
+    "Matched tools/prompt/permissions/task deadline/scoring explicit in proposed split rule"
+  ],
+  "scope": "Static proposal review; no inference, task change or promotion claim"
+}
