@@ -1,0 +1,37 @@
+{
+  "experiment": "AW-0101",
+  "existing_contract_compatible": false,
+  "matched_configuration_invariant": true,
+  "differences": {
+    "temperature": {
+      "control": 0,
+      "candidate": 1.0
+    },
+    "top_p": {
+      "control": 0.8,
+      "candidate": 0.95
+    },
+    "frequency_penalty": {
+      "control": 0.5,
+      "candidate": 0.0
+    },
+    "output_budget": {
+      "control": 512,
+      "candidate": 8192
+    },
+    "reasoning": {
+      "control_enable_thinking": false,
+      "candidate_effort": "medium"
+    }
+  },
+  "source_hashes": {
+    "spec/p2-acceptance.json": "c6fd235eadf41d67eff1cffea23963178e880b1186210625e22c6bd6e4f12203",
+    "spec/validated-local-agent.json": "e3de38b2a4ddad8ad057ea99935b0b9f7b6a181fe77b3d33e81aa99959400c82",
+    "spec/bonsai-selective-local.json": "ffeb192ebc16c3851f6c9136a376fcca371b7b50e063fdc9941c11a002fcd010",
+    "scripts/bonsai_selective_server.py": "12a5d5e7c36020304c9a6e7314acae1c796e674b5faef57fd601e5421ce9e3a8",
+    "scripts/bonsai_server.py": "057ae88fab62760caf0c5e792b144c1b2bdbea504838719c372ae1b40a3afe63"
+  },
+  "script_sha256": "cfeb5f7da3646770cad6121c3757990799fa2a356385e372da678b69dc07a90d",
+  "disposition": "Unresolved promotion-policy compatibility; no gate relaxed or profile changed",
+  "scope": "Static source/spec evidence only; no inference, endpoint comparison, speed or capability claim"
+}

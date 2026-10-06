@@ -1526,3 +1526,12 @@ Pressure1/swap growth0. Functional experimental launcher/config now usable;
 no endpoint promotion, broad vision/general capability or utility/hour claim.
 Original default/P1 preserved. FP16 KV remains; TurboQuant/PolarQuant is not
 implemented by these selective weight-format changes.
+
+## AW-0101 — Native P1/Bonsai migration is not a matched-profile comparison
+
+Static authoritative specs/launcher prove T0/.8/frequency.5 versus T1/.95/
+frequency0, with512/8192 outputs and disabled/medium reasoning. Existing P2
+matched-configuration invariant is not met. Record unresolved applicability
+before a full native campaign; no acceptance gate or profile changed. Whole
+system diagnostics cannot silently promote under an incompatible contract.
+Continue development tests while preserving frozen P1 and native Bonsai policy.
