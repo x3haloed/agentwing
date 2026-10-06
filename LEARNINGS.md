@@ -2718,3 +2718,18 @@ F16 completes in 723.922 seconds. No causal speed, executed-call utility or
 P1 promotion claim. Receipt `evidence/AW-0214-long-history-terminal.json`
 pins external raw/audit hashes. Retain six-bit for fixed development task,
 then full frozen capability and interleaved endpoint qualification.
+
+### AW-0215 — six-bit full task fails despite isolated behavior admission
+
+Fixed multi-file task times out (1804.660 seconds execution, 1809.376 seconds
+summary), utility 0, input files unchanged. Five valid paired calls: four
+productive reads and one failed unsupported cat-A; sed recovery succeeds.
+All-requests-terminal protocol gate fails; pressure 2/swap growth 0 and disk
+gates pass. Reject promotion; AW214 isolated complete proposal does not
+establish full trajectory task utility. No causal cache/prompt attribution.
+Frozen collector also fails on incomplete UTF-8 token diagnostics in server
+log; Pi JSON valid, raw untouched. Separate byte-preserving diagnostic audit
+confirms timeout and preserves strict protocol failure; original unattempted
+summary entry is collector fallout, not factual absence of task execution.
+Receipt `evidence/AW-0215-turbo6-multifile-terminal.json` pins raw and audit.
+P1/full held-out capability and 25% utility gates remain required.

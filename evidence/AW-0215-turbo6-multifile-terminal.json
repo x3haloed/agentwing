@@ -1,0 +1,81 @@
+{
+  "experiment": "AW-0215",
+  "evidence_integrity_passed": true,
+  "screen_passed": false,
+  "charged_utility": 0,
+  "execution": {
+    "status": "failed",
+    "error": "stopped-timeout",
+    "pi_exit": null,
+    "wall_seconds": 1804.6604519160028,
+    "verified_utility": null,
+    "scope": "User task, not scored benchmark. Inspect artifacts and independently validate.",
+    "pressure_peak": 2,
+    "swap_growth_peak_mib": 0.0,
+    "server_pid": 32364,
+    "client_pid": 32393
+  },
+  "collector_error": "'utf-8' codec can't decode bytes in position 2406917-2406918: invalid continuation byte",
+  "raw_receipt_sha256": "ec155c7305a9cf6d61d13d7083220a6385d9cbefaedfe5f7f54085a336260286",
+  "plan_sha256": "a395cde52e6323ff88d39b0f5f7f9273939de9259302a9fdb96d14116193ecf1",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0215/20261006T214746.364246Z",
+  "protocol_checks": {
+    "events_nonempty": true,
+    "paired_unique_calls": true,
+    "bash_schema_valid": true,
+    "no_model_errors": true,
+    "fresh_model_load": true,
+    "serialized_unique_requests": true,
+    "all_requests_terminal": false,
+    "server_cleanup": true,
+    "no_context_shift": true,
+    "no_compaction": true,
+    "no_explicit_authority_access": true
+  },
+  "protocol_passed": false,
+  "tool_accounting": {
+    "attempted": 5,
+    "valid": 5,
+    "productive": 4,
+    "redundant": 0,
+    "malformed": 0,
+    "denied": 0,
+    "failed": 1
+  },
+  "command_sha256": [
+    "f103c29fc63fb8b3614cedc1e3cd9ffd9e6782c552e7929e6eec64f093876880",
+    "d94438cc3e57b2ad9bcad50a54ba03275ebc2d38a64974e0806d523c53e18b0c",
+    "00b3862128f898e28ffd1fa29d8a8bee6b29a66e51c4aa82b7e7418e30717684",
+    "c86430e0135a8cac3917a0439a3f65583511a190133037b43c1cde07ab645ec0",
+    "1b2b8db079675af7ad20506d2329041b37fc83b941fe9889400ce45cca70f3db"
+  ],
+  "invalid_utf8_spans": [
+    {
+      "start": 2406917,
+      "end": 2406919,
+      "bytes_hex": "e29c"
+    },
+    {
+      "start": 2408147,
+      "end": 2408148,
+      "bytes_hex": "97"
+    }
+  ],
+  "diagnostic_log_policy": "surrogateescape preserves raw bytes; strict Pi JSON remains unchanged; no protocol gate waived",
+  "workspace_input_files_unchanged": {
+    "README.md": true,
+    "test_ledger.py": true,
+    "ledger/store.py": true,
+    "ledger/__init__.py": true,
+    "ledger/api.py": true,
+    "ledger/cli.py": true
+  },
+  "all_input_files_unchanged": true,
+  "grader_utility": 0,
+  "minimum_sampled_free_bytes": 145159045120,
+  "host_passed": true,
+  "scope": "Negative development evidence; original frozen summary untouched, task attempted despite collector listing it unattempted, no endpoint qualification",
+  "audit_sha256": "08776296fb7b34b7b145ed6e3022617233dbe77459102331594233d2a086ca46",
+  "auditor_sha256": "ff6b45b238c56c3cda5aa0de90aa3a6b9cfad5d6524a5784389263f899927faa",
+  "disposition": "Rejected for promotion; preserved negative development evidence. Frozen P1 unchanged."
+}
