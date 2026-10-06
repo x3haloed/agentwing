@@ -2759,3 +2759,13 @@ fail, resourcespasspressure2/swapgrowth117MiB. Receipt
 `evidence/AW-0218-control-terminal.json` pins evidence. Thus AW215failure
 cannot be attributed solely to compressedKV on this evidence. Candidatearm
 stillruns for diagnosis; pair cannotqualify. No causal claim or gatewaiver.
+
+### AW-0218 — complete sixth-request pair rejected
+
+Supersedes pending candidate: six-bit timesout1804.068s,7298events/28360
+thinkingcharacters/no terminal/proposal. F16 length/malformed failure
+preserved. Both resourcespass; candidatepressure1/swapgrowth0. Zero tools
+executed, no utility/causal speed claim. Complete independent audit and raw
+hashes in `evidence/AW-0218-sixth-request-terminal.json`. Reject behavior
+qualification, preserve P1/endpoints; investigate a new runtime/harness
+hypothesis rather than waiving task/reasoning/output/deadline gates.

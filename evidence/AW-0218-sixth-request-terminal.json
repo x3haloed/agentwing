@@ -1,0 +1,124 @@
+{
+  "experiment": "AW-0218",
+  "status": "terminal-rejected",
+  "terminal_audit": {
+    "experiment": "AW-0218",
+    "complete": true,
+    "behavior_screen_passed": false,
+    "rows": [
+      {
+        "behavior_gate_passed": false,
+        "arm": "f16",
+        "result_sha256": "4bc14b81341bd029f34e14d13bc2e1fcdc6250d80d7e4c5e8fdce65cd4ffec07",
+        "error": null,
+        "client_exit": 0,
+        "server_exit_after_cleanup": 0,
+        "host_passed": true,
+        "response": {
+          "events": 8177,
+          "completion_ids": [
+            "chatcmpl-tFKmEZ7VqS6UqEjsMbl3vawPaV3O3k4m"
+          ],
+          "finish_reasons": [
+            "length"
+          ],
+          "done": true,
+          "done_count": 1,
+          "thinking_characters": 30087,
+          "answer_characters": 0,
+          "errors": [],
+          "proposals": [
+            {
+              "index": 0,
+              "id": "zXe519C5PAjNbetRmO2FPmqHRC4mdoNh",
+              "name": "bash",
+              "valid_schema": false,
+              "classification": "malformed-proposal",
+              "raw_arguments_sha256": "86d688ce5d094e1ea0383f0954504296f7550f9f0b732cb07d322dd93033a9e0",
+              "executed": false,
+              "productive": null
+            }
+          ],
+          "terminal_protocol_passed": false,
+          "tools_executed": 0
+        },
+        "wall_seconds_diagnostic": 1649.0817660419998
+      },
+      {
+        "behavior_gate_passed": false,
+        "arm": "turbo",
+        "result_sha256": "d59e5a3b463a477f0872cf61b7ca943edeeb92323f17a2e37a61847a7d16fbf2",
+        "error": "request-timeout",
+        "client_exit": -15,
+        "server_exit_after_cleanup": 0,
+        "host_passed": true,
+        "response": {
+          "events": 7298,
+          "completion_ids": [
+            "chatcmpl-zUYHJItqOCYJIr1YhO7xVp2WVJkkTSLY"
+          ],
+          "finish_reasons": [],
+          "done": false,
+          "done_count": 0,
+          "thinking_characters": 28360,
+          "answer_characters": 0,
+          "errors": [],
+          "proposals": [],
+          "terminal_protocol_passed": false,
+          "tools_executed": 0
+        },
+        "wall_seconds_diagnostic": 1804.068274707999
+      }
+    ],
+    "plan_sha256": "656397b04c2a90ef975514ce089c6e3103090b1958104d8ee118aa11b358d781",
+    "auditor_sha256": "96908900a658ef29d5f406d2a05f97d3559e62611d6a836c958cd7040832cc9c",
+    "scope": "One full native request per cache arm; no proposal execution, task score, performance ratio or causal qualification"
+  },
+  "audit_sha256": "072889810d5a8725caca3ee7e8707d250259161434cc2c480f888110211e8532",
+  "external_evidence": "/Users/chad/Models/agentwing/evidence/AW-0218",
+  "results": {
+    "f16": {
+      "arm": "f16",
+      "error": null,
+      "client_exit": 0,
+      "server_exit_after_cleanup": 0,
+      "wall_seconds_diagnostic": 1649.0817660419998,
+      "minimum_sampled_free_bytes": 99038732288,
+      "baseline_swap_mib": 1953.62,
+      "pressure_peak": 2,
+      "swap_growth_peak_mib": 117.0,
+      "raw_sha256": {
+        "request.json": "0e76bbb5813712bf4aee2588156af51e050a916e5899d13dac9f5adc78e807d5",
+        "response-summary.json": "dc86e61a5b11a5b65076bc003caaeb362e4f656536e1713b2767d0cebc158bee",
+        "response.sse": "c4e4c073a64904a093077ea4cb8cf1ae13c4e7b35d50f841fbbdfeed4925b2ec",
+        "pressure.tsv": "008faa114caba5ec449e0b2730a70c4adbaa2d7e7c1741a200c42d4ad9abd4a3",
+        "client.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "capacity.jsonl": "a0b9d32dc409ddbc4e58dcdd364c0a038a47ffeb2ddaf939994c50972531ebc2",
+        "server-command.json": "10362f2eb20474b477fdf55527436d239e98d0122f267ba679d72f54bbb16ded",
+        "server.log": "4808dd86cef01b6b97f388c4d4d80389be69da6b5ca64a4340de2445bd6f1d0d"
+      }
+    },
+    "turbo": {
+      "arm": "turbo",
+      "error": "request-timeout",
+      "client_exit": -15,
+      "server_exit_after_cleanup": 0,
+      "wall_seconds_diagnostic": 1804.068274707999,
+      "minimum_sampled_free_bytes": 53389955072,
+      "baseline_swap_mib": 2062.62,
+      "pressure_peak": 1,
+      "swap_growth_peak_mib": 0,
+      "raw_sha256": {
+        "request.json": "0e76bbb5813712bf4aee2588156af51e050a916e5899d13dac9f5adc78e807d5",
+        "response.sse": "1198d86faf379d4e85806bc159e6f6a4981007b38ac874e999e80a45630bad53",
+        "pressure.tsv": "41611902174f2e84b0bda97e7b003985056429d161bf4b1566233565c02f8766",
+        "client.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "capacity.jsonl": "4622c7d5b0b6a77beb9b0f9bb49b7a66846aaa67ff7304f1910253010e4e9f8e",
+        "server-command.json": "2df9ea403b60f8a1c325c5ff716ce9ccf97668acdf4dd831a3455239a60b8664",
+        "server.log": "e4e34ac55af618bcb162ab70d6a661aa5361a572c822c1686cabfecd2ab983a3"
+      }
+    }
+  },
+  "summary_sha256": "2f25f66ee3ea4e307419f4343973239b6f35210d97632c4bc6db65f9de6f310e",
+  "disposition": "Reject behavior qualification; preserve both negative arms. No task utility, causal speed, or P1 promotion."
+}

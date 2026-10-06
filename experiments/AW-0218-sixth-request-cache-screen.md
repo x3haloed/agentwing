@@ -42,3 +42,18 @@ Six-bitarm started automatically because worker exitedcleanly; stop-policy
 is execution/resource failure, not semantic qualification. Pair cannotpass
 regardless of candidate result; retain candidate only as diagnosis. No gate
 waiver, utility or promotion claim.
+
+## Complete pair rejected
+
+Independent complete audit: both behavior and protocol gates fail, raw hashes/
+identical requests/capacity checks pass. Six-bit request-timeout at1804.068s
+diagnostic,7298events/28360thinkingcharacters, no terminal/DONE/proposals.
+No malformed candidate proposal is inferred from absence. Pressure1/swap
+growth0/minimumfree53389955072bytes; clean server cleanup, worker SIGTERM.
+F16 negative preserved. Zero tools executed in either arm; productivity
+unknown. Receipt `evidence/AW-0218-sixth-request-terminal.json` pins audit/raw.
+No model owner remains. Reject this behavior qualification; do not launch
+held-out promotion trials or waive caps/deadlines. Exact-history evidence
+shows failure persists with freshF16, so cachecompression alone cannot
+explain fulltaskfailure. Next strategy needs a new falsifiable runtime/harness
+hypothesis while preserving fixed full endpoint acceptance.
