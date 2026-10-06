@@ -2750,3 +2750,12 @@ sed recovery. Installed adapter/source pins/history/prompt/native schema
 checks pass. Receipt `evidence/AW-0217-sixth-request-reconstruction.json`
 hashes external raw body. Retain for declared fresh-cache screen; offline
 reconstruction is not wire capture or task utility evidence.
+
+### AW-0218 — fresh F16 sixth-request fails too
+
+F16 exhausts8192outputcap after1649.082s diagnostic,8177events/30087thinking
+characters, one malformed unexecuted bash proposal. Strictprotocol/behavior
+fail, resourcespasspressure2/swapgrowth117MiB. Receipt
+`evidence/AW-0218-control-terminal.json` pins evidence. Thus AW215failure
+cannot be attributed solely to compressedKV on this evidence. Candidatearm
+stillruns for diagnosis; pair cannotqualify. No causal claim or gatewaiver.

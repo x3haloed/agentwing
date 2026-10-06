@@ -30,3 +30,15 @@ python3 scripts/audit_bonsai_turbo6_sixth.py --partial
 
 Retain unresolved until terminal audit. AW215 negative/full endpoint goals
 and frozen P1 preserved; this screen cannot qualify task utility alone.
+
+## F16 terminal failure
+
+Fresh F16 finishes length at output cap:8177events/30087thinkingcharacters,
+one malformed unexecuted bash proposal, zeroanswercharacters. Independent
+strict protocol and behavior gates fail. Wall1649.082s diagnostic; pressure2/
+swapgrowth117MiB/minimumfree99038732288bytes and clean exits satisfy host.
+Receipt `evidence/AW-0218-control-terminal.json` pins partialaudit/raw.
+Six-bitarm started automatically because worker exitedcleanly; stop-policy
+is execution/resource failure, not semantic qualification. Pair cannotpass
+regardless of candidate result; retain candidate only as diagnosis. No gate
+waiver, utility or promotion claim.
