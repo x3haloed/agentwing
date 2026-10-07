@@ -2783,3 +2783,7 @@ Untested, not default or promoted; preserve all negative evidence.
 ### AW-0220 — reboot interrupts first incremental-prompt attempt
 
 Host reboot terminates runner/inference before terminal result. Observed pressure/capacity within gates; shutdown-stall report does not establish trigger. Preserve raw hashes in `evidence/AW-0220-reboot-interruption.json`, disposition unresolved. No utility or cache failure attribution; rerun unchanged frozen plan separately and preserve interrupted overhead for future accounting.
+
+### AW-0220 — incremental prompt writes a passing artifact but misses completion
+
+Supersedes untested/unresolved status: fixed rerun timesout1813.439s diagnostic wall, utility0, sixth request nonterminal. Five valid useful calls include baseline failure observation and two-file implementation; independent artifact verifier1 does not override protocol/deadline rejection. Resource gates pass pressure2/swapgrowth640.75MiB. Receipt `evidence/AW-0220-incremental-terminal.json` preserves raw/audit hashes and earlier reboot/preflight attempts. Reject full-task qualification; no causal cache/prompt speed claim or P1 promotion. Next experiment must address complete trajectory without task/tool/reasoning/scoring narrowing.

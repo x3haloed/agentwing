@@ -1,0 +1,80 @@
+{
+  "experiment": "AW-0220",
+  "terminal_audit": {
+    "audit_passed": true,
+    "run": "/Users/chad/Models/agentwing/evidence/AW-0220/20261007T173817.456074Z",
+    "raw_receipt_sha256": "101fa6c58c8054f1808a04d04ae9cf2a5e344cfe054406b4fa97d2a334131f7f",
+    "plan_sha256": "b6b85835116958db8d191dc7cd86c6751a8e1a0be42f95bd3f6c243759be75ca",
+    "complete_selection": false,
+    "all_selected_tasks_passed": false,
+    "screen_passed": false,
+    "utility": 0,
+    "wall_seconds": 1813.4385943330053,
+    "diagnostic_utility_per_hour": 0.0,
+    "unattempted": [],
+    "error": "stopped-timeout",
+    "tasks": [
+      {
+        "original_test_file_integrity": {
+          "test_ledger.py": true
+        },
+        "task_id": "dev-multi-file",
+        "utility": 0,
+        "grade_replay_matches": true,
+        "protocol_passed": false,
+        "host_passed": true,
+        "full_wall_seconds": 1808.3409452909982,
+        "pressure_peak": 2,
+        "swap_growth_peak_mib": 640.75,
+        "tool_accounting": {
+          "attempted": 5,
+          "valid": 5,
+          "productive": null,
+          "redundant": null,
+          "malformed": 0,
+          "denied": null,
+          "failed": 0
+        },
+        "command_sha256": [
+          "d448cbc6a7fe59b49111b515045a2282dcbdd94748b5afca8e1e6167cf0872c7",
+          "48eb794ec8ca91456fb57dda908ec731c855453dca25abd138f8e7ee3ff8a405",
+          "8771aca253181146b27168deade711c44b71799c3156ea33e0ea31ce0921e317",
+          "5c7c4673c384ab5ec2bd18245bd89e1fa81a31d2809ca09066eb567f4afc9ab7",
+          "7fa2c26aaef7625e04722ef772e42f0c2d7216af935c023be000e149254b213d"
+        ],
+        "manual_tool_accounting": {
+          "attempted": 5,
+          "valid": 5,
+          "productive": 5,
+          "redundant": 0,
+          "malformed": 0,
+          "denied": 0,
+          "failed_tool_status": 0,
+          "failed_test_observations": 1,
+          "note": "Three useful inspections, baseline test (reports one failure; pipeline exit0), two-file implementation write. No post-write validation completed. No explicit authority access in reviewed calls."
+        }
+      }
+    ],
+    "supplemental_original_tests_unchanged": true,
+    "scope": "Previously exposed fixed dev-multi-file falsifier with q8-K/Turbo6-V compressed cache, AW219 incremental-execution platform prompt and native non-speculative decode at16K/8192 medium; unchanged task/verifier/deadline/tool permissions/scoring, no heldout/interleaved P1 claim",
+    "accounting_limit": "Summary timing excludes final recursive receipt creation; not promotion accounting.",
+    "capacity_audit": {
+      "minimum_free_bytes": 281868632064,
+      "samples": 1778,
+      "passed": true
+    },
+    "artifact_only_verifier_utility": 1,
+    "disposition": "rejected for fixed-task completion; retain artifact evidence, no promotion",
+    "all_attempts_preserved": [
+      "20261006T232059.032043Z reboot interruption",
+      "20261007T173749.810729Z pre-inference staging failure",
+      "20261007T173817.456074Z full timeout"
+    ]
+  },
+  "external_audit": "/Users/chad/Models/agentwing/evidence/AW-0220/terminal-audit.json",
+  "external_audit_sha256": "985992194789176a0caa8497bceb2d5d77dd26c9f0e3980577520227d21202b3",
+  "prior_attempt_receipts": [
+    "evidence/AW-0220-reboot-interruption.json",
+    "evidence/AW-0220-staging-recovery.json"
+  ]
+}
