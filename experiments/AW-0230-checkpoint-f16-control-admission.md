@@ -1,0 +1,5 @@
+# AW-0230 — F16 KV diagnostic control admission
+
+Prepared/unresolved. AW229sixbitcompleteconfiguration failsunchangedtask; comparehigherprecisioncache diagnostic without narrowing task/reasoning/deadline/tools. F16K/F16V, sameAW223checkpointbinary/fullvision/selectiveBonsai/16K/8192/medium/native thinking sampling/checkpoint512/bounded2. Newprofilecontrol only, no replacement of userTurboQuantstrategy or causal speedclaim.
+
+First cheapest fullfunctional/resourcefalsifier: unchangedAW228text42/oppositePNG/nativeLookupIDnonce/Pibyteartifact twofreshreplicates plus independentmanualtool/protocol/host audit. Profile `spec/bonsai-checkpoint-f16-control.json`; launcher `scripts/bonsai_checkpoint_f16_server.py`; frozen plan `evidence/AW-0230-multimodal-plan.json`, raw externalAW230. Byte-preserving diagnosticlogs/strictPiJSON unchanged. Pressure<4/swapgrowth<=1024MiB/diskstartup16GiB/runtime8GiB/singleownerloopback. Ifpasses, samefixedtask next; preserveAW229negative and allP1/heldout/interleaved25%gates. Thiscontrol tests wholeconfiguration; no singlecachecausality from unpairedtasks.
