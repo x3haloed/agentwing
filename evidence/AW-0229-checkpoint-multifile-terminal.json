@@ -1,0 +1,73 @@
+{
+  "experiment": "AW-0229",
+  "terminal_audit": {
+    "audit_passed": true,
+    "run": "/Users/chad/Models/agentwing/evidence/AW-0229/20261007T191734.162533Z",
+    "raw_receipt_sha256": "7e9a2f484f7c3af3f5e67b2205495fd0c76bae1df1c5e680dffdc7bd27484c1f",
+    "plan_sha256": "5f8ce067ffc8baf5b88dd066641f852213188941ba2fa56988a9143f67dc2d82",
+    "complete_selection": false,
+    "all_selected_tasks_passed": false,
+    "screen_passed": false,
+    "utility": 0,
+    "wall_seconds": 1809.7393180000072,
+    "diagnostic_utility_per_hour": 0.0,
+    "unattempted": [],
+    "error": "stopped-timeout",
+    "tasks": [
+      {
+        "original_test_file_integrity": {
+          "test_ledger.py": true
+        },
+        "task_id": "dev-multi-file",
+        "utility": 0,
+        "grade_replay_matches": true,
+        "protocol_passed": false,
+        "host_passed": true,
+        "full_wall_seconds": 1805.0867014999967,
+        "pressure_peak": 1,
+        "swap_growth_peak_mib": 0.0,
+        "tool_accounting": {
+          "attempted": 3,
+          "valid": 3,
+          "productive": null,
+          "redundant": null,
+          "malformed": 0,
+          "denied": null,
+          "failed": 0
+        },
+        "command_sha256": [
+          "d448cbc6a7fe59b49111b515045a2282dcbdd94748b5afca8e1e6167cf0872c7",
+          "48eb794ec8ca91456fb57dda908ec731c855453dca25abd138f8e7ee3ff8a405",
+          "8771aca253181146b27168deade711c44b71799c3156ea33e0ea31ce0921e317"
+        ],
+        "manual_tool_accounting": {
+          "attempted": 3,
+          "valid": 3,
+          "productive": 3,
+          "redundant": 0,
+          "malformed": 0,
+          "denied": 0,
+          "failed": 0,
+          "note": "Three relevant inspections, no writes, no authority access."
+        }
+      }
+    ],
+    "supplemental_original_tests_unchanged": true,
+    "scope": "Previously exposed fixed dev-multi-file falsifier with q8-K/Turbo6-V compressed cache, AW219 incremental-execution platform prompt, AW223 generation checkpoint512/bounded2, and native non-speculative decode at16K/8192 medium; unchanged task/verifier/deadline/tool permissions/scoring, no heldout/interleaved P1 claim",
+    "accounting_limit": "Summary timing excludes final recursive receipt creation; not promotion accounting.",
+    "capacity_audit": {
+      "minimum_free_bytes": 280034054144,
+      "passed": true
+    },
+    "last_nonterminal_request": {
+      "generated_tokens": 6858,
+      "remaining_output_tokens": 1334,
+      "checkpoint_creations": 22
+    },
+    "artifact_verifier_utility": 0,
+    "disposition": "rejected fixed-task qualification; component mechanism retained as evidence only"
+  },
+  "external_audit": "/Users/chad/Models/agentwing/evidence/AW-0229/terminal-audit.json",
+  "external_audit_sha256": "dc2249c065e766a81ae22060ff8a7a919d917170eb23d31fdf1db6b075c08945",
+  "scope": "No causal cache/prompt attribution; no P1promotion/25%claim. Priorpassingcomponent/native/functional evidence preserved but insufficient."
+}

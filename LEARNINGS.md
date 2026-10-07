@@ -2819,3 +2819,7 @@ TwoAB/BA pairs costpass: control159.621/164.521s vs candidate142.916/142.758s. I
 ### AW-0228 — checkpoint-enabled full local functional admission passes
 
 Twofresh fulltext/vision/nativeLookup/Pibyteartifact/protocol/permission/host replicates independentlypass;166.737/178.908s diagnostic,bothpressure1/swapgrowth0. Pi6valid(5productive/1redundant),Lookup4productive,zero failedstatus/malformed/denied. Rep1lsmissinganswer subcommandwarning preserved. Receipt `evidence/AW-0228-checkpoint-admission-terminal.json`. Retain for unchangedfixedtask; no endpoint/25%P1 claim or AW223numericwaiver.
+
+### AW-0229 — checkpoint cost survivor fails fixed autonomous task
+
+Timeout1809.739s diagnostic,utility0/verifier0/noedits. Threeuseful validreads, fourthgenerationnonterminal; pressure1/swapgrowth0/capacitypass. Independentintegrity/grade/protocolaudit `evidence/AW-0229-checkpoint-multifile-terminal.json`. Reject fixedtaskqualification. Component/native/functional survivors do not establish autonomous utility; dominantlonggeneration remains. No causal cache/prompt attribution or gatewaiver. P1/fullcapability/interleaved25%goal unchanged.
