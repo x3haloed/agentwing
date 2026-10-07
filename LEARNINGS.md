@@ -2823,3 +2823,7 @@ Twofresh fulltext/vision/nativeLookup/Pibyteartifact/protocol/permission/host re
 ### AW-0229 — checkpoint cost survivor fails fixed autonomous task
 
 Timeout1809.739s diagnostic,utility0/verifier0/noedits. Threeuseful validreads, fourthgenerationnonterminal; pressure1/swapgrowth0/capacitypass. Independentintegrity/grade/protocolaudit `evidence/AW-0229-checkpoint-multifile-terminal.json`. Reject fixedtaskqualification. Component/native/functional survivors do not establish autonomous utility; dominantlonggeneration remains. No causal cache/prompt attribution or gatewaiver. P1/fullcapability/interleaved25%goal unchanged.
+
+### AW-0230 — fullprecision checkpoint control functional admission passes
+
+TwoF16KVfulltext/vision/nativeLookup/Pibyteartifact/protocol/host replications independentlypass175.027/182.021s diagnostic. Pressure2/1,swapgrowth0; Pi5productive+Lookup4productive,0failedstatus/malformed/denied. Missinganswerwarning preserved. Receipt `evidence/AW-0230-f16-admission-terminal.json`. Retain diagnosticcontrol for unchangedfixedtask; no TurboQuantstrategyreplacement, causal cacheclaim, or endpointqualification.

@@ -1,0 +1,202 @@
+{
+  "experiment": "AW-0230",
+  "scope": "Two full multimodal native chat/tool/Pi functional replicates, not endpoint comparison",
+  "pins": {
+    "scripts/audit_bonsai_checkpoint_f16_admission.py": "eb3b3754838f8807e50d15e225a8ade51f9fe1a06bd2fff360fb9d287518beb1",
+    "scripts/bonsai_diagnostic_protocol_bytes.py": "a9e6166b94c16891d768353dc57b77d0e51382658c6cbea9f289cb645ad6bf39",
+    "scripts/run_bonsai_budget_debugging_v2.py": "5c8f841caffeb8b94dd2e3c09705c3086a6f146712a46361d851edaf37332647",
+    "evidence/AW-0227-cost-terminal.json": "71d88aa1f9c9c5c3c0d5ea6b71dee4203d8d5745346c9cc33451bb1d22e67b71",
+    "evidence/AW-0226-boundary-state-terminal.json": "90766d89dec6f6e4a96b817216122b4dcb05b05cefdf60e29dc04acbfc89c218",
+    "scripts/probe_bonsai_checkpoint_f16_local.py": "415c342550a17db01bb8c17e29c2828f97b1364806b2c80da64642f5b4755b1f",
+    "scripts/probe_bonsai_platform_pi.py": "1414f3bc7c4f8e7a0562f2e3da53399cd254c67cd1049b79f8889c5788eee030",
+    "scripts/bonsai_checkpoint_f16_server.py": "4a253e2b71df6e715fe61b2594af0f4d111b9cc1d32fa2e1fbb9c5c5cdf0eff1",
+    "scripts/bonsai_turbo_server.py": "6aa5701ab038341faf2cd90163013dca663f563f717d3e0312feeb942679de99",
+    "scripts/bonsai_server.py": "057ae88fab62760caf0c5e792b144c1b2bdbea504838719c372ae1b40a3afe63",
+    "scripts/run_task_boundary.py": "33d7fcefbec9124e1c56e5c2b810265ad8c72e313c31ed42a7e35f0eba35bbd7",
+    "scripts/run_local_agent.py": "dee0e63573c60137226b541f5380b768799ad1682006438471eec95d511a6fdd",
+    "spec/bonsai-checkpoint-f16-control.json": "7650d8c495ab202305a3961577d08fc6da5acbc1bcf631c85dc62258bc88c3b7",
+    "config/pi-bonsai-turbo-models.json": "128d258efdddee57983ee4a0b916d706c2caf856671f138c0fd2e2782d3f6d8e",
+    "config/task-boundary.sb": "184e8ff7b377a6aae618ac39dfb862f4cd665d9567c03c9af31634775d529f91",
+    "node_modules/@earendil-works/pi-coding-agent/dist/bundle/cli.js": "5406c369954516fb56879d685e082ff9095cd6e06e41af406f394942377fd4bf"
+  },
+  "configuration": {
+    "schema_version": 1,
+    "model": {
+      "repository": "prism-ml/Ternary-Bonsai-2-27B-gguf",
+      "revision": "b072e1d3b35a0a630cece372c2127528e0994386",
+      "license": "Apache-2.0",
+      "artifacts": [
+        {
+          "filename": "Ternary-Bonsai-2-27B-attention-PQ2_0.gguf",
+          "bytes": 6041020768,
+          "sha256": "cc11a9c76ee8e94a735e14789e17b952b33c9b84e7fe587b40dfe6cd6b96566c"
+        },
+        {
+          "filename": "Ternary-Bonsai-2-27B-mmproj-Q8_0.gguf",
+          "bytes": 629246976,
+          "sha256": "6807ede61d570bb86ba34b756a0fa109edc33668604de867c6ea6d8f1d631903"
+        }
+      ],
+      "derivative": "Local exact selective attention PQ, other language tensors and Q8 vision unchanged"
+    },
+    "runtime": {
+      "repository": "https://github.com/PrismML-Eng/llama.cpp",
+      "revision": "adfffbe41b2cabcd51fff326ab045662265062bb",
+      "release": "experimental-local-AW-0210",
+      "backend": "Metal",
+      "server_path": "/Users/chad/Models/agentwing/runtime-builds/prism-gen-checkpoints-full/bin/llama-server",
+      "server_sha256": "025189a08aa0b07f95a4bdd738f35f2e87aca7275f0e5363fe21b75ab10edd24",
+      "libraries": {
+        "libllama.0.dylib": "6446fab043e5cf116a340322821c189bd0dbc251737881bcd10811e5d3afb0a2",
+        "libmtmd.0.dylib": "4c025c8c54a09e9afee9074007cf8222df1875c7163e78364c07e35f428327df",
+        "libggml.dylib": "2556181ab36e30019f89219e6d67a37bd693bf35d3d031069c6fb5f8bf847f44",
+        "libggml-base.0.21.0.dylib": "7a32b6603b8dca2899f8b9fb6fd354f45cd29c9765d2f7e320359252df8c7964",
+        "libggml.0.dylib": "2556181ab36e30019f89219e6d67a37bd693bf35d3d031069c6fb5f8bf847f44",
+        "libmtmd.dylib": "4c025c8c54a09e9afee9074007cf8222df1875c7163e78364c07e35f428327df",
+        "libllama-server-impl.dylib": "ce788d96e012fc555fcd49deac57000c334bec47c05e28059a996b25967ffd1d",
+        "libggml-base.dylib": "7a32b6603b8dca2899f8b9fb6fd354f45cd29c9765d2f7e320359252df8c7964",
+        "libggml-blas.dylib": "8057aa86fee5fc88cb3ab4509710ee3665e6056121cb66cf20c5e159b6b0b763",
+        "libggml-metal.0.dylib": "1a22cd52086980f68c1bb8ac1e45f0fb3c746e487f65504c189e88e5ad829306",
+        "libllama-common.0.dylib": "dd1a45eb0bfb1ce1a647f54e80777d622d338f5ef08e295c7e82047128bee99d",
+        "libllama.dylib": "6446fab043e5cf116a340322821c189bd0dbc251737881bcd10811e5d3afb0a2",
+        "libggml-cpu.dylib": "deff7a6e54975c4e7351aa97811fc490ab5244169d8a9adb3f9cd2033574cabf",
+        "libggml-metal.dylib": "1a22cd52086980f68c1bb8ac1e45f0fb3c746e487f65504c189e88e5ad829306",
+        "libllama-common.dylib": "dd1a45eb0bfb1ce1a647f54e80777d622d338f5ef08e295c7e82047128bee99d",
+        "libggml-blas.0.21.0.dylib": "8057aa86fee5fc88cb3ab4509710ee3665e6056121cb66cf20c5e159b6b0b763",
+        "libggml.0.21.0.dylib": "2556181ab36e30019f89219e6d67a37bd693bf35d3d031069c6fb5f8bf847f44",
+        "libmtmd.0.2.0.dylib": "4c025c8c54a09e9afee9074007cf8222df1875c7163e78364c07e35f428327df",
+        "libggml-base.0.dylib": "7a32b6603b8dca2899f8b9fb6fd354f45cd29c9765d2f7e320359252df8c7964",
+        "libllama.0.2.0.dylib": "6446fab043e5cf116a340322821c189bd0dbc251737881bcd10811e5d3afb0a2",
+        "libllama-common.0.2.0.dylib": "dd1a45eb0bfb1ce1a647f54e80777d622d338f5ef08e295c7e82047128bee99d",
+        "libggml-blas.0.dylib": "8057aa86fee5fc88cb3ab4509710ee3665e6056121cb66cf20c5e159b6b0b763",
+        "libggml-cpu.0.21.0.dylib": "deff7a6e54975c4e7351aa97811fc490ab5244169d8a9adb3f9cd2033574cabf",
+        "libggml-cpu.0.dylib": "deff7a6e54975c4e7351aa97811fc490ab5244169d8a9adb3f9cd2033574cabf",
+        "libggml-metal.0.21.0.dylib": "1a22cd52086980f68c1bb8ac1e45f0fb3c746e487f65504c189e88e5ad829306"
+      },
+      "build_evidence": "evidence/AW-0228-build.json",
+      "tls": "disabled; loopback HTTP API",
+      "version_output": "version: 0.2.0-dev (build 0, commit unknown)\nbuilt with AppleClang 21.0.0.21000334 for Darwin arm64\n",
+      "patch_series": {
+        "experiments/runtime-patches/AW-0137-turbo-server.patch": "4864e0cb10c475ad193022d5f2e06fc1a9974b93d957ee3c6869a3c3bcfbab5b",
+        "experiments/runtime-patches/AW-0179-mixed-cache.patch": "d6c885e681f0871d9a37cf3f36b38cf631f8de2db0b87d5e800f24580a146b82",
+        "experiments/runtime-patches/AW-0182-mixed-cache-graph.patch": "38a2bb985d89127c444723ca107c0bef96a53c35a82b6b2ccec5feec12109c5b",
+        "experiments/runtime-patches/AW-0186-stationary-codebook.patch": "a0bd2d81a3f6248f1e76bc6cf7f66bc019cc0b1b4bff9d2608ddfe100fd30ae5",
+        "experiments/runtime-patches/AW-0205-turbo6-precise-quantize.patch": "c39d8954f54567997aa717567759ad7041c37b6c3e272848dc2ec79f9baeb62a",
+        "experiments/runtime-patches/AW-0201-turbo6-cache.patch": "2722d002462f3c2da226e0e490c8536a5587d63a94f9a4229373bbea9c76fe21",
+        "experiments/runtime-patches/AW-0203-turbo6-metal-scope.patch": "47c65196046979de501dc0eb8be2eb9eab9ad254fedb39a089ba2025258b265c",
+        "experiments/runtime-patches/AW-0207-turbo6-fixed-lookup.patch": "ddbb9a90b699883bba8ea1ce461da8dd71672baa833c297348f7db4f153446eb",
+        "experiments/runtime-patches/AW-0206-turbo6-stream-pack.patch": "6fbfe9b7b5f8f3cd3356f35d4d9d8f71398151e21763772ea16dacdfbb72ae5b",
+        "patches/AW-0223-generation-checkpoints-full.patch": "eb5c6dcac6ab1284b421c705bbb5bb9274d2e8f7f3a87e5e09c1c4fbffbf970b"
+      },
+      "build_evidence_sha256": "c92470dd35917c238a33cf8c790270baf07ccb7979693155416466dd013508b2",
+      "vision_cli_path": "/Users/chad/Models/agentwing/runtime-builds/prism-gen-checkpoints-full/bin/llama-mtmd-cli",
+      "vision_cli_sha256": "f0e6f74eac8dc32ee132aafe0fc932776b7cd4c158cc5dc18785bcba0c9591bf"
+    },
+    "context_tokens": 16384,
+    "parallel": 1,
+    "image_max_tokens": 1024,
+    "sampling": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.05,
+      "presence_penalty": 0.0,
+      "repeat_penalty": 1.0,
+      "seed": 42,
+      "frequency_penalty": 0.0
+    },
+    "reasoning_effort": "medium",
+    "host_gates": {
+      "critical_pressure_level": 4,
+      "max_swap_growth_mib": 1024
+    },
+    "status": "diagnostic-f16-cache-control-unqualified",
+    "harness": {
+      "package": "@earendil-works/pi-coding-agent",
+      "version": "0.84.4"
+    },
+    "experiment": "AW-0230",
+    "admission_evidence": {
+      "purpose": "Fullprecision cache control for unchanged incremental harness; not strategy replacement",
+      "full_functional": "pending"
+    },
+    "limits": "Fullvisiontargets built. Native6bit writer/consumer and fullmodel32sampled-prefix numerical/resource screens passed; server startup, vision, tools, behavior and25%utilityqualification pending.8192request outputcap remains caller-supplied.",
+    "prompt_cache_ram_mib": 0,
+    "context_shift": false,
+    "context_checkpoints": 2,
+    "max_output_tokens": 8192,
+    "kv_cache": {
+      "k": "f16",
+      "v": "f16",
+      "flash_attention": "enabled",
+      "implementation": "Fullprecision KV diagnostic control; same checkpoint512/bounded2 runtime."
+    },
+    "qualification": "Diagnostic F16cache control only, no promotion. Fullfixedtask and P1endpoint gates unchanged.",
+    "storage_gates": {
+      "min_startup_free_gib": 16,
+      "min_runtime_free_gib": 8
+    },
+    "generation_checkpoints": {
+      "enabled": true,
+      "environment": {
+        "AGENTWING_GENERATION_CHECKPOINTS": "1"
+      },
+      "interval_tokens": 512,
+      "maximum_retained": 2
+    }
+  },
+  "request_output_cap": 768,
+  "reasoning_effort": "medium",
+  "sampling": {
+    "temperature": 1,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.05,
+    "presence_penalty": 0,
+    "repeat_penalty": 1
+  },
+  "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "storage": "Internal SSD, uncontrolled warm OS page cache, fresh server per replicate",
+  "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+  "runtime_libraries": {
+    "libllama.0.dylib": "6446fab043e5cf116a340322821c189bd0dbc251737881bcd10811e5d3afb0a2",
+    "libmtmd.0.dylib": "4c025c8c54a09e9afee9074007cf8222df1875c7163e78364c07e35f428327df",
+    "libggml.dylib": "2556181ab36e30019f89219e6d67a37bd693bf35d3d031069c6fb5f8bf847f44",
+    "libggml-base.0.21.0.dylib": "7a32b6603b8dca2899f8b9fb6fd354f45cd29c9765d2f7e320359252df8c7964",
+    "libggml.0.dylib": "2556181ab36e30019f89219e6d67a37bd693bf35d3d031069c6fb5f8bf847f44",
+    "libmtmd.dylib": "4c025c8c54a09e9afee9074007cf8222df1875c7163e78364c07e35f428327df",
+    "libllama-server-impl.dylib": "ce788d96e012fc555fcd49deac57000c334bec47c05e28059a996b25967ffd1d",
+    "libggml-base.dylib": "7a32b6603b8dca2899f8b9fb6fd354f45cd29c9765d2f7e320359252df8c7964",
+    "libggml-blas.dylib": "8057aa86fee5fc88cb3ab4509710ee3665e6056121cb66cf20c5e159b6b0b763",
+    "libggml-metal.0.dylib": "1a22cd52086980f68c1bb8ac1e45f0fb3c746e487f65504c189e88e5ad829306",
+    "libllama-common.0.dylib": "dd1a45eb0bfb1ce1a647f54e80777d622d338f5ef08e295c7e82047128bee99d",
+    "libllama.dylib": "6446fab043e5cf116a340322821c189bd0dbc251737881bcd10811e5d3afb0a2",
+    "libggml-cpu.dylib": "deff7a6e54975c4e7351aa97811fc490ab5244169d8a9adb3f9cd2033574cabf",
+    "libggml-metal.dylib": "1a22cd52086980f68c1bb8ac1e45f0fb3c746e487f65504c189e88e5ad829306",
+    "libllama-common.dylib": "dd1a45eb0bfb1ce1a647f54e80777d622d338f5ef08e295c7e82047128bee99d",
+    "libggml-blas.0.21.0.dylib": "8057aa86fee5fc88cb3ab4509710ee3665e6056121cb66cf20c5e159b6b0b763",
+    "libggml.0.21.0.dylib": "2556181ab36e30019f89219e6d67a37bd693bf35d3d031069c6fb5f8bf847f44",
+    "libmtmd.0.2.0.dylib": "4c025c8c54a09e9afee9074007cf8222df1875c7163e78364c07e35f428327df",
+    "libggml-base.0.dylib": "7a32b6603b8dca2899f8b9fb6fd354f45cd29c9765d2f7e320359252df8c7964",
+    "libllama.0.2.0.dylib": "6446fab043e5cf116a340322821c189bd0dbc251737881bcd10811e5d3afb0a2",
+    "libllama-common.0.2.0.dylib": "dd1a45eb0bfb1ce1a647f54e80777d622d338f5ef08e295c7e82047128bee99d",
+    "libggml-blas.0.dylib": "8057aa86fee5fc88cb3ab4509710ee3665e6056121cb66cf20c5e159b6b0b763",
+    "libggml-cpu.0.21.0.dylib": "deff7a6e54975c4e7351aa97811fc490ab5244169d8a9adb3f9cd2033574cabf",
+    "libggml-cpu.0.dylib": "deff7a6e54975c4e7351aa97811fc490ab5244169d8a9adb3f9cd2033574cabf",
+    "libggml-metal.0.21.0.dylib": "1a22cd52086980f68c1bb8ac1e45f0fb3c746e487f65504c189e88e5ad829306"
+  },
+  "harness": "Pi0.84.4",
+  "replicates": 2,
+  "startup_timeout_seconds": 180,
+  "replicate_timeout_seconds": 1800,
+  "gates": [
+    "text42",
+    "opposite image colors in order",
+    "native tool selection and association",
+    "Pi file-tool loop",
+    "host gates",
+    "startupdisk16GiB/runtimedisk8GiB"
+  ],
+  "stop_on_first_failure": true
+}
