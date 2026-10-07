@@ -2787,3 +2787,7 @@ Host reboot terminates runner/inference before terminal result. Observed pressur
 ### AW-0220 — incremental prompt writes a passing artifact but misses completion
 
 Supersedes untested/unresolved status: fixed rerun timesout1813.439s diagnostic wall, utility0, sixth request nonterminal. Five valid useful calls include baseline failure observation and two-file implementation; independent artifact verifier1 does not override protocol/deadline rejection. Resource gates pass pressure2/swapgrowth640.75MiB. Receipt `evidence/AW-0220-incremental-terminal.json` preserves raw/audit hashes and earlier reboot/preflight attempts. Reject full-task qualification; no causal cache/prompt speed claim or P1 promotion. Next experiment must address complete trajectory without task/tool/reasoning/scoring narrowing.
+
+### AW-0221 — recurrent checkpoint gap adds replay cost
+
+AW220 fifth request6850tokens restores1374checkpoint despite6692threshold; replays5476tokens/194.576s after5436generated tokens. Receipt `evidence/AW-0221-checkpoint-gap.json` pins runtime/log. Bounded generation checkpoint hypothesis retained unimplemented/unresolved; exact state/history correctness and capture+replay/resource costs must pass before task tests. Component opportunity alone does not overcome dominant1219.963s decode or establish25% utility improvement.

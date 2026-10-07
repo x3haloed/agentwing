@@ -1,0 +1,20 @@
+{
+  "experiment": "AW-0221",
+  "scope": "Offline checkpoint-gap diagnosis from rejected AW220; component cost only, no endpoint qualification",
+  "source_run": "/Users/chad/Models/agentwing/evidence/AW-0220/20261007T173817.456074Z",
+  "server_log_sha256": "d1cd49282deb7354a60c18c66e9113fac4f556c77bf79effa0f3ece1c1fad133",
+  "server_context_cpp_sha256": "6076fec9aec5948ec16e3c585fd2d0feb885bd5bfa5fca09eb0c7427e88ac104",
+  "observed": {
+    "request_id": 5627,
+    "prompt_tokens": 6850,
+    "checkpoint_threshold_position": 6692,
+    "restored_checkpoint_tokens": 1374,
+    "replayed_prompt_tokens": 5476,
+    "prompt_eval_ms": 194575.84,
+    "prior_generated_tokens": 5436,
+    "prior_decode_ms": 1219962.81
+  },
+  "hypothesis": "Bounded recurrent-state checkpoints during generation can retain later common-prefix state and reduce replay without altering prompt/history/reasoning/tasks/tools. Needs state-correctness and complete cost screen before integration.",
+  "limits": "No prefix-token mismatch proof or causal runtime speed comparison yet. Checkpoint capture overhead and memory must be charged. Existing AW220 remains rejected; no gate waiver.",
+  "next_gate": "Inspect generation-state lifecycle; cheap deterministic identical-prefix replay correctness screen, then interleaved capture+replay full costs. Preserve protocol/resource gates and full task qualification."
+}
