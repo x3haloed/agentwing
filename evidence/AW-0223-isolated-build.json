@@ -1,0 +1,47 @@
+{
+  "experiment": "AW-0223",
+  "status": "built-not-qualified",
+  "build_exit": 0,
+  "source_files": 3531,
+  "changed_sources": [
+    "tools/server/server-context.cpp"
+  ],
+  "source_identity_sha256": "201c8e2aa8eaa169d7c7aeacf9a21366b471e5e8a1b6d05570b931b2935ac073",
+  "raw_build_sha256": {
+    "configure.log": "40908d8d057d6018731ee9d7557d19797f6bd193c217aea3f6eb05a574d02cff",
+    "build.log": "da91975679f0e48edfa3faba470e3aaecf64e5c70ebe768d3db62170cf331eb1"
+  },
+  "artifacts_sha256": {
+    "libllama.0.dylib": "6446fab043e5cf116a340322821c189bd0dbc251737881bcd10811e5d3afb0a2",
+    "libmtmd.0.dylib": "4c025c8c54a09e9afee9074007cf8222df1875c7163e78364c07e35f428327df",
+    "libggml.dylib": "2556181ab36e30019f89219e6d67a37bd693bf35d3d031069c6fb5f8bf847f44",
+    "libggml-base.0.21.0.dylib": "7a32b6603b8dca2899f8b9fb6fd354f45cd29c9765d2f7e320359252df8c7964",
+    "libggml.0.dylib": "2556181ab36e30019f89219e6d67a37bd693bf35d3d031069c6fb5f8bf847f44",
+    "libmtmd.dylib": "4c025c8c54a09e9afee9074007cf8222df1875c7163e78364c07e35f428327df",
+    "libllama-server-impl.dylib": "ce788d96e012fc555fcd49deac57000c334bec47c05e28059a996b25967ffd1d",
+    "libggml-base.dylib": "7a32b6603b8dca2899f8b9fb6fd354f45cd29c9765d2f7e320359252df8c7964",
+    "libggml-blas.dylib": "8057aa86fee5fc88cb3ab4509710ee3665e6056121cb66cf20c5e159b6b0b763",
+    "libggml-metal.0.dylib": "1a22cd52086980f68c1bb8ac1e45f0fb3c746e487f65504c189e88e5ad829306",
+    "libllama-common.0.dylib": "dd1a45eb0bfb1ce1a647f54e80777d622d338f5ef08e295c7e82047128bee99d",
+    "libllama.dylib": "6446fab043e5cf116a340322821c189bd0dbc251737881bcd10811e5d3afb0a2",
+    "libggml-cpu.dylib": "deff7a6e54975c4e7351aa97811fc490ab5244169d8a9adb3f9cd2033574cabf",
+    "libggml-metal.dylib": "1a22cd52086980f68c1bb8ac1e45f0fb3c746e487f65504c189e88e5ad829306",
+    "llama-server": "025189a08aa0b07f95a4bdd738f35f2e87aca7275f0e5363fe21b75ab10edd24",
+    "libllama-common.dylib": "dd1a45eb0bfb1ce1a647f54e80777d622d338f5ef08e295c7e82047128bee99d",
+    "libggml-blas.0.21.0.dylib": "8057aa86fee5fc88cb3ab4509710ee3665e6056121cb66cf20c5e159b6b0b763",
+    "libggml.0.21.0.dylib": "2556181ab36e30019f89219e6d67a37bd693bf35d3d031069c6fb5f8bf847f44",
+    "libmtmd.0.2.0.dylib": "4c025c8c54a09e9afee9074007cf8222df1875c7163e78364c07e35f428327df",
+    "libggml-base.0.dylib": "7a32b6603b8dca2899f8b9fb6fd354f45cd29c9765d2f7e320359252df8c7964",
+    "libllama.0.2.0.dylib": "6446fab043e5cf116a340322821c189bd0dbc251737881bcd10811e5d3afb0a2",
+    "libllama-common.0.2.0.dylib": "dd1a45eb0bfb1ce1a647f54e80777d622d338f5ef08e295c7e82047128bee99d",
+    "libggml-blas.0.dylib": "8057aa86fee5fc88cb3ab4509710ee3665e6056121cb66cf20c5e159b6b0b763",
+    "libggml-cpu.0.21.0.dylib": "deff7a6e54975c4e7351aa97811fc490ab5244169d8a9adb3f9cd2033574cabf",
+    "libggml-cpu.0.dylib": "deff7a6e54975c4e7351aa97811fc490ab5244169d8a9adb3f9cd2033574cabf",
+    "libggml-metal.0.21.0.dylib": "1a22cd52086980f68c1bb8ac1e45f0fb3c746e487f65504c189e88e5ad829306"
+  },
+  "cmake_cache_sha256": "a84266a5b2f7d19035a75f3b0d98d454363a42fedf9b17314a8b51cc40702a25",
+  "version": "version: 0.2.0-dev (build 0, commit unknown)\nbuilt with AppleClang 21.0.0.21000334 for Darwin arm64\n",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "limitations": "Build only; host spot checks, no continuous build resource trace. No inference/performance qualification. AW222 build preserved.",
+  "runner_sha256": "ea16c8d6e5c5e544330f61bcd3b9d74a0f2f748ab052a30c1e6830f810992f9d"
+}
