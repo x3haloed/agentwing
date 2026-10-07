@@ -1,0 +1,5 @@
+# AW-0224 — Matched sequential checkpoint state diagnostic
+
+Running/unresolved. AW223 distribution failure remains rejected. Hypothesis: partial recurrent-state capture/restore with matched sequential arithmetic preserves full logits. Own AW223 token fixture, first20tokens prefill then one-token teacher forcing; control to570, candidate captures531, advances660, restores531 and removes suffix, replays39 to570. Same model/Q8K/Turbo6V/16K/n_rs_seq0, pinned AW223 native libraries. No generated reasoning/task changes; native diagnostic only, not full server hook or endpoint result.
+
+Frozen external plan before native launch: `/Users/chad/Models/agentwing/evidence/AW-0224/plan.json`, source/runner/inputs/runtime pins. Finite248320logits,maxabs<=1e-5,relativeL2<=1e-6,sameargmax, successful stateget/set/remove. Single pair cheap falsifier; no interleaved cost claim. Pressure<4/swapgrowth<=1024MiB/diskstartup16GiB/runtime8GiB/900s/singleowner. Raw logits outsideGit. OriginalAW2230.01failure not waived; if matchedpathpasses, requires further batch-control diagnosis and server/fullcost/fulltask qualification.
