@@ -2803,3 +2803,7 @@ FULL-context repair creates/restores531token state;39token replay3.151s vsfresh5
 ### AW-0224 — matched sequential partial state is bitexact
 
 Native ownfixture capture531/advance660/restore531/replay39to570 matches all248320control logits bitexact;234.040s diagnostic,pressure1/swapgrowth0. Receipt `evidence/AW-0224-matched-state-terminal.json`. Retain state mechanism for batching/server metadata diagnosis, not promotion. AW223 serverdistribution0.01failure remains rejected; full-logit matched batched suffix and broader/cost/endpoint gates still required.
+
+### AW-0225 — matched suffix batch state bitexact; fresh batching drifts
+
+All248320matched/restored logits bitexact at same39token suffixbatch. Fresh256chunk replay570tokens maxabs0.0177216/L2=0.000857457/sameargmax. Receipt `evidence/AW-0225-batched-state-terminal.json`,241.675s diagnostic/pressure1/swapgrowth0. Retain state mechanism; batch-only drift exists for fixture, not proven fullserver AW223 explanation. Prior rejection/tolerance unchanged. Broaderstate/servermetadata/capturecost/fulltask/endpoints remain required.

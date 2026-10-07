@@ -1,0 +1,33 @@
+{
+  "experiment": "AW-0225",
+  "raw_location": "/Users/chad/Models/agentwing/evidence/AW-0225",
+  "raw_hash_receipt_sha256": "5c306352483275511038f621d5e7709f96d79c03fcea98475a9440e4757320ae",
+  "plan_sha256": "4df383fcbe0600127920fa0f244084c1a78089e190a02e05ba003532bbd03ecd",
+  "result": {
+    "exit": 0,
+    "error": null,
+    "wall_seconds_diagnostic": 241.67487045899907,
+    "numeric_audit_pending": true
+  },
+  "full_logits_per_arm": 248320,
+  "finite_all": true,
+  "pairs": {
+    "restored": {
+      "bit_exact": true,
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "same_argmax": true
+    },
+    "freshbatch": {
+      "bit_exact": false,
+      "max_abs": 0.017721593379974365,
+      "relative_l2": 0.0008574569577288781,
+      "same_argmax": true
+    }
+  },
+  "matched_batched_state_gate_passed": true,
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0,
+  "minimum_free_bytes": 281021300736,
+  "scope": "One ownfixture native mechanism; matched suffix batch isolates partial-state restore. Freshbatch drift diagnostic, not server-wire reconstruction or universal batching causality. AW223failednumericgate unchanged; broader positions/lengths/server metadata/full-cost/endpoint gates remain."
+}
