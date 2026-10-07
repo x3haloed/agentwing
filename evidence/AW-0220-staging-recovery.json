@@ -1,0 +1,17 @@
+{
+  "reason": "Reboot prevented staging finally cleanup; no inference processes live. Rename preserved old workspace/state into interrupted attempt; no deletion.",
+  "archive": "/Users/chad/Models/agentwing/evidence/AW-0220/20261006T232059.032043Z/dev-multi-file",
+  "archived_hashes": {
+    "workspace/README.md": "82e47845403896c424c64575c6614e7d641431d1d86ea9914d3c78b84a345bc1",
+    "workspace/test_ledger.py": "ceeeb938f4e8cf7733ee21f7cc6f63c1f8a6e73d6b2fda8a5b76e205d19703b4",
+    "workspace/ledger/store.py": "e8c8a80ffca09b97591eb20a6c1ec2fa96ee206a55bae68a453e3e7a2c9dc4e3",
+    "workspace/ledger/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "workspace/ledger/api.py": "b57cd0c26fee65c0db629c1e9a18cd9dfb051252efbbc5f1f36e7333550e0b29",
+    "workspace/ledger/cli.py": "a62e92f419ad654a72a5961d063703eeebd27e5e9fc7c656392a6c7a29849cb7",
+    "agentwing-task-state/pi/models.json": "128d258efdddee57983ee4a0b916d706c2caf856671f138c0fd2e2782d3f6d8e",
+    "agentwing-task-state/pi/models-store.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "agentwing-task-state/pi/auth.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+  },
+  "preinference_failed_retry": "/Users/chad/Models/agentwing/evidence/AW-0220/20261007T173749.810729Z",
+  "failed_retry_summary_sha256": "61f0ce5619f2252778b619c34b451a3fd160c90af25b01e69aa87d4f10dd809b"
+}

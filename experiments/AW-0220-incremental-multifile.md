@@ -33,3 +33,5 @@ External `/Users/chad/Models/agentwing/evidence/AW-0220`. Prepared/unresolved;
 P1/defaults unchanged. No held-out task exposure or acceptance relaxation.
 
 First attempt interrupted by host reboot at2026-10-06 16:32 Pacific. Runner/server no longer exist; no terminal summary, execution result, or completed task score. Preserve raw attempt and receipt `evidence/AW-0220-reboot-interruption.json`. Last sampled pressure2 and capacity282278699008B; shutdown-stall report exists, no panic-named report found. Cause unproven; no model/cache attribution. Hypothesis remains unresolved. Rerun frozen plan unchanged in separate external attempt; interruption cannot be excluded from eventual endpoint accounting.
+
+First post-reboot retry stops before inference: unfinished staging root, wall5.295s/utility0. Preserved receipt `evidence/AW-0220-staging-recovery.json`; recovered old workspace/state by rename into original interrupted attempt after confirming no inference owner. No deletion or frozen runner change. Retry remains charged diagnostic overhead.
