@@ -1,0 +1,5 @@
+# AW-0231 — F16 cache fixed multi-file diagnostic control
+
+Prepared/unresolved. AW230fullfunctionalF16control enters unchangedAW229fixeddev-multi-file/incrementalprompt/16K/8192/medium/native thinking sampling/1800s/toolpermissions/verifier/scoring/fullvision/checkpoint512/bounded2. Samebinary/F16K/F16V; wholeconfiguration diagnostic, no cachecausality from unpairedtask or userTurboQuantstrategy replacement. Hypothesis: higherprecisioncontrol can complete unchangedfixedtask within protocol/host/deadline gates; failure localizes limitationbeyond compressedKVonly without universalcausalclaim.
+
+Freeze/check/run `scripts/run_bonsai_checkpoint_f16_multifile.py`, independentauditor `scripts/audit_bonsai_checkpoint_f16_development.py`. Plan `evidence/AW-0231-development-plan.json`, rawexternalAW231. Frozencorpus215files; allpriornegativespreserved. Pressure<4/swapgrowth<=1024MiB/diskstartup16GiB/runtime8GiB/singleownerloopback/noctxshift/nocompaction/noauthorityaccess. Byte-preservingdiagnosticlogs/strictPiJSON; manualalltoolaccounting. Finalreceiptcreationexcludeddiagnosticwall, no endpointpromotionaccounting. P1/fullcapability/interleaved25%gates unchanged.
