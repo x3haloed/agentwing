@@ -1,0 +1,12 @@
+{
+  "experiment": "AW-0223",
+  "status": "prepared",
+  "parent_rejection_sha256": "85d86aea6b6625d0ec142af7cacefda96b8ecd0e6b53c8d03b70a15e8c54ac13",
+  "patch_sha256": "eb5c6dcac6ab1284b421c705bbb5bb9274d2e8f7f3a87e5e09c1c4fbffbf970b",
+  "source": "/Users/chad/Models/agentwing/runtime-sources/prism-gen-checkpoints-full",
+  "base_file_sha256": "6076fec9aec5948ec16e3c585fd2d0feb885bd5bfa5fca09eb0c7427e88ac104",
+  "candidate_file_sha256": "09521bfeb3d95fcd3566fcffd871a0751e3b24933583378764fdb30e7a29093b",
+  "scope": "Repair context eligibility FULL or RS, same512interval/two-checkpoint limit/no speculation; history/reasoning intact.",
+  "gate": "Same cheap640token restored-prefix distribution falsifier, same0.01top32logprob tolerance; require restored checkpoint beyond initial prompt. Full-logit/cost/endpoints remain required.",
+  "disposition": "unresolved; prior failures preserved"
+}
