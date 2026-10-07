@@ -1,0 +1,52 @@
+{
+  "experiment": "AW-0222",
+  "status": "built-not-inference-qualified",
+  "build_exit": 0,
+  "changed_sources": [
+    "tools/server/server-context.cpp"
+  ],
+  "source_files": 3531,
+  "source_identity_path": "/Users/chad/Models/agentwing/evidence/AW-0222/source-identity.json",
+  "source_identity_sha256": "57df2167320b00ef4a9f17d6ccf8bf732cef3b502921f271434154f3fa567802",
+  "raw_build_sha256": {
+    "configure.log": "9b183c6030c9db23e9bc5a45c0df19aa1f3dbc0ece23680e7b268d6d5e32276a",
+    "build.log": "c76fd97d654660224c0b041ef67679802fcc2e5e7d80d64d3b826a00e11c028d",
+    "source-preparation.json": "b4cd9b863ad5b4cdc6df7e9d9235a93c43ec2a20a3dd424b259f63f67972581c"
+  },
+  "cmake_cache_sha256": "7096bc628810cfe9806cd04a4b1776dcd8b457886490558074d6d4f401377dc7",
+  "artifacts_sha256": {
+    "libllama.0.dylib": "66a2d51aff547ed5ddb0019beee793af774b248f066684506a666430edcbbf36",
+    "libmtmd.0.dylib": "2fba7ea1fe380e1ef68ac08f9fb6a96d13f1f6cc7d08bc3078f424eeb0a18505",
+    "libggml.dylib": "29f47bc47f8f1263027d8616b83ce5bb0d605c4325fa2744ea04069d3467892f",
+    "libggml-base.0.21.0.dylib": "2b697c76b6bbab1c2d238fe1340128c7463e764d3f84d7c8e11a12a03e120415",
+    "libggml.0.dylib": "29f47bc47f8f1263027d8616b83ce5bb0d605c4325fa2744ea04069d3467892f",
+    "libmtmd.dylib": "2fba7ea1fe380e1ef68ac08f9fb6a96d13f1f6cc7d08bc3078f424eeb0a18505",
+    "libllama-server-impl.dylib": "72e35b967960c59b2e4aa2d76b80311d28239541f27915fa2bd07d351919d08f",
+    "libggml-base.dylib": "2b697c76b6bbab1c2d238fe1340128c7463e764d3f84d7c8e11a12a03e120415",
+    "libggml-blas.dylib": "0ce26036c85ab0ca4d436528939e18e043548e92431807f090dc2ddeeebe793d",
+    "libggml-metal.0.dylib": "8b83e55165ab5d4dc9b9c131567400fe0f2b176d9b9e72329f926b8b3cf4e2e7",
+    "libllama-common.0.dylib": "791f165fc87207a51ccba725639d9cbefdbd8cdfd276a52f7bc0495dcd22a2ed",
+    "libllama.dylib": "66a2d51aff547ed5ddb0019beee793af774b248f066684506a666430edcbbf36",
+    "libggml-cpu.dylib": "0bc08ce1fbdc9426256f1db8013a1c733a4eea93706eaf384ad91d781932978d",
+    "libggml-metal.dylib": "8b83e55165ab5d4dc9b9c131567400fe0f2b176d9b9e72329f926b8b3cf4e2e7",
+    "llama-server": "733f1f75c03ae6c01f2a1f7f15e7d77198aea9614a3b76305fa6ea0f6836968f",
+    "libllama-common.dylib": "791f165fc87207a51ccba725639d9cbefdbd8cdfd276a52f7bc0495dcd22a2ed",
+    "libggml-blas.0.21.0.dylib": "0ce26036c85ab0ca4d436528939e18e043548e92431807f090dc2ddeeebe793d",
+    "libggml.0.21.0.dylib": "29f47bc47f8f1263027d8616b83ce5bb0d605c4325fa2744ea04069d3467892f",
+    "libmtmd.0.2.0.dylib": "2fba7ea1fe380e1ef68ac08f9fb6a96d13f1f6cc7d08bc3078f424eeb0a18505",
+    "libggml-base.0.dylib": "2b697c76b6bbab1c2d238fe1340128c7463e764d3f84d7c8e11a12a03e120415",
+    "libllama.0.2.0.dylib": "66a2d51aff547ed5ddb0019beee793af774b248f066684506a666430edcbbf36",
+    "libllama-common.0.2.0.dylib": "791f165fc87207a51ccba725639d9cbefdbd8cdfd276a52f7bc0495dcd22a2ed",
+    "libggml-blas.0.dylib": "0ce26036c85ab0ca4d436528939e18e043548e92431807f090dc2ddeeebe793d",
+    "libggml-cpu.0.21.0.dylib": "0bc08ce1fbdc9426256f1db8013a1c733a4eea93706eaf384ad91d781932978d",
+    "libggml-cpu.0.dylib": "0bc08ce1fbdc9426256f1db8013a1c733a4eea93706eaf384ad91d781932978d",
+    "libggml-metal.0.21.0.dylib": "8b83e55165ab5d4dc9b9c131567400fe0f2b176d9b9e72329f926b8b3cf4e2e7"
+  },
+  "version": "version: 0.2.0-dev (build 0, commit unknown)\nbuilt with AppleClang 21.0.0.21000334 for Darwin arm64\n",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "hardware": "hw.model: Macmini9,1\nhw.memsize: 17179869184\n",
+  "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\nNote: No CPU power status has been recorded\n",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "storage": "internal SSD",
+  "limitations": "Build only. Host spot checks pressure1/swap592.75MiB; no continuous build resource trace, no resource/performance qualification. Same candidate binary with opt-in flag off/on required for controlled inference comparisons. Original source/binary unchanged."
+}
