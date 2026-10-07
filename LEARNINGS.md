@@ -2791,3 +2791,7 @@ Supersedes untested/unresolved status: fixed rerun timesout1813.439s diagnostic 
 ### AW-0221 — recurrent checkpoint gap adds replay cost
 
 AW220 fifth request6850tokens restores1374checkpoint despite6692threshold; replays5476tokens/194.576s after5436generated tokens. Receipt `evidence/AW-0221-checkpoint-gap.json` pins runtime/log. Bounded generation checkpoint hypothesis retained unimplemented/unresolved; exact state/history correctness and capture+replay/resource costs must pass before task tests. Component opportunity alone does not overcome dominant1219.963s decode or establish25% utility improvement.
+
+### AW-0222 — cheap test rejects initial checkpoint guard
+
+640token fixture produces no generation checkpoint: Bonsai context is FULL (no partial removal), initial patch restricted to bounded-RS type. Restoration falls back to16token checkpoint; no correctness/performance qualification. Raw hashes/negative numeric evidence in `evidence/AW-0222-cheap-restore-rejection.json`. Reject initial hook, repair guard in new pinned patch and HTTP gate-exception cleanup ordering before additional testing. Original runtime/P1 preserved.

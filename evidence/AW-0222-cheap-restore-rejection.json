@@ -1,0 +1,43 @@
+{
+  "experiment": "AW-0222",
+  "disposition": "rejected initial hook; generation checkpoints absent",
+  "raw_location": "/Users/chad/Models/agentwing/evidence/AW-0222/cheap-restore",
+  "raw_hash_receipt_sha256": "ca4e22c57c352ba3031ab1db1ab9e585e323abc248a04e4f9ec7455e67e6ee10",
+  "result": {
+    "generated_tokens": 640,
+    "generation_wall": 124.1092364579963,
+    "restored_wall": 19.87617220800894,
+    "fresh_wall": 19.88993637499516,
+    "restored_tokens": [
+      220
+    ],
+    "fresh_tokens": [
+      220
+    ],
+    "numeric_audit_pending": true,
+    "error": null,
+    "server_exit": 0,
+    "wall_seconds": 168.2745986249938,
+    "scope": "cheap distribution falsifier only"
+  },
+  "created_checkpoint_token_counts": [
+    "16",
+    "438",
+    "566",
+    "438",
+    "566"
+  ],
+  "restored_checkpoint_token_counts": [
+    "16"
+  ],
+  "generation_hook_exercised": false,
+  "runtime_classification": "FULL per server load-model speculative-checkpoint log; patch requires RS, so branch excludes this context. FULL means no partial sequence removal; bounded RS support is distinct.",
+  "top32_same_ids": true,
+  "same_next_token": true,
+  "max_common_top32_logprob_difference": 0.015338897705078125,
+  "distribution_tolerance_passed": false,
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0,
+  "minimum_free_bytes": 281421180928,
+  "limitations": "No new checkpoint exercised; matches cannot qualify restore or utility. One fixture, top32 probabilities only, not full logits or interleaved costs. Thread-pool cleanup may wait for HTTP timeout on sampler exception; fix stop ordering before further runs."
+}
