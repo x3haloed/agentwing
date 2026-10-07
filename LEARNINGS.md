@@ -2779,3 +2779,7 @@ a causal finding. Candidate prompt prepared with same tasks/tools/reasoning/
 budgets/permissions/verifiers. Receipt
 `evidence/AW-0219-incremental-prompt-hypothesis.json` pins raw/prompt hashes.
 Untested, not default or promoted; preserve all negative evidence.
+
+### AW-0220 — reboot interrupts first incremental-prompt attempt
+
+Host reboot terminates runner/inference before terminal result. Observed pressure/capacity within gates; shutdown-stall report does not establish trigger. Preserve raw hashes in `evidence/AW-0220-reboot-interruption.json`, disposition unresolved. No utility or cache failure attribution; rerun unchanged frozen plan separately and preserve interrupted overhead for future accounting.
