@@ -1,0 +1,5 @@
+# AW-0228 — Generation-checkpoint full local functional admission
+
+Prepared/running. AW227componentcost survivor enters unchangedAW213two-replicate fulltext42/oppositePNG/nativeLookupIDnonce/Pibyteartifact protocol+zeroerrors/host/diskfunctional gate. Newcomplete configuration samefullvision/selectiveBonsai/Q8K/Turbo6V/16K/8192/medium/native thinking sampling, generationcheckpoint512/bounded2 enabled. Original frozen control/defaults remain. Profile `spec/bonsai-generation-checkpoint-local.json`, usable experimental launcher `scripts/bonsai_generation_checkpoint_server.py`.
+
+Build adds matching visionCLI, priorAW223binaries unchanged; receipt `evidence/AW-0228-build.json`. Frozen admissionplan before model launch pins model/runtime/harness/prompt/OS/storage/thermal. Byte-preserving verbose-log decoder declared; strictPiJSON unchanged. Independent auditor requires manually reviewed commands and zerofailed native/Picalls. Fullfunctional only, no endpointspeed or AW223numeric gatewaiver. Pressure<4/swapgrowth<=1024MiB/diskstartup16GiB/runtime8GiB/singleownerloopback. Fullfixedtask/capability/interleavedP1 gates remain required.
