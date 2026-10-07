@@ -1,0 +1,23 @@
+{
+  "experiment": "AW-0224",
+  "raw_location": "/Users/chad/Models/agentwing/evidence/AW-0224",
+  "raw_hash_receipt_sha256": "a9f1292ae70cb438d1ea328bb097a5511922c9be7f89e22ee0d656671f601a1e",
+  "plan_sha256": "ee19232514e82a984463d0c605449e5b780605bacbc430ab24d945aee85f3681",
+  "result": {
+    "exit": 0,
+    "error": null,
+    "wall_seconds_diagnostic": 234.03975450000144,
+    "numeric_audit_pending": true
+  },
+  "vocab_logits": 248320,
+  "finite": true,
+  "bit_exact": true,
+  "max_absolute_error": 0.0,
+  "relative_l2": 0.0,
+  "same_argmax": true,
+  "numerical_gate_passed": true,
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0,
+  "minimum_free_bytes": 280995336192,
+  "scope": "Single matched sequential native partial-state restore correctness only. Does not waive AW223 failed server-distribution gate, qualify server-hook metadata, interleaved capture+replay costs, or endpoint utility."
+}

@@ -2799,3 +2799,7 @@ AW220 fifth request6850tokens restores1374checkpoint despite6692threshold; repla
 ### AW-0223 — checkpoint fires, numeric cheap gate still fails
 
 FULL-context repair creates/restores531token state;39token replay3.151s vsfresh570token19.928s. Same nexttoken/top32IDs, butmaxlogprobdelta0.0125017 exceeds frozen0.01; reject cheap qualification without waiver. Pressure1/swapgrowth0, raw hashes `evidence/AW-0223-cheap-restore-terminal.json`. Batch-boundary arithmetic vsstate correctness unresolved; require full logits/matched sequential replay before cost/task tests. Component replay reduction does not establish25% utility/hour.
+
+### AW-0224 — matched sequential partial state is bitexact
+
+Native ownfixture capture531/advance660/restore531/replay39to570 matches all248320control logits bitexact;234.040s diagnostic,pressure1/swapgrowth0. Receipt `evidence/AW-0224-matched-state-terminal.json`. Retain state mechanism for batching/server metadata diagnosis, not promotion. AW223 serverdistribution0.01failure remains rejected; full-logit matched batched suffix and broader/cost/endpoint gates still required.
