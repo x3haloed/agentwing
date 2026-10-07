@@ -1,0 +1,80 @@
+{
+  "experiment": "AW-0227",
+  "integrity_audit_passed": true,
+  "component_cost_gate_passed": true,
+  "arms": [
+    {
+      "arm": "control-1",
+      "wall_seconds": 159.6210655830073,
+      "generation_wall": 130.05919162499777,
+      "replay_wall": 20.777147000000696,
+      "restored_checkpoint_tokens": [
+        16
+      ],
+      "pressure_peak": 1,
+      "swap_growth_mib": 0,
+      "minimum_free_bytes": 280091168768,
+      "raw_receipt_sha256": "4c7d22410e0e74b2c8b8135868a2c60ba43ca7054569c9292867bda503dc99fa"
+    },
+    {
+      "arm": "candidate-1",
+      "wall_seconds": 142.91613012499874,
+      "generation_wall": 130.55903858300007,
+      "replay_wall": 3.6520753340009833,
+      "restored_checkpoint_tokens": [
+        531
+      ],
+      "pressure_peak": 1,
+      "swap_growth_mib": 0,
+      "minimum_free_bytes": 280086589440,
+      "raw_receipt_sha256": "6a636fadc017de4e4613fccbe0637ecb0138936a2094682fdea1771d3d1cf8bc"
+    },
+    {
+      "arm": "candidate-2",
+      "wall_seconds": 142.7584220419958,
+      "generation_wall": 130.42129333299818,
+      "replay_wall": 3.64752512499399,
+      "restored_checkpoint_tokens": [
+        531
+      ],
+      "pressure_peak": 1,
+      "swap_growth_mib": 0,
+      "minimum_free_bytes": 280082124800,
+      "raw_receipt_sha256": "ecd5582a2935d54f89df4ee0b760e38280a2d22d7dd4367faf0cf1368c7c5231"
+    },
+    {
+      "arm": "control-2",
+      "wall_seconds": 164.52052012500644,
+      "generation_wall": 134.48748116700153,
+      "replay_wall": 21.26662487500289,
+      "restored_checkpoint_tokens": [
+        16
+      ],
+      "pressure_peak": 1,
+      "swap_growth_mib": 0,
+      "minimum_free_bytes": 280077926400,
+      "raw_receipt_sha256": "62d5df23081db260bb6ed0d35315588de3129458c5190ee36dca0b53f41cee28"
+    }
+  ],
+  "pairs": [
+    {
+      "control": 159.6210655830073,
+      "candidate": 142.91613012499874,
+      "control_over_candidate": 1.116886284588016,
+      "cost_gate_passed": true
+    },
+    {
+      "control": 164.52052012500644,
+      "candidate": 142.7584220419958,
+      "control_over_candidate": 1.1524400296089627,
+      "cost_gate_passed": true
+    }
+  ],
+  "campaign_wall_seconds": 609.8256935829995,
+  "plan_sha256": "d6b3e51585b83d2479ad8324efb30d346d76cde30e60c1feb2eac85caa7cb0d5",
+  "summary_sha256": "a0c2c1685d56ec9da59564c6ef1a375dfb8131abf0c56a2ee1195273f7272035",
+  "identical_requests_and_generated_tokens": true,
+  "raw_location": "/Users/chad/Models/agentwing/evidence/AW-0227",
+  "accounting_limit": "Arm wall excludes its final result/hash receipt creation; campaign charges these. Final campaign summary/audit writing excluded. Component diagnostic only, not endpoint promotion accounting.",
+  "scope": "Retain cost survivor only; prior AW223numeric gate rejection preserved. No full multimodal/tool/task admission or 25%P1utility claim."
+}

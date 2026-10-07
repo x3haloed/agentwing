@@ -2811,3 +2811,7 @@ All248320matched/restored logits bitexact at same39token suffixbatch. Fresh256ch
 ### AW-0226 — seven native checkpoint boundaries bitexact
 
 All7before/at/after retainedcheckpoint and evictionfallback cases match248320logits bitexact. Expectedrestorechoices match;931.296s diagnostic/pressure1/swapgrowth0. Receipt `evidence/AW-0226-boundary-state-terminal.json`. Retain mechanism for server/fullcost screening; synthetic repeatedownhistory and fullKVreset fixture do not prove fullservertrajectory or utility. AW223failednumericgate remains rejected; complete interleaved capturecost and frozenendpoint qualification still required.
+
+### AW-0227 — complete capture/replay component survives interleaved cost
+
+TwoAB/BA pairs costpass: control159.621/164.521s vs candidate142.916/142.758s. Identicalrequestbytes/640generatedtokens; candidate531checkpointrestore/control16,pressure1/swapgrowth0. Audit/source/raw pins `evidence/AW-0227-cost-terminal.json`. Retain componentcost survivor only; armreceiptwriting chargedtocampaign, finalsummary/audit excluded. No fullfunctional/taskutility/25%P1claim or AW223numericwaiver. Proceed declared fullconfiguration functional/task gates.
