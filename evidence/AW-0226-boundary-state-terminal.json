@@ -1,0 +1,89 @@
+{
+  "experiment": "AW-0226",
+  "raw_location": "/Users/chad/Models/agentwing/evidence/AW-0226",
+  "raw_hash_receipt_sha256": "04f11bd6d6f4576e690f8e3660b78d306c5f9c508799f32b3ba29be1f696b13f",
+  "plan_sha256": "88e5070077fe2dd0ae244855f49a0d8dbc8b6b9c3202efd1adfc101a9566f047",
+  "result": {
+    "exit": 0,
+    "error": null,
+    "wall_seconds_diagnostic": 931.2958167920006,
+    "numeric_audit_pending": true
+  },
+  "cases": [
+    {
+      "target": 1042,
+      "restored": 20,
+      "finite": true,
+      "bit_exact": true,
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "same_argmax": true,
+      "passed": true
+    },
+    {
+      "target": 1043,
+      "restored": 20,
+      "finite": true,
+      "bit_exact": true,
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "same_argmax": true,
+      "passed": true
+    },
+    {
+      "target": 1044,
+      "restored": 1043,
+      "finite": true,
+      "bit_exact": true,
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "same_argmax": true,
+      "passed": true
+    },
+    {
+      "target": 1554,
+      "restored": 1043,
+      "finite": true,
+      "bit_exact": true,
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "same_argmax": true,
+      "passed": true
+    },
+    {
+      "target": 1555,
+      "restored": 1043,
+      "finite": true,
+      "bit_exact": true,
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "same_argmax": true,
+      "passed": true
+    },
+    {
+      "target": 1556,
+      "restored": 1555,
+      "finite": true,
+      "bit_exact": true,
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "same_argmax": true,
+      "passed": true
+    },
+    {
+      "target": 1594,
+      "restored": 1555,
+      "finite": true,
+      "bit_exact": true,
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "same_argmax": true,
+      "passed": true
+    }
+  ],
+  "all_boundary_state_gates_passed": true,
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0,
+  "minimum_free_bytes": 280093315072,
+  "scope": "Seven native state boundaries, synthetic repeated own-token extension. FullKVreset isolates cases and adds diagnostic snapshot memory. Not server metadata/wire proof, actual longer generated trajectory, interleaved cost, or endpoint qualification. PriorAW223numeric rejection preserved."
+}

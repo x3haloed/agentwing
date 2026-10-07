@@ -2807,3 +2807,7 @@ Native ownfixture capture531/advance660/restore531/replay39to570 matches all2483
 ### AW-0225 — matched suffix batch state bitexact; fresh batching drifts
 
 All248320matched/restored logits bitexact at same39token suffixbatch. Fresh256chunk replay570tokens maxabs0.0177216/L2=0.000857457/sameargmax. Receipt `evidence/AW-0225-batched-state-terminal.json`,241.675s diagnostic/pressure1/swapgrowth0. Retain state mechanism; batch-only drift exists for fixture, not proven fullserver AW223 explanation. Prior rejection/tolerance unchanged. Broaderstate/servermetadata/capturecost/fulltask/endpoints remain required.
+
+### AW-0226 — seven native checkpoint boundaries bitexact
+
+All7before/at/after retainedcheckpoint and evictionfallback cases match248320logits bitexact. Expectedrestorechoices match;931.296s diagnostic/pressure1/swapgrowth0. Receipt `evidence/AW-0226-boundary-state-terminal.json`. Retain mechanism for server/fullcost screening; synthetic repeatedownhistory and fullKVreset fixture do not prove fullservertrajectory or utility. AW223failednumericgate remains rejected; complete interleaved capturecost and frozenendpoint qualification still required.
