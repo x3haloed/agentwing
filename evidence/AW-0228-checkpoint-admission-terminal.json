@@ -1,0 +1,156 @@
+{
+  "experiment": "AW-0228",
+  "terminal_audit": {
+    "experiment": "AW-0228",
+    "complete": true,
+    "passed": true,
+    "plan_sha256": "d535bfba440ed145cffec1cce4abd9d10098eb670235c054282f052d1f67733b",
+    "records": [
+      {
+        "replicate": 0,
+        "run": "/Users/chad/Models/agentwing/evidence/AW-0228/20261007T190918Z-rep0",
+        "result_sha256": "2a4579b39527a870ca0901964991edc467102fcdf12bc89543e37346c76b7de8",
+        "wall_seconds": 166.73732491600094,
+        "pressure_peak": 1,
+        "swap_growth_peak_mib": 0.0,
+        "minimum_free_bytes": 280068038656,
+        "vision_colors": [
+          "red",
+          "blue"
+        ],
+        "native_tool_accounting": {
+          "attempted": 1,
+          "valid": 1,
+          "productive": 1,
+          "redundant": 0,
+          "malformed": 0,
+          "denied": 0,
+          "failed": 0
+        },
+        "reviewed_pi_tool_accounting": {
+          "attempted": 3,
+          "valid": 3,
+          "productive": 2,
+          "redundant": 1,
+          "malformed": 0,
+          "denied": 0,
+          "failed": 0
+        },
+        "pi_protocol": {
+          "passed": true,
+          "checks": {
+            "events_nonempty": true,
+            "paired_unique_calls": true,
+            "bash_schema_valid": true,
+            "no_model_errors": true,
+            "fresh_model_load": true,
+            "serialized_unique_requests": true,
+            "all_requests_terminal": true,
+            "server_cleanup": true,
+            "no_context_shift": true,
+            "no_compaction": true,
+            "no_explicit_authority_access": true
+          },
+          "tool_accounting": {
+            "attempted": 3,
+            "valid": 3,
+            "productive": null,
+            "redundant": null,
+            "malformed": 0,
+            "denied": null,
+            "failed": 0
+          },
+          "request_count": 8,
+          "classification": "Productivity, redundancy and denial need separate transcript review; raw events retained.",
+          "command_sha256": [
+            "9829a47bf62dd0e7032bffae5e23f0085db4350a91510cdfee5dae0bd1f1f215",
+            "7b0a373c6a56a4477d1257214c9fadbfc0a41a550fb774f0d1d1b6694e2e35d8",
+            "0aec0c229b64f6392219869fb8863bd9169625a477fb3ab6c4ebf81db5cb8cfe"
+          ]
+        },
+        "artifact_sha256": "f21a1704d12ff8502d8167f71bf5bc2e3d94538109ea01ba708f3be75e32e291",
+        "pi_command_sha256": [
+          "9829a47bf62dd0e7032bffae5e23f0085db4350a91510cdfee5dae0bd1f1f215",
+          "7b0a373c6a56a4477d1257214c9fadbfc0a41a550fb774f0d1d1b6694e2e35d8",
+          "0aec0c229b64f6392219869fb8863bd9169625a477fb3ab6c4ebf81db5cb8cfe"
+        ]
+      },
+      {
+        "replicate": 1,
+        "run": "/Users/chad/Models/agentwing/evidence/AW-0228/20261007T191205Z-rep1",
+        "result_sha256": "80f5b9039196816da5512a6e38d983a29e142f488ceec62474ee0539c627d2ab",
+        "wall_seconds": 178.90759970799263,
+        "pressure_peak": 1,
+        "swap_growth_peak_mib": 0.0,
+        "minimum_free_bytes": 280070856704,
+        "vision_colors": [
+          "blue",
+          "red"
+        ],
+        "native_tool_accounting": {
+          "attempted": 1,
+          "valid": 1,
+          "productive": 1,
+          "redundant": 0,
+          "malformed": 0,
+          "denied": 0,
+          "failed": 0
+        },
+        "reviewed_pi_tool_accounting": {
+          "attempted": 3,
+          "valid": 3,
+          "productive": 3,
+          "redundant": 0,
+          "malformed": 0,
+          "denied": 0,
+          "failed": 0
+        },
+        "pi_protocol": {
+          "passed": true,
+          "checks": {
+            "events_nonempty": true,
+            "paired_unique_calls": true,
+            "bash_schema_valid": true,
+            "no_model_errors": true,
+            "fresh_model_load": true,
+            "serialized_unique_requests": true,
+            "all_requests_terminal": true,
+            "server_cleanup": true,
+            "no_context_shift": true,
+            "no_compaction": true,
+            "no_explicit_authority_access": true
+          },
+          "tool_accounting": {
+            "attempted": 3,
+            "valid": 3,
+            "productive": null,
+            "redundant": null,
+            "malformed": 0,
+            "denied": null,
+            "failed": 0
+          },
+          "request_count": 8,
+          "classification": "Productivity, redundancy and denial need separate transcript review; raw events retained.",
+          "command_sha256": [
+            "d6a9a0fded24bf148ae6139df477a9e54f509017d722ecfdc05dd7676e863c59",
+            "7ebcf134969a84f5c07cc3c58bcccb036cda451e28eefcd0fbe62a665101f7f9",
+            "9f44c8ec8f5839ec145b16baec6283486d30f241a53f1ac6d73152a3ac3d11f1"
+          ]
+        },
+        "artifact_sha256": "8f667f243dbe34743e748b09acfe52954f6f3b9163336d8d4f97a6a7011fe19d",
+        "pi_command_sha256": [
+          "d6a9a0fded24bf148ae6139df477a9e54f509017d722ecfdc05dd7676e863c59",
+          "7ebcf134969a84f5c07cc3c58bcccb036cda451e28eefcd0fbe62a665101f7f9",
+          "9f44c8ec8f5839ec145b16baec6283486d30f241a53f1ac6d73152a3ac3d11f1"
+        ]
+      }
+    ],
+    "auditor_sha256": "266f3498336fe0f1d2c6b7ec52ff6b051c5784a730abf362c5109300e06732a0",
+    "tool_review_sha256": "c4858b7c32feb3f42202aa935887b91f89b0c82676d3acb554dff53a38b56340",
+    "canonical_protocol_sha256": "5c8f841caffeb8b94dd2e3c09705c3086a6f146712a46361d851edaf37332647",
+    "scope": "Fullmultimodal/toolfunctionaladmission only, no fixedcorpus endpoint/utility claim"
+  },
+  "external_audit": "/Users/chad/Models/agentwing/evidence/AW-0228/terminal-admission-audit.json",
+  "external_audit_sha256": "efddad51d12845d0d19ad3781dc67763b143adc7ec5f1ce8924bf7611c8fdc17",
+  "warnings": "Rep1initial ls missinganswer warning; overall tool status0. No zero-warning claim. Pi6valid/5productive/1redundant/0failed statuses; nativeLookup4valid productive; no malformed/denied."
+}

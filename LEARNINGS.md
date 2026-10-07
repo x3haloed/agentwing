@@ -2815,3 +2815,7 @@ All7before/at/after retainedcheckpoint and evictionfallback cases match248320log
 ### AW-0227 — complete capture/replay component survives interleaved cost
 
 TwoAB/BA pairs costpass: control159.621/164.521s vs candidate142.916/142.758s. Identicalrequestbytes/640generatedtokens; candidate531checkpointrestore/control16,pressure1/swapgrowth0. Audit/source/raw pins `evidence/AW-0227-cost-terminal.json`. Retain componentcost survivor only; armreceiptwriting chargedtocampaign, finalsummary/audit excluded. No fullfunctional/taskutility/25%P1claim or AW223numericwaiver. Proceed declared fullconfiguration functional/task gates.
+
+### AW-0228 — checkpoint-enabled full local functional admission passes
+
+Twofresh fulltext/vision/nativeLookup/Pibyteartifact/protocol/permission/host replicates independentlypass;166.737/178.908s diagnostic,bothpressure1/swapgrowth0. Pi6valid(5productive/1redundant),Lookup4productive,zero failedstatus/malformed/denied. Rep1lsmissinganswer subcommandwarning preserved. Receipt `evidence/AW-0228-checkpoint-admission-terminal.json`. Retain for unchangedfixedtask; no endpoint/25%P1 claim or AW223numericwaiver.
