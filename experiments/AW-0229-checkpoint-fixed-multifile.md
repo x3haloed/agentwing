@@ -1,0 +1,5 @@
+# AW-0229 — Generation checkpoint fixed multi-file falsifier
+
+Prepared/unresolved. Hypothesis: AW228fullfunctional/AW227cost survivor completes unchanged fixeddev-multi-file within1800s with protocol/permission/host gates. SameAW220incrementalprompt/task/verifier/scoring/budgets/toolpermissions/fullvision/selectiveBonsai/native thinking sampling/medium/16K/8192, checkpoint512/bounded2 enabled. Newcompleteconfiguration; allpriorfailures preserved. No prompt/task/reasoning narrowing or numericalgatewaiver.
+
+Freeze/check/run `scripts/run_bonsai_checkpoint_multifile.py`; independent `scripts/audit_bonsai_checkpoint_development.py`. Plan `evidence/AW-0229-development-plan.json`, raw externalAW229. Byte-preserving diagnosticlog policy frozen, strictPiJSON unchanged. Allcallsmanualproductivityreview required. Diskstartup16GiB/runtime8GiB/pressure<4/swapgrowth<=1024MiB/singleownerloopback/noctxshift/nocompaction/noauthorityaccess. Samefrozencorpus215files. Allfailure/setup/generation/capture/replay/tool/verification costs charged diagnostic; finalreceiptcreationexcluded, notpromotionaccounting. P1 preserved; fullcapability/interleaved25% still required.
