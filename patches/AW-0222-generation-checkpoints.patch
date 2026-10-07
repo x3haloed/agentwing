@@ -1,0 +1,31 @@
+--- a/tools/server/server-context.cpp
++++ b/tools/server/server-context.cpp
+@@ -19,6 +19,7 @@
+ 
+ #include <algorithm>
+ #include <cstddef>
++#include <cstdlib>
+ #include <cinttypes>
+ #include <exception>
+ #include <iterator>
+@@ -3787,6 +3788,20 @@
+ 
+             slot.stats.update_gen_last();
+ 
++            // AW222 experimental: synchronized recurrent state covers the processed
++            // prefix; the sampled token is pending and must not enter this snapshot.
++            const char * generation_checkpoints = std::getenv("AGENTWING_GENERATION_CHECKPOINTS");
++            if (generation_checkpoints && std::string(generation_checkpoints) == "1" &&
++                params_base.n_ctx_checkpoints > 0 &&
++                ctx_tgt_seq_rm_type == COMMON_CONTEXT_SEQ_RM_TYPE_RS &&
++                !slot.can_speculate() && slot.stats.n_gen % 512 == 0) {
++                const auto pos_min = llama_memory_seq_pos_min(llama_get_memory(ctx_tgt), slot.id);
++                const auto pos_max = llama_memory_seq_pos_max(llama_get_memory(ctx_tgt), slot.id);
++                if (pos_min >= 0) {
++                    create_checkpoint(slot, 0, pos_min, pos_max);
++                }
++            }
++
+             completion_token_output result;
+             result.tok          = id;
+             result.text_to_send = common_token_to_piece(slot.ctx_tgt, result.tok, accept_special_token(slot, result.tok));

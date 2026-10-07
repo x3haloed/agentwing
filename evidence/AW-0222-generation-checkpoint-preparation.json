@@ -1,0 +1,14 @@
+{
+  "experiment": "AW-0222",
+  "status": "prepared-unbuilt-unqualified",
+  "base": "AW210 six-bit runtime; original preserved",
+  "base_file_sha256": "6076fec9aec5948ec16e3c585fd2d0feb885bd5bfa5fca09eb0c7427e88ac104",
+  "patch_sha256": "07c08e642eaf0be2138ab6d0df2b8f89dc242b665ad5af38dcc7531ea2cbd218",
+  "result_file_sha256": "e3d1d2c43155376a47362027b2abe4b3519eb37466b47f0eac53cef732b73ace",
+  "opt_in": "AGENTWING_GENERATION_CHECKPOINTS=1",
+  "scope": "Ordinary non-speculative RS generation only,512token interval,existing checkpoint count2; complete prompts/history/sampling/permissions unchanged.",
+  "primary_gate": "Identical-prefix restored-state logits must match fresh replay within predeclared numerical tolerance, no protocol or host gate failure. Then interleaved total capture+replay cost must improve before fixed task validation.",
+  "required_fixtures": "Own deterministic prompts, generation-length512/1024/1536 and suffix boundaries before/at/after saved positions. Compare full-logit finite/maxabs/relative-L2 and token behavior to no-checkpoint control; controls same capture route disabled. No licensed task raw committed.",
+  "cost_gate": "Capture+replay total wall candidate <= control in >=2 interleaved pairs for long-prefix fixture; peakpressure<4/swapgrowth<=1024MiB/disk>=8GiB/single loopback owner. Kernel cost alone no endpoint claim.",
+  "caveat": "Patch not applied to active runtime. Checkpoint metadata/token counts require empirical proof; reject mismatch. No promotion or utility claim."
+}
