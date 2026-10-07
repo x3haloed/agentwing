@@ -2795,3 +2795,7 @@ AW220 fifth request6850tokens restores1374checkpoint despite6692threshold; repla
 ### AW-0222 — cheap test rejects initial checkpoint guard
 
 640token fixture produces no generation checkpoint: Bonsai context is FULL (no partial removal), initial patch restricted to bounded-RS type. Restoration falls back to16token checkpoint; no correctness/performance qualification. Raw hashes/negative numeric evidence in `evidence/AW-0222-cheap-restore-rejection.json`. Reject initial hook, repair guard in new pinned patch and HTTP gate-exception cleanup ordering before additional testing. Original runtime/P1 preserved.
+
+### AW-0223 — checkpoint fires, numeric cheap gate still fails
+
+FULL-context repair creates/restores531token state;39token replay3.151s vsfresh570token19.928s. Same nexttoken/top32IDs, butmaxlogprobdelta0.0125017 exceeds frozen0.01; reject cheap qualification without waiver. Pressure1/swapgrowth0, raw hashes `evidence/AW-0223-cheap-restore-terminal.json`. Batch-boundary arithmetic vsstate correctness unresolved; require full logits/matched sequential replay before cost/task tests. Component replay reduction does not establish25% utility/hour.

@@ -1,0 +1,37 @@
+{
+  "experiment": "AW-0223",
+  "stage": "cheap distribution falsifier only",
+  "raw_location": "/Users/chad/Models/agentwing/evidence/AW-0223/cheap-restore",
+  "raw_hash_receipt_sha256": "ca6076c677af526cec302cdfa0d3fdb7bc161e9d5e555b388134ccde5a3a00d2",
+  "result": {
+    "generated_tokens": 640,
+    "generation_wall": 124.21780641599617,
+    "restored_wall": 3.1514717080135597,
+    "fresh_wall": 19.927798625009018,
+    "restored_tokens": [
+      220
+    ],
+    "fresh_tokens": [
+      220
+    ],
+    "numeric_audit_pending": true,
+    "error": null,
+    "server_exit": 0,
+    "wall_seconds": 151.65344479100895,
+    "scope": "cheap distribution falsifier only"
+  },
+  "restored_checkpoint_tokens": [
+    531
+  ],
+  "generation_hook_exercised": true,
+  "same_next_token": true,
+  "top32_same_ids": true,
+  "max_common_top32_logprob_difference": 0.012501716613769531,
+  "tolerance": 0.01,
+  "distribution_passed": false,
+  "cheap_screen_passed": false,
+  "pressure_peak": 1,
+  "swap_growth_peak_mib": 0,
+  "minimum_free_bytes": 281007353856,
+  "limitations": "One deterministic greedy ownfixture, top32 only. No full-logit or complete capture+replay interleaved cost or task qualification. Fresh/restore batch boundaries differ; cause of numeric drift unproven. No tolerance waiver."
+}
